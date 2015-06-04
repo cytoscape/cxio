@@ -27,7 +27,7 @@ public final class NodeAttributesElement implements AspectElement {
 
     @Override
     public String getAspectName() {
-        return Cx.NODE_ATTRIBUTES;
+        return CxConstants.NODE_ATTRIBUTES;
     }
 
     public final SortedMap<String, List<String>> getAttributes() {

@@ -16,9 +16,9 @@ public class CartesianLayoutFragmentWriter implements AspectFragmentWriter {
 
     private final void addCartesianLayoutElement(final String node_id, final int x, final int y) throws IOException {
         w.writeStartObject();
-        w.writeStringField(Cx.NODE, node_id);
-        w.writeStringField(Cx.X, Integer.toString(x));
-        w.writeStringField(Cx.Y, Integer.toString(y));
+        w.writeStringField(CxConstants.NODE, node_id);
+        w.writeStringField(CxConstants.X, Integer.toString(x));
+        w.writeStringField(CxConstants.Y, Integer.toString(y));
         w.writeEndObject();
     }
 
@@ -27,7 +27,7 @@ public class CartesianLayoutFragmentWriter implements AspectFragmentWriter {
         if (cartesian_layout_aspects == null) {
             return;
         }
-        w.startArray(Cx.CARTESIAN_LAYOUT);
+        w.startArray(CxConstants.CARTESIAN_LAYOUT);
         for (final AspectElement cartesian_layout_aspect : cartesian_layout_aspects) {
             final CartesianLayoutElement c = (CartesianLayoutElement) cartesian_layout_aspect;
             addCartesianLayoutElement(c.getNode(), c.getX(), c.getY());

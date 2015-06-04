@@ -13,7 +13,7 @@ import java.util.TreeMap;
 import org.junit.Test;
 
 import cxio.AspectElement;
-import cxio.Cx;
+import cxio.CxConstants;
 import cxio.EdgeAttributesElement;
 import cxio.EdgeAttributesFragmentWriter;
 import cxio.JsonWriter;
@@ -33,7 +33,7 @@ public class EdgeAttributesFragmentWriterTest {
         w0.write(l0);
         t0.end();
 
-        assertEquals("[{\"" + Cx.EDGE_ATTRIBUTES + "\":[]}]", out0.toString());
+        assertEquals("[{\"" + CxConstants.EDGE_ATTRIBUTES + "\":[]}]", out0.toString());
 
         final List<String> edges = new ArrayList<String>();
         edges.add("000");
@@ -69,7 +69,7 @@ public class EdgeAttributesFragmentWriterTest {
 
         assertEquals(
                 "[{\""
-                        + Cx.EDGE_ATTRIBUTES
+                        + CxConstants.EDGE_ATTRIBUTES
                         + "\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"attributes\":{\"A\":[\"a1\",\"a2\",\"a3\"],\"B\":[\"b1\",\"b2\",\"b3\"]}}]}]",
                         out1.toString());
     }

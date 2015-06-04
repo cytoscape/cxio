@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import cxio.AspectElement;
 import cxio.JsonWriter;
-import cxio.NodeElement;
+import cxio.NodesElement;
 import cxio.NodesFragmentWriter;
 
 public class NodesFragmentWriterTest {
@@ -32,9 +32,9 @@ public class NodesFragmentWriterTest {
 
         assertEquals("[{\"nodes\":[]}]", out0.toString());
 
-        final NodeElement n0 = new NodeElement("0");
-        final NodeElement n1 = new NodeElement("1");
-        final NodeElement n2 = new NodeElement("2");
+        final NodesElement n0 = new NodesElement("0");
+        final NodesElement n1 = new NodesElement("1");
+        final NodesElement n2 = new NodesElement("2");
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(n0);
         l1.add(n1);
@@ -51,9 +51,9 @@ public class NodesFragmentWriterTest {
 
         assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]}]", out1.toString());
 
-        final NodeElement n3 = new NodeElement("3");
-        final NodeElement n4 = new NodeElement("4");
-        final NodeElement n5 = new NodeElement("5");
+        final NodesElement n3 = new NodesElement("3");
+        final NodesElement n4 = new NodesElement("4");
+        final NodesElement n5 = new NodesElement("5");
         final List<AspectElement> l2 = new ArrayList<AspectElement>();
         l2.add(n3);
         l2.add(n4);

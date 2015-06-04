@@ -13,7 +13,7 @@ import org.junit.Test;
 import cxio.AspectElement;
 import cxio.AspectFragmentReaderManager;
 import cxio.CartesianLayoutElement;
-import cxio.Cx;
+import cxio.CxConstants;
 import cxio.CxParser;
 
 public class CartesianLayoutFragmentReaderTest {
@@ -45,14 +45,14 @@ public class CartesianLayoutFragmentReaderTest {
                 .getAvailableAspectReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
 
-        assertTrue("failed to parse " + Cx.CARTESIAN_LAYOUT + " aspect", r0.containsKey(Cx.CARTESIAN_LAYOUT));
+        assertTrue("failed to parse " + CxConstants.CARTESIAN_LAYOUT + " aspect", r0.containsKey(CxConstants.CARTESIAN_LAYOUT));
 
-        assertFalse("failed to parse " + Cx.CARTESIAN_LAYOUT + " aspect", r0.get(Cx.CARTESIAN_LAYOUT).isEmpty());
+        assertFalse("failed to parse " + CxConstants.CARTESIAN_LAYOUT + " aspect", r0.get(CxConstants.CARTESIAN_LAYOUT).isEmpty());
 
-        assertTrue("failed to parse expected number of " + Cx.CARTESIAN_LAYOUT + " aspects", r0
-                .get(Cx.CARTESIAN_LAYOUT).size() == 3);
+        assertTrue("failed to parse expected number of " + CxConstants.CARTESIAN_LAYOUT + " aspects", r0
+                .get(CxConstants.CARTESIAN_LAYOUT).size() == 3);
 
-        final List<AspectElement> aspects = r0.get(Cx.CARTESIAN_LAYOUT);
+        final List<AspectElement> aspects = r0.get(CxConstants.CARTESIAN_LAYOUT);
 
         assertTrue("failed to get expected instance", aspects.get(0) instanceof CartesianLayoutElement);
 

@@ -1,10 +1,10 @@
 package cxio;
 
-public final class NodeElement implements AspectElement {
+public final class NodesElement implements AspectElement {
 
     private final String id;
 
-    public NodeElement(final String id) {
+    public NodesElement(final String id) {
         this.id = id;
     }
 
@@ -13,13 +13,13 @@ public final class NodeElement implements AspectElement {
         if (this == o) {
             return true;
         }
-        return ((o instanceof NodeElement) && id.equals(((NodeElement) o).getId()));
+        return ((o instanceof NodesElement) && id.equals(((NodesElement) o).getId()));
 
     }
 
     @Override
     final public String getAspectName() {
-        return Cx.NODES;
+        return CxConstants.NODES;
     }
 
     final public String getId() {

@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import cxio.AspectElement;
 import cxio.AspectFragmentReaderManager;
-import cxio.Cx;
+import cxio.CxConstants;
 import cxio.CxParser;
 import cxio.EdgeAttributesElement;
 
@@ -46,12 +46,12 @@ public class EdgeAttributesFragmentReaderTest {
                 .getAvailableAspectReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
 
-        assertTrue("failed to parse " + Cx.EDGE_ATTRIBUTES + " aspect", r0.containsKey(Cx.EDGE_ATTRIBUTES));
-        assertFalse("failed to parse " + Cx.EDGE_ATTRIBUTES + " aspect", r0.get(Cx.EDGE_ATTRIBUTES).isEmpty());
-        assertTrue("failed to get expected number of " + Cx.EDGE_ATTRIBUTES + " aspects", r0.get(Cx.EDGE_ATTRIBUTES)
+        assertTrue("failed to parse " + CxConstants.EDGE_ATTRIBUTES + " aspect", r0.containsKey(CxConstants.EDGE_ATTRIBUTES));
+        assertFalse("failed to parse " + CxConstants.EDGE_ATTRIBUTES + " aspect", r0.get(CxConstants.EDGE_ATTRIBUTES).isEmpty());
+        assertTrue("failed to get expected number of " + CxConstants.EDGE_ATTRIBUTES + " aspects", r0.get(CxConstants.EDGE_ATTRIBUTES)
                 .size() == 2);
 
-        final List<AspectElement> aspects = r0.get(Cx.EDGE_ATTRIBUTES);
+        final List<AspectElement> aspects = r0.get(CxConstants.EDGE_ATTRIBUTES);
 
         final EdgeAttributesElement ea1 = (EdgeAttributesElement) aspects.get(0);
         assertTrue(ea1.getId().equals("_ea0"));

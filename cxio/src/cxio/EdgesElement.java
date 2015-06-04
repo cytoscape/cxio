@@ -1,12 +1,12 @@
 package cxio;
 
-public final class EdgeElement implements AspectElement {
+public final class EdgesElement implements AspectElement {
 
     final private String id;
     final private String source;
     final private String target;
 
-    public EdgeElement(final String id, final String source, final String target) {
+    public EdgesElement(final String id, final String source, final String target) {
         this.id = id;
         this.source = source;
         this.target = target;
@@ -17,13 +17,13 @@ public final class EdgeElement implements AspectElement {
         if (this == o) {
             return true;
         }
-        return ((o instanceof EdgeElement) && id.equals(((EdgeElement) o).getId()));
+        return ((o instanceof EdgesElement) && id.equals(((EdgesElement) o).getId()));
 
     }
 
     @Override
     public String getAspectName() {
-        return Cx.EDGES;
+        return CxConstants.EDGES;
     }
 
     public final String getId() {

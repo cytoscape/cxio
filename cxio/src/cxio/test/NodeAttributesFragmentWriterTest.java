@@ -13,7 +13,7 @@ import java.util.TreeMap;
 import org.junit.Test;
 
 import cxio.AspectElement;
-import cxio.Cx;
+import cxio.CxConstants;
 import cxio.JsonWriter;
 import cxio.NodeAttributesElement;
 import cxio.NodeAttributesFragmentWriter;
@@ -33,7 +33,7 @@ public class NodeAttributesFragmentWriterTest {
         w0.write(l0);
         t0.end();
 
-        assertEquals("[{\"" + Cx.NODE_ATTRIBUTES + "\":[]}]", out0.toString());
+        assertEquals("[{\"" + CxConstants.NODE_ATTRIBUTES + "\":[]}]", out0.toString());
 
         final List<String> nodes = new ArrayList<String>();
         nodes.add("000");
@@ -69,7 +69,7 @@ public class NodeAttributesFragmentWriterTest {
 
         assertEquals(
                 "[{\""
-                        + Cx.NODE_ATTRIBUTES
+                        + CxConstants.NODE_ATTRIBUTES
                         + "\":[{\"@id\":\"00\",\"nodes\":[\"000\",\"001\"],\"attributes\":{\"X\":[\"x1\",\"x2\",\"x3\"],\"Y\":[\"y1\",\"y2\",\"y3\"]}}]}]",
                         out1.toString());
 

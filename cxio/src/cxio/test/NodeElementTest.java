@@ -5,15 +5,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import cxio.NodeElement;
+import cxio.NodesElement;
 
 public class NodeElementTest {
 
     @Test
     public void test() {
-        final NodeElement n0 = new NodeElement("0");
-        final NodeElement n1 = new NodeElement("0");
-        final NodeElement n2 = new NodeElement("1");
+        final NodesElement n0 = new NodesElement("0");
+        final NodesElement n1 = new NodesElement("0");
+        final NodesElement n2 = new NodesElement("1");
         assertTrue(n0.equals(n1));
         assertTrue(n0.equals(n0));
         assertTrue(n1.equals(n0));

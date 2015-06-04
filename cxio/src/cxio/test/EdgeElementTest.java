@@ -5,15 +5,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import cxio.EdgeElement;
+import cxio.EdgesElement;
 
 public class EdgeElementTest {
 
     @Test
     public void test() {
-        final EdgeElement e0 = new EdgeElement("0", "a", "b");
-        final EdgeElement e1 = new EdgeElement("0", "c", "d");
-        final EdgeElement e2 = new EdgeElement("1", "e", "f");
+        final EdgesElement e0 = new EdgesElement("0", "a", "b");
+        final EdgesElement e1 = new EdgesElement("0", "c", "d");
+        final EdgesElement e2 = new EdgesElement("1", "e", "f");
         assertTrue(e0.equals(e1));
         assertTrue(e0.equals(e0));
         assertTrue(e1.equals(e0));

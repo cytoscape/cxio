@@ -13,14 +13,14 @@ public class EdgesFragmentReader implements AspectFragmentReader {
 
     @Override
     public String getAspectName() {
-        return Cx.EDGES;
+        return CxConstants.EDGES;
     }
 
     @Override
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed cx json in '" + Cx.EDGES + "'");
+            throw new IOException("malformed cx json in '" + CxConstants.EDGES + "'");
         }
         final List<AspectElement> edge_aspects = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {
@@ -31,13 +31,13 @@ public class EdgesFragmentReader implements AspectFragmentReader {
                 while (jp.nextToken() != JsonToken.END_OBJECT) {
                     final String namefield = jp.getCurrentName();
                     jp.nextToken(); // move to value
-                    if (Cx.ID.equals(namefield)) {
+                    if (CxConstants.ID.equals(namefield)) {
                         id = jp.getText().trim();
                     }
-                    else if (Cx.SOURCE_NODE_ID.equals(namefield)) {
+                    else if (CxConstants.SOURCE_NODE_ID.equals(namefield)) {
                         source = jp.getText().trim();
                     }
-                    else if (Cx.TARGET_NODE_ID.equals(namefield)) {
+                    else if (CxConstants.TARGET_NODE_ID.equals(namefield)) {
                         target = jp.getText().trim();
                     }
                     else if (STRICT) {
@@ -50,7 +50,7 @@ public class EdgesFragmentReader implements AspectFragmentReader {
                 if (Util.isEmpty(target)) {
                     throw new IOException("malformed cx json: edge target is missing");
                 }
-                edge_aspects.add(new EdgeElement(id, source, target));
+                edge_aspects.add(new EdgesElement(id, source, target));
             }
             t = jp.nextToken();
         }

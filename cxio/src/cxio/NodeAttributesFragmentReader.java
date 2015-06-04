@@ -14,14 +14,14 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
 
     @Override
     public String getAspectName() {
-        return Cx.NODE_ATTRIBUTES;
+        return CxConstants.NODE_ATTRIBUTES;
     }
 
     @Override
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed cx json in '" + Cx.EDGES + "'");
+            throw new IOException("malformed cx json in '" + CxConstants.EDGES + "'");
         }
         final List<AspectElement> na_aspects = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {
@@ -32,13 +32,13 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
                 while (jp.nextToken() != JsonToken.END_OBJECT) {
                     final String namefield = jp.getCurrentName();
                     jp.nextToken(); // move to value
-                    if (Cx.ID.equals(namefield)) {
+                    if (CxConstants.ID.equals(namefield)) {
                         id = jp.getText().trim();
                     }
-                    else if (Cx.NODES.equals(namefield)) {
+                    else if (CxConstants.NODES.equals(namefield)) {
                         nodes = Util.parseSimpleList(jp, t);
                     }
-                    else if (Cx.ATTRIBUTES.equals(namefield)) {
+                    else if (CxConstants.ATTRIBUTES.equals(namefield)) {
                         while (jp.nextToken() != JsonToken.END_OBJECT) {
                             jp.nextToken(); // move to value
                             attributes.put(jp.getCurrentName(), Util.parseSimpleList(jp, t));

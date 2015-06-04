@@ -13,7 +13,7 @@ public class NodesFragmentReader implements AspectFragmentReader {
 
     @Override
     public String getAspectName() {
-        return Cx.NODES;
+        return CxConstants.NODES;
     }
 
     @Override
@@ -21,7 +21,7 @@ public class NodesFragmentReader implements AspectFragmentReader {
 
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed cx json in '" + Cx.NODES + "'");
+            throw new IOException("malformed cx json in '" + CxConstants.NODES + "'");
         }
         final List<AspectElement> node_aspects = new ArrayList<AspectElement>();
         String id = null;
@@ -30,7 +30,7 @@ public class NodesFragmentReader implements AspectFragmentReader {
                 while (jp.nextToken() != JsonToken.END_OBJECT) {
                     final String namefield = jp.getCurrentName();
                     jp.nextToken(); // move to value
-                    if (Cx.ID.equals(namefield)) {
+                    if (CxConstants.ID.equals(namefield)) {
                         id = jp.getText().trim();
                     }
                     else if (STRICT) {
@@ -40,7 +40,7 @@ public class NodesFragmentReader implements AspectFragmentReader {
                 if (Util.isEmpty(id)) {
                     throw new IOException("malformed cx json: node id missing");
                 }
-                node_aspects.add(new NodeElement(id));
+                node_aspects.add(new NodesElement(id));
             }
             t = jp.nextToken();
         }

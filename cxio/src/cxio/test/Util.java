@@ -9,7 +9,7 @@ import java.util.SortedMap;
 import cxio.AspectElement;
 import cxio.AspectFragmentReaderManager;
 import cxio.CartesianLayoutFragmentWriter;
-import cxio.Cx;
+import cxio.CxConstants;
 import cxio.CxParser;
 import cxio.EdgeAttributesFragmentWriter;
 import cxio.EdgesFragmentWriter;
@@ -28,11 +28,11 @@ final class Util {
         final JsonWriter jw = JsonWriter.createInstance(out);
 
         jw.start();
-        NodesFragmentWriter.createInstance(jw).write(res.get(Cx.NODES));
-        EdgesFragmentWriter.createInstance(jw).write(res.get(Cx.EDGES));
-        CartesianLayoutFragmentWriter.createInstance(jw).write(res.get(Cx.CARTESIAN_LAYOUT));
-        NodeAttributesFragmentWriter.createInstance(jw).write(res.get(Cx.NODE_ATTRIBUTES));
-        EdgeAttributesFragmentWriter.createInstance(jw).write(res.get(Cx.EDGE_ATTRIBUTES));
+        NodesFragmentWriter.createInstance(jw).write(res.get(CxConstants.NODES));
+        EdgesFragmentWriter.createInstance(jw).write(res.get(CxConstants.EDGES));
+        CartesianLayoutFragmentWriter.createInstance(jw).write(res.get(CxConstants.CARTESIAN_LAYOUT));
+        NodeAttributesFragmentWriter.createInstance(jw).write(res.get(CxConstants.NODE_ATTRIBUTES));
+        EdgeAttributesFragmentWriter.createInstance(jw).write(res.get(CxConstants.EDGE_ATTRIBUTES));
         jw.end();
 
         return out.toString();

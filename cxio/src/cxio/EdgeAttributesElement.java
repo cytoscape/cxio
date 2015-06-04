@@ -27,7 +27,7 @@ public final class EdgeAttributesElement implements AspectElement {
 
     @Override
     public String getAspectName() {
-        return Cx.EDGE_ATTRIBUTES;
+        return CxConstants.EDGE_ATTRIBUTES;
     }
 
     public final SortedMap<String, List<String>> getAttributes() {

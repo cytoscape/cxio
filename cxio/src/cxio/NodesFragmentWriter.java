@@ -5,9 +5,9 @@ import java.util.List;
 
 import cxio.AspectElement;
 import cxio.AspectFragmentWriter;
-import cxio.Cx;
+import cxio.CxConstants;
 import cxio.JsonWriter;
-import cxio.NodeElement;
+import cxio.NodesElement;
 
 public class NodesFragmentWriter implements AspectFragmentWriter {
 
@@ -23,7 +23,7 @@ public class NodesFragmentWriter implements AspectFragmentWriter {
 
     private final void addNode(final String node_id) throws IOException {
         w.writeStartObject();
-        w.writeStringField(Cx.ID, node_id);
+        w.writeStringField(CxConstants.ID, node_id);
         w.writeEndObject();
     }
 
@@ -32,9 +32,9 @@ public class NodesFragmentWriter implements AspectFragmentWriter {
         if (node_aspects == null) {
             return;
         }
-        w.startArray(Cx.NODES);
+        w.startArray(CxConstants.NODES);
         for (final AspectElement node_aspect : node_aspects) {
-            addNode(((NodeElement) node_aspect).getId());
+            addNode(((NodesElement) node_aspect).getId());
         }
         w.endArray();
     }

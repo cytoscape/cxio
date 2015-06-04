@@ -19,10 +19,10 @@ public class EdgesFragmentWriter implements AspectFragmentWriter {
             throws IOException {
         w.writeStartObject();
         if (!Util.isEmpty(edge_id)) {
-            w.writeStringField(Cx.ID, edge_id);
+            w.writeStringField(CxConstants.ID, edge_id);
         }
-        w.writeStringField(Cx.SOURCE_NODE_ID, source_node_id);
-        w.writeStringField(Cx.TARGET_NODE_ID, target_node_id);
+        w.writeStringField(CxConstants.SOURCE_NODE_ID, source_node_id);
+        w.writeStringField(CxConstants.TARGET_NODE_ID, target_node_id);
         w.writeEndObject();
 
     }
@@ -32,9 +32,9 @@ public class EdgesFragmentWriter implements AspectFragmentWriter {
         if (edge_aspects == null) {
             return;
         }
-        w.startArray(Cx.EDGES);
+        w.startArray(CxConstants.EDGES);
         for (final AspectElement edge_aspect : edge_aspects) {
-            final EdgeElement e = (EdgeElement) edge_aspect;
+            final EdgesElement e = (EdgesElement) edge_aspect;
             addEdge(e.getId(), e.getSource(), e.getTarget());
         }
         w.endArray();

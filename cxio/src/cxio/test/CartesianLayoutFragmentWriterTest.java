@@ -13,7 +13,7 @@ import org.junit.Test;
 import cxio.AspectElement;
 import cxio.CartesianLayoutElement;
 import cxio.CartesianLayoutFragmentWriter;
-import cxio.Cx;
+import cxio.CxConstants;
 import cxio.JsonWriter;
 
 public class CartesianLayoutFragmentWriterTest {
@@ -31,7 +31,7 @@ public class CartesianLayoutFragmentWriterTest {
         w0.write(l0);
         t0.end();
 
-        assertEquals("[{\"" + Cx.CARTESIAN_LAYOUT + "\":[]}]", out0.toString());
+        assertEquals("[{\"" + CxConstants.CARTESIAN_LAYOUT + "\":[]}]", out0.toString());
 
         final CartesianLayoutElement c0 = new CartesianLayoutElement("00", 0, 0);
         final CartesianLayoutElement c1 = new CartesianLayoutElement("01", 1, 2);

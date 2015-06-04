@@ -10,7 +10,7 @@ import java.util.List;
 import org.junit.Test;
 
 import cxio.AspectElement;
-import cxio.EdgeElement;
+import cxio.EdgesElement;
 import cxio.EdgesFragmentWriter;
 import cxio.JsonWriter;
 
@@ -31,8 +31,8 @@ public class EdgesFragmentWriterTest {
 
         assertEquals("[{\"edges\":[]}]", out0.toString());
 
-        final EdgeElement e0 = new EdgeElement("0", "f0", "t0");
-        final EdgeElement e1 = new EdgeElement("1", "f1", "t1");
+        final EdgesElement e0 = new EdgesElement("0", "f0", "t0");
+        final EdgesElement e1 = new EdgesElement("1", "f1", "t1");
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(e0);
@@ -51,8 +51,8 @@ public class EdgesFragmentWriterTest {
                 "[{\"edges\":[{\"@id\":\"0\",\"source\":\"f0\",\"target\":\"t0\"},{\"@id\":\"1\",\"source\":\"f1\",\"target\":\"t1\"}]}]",
                 out1.toString());
 
-        final EdgeElement e3 = new EdgeElement("3", "f3", "t3");
-        final EdgeElement e4 = new EdgeElement("4", "f4", "t4");
+        final EdgesElement e3 = new EdgesElement("3", "f3", "t3");
+        final EdgesElement e4 = new EdgesElement("4", "f4", "t4");
         final List<AspectElement> l2 = new ArrayList<AspectElement>();
         l2.add(e3);
         final List<AspectElement> l3 = new ArrayList<AspectElement>();

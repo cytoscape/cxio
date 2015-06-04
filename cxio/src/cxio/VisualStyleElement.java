@@ -15,7 +15,7 @@ public final class VisualStyleElement implements AspectElement {
 
     @Override
     public String getAspectName() {
-        return Cx.VISUAL_STYLE;
+        return CxConstants.VISUAL_STYLE;
     }
 
     public final String getName() {

@@ -13,14 +13,14 @@ public class CartesianLayoutFragmentReader implements AspectFragmentReader {
 
     @Override
     public String getAspectName() {
-        return Cx.CARTESIAN_LAYOUT;
+        return CxConstants.CARTESIAN_LAYOUT;
     }
 
     @Override
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed cx json in '" + Cx.EDGES + "'");
+            throw new IOException("malformed cx json in '" + CxConstants.EDGES + "'");
         }
         final List<AspectElement> layout_aspects = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {
@@ -31,14 +31,14 @@ public class CartesianLayoutFragmentReader implements AspectFragmentReader {
                 while (jp.nextToken() != JsonToken.END_OBJECT) {
                     final String namefield = jp.getCurrentName();
                     jp.nextToken(); // move to value
-                    if (Cx.NODE.equals(namefield)) {
+                    if (CxConstants.NODE.equals(namefield)) {
                         node_id = jp.getText().trim();
                     }
-                    else if (Cx.X.equals(namefield)) {
+                    else if (CxConstants.X.equals(namefield)) {
 
                         x = jp.getValueAsInt();
                     }
-                    else if (Cx.Y.equals(namefield)) {
+                    else if (CxConstants.Y.equals(namefield)) {
                         y = jp.getValueAsInt();
                     }
                     else if (STRICT) {

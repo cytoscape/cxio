@@ -14,7 +14,7 @@ public final class CartesianLayoutElement implements AspectElement {
 
     @Override
     public String getAspectName() {
-        return Cx.CARTESIAN_LAYOUT;
+        return CxConstants.CARTESIAN_LAYOUT;
     }
 
     public String getNode() {

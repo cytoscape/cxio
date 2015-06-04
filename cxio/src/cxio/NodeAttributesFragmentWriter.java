@@ -17,10 +17,10 @@ public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
 
     private final void addNodeAttributesAspect(final NodeAttributesElement na) throws IOException {
         w.writeStartObject();
-        w.writeStringField(Cx.ID, na.getId());
-        w.writeList(Cx.NODES, na.getNodes());
+        w.writeStringField(CxConstants.ID, na.getId());
+        w.writeList(CxConstants.NODES, na.getNodes());
         if ((na.getAttributes() != null) && !na.getAttributes().isEmpty()) {
-            w.writeObjectFieldStart(Cx.ATTRIBUTES);
+            w.writeObjectFieldStart(CxConstants.ATTRIBUTES);
             for (final Entry<String, List<String>> a : na.getAttributes().entrySet()) {
                 w.writeList(a.getKey(), a.getValue());
             }
@@ -34,7 +34,7 @@ public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
         if (node_attributes_aspects == null) {
             return;
         }
-        w.startArray(Cx.NODE_ATTRIBUTES);
+        w.startArray(CxConstants.NODE_ATTRIBUTES);
         for (final AspectElement node_attributes_aspect : node_attributes_aspects) {
             final NodeAttributesElement na = (NodeAttributesElement) node_attributes_aspect;
             addNodeAttributesAspect(na);

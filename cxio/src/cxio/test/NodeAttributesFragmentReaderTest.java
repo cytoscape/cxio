@@ -11,7 +11,7 @@ import org.junit.Test;
 
 import cxio.AspectElement;
 import cxio.AspectFragmentReaderManager;
-import cxio.Cx;
+import cxio.CxConstants;
 import cxio.CxParser;
 import cxio.NodeAttributesElement;
 
@@ -49,12 +49,12 @@ public class NodeAttributesFragmentReaderTest {
                 .getAvailableAspectReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
 
-        assertTrue("failed to parse " + Cx.NODE_ATTRIBUTES + " aspect", r0.containsKey(Cx.NODE_ATTRIBUTES));
-        assertFalse("failed to parse " + Cx.NODE_ATTRIBUTES + " aspect", r0.get(Cx.NODE_ATTRIBUTES).isEmpty());
-        assertTrue("failed to get expected number of " + Cx.NODE_ATTRIBUTES + " aspects", r0.get(Cx.NODE_ATTRIBUTES)
+        assertTrue("failed to parse " + CxConstants.NODE_ATTRIBUTES + " aspect", r0.containsKey(CxConstants.NODE_ATTRIBUTES));
+        assertFalse("failed to parse " + CxConstants.NODE_ATTRIBUTES + " aspect", r0.get(CxConstants.NODE_ATTRIBUTES).isEmpty());
+        assertTrue("failed to get expected number of " + CxConstants.NODE_ATTRIBUTES + " aspects", r0.get(CxConstants.NODE_ATTRIBUTES)
                 .size() == 4);
 
-        final List<AspectElement> aspects = r0.get(Cx.NODE_ATTRIBUTES);
+        final List<AspectElement> aspects = r0.get(CxConstants.NODE_ATTRIBUTES);
 
         final NodeAttributesElement na1 = (NodeAttributesElement) aspects.get(0);
         assertTrue(na1.getId().equals("_na0"));

@@ -1,0 +1,77 @@
+package cxio.test;
+
+import static org.junit.Assert.assertEquals;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.junit.Test;
+
+import cxio.AspectElement;
+import cxio.EdgeElement;
+import cxio.EdgesFragmentWriter;
+import cxio.JsonWriter;
+
+public class EdgesFragmentWriterTest {
+
+    @Test
+    public void test() throws IOException {
+
+        final List<AspectElement> l0 = new ArrayList<AspectElement>();
+        final ByteArrayOutputStream out0 = new ByteArrayOutputStream();
+        final JsonWriter t0 = JsonWriter.createInstance(out0);
+
+        final EdgesFragmentWriter w0 = EdgesFragmentWriter.createInstance(t0);
+
+        t0.start();
+        w0.write(l0);
+        t0.end();
+
+        assertEquals("[{\"edges\":[]}]", out0.toString());
+
+        final EdgeElement e0 = new EdgeElement("0", "f0", "t0");
+        final EdgeElement e1 = new EdgeElement("1", "f1", "t1");
+
+        final List<AspectElement> l1 = new ArrayList<AspectElement>();
+        l1.add(e0);
+        l1.add(e1);
+
+        final ByteArrayOutputStream out1 = new ByteArrayOutputStream();
+        final JsonWriter t1 = JsonWriter.createInstance(out1);
+
+        final EdgesFragmentWriter w1 = EdgesFragmentWriter.createInstance(t1);
+
+        t1.start();
+        w1.write(l1);
+        t1.end();
+
+        assertEquals(
+                "[{\"edges\":[{\"@id\":\"0\",\"source\":\"f0\",\"target\":\"t0\"},{\"@id\":\"1\",\"source\":\"f1\",\"target\":\"t1\"}]}]",
+                out1.toString());
+
+        final EdgeElement e3 = new EdgeElement("3", "f3", "t3");
+        final EdgeElement e4 = new EdgeElement("4", "f4", "t4");
+        final List<AspectElement> l2 = new ArrayList<AspectElement>();
+        l2.add(e3);
+        final List<AspectElement> l3 = new ArrayList<AspectElement>();
+        l3.add(e4);
+
+        final ByteArrayOutputStream out2 = new ByteArrayOutputStream();
+        final JsonWriter t2 = JsonWriter.createInstance(out2);
+
+        final EdgesFragmentWriter w2 = EdgesFragmentWriter.createInstance(t2);
+
+        t2.start();
+        w2.write(l2);
+        w2.write(l3);
+        t2.end();
+
+        assertEquals(
+                "[{\"edges\":[{\"@id\":\"3\",\"source\":\"f3\",\"target\":\"t3\"}]},{\"edges\":[{\"@id\":\"4\",\"source\":\"f4\",\"target\":\"t4\"}]}]",
+                out2.toString());
+
+    }
+
+}

@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface AspectFragmentWriter {
 
-    public void write(final List<AspectElement> aspects) throws IOException;
+    public void write(final List<AspectElement> aspects, final JsonWriter json_writer) throws IOException;
 
 }

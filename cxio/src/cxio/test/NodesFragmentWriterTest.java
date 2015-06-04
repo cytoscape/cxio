@@ -24,10 +24,10 @@ public class NodesFragmentWriterTest {
         final OutputStream out0 = new ByteArrayOutputStream();
         final JsonWriter t0 = JsonWriter.createInstance(out0);
 
-        final NodesFragmentWriter w0 = NodesFragmentWriter.createInstance(t0);
+        final NodesFragmentWriter w0 = NodesFragmentWriter.createInstance();
 
         t0.start();
-        w0.write(l0);
+        w0.write(l0, t0);
         t0.end();
 
         assertEquals("[{\"nodes\":[]}]", out0.toString());
@@ -43,10 +43,10 @@ public class NodesFragmentWriterTest {
         final OutputStream out1 = new ByteArrayOutputStream();
         final JsonWriter t1 = JsonWriter.createInstance(out1);
 
-        final NodesFragmentWriter w1 = NodesFragmentWriter.createInstance(t1);
+        final NodesFragmentWriter w1 = NodesFragmentWriter.createInstance();
 
         t1.start();
-        w1.write(l1);
+        w1.write(l1, t1);
         t1.end();
 
         assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]}]", out1.toString());
@@ -63,11 +63,11 @@ public class NodesFragmentWriterTest {
         final OutputStream out2 = new ByteArrayOutputStream();
         final JsonWriter t2 = JsonWriter.createInstance(out2);
 
-        final NodesFragmentWriter w2 = NodesFragmentWriter.createInstance(t1);
+        final NodesFragmentWriter w2 = NodesFragmentWriter.createInstance();
 
         t2.start();
-        w2.write(l2);
-        w2.write(l3);
+        w2.write(l2, t1);
+        w2.write(l3, t1);
         t2.end();
 
         assertEquals("[{\"nodes\":[{\"@id\":\"3\"},{\"@id\":\"4\"}]},{\"nodes\":[{\"@id\":\"5\"}]}]", out2.toString());

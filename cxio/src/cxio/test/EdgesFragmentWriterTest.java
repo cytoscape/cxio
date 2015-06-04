@@ -23,10 +23,10 @@ public class EdgesFragmentWriterTest {
         final ByteArrayOutputStream out0 = new ByteArrayOutputStream();
         final JsonWriter t0 = JsonWriter.createInstance(out0);
 
-        final EdgesFragmentWriter w0 = EdgesFragmentWriter.createInstance(t0);
+        final EdgesFragmentWriter w0 = EdgesFragmentWriter.createInstance();
 
         t0.start();
-        w0.write(l0);
+        w0.write(l0, t0);
         t0.end();
 
         assertEquals("[{\"edges\":[]}]", out0.toString());
@@ -41,10 +41,10 @@ public class EdgesFragmentWriterTest {
         final ByteArrayOutputStream out1 = new ByteArrayOutputStream();
         final JsonWriter t1 = JsonWriter.createInstance(out1);
 
-        final EdgesFragmentWriter w1 = EdgesFragmentWriter.createInstance(t1);
+        final EdgesFragmentWriter w1 = EdgesFragmentWriter.createInstance();
 
         t1.start();
-        w1.write(l1);
+        w1.write(l1, t1);
         t1.end();
 
         assertEquals(
@@ -61,11 +61,11 @@ public class EdgesFragmentWriterTest {
         final ByteArrayOutputStream out2 = new ByteArrayOutputStream();
         final JsonWriter t2 = JsonWriter.createInstance(out2);
 
-        final EdgesFragmentWriter w2 = EdgesFragmentWriter.createInstance(t2);
+        final EdgesFragmentWriter w2 = EdgesFragmentWriter.createInstance();
 
         t2.start();
-        w2.write(l2);
-        w2.write(l3);
+        w2.write(l2, t2);
+        w2.write(l3, t2);
         t2.end();
 
         assertEquals(

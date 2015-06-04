@@ -27,10 +27,10 @@ public class NodeAttributesFragmentWriterTest {
         final OutputStream out0 = new ByteArrayOutputStream();
         final JsonWriter t0 = JsonWriter.createInstance(out0);
 
-        final NodeAttributesFragmentWriter w0 = NodeAttributesFragmentWriter.createInstance(t0);
+        final NodeAttributesFragmentWriter w0 = NodeAttributesFragmentWriter.createInstance();
 
         t0.start();
-        w0.write(l0);
+        w0.write(l0, t0);
         t0.end();
 
         assertEquals("[{\"" + CxConstants.NODE_ATTRIBUTES + "\":[]}]", out0.toString());
@@ -61,17 +61,17 @@ public class NodeAttributesFragmentWriterTest {
         final OutputStream out1 = new ByteArrayOutputStream();
         final JsonWriter t1 = JsonWriter.createInstance(out1);
 
-        final NodeAttributesFragmentWriter w1 = NodeAttributesFragmentWriter.createInstance(t1);
+        final NodeAttributesFragmentWriter w1 = NodeAttributesFragmentWriter.createInstance();
 
         t1.start();
-        w1.write(l1);
+        w1.write(l1, t1);
         t1.end();
 
         assertEquals(
                 "[{\""
                         + CxConstants.NODE_ATTRIBUTES
                         + "\":[{\"@id\":\"00\",\"nodes\":[\"000\",\"001\"],\"attributes\":{\"X\":[\"x1\",\"x2\",\"x3\"],\"Y\":[\"y1\",\"y2\",\"y3\"]}}]}]",
-                        out1.toString());
+                out1.toString());
 
     }
 

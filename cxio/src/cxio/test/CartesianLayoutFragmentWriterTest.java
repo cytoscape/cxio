@@ -25,10 +25,10 @@ public class CartesianLayoutFragmentWriterTest {
         final OutputStream out0 = new ByteArrayOutputStream();
         final JsonWriter t0 = JsonWriter.createInstance(out0);
 
-        final CartesianLayoutFragmentWriter w0 = CartesianLayoutFragmentWriter.createInstance(t0);
+        final CartesianLayoutFragmentWriter w0 = CartesianLayoutFragmentWriter.createInstance();
 
         t0.start();
-        w0.write(l0);
+        w0.write(l0, t0);
         t0.end();
 
         assertEquals("[{\"" + CxConstants.CARTESIAN_LAYOUT + "\":[]}]", out0.toString());
@@ -45,10 +45,10 @@ public class CartesianLayoutFragmentWriterTest {
         final OutputStream out1 = new ByteArrayOutputStream();
         final JsonWriter t1 = JsonWriter.createInstance(out1);
 
-        final CartesianLayoutFragmentWriter w1 = CartesianLayoutFragmentWriter.createInstance(t1);
+        final CartesianLayoutFragmentWriter w1 = CartesianLayoutFragmentWriter.createInstance();
 
         t1.start();
-        w1.write(l1);
+        w1.write(l1, t1);
         t1.end();
 
         assertEquals(

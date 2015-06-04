@@ -12,7 +12,7 @@ import org.junit.Test;
 import cxio.AspectElement;
 import cxio.AspectFragmentReaderManager;
 import cxio.CxConstants;
-import cxio.CxParser;
+import cxio.CxReader;
 import cxio.NodeAttributesElement;
 
 public class NodeAttributesFragmentReaderTest {
@@ -45,14 +45,16 @@ public class NodeAttributesFragmentReaderTest {
                 + "{\"edgeAttributes\":[{\"@id\":\"_ea0\",\"edges\":[\"_e0\", \"_e22\"], \"attributes\":{\"interaction\":[\"479019\", \"one more\"],\"name\":[\"768303 (479019) 791595\"],\"PSIMI_25_detection_method\":[\"genetic interference\"]}}]},"
                 + "{\"nodeAttributes\":[{\"@id\":\"_na3\",\"nodes\":[\"_33\"]}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
+        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + CxConstants.NODE_ATTRIBUTES + " aspect", r0.containsKey(CxConstants.NODE_ATTRIBUTES));
-        assertFalse("failed to parse " + CxConstants.NODE_ATTRIBUTES + " aspect", r0.get(CxConstants.NODE_ATTRIBUTES).isEmpty());
-        assertTrue("failed to get expected number of " + CxConstants.NODE_ATTRIBUTES + " aspects", r0.get(CxConstants.NODE_ATTRIBUTES)
-                .size() == 4);
+        assertTrue("failed to parse " + CxConstants.NODE_ATTRIBUTES + " aspect",
+                r0.containsKey(CxConstants.NODE_ATTRIBUTES));
+        assertFalse("failed to parse " + CxConstants.NODE_ATTRIBUTES + " aspect", r0.get(CxConstants.NODE_ATTRIBUTES)
+                .isEmpty());
+        assertTrue("failed to get expected number of " + CxConstants.NODE_ATTRIBUTES + " aspects",
+                r0.get(CxConstants.NODE_ATTRIBUTES).size() == 4);
 
         final List<AspectElement> aspects = r0.get(CxConstants.NODE_ATTRIBUTES);
 

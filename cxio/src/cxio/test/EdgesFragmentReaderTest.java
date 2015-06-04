@@ -12,7 +12,7 @@ import org.junit.Test;
 import cxio.AspectElement;
 import cxio.AspectFragmentReaderManager;
 import cxio.CxConstants;
-import cxio.CxParser;
+import cxio.CxReader;
 import cxio.EdgesElement;
 
 public class EdgesFragmentReaderTest {
@@ -36,15 +36,16 @@ public class EdgesFragmentReaderTest {
                 + "{\"nodes\":[{\"@id\":\"_4\"}]}," + "{\"nodes\":[{\"@id\":\"_6\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
+        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertTrue("failed to parse " + CxConstants.EDGES + " aspect", r0.containsKey(CxConstants.EDGES));
 
         assertFalse("failed to parse " + CxConstants.EDGES + " aspect", r0.get(CxConstants.EDGES).isEmpty());
 
-        assertTrue("failed to parse expected number of " + CxConstants.EDGES + " aspects", r0.get(CxConstants.EDGES).size() == 4);
+        assertTrue("failed to parse expected number of " + CxConstants.EDGES + " aspects", r0.get(CxConstants.EDGES)
+                .size() == 4);
 
         final List<AspectElement> edge_aspects = r0.get(CxConstants.EDGES);
 
@@ -73,9 +74,9 @@ public class EdgesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        CxParser.parseAsMap(p);
+        CxReader.parseAsMap(p);
 
     }
 
@@ -91,9 +92,9 @@ public class EdgesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        CxParser.parseAsMap(p);
+        CxReader.parseAsMap(p);
 
     }
 
@@ -109,9 +110,9 @@ public class EdgesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        CxParser.parseAsMap(p);
+        CxReader.parseAsMap(p);
 
     }
 
@@ -132,11 +133,12 @@ public class EdgesFragmentReaderTest {
 
                 + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
+        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertFalse("expected to parse no " + CxConstants.EDGES + " aspects, got some", r0.containsKey(CxConstants.EDGES));
+        assertFalse("expected to parse no " + CxConstants.EDGES + " aspects, got some",
+                r0.containsKey(CxConstants.EDGES));
 
     }
 

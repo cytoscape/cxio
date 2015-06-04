@@ -27,10 +27,10 @@ public class EdgeAttributesFragmentWriterTest {
         final OutputStream out0 = new ByteArrayOutputStream();
         final JsonWriter t0 = JsonWriter.createInstance(out0);
 
-        final EdgeAttributesFragmentWriter w0 = EdgeAttributesFragmentWriter.createInstance(t0);
+        final EdgeAttributesFragmentWriter w0 = EdgeAttributesFragmentWriter.createInstance();
 
         t0.start();
-        w0.write(l0);
+        w0.write(l0, t0);
         t0.end();
 
         assertEquals("[{\"" + CxConstants.EDGE_ATTRIBUTES + "\":[]}]", out0.toString());
@@ -61,17 +61,17 @@ public class EdgeAttributesFragmentWriterTest {
         final OutputStream out1 = new ByteArrayOutputStream();
         final JsonWriter t1 = JsonWriter.createInstance(out1);
 
-        final EdgeAttributesFragmentWriter w1 = EdgeAttributesFragmentWriter.createInstance(t1);
+        final EdgeAttributesFragmentWriter w1 = EdgeAttributesFragmentWriter.createInstance();
 
         t1.start();
-        w1.write(l1);
+        w1.write(l1, t1);
         t1.end();
 
         assertEquals(
                 "[{\""
                         + CxConstants.EDGE_ATTRIBUTES
                         + "\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"attributes\":{\"A\":[\"a1\",\"a2\",\"a3\"],\"B\":[\"b1\",\"b2\",\"b3\"]}}]}]",
-                        out1.toString());
+                out1.toString());
     }
 
 }

@@ -12,7 +12,7 @@ import org.junit.Test;
 import cxio.AspectElement;
 import cxio.AspectFragmentReaderManager;
 import cxio.CxConstants;
-import cxio.CxParser;
+import cxio.CxReader;
 import cxio.EdgeAttributesElement;
 
 public class EdgeAttributesFragmentReaderTest {
@@ -42,14 +42,16 @@ public class EdgeAttributesFragmentReaderTest {
                 + "{\"edgeAttributes\":[{\"@id\":\"_ea0\",\"edges\":[\"_e38\", \"_e39\"], \"attributes\":{\"interaction\":[\"479019\", \"one more\"],\"name\":[\"768303 (479019) 791595\"],\"PSIMI_25_detection_method\":[\"genetic interference\"]}}]},"
                 + "{\"edgeAttributes\":[{\"@id\":\"_ea1\",\"edges\":[\"_e22\", \"_e33\", \"_e44\"]}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
+        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + CxConstants.EDGE_ATTRIBUTES + " aspect", r0.containsKey(CxConstants.EDGE_ATTRIBUTES));
-        assertFalse("failed to parse " + CxConstants.EDGE_ATTRIBUTES + " aspect", r0.get(CxConstants.EDGE_ATTRIBUTES).isEmpty());
-        assertTrue("failed to get expected number of " + CxConstants.EDGE_ATTRIBUTES + " aspects", r0.get(CxConstants.EDGE_ATTRIBUTES)
-                .size() == 2);
+        assertTrue("failed to parse " + CxConstants.EDGE_ATTRIBUTES + " aspect",
+                r0.containsKey(CxConstants.EDGE_ATTRIBUTES));
+        assertFalse("failed to parse " + CxConstants.EDGE_ATTRIBUTES + " aspect", r0.get(CxConstants.EDGE_ATTRIBUTES)
+                .isEmpty());
+        assertTrue("failed to get expected number of " + CxConstants.EDGE_ATTRIBUTES + " aspects",
+                r0.get(CxConstants.EDGE_ATTRIBUTES).size() == 2);
 
         final List<AspectElement> aspects = r0.get(CxConstants.EDGE_ATTRIBUTES);
 

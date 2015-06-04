@@ -5,17 +5,14 @@ import java.util.List;
 import java.util.Map.Entry;
 
 public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
-    public static NodeAttributesFragmentWriter createInstance(final JsonWriter w) {
-        return new NodeAttributesFragmentWriter(w);
+    public static NodeAttributesFragmentWriter createInstance() {
+        return new NodeAttributesFragmentWriter();
     }
 
-    final private JsonWriter w;
-
-    private NodeAttributesFragmentWriter(final JsonWriter w) {
-        this.w = w;
+    private NodeAttributesFragmentWriter() {
     }
 
-    private final void addNodeAttributesAspect(final NodeAttributesElement na) throws IOException {
+    private final void addNodeAttributesAspect(final NodeAttributesElement na, final JsonWriter w) throws IOException {
         w.writeStartObject();
         w.writeStringField(CxConstants.ID, na.getId());
         w.writeList(CxConstants.NODES, na.getNodes());
@@ -30,14 +27,14 @@ public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
     }
 
     @Override
-    public void write(final List<AspectElement> node_attributes_aspects) throws IOException {
+    public void write(final List<AspectElement> node_attributes_aspects, final JsonWriter w) throws IOException {
         if (node_attributes_aspects == null) {
             return;
         }
         w.startArray(CxConstants.NODE_ATTRIBUTES);
         for (final AspectElement node_attributes_aspect : node_attributes_aspects) {
             final NodeAttributesElement na = (NodeAttributesElement) node_attributes_aspect;
-            addNodeAttributesAspect(na);
+            addNodeAttributesAspect(na, w);
         }
         w.endArray();
     }

@@ -12,7 +12,7 @@ import org.junit.Test;
 import cxio.AspectElement;
 import cxio.AspectFragmentReaderManager;
 import cxio.CxConstants;
-import cxio.CxParser;
+import cxio.CxReader;
 import cxio.NodesElement;
 
 public class NodesFragmentReaderTest {
@@ -36,28 +36,37 @@ public class NodesFragmentReaderTest {
                 + "{\"nodes\":[{\"@id\":\"_4\"}]}," + "{\"nodes\":[{\"@id\":\"_6\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
+        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertTrue("failed to parse " + CxConstants.NODES + " aspect", r0.containsKey(CxConstants.NODES));
 
         assertFalse("failed to parse " + CxConstants.NODES + " aspect", r0.get(CxConstants.NODES).isEmpty());
 
-        assertTrue("failed to parse expected number of " + CxConstants.NODES + " aspects", r0.get(CxConstants.NODES).size() == 8);
+        assertTrue("failed to parse expected number of " + CxConstants.NODES + " aspects", r0.get(CxConstants.NODES)
+                .size() == 8);
 
         final List<AspectElement> node_aspects = r0.get(CxConstants.NODES);
 
         assertTrue("failed to get expected NodeAspect instance", node_aspects.get(0) instanceof NodesElement);
 
-        assertTrue("failed to get expected " + CxConstants.NODES + " aspect", node_aspects.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + CxConstants.NODES + " aspect", node_aspects.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + CxConstants.NODES + " aspect", node_aspects.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + CxConstants.NODES + " aspect", node_aspects.contains(new NodesElement("_3")));
-        assertTrue("failed to get expected " + CxConstants.NODES + " aspect", node_aspects.contains(new NodesElement("_4")));
-        assertTrue("failed to get expected " + CxConstants.NODES + " aspect", node_aspects.contains(new NodesElement("_5")));
-        assertTrue("failed to get expected " + CxConstants.NODES + " aspect", node_aspects.contains(new NodesElement("_6")));
-        assertTrue("failed to get expected " + CxConstants.NODES + " aspect", node_aspects.contains(new NodesElement("_7")));
+        assertTrue("failed to get expected " + CxConstants.NODES + " aspect",
+                node_aspects.contains(new NodesElement("_0")));
+        assertTrue("failed to get expected " + CxConstants.NODES + " aspect",
+                node_aspects.contains(new NodesElement("_1")));
+        assertTrue("failed to get expected " + CxConstants.NODES + " aspect",
+                node_aspects.contains(new NodesElement("_2")));
+        assertTrue("failed to get expected " + CxConstants.NODES + " aspect",
+                node_aspects.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + CxConstants.NODES + " aspect",
+                node_aspects.contains(new NodesElement("_4")));
+        assertTrue("failed to get expected " + CxConstants.NODES + " aspect",
+                node_aspects.contains(new NodesElement("_5")));
+        assertTrue("failed to get expected " + CxConstants.NODES + " aspect",
+                node_aspects.contains(new NodesElement("_6")));
+        assertTrue("failed to get expected " + CxConstants.NODES + " aspect",
+                node_aspects.contains(new NodesElement("_7")));
 
     }
 
@@ -73,9 +82,9 @@ public class NodesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        CxParser.parseAsMap(p);
+        CxReader.parseAsMap(p);
 
     }
 
@@ -94,11 +103,12 @@ public class NodesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
+        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertFalse("expected to parse no " + CxConstants.NODES + " aspects, got some", r0.containsKey(CxConstants.NODES));
+        assertFalse("expected to parse no " + CxConstants.NODES + " aspects, got some",
+                r0.containsKey(CxConstants.NODES));
 
     }
 

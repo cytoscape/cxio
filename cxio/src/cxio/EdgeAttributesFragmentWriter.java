@@ -5,17 +5,14 @@ import java.util.List;
 import java.util.Map.Entry;
 
 public class EdgeAttributesFragmentWriter implements AspectFragmentWriter {
-    public static EdgeAttributesFragmentWriter createInstance(final JsonWriter w) {
-        return new EdgeAttributesFragmentWriter(w);
+    public static EdgeAttributesFragmentWriter createInstance() {
+        return new EdgeAttributesFragmentWriter();
     }
 
-    final private JsonWriter w;
-
-    private EdgeAttributesFragmentWriter(final JsonWriter w) {
-        this.w = w;
+    private EdgeAttributesFragmentWriter() {
     }
 
-    private final void addEdgeAttributesAspect(final EdgeAttributesElement ea) throws IOException {
+    private final void addEdgeAttributesAspect(final EdgeAttributesElement ea, final JsonWriter w) throws IOException {
         w.writeStartObject();
         w.writeStringField(CxConstants.ID, ea.getId());
         w.writeList(CxConstants.EDGES, ea.getEdges());
@@ -30,14 +27,14 @@ public class EdgeAttributesFragmentWriter implements AspectFragmentWriter {
     }
 
     @Override
-    public void write(final List<AspectElement> edge_attributes_aspects) throws IOException {
+    public void write(final List<AspectElement> edge_attributes_aspects, final JsonWriter w) throws IOException {
         if (edge_attributes_aspects == null) {
             return;
         }
         w.startArray(CxConstants.EDGE_ATTRIBUTES);
         for (final AspectElement edge_attributes_aspect : edge_attributes_aspects) {
             final EdgeAttributesElement ea = (EdgeAttributesElement) edge_attributes_aspect;
-            addEdgeAttributesAspect(ea);
+            addEdgeAttributesAspect(ea, w);
         }
         w.endArray();
     }

@@ -14,7 +14,7 @@ import cxio.AspectElement;
 import cxio.AspectFragmentReaderManager;
 import cxio.CartesianLayoutElement;
 import cxio.CxConstants;
-import cxio.CxParser;
+import cxio.CxReader;
 
 public class CartesianLayoutFragmentReaderTest {
 
@@ -41,16 +41,18 @@ public class CartesianLayoutFragmentReaderTest {
                 + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"_2\",\"x\":\"5\",\"y\":\"6\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
 
-        final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
+        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders());
-        final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
+        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + CxConstants.CARTESIAN_LAYOUT + " aspect", r0.containsKey(CxConstants.CARTESIAN_LAYOUT));
+        assertTrue("failed to parse " + CxConstants.CARTESIAN_LAYOUT + " aspect",
+                r0.containsKey(CxConstants.CARTESIAN_LAYOUT));
 
-        assertFalse("failed to parse " + CxConstants.CARTESIAN_LAYOUT + " aspect", r0.get(CxConstants.CARTESIAN_LAYOUT).isEmpty());
+        assertFalse("failed to parse " + CxConstants.CARTESIAN_LAYOUT + " aspect", r0.get(CxConstants.CARTESIAN_LAYOUT)
+                .isEmpty());
 
-        assertTrue("failed to parse expected number of " + CxConstants.CARTESIAN_LAYOUT + " aspects", r0
-                .get(CxConstants.CARTESIAN_LAYOUT).size() == 3);
+        assertTrue("failed to parse expected number of " + CxConstants.CARTESIAN_LAYOUT + " aspects",
+                r0.get(CxConstants.CARTESIAN_LAYOUT).size() == 3);
 
         final List<AspectElement> aspects = r0.get(CxConstants.CARTESIAN_LAYOUT);
 

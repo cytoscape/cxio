@@ -58,30 +58,31 @@ public class Examples {
         OutputStream out = new ByteArrayOutputStream();
         JsonWriter jw = JsonWriter.createInstance(out);
 
-        EdgesFragmentWriter eaw = EdgesFragmentWriter.createInstance(jw);
-        NodesFragmentWriter nfw = NodesFragmentWriter.createInstance(jw);
-        EdgeAttributesFragmentWriter eafw = EdgeAttributesFragmentWriter.createInstance(jw);
-        NodeAttributesFragmentWriter nafw = NodeAttributesFragmentWriter.createInstance(jw);
+        EdgesFragmentWriter eaw = EdgesFragmentWriter.createInstance();
+        NodesFragmentWriter nfw = NodesFragmentWriter.createInstance();
+        EdgeAttributesFragmentWriter eafw = EdgeAttributesFragmentWriter.createInstance();
+        NodeAttributesFragmentWriter nafw = NodeAttributesFragmentWriter.createInstance();
 
         jw.start();
-        eaw.write(edges_elements);
-        nfw.write(nodes_elements);
-        eafw.write(edge_attributes_elements);
-        nafw.write(node_attributes_elements);
+        eaw.write(edges_elements, jw);
+        nfw.write(nodes_elements, jw);
+        eafw.write(edge_attributes_elements, jw);
+        nafw.write(node_attributes_elements, jw);
         jw.end();
 
         String cx_json_str = out.toString();
-        
+
         // Pretty printing of CX Json
         ObjectMapper mapper = new ObjectMapper();
         Object json = mapper.readValue(cx_json_str, Object.class);
         String pretty_json = mapper.defaultPrettyPrintingWriter().writeValueAsString(json);
         System.out.println(pretty_json);
-        
-        // Reading from CX Json:
-        Set<AspectFragmentReader> readers = AspectFragmentReaderManager.createInstance().getAvailableAspectFragmentReaders();
 
-        CxParser p = CxParser.createInstance(cx_json_str, readers);
+        // Reading from CX Json:
+        Set<AspectFragmentReader> readers = AspectFragmentReaderManager.createInstance()
+                .getAvailableAspectFragmentReaders();
+
+        CxReader p = CxReader.createInstance(cx_json_str, readers);
 
         while (p.hasNext()) {
             List<AspectElement> elements = p.getNext();

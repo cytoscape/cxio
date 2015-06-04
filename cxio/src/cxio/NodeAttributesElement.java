@@ -17,35 +17,35 @@ public final class NodeAttributesElement implements AspectElement {
         this.nodes = nodes;
         this.attributes = attributes;
     }
-    
+
     public NodeAttributesElement(final String id) {
         this.id = id;
         this.nodes = new ArrayList<String>();
         this.attributes = new TreeMap<String, List<String>>();
     }
-    
-    public NodeAttributesElement(final String id, final String node_id ) {
+
+    public NodeAttributesElement(final String id, final String node_id) {
         this.id = id;
         this.nodes = new ArrayList<String>();
         this.attributes = new TreeMap<String, List<String>>();
-        addNode( node_id );
+        addNode(node_id);
     }
 
-    public final void addNode( final String node_id ) {
-        if ( Util.isEmpty(node_id) ) {
-            throw new IllegalArgumentException( "attempt to add null or empty node id");
+    public final void addNode(final String node_id) {
+        if (Util.isEmpty(node_id)) {
+            throw new IllegalArgumentException("attempt to add null or empty node id");
         }
         nodes.add(node_id);
     }
-    
-    public final void addAttribute( final String key, final String value ) {
-        if ( Util.isEmpty(key) ) {
-            throw new IllegalArgumentException( "attempt to use null or empty attribute key");
+
+    public final void addAttribute(final String key, final String value) {
+        if (Util.isEmpty(key)) {
+            throw new IllegalArgumentException("attempt to use null or empty attribute key");
         }
-        if ( value == null ) {
-            throw new IllegalArgumentException( "attempt to use null value");
+        if (value == null) {
+            throw new IllegalArgumentException("attempt to use null value");
         }
-        if ( !attributes.containsKey(key) ) {
+        if (!attributes.containsKey(key)) {
             attributes.put(key, new ArrayList<String>());
         }
         attributes.get(key).add(value);

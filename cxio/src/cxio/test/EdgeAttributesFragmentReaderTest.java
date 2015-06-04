@@ -43,7 +43,7 @@ public class EdgeAttributesFragmentReaderTest {
                 + "{\"edgeAttributes\":[{\"@id\":\"_ea1\",\"edges\":[\"_e22\", \"_e33\", \"_e44\"]}]}" + "]";
 
         final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectReaders());
+                .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
 
         assertTrue("failed to parse " + CxConstants.EDGE_ATTRIBUTES + " aspect", r0.containsKey(CxConstants.EDGE_ATTRIBUTES));

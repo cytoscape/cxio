@@ -79,9 +79,9 @@ public class Examples {
         System.out.println(pretty_json);
         
         // Reading from CX Json:
-        Set<AspectFragmentReader> handlers = AspectFragmentReaderManager.createInstance().getAvailableAspectReaders();
+        Set<AspectFragmentReader> readers = AspectFragmentReaderManager.createInstance().getAvailableAspectFragmentReaders();
 
-        CxParser p = CxParser.createInstance(cx_json_str, handlers);
+        CxParser p = CxParser.createInstance(cx_json_str, readers);
 
         while (p.hasNext()) {
             List<AspectElement> elements = p.getNext();

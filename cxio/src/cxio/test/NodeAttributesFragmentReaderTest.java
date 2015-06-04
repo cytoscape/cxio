@@ -46,7 +46,7 @@ public class NodeAttributesFragmentReaderTest {
                 + "{\"nodeAttributes\":[{\"@id\":\"_na3\",\"nodes\":[\"_33\"]}]}" + "]";
 
         final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectReaders());
+                .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
 
         assertTrue("failed to parse " + CxConstants.NODE_ATTRIBUTES + " aspect", r0.containsKey(CxConstants.NODE_ATTRIBUTES));

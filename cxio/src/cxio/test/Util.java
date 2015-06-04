@@ -21,7 +21,7 @@ final class Util {
 
     final static String cyCxRoundTrip(final String input_cx) throws IOException {
         final CxParser p = CxParser.createInstance(input_cx, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectReaders());
+                .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> res = CxParser.parseAsMap(p);
 
         final OutputStream out = new ByteArrayOutputStream();

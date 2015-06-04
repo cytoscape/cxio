@@ -9,7 +9,7 @@ public final class AspectFragmentReaderManager {
         return new AspectFragmentReaderManager();
     }
 
-    public final Set<AspectFragmentReader> getAvailableAspectReaders() {
+    public final Set<AspectFragmentReader> getAvailableAspectFragmentReaders() {
         final AspectFragmentReader node_handler = new NodesFragmentReader();
         final AspectFragmentReader edge_handler = new EdgesFragmentReader();
         final AspectFragmentReader cartesian_layout_handler = new CartesianLayoutFragmentReader();

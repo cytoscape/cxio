@@ -37,7 +37,7 @@ public class EdgesFragmentReaderTest {
                 + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
 
         final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectReaders());
+                .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
 
         assertTrue("failed to parse " + CxConstants.EDGES + " aspect", r0.containsKey(CxConstants.EDGES));
@@ -74,7 +74,7 @@ public class EdgesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
         final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectReaders());
+                .getAvailableAspectFragmentReaders());
         CxParser.parseAsMap(p);
 
     }
@@ -92,7 +92,7 @@ public class EdgesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
         final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectReaders());
+                .getAvailableAspectFragmentReaders());
         CxParser.parseAsMap(p);
 
     }
@@ -110,7 +110,7 @@ public class EdgesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
         final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectReaders());
+                .getAvailableAspectFragmentReaders());
         CxParser.parseAsMap(p);
 
     }
@@ -133,7 +133,7 @@ public class EdgesFragmentReaderTest {
                 + "]";
 
         final CxParser p = CxParser.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectReaders());
+                .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxParser.parseAsMap(p);
 
         assertFalse("expected to parse no " + CxConstants.EDGES + " aspects, got some", r0.containsKey(CxConstants.EDGES));

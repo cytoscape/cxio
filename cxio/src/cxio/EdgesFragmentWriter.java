@@ -37,5 +37,10 @@ public class EdgesFragmentWriter implements AspectFragmentWriter {
         w.endArray();
 
     }
+    
+    @Override
+    public String getAspectName() {
+        return CxConstants.EDGES;
+    }
 
 }

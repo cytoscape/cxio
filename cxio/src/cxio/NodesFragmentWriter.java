@@ -35,5 +35,10 @@ public class NodesFragmentWriter implements AspectFragmentWriter {
         }
         w.endArray();
     }
+    
+    @Override
+    public String getAspectName() {
+        return CxConstants.NODES;
+    }
 
 }

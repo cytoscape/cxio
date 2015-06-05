@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -56,20 +57,21 @@ public class Examples {
 
         // Writing to Json:
         OutputStream out = new ByteArrayOutputStream();
-        JsonWriter jw = JsonWriter.createInstance(out);
-
-        EdgesFragmentWriter eaw = EdgesFragmentWriter.createInstance();
-        NodesFragmentWriter nfw = NodesFragmentWriter.createInstance();
-        EdgeAttributesFragmentWriter eafw = EdgeAttributesFragmentWriter.createInstance();
-        NodeAttributesFragmentWriter nafw = NodeAttributesFragmentWriter.createInstance();
-
-        jw.start();
-        eaw.write(edges_elements, jw);
-        nfw.write(nodes_elements, jw);
-        eafw.write(edge_attributes_elements, jw);
-        nafw.write(node_attributes_elements, jw);
-        jw.end();
-
+        
+        CxWriter w = CxWriter.createInstance(out);
+        
+        w.addAspectFragmentWriter( EdgesFragmentWriter.createInstance() );
+        w.addAspectFragmentWriter( NodesFragmentWriter.createInstance() );
+        w.addAspectFragmentWriter( EdgeAttributesFragmentWriter.createInstance() );
+        w.addAspectFragmentWriter( NodeAttributesFragmentWriter.createInstance() );
+       
+        w.start();
+        w.write(edges_elements);
+        w.write(nodes_elements);
+        w.write(edge_attributes_elements);
+        w.write(node_attributes_elements);
+        w.end();
+        
         String cx_json_str = out.toString();
 
         // Pretty printing of CX Json

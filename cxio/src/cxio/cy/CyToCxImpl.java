@@ -1,4 +1,4 @@
-package cxio;
+package cxio.cy;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -8,6 +8,13 @@ import java.util.List;
 import org.cytoscape.model.CyEdge;
 import org.cytoscape.model.CyNetwork;
 import org.cytoscape.model.CyNode;
+
+import cxio.AspectElement;
+import cxio.CxWriter;
+import cxio.EdgesElement;
+import cxio.EdgesFragmentWriter;
+import cxio.NodesElement;
+import cxio.NodesFragmentWriter;
 
 public class CyToCxImpl implements CyToCx {
 

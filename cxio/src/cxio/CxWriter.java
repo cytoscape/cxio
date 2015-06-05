@@ -52,7 +52,7 @@ public class CxWriter {
         if (ended) {
             throw new IllegalStateException("already ended");
         }
-        if (elements == null || elements.isEmpty()) {
+        if ((elements == null) || elements.isEmpty()) {
             return;
         }
         if (writers.containsKey(elements.get(0).getAspectName())) {

@@ -4,7 +4,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -12,38 +11,38 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 public class Examples {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(final String[] args) throws IOException {
 
         // Creating same AspectElements and adding them to Lists (representing
         // AspectFragments):
-        List<AspectElement> edges_elements = new ArrayList<AspectElement>();
+        final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
         edges_elements.add(new EdgesElement("edge0", "node0", "node1"));
         edges_elements.add(new EdgesElement("edge1", "node0", "node2"));
 
-        List<AspectElement> nodes_elements = new ArrayList<AspectElement>();
+        final List<AspectElement> nodes_elements = new ArrayList<AspectElement>();
         nodes_elements.add(new NodesElement("node0"));
         nodes_elements.add(new NodesElement("node1"));
         nodes_elements.add(new NodesElement("node2"));
-        
-        List<AspectElement> cartesian_elements = new ArrayList<AspectElement>();
+
+        final List<AspectElement> cartesian_elements = new ArrayList<AspectElement>();
         cartesian_elements.add(new CartesianLayoutElement("node0", 12, 21));
         cartesian_elements.add(new CartesianLayoutElement("node1", 42, 23));
         cartesian_elements.add(new CartesianLayoutElement("node2", 34, 23));
 
-        EdgeAttributesElement ea0 = new EdgeAttributesElement("ea0", "edge0");
-        EdgeAttributesElement ea1 = new EdgeAttributesElement("ea1", "edge1");
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement("ea0", "edge0");
+        final EdgeAttributesElement ea1 = new EdgeAttributesElement("ea1", "edge1");
         ea0.addAttribute("attribute 1", "01");
         ea0.addAttribute("attribute 2", "02");
         ea1.addAttribute("attribute 1", "11");
         ea1.addAttribute("attribute 2", "12");
-        List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
+        final List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
         edge_attributes_elements.add(ea0);
         edge_attributes_elements.add(ea1);
 
-        NodeAttributesElement na0 = new NodeAttributesElement("na0", "node0");
-        NodeAttributesElement na1 = new NodeAttributesElement("na1", "node1");
-        NodeAttributesElement na2 = new NodeAttributesElement("na2", "node2");
-        NodeAttributesElement na3 = new NodeAttributesElement("na3");
+        final NodeAttributesElement na0 = new NodeAttributesElement("na0", "node0");
+        final NodeAttributesElement na1 = new NodeAttributesElement("na1", "node1");
+        final NodeAttributesElement na2 = new NodeAttributesElement("na2", "node2");
+        final NodeAttributesElement na3 = new NodeAttributesElement("na3");
         na0.addAttribute("attribute x", "0.0");
         na0.addAttribute("attribute x", "0.1");
         na1.addAttribute("attribute x", "1.0");
@@ -54,23 +53,23 @@ public class Examples {
         na3.addNode("node0");
         na3.addNode("node1");
         na3.addNode("node2");
-        List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();
+        final List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();
         node_attributes_elements.add(na0);
         node_attributes_elements.add(na1);
         node_attributes_elements.add(na2);
         node_attributes_elements.add(na3);
 
         // Writing to Json:
-        OutputStream out = new ByteArrayOutputStream();
-        
-        CxWriter w = CxWriter.createInstance(out);
-        
-        w.addAspectFragmentWriter( EdgesFragmentWriter.createInstance() );
-        w.addAspectFragmentWriter( NodesFragmentWriter.createInstance() );
-        w.addAspectFragmentWriter( CartesianLayoutFragmentWriter.createInstance() );
-        w.addAspectFragmentWriter( EdgeAttributesFragmentWriter.createInstance() );
-        w.addAspectFragmentWriter( NodeAttributesFragmentWriter.createInstance() );
-       
+        final OutputStream out = new ByteArrayOutputStream();
+
+        final CxWriter w = CxWriter.createInstance(out);
+
+        w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
+
         w.start();
         w.write(edges_elements);
         w.write(nodes_elements);
@@ -78,28 +77,28 @@ public class Examples {
         w.write(edge_attributes_elements);
         w.write(node_attributes_elements);
         w.end();
-        
-        String cx_json_str = out.toString();
+
+        final String cx_json_str = out.toString();
 
         // Pretty printing of CX Json
-        ObjectMapper mapper = new ObjectMapper();
-        Object json = mapper.readValue(cx_json_str, Object.class);
-        String pretty_json = mapper.defaultPrettyPrintingWriter().writeValueAsString(json);
+        final ObjectMapper mapper = new ObjectMapper();
+        final Object json = mapper.readValue(cx_json_str, Object.class);
+        final String pretty_json = mapper.defaultPrettyPrintingWriter().writeValueAsString(json);
         System.out.println(pretty_json);
 
         // Reading from CX Json:
-        Set<AspectFragmentReader> readers = AspectFragmentReaderManager.createInstance()
+        final Set<AspectFragmentReader> readers = AspectFragmentReaderManager.createInstance()
                 .getAvailableAspectFragmentReaders();
 
-        CxReader p = CxReader.createInstance(cx_json_str, readers);
+        final CxReader p = CxReader.createInstance(cx_json_str, readers);
 
         while (p.hasNext()) {
-            List<AspectElement> elements = p.getNext();
+            final List<AspectElement> elements = p.getNext();
             if (!elements.isEmpty()) {
-                String aspect_name = elements.get(0).getAspectName();
+                final String aspect_name = elements.get(0).getAspectName();
                 System.out.println();
                 System.out.println(aspect_name + ": ");
-                for (AspectElement element : elements) {
+                for (final AspectElement element : elements) {
                     System.out.println(element.toString());
                 }
             }

@@ -3,12 +3,6 @@ package cxio;
 import java.io.IOException;
 import java.util.List;
 
-import cxio.AspectElement;
-import cxio.AspectFragmentWriter;
-import cxio.CxConstants;
-import cxio.JsonWriter;
-import cxio.NodesElement;
-
 public class NodesFragmentWriter implements AspectFragmentWriter {
 
     public static NodesFragmentWriter createInstance() {
@@ -35,7 +29,7 @@ public class NodesFragmentWriter implements AspectFragmentWriter {
         }
         w.endArray();
     }
-    
+
     @Override
     public String getAspectName() {
         return CxConstants.NODES;

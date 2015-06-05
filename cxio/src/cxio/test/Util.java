@@ -25,14 +25,14 @@ final class Util {
         final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(p);
 
         final OutputStream out = new ByteArrayOutputStream();
-        
+
         final CxWriter w = CxWriter.createInstance(out);
-        w.addAspectFragmentWriter( NodesFragmentWriter.createInstance() );
-        w.addAspectFragmentWriter( EdgesFragmentWriter.createInstance() );
-        w.addAspectFragmentWriter( CartesianLayoutFragmentWriter.createInstance() );
-        w.addAspectFragmentWriter( NodeAttributesFragmentWriter.createInstance() );
-        w.addAspectFragmentWriter( EdgeAttributesFragmentWriter.createInstance() );
-        
+        w.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
+
         w.start();
         w.write(res.get(CxConstants.NODES));
         w.write(res.get(CxConstants.EDGES));
@@ -40,7 +40,7 @@ final class Util {
         w.write(res.get(CxConstants.NODE_ATTRIBUTES));
         w.write(res.get(CxConstants.EDGE_ATTRIBUTES));
         w.end();
-        
+
         return out.toString();
     }
 }

@@ -38,7 +38,7 @@ public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
         }
         w.endArray();
     }
-    
+
     @Override
     public String getAspectName() {
         return CxConstants.NODE_ATTRIBUTES;

@@ -5,13 +5,13 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class CxWriter {
 
     private final Map<String, AspectFragmentWriter> writers;
-    private final JsonWriter                            jw;
-    private boolean started;
+    private final JsonWriter                        jw;
+    private boolean                                 started;
+    private boolean                                 ended;
 
     private CxWriter(final OutputStream out) throws IOException {
         if (out == null) {
@@ -20,41 +20,49 @@ public class CxWriter {
         this.writers = new HashMap<String, AspectFragmentWriter>();
         this.jw = JsonWriter.createInstance(out);
         started = false;
+        ended = false;
     }
 
-    public void start() throws  IOException {
-        if ( started) {
+    public void start() throws IOException {
+        if (started) {
             throw new IllegalStateException("already started");
+        }
+        if (ended) {
+            throw new IllegalStateException("already ended");
         }
         started = true;
         jw.start();
     }
-    
-    public void end() throws  IOException {
-        if ( !started) {
+
+    public void end() throws IOException {
+        if (!started) {
             throw new IllegalStateException("not started");
         }
+        if (ended) {
+            throw new IllegalStateException("already ended");
+        }
+        ended = true;
         jw.end();
     }
-    
+
     public void write(final List<AspectElement> elements) throws IOException {
-        if ( !started) {
+        if (!started) {
             throw new IllegalStateException("not started");
         }
-        if (elements == null) {
-            throw new IllegalArgumentException("list of aspect elements is null");
+        if (ended) {
+            throw new IllegalStateException("already ended");
         }
-        
-        if (!elements.isEmpty()) {
-            if (writers.containsKey(elements.get(0).getAspectName())) {
-                final AspectFragmentWriter writer = writers.get(elements.get(0).getAspectName());
-                writer.write(elements, jw);
-            }
+        if (elements == null || elements.isEmpty()) {
+            return;
         }
+        if (writers.containsKey(elements.get(0).getAspectName())) {
+            final AspectFragmentWriter writer = writers.get(elements.get(0).getAspectName());
+            writer.write(elements, jw);
+        }
+
     }
 
-    public final static CxWriter createInstance(final OutputStream out)
-            throws IOException {
+    public final static CxWriter createInstance(final OutputStream out) throws IOException {
         return new CxWriter(out);
     }
 

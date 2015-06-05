@@ -5,9 +5,9 @@ import java.io.OutputStream;
 import java.util.Iterator;
 import java.util.List;
 
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerationException;
-import org.codehaus.jackson.JsonGenerator;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.core.JsonGenerator;
 
 public class JsonWriter {
 
@@ -15,7 +15,7 @@ public class JsonWriter {
 
     public final static JsonWriter createInstance(final OutputStream out) throws IOException {
         final JsonFactory f = new JsonFactory();
-        g = f.createJsonGenerator(out);
+        g = f.createGenerator(out);
         return new JsonWriter();
     }
 
@@ -43,7 +43,7 @@ public class JsonWriter {
     }
 
     public final void writeList(final String label, final Iterator<String> it) throws JsonGenerationException,
-    IOException {
+            IOException {
         g.writeArrayFieldStart(label);
         while (it.hasNext()) {
             g.writeString(it.next().toString());
@@ -52,7 +52,7 @@ public class JsonWriter {
     }
 
     public final void writeList(final String label, final List<String> list) throws JsonGenerationException,
-    IOException {
+            IOException {
         if ((list != null) && !list.isEmpty()) {
             g.writeArrayFieldStart(label);
             for (final String s : list) {

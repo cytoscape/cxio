@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import org.codehaus.jackson.map.ObjectMapper;
-
 public class Examples {
 
     public static void main(final String[] args) throws IOException {
@@ -79,12 +77,6 @@ public class Examples {
         w.end();
 
         final String cx_json_str = out.toString();
-
-        // Pretty printing of CX Json
-        final ObjectMapper mapper = new ObjectMapper();
-        final Object json = mapper.readValue(cx_json_str, Object.class);
-        final String pretty_json = mapper.defaultPrettyPrintingWriter().writeValueAsString(json);
-        System.out.println(pretty_json);
 
         // Reading from CX Json:
         final Set<AspectFragmentReader> readers = AspectFragmentReaderManager.createInstance()

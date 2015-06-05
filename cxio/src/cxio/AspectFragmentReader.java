@@ -3,7 +3,7 @@ package cxio;
 import java.io.IOException;
 import java.util.List;
 
-import org.codehaus.jackson.JsonParser;
+import com.fasterxml.jackson.core.JsonParser;
 
 public interface AspectFragmentReader {
     public String getAspectName();

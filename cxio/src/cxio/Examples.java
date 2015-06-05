@@ -24,6 +24,11 @@ public class Examples {
         nodes_elements.add(new NodesElement("node0"));
         nodes_elements.add(new NodesElement("node1"));
         nodes_elements.add(new NodesElement("node2"));
+        
+        List<AspectElement> cartesian_elements = new ArrayList<AspectElement>();
+        cartesian_elements.add(new CartesianLayoutElement("node0", 12, 21));
+        cartesian_elements.add(new CartesianLayoutElement("node1", 42, 23));
+        cartesian_elements.add(new CartesianLayoutElement("node2", 34, 23));
 
         EdgeAttributesElement ea0 = new EdgeAttributesElement("ea0", "edge0");
         EdgeAttributesElement ea1 = new EdgeAttributesElement("ea1", "edge1");
@@ -62,12 +67,14 @@ public class Examples {
         
         w.addAspectFragmentWriter( EdgesFragmentWriter.createInstance() );
         w.addAspectFragmentWriter( NodesFragmentWriter.createInstance() );
+        w.addAspectFragmentWriter( CartesianLayoutFragmentWriter.createInstance() );
         w.addAspectFragmentWriter( EdgeAttributesFragmentWriter.createInstance() );
         w.addAspectFragmentWriter( NodeAttributesFragmentWriter.createInstance() );
        
         w.start();
         w.write(edges_elements);
         w.write(nodes_elements);
+        w.write(cartesian_elements);
         w.write(edge_attributes_elements);
         w.write(node_attributes_elements);
         w.end();

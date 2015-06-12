@@ -1,11 +1,20 @@
 package org.cxio.test;
-import org.cxio.*;
-
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.SortedMap;
+
+import org.cxio.AspectElement;
+import org.cxio.AspectFragmentReaderManager;
+import org.cxio.CartesianLayoutFragmentWriter;
+import org.cxio.CxConstants;
+import org.cxio.CxReader;
+import org.cxio.CxWriter;
+import org.cxio.EdgeAttributesFragmentWriter;
+import org.cxio.EdgesFragmentWriter;
+import org.cxio.NodeAttributesFragmentWriter;
+import org.cxio.NodesFragmentWriter;
 
 
 

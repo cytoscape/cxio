@@ -1,7 +1,4 @@
 package org.cxio.test;
-import org.cxio.*;
-import org.cxio.CxConstants.ATTRIBUTE_TYPE;
-
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -9,6 +6,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.SortedMap;
 
+import org.cxio.AspectElement;
+import org.cxio.AspectFragmentReaderManager;
+import org.cxio.CxConstants;
+import org.cxio.CxConstants.ATTRIBUTE_TYPE;
+import org.cxio.CxReader;
+import org.cxio.EdgeAttributesElement;
 import org.junit.Test;
 
 public class EdgeAttributesFragmentReaderTest {

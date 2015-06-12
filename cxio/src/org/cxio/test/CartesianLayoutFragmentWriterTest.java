@@ -1,6 +1,4 @@
 package org.cxio.test;
-import org.cxio.*;
-
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
@@ -9,7 +7,11 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.cxio.AspectElement;
+import org.cxio.CartesianLayoutElement;
+import org.cxio.CartesianLayoutFragmentWriter;
+import org.cxio.CxConstants;
+import org.cxio.JsonWriter;
 import org.junit.Test;
 
 public class CartesianLayoutFragmentWriterTest {

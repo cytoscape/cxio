@@ -1,5 +1,4 @@
 package org.cxio.test;
-import org.cxio.*;
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
@@ -7,7 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import org.cxio.AspectElement;
+import org.cxio.EdgesElement;
+import org.cxio.EdgesFragmentWriter;
+import org.cxio.JsonWriter;
 import org.junit.Test;
 
 public class EdgesFragmentWriterTest {

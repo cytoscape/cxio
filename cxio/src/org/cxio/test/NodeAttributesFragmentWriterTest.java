@@ -1,7 +1,4 @@
 package org.cxio.test;
-import org.cxio.*;
-import org.cxio.CxConstants.ATTRIBUTE_TYPE;
-
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
@@ -10,6 +7,12 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cxio.AspectElement;
+import org.cxio.CxConstants;
+import org.cxio.CxConstants.ATTRIBUTE_TYPE;
+import org.cxio.JsonWriter;
+import org.cxio.NodeAttributesElement;
+import org.cxio.NodeAttributesFragmentWriter;
 import org.junit.Test;
 
 public class NodeAttributesFragmentWriterTest {

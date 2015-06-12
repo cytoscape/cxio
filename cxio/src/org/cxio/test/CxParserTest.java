@@ -1,6 +1,4 @@
 package org.cxio.test;
-import org.cxio.*;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -8,7 +6,15 @@ import static org.junit.Assert.assertTrue;
 import java.io.IOException;
 import java.util.List;
 
-
+import org.cxio.AspectElement;
+import org.cxio.AspectFragmentReaderManager;
+import org.cxio.CartesianLayoutElement;
+import org.cxio.CxConstants;
+import org.cxio.CxReader;
+import org.cxio.EdgesElement;
+import org.cxio.EdgesFragmentReader;
+import org.cxio.NodesElement;
+import org.cxio.NodesFragmentReader;
 import org.junit.Test;
 
 public class CxParserTest {

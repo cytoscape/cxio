@@ -1,6 +1,4 @@
 package org.cxio.test;
-import org.cxio.*;
-
 import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;

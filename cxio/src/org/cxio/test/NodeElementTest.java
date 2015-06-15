@@ -1,8 +1,9 @@
 package org.cxio.test;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.cxio.NodesElement;
+import org.cxio.aspects.datamodels.NodesElement;
 import org.junit.Test;
 
 public class NodeElementTest {

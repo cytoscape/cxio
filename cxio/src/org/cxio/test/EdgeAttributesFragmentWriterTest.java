@@ -1,4 +1,5 @@
 package org.cxio.test;
+
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
@@ -7,12 +8,11 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.AspectElement;
-import org.cxio.CxConstants;
-import org.cxio.CxConstants.ATTRIBUTE_TYPE;
-import org.cxio.EdgeAttributesElement;
-import org.cxio.EdgeAttributesFragmentWriter;
-import org.cxio.JsonWriter;
+import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.EdgeAttributesElement;
+import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
+import org.cxio.core.interfaces.AspectElement;
+import org.cxio.tools.JsonWriter;
 import org.junit.Test;
 
 public class EdgeAttributesFragmentWriterTest {
@@ -30,7 +30,7 @@ public class EdgeAttributesFragmentWriterTest {
         w0.write(l0, t0);
         t0.end();
 
-        assertEquals("[{\"" + CxConstants.EDGE_ATTRIBUTES + "\":[]}]", out0.toString());
+        assertEquals("[{\"" + EdgeAttributesElement.EDGE_ATTRIBUTES + "\":[]}]", out0.toString());
 
         final EdgeAttributesElement ea0 = new EdgeAttributesElement("00");
         ea0.addEdge("000");
@@ -69,8 +69,9 @@ public class EdgeAttributesFragmentWriterTest {
         w1.write(l1, t1);
         t1.end();
 
-        assertEquals("[{\"edgeAttributes\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"types\":{\"D\":\"double\",\"F\":\"float\",\"I\":\"integer\",\"L\":\"long\",\"X\":\"boolean\",\"Y\":\"boolean\",\"Z\":\"boolean\"},\"attributes\":{\"A\":[\"a1\",\"a2\",\"a3\"],\"B\":[\"b1\",\"b2\",\"b3\"],\"D\":[\"2.0\"],\"F\":[\"3.0\"],\"I\":[\"4\",\"5\",\"6\"],\"L\":[\"1\"],\"X\":[\"false\"],\"Y\":[\"true\"],\"Z\":[\"true\"]}}]}]",
-                     out1.toString());
+        assertEquals(
+                "[{\"edgeAttributes\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"types\":{\"D\":\"double\",\"F\":\"float\",\"I\":\"integer\",\"L\":\"long\",\"X\":\"boolean\",\"Y\":\"boolean\",\"Z\":\"boolean\"},\"attributes\":{\"A\":[\"a1\",\"a2\",\"a3\"],\"B\":[\"b1\",\"b2\",\"b3\"],\"D\":[\"2.0\"],\"F\":[\"3.0\"],\"I\":[\"4\",\"5\",\"6\"],\"L\":[\"1\"],\"X\":[\"false\"],\"Y\":[\"true\"],\"Z\":[\"true\"]}}]}]",
+                out1.toString());
     }
 
 }

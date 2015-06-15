@@ -1,28 +1,31 @@
 package org.cxio.test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
 import java.util.SortedMap;
 
-import org.cxio.AspectElement;
-import org.cxio.AspectFragmentReaderManager;
-import org.cxio.CartesianLayoutFragmentWriter;
-import org.cxio.CxConstants;
-import org.cxio.CxReader;
-import org.cxio.CxWriter;
-import org.cxio.EdgeAttributesFragmentWriter;
-import org.cxio.EdgesFragmentWriter;
-import org.cxio.NodeAttributesFragmentWriter;
-import org.cxio.NodesFragmentWriter;
-
-
+import org.cxio.aspects.datamodels.CartesianLayoutElement;
+import org.cxio.aspects.datamodels.EdgeAttributesElement;
+import org.cxio.aspects.datamodels.EdgesElement;
+import org.cxio.aspects.datamodels.NodeAttributesElement;
+import org.cxio.aspects.datamodels.NodesElement;
+import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
+import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
+import org.cxio.aspects.writers.EdgesFragmentWriter;
+import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
+import org.cxio.aspects.writers.NodesFragmentWriter;
+import org.cxio.core.CxReader;
+import org.cxio.core.CxWriter;
+import org.cxio.core.interfaces.AspectElement;
+import org.cxio.tools.AspectFragmentReaderManager;
 
 final class TestUtil {
 
     final static String cyCxRoundTrip(final String input_cx) throws IOException {
-        final CxReader p = CxReader.createInstance(input_cx, AspectFragmentReaderManager
-                .createInstance().getAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(input_cx, AspectFragmentReaderManager.createInstance()
+                .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(p);
 
         final OutputStream out = new ByteArrayOutputStream();
@@ -35,11 +38,11 @@ final class TestUtil {
         w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
 
         w.start();
-        w.write(res.get(CxConstants.NODES));
-        w.write(res.get(CxConstants.EDGES));
-        w.write(res.get(CxConstants.CARTESIAN_LAYOUT));
-        w.write(res.get(CxConstants.NODE_ATTRIBUTES));
-        w.write(res.get(CxConstants.EDGE_ATTRIBUTES));
+        w.write(res.get(NodesElement.NODES));
+        w.write(res.get(EdgesElement.EDGES));
+        w.write(res.get(CartesianLayoutElement.CARTESIAN_LAYOUT));
+        w.write(res.get(NodeAttributesElement.NODE_ATTRIBUTES));
+        w.write(res.get(EdgeAttributesElement.EDGE_ATTRIBUTES));
         w.end();
 
         return out.toString();

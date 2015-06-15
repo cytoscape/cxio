@@ -1,4 +1,5 @@
 package org.cxio.test;
+
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
@@ -7,12 +8,11 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.AspectElement;
-import org.cxio.CxConstants;
-import org.cxio.CxConstants.ATTRIBUTE_TYPE;
-import org.cxio.JsonWriter;
-import org.cxio.NodeAttributesElement;
-import org.cxio.NodeAttributesFragmentWriter;
+import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.NodeAttributesElement;
+import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
+import org.cxio.core.interfaces.AspectElement;
+import org.cxio.tools.JsonWriter;
 import org.junit.Test;
 
 public class NodeAttributesFragmentWriterTest {
@@ -30,7 +30,7 @@ public class NodeAttributesFragmentWriterTest {
         w0.write(l0, t0);
         t0.end();
 
-        assertEquals("[{\"" + CxConstants.NODE_ATTRIBUTES + "\":[]}]", out0.toString());
+        assertEquals("[{\"" + NodeAttributesElement.NODE_ATTRIBUTES + "\":[]}]", out0.toString());
 
         final NodeAttributesElement na0 = new NodeAttributesElement("00");
         na0.addNode("000");
@@ -59,8 +59,9 @@ public class NodeAttributesFragmentWriterTest {
         w1.write(l1, t1);
         t1.end();
 
-        assertEquals("[{\"nodeAttributes\":[{\"@id\":\"00\",\"nodes\":[\"000\",\"001\"],\"types\":{\"B\":\"boolean\",\"D\":\"double\",\"F\":\"float\",\"I\":\"integer\",\"L\":\"long\"},\"attributes\":{\"B\":[\"true\"],\"D\":[\"-1.111\"],\"F\":[\"2.01\"],\"I\":[\"1\"],\"L\":[\"1111\"],\"X\":[\"x1\",\"x2\",\"x3\"],\"Y\":[\"y1\",\"y2\",\"y3\"]}}]}]",
-                     out1.toString());
+        assertEquals(
+                "[{\"nodeAttributes\":[{\"@id\":\"00\",\"nodes\":[\"000\",\"001\"],\"types\":{\"B\":\"boolean\",\"D\":\"double\",\"F\":\"float\",\"I\":\"integer\",\"L\":\"long\"},\"attributes\":{\"B\":[\"true\"],\"D\":[\"-1.111\"],\"F\":[\"2.01\"],\"I\":[\"1\"],\"L\":[\"1111\"],\"X\":[\"x1\",\"x2\",\"x3\"],\"Y\":[\"y1\",\"y2\",\"y3\"]}}]}]",
+                out1.toString());
 
     }
 

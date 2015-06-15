@@ -1,4 +1,5 @@
 package org.cxio.test;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -6,12 +7,11 @@ import java.io.IOException;
 import java.util.List;
 import java.util.SortedMap;
 
-import org.cxio.AspectElement;
-import org.cxio.AspectFragmentReaderManager;
-import org.cxio.CxConstants;
-import org.cxio.CxConstants.ATTRIBUTE_TYPE;
-import org.cxio.CxReader;
-import org.cxio.EdgeAttributesElement;
+import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.EdgeAttributesElement;
+import org.cxio.core.CxReader;
+import org.cxio.core.interfaces.AspectElement;
+import org.cxio.tools.AspectFragmentReaderManager;
 import org.junit.Test;
 
 public class EdgeAttributesFragmentReaderTest {
@@ -47,14 +47,14 @@ public class EdgeAttributesFragmentReaderTest {
                 .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + CxConstants.EDGE_ATTRIBUTES + " aspect",
-                   r0.containsKey(CxConstants.EDGE_ATTRIBUTES));
-        assertFalse("failed to parse " + CxConstants.EDGE_ATTRIBUTES + " aspect",
-                    r0.get(CxConstants.EDGE_ATTRIBUTES).isEmpty());
-        assertTrue("failed to get expected number of " + CxConstants.EDGE_ATTRIBUTES + " aspects",
-                   r0.get(CxConstants.EDGE_ATTRIBUTES).size() == 3);
+        assertTrue("failed to parse " + EdgeAttributesElement.EDGE_ATTRIBUTES + " aspect",
+                r0.containsKey(EdgeAttributesElement.EDGE_ATTRIBUTES));
+        assertFalse("failed to parse " + EdgeAttributesElement.EDGE_ATTRIBUTES + " aspect",
+                r0.get(EdgeAttributesElement.EDGE_ATTRIBUTES).isEmpty());
+        assertTrue("failed to get expected number of " + EdgeAttributesElement.EDGE_ATTRIBUTES + " aspects",
+                r0.get(EdgeAttributesElement.EDGE_ATTRIBUTES).size() == 3);
 
-        final List<AspectElement> aspects = r0.get(CxConstants.EDGE_ATTRIBUTES);
+        final List<AspectElement> aspects = r0.get(EdgeAttributesElement.EDGE_ATTRIBUTES);
 
         final EdgeAttributesElement ea1 = (EdgeAttributesElement) aspects.get(0);
         assertTrue(ea1.getId().equals("_ea0"));

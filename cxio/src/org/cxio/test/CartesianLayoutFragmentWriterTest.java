@@ -1,4 +1,5 @@
 package org.cxio.test;
+
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
@@ -7,11 +8,10 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.AspectElement;
-import org.cxio.CartesianLayoutElement;
-import org.cxio.CartesianLayoutFragmentWriter;
-import org.cxio.CxConstants;
-import org.cxio.JsonWriter;
+import org.cxio.aspects.datamodels.CartesianLayoutElement;
+import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
+import org.cxio.core.interfaces.AspectElement;
+import org.cxio.tools.JsonWriter;
 import org.junit.Test;
 
 public class CartesianLayoutFragmentWriterTest {
@@ -29,7 +29,7 @@ public class CartesianLayoutFragmentWriterTest {
         w0.write(l0, t0);
         t0.end();
 
-        assertEquals("[{\"" + CxConstants.CARTESIAN_LAYOUT + "\":[]}]", out0.toString());
+        assertEquals("[{\"" + CartesianLayoutElement.CARTESIAN_LAYOUT + "\":[]}]", out0.toString());
 
         final CartesianLayoutElement c0 = new CartesianLayoutElement("00", "0", "0");
         final CartesianLayoutElement c1 = new CartesianLayoutElement("01", "1", "2");
@@ -49,8 +49,9 @@ public class CartesianLayoutFragmentWriterTest {
         w1.write(l1, t1);
         t1.end();
 
-        assertEquals("[{\"cartesianLayout\":[{\"node\":\"00\",\"x\":0.0,\"y\":0.0},{\"node\":\"01\",\"x\":1.0,\"y\":2.0},{\"node\":\"02\",\"x\":3.0,\"y\":4.0}]}]",
-                     out1.toString());
+        assertEquals(
+                "[{\"cartesianLayout\":[{\"node\":\"00\",\"x\":0.0,\"y\":0.0},{\"node\":\"01\",\"x\":1.0,\"y\":2.0},{\"node\":\"02\",\"x\":3.0,\"y\":4.0}]}]",
+                out1.toString());
 
     }
 

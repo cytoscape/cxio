@@ -1,4 +1,5 @@
 package org.cxio.test;
+
 import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
@@ -7,10 +8,10 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.AspectElement;
-import org.cxio.JsonWriter;
-import org.cxio.NodesElement;
-import org.cxio.NodesFragmentWriter;
+import org.cxio.aspects.datamodels.NodesElement;
+import org.cxio.aspects.writers.NodesFragmentWriter;
+import org.cxio.core.interfaces.AspectElement;
+import org.cxio.tools.JsonWriter;
 import org.junit.Test;
 
 public class NodesFragmentWriterTest {
@@ -47,8 +48,7 @@ public class NodesFragmentWriterTest {
         w1.write(l1, t1);
         t1.end();
 
-        assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]}]",
-                     out1.toString());
+        assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]}]", out1.toString());
 
         final NodesElement n3 = new NodesElement("3");
         final NodesElement n4 = new NodesElement("4");
@@ -69,8 +69,7 @@ public class NodesFragmentWriterTest {
         w2.write(l3, t1);
         t2.end();
 
-        assertEquals("[{\"nodes\":[{\"@id\":\"3\"},{\"@id\":\"4\"}]},{\"nodes\":[{\"@id\":\"5\"}]}]",
-                     out2.toString());
+        assertEquals("[{\"nodes\":[{\"@id\":\"3\"},{\"@id\":\"4\"}]},{\"nodes\":[{\"@id\":\"5\"}]}]", out2.toString());
 
     }
 

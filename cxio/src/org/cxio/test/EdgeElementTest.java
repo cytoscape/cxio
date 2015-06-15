@@ -1,8 +1,9 @@
 package org.cxio.test;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.cxio.EdgesElement;
+import org.cxio.aspects.datamodels.EdgesElement;
 import org.junit.Test;
 
 public class EdgeElementTest {

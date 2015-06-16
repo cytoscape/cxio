@@ -23,7 +23,7 @@ public class EdgeAttributesFragmentWriter implements AspectFragmentWriter {
     private final void addEdgeAttributesAspect(final EdgeAttributesElement ea, final JsonWriter w) throws IOException {
         w.writeStartObject();
         w.writeStringField(CxConstants.ID, ea.getId());
-        w.writeList(AbstractAttributesElement.EDGES, ea.getEdges());
+        w.writeList(EdgeAttributesElement.EDGES, ea.getEdges());
         if ((ea.getAttributesTypes() != null) && !ea.getAttributesTypes().isEmpty()) {
             w.writeObjectFieldStart(AbstractAttributesElement.ATTRIBUTE_TYPES);
             for (final Entry<String, ATTRIBUTE_TYPE> a : ea.getAttributesTypes().entrySet()) {

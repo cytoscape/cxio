@@ -23,7 +23,7 @@ public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
     private final void addNodeAttributesAspect(final NodeAttributesElement na, final JsonWriter w) throws IOException {
         w.writeStartObject();
         w.writeStringField(CxConstants.ID, na.getId());
-        w.writeList(AbstractAttributesElement.NODES, na.getNodes());
+        w.writeList(NodeAttributesElement.NODES, na.getNodes());
         if ((na.getAttributesTypes() != null) && !na.getAttributesTypes().isEmpty()) {
             w.writeObjectFieldStart(AbstractAttributesElement.ATTRIBUTE_TYPES);
             for (final Entry<String, ATTRIBUTE_TYPE> a : na.getAttributesTypes().entrySet()) {

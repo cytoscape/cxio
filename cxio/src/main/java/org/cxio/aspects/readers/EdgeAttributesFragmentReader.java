@@ -45,7 +45,7 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
                     if (CxConstants.ID.equals(namefield)) {
                         eae.setId(jp.getText());
                     }
-                    else if (AbstractAttributesElement.EDGES.equals(namefield)) {
+                    else if (EdgeAttributesElement.EDGES.equals(namefield)) {
                         for (final String edge : Util.parseSimpleList(jp, t)) {
                             eae.addEdge(edge);
                         }

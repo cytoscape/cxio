@@ -10,6 +10,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
 
     private final List<String> edges;
     public final static String EDGE_ATTRIBUTES = "edgeAttributes";
+    public final static String EDGES           = "edges";
 
     public EdgeAttributesElement() {
         this.id = null;

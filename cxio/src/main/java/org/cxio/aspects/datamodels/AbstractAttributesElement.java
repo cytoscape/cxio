@@ -29,8 +29,6 @@ public abstract class AbstractAttributesElement implements AspectElement {
     String                                  id;
     public final static String              ATTRIBUTE_TYPES  = "types";
     public final static String              ATTRIBUTES       = "attributes";
-    public final static String              NODES            = "nodes";
-    public final static String              EDGES            = "edges";
 
     public final SortedMap<String, List<String>> getAttributes() {
         return attributes;

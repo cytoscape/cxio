@@ -10,6 +10,7 @@ public final class NodeAttributesElement extends AbstractAttributesElement {
 
     private final List<String> nodes;
     public final static String NODE_ATTRIBUTES = "nodeAttributes";
+    public final static String NODES           = "nodes";
 
     public NodeAttributesElement() {
         this.id = null;

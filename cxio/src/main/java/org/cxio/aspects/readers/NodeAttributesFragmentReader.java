@@ -45,7 +45,7 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
                     if (CxConstants.ID.equals(namefield)) {
                         nae.setId(jp.getText());
                     }
-                    else if (AbstractAttributesElement.NODES.equals(namefield)) {
+                    else if (NodeAttributesElement.NODES.equals(namefield)) {
                         for (final String node : Util.parseSimpleList(jp, t)) {
                             nae.addNode(node);
                         }

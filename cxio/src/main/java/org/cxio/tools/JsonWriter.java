@@ -55,7 +55,7 @@ public class JsonWriter {
     }
 
     public final void writeList(final String label, final Iterator<String> it) throws JsonGenerationException,
-            IOException {
+    IOException {
         g.writeArrayFieldStart(label);
         while (it.hasNext()) {
             g.writeString(it.next().toString());
@@ -64,7 +64,7 @@ public class JsonWriter {
     }
 
     public final void writeList(final String label, final List<String> list) throws JsonGenerationException,
-            IOException {
+    IOException {
         if ((list != null) && !list.isEmpty()) {
             g.writeArrayFieldStart(label);
             for (final String s : list) {

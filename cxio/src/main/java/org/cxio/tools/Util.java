@@ -14,7 +14,7 @@ public final class Util {
         return (s == null) || (s.length() < 1);
     }
 
-    public final static List<String> parseSimpleList(final JsonParser jp, JsonToken t) throws IOException,
+    public final static List<String> parseSimpleStringList(final JsonParser jp, JsonToken t) throws IOException,
     JsonParseException {
         final List<String> elements = new ArrayList<String>();
         while (t != JsonToken.END_ARRAY) {
@@ -28,5 +28,7 @@ public final class Util {
         }
         return elements;
     }
+    
+    
 
 }

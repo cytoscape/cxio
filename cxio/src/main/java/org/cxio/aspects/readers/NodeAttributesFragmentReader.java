@@ -46,14 +46,14 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
                         nae.setId(jp.getText());
                     }
                     else if (NodeAttributesElement.NODES.equals(namefield)) {
-                        for (final String node : Util.parseSimpleList(jp, t)) {
+                        for (final String node : Util.parseSimpleStringList(jp, t)) {
                             nae.addNode(node);
                         }
                     }
                     else if (AbstractAttributesElement.ATTRIBUTES.equals(namefield)) {
                         while (jp.nextToken() != JsonToken.END_OBJECT) {
                             jp.nextToken(); // move to value
-                            nae.putValues(jp.getCurrentName(), Util.parseSimpleList(jp, t));
+                            nae.putValues(jp.getCurrentName(), Util.parseSimpleStringList(jp, t));
                         }
                     }
                     else if (AbstractAttributesElement.ATTRIBUTE_TYPES.equals(namefield)) {

@@ -107,7 +107,7 @@ public class Examples {
         p.addAspectFragmentReader(CartesianLayoutFragmentReader.createInstance());
         p.addAspectFragmentReader(EdgeAttributesFragmentReader.createInstance());
         p.addAspectFragmentReader(NodeAttributesFragmentReader.createInstance());
-
+        p.reset();
         while (p.hasNext()) {
             final List<AspectElement> elements = p.getNext();
             if (!elements.isEmpty()) {

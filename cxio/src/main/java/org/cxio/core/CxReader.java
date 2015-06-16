@@ -40,6 +40,7 @@ public final class CxReader {
         while ((token != JsonToken.END_ARRAY) || (jp.getCurrentName() != null)) {
             List<AspectElement> aspects = null;
             final String name = jp.getCurrentName();
+           
             was_in_recognized_aspect = false;
             if ((level == 2) && (token == JsonToken.FIELD_NAME) && (name != null)) {
                 if (aspect_readers.containsKey(name)) {

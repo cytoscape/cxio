@@ -46,14 +46,14 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
                         eae.setId(jp.getText());
                     }
                     else if (EdgeAttributesElement.EDGES.equals(namefield)) {
-                        for (final String edge : Util.parseSimpleList(jp, t)) {
+                        for (final String edge : Util.parseSimpleStringList(jp, t)) {
                             eae.addEdge(edge);
                         }
                     }
                     else if (AbstractAttributesElement.ATTRIBUTES.equals(namefield)) {
                         while (jp.nextToken() != JsonToken.END_OBJECT) {
                             jp.nextToken(); // move to value
-                            eae.putValues(jp.getCurrentName(), Util.parseSimpleList(jp, t));
+                            eae.putValues(jp.getCurrentName(), Util.parseSimpleStringList(jp, t));
                         }
                     }
                     else if (AbstractAttributesElement.ATTRIBUTE_TYPES.equals(namefield)) {

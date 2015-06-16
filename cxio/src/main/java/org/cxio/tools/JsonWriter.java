@@ -73,6 +73,14 @@ public class JsonWriter {
             g.writeEndArray();
         }
     }
+    
+    public final void writeStartArray(final String label) throws IOException {
+        g.writeArrayFieldStart(label);
+    }
+    
+    public final void writeEndArray() throws IOException {
+        g.writeEndArray();
+    }
 
     public final void writeNumberField(final String field_name, final double value) throws IOException {
         g.writeNumberField(field_name, value);
@@ -88,6 +96,12 @@ public class JsonWriter {
 
     public final void writeStringField(final String field_name, final String value) throws IOException {
         g.writeStringField(field_name, value);
+    }
+    
+    public final void writeStringFieldIfNotEmpty(final String field_name, final String value) throws IOException {
+        if ( value != null && value.length() > 0 ) {
+            g.writeStringField(field_name, value);
+        }
     }
 
 }

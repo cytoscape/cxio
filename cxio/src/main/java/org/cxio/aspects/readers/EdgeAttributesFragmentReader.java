@@ -4,10 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.core.CxConstants;
+import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.tools.Util;
@@ -87,4 +87,8 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
 
         return ea_aspects;
     }
+    
+    
+        
+    
 }

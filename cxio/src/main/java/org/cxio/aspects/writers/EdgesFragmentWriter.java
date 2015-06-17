@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.core.CxConstants;
+import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
-import org.cxio.tools.JsonWriter;
 import org.cxio.tools.Util;
 
 public class EdgesFragmentWriter implements AspectFragmentWriter {

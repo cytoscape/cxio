@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
-import org.cxio.aspects.readers.CartesianLayoutFragmentReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.tools.AspectFragmentReaderManager;
@@ -70,8 +69,5 @@ public class CartesianLayoutFragmentReaderTest {
         assertTrue(a2.getY() == 6);
 
     }
-
-    
-   
 
 }

@@ -8,9 +8,9 @@ import org.cxio.aspects.datamodels.AbstractAttributesElement;
 import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.core.CxConstants;
+import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
-import org.cxio.tools.JsonWriter;
 
 public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
     public static NodeAttributesFragmentWriter createInstance() {

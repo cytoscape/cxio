@@ -60,8 +60,6 @@ public class EdgesFragmentReaderTest {
 
     }
 
-   
-
     @Test(expected = java.io.IOException.class)
     public void testEdgesAspectParsingWithExpectedException2() throws IOException {
         final String t0 = "["

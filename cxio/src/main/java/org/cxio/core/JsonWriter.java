@@ -1,4 +1,4 @@
-package org.cxio.tools;
+package org.cxio.core;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -7,97 +7,111 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class JsonWriter {
+public final class JsonWriter {
+    
+    private final JsonGenerator _g;
+    private final ObjectMapper  _m;
 
-    private static JsonGenerator g;
-
-    public final static JsonWriter createInstance(final OutputStream out) throws IOException {
+    final static JsonWriter createInstance(final OutputStream out) throws IOException {
         return createInstance(out, false);
     }
-
-    public final static JsonWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer)
+    final static JsonWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer)
             throws IOException {
+        return new JsonWriter(out, use_default_pretty_printer);
+    }
+
+    private JsonWriter(final OutputStream out, final boolean use_default_pretty_printer) throws IOException {
         final JsonFactory f = new JsonFactory();
-        g = f.createGenerator(out);
+        _g = f.createGenerator(out);
+        _m = new ObjectMapper();
         if (use_default_pretty_printer) {
-            g.useDefaultPrettyPrinter();
+            _g.useDefaultPrettyPrinter();
         }
-        return new JsonWriter();
     }
 
     public final void end() throws IOException {
-        g.writeEndArray();
-        g.close();
+        _g.writeEndArray();
+        _g.close();
     }
 
     public final void endArray() throws IOException {
-        g.writeEndArray();
-        g.writeEndObject();
+        _g.writeEndArray();
+        _g.writeEndObject();
     }
 
     public final void start() throws IOException {
-        g.writeStartArray();
+        _g.writeStartArray();
     }
 
     public final void startArray(final String label) throws IOException {
-        g.writeStartObject();
-        g.writeArrayFieldStart(label);
+        _g.writeStartObject();
+        _g.writeArrayFieldStart(label);
     }
 
     public final void writeBooleanField(final String field_name, final boolean value) throws IOException {
-        g.writeBooleanField(field_name, value);
+        _g.writeBooleanField(field_name, value);
     }
 
     public final void writeEndArray() throws IOException {
-        g.writeEndArray();
+        _g.writeEndArray();
     }
 
     public final void writeEndObject() throws IOException {
-        g.writeEndObject();
+        _g.writeEndObject();
+    }
+
+    public void writeJsonObject(final String label, final ObjectNode data_parent) throws JsonProcessingException,
+            IOException {
+        final ObjectNode node = _m.createObjectNode();
+        node.set(label, data_parent);
+        node.serialize(_g, null);
     }
 
     public final void writeList(final String label, final Iterator<String> it) throws IOException {
-        g.writeArrayFieldStart(label);
+        _g.writeArrayFieldStart(label);
         while (it.hasNext()) {
-            g.writeString(it.next().toString());
+            _g.writeString(it.next().toString());
         }
-        g.writeEndArray();
+        _g.writeEndArray();
     }
 
     public final void writeList(final String label, final List<String> list) throws IOException {
         if ((list != null) && !list.isEmpty()) {
-            g.writeArrayFieldStart(label);
+            _g.writeArrayFieldStart(label);
             for (final String s : list) {
-                g.writeString(s);
+                _g.writeString(s);
             }
-            g.writeEndArray();
+            _g.writeEndArray();
         }
     }
 
     public final void writeNumberField(final String field_name, final double value) throws IOException {
-        g.writeNumberField(field_name, value);
+        _g.writeNumberField(field_name, value);
     }
 
     public final void writeObjectFieldStart(final String label) throws IOException {
-        g.writeObjectFieldStart(label);
+        _g.writeObjectFieldStart(label);
     }
 
     public final void writeStartArray(final String label) throws IOException {
-        g.writeArrayFieldStart(label);
+        _g.writeArrayFieldStart(label);
     }
 
     public final void writeStartObject() throws IOException {
-        g.writeStartObject();
+        _g.writeStartObject();
     }
 
     public final void writeStringField(final String field_name, final String value) throws IOException {
-        g.writeStringField(field_name, value);
+        _g.writeStringField(field_name, value);
     }
 
     public final void writeStringFieldIfNotEmpty(final String field_name, final String value) throws IOException {
         if ((value != null) && (value.length() > 0)) {
-            g.writeStringField(field_name, value);
+            _g.writeStringField(field_name, value);
         }
     }
 

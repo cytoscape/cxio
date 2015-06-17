@@ -3,7 +3,7 @@ package org.cxio.core.interfaces;
 import java.io.IOException;
 import java.util.List;
 
-import org.cxio.tools.JsonWriter;
+import org.cxio.core.JsonWriter;
 
 public interface AspectFragmentWriter {
     public String getAspectName();

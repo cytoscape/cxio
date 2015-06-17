@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
+import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
-import org.cxio.tools.JsonWriter;
 
 public class CartesianLayoutFragmentWriter implements AspectFragmentWriter {
     public static CartesianLayoutFragmentWriter createInstance() {

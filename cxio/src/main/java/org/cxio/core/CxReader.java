@@ -236,6 +236,7 @@ public final class CxReader {
 
     public final void addAspectFragmentReader(final AspectFragmentReader fragment_reader) throws IOException {
         aspect_readers.put(fragment_reader.getAspectName(), fragment_reader);
+        reset();
 
     }
 

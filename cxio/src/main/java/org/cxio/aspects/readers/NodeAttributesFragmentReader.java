@@ -15,15 +15,21 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 
 public class NodeAttributesFragmentReader implements AspectFragmentReader {
-    private static final boolean STRICT = true;
+    
+    private static final boolean STRICT_DEFAULT = false;
+    private final boolean _strict;
 
     public static NodeAttributesFragmentReader createInstance() {
-        return new NodeAttributesFragmentReader();
+        return new NodeAttributesFragmentReader(STRICT_DEFAULT);
+    }
+    
+    public static NodeAttributesFragmentReader createInstance(final boolean strict) {
+        return new NodeAttributesFragmentReader(strict);
     }
 
-    private NodeAttributesFragmentReader() {
+    private NodeAttributesFragmentReader(final boolean strict) {
+        _strict = strict;
     }
-
     @Override
     public String getAspectName() {
         return NodeAttributesElement.NODE_ATTRIBUTES;
@@ -62,7 +68,7 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
                             nae.putType(jp.getCurrentName(), jp.getText());
                         }
                     }
-                    else if (STRICT) {
+                    else if (_strict) {
                         throw new IOException("malformed cx json: unrecognized field '" + namefield + "'");
                     }
                 }

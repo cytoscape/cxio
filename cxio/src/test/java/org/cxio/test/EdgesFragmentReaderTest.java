@@ -60,23 +60,7 @@ public class EdgesFragmentReaderTest {
 
     }
 
-    @Test(expected = java.io.IOException.class)
-    public void testEdgesAspectParsingWithExpectedException1() throws IOException {
-        final String t0 = "["
-                + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
-                + "{\"edges\":[{\"@name\":\"e0\",\"source\":\"_0\",\"target\":\"_1\"},{\"@id\":\"e1\",\"source\":\"_1\",\"target\":\"_2\"}]},"
-                + "{\"nodeIdentities\":[{\"@id\":\"ni0\",\"node\":\"_0\",\"represents\":\"name is zero\"},{\"@id\":\"ni1\",\"node\":\"_1\",\"represents\":\"name is one\"}]},"
-                + "{\"edgeIdentities\":[{\"@id\":\"ei0\",\"edge\":\"e0\",\"relationship\":\"BEL:INCREASES\"},{\"@id\":\"ei1\",\"edge\":\"e1\",\"relationship\":\"BEL:DECREASES\"}]},"
-                + "{\"elementProperties\":[{\"@id\":\"ep0\",\"elementId\":\"_0\",\"property\":\"property zero\",\"value\":\"value is zero\"},{\"@id\":\"ep1\",\"elementId\":\"_1\",\"property\":\"propery one\",\"value\":\"value is one\"}]},"
-                + "{\"functionTerms\":[{\"@id\":\"ft0\",\"function\":\"functions zero\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]},{\"@id\":\"ft1\",\"function\":\"functions one\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]}]},"
-                + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
-                + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
-
-        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectFragmentReaders());
-        CxReader.parseAsMap(p);
-
-    }
+   
 
     @Test(expected = java.io.IOException.class)
     public void testEdgesAspectParsingWithExpectedException2() throws IOException {

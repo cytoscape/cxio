@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.core.CxConstants;
@@ -15,13 +16,20 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 
 public class EdgeAttributesFragmentReader implements AspectFragmentReader {
-    private static final boolean STRICT = true;
+
+    private static final boolean STRICT_DEFAULT = false;
+    private final boolean _strict;
 
     public static EdgeAttributesFragmentReader createInstance() {
-        return new EdgeAttributesFragmentReader();
+        return new EdgeAttributesFragmentReader(STRICT_DEFAULT);
+    }
+    
+    public static EdgeAttributesFragmentReader createInstance(final boolean strict) {
+        return new EdgeAttributesFragmentReader(strict);
     }
 
-    private EdgeAttributesFragmentReader() {
+    private EdgeAttributesFragmentReader(final boolean strict) {
+        _strict = strict;
     }
 
     @Override
@@ -62,7 +70,7 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
                             eae.putType(jp.getCurrentName(), jp.getText());
                         }
                     }
-                    else if (STRICT) {
+                    else if (_strict) {
                         throw new IOException("malformed cx json: unrecognized field '" + namefield + "'");
                     }
                 }

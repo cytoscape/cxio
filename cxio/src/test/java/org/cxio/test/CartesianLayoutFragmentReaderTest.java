@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
+import org.cxio.aspects.readers.CartesianLayoutFragmentReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.tools.AspectFragmentReaderManager;
@@ -17,7 +18,7 @@ import org.junit.Test;
 public class CartesianLayoutFragmentReaderTest {
 
     @Test
-    public void test() throws IOException {
+    public void test1() throws IOException {
         final String t0 = "["
                 + "{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
@@ -69,5 +70,8 @@ public class CartesianLayoutFragmentReaderTest {
         assertTrue(a2.getY() == 6);
 
     }
+
+    
+   
 
 }

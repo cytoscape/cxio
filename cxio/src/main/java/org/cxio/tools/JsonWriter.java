@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonGenerator;
 
 public class JsonWriter {
@@ -27,21 +26,21 @@ public class JsonWriter {
         return new JsonWriter();
     }
 
-    public final void end() throws JsonGenerationException, IOException {
+    public final void end() throws IOException {
         g.writeEndArray();
         g.close();
     }
 
-    public final void endArray() throws JsonGenerationException, IOException {
+    public final void endArray() throws IOException {
         g.writeEndArray();
         g.writeEndObject();
     }
 
-    public final void start() throws JsonGenerationException, IOException {
+    public final void start() throws IOException {
         g.writeStartArray();
     }
 
-    public final void startArray(final String label) throws JsonGenerationException, IOException {
+    public final void startArray(final String label) throws IOException {
         g.writeStartObject();
         g.writeArrayFieldStart(label);
     }
@@ -50,12 +49,15 @@ public class JsonWriter {
         g.writeBooleanField(field_name, value);
     }
 
+    public final void writeEndArray() throws IOException {
+        g.writeEndArray();
+    }
+
     public final void writeEndObject() throws IOException {
         g.writeEndObject();
     }
 
-    public final void writeList(final String label, final Iterator<String> it) throws JsonGenerationException,
-    IOException {
+    public final void writeList(final String label, final Iterator<String> it) throws IOException {
         g.writeArrayFieldStart(label);
         while (it.hasNext()) {
             g.writeString(it.next().toString());
@@ -63,8 +65,7 @@ public class JsonWriter {
         g.writeEndArray();
     }
 
-    public final void writeList(final String label, final List<String> list) throws JsonGenerationException,
-    IOException {
+    public final void writeList(final String label, final List<String> list) throws IOException {
         if ((list != null) && !list.isEmpty()) {
             g.writeArrayFieldStart(label);
             for (final String s : list) {
@@ -72,14 +73,6 @@ public class JsonWriter {
             }
             g.writeEndArray();
         }
-    }
-    
-    public final void writeStartArray(final String label) throws IOException {
-        g.writeArrayFieldStart(label);
-    }
-    
-    public final void writeEndArray() throws IOException {
-        g.writeEndArray();
     }
 
     public final void writeNumberField(final String field_name, final double value) throws IOException {
@@ -90,6 +83,10 @@ public class JsonWriter {
         g.writeObjectFieldStart(label);
     }
 
+    public final void writeStartArray(final String label) throws IOException {
+        g.writeArrayFieldStart(label);
+    }
+
     public final void writeStartObject() throws IOException {
         g.writeStartObject();
     }
@@ -97,9 +94,9 @@ public class JsonWriter {
     public final void writeStringField(final String field_name, final String value) throws IOException {
         g.writeStringField(field_name, value);
     }
-    
+
     public final void writeStringFieldIfNotEmpty(final String field_name, final String value) throws IOException {
-        if ( value != null && value.length() > 0 ) {
+        if ((value != null) && (value.length() > 0)) {
             g.writeStringField(field_name, value);
         }
     }

@@ -10,18 +10,25 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.tools.Util;
 
+
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 
 public class NodesFragmentReader implements AspectFragmentReader {
 
-    private static final boolean STRICT = true;
+    private static final boolean STRICT_DEFAULT = false;
+    private final boolean _strict;
 
     public static NodesFragmentReader createInstance() {
-        return new NodesFragmentReader();
+        return new NodesFragmentReader(STRICT_DEFAULT);
+    }
+    
+    public static NodesFragmentReader createInstance(final boolean strict) {
+        return new NodesFragmentReader(strict);
     }
 
-    private NodesFragmentReader() {
+    private NodesFragmentReader(final boolean strict) {
+        _strict = strict;
     }
 
     @Override
@@ -46,7 +53,7 @@ public class NodesFragmentReader implements AspectFragmentReader {
                     if (CxConstants.ID.equals(namefield)) {
                         id = jp.getText().trim();
                     }
-                    else if (STRICT) {
+                    else if (_strict) {
                         throw new IOException("malformed cx json: unrecognized field '" + namefield + "'");
                     }
                 }

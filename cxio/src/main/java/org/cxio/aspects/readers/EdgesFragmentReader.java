@@ -15,14 +15,21 @@ import com.fasterxml.jackson.core.JsonToken;
 
 public class EdgesFragmentReader implements AspectFragmentReader {
 
-    private static final boolean STRICT = true;
+    private static final boolean STRICT_DEFAULT = false;
+    private final boolean _strict;
 
     public static EdgesFragmentReader createInstance() {
-        return new EdgesFragmentReader();
+        return new EdgesFragmentReader(STRICT_DEFAULT);
+    }
+    
+    public static EdgesFragmentReader createInstance(final boolean strict) {
+        return new EdgesFragmentReader(strict);
     }
 
-    private EdgesFragmentReader() {
+    private EdgesFragmentReader(final boolean strict) {
+        _strict = strict;
     }
+
 
     @Override
     public String getAspectName() {
@@ -53,7 +60,7 @@ public class EdgesFragmentReader implements AspectFragmentReader {
                     else if (EdgesElement.TARGET_NODE_ID.equals(namefield)) {
                         target = jp.getText().trim();
                     }
-                    else if (STRICT) {
+                    else if (_strict) {
                         throw new IOException("malformed cx json: unrecognized field '" + namefield + "'");
                     }
                 }

@@ -89,11 +89,11 @@ public class Examples {
         w.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
 
         w.start();
-        w.write(edges_elements);
-        w.write(nodes_elements);
-        w.write(cartesian_elements);
-        w.write(edge_attributes_elements);
-        w.write(node_attributes_elements);
+        w.writeAspectElements(edges_elements);
+        w.writeAspectElements(nodes_elements);
+        w.writeAspectElements(cartesian_elements);
+        w.writeAspectElements(edge_attributes_elements);
+        w.writeAspectElements(node_attributes_elements);
         w.end();
 
         final String cx_json_str = out.toString();

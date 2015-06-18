@@ -1,5 +1,6 @@
 package org.cxio.aspects.datamodels;
 
+import org.cxio.core.CxConstants;
 import org.cxio.core.interfaces.AspectElement;
 
 /**
@@ -12,7 +13,8 @@ import org.cxio.core.interfaces.AspectElement;
 public final class NodesElement implements AspectElement {
 
     private final String       id;
-    public final static String NODES = "nodes";
+    public final static String NAME = "nodes";
+    public final static String ID = CxConstants.ID;
 
     public NodesElement(final String id) {
         this.id = id;
@@ -33,7 +35,7 @@ public final class NodesElement implements AspectElement {
 
     @Override
     final public String getAspectName() {
-        return NodesElement.NODES;
+        return NodesElement.NAME;
     }
 
     final public String getId() {

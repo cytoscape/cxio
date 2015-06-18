@@ -76,7 +76,7 @@ public class CxWriter {
         jw.start();
     }
 
-    public void write(final List<AspectElement> elements) throws IOException {
+    public void writeAspectElements(final List<AspectElement> elements) throws IOException {
         if (!started) {
             throw new IllegalStateException("not started");
         }
@@ -93,11 +93,15 @@ public class CxWriter {
 
     }
 
-    public void write(final String label, final List<ObjectNode> data_nodes) throws IOException {
+    public void writeJsonObjects(final String label, final List<ObjectNode> data_nodes) throws IOException {
         jw.writeJsonObjects(label, data_nodes);
     }
 
-    public void write(final String label, final ObjectNode data_node) throws IOException {
+    public void writeJsonObjectAsList(final String label, final ObjectNode data_node) throws IOException {
+        jw.writeJsonObjectAsList(label, data_node);
+    }
+    
+    public void writeJsonObject(final String label, final ObjectNode data_node) throws IOException {
         jw.writeJsonObject(label, data_node);
     }
 

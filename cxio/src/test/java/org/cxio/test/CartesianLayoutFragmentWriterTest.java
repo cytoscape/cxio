@@ -26,7 +26,7 @@ public class CartesianLayoutFragmentWriterTest {
         w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
 
         w.start();
-        w.write(l0);
+        w.writeAspectElements(l0);
         w.end();
 
         assertEquals("[]", out0.toString());
@@ -46,7 +46,7 @@ public class CartesianLayoutFragmentWriterTest {
         w1.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
 
         w1.start();
-        w1.write(l1);
+        w1.writeAspectElements(l1);
         w1.end();
 
         assertEquals(

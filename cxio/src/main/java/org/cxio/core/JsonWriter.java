@@ -66,13 +66,20 @@ public final class JsonWriter {
 
     public void writeJsonObject(final String label, final ObjectNode data_node) throws IOException {
         final ObjectNode new_parent = _m.createObjectNode();
-        new_parent.set(label, new_parent.arrayNode().add(data_node));
+        new_parent.set(label, data_node);
         new_parent.serialize(_g, null);
     }
 
+    public void writeJsonObjectAsList(final String label, final ObjectNode data_node) throws IOException {
+        final ObjectNode new_parent = _m.createObjectNode();
+        new_parent.set(label, new_parent.arrayNode().add(data_node));
+        new_parent.serialize(_g, null);
+    }
+    
     public void writeJsonObjects(final String label, final List<ObjectNode> data_nodes) throws IOException {
         final ObjectNode new_parent = _m.createObjectNode();
         final ArrayNode array_node = new_parent.arrayNode();
+        //array_node.addAll(data_nodes);
         for (final ObjectNode data_node : data_nodes) {
             array_node.add(data_node);
         }

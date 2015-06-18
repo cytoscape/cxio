@@ -29,7 +29,7 @@ public class NodesFragmentWriter implements AspectFragmentWriter {
         if (node_aspects == null) {
             return;
         }
-        w.startArray(NodesElement.NODES);
+        w.startArray(NodesElement.NAME);
         for (final AspectElement node_aspect : node_aspects) {
             addNode(((NodesElement) node_aspect).getId(), w);
         }
@@ -38,7 +38,7 @@ public class NodesFragmentWriter implements AspectFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return NodesElement.NODES;
+        return NodesElement.NAME;
     }
 
 }

@@ -38,32 +38,32 @@ public class NodesFragmentReaderTest {
                 .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + NodesElement.NODES + " aspect", r0.containsKey(NodesElement.NODES));
+        assertTrue("failed to parse " + NodesElement.NAME + " aspect", r0.containsKey(NodesElement.NAME));
 
-        assertFalse("failed to parse " + NodesElement.NODES + " aspect", r0.get(NodesElement.NODES).isEmpty());
+        assertFalse("failed to parse " + NodesElement.NAME + " aspect", r0.get(NodesElement.NAME).isEmpty());
 
-        assertTrue("failed to parse expected number of " + NodesElement.NODES + " aspects", r0.get(NodesElement.NODES)
+        assertTrue("failed to parse expected number of " + NodesElement.NAME + " aspects", r0.get(NodesElement.NAME)
                 .size() == 8);
 
-        final List<AspectElement> node_aspects = r0.get(NodesElement.NODES);
+        final List<AspectElement> node_aspects = r0.get(NodesElement.NAME);
 
         assertTrue("failed to get expected NodeAspect instance", node_aspects.get(0) instanceof NodesElement);
 
-        assertTrue("failed to get expected " + NodesElement.NODES + " aspect",
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
                 node_aspects.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.NODES + " aspect",
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
                 node_aspects.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.NODES + " aspect",
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
                 node_aspects.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.NODES + " aspect",
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
                 node_aspects.contains(new NodesElement("_3")));
-        assertTrue("failed to get expected " + NodesElement.NODES + " aspect",
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
                 node_aspects.contains(new NodesElement("_4")));
-        assertTrue("failed to get expected " + NodesElement.NODES + " aspect",
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
                 node_aspects.contains(new NodesElement("_5")));
-        assertTrue("failed to get expected " + NodesElement.NODES + " aspect",
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
                 node_aspects.contains(new NodesElement("_6")));
-        assertTrue("failed to get expected " + NodesElement.NODES + " aspect",
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
                 node_aspects.contains(new NodesElement("_7")));
 
     }
@@ -105,8 +105,8 @@ public class NodesFragmentReaderTest {
                 .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertFalse("expected to parse no " + NodesElement.NODES + " aspects, got some",
-                r0.containsKey(NodesElement.NODES));
+        assertFalse("expected to parse no " + NodesElement.NAME + " aspects, got some",
+                r0.containsKey(NodesElement.NAME));
 
     }
 

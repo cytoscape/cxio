@@ -38,11 +38,11 @@ final class TestUtil {
         w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
 
         w.start();
-        w.write(res.get(NodesElement.NODES));
-        w.write(res.get(EdgesElement.EDGES));
-        w.write(res.get(CartesianLayoutElement.CARTESIAN_LAYOUT));
-        w.write(res.get(NodeAttributesElement.NODE_ATTRIBUTES));
-        w.write(res.get(EdgeAttributesElement.EDGE_ATTRIBUTES));
+        w.writeAspectElements(res.get(NodesElement.NAME));
+        w.writeAspectElements(res.get(EdgesElement.EDGES));
+        w.writeAspectElements(res.get(CartesianLayoutElement.CARTESIAN_LAYOUT));
+        w.writeAspectElements(res.get(NodeAttributesElement.NODE_ATTRIBUTES));
+        w.writeAspectElements(res.get(EdgeAttributesElement.EDGE_ATTRIBUTES));
         w.end();
 
         return out.toString();

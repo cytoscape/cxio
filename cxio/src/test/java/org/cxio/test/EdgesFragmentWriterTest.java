@@ -24,7 +24,7 @@ public class EdgesFragmentWriterTest {
         w0.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w0.start();
-        w0.write(l0);
+        w0.writeAspectElements(l0);
         w0.end();
 
         assertEquals("[]", out0.toString());
@@ -41,7 +41,7 @@ public class EdgesFragmentWriterTest {
         w1.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w1.start();
-        w1.write(l1);
+        w1.writeAspectElements(l1);
         w1.end();
 
         assertEquals(
@@ -60,8 +60,8 @@ public class EdgesFragmentWriterTest {
         w2.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w2.start();
-        w2.write(l2);
-        w2.write(l3);
+        w2.writeAspectElements(l2);
+        w2.writeAspectElements(l3);
         w2.end();
 
         assertEquals(

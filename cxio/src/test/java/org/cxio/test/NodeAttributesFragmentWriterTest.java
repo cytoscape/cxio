@@ -27,7 +27,7 @@ public class NodeAttributesFragmentWriterTest {
         w0.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
 
         w0.start();
-        w0.write(l0);
+        w0.writeAspectElements(l0);
         w0.end();
 
         assertEquals("[]", out0.toString());
@@ -56,7 +56,7 @@ public class NodeAttributesFragmentWriterTest {
         w1.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
 
         w1.start();
-        w1.write(l1);
+        w1.writeAspectElements(l1);
         w1.end();
 
         assertEquals(

@@ -77,10 +77,21 @@ public class Examples2 {
         anonymous_too_1.put("asdf", "1");
         anonymous_too_2.put("asdf", "2");
         anonymous_too_3.put("asdf", "3");
-        final List<ObjectNode> a = new ArrayList<ObjectNode>();
-        a.add(anonymous_too_1);
-        a.add(anonymous_too_2);
-        a.add(anonymous_too_3);
+        final List<ObjectNode> anonymous_toos = new ArrayList<ObjectNode>();
+        anonymous_toos.add(anonymous_too_1);
+        anonymous_toos.add(anonymous_too_2);
+        anonymous_toos.add(anonymous_too_3);
+        
+        // ---------
+
+        final ObjectNode single = m.createObjectNode();
+       
+        single.put("1", "1");
+        single.put("2", "2");
+        single.put("3", "3");
+        single.put("4", "4");
+        single.put("5", "5");
+      
 
         // ---------
 
@@ -97,10 +108,11 @@ public class Examples2 {
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w.start();
-        w.write("unknown", unknown);
-        w.write("anonymous", anonymous);
-        w.write("anonymous too", a);
-        w.write(edges_elements);
+        w.writeJsonObjectAsList("unknown", unknown);
+        w.writeJsonObjectAsList("anonymous", anonymous);
+        w.writeJsonObjects("anonymous too", anonymous_toos);
+        w.writeJsonObject("single", single);
+        w.writeAspectElements(edges_elements);
         w.end();
 
         final String cx_json_str = out.toString();
@@ -108,18 +120,25 @@ public class Examples2 {
 
         // Reading from CX
         // ---------------
-        final CxReader p = CxReader.createInstance(cx_json_str);
+
+        final CxReader p = CxReader.createInstance(cx_json_str, true);
+
         p.addAspectFragmentReader(EdgesFragmentReader.createInstance());
 
+        final List<List<AspectElement>> res = new ArrayList<List<AspectElement>>();
         while (p.hasNext()) {
             final List<AspectElement> elements = p.getNext();
             if (!elements.isEmpty()) {
-                final String aspect_name = elements.get(0).getAspectName();
-                System.out.println();
-                System.out.println(aspect_name + ": ");
-                for (final AspectElement element : elements) {
-                    System.out.println(element.toString());
-                }
+                res.add(elements);
+            }
+        }
+
+        for (final List<AspectElement> elements : res) {
+            final String aspect_name = elements.get(0).getAspectName();
+            System.out.println();
+            System.out.println("> " + aspect_name + ": ");
+            for (final AspectElement element : elements) {
+                System.out.println(element.toString());
             }
         }
 

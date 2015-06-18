@@ -7,8 +7,8 @@ import java.util.List;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonGenerator;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public final class JsonWriter {
@@ -64,11 +64,20 @@ public final class JsonWriter {
         _g.writeEndObject();
     }
 
-    public void writeJsonObject(final String label, final ObjectNode data_parent) throws JsonProcessingException,
-            IOException {
-        final ObjectNode node = _m.createObjectNode();
-        node.set(label, data_parent);
-        node.serialize(_g, null);
+    public void writeJsonObject(final String label, final ObjectNode data_node) throws IOException {
+        final ObjectNode new_parent = _m.createObjectNode();
+        new_parent.set(label, new_parent.arrayNode().add(data_node));
+        new_parent.serialize(_g, null);
+    }
+
+    public void writeJsonObjects(final String label, final List<ObjectNode> data_nodes) throws IOException {
+        final ObjectNode new_parent = _m.createObjectNode();
+        final ArrayNode array_node = new_parent.arrayNode();
+        for (final ObjectNode data_node : data_nodes) {
+            array_node.add(data_node);
+        }
+        new_parent.set(label, array_node);
+        new_parent.serialize(_g, null);
     }
 
     public final void writeList(final String label, final Iterator<String> it) throws IOException {

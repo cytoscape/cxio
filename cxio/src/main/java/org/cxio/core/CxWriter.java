@@ -10,18 +10,16 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.tools.Util;
 
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * This is used to write apspect fragments (lists of aspects).
- * 
+ *
  * @author cmzmasek
  *
  */
 public class CxWriter {
-
+    
     private boolean                                 ended;
     private final JsonWriter                        jw;
     private boolean                                 started;
@@ -95,9 +93,12 @@ public class CxWriter {
 
     }
 
-    public void write(final String label, final ObjectNode data_parent) throws JsonGenerationException,
-            JsonMappingException, IOException {
-        jw.writeJsonObject(label, data_parent);
+    public void write(final String label, final List<ObjectNode> data_nodes) throws IOException {
+        jw.writeJsonObjects(label, data_nodes);
+    }
+
+    public void write(final String label, final ObjectNode data_node) throws IOException {
+        jw.writeJsonObject(label, data_node);
     }
 
 }

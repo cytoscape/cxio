@@ -5,7 +5,6 @@ import org.cxio.core.interfaces.AspectElement;
 /**
  * This class is used to represent a Cytoscape layout aspect element.
  * 
- * 
  * @author cmzmasek
  *
  */

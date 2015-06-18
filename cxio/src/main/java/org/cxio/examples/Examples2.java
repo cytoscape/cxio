@@ -64,6 +64,24 @@ public class Examples2 {
         anonymous3.put("_y", "y");
         anonymous2.set("2", anonymous3);
         anonymous.set("1", anonymous2);
+
+        // ---------
+
+        final ObjectNode anonymous_too_1 = m.createObjectNode();
+        final ObjectNode anonymous_too_2 = m.createObjectNode();
+        final ObjectNode anonymous_too_3 = m.createObjectNode();
+
+        anonymous_too_1.put("qwerty", "1");
+        anonymous_too_2.put("qwerty", "2");
+        anonymous_too_3.put("qwerty", "3");
+        anonymous_too_1.put("asdf", "1");
+        anonymous_too_2.put("asdf", "2");
+        anonymous_too_3.put("asdf", "3");
+        final List<ObjectNode> a = new ArrayList<ObjectNode>();
+        a.add(anonymous_too_1);
+        a.add(anonymous_too_2);
+        a.add(anonymous_too_3);
+
         // ---------
 
         final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
@@ -81,6 +99,7 @@ public class Examples2 {
         w.start();
         w.write("unknown", unknown);
         w.write("anonymous", anonymous);
+        w.write("anonymous too", a);
         w.write(edges_elements);
         w.end();
 

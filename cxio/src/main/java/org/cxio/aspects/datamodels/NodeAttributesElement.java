@@ -6,6 +6,13 @@ import java.util.Map;
 
 import org.cxio.tools.Util;
 
+/**
+ *This class is used to represent a Cytoscape node attribute aspect element.
+ * 
+ * 
+ * @author cmzmasek
+ *
+ */
 public final class NodeAttributesElement extends AbstractAttributesElement {
 
     private final List<String> nodes;

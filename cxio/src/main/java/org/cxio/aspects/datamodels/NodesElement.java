@@ -2,6 +2,13 @@ package org.cxio.aspects.datamodels;
 
 import org.cxio.core.interfaces.AspectElement;
 
+/**
+ * This is used to represent a Cytoscape node aspect element.
+ * 
+ * 
+ * @author cmzmasek
+ *
+ */
 public final class NodesElement implements AspectElement {
 
     private final String       id;

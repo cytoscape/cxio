@@ -2,6 +2,13 @@ package org.cxio.aspects.datamodels;
 
 import org.cxio.core.interfaces.AspectElement;
 
+/**
+ * This class is used to represent a Cytoscape edge aspect element.
+ * 
+ * 
+ * @author cmzmasek
+ *
+ */
 public final class EdgesElement implements AspectElement {
 
     final private String       id;

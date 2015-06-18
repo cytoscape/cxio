@@ -6,6 +6,13 @@ import java.util.Map;
 
 import org.cxio.tools.Util;
 
+/**
+ * This class is used to represent a Cytoscape edge attribute aspect element.
+ * 
+ * 
+ * @author cmzmasek
+ *
+ */
 public final class EdgeAttributesElement extends AbstractAttributesElement {
 
     private final List<String> edges;

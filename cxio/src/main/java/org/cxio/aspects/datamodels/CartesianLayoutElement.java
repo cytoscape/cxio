@@ -2,6 +2,13 @@ package org.cxio.aspects.datamodels;
 
 import org.cxio.core.interfaces.AspectElement;
 
+/**
+ * This class is used to represent a Cytoscape layout aspect element.
+ * 
+ * 
+ * @author cmzmasek
+ *
+ */
 public final class CartesianLayoutElement implements AspectElement {
 
     private final String       node;

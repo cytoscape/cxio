@@ -14,6 +14,12 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+/**
+ * This is used to write apspect fragments (lists of aspects).
+ * 
+ * @author cmzmasek
+ *
+ */
 public class CxWriter {
 
     private boolean                                 ended;

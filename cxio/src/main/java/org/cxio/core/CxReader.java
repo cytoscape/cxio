@@ -18,6 +18,14 @@ import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 
+/**
+ * This class is used to read aspect fragments (lists of aspect elements) from 
+ * a variety of input sources.
+ * 
+ * 
+ * @author cmzmasek
+ *
+ */
 public final class CxReader {
 
     private JsonParser                                  jp;
@@ -28,6 +36,13 @@ public final class CxReader {
     private final Object                                input;
     private final HashMap<String, AspectFragmentReader> aspect_readers;
 
+    /**
+     * This returns a list of aspect elements and advances to the reader to the next list of 
+     * aspect elements.
+     * 
+     * @return
+     * @throws IOException
+     */
     public final List<AspectElement> getNext() throws IOException {
         if (token == null) {
             throw new IllegalStateException("this should never have happened: token is null");
@@ -72,10 +87,22 @@ public final class CxReader {
         return prev;
     }
 
+    /**
+     * Returns true if more lists of aspect elements can be read in. 
+     * 
+     * @return
+     * @throws IOException
+     */
     public final boolean hasNext() throws IOException {
         return current != null;
     }
 
+    /**
+     * This attempts to reset the iterator.
+     * ONLY works when the input is a String.
+     * 
+     * @throws IOException
+     */
     public final void reset() throws IOException {
         if (input == null) {
             throw new IllegalStateException("input for cx parser is null");
@@ -95,9 +122,10 @@ public final class CxReader {
         getNext();
     }
 
-    /*
+    /**
      * Convenience method. Returns a sorted map of lists of aspects, where the
      * keys are the names of the aspect. Takes a CxReader as argument.
+     *
      */
     public static SortedMap<String, List<AspectElement>> parseAsMap(final CxReader cxr) throws IOException {
         if (cxr == null) {

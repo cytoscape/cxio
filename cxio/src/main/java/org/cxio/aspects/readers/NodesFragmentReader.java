@@ -14,23 +14,26 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class NodesFragmentReader implements AspectFragmentReader {
+public final class NodesFragmentReader implements AspectFragmentReader {
 
-    public static NodesFragmentReader createInstance() {
+    private final ObjectMapper _m;
+
+    public final static NodesFragmentReader createInstance() {
         return new NodesFragmentReader();
     }
 
     private NodesFragmentReader() {
+        _m = new ObjectMapper();
     }
 
     @Override
-    public String getAspectName() {
+    public final String getAspectName() {
         return NodesElement.NAME;
     }
 
     @Override
-    public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
-        final ObjectMapper m = new ObjectMapper();
+    public final List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
+
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
             throw new IOException("malformed cx json in '" + NodesElement.NAME + "'");
@@ -38,15 +41,11 @@ public class NodesFragmentReader implements AspectFragmentReader {
         final List<AspectElement> node_elements = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
-                final ObjectNode x = m.readTree(jp);
-                String id = null;
-                if ((x != null) && x.has(NodesElement.ID)) {
-                    id = x.get(NodesElement.ID).asText();
+                final ObjectNode o = _m.readTree(jp);
+                if (o == null) {
+                    throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                if (Util.isEmpty(id)) {
-                    throw new IOException("malformed cx json: node id missing");
-                }
-                node_elements.add(new NodesElement(id));
+                node_elements.add(new NodesElement(Util.getTextValueRequired(o, NodesElement.ID)));
             }
             t = jp.nextToken();
         }

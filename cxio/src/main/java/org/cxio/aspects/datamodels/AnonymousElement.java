@@ -37,7 +37,6 @@ public final class AnonymousElement implements AspectElement {
     public final String toJsonString() throws IOException {
         final ObjectMapper m = new ObjectMapper();
         return m.writeValueAsString(_data);
-
     }
 
     @Override

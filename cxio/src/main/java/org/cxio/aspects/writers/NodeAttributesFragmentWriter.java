@@ -47,7 +47,7 @@ public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
         if (node_attributes_aspects == null) {
             return;
         }
-        w.startArray(NodeAttributesElement.NODE_ATTRIBUTES);
+        w.startArray(NodeAttributesElement.NAME);
         for (final AspectElement node_attributes_aspect : node_attributes_aspects) {
             final NodeAttributesElement na = (NodeAttributesElement) node_attributes_aspect;
             addNodeAttributesAspect(na, w);
@@ -57,7 +57,7 @@ public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return NodeAttributesElement.NODE_ATTRIBUTES;
+        return NodeAttributesElement.NAME;
     }
 
 }

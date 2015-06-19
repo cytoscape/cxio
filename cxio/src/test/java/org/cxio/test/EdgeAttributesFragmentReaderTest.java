@@ -47,14 +47,14 @@ public class EdgeAttributesFragmentReaderTest {
                 .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + EdgeAttributesElement.EDGE_ATTRIBUTES + " aspect",
-                r0.containsKey(EdgeAttributesElement.EDGE_ATTRIBUTES));
-        assertFalse("failed to parse " + EdgeAttributesElement.EDGE_ATTRIBUTES + " aspect",
-                r0.get(EdgeAttributesElement.EDGE_ATTRIBUTES).isEmpty());
-        assertTrue("failed to get expected number of " + EdgeAttributesElement.EDGE_ATTRIBUTES + " aspects",
-                r0.get(EdgeAttributesElement.EDGE_ATTRIBUTES).size() == 3);
+        assertTrue("failed to parse " + EdgeAttributesElement.NAME + " aspect",
+                r0.containsKey(EdgeAttributesElement.NAME));
+        assertFalse("failed to parse " + EdgeAttributesElement.NAME + " aspect",
+                r0.get(EdgeAttributesElement.NAME).isEmpty());
+        assertTrue("failed to get expected number of " + EdgeAttributesElement.NAME + " aspects",
+                r0.get(EdgeAttributesElement.NAME).size() == 3);
 
-        final List<AspectElement> aspects = r0.get(EdgeAttributesElement.EDGE_ATTRIBUTES);
+        final List<AspectElement> aspects = r0.get(EdgeAttributesElement.NAME);
 
         final EdgeAttributesElement ea1 = (EdgeAttributesElement) aspects.get(0);
         assertTrue(ea1.getId().equals("_ea0"));

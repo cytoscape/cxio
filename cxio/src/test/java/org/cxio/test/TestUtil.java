@@ -39,10 +39,10 @@ final class TestUtil {
 
         w.start();
         w.writeAspectElements(res.get(NodesElement.NAME));
-        w.writeAspectElements(res.get(EdgesElement.EDGES));
-        w.writeAspectElements(res.get(CartesianLayoutElement.CARTESIAN_LAYOUT));
-        w.writeAspectElements(res.get(NodeAttributesElement.NODE_ATTRIBUTES));
-        w.writeAspectElements(res.get(EdgeAttributesElement.EDGE_ATTRIBUTES));
+        w.writeAspectElements(res.get(EdgesElement.NAME));
+        w.writeAspectElements(res.get(CartesianLayoutElement.NAME));
+        w.writeAspectElements(res.get(NodeAttributesElement.NAME));
+        w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
         w.end();
 
         return out.toString();

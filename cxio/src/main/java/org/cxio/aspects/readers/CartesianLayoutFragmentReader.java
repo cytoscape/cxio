@@ -12,72 +12,42 @@ import org.cxio.tools.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class CartesianLayoutFragmentReader implements AspectFragmentReader {
+public final class CartesianLayoutFragmentReader implements AspectFragmentReader {
 
-    private static final boolean STRICT_DEFAULT = false;
-    private final boolean        _strict;
+    private final ObjectMapper _m;
 
     public static CartesianLayoutFragmentReader createInstance() {
-        return new CartesianLayoutFragmentReader(STRICT_DEFAULT);
+        return new CartesianLayoutFragmentReader();
     }
 
-    public static CartesianLayoutFragmentReader createInstance(final boolean strict) {
-        return new CartesianLayoutFragmentReader(strict);
-    }
-
-    private CartesianLayoutFragmentReader(final boolean strict) {
-        _strict = strict;
+    private CartesianLayoutFragmentReader() {
+        _m = new ObjectMapper();
     }
 
     @Override
-    public String getAspectName() {
-        return CartesianLayoutElement.CARTESIAN_LAYOUT;
+    public final String getAspectName() {
+        return CartesianLayoutElement.NAME;
     }
 
     @Override
-    public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
+    public final List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed cx json in '" + CartesianLayoutElement.CARTESIAN_LAYOUT + "'");
+            throw new IOException("malformed cx json in '" + CartesianLayoutElement.NAME + "'");
         }
         final List<AspectElement> layout_aspects = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
-
-                String node_id = null;
-                String x = null;
-                String y = null;
-
-                while (jp.nextToken() != JsonToken.END_OBJECT) {
-                    final String namefield = jp.getCurrentName();
-                    jp.nextToken(); // move to value
-                    if (CartesianLayoutElement.NODE.equals(namefield)) {
-                        node_id = jp.getText().trim();
-                    }
-                    else if (CartesianLayoutElement.X.equals(namefield)) {
-
-                        x = jp.getValueAsString();
-                    }
-                    else if (CartesianLayoutElement.Y.equals(namefield)) {
-                        y = jp.getValueAsString();
-
-                    }
-                    else if (_strict) {
-                        throw new IOException("malformed cx json: unrecognized field '" + namefield + "'");
-                    }
-
+                final ObjectNode o = _m.readTree(jp);
+                if (o == null) {
+                    throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                if (Util.isEmpty(node_id)) {
-                    throw new IOException("malformed cx json: node id in cartesian layout is missing");
-                }
-                if (x == null) {
-                    throw new IOException("malformed cx json: x coordinate in cartesian layout is missing");
-                }
-                if (y == null) {
-                    throw new IOException("malformed cx json: y coordinate in cartesian layout is missing");
-                }
-                layout_aspects.add(new CartesianLayoutElement(node_id, x, y));
+                layout_aspects.add(new CartesianLayoutElement(
+                        Util.getTextValueRequired(o, CartesianLayoutElement.NODE), Util.getTextValueRequired(o,
+                                CartesianLayoutElement.X), Util.getTextValueRequired(o, CartesianLayoutElement.Y)));
             }
             t = jp.nextToken();
         }
@@ -108,7 +78,7 @@ public class CartesianLayoutFragmentReader implements AspectFragmentReader {
                 + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
         final CxReader p = CxReader.createInstance(t0);
 
-        p.addAspectFragmentReader(CartesianLayoutFragmentReader.createInstance(false));
+        p.addAspectFragmentReader(CartesianLayoutFragmentReader.createInstance());
         p.reset();
         while (p.hasNext()) {
             final List<AspectElement> elements = p.getNext();

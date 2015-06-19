@@ -21,7 +21,7 @@ public final class AnonymousFragmentReader implements AspectFragmentReader {
     public final static AnonymousFragmentReader createInstance() {
         return new AnonymousFragmentReader();
     }
-    
+
     private AnonymousFragmentReader() {
         _name = null;
         _m = new ObjectMapper();

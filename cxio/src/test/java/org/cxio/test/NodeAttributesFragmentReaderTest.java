@@ -50,14 +50,14 @@ public class NodeAttributesFragmentReaderTest {
                 .getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + NodeAttributesElement.NODE_ATTRIBUTES + " aspect",
-                r0.containsKey(NodeAttributesElement.NODE_ATTRIBUTES));
-        assertFalse("failed to parse " + NodeAttributesElement.NODE_ATTRIBUTES + " aspect",
-                r0.get(NodeAttributesElement.NODE_ATTRIBUTES).isEmpty());
-        assertTrue("failed to get expected number of " + NodeAttributesElement.NODE_ATTRIBUTES + " aspects",
-                r0.get(NodeAttributesElement.NODE_ATTRIBUTES).size() == 5);
+        assertTrue("failed to parse " + NodeAttributesElement.NAME + " aspect",
+                r0.containsKey(NodeAttributesElement.NAME));
+        assertFalse("failed to parse " + NodeAttributesElement.NAME + " aspect",
+                r0.get(NodeAttributesElement.NAME).isEmpty());
+        assertTrue("failed to get expected number of " + NodeAttributesElement.NAME + " aspects",
+                r0.get(NodeAttributesElement.NAME).size() == 5);
 
-        final List<AspectElement> aspects = r0.get(NodeAttributesElement.NODE_ATTRIBUTES);
+        final List<AspectElement> aspects = r0.get(NodeAttributesElement.NAME);
 
         final NodeAttributesElement na1 = (NodeAttributesElement) aspects.get(0);
         assertTrue(na1.getId().equals("_na0"));

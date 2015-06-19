@@ -47,7 +47,7 @@ public class EdgeAttributesFragmentWriter implements AspectFragmentWriter {
         if (edge_attributes_aspects == null) {
             return;
         }
-        w.startArray(EdgeAttributesElement.EDGE_ATTRIBUTES);
+        w.startArray(EdgeAttributesElement.NAME);
         for (final AspectElement edge_attributes_aspect : edge_attributes_aspects) {
             final EdgeAttributesElement ea = (EdgeAttributesElement) edge_attributes_aspect;
             addEdgeAttributesAspect(ea, w);
@@ -57,7 +57,7 @@ public class EdgeAttributesFragmentWriter implements AspectFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return EdgeAttributesElement.EDGE_ATTRIBUTES;
+        return EdgeAttributesElement.NAME;
     }
 
 }

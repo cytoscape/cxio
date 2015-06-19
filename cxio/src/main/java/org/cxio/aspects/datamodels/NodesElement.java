@@ -12,16 +12,16 @@ import org.cxio.core.interfaces.AspectElement;
  */
 public final class NodesElement implements AspectElement {
 
-    private final String       id;
+    private final String       _id;
     public final static String NAME = "nodes";
     public final static String ID   = CxConstants.ID;
 
     public NodesElement(final String id) {
-        this.id = id;
+        _id = id;
     }
 
     public NodesElement(final long id) {
-        this.id = String.valueOf(id);
+        _id = String.valueOf(id);
     }
 
     @Override
@@ -29,8 +29,7 @@ public final class NodesElement implements AspectElement {
         if (this == o) {
             return true;
         }
-        return (o instanceof NodesElement) && id.equals(((NodesElement) o).getId());
-
+        return (o instanceof NodesElement) && _id.equals(((NodesElement) o).getId());
     }
 
     @Override
@@ -39,17 +38,17 @@ public final class NodesElement implements AspectElement {
     }
 
     final public String getId() {
-        return id;
+        return _id;
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return _id.hashCode();
     }
 
     @Override
     public String toString() {
-        return id;
+        return _id;
     }
 
 }

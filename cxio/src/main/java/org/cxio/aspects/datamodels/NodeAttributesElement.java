@@ -15,23 +15,23 @@ import org.cxio.tools.Util;
  */
 public final class NodeAttributesElement extends AbstractAttributesElement {
 
-    private final List<String> nodes;
-    public final static String NODE_ATTRIBUTES = "nodeAttributes";
-    public final static String NODES           = "nodes";
+    private final List<String> _nodes;
+    public final static String NAME  = "nodeAttributes";
+    public final static String NODES = "nodes";
 
     public NodeAttributesElement() {
-        this.id = null;
-        this.nodes = new ArrayList<String>();
+        _id = null;
+        _nodes = new ArrayList<String>();
     }
 
     public NodeAttributesElement(final String id) {
-        this.id = id;
-        this.nodes = new ArrayList<String>();
+        _id = id;
+        _nodes = new ArrayList<String>();
     }
 
     public NodeAttributesElement(final String id, final String node_id) {
-        this.id = id;
-        this.nodes = new ArrayList<String>();
+        _id = id;
+        _nodes = new ArrayList<String>();
         addNode(node_id);
     }
 
@@ -43,7 +43,11 @@ public final class NodeAttributesElement extends AbstractAttributesElement {
         if (Util.isEmpty(node_id)) {
             throw new IllegalArgumentException("attempt to add null or empty node id");
         }
-        nodes.add(node_id);
+        _nodes.add(node_id);
+    }
+
+    public final void addNodes(final List<String> node_ids) {
+        _nodes.addAll(node_ids);
     }
 
     @Override
@@ -51,37 +55,37 @@ public final class NodeAttributesElement extends AbstractAttributesElement {
         if (this == o) {
             return true;
         }
-        return (o instanceof NodeAttributesElement) && id.equals(((NodeAttributesElement) o).getId());
+        return (o instanceof NodeAttributesElement) && _id.equals(((NodeAttributesElement) o).getId());
 
     }
 
     @Override
     public String getAspectName() {
-        return NodeAttributesElement.NODE_ATTRIBUTES;
+        return NodeAttributesElement.NAME;
     }
 
     public final List<String> getNodes() {
-        return nodes;
+        return _nodes;
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("id: ");
-        sb.append(id);
+        sb.append(_id);
         sb.append("\n");
         sb.append("nodes: ");
-        sb.append(nodes);
+        sb.append(_nodes);
         sb.append("\n");
         sb.append("attributes:");
-        for (final Map.Entry<String, List<String>> entry : attributes.entrySet()) {
+        for (final Map.Entry<String, List<String>> entry : _attributes.entrySet()) {
             sb.append("\n");
             sb.append(entry.getKey());
             sb.append("=");
             sb.append(entry.getValue());
-            if (attributes_types.get(entry.getKey()) != null) {
+            if (_attributes_types.get(entry.getKey()) != null) {
                 sb.append(" (");
-                sb.append(attributes_types.get(entry.getKey()));
+                sb.append(_attributes_types.get(entry.getKey()));
                 sb.append(")");
             }
         }

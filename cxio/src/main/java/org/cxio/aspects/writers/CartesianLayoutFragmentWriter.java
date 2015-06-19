@@ -32,7 +32,7 @@ public class CartesianLayoutFragmentWriter implements AspectFragmentWriter {
         if (cartesian_layout_aspects == null) {
             return;
         }
-        w.startArray(CartesianLayoutElement.CARTESIAN_LAYOUT);
+        w.startArray(CartesianLayoutElement.NAME);
         for (final AspectElement cartesian_layout_aspect : cartesian_layout_aspects) {
             final CartesianLayoutElement c = (CartesianLayoutElement) cartesian_layout_aspect;
             addCartesianLayoutElement(c.getNode(), c.getX(), c.getY(), w);
@@ -42,6 +42,6 @@ public class CartesianLayoutFragmentWriter implements AspectFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return CartesianLayoutElement.CARTESIAN_LAYOUT;
+        return CartesianLayoutElement.NAME;
     }
 }

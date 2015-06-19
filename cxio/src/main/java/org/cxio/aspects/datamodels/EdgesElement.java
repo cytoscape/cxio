@@ -1,5 +1,6 @@
 package org.cxio.aspects.datamodels;
 
+import org.cxio.core.CxConstants;
 import org.cxio.core.interfaces.AspectElement;
 
 /**
@@ -11,29 +12,30 @@ import org.cxio.core.interfaces.AspectElement;
  */
 public final class EdgesElement implements AspectElement {
 
-    final private String       id;
-    final private String       source;
-    final private String       target;
+    final private String       _id;
+    final private String       _source;
+    final private String       _target;
     public final static String TARGET_NODE_ID = "target";
     public final static String SOURCE_NODE_ID = "source";
-    final public static String EDGES          = "edges";
+    public final static String ID             = CxConstants.ID;
+    final public static String NAME           = "edges";
 
     public EdgesElement(final String id, final String source, final String target) {
-        this.id = id;
-        this.source = source;
-        this.target = target;
+        _id = id;
+        _source = source;
+        _target = target;
     }
 
     public EdgesElement(final long id, final String source, final String target) {
-        this.id = String.valueOf(id);
-        this.source = source;
-        this.target = target;
+        _id = String.valueOf(id);
+        _source = source;
+        _target = target;
     }
 
     public EdgesElement(final long id, final long source, final long target) {
-        this.id = String.valueOf(id);
-        this.source = String.valueOf(source);
-        this.target = String.valueOf(target);
+        _id = String.valueOf(id);
+        _source = String.valueOf(source);
+        _target = String.valueOf(target);
     }
 
     @Override
@@ -41,30 +43,30 @@ public final class EdgesElement implements AspectElement {
         if (this == o) {
             return true;
         }
-        return (o instanceof EdgesElement) && id.equals(((EdgesElement) o).getId());
+        return (o instanceof EdgesElement) && _id.equals(((EdgesElement) o).getId());
 
     }
 
     @Override
     public String getAspectName() {
-        return EdgesElement.EDGES;
+        return EdgesElement.NAME;
     }
 
     public final String getId() {
-        return id;
+        return _id;
     }
 
     public final String getSource() {
-        return source;
+        return _source;
     }
 
     public final String getTarget() {
-        return target;
+        return _target;
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return _id.hashCode();
     }
 
     @Override

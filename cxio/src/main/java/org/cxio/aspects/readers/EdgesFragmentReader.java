@@ -5,71 +5,48 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cxio.aspects.datamodels.EdgesElement;
-import org.cxio.core.CxConstants;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.tools.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class EdgesFragmentReader implements AspectFragmentReader {
 
-    private static final boolean STRICT_DEFAULT = false;
-    private final boolean        _strict;
+    private final ObjectMapper _m;
 
-    public static EdgesFragmentReader createInstance() {
-        return new EdgesFragmentReader(STRICT_DEFAULT);
+    public final static EdgesFragmentReader createInstance() {
+        return new EdgesFragmentReader();
     }
 
-    public static EdgesFragmentReader createInstance(final boolean strict) {
-        return new EdgesFragmentReader(strict);
-    }
-
-    private EdgesFragmentReader(final boolean strict) {
-        _strict = strict;
+    private EdgesFragmentReader() {
+        _m = new ObjectMapper();
     }
 
     @Override
-    public String getAspectName() {
-        return EdgesElement.EDGES;
+    public final String getAspectName() {
+        return EdgesElement.NAME;
     }
 
     @Override
-    public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
+    public final List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed cx json in '" + EdgesElement.EDGES + "'");
+            throw new IOException("malformed cx json in '" + EdgesElement.NAME + "'");
         }
         final List<AspectElement> edge_aspects = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
-                String id = null;
-                String source = null;
-                String target = null;
-                while (jp.nextToken() != JsonToken.END_OBJECT) {
-                    final String namefield = jp.getCurrentName();
-                    jp.nextToken(); // move to value
-                    if (CxConstants.ID.equals(namefield)) {
-                        id = jp.getText().trim();
-                    }
-                    else if (EdgesElement.SOURCE_NODE_ID.equals(namefield)) {
-                        source = jp.getText().trim();
-                    }
-                    else if (EdgesElement.TARGET_NODE_ID.equals(namefield)) {
-                        target = jp.getText().trim();
-                    }
-                    else if (_strict) {
-                        throw new IOException("malformed cx json: unrecognized field '" + namefield + "'");
-                    }
+                final ObjectNode o = _m.readTree(jp);
+                if (o == null) {
+                    throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                if (Util.isEmpty(source)) {
-                    throw new IOException("malformed cx json: edge source is missing");
-                }
-                if (Util.isEmpty(target)) {
-                    throw new IOException("malformed cx json: edge target is missing");
-                }
-                edge_aspects.add(new EdgesElement(id, source, target));
+                edge_aspects.add(new EdgesElement(Util.getTextValueRequired(o, EdgesElement.ID), Util
+                        .getTextValueRequired(o, EdgesElement.SOURCE_NODE_ID), Util.getTextValueRequired(o,
+                        EdgesElement.TARGET_NODE_ID)));
             }
             t = jp.nextToken();
         }

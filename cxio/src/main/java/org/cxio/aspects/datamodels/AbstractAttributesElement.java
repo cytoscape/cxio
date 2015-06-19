@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import org.cxio.core.CxConstants;
 import org.cxio.core.interfaces.AspectElement;
 
 /**
@@ -25,23 +26,24 @@ public abstract class AbstractAttributesElement implements AspectElement {
     public enum ATTRIBUTE_TYPE {
         BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), STRING("string");
 
-        private final String name;
+        private final String _name;
 
-        private ATTRIBUTE_TYPE(final String s) {
-            name = s;
+        private ATTRIBUTE_TYPE(final String name) {
+            _name = name;
         }
 
         @Override
         public String toString() {
-            return name;
+            return _name;
         }
     }
 
-    final SortedMap<String, List<String>>   attributes       = new TreeMap<String, List<String>>();
-    final SortedMap<String, ATTRIBUTE_TYPE> attributes_types = new TreeMap<String, ATTRIBUTE_TYPE>();
-    String                                  id;
-    public final static String              ATTRIBUTE_TYPES  = "types";
-    public final static String              ATTRIBUTES       = "attributes";
+    final SortedMap<String, List<String>>   _attributes       = new TreeMap<String, List<String>>();
+    final SortedMap<String, ATTRIBUTE_TYPE> _attributes_types = new TreeMap<String, ATTRIBUTE_TYPE>();
+    String                                  _id;
+    public final static String              ATTRIBUTE_TYPES   = "types";
+    public final static String              ATTRIBUTES        = "attributes";
+    public final static String              ID                = CxConstants.ID;
 
     /**
      * This returns the attributes.
@@ -49,7 +51,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @return the attributes
      */
     public final SortedMap<String, List<String>> getAttributes() {
-        return attributes;
+        return _attributes;
     }
 
     /**
@@ -58,7 +60,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @return the attributes types
      */
     public final SortedMap<String, ATTRIBUTE_TYPE> getAttributesTypes() {
-        return attributes_types;
+        return _attributes_types;
     }
 
     /**
@@ -67,7 +69,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @return the ID
      */
     public final String getId() {
-        return id;
+        return _id;
     }
 
     /**
@@ -77,7 +79,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @return attribute type for a given key
      */
     public final ATTRIBUTE_TYPE getType(final String key) {
-        return attributes_types.get(key);
+        return _attributes_types.get(key);
     }
 
     /**
@@ -87,12 +89,12 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @return attribute values for a given key
      */
     public final List<String> getValues(final String key) {
-        return attributes.get(key);
+        return _attributes.get(key);
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return _id.hashCode();
     }
 
     /**
@@ -104,13 +106,13 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @param type
      */
     public final void put(final String key, final String value, final ATTRIBUTE_TYPE type) {
-        if (!attributes.containsKey(key)) {
-            attributes.put(key, new ArrayList<String>());
+        if (!_attributes.containsKey(key)) {
+            _attributes.put(key, new ArrayList<String>());
             if (type != ATTRIBUTE_TYPE.STRING) {
-                attributes_types.put(key, type);
+                _attributes_types.put(key, type);
             }
         }
-        attributes.get(key).add(value);
+        _attributes.get(key).add(value);
     }
 
     /**
@@ -132,7 +134,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      */
     public final void putType(final String key, final ATTRIBUTE_TYPE type) {
         if (type != ATTRIBUTE_TYPE.STRING) {
-            attributes_types.put(key, type);
+            _attributes_types.put(key, type);
         }
     }
 
@@ -154,14 +156,14 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @param value
      */
     public final void putValue(final String key, final Object value) {
-        if (!attributes.containsKey(key)) {
-            attributes.put(key, new ArrayList<String>());
+        if (!_attributes.containsKey(key)) {
+            _attributes.put(key, new ArrayList<String>());
             final ATTRIBUTE_TYPE t = determineType(value);
             if (t != ATTRIBUTE_TYPE.STRING) {
-                attributes_types.put(key, t);
+                _attributes_types.put(key, t);
             }
         }
-        attributes.get(key).add(String.valueOf(value));
+        _attributes.get(key).add(String.valueOf(value));
     }
 
     /**
@@ -172,10 +174,10 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @param value
      */
     public final void putValue(final String key, final String value) {
-        if (!attributes.containsKey(key)) {
-            attributes.put(key, new ArrayList<String>());
+        if (!_attributes.containsKey(key)) {
+            _attributes.put(key, new ArrayList<String>());
         }
-        attributes.get(key).add(value);
+        _attributes.get(key).add(value);
     }
 
     /**
@@ -185,10 +187,10 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @param values
      */
     public final void putValues(final String key, final List<String> values) {
-        if (!attributes.containsKey(key)) {
-            attributes.put(key, new ArrayList<String>());
+        if (!_attributes.containsKey(key)) {
+            _attributes.put(key, new ArrayList<String>());
         }
-        attributes.get(key).addAll(values);
+        _attributes.get(key).addAll(values);
     }
 
     /**
@@ -198,7 +200,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @param id
      */
     public final void setId(final String id) {
-        this.id = id;
+        this._id = id;
     }
 
     /**

@@ -12,13 +12,14 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public final class JsonWriter {
-    
+
     private final JsonGenerator _g;
     private final ObjectMapper  _m;
 
     final static JsonWriter createInstance(final OutputStream out) throws IOException {
         return createInstance(out, false);
     }
+
     final static JsonWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer)
             throws IOException {
         return new JsonWriter(out, use_default_pretty_printer);
@@ -75,11 +76,11 @@ public final class JsonWriter {
         new_parent.set(label, new_parent.arrayNode().add(data_node));
         new_parent.serialize(_g, null);
     }
-    
+
     public void writeJsonObjects(final String label, final List<ObjectNode> data_nodes) throws IOException {
         final ObjectNode new_parent = _m.createObjectNode();
         final ArrayNode array_node = new_parent.arrayNode();
-        //array_node.addAll(data_nodes);
+        // array_node.addAll(data_nodes);
         for (final ObjectNode data_node : data_nodes) {
             array_node.add(data_node);
         }

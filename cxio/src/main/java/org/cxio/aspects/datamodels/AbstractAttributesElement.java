@@ -8,9 +8,9 @@ import java.util.TreeMap;
 import org.cxio.core.interfaces.AspectElement;
 
 /**
- * 
+ *
  * This is the base class for EdgeAttributeElement and NodeAttributeElement.
- * 
+ *
  * @author cmzmasek
  *
  */
@@ -18,7 +18,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * Datatypes used by Cytoscape.
-     * 
+     *
      * @author cmzmasek
      *
      */
@@ -45,7 +45,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This returns the attributes.
-     * 
+     *
      * @return the attributes
      */
     public final SortedMap<String, List<String>> getAttributes() {
@@ -53,8 +53,8 @@ public abstract class AbstractAttributesElement implements AspectElement {
     }
 
     /**
-     *  This returns the attributes types.
-     * 
+     * This returns the attributes types.
+     *
      * @return the attributes types
      */
     public final SortedMap<String, ATTRIBUTE_TYPE> getAttributesTypes() {
@@ -63,7 +63,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This returns the ID
-     * 
+     *
      * @return the ID
      */
     public final String getId() {
@@ -72,7 +72,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This returns the attribute type for a given key.
-     * 
+     *
      * @param key
      * @return attribute type for a given key
      */
@@ -82,7 +82,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This returns the attribute values for a given key.
-     * 
+     *
      * @param key
      * @return attribute values for a given key
      */
@@ -97,8 +97,8 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This used to put a value with its key and type.
-     * 
-     * 
+     *
+     *
      * @param key
      * @param value
      * @param type
@@ -115,7 +115,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This used to put a value with its key and type.
-     * 
+     *
      * @param key
      * @param value
      * @param type
@@ -126,7 +126,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This is used to set the type for a given key.
-     * 
+     *
      * @param key
      * @param type
      */
@@ -138,7 +138,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This is used to set the type for a given key.
-     * 
+     *
      * @param key
      * @param type
      */
@@ -147,8 +147,9 @@ public abstract class AbstractAttributesElement implements AspectElement {
     }
 
     /**
-     * This used to put a value with its key, the type is inferred from the type of the value object.
-     * 
+     * This used to put a value with its key, the type is inferred from the type
+     * of the value object.
+     *
      * @param key
      * @param value
      */
@@ -165,8 +166,8 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This is used to enter a value with its key, type is string.
-     * 
-     * 
+     *
+     *
      * @param key
      * @param value
      */
@@ -177,12 +178,12 @@ public abstract class AbstractAttributesElement implements AspectElement {
         attributes.get(key).add(value);
     }
 
-   /**
-    * This is used to enter a list of values with their key, type is string.
-    * 
-    * @param key
-    * @param values
-    */
+    /**
+     * This is used to enter a list of values with their key, type is string.
+     *
+     * @param key
+     * @param values
+     */
     public final void putValues(final String key, final List<String> values) {
         if (!attributes.containsKey(key)) {
             attributes.put(key, new ArrayList<String>());
@@ -192,8 +193,8 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This is used to set the id.
-     * 
-     * 
+     *
+     *
      * @param id
      */
     public final void setId(final String id) {
@@ -201,8 +202,9 @@ public abstract class AbstractAttributesElement implements AspectElement {
     }
 
     /**
-     * Convenience method to go from a type described by a string to an actual type enum entry.
-     * 
+     * Convenience method to go from a type described by a string to an actual
+     * type enum entry.
+     *
      * @param s
      * @return
      */
@@ -232,7 +234,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * Convenience method to determine the type of a object.
-     * 
+     *
      * @param o
      * @return
      */

@@ -16,12 +16,12 @@ import com.fasterxml.jackson.core.JsonToken;
 public class EdgesFragmentReader implements AspectFragmentReader {
 
     private static final boolean STRICT_DEFAULT = false;
-    private final boolean _strict;
+    private final boolean        _strict;
 
     public static EdgesFragmentReader createInstance() {
         return new EdgesFragmentReader(STRICT_DEFAULT);
     }
-    
+
     public static EdgesFragmentReader createInstance(final boolean strict) {
         return new EdgesFragmentReader(strict);
     }
@@ -29,7 +29,6 @@ public class EdgesFragmentReader implements AspectFragmentReader {
     private EdgesFragmentReader(final boolean strict) {
         _strict = strict;
     }
-
 
     @Override
     public String getAspectName() {

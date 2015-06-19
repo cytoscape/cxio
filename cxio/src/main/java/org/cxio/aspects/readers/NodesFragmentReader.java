@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class NodesFragmentReader implements AspectFragmentReader {
-    
+
     public static NodesFragmentReader createInstance() {
         return new NodesFragmentReader();
     }
@@ -29,13 +29,11 @@ public class NodesFragmentReader implements AspectFragmentReader {
     }
 
     @Override
-    public List<AspectElement> readAspectFragment(final JsonParser jp)
-    throws IOException {
+    public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         final ObjectMapper m = new ObjectMapper();
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed cx json in '" 
-                                 + NodesElement.NAME + "'");
+            throw new IOException("malformed cx json in '" + NodesElement.NAME + "'");
         }
         final List<AspectElement> node_elements = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {

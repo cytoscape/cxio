@@ -2,10 +2,12 @@ package org.cxio.core;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.tools.Util;
@@ -19,7 +21,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  *
  */
 public class CxWriter {
-    
+
     private boolean                                 ended;
     private final JsonWriter                        jw;
     private boolean                                 started;
@@ -93,16 +95,57 @@ public class CxWriter {
 
     }
 
-    public void writeJsonObjects(final String label, final List<ObjectNode> data_nodes) throws IOException {
-        jw.writeJsonObjects(label, data_nodes);
+    // public void writeJsonObjects(final String label, final List<ObjectNode>
+    // data_nodes) throws IOException {
+    // jw.writeJsonObjects(label, data_nodes);
+    // }
+
+    // public void writeJsonObjectAsList(final String label, final ObjectNode
+    // data_node) throws IOException {
+    // jw.writeJsonObjectAsList(label, data_node);
+    // }
+
+    public void writeAnonymousAspectElement(final AnonymousElement element) throws IOException {
+        if (!started) {
+            throw new IllegalStateException("not started");
+        }
+        if (ended) {
+            throw new IllegalStateException("already ended");
+        }
+        if (element == null) {
+            return;
+        }
+        jw.writeJsonObject(element.getAspectName(), element.getData());
     }
 
-    public void writeJsonObjectAsList(final String label, final ObjectNode data_node) throws IOException {
-        jw.writeJsonObjectAsList(label, data_node);
+    public void writeAnonymousAspectElementAsList(final AnonymousElement element) throws IOException {
+        if (!started) {
+            throw new IllegalStateException("not started");
+        }
+        if (ended) {
+            throw new IllegalStateException("already ended");
+        }
+        if (element == null) {
+            return;
+        }
+        jw.writeJsonObjectAsList(element.getAspectName(), element.getData());
     }
-    
-    public void writeJsonObject(final String label, final ObjectNode data_node) throws IOException {
-        jw.writeJsonObject(label, data_node);
+
+    public void writeAnonymousAspectElements(final List<AnonymousElement> elements) throws IOException {
+        if (!started) {
+            throw new IllegalStateException("not started");
+        }
+        if (ended) {
+            throw new IllegalStateException("already ended");
+        }
+        if ((elements == null) || elements.isEmpty()) {
+            return;
+        }
+        final List<ObjectNode> datas = new ArrayList<ObjectNode>();
+        for (final AnonymousElement elem : elements) {
+            datas.add(elem.getData());
+        }
+        jw.writeJsonObjects(elements.get(0).getAspectName(), datas);
     }
 
 }

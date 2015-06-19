@@ -4,8 +4,8 @@ import org.cxio.core.interfaces.AspectElement;
 
 /**
  * This class is used to represent a Cytoscape edge aspect element.
- * 
- * 
+ *
+ *
  * @author cmzmasek
  *
  */

@@ -5,8 +5,8 @@ import org.cxio.core.interfaces.AspectElement;
 
 /**
  * This is used to represent a Cytoscape node aspect element.
- * 
- * 
+ *
+ *
  * @author cmzmasek
  *
  */
@@ -14,7 +14,7 @@ public final class NodesElement implements AspectElement {
 
     private final String       id;
     public final static String NAME = "nodes";
-    public final static String ID = CxConstants.ID;
+    public final static String ID   = CxConstants.ID;
 
     public NodesElement(final String id) {
         this.id = id;

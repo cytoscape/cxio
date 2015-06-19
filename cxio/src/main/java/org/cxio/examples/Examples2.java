@@ -5,7 +5,10 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.SortedMap;
 
+import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
@@ -52,6 +55,7 @@ public class Examples2 {
         abc.add(node_b);
         abc.add(node_c);
         unknown.putArray("F").addAll(abc);
+        final AnonymousElement unknown_element = new AnonymousElement("unknown", unknown);
 
         // ---------
 
@@ -65,6 +69,8 @@ public class Examples2 {
         anonymous2.set("2", anonymous3);
         anonymous.set("1", anonymous2);
 
+        final AnonymousElement anonymous_element = new AnonymousElement("anonymous", anonymous);
+
         // ---------
 
         final ObjectNode anonymous_too_1 = m.createObjectNode();
@@ -77,21 +83,32 @@ public class Examples2 {
         anonymous_too_1.put("asdf", "1");
         anonymous_too_2.put("asdf", "2");
         anonymous_too_3.put("asdf", "3");
-        final List<ObjectNode> anonymous_toos = new ArrayList<ObjectNode>();
-        anonymous_toos.add(anonymous_too_1);
-        anonymous_toos.add(anonymous_too_2);
-        anonymous_toos.add(anonymous_too_3);
-        
+
+        final AnonymousElement anonymous_too_1_elem = new AnonymousElement("anonymous too", anonymous_too_1);
+        final AnonymousElement anonymous_too_2_elem = new AnonymousElement("anonymous too", anonymous_too_2);
+        final AnonymousElement anonymous_too_3_elem = new AnonymousElement("anonymous too", anonymous_too_3);
+
+        final List<AnonymousElement> anonymous_too_elements = new ArrayList<AnonymousElement>();
+        anonymous_too_elements.add(anonymous_too_1_elem);
+        anonymous_too_elements.add(anonymous_too_2_elem);
+        anonymous_too_elements.add(anonymous_too_3_elem);
+
         // ---------
 
         final ObjectNode single = m.createObjectNode();
-       
         single.put("1", "1");
         single.put("2", "2");
         single.put("3", "3");
         single.put("4", "4");
         single.put("5", "5");
-      
+        final AnonymousElement single_element = new AnonymousElement("single", single);
+
+        // ---------
+
+        final ObjectNode single2 = m.createObjectNode();
+        single2.put("1", "1");
+        single2.put("2", "2");
+        final AnonymousElement single_element2 = new AnonymousElement("single2", single2);
 
         // ---------
 
@@ -108,10 +125,12 @@ public class Examples2 {
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w.start();
-        w.writeJsonObjectAsList("unknown", unknown);
-        w.writeJsonObjectAsList("anonymous", anonymous);
-        w.writeJsonObjects("anonymous too", anonymous_toos);
-        w.writeJsonObject("single", single);
+        w.writeAnonymousAspectElement(unknown_element);
+        w.writeAnonymousAspectElementAsList(anonymous_element);
+        w.writeAnonymousAspectElements(anonymous_too_elements);
+        w.writeAnonymousAspectElement(single_element);
+        w.writeAnonymousAspectElement(single_element2);
+        w.writeAnonymousAspectElementAsList(single_element2);
         w.writeAspectElements(edges_elements);
         w.end();
 
@@ -121,13 +140,12 @@ public class Examples2 {
         // Reading from CX
         // ---------------
 
-        final CxReader p = CxReader.createInstance(cx_json_str, true);
-
-        p.addAspectFragmentReader(EdgesFragmentReader.createInstance());
+        final CxReader r = CxReader.createInstance(cx_json_str, true);
+        r.addAspectFragmentReader(EdgesFragmentReader.createInstance());
 
         final List<List<AspectElement>> res = new ArrayList<List<AspectElement>>();
-        while (p.hasNext()) {
-            final List<AspectElement> elements = p.getNext();
+        while (r.hasNext()) {
+            final List<AspectElement> elements = r.getNext();
             if (!elements.isEmpty()) {
                 res.add(elements);
             }
@@ -142,21 +160,18 @@ public class Examples2 {
             }
         }
 
-        // System.out.println( m.writeValueAsString(node) );
-        // final OutputStream out = new ByteArrayOutputStream();
-        // m.writeValue(out, node);
-        // System.out.println(out.toString());
         //
-        // final OutputStream out2 = new ByteArrayOutputStream();
-        // final JsonFactory f = new JsonFactory();
-        // JsonGenerator g = f.createGenerator(out2);
-        // g.useDefaultPrettyPrinter();
-        //
-        // DefaultSerializerProvider.Impl sp = new
-        // DefaultSerializerProvider.Impl();
-        // node.serialize(g ,sp);
-        //
-        // System.out.println(out2.toString());
+        final CxReader r2 = CxReader.createInstance(cx_json_str, true);
+        r2.addAspectFragmentReader(EdgesFragmentReader.createInstance());
+
+        final SortedMap<String, List<AspectElement>> res2 = CxReader.parseAsMap(r2);
+
+        for (final Entry<String, List<AspectElement>> entry : res2.entrySet()) {
+            System.out.println("> " + entry.getKey() + ": ");
+            for (final AspectElement element : entry.getValue()) {
+                System.out.println(element.toString());
+            }
+        }
 
     }
 

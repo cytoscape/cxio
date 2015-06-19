@@ -15,14 +15,14 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 
 public class NodeAttributesFragmentReader implements AspectFragmentReader {
-    
+
     private static final boolean STRICT_DEFAULT = false;
-    private final boolean _strict;
+    private final boolean        _strict;
 
     public static NodeAttributesFragmentReader createInstance() {
         return new NodeAttributesFragmentReader(STRICT_DEFAULT);
     }
-    
+
     public static NodeAttributesFragmentReader createInstance(final boolean strict) {
         return new NodeAttributesFragmentReader(strict);
     }
@@ -30,6 +30,7 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
     private NodeAttributesFragmentReader(final boolean strict) {
         _strict = strict;
     }
+
     @Override
     public String getAspectName() {
         return NodeAttributesElement.NODE_ATTRIBUTES;

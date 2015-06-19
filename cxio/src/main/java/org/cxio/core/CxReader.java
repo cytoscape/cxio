@@ -28,7 +28,7 @@ import com.fasterxml.jackson.core.JsonToken;
  *
  */
 public final class CxReader {
-    
+
     private List<AspectElement>                         _current;
     private final HashMap<String, AspectFragmentReader> _element_readers;
     private final Object                                _input;
@@ -280,8 +280,7 @@ public final class CxReader {
             final String name = _jp.getCurrentName();
             _was_in_recognized_aspect = false;
             if ((_level == 2) && (_token == JsonToken.FIELD_NAME) && (name != null)) {
-                System.out.println(">>>>> name: " + name);
-
+                //System.out.println(">>>>> name: " + name);
                 if (_element_readers.containsKey(name)) {
                     elements = _element_readers.get(name).readAspectFragment(_jp);
                     _was_in_recognized_aspect = true;
@@ -290,6 +289,13 @@ public final class CxReader {
                     final AnonymousFragmentReader reader = AnonymousFragmentReader.createInstance();
                     reader.setAspectName(name);
                     elements = reader.readAspectFragment(_jp);
+                    if (!reader.isList()) {
+                        --_level;
+                        if (_level < 1) {
+                            throw new IllegalStateException("this should never have happened (likely cause: problem with '"
+                                    + name + "' reader)");
+                        }
+                    }
                     _was_in_recognized_aspect = true;
                 }
             }
@@ -299,10 +305,10 @@ public final class CxReader {
                         + "' reader)");
             }
             if ((_token == JsonToken.START_ARRAY) || (_token == JsonToken.START_OBJECT)) {
-                _level++;
+                ++_level;
             }
             else if ((_token == JsonToken.END_ARRAY) || (_token == JsonToken.END_OBJECT)) {
-                _level--;
+                --_level;
                 if (_level < 1) {
                     throw new IllegalStateException("this should never have happened (likely cause: problem with '"
                             + name + "' reader)");

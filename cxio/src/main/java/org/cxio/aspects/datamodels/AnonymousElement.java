@@ -7,14 +7,22 @@ import org.cxio.core.interfaces.AspectElement;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+/**
+ * This used to represent a "anonymous", general aspect element. Essentially it
+ * is a wrapper for ObjectNode from faster XML library. A ObjectNode in turn is
+ * the root of a tree-structure representing json-data.
+ *
+ * @author cmzmasek
+ *
+ */
 public final class AnonymousElement implements AspectElement {
 
     private final String     _name;
-    private final ObjectNode _node;
+    private final ObjectNode _data;
 
-    public AnonymousElement(final String name, final ObjectNode node) {
+    public AnonymousElement(final String name, final ObjectNode data) {
         _name = name;
-        _node = node;
+        _data = data;
     }
 
     @Override
@@ -23,12 +31,12 @@ public final class AnonymousElement implements AspectElement {
     }
 
     final public ObjectNode getData() {
-        return _node;
+        return _data;
     }
 
     public final String toJsonString() throws IOException {
         final ObjectMapper m = new ObjectMapper();
-        return m.writeValueAsString(_node);
+        return m.writeValueAsString(_data);
 
     }
 

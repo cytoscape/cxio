@@ -7,7 +7,6 @@ import java.util.List;
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.core.CxConstants;
-import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.tools.Util;
@@ -18,12 +17,12 @@ import com.fasterxml.jackson.core.JsonToken;
 public class EdgeAttributesFragmentReader implements AspectFragmentReader {
 
     private static final boolean STRICT_DEFAULT = false;
-    private final boolean _strict;
+    private final boolean        _strict;
 
     public static EdgeAttributesFragmentReader createInstance() {
         return new EdgeAttributesFragmentReader(STRICT_DEFAULT);
     }
-    
+
     public static EdgeAttributesFragmentReader createInstance(final boolean strict) {
         return new EdgeAttributesFragmentReader(strict);
     }
@@ -87,8 +86,5 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
 
         return ea_aspects;
     }
-    
-    
-        
-    
+
 }

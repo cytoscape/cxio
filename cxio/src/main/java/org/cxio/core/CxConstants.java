@@ -2,8 +2,8 @@ package org.cxio.core;
 
 /**
  * This class is to hold constants.
- * 
- * 
+ *
+ *
  * @author cmzmasek
  *
  */

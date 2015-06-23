@@ -5,6 +5,12 @@ import java.util.List;
 
 import org.cxio.core.interfaces.AspectElement;
 
+/**
+ * 
+ * 
+ * @author cmzmasek
+ *
+ */
 public final class VisualStyleElement implements AspectElement {
 
     private final String               name;

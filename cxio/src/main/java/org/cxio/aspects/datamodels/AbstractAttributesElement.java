@@ -18,13 +18,13 @@ import org.cxio.core.interfaces.AspectElement;
 public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
-     * Datatypes used by Cytoscape.
+     * Basic data types.
      *
      * @author cmzmasek
      *
      */
     public enum ATTRIBUTE_TYPE {
-        BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), STRING("string");
+        BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), STRING("string"), SHORT("short");
 
         private final String _name;
 
@@ -192,6 +192,42 @@ public abstract class AbstractAttributesElement implements AspectElement {
         }
         _attributes.get(key).addAll(values);
     }
+    
+    /**
+     * This is used to enter a list of values with their key, type is 
+     * selectable by caller.
+     * 
+     * 
+     * @param key
+     * @param values
+     * @param type
+     */
+    public final void putValues(final String key, final List<String> values, final String type) {
+        if (!_attributes.containsKey(key)) {
+            _attributes.put(key, new ArrayList<String>());
+        }
+        _attributes.get(key).addAll(values);
+        putType(key, type); 
+    }
+    
+    /**
+     * This is used to enter a list of values with their key, type is 
+     * selectable by caller.
+     * 
+     * 
+     * @param key
+     * @param values
+     * @param type
+     */
+    public final void putValues(final String key, final List<String> values, final ATTRIBUTE_TYPE type) {
+        if (!_attributes.containsKey(key)) {
+            _attributes.put(key, new ArrayList<String>());
+        }
+        _attributes.get(key).addAll(values);
+        putType(key, type);
+    }
+    
+    
 
     /**
      * This is used to set the id.
@@ -200,7 +236,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @param id
      */
     public final void setId(final String id) {
-        this._id = id;
+        _id = id;
     }
 
     /**
@@ -228,6 +264,9 @@ public abstract class AbstractAttributesElement implements AspectElement {
         }
         else if (s.equals(ATTRIBUTE_TYPE.FLOAT.toString())) {
             return ATTRIBUTE_TYPE.FLOAT;
+        }
+        else if (s.equals(ATTRIBUTE_TYPE.SHORT.toString())) {
+            return ATTRIBUTE_TYPE.SHORT;
         }
         else {
             throw new IllegalArgumentException("type '" + s + "' is not supported");
@@ -259,6 +298,9 @@ public abstract class AbstractAttributesElement implements AspectElement {
         }
         else if (o instanceof Float) {
             return ATTRIBUTE_TYPE.FLOAT;
+        }
+        else if (o instanceof Short) {
+            return ATTRIBUTE_TYPE.SHORT;
         }
         else {
             throw new IllegalArgumentException("type '" + o.getClass() + "' is not supported");

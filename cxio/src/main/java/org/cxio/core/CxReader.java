@@ -70,9 +70,9 @@ public final class CxReader {
     }
 
     /**
-     * 
-     * 
-     * 
+     *
+     *
+     *
      * @param input_stream
      * @param read_anonymous_aspect_fragments
      * @return
@@ -214,7 +214,7 @@ public final class CxReader {
         _input = input;
         _element_readers = setupAspectHandlers();
         _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
-        if (read_anonymous_aspect_fragments) { 
+        if (read_anonymous_aspect_fragments) {
             reset();
         }
     }
@@ -283,7 +283,7 @@ public final class CxReader {
                         if (_level < 1) {
                             throw new IllegalStateException(
                                     "this should never have happened (likely cause: problem with '" + name
-                                            + "' reader)");
+                                    + "' reader)");
                         }
                     }
                     _was_in_recognized_aspect = true;
@@ -334,7 +334,7 @@ public final class CxReader {
         if (_input == null) {
             throw new IllegalStateException("input for cx parser is null");
         }
-        if ( !_read_anonymous_aspect_fragments) {
+        if (!_read_anonymous_aspect_fragments) {
             if ((_element_readers == null) || _element_readers.isEmpty()) {
                 throw new IllegalStateException("aspect handlers are null or empty");
             }

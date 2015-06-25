@@ -7,27 +7,34 @@ import java.util.Map.Entry;
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
 import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
-import org.cxio.core.CxConstants;
 import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.core.interfaces.AspectFragmentWriter;
+import org.cxio.filters.AspectKeyFilter;
 
-public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
+public class NodeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
+
+    private AspectKeyFilter _filter;
+
     public static NodeAttributesFragmentWriter createInstance() {
         return new NodeAttributesFragmentWriter();
     }
 
     private NodeAttributesFragmentWriter() {
+        _filter = null;
     }
 
-    private final void addNodeAttributesAspect(final NodeAttributesElement na, final JsonWriter w) throws IOException {
+    @Override
+    void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+        final NodeAttributesElement na = (NodeAttributesElement) element;
         w.writeStartObject();
-        w.writeStringField(CxConstants.ID, na.getId());
+        w.writeStringField(AbstractAttributesElement.ID, na.getId());
         w.writeList(NodeAttributesElement.NODES, na.getNodes());
         if ((na.getAttributesTypes() != null) && !na.getAttributesTypes().isEmpty()) {
             w.writeObjectFieldStart(AbstractAttributesElement.ATTRIBUTE_TYPES);
             for (final Entry<String, ATTRIBUTE_TYPE> a : na.getAttributesTypes().entrySet()) {
-                w.writeStringField(a.getKey(), a.getValue().toString());
+                if ((_filter == null) || _filter.isPass(a.getKey())) {
+                    w.writeStringField(a.getKey(), a.getValue().toString());
+                }
             }
             w.writeEndObject();
         }
@@ -35,7 +42,9 @@ public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
         if ((na.getAttributes() != null) && !na.getAttributes().isEmpty()) {
             w.writeObjectFieldStart(AbstractAttributesElement.ATTRIBUTES);
             for (final Entry<String, List<String>> a : na.getAttributes().entrySet()) {
-                w.writeList(a.getKey(), a.getValue());
+                if ((_filter == null) || _filter.isPass(a.getKey())) {
+                    w.writeList(a.getKey(), a.getValue());
+                }
             }
             w.writeEndObject();
         }
@@ -43,21 +52,12 @@ public class NodeAttributesFragmentWriter implements AspectFragmentWriter {
     }
 
     @Override
-    public void write(final List<AspectElement> node_attributes_aspects, final JsonWriter w) throws IOException {
-        if (node_attributes_aspects == null) {
-            return;
-        }
-        w.startArray(NodeAttributesElement.NAME);
-        for (final AspectElement node_attributes_aspect : node_attributes_aspects) {
-            final NodeAttributesElement na = (NodeAttributesElement) node_attributes_aspect;
-            addNodeAttributesAspect(na, w);
-        }
-        w.endArray();
-    }
-
-    @Override
     public String getAspectName() {
         return NodeAttributesElement.NAME;
     }
 
+    @Override
+    public void addAspectKeyFilter(final AspectKeyFilter filter) {
+        _filter = filter;
+    }
 }

@@ -1,14 +1,13 @@
 package org.cxio.aspects.writers;
 
 import java.io.IOException;
-import java.util.List;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.core.interfaces.AspectFragmentWriter;
 
-public class CartesianLayoutFragmentWriter implements AspectFragmentWriter {
+public class CartesianLayoutFragmentWriter extends AbstractAspectFragmentWriter {
+
     public static CartesianLayoutFragmentWriter createInstance() {
         return new CartesianLayoutFragmentWriter();
     }
@@ -16,32 +15,19 @@ public class CartesianLayoutFragmentWriter implements AspectFragmentWriter {
     private CartesianLayoutFragmentWriter() {
     }
 
-    private final void addCartesianLayoutElement(final String node_id,
-                                                 final double x,
-                                                 final double y,
-                                                 final JsonWriter w) throws IOException {
-        w.writeStartObject();
-        w.writeStringField(CartesianLayoutElement.NODE, node_id);
-        w.writeNumberField(CartesianLayoutElement.X, x);
-        w.writeNumberField(CartesianLayoutElement.Y, y);
-        w.writeEndObject();
-    }
-
     @Override
-    public void write(final List<AspectElement> cartesian_layout_aspects, final JsonWriter w) throws IOException {
-        if (cartesian_layout_aspects == null) {
-            return;
-        }
-        w.startArray(CartesianLayoutElement.NAME);
-        for (final AspectElement cartesian_layout_aspect : cartesian_layout_aspects) {
-            final CartesianLayoutElement c = (CartesianLayoutElement) cartesian_layout_aspect;
-            addCartesianLayoutElement(c.getNode(), c.getX(), c.getY(), w);
-        }
-        w.endArray();
+    final void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+        final CartesianLayoutElement c = (CartesianLayoutElement) element;
+        w.writeStartObject();
+        w.writeStringField(CartesianLayoutElement.NODE, c.getNode());
+        w.writeNumberField(CartesianLayoutElement.X, c.getX());
+        w.writeNumberField(CartesianLayoutElement.Y, c.getY());
+        w.writeEndObject();
     }
 
     @Override
     public String getAspectName() {
         return CartesianLayoutElement.NAME;
     }
+
 }

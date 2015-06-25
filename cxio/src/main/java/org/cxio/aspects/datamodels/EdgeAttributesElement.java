@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.cxio.core.CxConstants;
 import org.cxio.tools.Util;
 
 /**
@@ -18,6 +19,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
     private final List<String> _edges;
     public final static String NAME  = "edgeAttributes";
     public final static String EDGES = "edges";
+    public final static String ID    = CxConstants.ID;
 
     public EdgeAttributesElement() {
         _id = null;

@@ -49,8 +49,8 @@ public class EdgeAttributesFragmentReaderTest {
 
         assertTrue("failed to parse " + EdgeAttributesElement.NAME + " aspect",
                 r0.containsKey(EdgeAttributesElement.NAME));
-        assertFalse("failed to parse " + EdgeAttributesElement.NAME + " aspect",
-                r0.get(EdgeAttributesElement.NAME).isEmpty());
+        assertFalse("failed to parse " + EdgeAttributesElement.NAME + " aspect", r0.get(EdgeAttributesElement.NAME)
+                .isEmpty());
         assertTrue("failed to get expected number of " + EdgeAttributesElement.NAME + " aspects",
                 r0.get(EdgeAttributesElement.NAME).size() == 3);
 

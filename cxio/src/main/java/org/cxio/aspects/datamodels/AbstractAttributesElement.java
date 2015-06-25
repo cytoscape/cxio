@@ -24,7 +24,8 @@ public abstract class AbstractAttributesElement implements AspectElement {
      *
      */
     public enum ATTRIBUTE_TYPE {
-        BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), STRING("string"), SHORT("short");
+        BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), STRING("string"), SHORT(
+                "short");
 
         private final String _name;
 
@@ -192,12 +193,12 @@ public abstract class AbstractAttributesElement implements AspectElement {
         }
         _attributes.get(key).addAll(values);
     }
-    
+
     /**
-     * This is used to enter a list of values with their key, type is 
-     * selectable by caller.
-     * 
-     * 
+     * This is used to enter a list of values with their key, type is selectable
+     * by caller.
+     *
+     *
      * @param key
      * @param values
      * @param type
@@ -207,14 +208,14 @@ public abstract class AbstractAttributesElement implements AspectElement {
             _attributes.put(key, new ArrayList<String>());
         }
         _attributes.get(key).addAll(values);
-        putType(key, type); 
+        putType(key, type);
     }
-    
+
     /**
-     * This is used to enter a list of values with their key, type is 
-     * selectable by caller.
-     * 
-     * 
+     * This is used to enter a list of values with their key, type is selectable
+     * by caller.
+     *
+     *
      * @param key
      * @param values
      * @param type
@@ -226,8 +227,6 @@ public abstract class AbstractAttributesElement implements AspectElement {
         _attributes.get(key).addAll(values);
         putType(key, type);
     }
-    
-    
 
     /**
      * This is used to set the id.

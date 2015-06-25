@@ -7,7 +7,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.AnonymousElement;
@@ -17,6 +19,7 @@ import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.core.interfaces.AspectFragmentReader;
 import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -141,8 +144,9 @@ public class AnonymousElementRoundTripTest {
         // Reading from CX
         // ---------------
 
-        final CxReader r = CxReader.createInstance(cx_json_str, true);
-        r.addAspectFragmentReader(EdgesFragmentReader.createInstance());
+        final Set<AspectFragmentReader> readers = new HashSet<>();
+        readers.add(EdgesFragmentReader.createInstance());
+        final CxReader r = CxReader.createInstance(cx_json_str, true, readers);
 
         final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(r);
 

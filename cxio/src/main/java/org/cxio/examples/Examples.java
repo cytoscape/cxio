@@ -4,7 +4,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
@@ -24,6 +26,7 @@ import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.core.interfaces.AspectFragmentReader;
 
 public class Examples {
 
@@ -101,12 +104,13 @@ public class Examples {
 
         // Reading from CX
         // ---------------
-        final CxReader p = CxReader.createInstance(cx_json_str);
-        p.addAspectFragmentReader(EdgesFragmentReader.createInstance());
-        p.addAspectFragmentReader(NodesFragmentReader.createInstance());
-        p.addAspectFragmentReader(CartesianLayoutFragmentReader.createInstance());
-        p.addAspectFragmentReader(EdgeAttributesFragmentReader.createInstance());
-        p.addAspectFragmentReader(NodeAttributesFragmentReader.createInstance());
+        final Set<AspectFragmentReader> readers = new HashSet<>();
+        readers.add(EdgesFragmentReader.createInstance());
+        readers.add(NodesFragmentReader.createInstance());
+        readers.add(CartesianLayoutFragmentReader.createInstance());
+        readers.add(EdgeAttributesFragmentReader.createInstance());
+        readers.add(NodeAttributesFragmentReader.createInstance());
+        final CxReader p = CxReader.createInstance(cx_json_str, readers);
 
         while (p.hasNext()) {
             final List<AspectElement> elements = p.getNext();

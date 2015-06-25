@@ -5,7 +5,9 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgesElement;
@@ -14,6 +16,7 @@ import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.readers.NodesFragmentReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.tools.AspectFragmentReaderManager;
 import org.junit.Test;
 
@@ -515,10 +518,11 @@ public class CxParserTest {
     @Test
     public void test10() throws IOException {
         final String j = "[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}]";
-        final CxReader p = CxReader.createInstance(j);
-        p.addAspectFragmentReader(EdgesFragmentReader.createInstance());
-        p.addAspectFragmentReader(NodesFragmentReader.createInstance());
-        p.reset();
+        final Set<AspectFragmentReader> readers = new HashSet<>();
+        readers.add(EdgesFragmentReader.createInstance());
+        readers.add(NodesFragmentReader.createInstance());
+        final CxReader p = CxReader.createInstance(j, readers);
+
         assertTrue(p.hasNext());
         final List<AspectElement> x = p.getNext();
         assertFalse(x == null);

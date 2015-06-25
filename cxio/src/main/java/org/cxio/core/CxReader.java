@@ -45,10 +45,6 @@ public final class CxReader {
         }
     }
 
-    public final static CxReader createInstance(final File file) throws IOException {
-        return new CxReader(file);
-    }
-
     public final static CxReader createInstance(final File file, final boolean read_anonymous_aspect_fragments)
             throws IOException {
         return new CxReader(file, read_anonymous_aspect_fragments);
@@ -65,19 +61,6 @@ public final class CxReader {
         return new CxReader(file, aspect_handlers);
     }
 
-    public final static CxReader createInstance(final InputStream input_stream) throws IOException {
-        return new CxReader(input_stream);
-    }
-
-    /**
-     *
-     *
-     *
-     * @param input_stream
-     * @param read_anonymous_aspect_fragments
-     * @return
-     * @throws IOException
-     */
     public final static CxReader createInstance(final InputStream input_stream,
                                                 final boolean read_anonymous_aspect_fragments) throws IOException {
         return new CxReader(input_stream, read_anonymous_aspect_fragments);
@@ -94,10 +77,6 @@ public final class CxReader {
         return new CxReader(input_stream, aspect_handlers);
     }
 
-    public final static CxReader createInstance(final String string) throws IOException {
-        return new CxReader(string);
-    }
-
     public final static CxReader createInstance(final String string, final boolean read_anonymous_aspect_fragments)
             throws IOException {
         return new CxReader(string, read_anonymous_aspect_fragments);
@@ -112,10 +91,6 @@ public final class CxReader {
     public final static CxReader createInstance(final String string, final Set<AspectFragmentReader> aspect_handlers)
             throws IOException {
         return new CxReader(string, aspect_handlers);
-    }
-
-    public final static CxReader createInstance(final URL url) throws IOException {
-        return new CxReader(url);
     }
 
     public final static CxReader createInstance(final URL url, final boolean read_anonymous_aspect_fragments)
@@ -240,11 +215,6 @@ public final class CxReader {
         _input = input;
         _element_readers = setupAspectReaders(aspect_readers);
         _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
-        reset();
-    }
-
-    public final void addAspectFragmentReader(final AspectFragmentReader fragment_reader) throws IOException {
-        _element_readers.put(fragment_reader.getAspectName(), fragment_reader);
         reset();
     }
 

@@ -2,7 +2,9 @@ package org.cxio.aspects.readers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.core.CxReader;
@@ -76,10 +78,11 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
                 + "{\"nodes\":[{\"@id\":\"_6\"}]},"
                 + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"_2\",\"x\":\"5\",\"y\":\"6\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
-        final CxReader p = CxReader.createInstance(t0);
 
-        p.addAspectFragmentReader(CartesianLayoutFragmentReader.createInstance());
-        p.reset();
+        final Set<AspectFragmentReader> readers = new HashSet<>();
+        readers.add(CartesianLayoutFragmentReader.createInstance());
+        final CxReader p = CxReader.createInstance(t0, readers);
+
         while (p.hasNext()) {
             final List<AspectElement> elements = p.getNext();
             if (!elements.isEmpty()) {

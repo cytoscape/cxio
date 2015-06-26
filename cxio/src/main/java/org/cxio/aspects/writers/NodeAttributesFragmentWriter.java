@@ -24,7 +24,7 @@ public class NodeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
     }
 
     @Override
-    void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+    protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final NodeAttributesElement na = (NodeAttributesElement) element;
         w.writeStartObject();
         w.writeStringField(AbstractAttributesElement.ID, na.getId());

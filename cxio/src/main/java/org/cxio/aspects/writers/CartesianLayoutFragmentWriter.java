@@ -16,7 +16,7 @@ public class CartesianLayoutFragmentWriter extends AbstractAspectFragmentWriter 
     }
 
     @Override
-    final void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+    protected final void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final CartesianLayoutElement c = (CartesianLayoutElement) element;
         w.writeStartObject();
         w.writeStringField(CartesianLayoutElement.NODE, c.getNode());

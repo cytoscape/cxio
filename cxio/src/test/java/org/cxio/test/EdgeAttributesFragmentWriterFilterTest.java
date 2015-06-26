@@ -1,6 +1,6 @@
 package org.cxio.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -8,8 +8,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -56,9 +56,6 @@ public class EdgeAttributesFragmentWriterFilterTest {
         ea0.putValue("I", 4);
         ea0.putValue("I", 5);
         ea0.putValue("I", 6);
-        
-       
-        
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(ea0);
@@ -74,16 +71,16 @@ public class EdgeAttributesFragmentWriterFilterTest {
         assertEquals(
                 "[{\"edgeAttributes\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"types\":{\"D\":\"double\",\"F\":\"float\",\"I\":\"integer\",\"L\":\"long\",\"X\":\"boolean\",\"Y\":\"boolean\",\"Z\":\"boolean\"},\"attributes\":{\"A\":[\"a1\",\"a2\",\"a3\"],\"B\":[\"b1\",\"b2\",\"b3\"],\"D\":[\"2.0\"],\"F\":[\"3.0\"],\"I\":[\"4\",\"5\",\"6\"],\"L\":[\"1\"],\"X\":[\"false\"],\"Y\":[\"true\"],\"Z\":[\"true\"]}}]}]",
                 out1.toString());
-        
+
         //
         final OutputStream out2 = new ByteArrayOutputStream();
         final CxWriter w2 = CxWriter.createInstance(out2, false);
-        
-        EdgeAttributesFragmentWriter eafw2 = EdgeAttributesFragmentWriter.createInstance();
-        AspectKeyFilter filter2 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
+
+        final EdgeAttributesFragmentWriter eafw2 = EdgeAttributesFragmentWriter.createInstance();
+        final AspectKeyFilter filter2 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
         eafw2.addAspectKeyFilter(filter2);
         w2.addAspectFragmentWriter(eafw2);
-        
+
         w2.start();
         w2.writeAspectElements(l1);
         w2.end();
@@ -91,18 +88,18 @@ public class EdgeAttributesFragmentWriterFilterTest {
         assertEquals(
                 "[{\"edgeAttributes\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"types\":{\"D\":\"double\",\"F\":\"float\",\"I\":\"integer\",\"L\":\"long\",\"X\":\"boolean\",\"Y\":\"boolean\",\"Z\":\"boolean\"},\"attributes\":{\"A\":[\"a1\",\"a2\",\"a3\"],\"B\":[\"b1\",\"b2\",\"b3\"],\"D\":[\"2.0\"],\"F\":[\"3.0\"],\"I\":[\"4\",\"5\",\"6\"],\"L\":[\"1\"],\"X\":[\"false\"],\"Y\":[\"true\"],\"Z\":[\"true\"]}}]}]",
                 out2.toString());
-        
+
         //
         final OutputStream out3 = new ByteArrayOutputStream();
         final CxWriter w3 = CxWriter.createInstance(out3, false);
-        
-        EdgeAttributesFragmentWriter eafw3 = EdgeAttributesFragmentWriter.createInstance();
-        AspectKeyFilter filter3 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
+
+        final EdgeAttributesFragmentWriter eafw3 = EdgeAttributesFragmentWriter.createInstance();
+        final AspectKeyFilter filter3 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
         filter3.addExcludeAspectKey("AA");
         filter3.addExcludeAspectKey("ZZ");
         eafw3.addAspectKeyFilter(filter3);
         w3.addAspectFragmentWriter(eafw3);
-        
+
         w3.start();
         w3.writeAspectElements(l1);
         w3.end();
@@ -110,13 +107,13 @@ public class EdgeAttributesFragmentWriterFilterTest {
         assertEquals(
                 "[{\"edgeAttributes\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"types\":{\"D\":\"double\",\"F\":\"float\",\"I\":\"integer\",\"L\":\"long\",\"X\":\"boolean\",\"Y\":\"boolean\",\"Z\":\"boolean\"},\"attributes\":{\"A\":[\"a1\",\"a2\",\"a3\"],\"B\":[\"b1\",\"b2\",\"b3\"],\"D\":[\"2.0\"],\"F\":[\"3.0\"],\"I\":[\"4\",\"5\",\"6\"],\"L\":[\"1\"],\"X\":[\"false\"],\"Y\":[\"true\"],\"Z\":[\"true\"]}}]}]",
                 out3.toString());
-        
+
         //
         final OutputStream out4 = new ByteArrayOutputStream();
         final CxWriter w4 = CxWriter.createInstance(out4, false);
-        
-        EdgeAttributesFragmentWriter eafw4 = EdgeAttributesFragmentWriter.createInstance();
-        AspectKeyFilter filter4 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
+
+        final EdgeAttributesFragmentWriter eafw4 = EdgeAttributesFragmentWriter.createInstance();
+        final AspectKeyFilter filter4 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
         filter4.addIncludeAspectKey("A");
         filter4.addIncludeAspectKey("B");
         filter4.addIncludeAspectKey("X");
@@ -126,10 +123,10 @@ public class EdgeAttributesFragmentWriterFilterTest {
         filter4.addIncludeAspectKey("D");
         filter4.addIncludeAspectKey("F");
         filter4.addIncludeAspectKey("I");
-       
+
         eafw4.addAspectKeyFilter(filter4);
         w4.addAspectFragmentWriter(eafw4);
-        
+
         w4.start();
         w4.writeAspectElements(l1);
         w4.end();
@@ -137,19 +134,18 @@ public class EdgeAttributesFragmentWriterFilterTest {
         assertEquals(
                 "[{\"edgeAttributes\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"types\":{\"D\":\"double\",\"F\":\"float\",\"I\":\"integer\",\"L\":\"long\",\"X\":\"boolean\",\"Y\":\"boolean\",\"Z\":\"boolean\"},\"attributes\":{\"A\":[\"a1\",\"a2\",\"a3\"],\"B\":[\"b1\",\"b2\",\"b3\"],\"D\":[\"2.0\"],\"F\":[\"3.0\"],\"I\":[\"4\",\"5\",\"6\"],\"L\":[\"1\"],\"X\":[\"false\"],\"Y\":[\"true\"],\"Z\":[\"true\"]}}]}]",
                 out4.toString());
-        
-        
+
         //
         final OutputStream out5 = new ByteArrayOutputStream();
         final CxWriter w5 = CxWriter.createInstance(out5, false);
-        
-        EdgeAttributesFragmentWriter eafw5 = EdgeAttributesFragmentWriter.createInstance();
-        AspectKeyFilter filter5 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
+
+        final EdgeAttributesFragmentWriter eafw5 = EdgeAttributesFragmentWriter.createInstance();
+        final AspectKeyFilter filter5 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
         filter5.addIncludeAspectKey("D");
-        
+
         eafw5.addAspectKeyFilter(filter5);
         w5.addAspectFragmentWriter(eafw5);
-        
+
         w5.start();
         w5.writeAspectElements(l1);
         w5.end();
@@ -157,14 +153,14 @@ public class EdgeAttributesFragmentWriterFilterTest {
         assertEquals(
                 "[{\"edgeAttributes\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"types\":{\"D\":\"double\"},\"attributes\":{\"D\":[\"2.0\"]}}]}]",
                 out5.toString());
-        
+
         //
         final OutputStream out6 = new ByteArrayOutputStream();
         final CxWriter w6 = CxWriter.createInstance(out6, false);
-        
-        EdgeAttributesFragmentWriter eafw6 = EdgeAttributesFragmentWriter.createInstance();
-        AspectKeyFilter filter6 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
-        
+
+        final EdgeAttributesFragmentWriter eafw6 = EdgeAttributesFragmentWriter.createInstance();
+        final AspectKeyFilter filter6 = new AspectKeyFilterBasic(EdgeAttributesElement.NAME);
+
         filter6.addExcludeAspectKey("A");
         filter6.addExcludeAspectKey("B");
         filter6.addExcludeAspectKey("X");
@@ -175,7 +171,7 @@ public class EdgeAttributesFragmentWriterFilterTest {
         filter6.addExcludeAspectKey("I");
         eafw6.addAspectKeyFilter(filter6);
         w6.addAspectFragmentWriter(eafw6);
-        
+
         w6.start();
         w6.writeAspectElements(l1);
         w6.end();
@@ -183,11 +179,7 @@ public class EdgeAttributesFragmentWriterFilterTest {
         assertEquals(
                 "[{\"edgeAttributes\":[{\"@id\":\"00\",\"edges\":[\"000\",\"001\"],\"types\":{\"D\":\"double\"},\"attributes\":{\"D\":[\"2.0\"]}}]}]",
                 out6.toString());
-        
-        
-        
-        
-    
+
     }
 
 }

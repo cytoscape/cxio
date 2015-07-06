@@ -19,7 +19,7 @@ import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.tools.AspectFragmentReaderManager;
+import org.cxio.util.AspectFragmentReaderManager;
 
 final class TestUtil {
 

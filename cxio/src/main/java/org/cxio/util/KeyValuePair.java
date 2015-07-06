@@ -1,4 +1,4 @@
-package org.cxio.tools;
+package org.cxio.util;
 
 public final class KeyValuePair {
     final private String _key;

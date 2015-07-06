@@ -7,7 +7,7 @@ import java.util.List;
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.tools.Util;
+import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;

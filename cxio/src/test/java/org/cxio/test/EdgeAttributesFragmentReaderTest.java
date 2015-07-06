@@ -11,7 +11,7 @@ import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.tools.AspectFragmentReaderManager;
+import org.cxio.util.AspectFragmentReaderManager;
 import org.junit.Test;
 
 public class EdgeAttributesFragmentReaderTest {

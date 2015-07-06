@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.tools.Util;
+import org.cxio.util.Util;
 
 public class EdgesFragmentWriter extends AbstractAspectFragmentWriter {
 

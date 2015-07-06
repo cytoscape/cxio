@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.cxio.tools.Util;
+import org.cxio.util.Util;
 
 /**
  * This class is used to represent a Cytoscape node attribute aspect element.

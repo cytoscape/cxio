@@ -10,7 +10,7 @@ import java.util.SortedMap;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.tools.AspectFragmentReaderManager;
+import org.cxio.util.AspectFragmentReaderManager;
 import org.junit.Test;
 
 public class NodeAttributesFragmentReaderTest {

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.cxio.core.CxConstants;
-import org.cxio.tools.Util;
+import org.cxio.util.Util;
 
 /**
  * This class is used to represent a Cytoscape edge attribute aspect element.

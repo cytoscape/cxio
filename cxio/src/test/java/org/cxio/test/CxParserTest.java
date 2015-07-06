@@ -17,7 +17,7 @@ import org.cxio.aspects.readers.NodesFragmentReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.tools.AspectFragmentReaderManager;
+import org.cxio.util.AspectFragmentReaderManager;
 import org.junit.Test;
 
 public class CxParserTest {

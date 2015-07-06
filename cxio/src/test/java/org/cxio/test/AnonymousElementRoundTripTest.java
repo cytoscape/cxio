@@ -140,7 +140,6 @@ public class AnonymousElementRoundTripTest {
         w.end();
 
         final String cx_json_str = out.toString();
-
         // Reading from CX
         // ---------------
 

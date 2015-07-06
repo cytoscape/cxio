@@ -155,14 +155,17 @@ public final class CxReader {
         return all_aspects;
     }
 
-    private final static HashMap<String, AspectFragmentReader> setupAspectHandlers() {
+    private final static HashMap<String, AspectFragmentReader> setupAspectReaders() {
         final HashMap<String, AspectFragmentReader> ahs = new HashMap<String, AspectFragmentReader>();
         return ahs;
     }
 
-    private final static HashMap<String, AspectFragmentReader> setupAspectReaders(final Set<AspectFragmentReader> aspect_readers) {
-        if ((aspect_readers == null) || aspect_readers.isEmpty()) {
-            throw new IllegalArgumentException("aspect handlers are null or empty");
+    private final static HashMap<String, AspectFragmentReader> setupAspectReaders(final Set<AspectFragmentReader> aspect_readers,
+                                                                                  final boolean allow_empty) {
+        if (!allow_empty) {
+            if ((aspect_readers == null) || aspect_readers.isEmpty()) {
+                throw new IllegalArgumentException("aspect handlers are null or empty");
+            }
         }
         final HashMap<String, AspectFragmentReader> ahs = new HashMap<String, AspectFragmentReader>();
         for (final AspectFragmentReader aspect_reader : aspect_readers) {
@@ -177,7 +180,7 @@ public final class CxReader {
         }
         checkInputType(input);
         _input = input;
-        _element_readers = setupAspectHandlers();
+        _element_readers = setupAspectReaders();
         _read_anonymous_aspect_fragments = false;
     }
 
@@ -187,7 +190,7 @@ public final class CxReader {
         }
         checkInputType(input);
         _input = input;
-        _element_readers = setupAspectHandlers();
+        _element_readers = setupAspectReaders();
         _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
         if (read_anonymous_aspect_fragments) {
             reset();
@@ -200,7 +203,7 @@ public final class CxReader {
         }
         checkInputType(input);
         _input = input;
-        _element_readers = setupAspectReaders(aspect_readers);
+        _element_readers = setupAspectReaders(aspect_readers, false);
         _read_anonymous_aspect_fragments = false;
         reset();
     }
@@ -213,7 +216,8 @@ public final class CxReader {
         }
         checkInputType(input);
         _input = input;
-        _element_readers = setupAspectReaders(aspect_readers);
+
+        _element_readers = setupAspectReaders(aspect_readers, read_anonymous_aspect_fragments);
         _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
         reset();
     }

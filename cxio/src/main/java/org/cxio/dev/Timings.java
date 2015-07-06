@@ -53,7 +53,7 @@ public class Timings {
 
     private static void error() {
         System.out
-        .println("Usage: Timings [number of elements] [number of repeats] [pretty printing: true/false] [write to /dev/null: true/false]");
+                .println("Usage: Timings [number of elements] [number of repeats] [pretty printing: true/false] [write to /dev/null: true/false]");
         System.exit(-1);
     }
 
@@ -234,7 +234,6 @@ public class Timings {
         else {
             return CxReader.createInstance(_cx_out, readers);
         }
-
     }
 
     private static long timeEdgeAttributesParsing() throws IOException {

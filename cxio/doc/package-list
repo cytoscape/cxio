@@ -1,8 +1,0 @@
-org.cxio.aspects.datamodels
-org.cxio.aspects.readers
-org.cxio.aspects.writers
-org.cxio.core
-org.cxio.core.interfaces
-org.cxio.examples
-org.cxio.test
-org.cxio.tools

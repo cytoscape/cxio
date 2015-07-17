@@ -11,7 +11,7 @@ import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
-import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
+import org.cxio.aspects.writers.CytoscapeVisualStyleFragmentWriter;
 import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
@@ -33,7 +33,7 @@ final class TestUtil {
         final CxWriter w = CxWriter.createInstance(out);
         w.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
-        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(CytoscapeVisualStyleFragmentWriter.createInstance());
         w.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
 

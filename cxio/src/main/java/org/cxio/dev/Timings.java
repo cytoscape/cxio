@@ -21,7 +21,7 @@ import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
 import org.cxio.aspects.readers.NodesFragmentReader;
-import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
+import org.cxio.aspects.writers.CytoscapeVisualStyleFragmentWriter;
 import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
@@ -336,7 +336,7 @@ public class Timings {
         final List<AspectElement> elements = new ArrayList<AspectElement>();
         final long t0 = System.currentTimeMillis();
 
-        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(CytoscapeVisualStyleFragmentWriter.createInstance());
         for (int i = 0; i < _elements; ++i) {
             elements.add(new CartesianLayoutElement("c", "1", "2"));
         }

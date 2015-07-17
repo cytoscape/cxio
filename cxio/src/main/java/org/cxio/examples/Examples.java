@@ -18,7 +18,7 @@ import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
 import org.cxio.aspects.readers.NodesFragmentReader;
-import org.cxio.aspects.writers.CytoscapeVisualStyleFragmentWriter;
+import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
@@ -87,7 +87,7 @@ public class Examples {
 
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
-        w.addAspectFragmentWriter(CytoscapeVisualStyleFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
         w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
 

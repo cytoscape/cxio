@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
+import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.CytoscapeVisualStyleFragmentWriter;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -23,7 +24,7 @@ public class CartesianLayoutFragmentWriterTest {
         final OutputStream out0 = new ByteArrayOutputStream();
         final CxWriter w = CxWriter.createInstance(out0, false);
 
-        w.addAspectFragmentWriter(CytoscapeVisualStyleFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
 
         w.start();
         w.writeAspectElements(l0);
@@ -43,7 +44,7 @@ public class CartesianLayoutFragmentWriterTest {
         final OutputStream out1 = new ByteArrayOutputStream();
         final CxWriter w1 = CxWriter.createInstance(out1, false);
 
-        w1.addAspectFragmentWriter(CytoscapeVisualStyleFragmentWriter.createInstance());
+        w1.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
 
         w1.start();
         w1.writeAspectElements(l1);

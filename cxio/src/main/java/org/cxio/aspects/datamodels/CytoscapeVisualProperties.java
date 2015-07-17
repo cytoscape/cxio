@@ -17,10 +17,10 @@ public final class CytoscapeVisualProperties {
         return _selector;
     }
 
-    public final void put(String name, String value) {
-         _properties.put(name, value);
+    public final void put(final String name, final String value) {
+        _properties.put(name, value);
     }
-    
+
     public final SortedMap<String, String> getProperties() {
         return _properties;
     }

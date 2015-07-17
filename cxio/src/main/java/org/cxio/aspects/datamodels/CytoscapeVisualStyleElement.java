@@ -20,7 +20,7 @@ public final class CytoscapeVisualStyleElement implements AspectElement {
     public final static String                    TITLE    = "title";
     public final static String                    SELECTOR = "selector";
     public final static String                    STYLE    = "style";
-    public final static String                    CSS    = "css";
+    public final static String                    CSS      = "css";
 
     public CytoscapeVisualStyleElement(final String title) {
         _title = title;
@@ -39,9 +39,9 @@ public final class CytoscapeVisualStyleElement implements AspectElement {
     public final List<CytoscapeVisualProperties> getProperties() {
         return _properties;
     }
-    
-    public final void addProperties( final CytoscapeVisualProperties properties ) {
-         _properties.add(properties);
+
+    public final void addProperties(final CytoscapeVisualProperties properties) {
+        _properties.add(properties);
     }
 
     @Override

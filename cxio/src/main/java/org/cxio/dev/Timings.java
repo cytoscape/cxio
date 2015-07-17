@@ -21,7 +21,7 @@ import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
 import org.cxio.aspects.readers.NodesFragmentReader;
-import org.cxio.aspects.writers.CytoscapeVisualStyleFragmentWriter;
+import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
@@ -53,7 +53,7 @@ public class Timings {
 
     private static void error() {
         System.out
-                .println("Usage: Timings [number of elements] [number of repeats] [pretty printing: true/false] [write to /dev/null: true/false]");
+        .println("Usage: Timings [number of elements] [number of repeats] [pretty printing: true/false] [write to /dev/null: true/false]");
         System.exit(-1);
     }
 
@@ -336,7 +336,7 @@ public class Timings {
         final List<AspectElement> elements = new ArrayList<AspectElement>();
         final long t0 = System.currentTimeMillis();
 
-        w.addAspectFragmentWriter(CytoscapeVisualStyleFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
         for (int i = 0; i < _elements; ++i) {
             elements.add(new CartesianLayoutElement("c", "1", "2"));
         }

@@ -37,7 +37,7 @@ public class CytoscapeVisualStyleFragmentReader implements AspectFragmentReader 
         if (t != JsonToken.START_ARRAY) {
             throw new IOException("malformed cx json in '" + getAspectName() + "'");
         }
-        final List<AspectElement> na_aspects = new ArrayList<AspectElement>();
+        final List<AspectElement> aspects = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);
@@ -46,11 +46,12 @@ public class CytoscapeVisualStyleFragmentReader implements AspectFragmentReader 
                 }
                 final CytoscapeVisualStyleElement c = new CytoscapeVisualStyleElement(Util.getTextValueRequired(o,
                         CytoscapeVisualStyleElement.TITLE));
+                aspects.add(c);
 
             }
             t = jp.nextToken();
         }
-        return na_aspects;
+        return aspects;
     }
 
 }

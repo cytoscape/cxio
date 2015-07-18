@@ -44,7 +44,7 @@ public class CytoscapeVisualStyleFragmentWriterTest {
         l1.add(c1 );
         
         final OutputStream out1 = new ByteArrayOutputStream();
-        final CxWriter w1 = CxWriter.createInstance(out1, true);
+        final CxWriter w1 = CxWriter.createInstance(out1, false);
         w1.addAspectFragmentWriter(CytoscapeVisualStyleFragmentWriter.createInstance());
 
         w1.start();

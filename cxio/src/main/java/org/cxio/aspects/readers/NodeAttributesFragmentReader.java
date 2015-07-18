@@ -36,7 +36,7 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed cx json in '" + NodeAttributesElement.NAME + "'");
+            throw new IOException("malformed cx json in '" + getAspectName() + "'");
         }
         final List<AspectElement> na_aspects = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {

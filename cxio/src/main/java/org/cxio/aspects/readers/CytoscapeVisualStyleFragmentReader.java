@@ -2,8 +2,11 @@ package org.cxio.aspects.readers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
 
+import org.cxio.aspects.datamodels.CytoscapeVisualProperties;
 import org.cxio.aspects.datamodels.CytoscapeVisualStyleElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
@@ -11,6 +14,7 @@ import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -44,10 +48,24 @@ public class CytoscapeVisualStyleFragmentReader implements AspectFragmentReader 
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                final CytoscapeVisualStyleElement c = new CytoscapeVisualStyleElement(Util.getTextValueRequired(o,
-                        CytoscapeVisualStyleElement.TITLE));
-                aspects.add(c);
-
+                final CytoscapeVisualStyleElement visual_style = new CytoscapeVisualStyleElement(
+                        Util.getTextValueRequired(o, CytoscapeVisualStyleElement.TITLE));
+                final JsonNode styles = o.get(CytoscapeVisualStyleElement.STYLE);
+                for (int i = 0; i < styles.size(); ++i) {
+                    final JsonNode style = styles.get(i);
+                    final String selector = style.get(CytoscapeVisualStyleElement.SELECTOR).asText();
+                    if (Util.isEmpty(selector)) {
+                        throw new IOException("selector is null or empty");
+                    }
+                    final CytoscapeVisualProperties properties = new CytoscapeVisualProperties(selector);
+                    final Iterator<Entry<String, JsonNode>> it = style.get(CytoscapeVisualStyleElement.CSS).fields();
+                    while (it.hasNext()) {
+                        final Entry<String, JsonNode> kv = it.next();
+                        properties.put(kv.getKey(), kv.getValue().asText());
+                    }
+                    visual_style.addProperties(properties);
+                }
+                aspects.add(visual_style);
             }
             t = jp.nextToken();
         }

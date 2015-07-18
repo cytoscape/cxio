@@ -31,18 +31,18 @@ public class CytoscapeVisualStyleFragmentWriterTest {
         assertEquals("[]", out0.toString());
 
         final CytoscapeVisualStyleElement c1 = new CytoscapeVisualStyleElement("Sample1");
-        CytoscapeVisualProperties cvp0 = new CytoscapeVisualProperties("node");
+        final CytoscapeVisualProperties cvp0 = new CytoscapeVisualProperties("node");
         cvp0.put("text-opacity", "1.0");
         cvp0.put("width", "40.0");
-        cvp0.put("background-color","rgb(204,204,255)");
-        CytoscapeVisualProperties cvp1 = new CytoscapeVisualProperties("node:selected");
-        cvp1.put("background-color","rgb(255,255,0)");
-        
+        cvp0.put("background-color", "rgb(204,204,255)");
+        final CytoscapeVisualProperties cvp1 = new CytoscapeVisualProperties("node:selected");
+        cvp1.put("background-color", "rgb(255,255,0)");
+
         c1.addProperties(cvp0);
         c1.addProperties(cvp1);
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
-        l1.add(c1 );
-        
+        l1.add(c1);
+
         final OutputStream out1 = new ByteArrayOutputStream();
         final CxWriter w1 = CxWriter.createInstance(out1, false);
         w1.addAspectFragmentWriter(CytoscapeVisualStyleFragmentWriter.createInstance());
@@ -51,10 +51,12 @@ public class CytoscapeVisualStyleFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end();
 
-        System.out.println(out1.toString());
-        
-        //assertEquals("[]", out1.toString());
-        
+        assertEquals("[{\"visualStyle\":[{\"title\":\"Sample1\",\"style\":"
+                + "[{\"selector\":\"node\",\"css\":{\"background-color\""
+                + ":\"rgb(204,204,255)\",\"text-opacity\":\"1.0\",\"width\":"
+                + "\"40.0\"}},{\"selector\":\"node:selected\",\"css\":"
+                + "{\"background-color\":\"rgb(255,255,0)\"}}]}]}]", out1.toString());
+
     }
 
 }

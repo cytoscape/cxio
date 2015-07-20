@@ -10,7 +10,6 @@ import java.util.SortedMap;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.AspectFragmentReaderManager;
 import org.junit.Test;
 
 public class NodeAttributesFragmentReaderTest {
@@ -46,8 +45,7 @@ public class NodeAttributesFragmentReaderTest {
                 + "{\"nodeAttributes\":[{\"@id\":\"_na4\",\"nodes\":[\"_33\"],\"attributes\":{\"target\":[\"true\"]},  \"types\":{\"target\":\"boolean\"} }]}"
                 + "]";
 
-        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(t0, TestUtil.getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertTrue("failed to parse " + NodeAttributesElement.NAME + " aspect",

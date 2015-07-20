@@ -10,7 +10,6 @@ import java.util.SortedMap;
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.AspectFragmentReaderManager;
 import org.junit.Test;
 
 public class NodesFragmentReaderTest {
@@ -34,8 +33,7 @@ public class NodesFragmentReaderTest {
                 + "{\"nodes\":[{\"@id\":\"_4\"}]}," + "{\"nodes\":[{\"@id\":\"_6\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
 
-        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(t0, TestUtil.getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertTrue("failed to parse " + NodesElement.NAME + " aspect", r0.containsKey(NodesElement.NAME));
@@ -80,8 +78,7 @@ public class NodesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
-        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(t0, TestUtil.getAvailableAspectFragmentReaders());
         CxReader.parseAsMap(p);
 
     }
@@ -101,8 +98,7 @@ public class NodesFragmentReaderTest {
                 + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
-        final CxReader p = CxReader.createInstance(t0, AspectFragmentReaderManager.createInstance()
-                .getAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(t0, TestUtil.getAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertFalse("expected to parse no " + NodesElement.NAME + " aspects, got some",

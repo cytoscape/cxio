@@ -161,7 +161,7 @@ public final class CxReader {
     }
 
     private final static HashMap<String, AspectFragmentReader> setupAspectReaders(final Set<AspectFragmentReader> aspect_readers,
-            final boolean allow_empty) {
+                                                                                  final boolean allow_empty) {
         if (!allow_empty) {
             if ((aspect_readers == null) || aspect_readers.isEmpty()) {
                 throw new IllegalArgumentException("aspect handlers are null or empty");
@@ -257,7 +257,7 @@ public final class CxReader {
                         if (_level < 1) {
                             throw new IllegalStateException(
                                     "this should never have happened (likely cause: problem with '" + name
-                                            + "' reader)");
+                                    + "' reader)");
                         }
                     }
                     _was_in_recognized_aspect = true;

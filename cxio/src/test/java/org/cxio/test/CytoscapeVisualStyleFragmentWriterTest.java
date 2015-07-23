@@ -31,11 +31,11 @@ public class CytoscapeVisualStyleFragmentWriterTest {
         assertEquals("[]", out0.toString());
 
         final CytoscapeVisualStyleElement c1 = new CytoscapeVisualStyleElement("Sample1");
-        final CytoscapeVisualProperties cvp0 = new CytoscapeVisualProperties("node");
+        final CytoscapeVisualProperties cvp0 = new CytoscapeVisualProperties("node:all", "nodes");
         cvp0.put("text-opacity", "1.0");
         cvp0.put("width", "40.0");
         cvp0.put("background-color", "rgb(204,204,255)");
-        final CytoscapeVisualProperties cvp1 = new CytoscapeVisualProperties("node:selected");
+        final CytoscapeVisualProperties cvp1 = new CytoscapeVisualProperties("node:selected", "nodes");
         cvp1.put("background-color", "rgb(255,255,0)");
 
         c1.addProperties(cvp0);
@@ -51,11 +51,11 @@ public class CytoscapeVisualStyleFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end();
 
-        assertEquals("[{\"visualStyle\":[{\"title\":\"Sample1\",\"style\":"
-                + "[{\"selector\":\"node\",\"css\":{\"background-color\""
-                + ":\"rgb(204,204,255)\",\"text-opacity\":\"1.0\",\"width\":"
-                + "\"40.0\"}},{\"selector\":\"node:selected\",\"css\":"
-                + "{\"background-color\":\"rgb(255,255,0)\"}}]}]}]", out1.toString());
+        System.out.println(out1.toString());
+
+        assertEquals(
+                "[{\"visualStyle\":[{\"title\":\"Sample1\",\"styles\":[{\"applies_to\":\"nodes\",\"selector\":\"node:all\",\"properties\":{\"background-color\":\"rgb(204,204,255)\",\"text-opacity\":\"1.0\",\"width\":\"40.0\"}},{\"applies_to\":\"nodes\",\"selector\":\"node:selected\",\"properties\":{\"background-color\":\"rgb(255,255,0)\"}}]}]}]",
+                out1.toString());
 
     }
 

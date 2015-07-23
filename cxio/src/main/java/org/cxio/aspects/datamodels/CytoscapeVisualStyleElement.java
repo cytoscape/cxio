@@ -19,8 +19,9 @@ public final class CytoscapeVisualStyleElement implements AspectElement {
     public final static String                    NAME     = "visualStyle";
     public final static String                    TITLE    = "title";
     public final static String                    SELECTOR = "selector";
-    public final static String                    STYLE    = "style";
-    public final static String                    CSS      = "css";
+    public final static String                    APPLIES_TO = "applies_to";
+    public final static String                    STYLES    = "styles";
+    public final static String                    PROPERTIES      = "properties";
 
     public CytoscapeVisualStyleElement(final String title) {
         _title = title;

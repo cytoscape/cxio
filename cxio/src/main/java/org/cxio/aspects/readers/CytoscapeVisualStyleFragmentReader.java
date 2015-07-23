@@ -50,15 +50,16 @@ public class CytoscapeVisualStyleFragmentReader implements AspectFragmentReader 
                 }
                 final CytoscapeVisualStyleElement visual_style = new CytoscapeVisualStyleElement(
                         Util.getTextValueRequired(o, CytoscapeVisualStyleElement.TITLE));
-                final JsonNode styles = o.get(CytoscapeVisualStyleElement.STYLE);
+                final JsonNode styles = o.get(CytoscapeVisualStyleElement.STYLES);
                 for (int i = 0; i < styles.size(); ++i) {
                     final JsonNode style = styles.get(i);
                     final String selector = style.get(CytoscapeVisualStyleElement.SELECTOR).asText();
+                    final String applies_to = style.get(CytoscapeVisualStyleElement.APPLIES_TO).asText();
                     if (Util.isEmpty(selector)) {
                         throw new IOException("selector is null or empty");
                     }
-                    final CytoscapeVisualProperties properties = new CytoscapeVisualProperties(selector);
-                    final Iterator<Entry<String, JsonNode>> it = style.get(CytoscapeVisualStyleElement.CSS).fields();
+                    final CytoscapeVisualProperties properties = new CytoscapeVisualProperties(selector, applies_to);
+                    final Iterator<Entry<String, JsonNode>> it = style.get(CytoscapeVisualStyleElement.PROPERTIES).fields();
                     while (it.hasNext()) {
                         final Entry<String, JsonNode> kv = it.next();
                         properties.put(kv.getKey(), kv.getValue().asText());

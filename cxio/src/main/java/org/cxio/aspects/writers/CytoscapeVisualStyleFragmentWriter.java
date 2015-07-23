@@ -29,12 +29,13 @@ public class CytoscapeVisualStyleFragmentWriter extends AbstractAspectFragmentWr
         w.writeStringField(CytoscapeVisualStyleElement.TITLE, c.getTitle());
 
         if ((c.getProperties() != null) && !c.getProperties().isEmpty()) {
-            w.writeStartArray(CytoscapeVisualStyleElement.STYLE);
+            w.writeStartArray(CytoscapeVisualStyleElement.STYLES);
             for (final CytoscapeVisualProperties property : c.getProperties()) {
                 w.writeStartObject();
+                w.writeStringField(CytoscapeVisualStyleElement.APPLIES_TO, property.getAppliesTo());
                 w.writeStringField(CytoscapeVisualStyleElement.SELECTOR, property.getSelector());
                 if ((c.getProperties() != null) && !c.getProperties().isEmpty()) {
-                    w.writeObjectFieldStart(CytoscapeVisualStyleElement.CSS);
+                    w.writeObjectFieldStart(CytoscapeVisualStyleElement.PROPERTIES);
                     for (final Map.Entry<String, String> entry : property.getProperties().entrySet()) {
                         if (entry.getValue() != null) {
                             w.writeStringField(entry.getKey(), entry.getValue());

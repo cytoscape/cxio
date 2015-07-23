@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 
-import org.cxio.aspects.datamodels.CytoscapeVisualProperties;
-import org.cxio.aspects.datamodels.CytoscapeVisualStyleElement;
+import org.cxio.aspects.datamodels.VisualProperties;
+import org.cxio.aspects.datamodels.VisualPropertiesElement;
 import org.cxio.aspects.readers.CytoscapeVisualStyleFragmentReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
@@ -29,25 +29,25 @@ public class CytoscapeVisualStyleFragmentReaderTest {
         final CxReader p = CxReader.createInstance(t0, readers);
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + CytoscapeVisualStyleElement.NAME + " aspect",
-                r0.containsKey(CytoscapeVisualStyleElement.NAME));
+        assertTrue("failed to parse " + VisualPropertiesElement.NAME + " aspect",
+                r0.containsKey(VisualPropertiesElement.NAME));
 
-        assertFalse("failed to parse " + CytoscapeVisualStyleElement.NAME + " aspect",
-                r0.get(CytoscapeVisualStyleElement.NAME).isEmpty());
+        assertFalse("failed to parse " + VisualPropertiesElement.NAME + " aspect",
+                r0.get(VisualPropertiesElement.NAME).isEmpty());
 
-        assertTrue("failed to parse expected number of " + CytoscapeVisualStyleElement.NAME + " aspects",
-                r0.get(CytoscapeVisualStyleElement.NAME).size() == 1);
+        assertTrue("failed to parse expected number of " + VisualPropertiesElement.NAME + " aspects",
+                r0.get(VisualPropertiesElement.NAME).size() == 1);
 
-        final List<AspectElement> aspects = r0.get(CytoscapeVisualStyleElement.NAME);
+        final List<AspectElement> aspects = r0.get(VisualPropertiesElement.NAME);
 
-        final CytoscapeVisualStyleElement v = (CytoscapeVisualStyleElement) aspects.get(0);
-        assertTrue(v.getAspectName().equals(CytoscapeVisualStyleElement.NAME));
+        final VisualPropertiesElement v = (VisualPropertiesElement) aspects.get(0);
+        assertTrue(v.getAspectName().equals(VisualPropertiesElement.NAME));
         assertTrue(v.getTitle().equals("Sample1"));
 
         assertTrue(v.getProperties().size() == 2);
 
-        final CytoscapeVisualProperties p0 = v.getProperties().get(0);
-        final CytoscapeVisualProperties p1 = v.getProperties().get(1);
+        final VisualProperties p0 = v.getProperties().get(0);
+        final VisualProperties p1 = v.getProperties().get(1);
 
         assertTrue(p0.getSelector().equals("node:all"));
         assertTrue(p1.getSelector().equals("node:selected"));

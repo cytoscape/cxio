@@ -12,20 +12,20 @@ import org.cxio.core.interfaces.AspectElement;
  * @author cmzmasek
  *
  */
-public final class CytoscapeVisualStyleElement implements AspectElement {
+public final class VisualPropertiesElement implements AspectElement {
 
     private final String                          _title;
-    private final List<CytoscapeVisualProperties> _properties;
-    public final static String                    NAME     = "visualStyle";
-    public final static String                    TITLE    = "title";
-    public final static String                    SELECTOR = "selector";
+    private final List<VisualProperties> _properties;
+    public final static String                    NAME       = "visualStyle";
+    public final static String                    TITLE      = "title";
+    public final static String                    SELECTOR   = "selector";
     public final static String                    APPLIES_TO = "applies_to";
-    public final static String                    STYLES    = "styles";
-    public final static String                    PROPERTIES      = "properties";
+    public final static String                    STYLES     = "styles";
+    public final static String                    PROPERTIES = "properties";
 
-    public CytoscapeVisualStyleElement(final String title) {
+    public VisualPropertiesElement(final String title) {
         _title = title;
-        _properties = new ArrayList<CytoscapeVisualProperties>();
+        _properties = new ArrayList<VisualProperties>();
     }
 
     @Override
@@ -37,11 +37,11 @@ public final class CytoscapeVisualStyleElement implements AspectElement {
         return _title;
     }
 
-    public final List<CytoscapeVisualProperties> getProperties() {
+    public final List<VisualProperties> getProperties() {
         return _properties;
     }
 
-    public final void addProperties(final CytoscapeVisualProperties properties) {
+    public final void addProperties(final VisualProperties properties) {
         _properties.add(properties);
     }
 
@@ -51,7 +51,7 @@ public final class CytoscapeVisualStyleElement implements AspectElement {
         sb.append("title: ");
         sb.append(_title);
         sb.append("\n");
-        for (final CytoscapeVisualProperties property : _properties) {
+        for (final VisualProperties property : _properties) {
             sb.append("selector: ");
             sb.append(property.getSelector());
             sb.append("\n");

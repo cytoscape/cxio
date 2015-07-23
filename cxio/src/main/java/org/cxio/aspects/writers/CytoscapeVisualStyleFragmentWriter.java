@@ -3,8 +3,8 @@ package org.cxio.aspects.writers;
 import java.io.IOException;
 import java.util.Map;
 
-import org.cxio.aspects.datamodels.CytoscapeVisualProperties;
-import org.cxio.aspects.datamodels.CytoscapeVisualStyleElement;
+import org.cxio.aspects.datamodels.VisualProperties;
+import org.cxio.aspects.datamodels.VisualPropertiesElement;
 import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
 
@@ -19,23 +19,23 @@ public class CytoscapeVisualStyleFragmentWriter extends AbstractAspectFragmentWr
 
     @Override
     public String getAspectName() {
-        return CytoscapeVisualStyleElement.NAME;
+        return VisualPropertiesElement.NAME;
     }
 
     @Override
     protected final void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
-        final CytoscapeVisualStyleElement c = (CytoscapeVisualStyleElement) element;
+        final VisualPropertiesElement c = (VisualPropertiesElement) element;
         w.writeStartObject();
-        w.writeStringField(CytoscapeVisualStyleElement.TITLE, c.getTitle());
+        w.writeStringField(VisualPropertiesElement.TITLE, c.getTitle());
 
         if ((c.getProperties() != null) && !c.getProperties().isEmpty()) {
-            w.writeStartArray(CytoscapeVisualStyleElement.STYLES);
-            for (final CytoscapeVisualProperties property : c.getProperties()) {
+            w.writeStartArray(VisualPropertiesElement.STYLES);
+            for (final VisualProperties property : c.getProperties()) {
                 w.writeStartObject();
-                w.writeStringField(CytoscapeVisualStyleElement.APPLIES_TO, property.getAppliesTo());
-                w.writeStringField(CytoscapeVisualStyleElement.SELECTOR, property.getSelector());
+                w.writeStringField(VisualPropertiesElement.APPLIES_TO, property.getAppliesTo());
+                w.writeStringField(VisualPropertiesElement.SELECTOR, property.getSelector());
                 if ((c.getProperties() != null) && !c.getProperties().isEmpty()) {
-                    w.writeObjectFieldStart(CytoscapeVisualStyleElement.PROPERTIES);
+                    w.writeObjectFieldStart(VisualPropertiesElement.PROPERTIES);
                     for (final Map.Entry<String, String> entry : property.getProperties().entrySet()) {
                         if (entry.getValue() != null) {
                             w.writeStringField(entry.getKey(), entry.getValue());

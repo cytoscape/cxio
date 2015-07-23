@@ -8,8 +8,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.CytoscapeVisualProperties;
-import org.cxio.aspects.datamodels.CytoscapeVisualStyleElement;
+import org.cxio.aspects.datamodels.VisualProperties;
+import org.cxio.aspects.datamodels.VisualPropertiesElement;
 import org.cxio.aspects.writers.CytoscapeVisualStyleFragmentWriter;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -30,12 +30,12 @@ public class CytoscapeVisualStyleFragmentWriterTest {
 
         assertEquals("[]", out0.toString());
 
-        final CytoscapeVisualStyleElement c1 = new CytoscapeVisualStyleElement("Sample1");
-        final CytoscapeVisualProperties cvp0 = new CytoscapeVisualProperties("node:all", "nodes");
+        final VisualPropertiesElement c1 = new VisualPropertiesElement("Sample1");
+        final VisualProperties cvp0 = new VisualProperties("node:all", "nodes");
         cvp0.put("text-opacity", "1.0");
         cvp0.put("width", "40.0");
         cvp0.put("background-color", "rgb(204,204,255)");
-        final CytoscapeVisualProperties cvp1 = new CytoscapeVisualProperties("node:selected", "nodes");
+        final VisualProperties cvp1 = new VisualProperties("node:selected", "nodes");
         cvp1.put("background-color", "rgb(255,255,0)");
 
         c1.addProperties(cvp0);

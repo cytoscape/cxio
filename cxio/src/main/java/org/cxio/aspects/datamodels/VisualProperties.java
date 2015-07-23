@@ -3,13 +3,13 @@ package org.cxio.aspects.datamodels;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-public final class CytoscapeVisualProperties {
+public final class VisualProperties {
 
     private final SortedMap<String, String> _properties;
     private final String                    _applies_to;
     private final String                    _selector;
 
-    public CytoscapeVisualProperties(final String selector, String applies_to) {
+    public VisualProperties(final String selector, String applies_to) {
         _selector = selector;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();

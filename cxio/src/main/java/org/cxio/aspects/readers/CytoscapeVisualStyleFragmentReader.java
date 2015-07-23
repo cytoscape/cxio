@@ -6,8 +6,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.cxio.aspects.datamodels.CytoscapeVisualProperties;
-import org.cxio.aspects.datamodels.CytoscapeVisualStyleElement;
+import org.cxio.aspects.datamodels.VisualProperties;
+import org.cxio.aspects.datamodels.VisualPropertiesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.util.Util;
@@ -32,7 +32,7 @@ public class CytoscapeVisualStyleFragmentReader implements AspectFragmentReader 
 
     @Override
     public String getAspectName() {
-        return CytoscapeVisualStyleElement.NAME;
+        return VisualPropertiesElement.NAME;
     }
 
     @Override
@@ -48,18 +48,18 @@ public class CytoscapeVisualStyleFragmentReader implements AspectFragmentReader 
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                final CytoscapeVisualStyleElement visual_style = new CytoscapeVisualStyleElement(
-                        Util.getTextValueRequired(o, CytoscapeVisualStyleElement.TITLE));
-                final JsonNode styles = o.get(CytoscapeVisualStyleElement.STYLES);
+                final VisualPropertiesElement visual_style = new VisualPropertiesElement(
+                        Util.getTextValueRequired(o, VisualPropertiesElement.TITLE));
+                final JsonNode styles = o.get(VisualPropertiesElement.STYLES);
                 for (int i = 0; i < styles.size(); ++i) {
                     final JsonNode style = styles.get(i);
-                    final String selector = style.get(CytoscapeVisualStyleElement.SELECTOR).asText();
-                    final String applies_to = style.get(CytoscapeVisualStyleElement.APPLIES_TO).asText();
+                    final String selector = style.get(VisualPropertiesElement.SELECTOR).asText();
+                    final String applies_to = style.get(VisualPropertiesElement.APPLIES_TO).asText();
                     if (Util.isEmpty(selector)) {
                         throw new IOException("selector is null or empty");
                     }
-                    final CytoscapeVisualProperties properties = new CytoscapeVisualProperties(selector, applies_to);
-                    final Iterator<Entry<String, JsonNode>> it = style.get(CytoscapeVisualStyleElement.PROPERTIES).fields();
+                    final VisualProperties properties = new VisualProperties(selector, applies_to);
+                    final Iterator<Entry<String, JsonNode>> it = style.get(VisualPropertiesElement.PROPERTIES).fields();
                     while (it.hasNext()) {
                         final Entry<String, JsonNode> kv = it.next();
                         properties.put(kv.getKey(), kv.getValue().asText());

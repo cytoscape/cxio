@@ -14,7 +14,7 @@ import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.aspects.readers.CartesianLayoutFragmentReader;
-import org.cxio.aspects.readers.CytoscapeVisualStyleFragmentReader;
+import org.cxio.aspects.readers.VisualPropertiesFragmentReader;
 import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
@@ -61,7 +61,7 @@ final class TestUtil {
         final AspectFragmentReader cartesian_layout_handler = CartesianLayoutFragmentReader.createInstance();
         final AspectFragmentReader edge_attributes_handler = EdgeAttributesFragmentReader.createInstance();
         final AspectFragmentReader node_attributes_handler = NodeAttributesFragmentReader.createInstance();
-        final AspectFragmentReader visual_style_reader = CytoscapeVisualStyleFragmentReader.createInstance();
+        final AspectFragmentReader visual_style_reader = VisualPropertiesFragmentReader.createInstance();
         
         final Set<AspectFragmentReader> aspect_handlers = new HashSet<AspectFragmentReader>();
         aspect_handlers.add(node_handler);

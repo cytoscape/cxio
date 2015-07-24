@@ -3,6 +3,8 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import org.cxio.core.interfaces.AspectElement;
 
@@ -14,18 +16,19 @@ import org.cxio.core.interfaces.AspectElement;
  */
 public final class VisualPropertiesElement implements AspectElement {
 
-    private final String                          _title;
-    private final List<VisualProperties> _properties;
-    public final static String                    NAME       = "visualStyle";
-    public final static String                    TITLE      = "title";
-    public final static String                    SELECTOR   = "selector";
-    public final static String                    APPLIES_TO = "applies_to";
-    public final static String                    STYLES     = "styles";
-    public final static String                    PROPERTIES = "properties";
+    public final static String              NAME       = "visualProperties";
+    public final static String              TYPE       = "properties_of";
+    public final static String              APPLIES_TO = "applies_to";
+    public final static String              PROPERTIES = "properties";
 
-    public VisualPropertiesElement(final String title) {
-        _title = title;
-        _properties = new ArrayList<VisualProperties>();
+    private final SortedMap<String, String> _properties;
+    private final List<String>              _applies_to;
+    private final String                    _type;
+
+    public VisualPropertiesElement(final String type) {
+        _type = type;
+        _applies_to = new ArrayList<String>();
+        _properties = new TreeMap<String, String>();
     }
 
     @Override
@@ -33,34 +36,43 @@ public final class VisualPropertiesElement implements AspectElement {
         return NAME;
     }
 
-    public final String getTitle() {
-        return _title;
+    public final List<String> getAppliesTo() {
+        return _applies_to;
     }
 
-    public final List<VisualProperties> getProperties() {
+    public final SortedMap<String, String> getProperties() {
         return _properties;
     }
 
-    public final void addProperties(final VisualProperties properties) {
-        _properties.add(properties);
+    public final String getType() {
+        return _type;
+    }
+
+    public final void putProperty(final String name, final String value) {
+        _properties.put(name, value);
+    }
+
+    public final void addAppliesTo(final String applies_to) {
+        _applies_to.add(applies_to);
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("title: ");
-        sb.append(_title);
+        sb.append("type: ");
+        sb.append(_type);
         sb.append("\n");
-        for (final VisualProperties property : _properties) {
-            sb.append("selector: ");
-            sb.append(property.getSelector());
+        sb.append("applies to: ");
+        for (final String a : _applies_to) {
+            sb.append(a);
+            sb.append(" ");
+        }
+        sb.append("\n");
+        for (final Map.Entry<String, String> entry : _properties.entrySet()) {
+            sb.append(entry.getKey());
+            sb.append(": ");
+            sb.append(entry.getValue());
             sb.append("\n");
-            for (final Map.Entry<String, String> entry : property.getProperties().entrySet()) {
-                sb.append(entry.getKey());
-                sb.append(": ");
-                sb.append(entry.getValue());
-                sb.append("\n");
-            }
         }
         return sb.toString();
     }

@@ -6,7 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.cxio.aspects.datamodels.VisualProperties;
 import org.cxio.aspects.datamodels.VisualPropertiesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
@@ -18,15 +17,15 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class CytoscapeVisualStyleFragmentReader implements AspectFragmentReader {
+public class VisualPropertiesFragmentReader implements AspectFragmentReader {
 
     private final ObjectMapper _m;
 
-    public static CytoscapeVisualStyleFragmentReader createInstance() {
-        return new CytoscapeVisualStyleFragmentReader();
+    public static VisualPropertiesFragmentReader createInstance() {
+        return new VisualPropertiesFragmentReader();
     }
 
-    private CytoscapeVisualStyleFragmentReader() {
+    private VisualPropertiesFragmentReader() {
         _m = new ObjectMapper();
     }
 
@@ -48,25 +47,24 @@ public class CytoscapeVisualStyleFragmentReader implements AspectFragmentReader 
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                final VisualPropertiesElement visual_style = new VisualPropertiesElement(
-                        Util.getTextValueRequired(o, VisualPropertiesElement.TITLE));
-                final JsonNode styles = o.get(VisualPropertiesElement.STYLES);
-                for (int i = 0; i < styles.size(); ++i) {
-                    final JsonNode style = styles.get(i);
-                    final String selector = style.get(VisualPropertiesElement.SELECTOR).asText();
-                    final String applies_to = style.get(VisualPropertiesElement.APPLIES_TO).asText();
-                    if (Util.isEmpty(selector)) {
-                        throw new IOException("selector is null or empty");
+                final VisualPropertiesElement vpe = new VisualPropertiesElement(Util.getTextValueRequired(o,
+                        VisualPropertiesElement.TYPE));
+
+                if (o.has(VisualPropertiesElement.APPLIES_TO)) {
+                    final Iterator<JsonNode> e = o.get(VisualPropertiesElement.APPLIES_TO).elements();
+                    while (e.hasNext()) {
+                        final JsonNode n = e.next();
+                        vpe.addAppliesTo(n.asText());
                     }
-                    final VisualProperties properties = new VisualProperties(selector, applies_to);
-                    final Iterator<Entry<String, JsonNode>> it = style.get(VisualPropertiesElement.PROPERTIES).fields();
-                    while (it.hasNext()) {
-                        final Entry<String, JsonNode> kv = it.next();
-                        properties.put(kv.getKey(), kv.getValue().asText());
-                    }
-                    visual_style.addProperties(properties);
                 }
-                aspects.add(visual_style);
+
+                final Iterator<Entry<String, JsonNode>> it = o.get(VisualPropertiesElement.PROPERTIES).fields();
+                while (it.hasNext()) {
+                    final Entry<String, JsonNode> kv = it.next();
+                    vpe.putProperty(kv.getKey(), kv.getValue().asText());
+                }
+
+                aspects.add(vpe);
             }
             t = jp.nextToken();
         }

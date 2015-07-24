@@ -17,16 +17,16 @@ import org.cxio.core.interfaces.AspectElement;
 public final class VisualPropertiesElement implements AspectElement {
 
     public final static String              NAME       = "visualProperties";
-    public final static String              TYPE       = "properties_of";
+    public final static String              PROPERTIES_OF       = "properties_of";
     public final static String              APPLIES_TO = "applies_to";
     public final static String              PROPERTIES = "properties";
 
     private final SortedMap<String, String> _properties;
     private final List<String>              _applies_to;
-    private final String                    _type;
+    private final String                    _properties_of;
 
-    public VisualPropertiesElement(final String type) {
-        _type = type;
+    public VisualPropertiesElement(final String properties_of) {
+        _properties_of = properties_of;
         _applies_to = new ArrayList<String>();
         _properties = new TreeMap<String, String>();
     }
@@ -44,8 +44,8 @@ public final class VisualPropertiesElement implements AspectElement {
         return _properties;
     }
 
-    public final String getType() {
-        return _type;
+    public final String getPropertiesOf() {
+        return _properties_of;
     }
 
     public final void putProperty(final String name, final String value) {
@@ -59,8 +59,8 @@ public final class VisualPropertiesElement implements AspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("type: ");
-        sb.append(_type);
+        sb.append("properties_of: ");
+        sb.append(_properties_of);
         sb.append("\n");
         sb.append("applies to: ");
         for (final String a : _applies_to) {

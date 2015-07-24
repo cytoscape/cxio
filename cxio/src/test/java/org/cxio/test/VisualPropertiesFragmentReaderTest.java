@@ -41,7 +41,7 @@ public class VisualPropertiesFragmentReaderTest {
 
         final VisualPropertiesElement v0 = (VisualPropertiesElement) aspects.get(0);
         assertTrue(v0.getAspectName().equals(VisualPropertiesElement.NAME));
-        assertTrue(v0.getType().equals("nodes:default"));
+        assertTrue(v0.getPropertiesOf().equals("nodes:default"));
 
         assertTrue(v0.getProperties().size() == 3);
 //

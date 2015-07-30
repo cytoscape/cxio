@@ -35,7 +35,7 @@ public class CartesianLayoutFragmentReaderTest {
                 + "{\"cartesianLayout\":[{\"node\":\"_0\",\"x\":\"123\",\"y\":\"456\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_4\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_6\"}]},"
-                + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"_2\",\"x\":\"5\",\"y\":\"6\"}]},"
+                + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"_2\",\"x\":\"5\",\"y\":\"6\"},{\"node\":\"_3\",\"x\":\"1\",\"y\":\"2\",\"z\":\"7\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, TestUtil.getAvailableAspectFragmentReaders());
@@ -48,7 +48,7 @@ public class CartesianLayoutFragmentReaderTest {
                 .isEmpty());
 
         assertTrue("failed to parse expected number of " + CartesianLayoutElement.NAME + " aspects",
-                r0.get(CartesianLayoutElement.NAME).size() == 3);
+                r0.get(CartesianLayoutElement.NAME).size() == 4);
 
         final List<AspectElement> aspects = r0.get(CartesianLayoutElement.NAME);
 
@@ -65,6 +65,12 @@ public class CartesianLayoutFragmentReaderTest {
         assertEquals(a2.getNode(), "_2");
         assertTrue(a2.getX() == 5);
         assertTrue(a2.getY() == 6);
+        final CartesianLayoutElement a3 = (CartesianLayoutElement) aspects.get(3);
+
+        assertEquals(a3.getNode(), "_3");
+        assertTrue(a3.getX() == 1);
+        assertTrue(a3.getY() == 2);
+        assertTrue(a3.getZ() == 7);
 
     }
 

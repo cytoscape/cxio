@@ -47,9 +47,18 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                layout_aspects.add(new CartesianLayoutElement(
-                        Util.getTextValueRequired(o, CartesianLayoutElement.NODE), Util.getTextValueRequired(o,
-                                CartesianLayoutElement.X), Util.getTextValueRequired(o, CartesianLayoutElement.Y)));
+                if (o.has(CartesianLayoutElement.Z)) {
+                    layout_aspects.add(new CartesianLayoutElement(Util.getTextValueRequired(o,
+                            CartesianLayoutElement.NODE), Util.getTextValueRequired(o, CartesianLayoutElement.X), 
+                            
+                            Util.getTextValueRequired(o, CartesianLayoutElement.Y),
+                            Util.getTextValueRequired(o, CartesianLayoutElement.Z)));
+                }
+                else {
+                    layout_aspects.add(new CartesianLayoutElement(Util.getTextValueRequired(o,
+                            CartesianLayoutElement.NODE), Util.getTextValueRequired(o, CartesianLayoutElement.X), Util
+                            .getTextValueRequired(o, CartesianLayoutElement.Y)));
+                }
             }
             t = jp.nextToken();
         }

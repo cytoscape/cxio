@@ -17,8 +17,8 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public final class AnonymousElement implements AspectElement {
 
-    private final String     _name;
     private final ObjectNode _data;
+    private final String     _name;
 
     public AnonymousElement(final String name, final ObjectNode data) {
         _name = name;

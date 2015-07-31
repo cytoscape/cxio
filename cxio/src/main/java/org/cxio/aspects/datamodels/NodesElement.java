@@ -12,16 +12,16 @@ import org.cxio.core.interfaces.AspectElement;
  */
 public final class NodesElement implements AspectElement {
 
-    private final String       _id;
-    public final static String NAME = "nodes";
     public final static String ID   = CxConstants.ID;
-
-    public NodesElement(final String id) {
-        _id = id;
-    }
+    public final static String NAME = "nodes";
+    private final String       _id;
 
     public NodesElement(final long id) {
         _id = String.valueOf(id);
+    }
+
+    public NodesElement(final String id) {
+        _id = id;
     }
 
     @Override

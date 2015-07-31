@@ -12,18 +12,18 @@ import org.cxio.core.interfaces.AspectElement;
  */
 public final class EdgesElement implements AspectElement {
 
+    public final static String ID             = CxConstants.ID;
+    final public static String NAME           = "edges";
+    public final static String SOURCE_NODE_ID = "source";
+    public final static String TARGET_NODE_ID = "target";
     final private String       _id;
     final private String       _source;
     final private String       _target;
-    public final static String TARGET_NODE_ID = "target";
-    public final static String SOURCE_NODE_ID = "source";
-    public final static String ID             = CxConstants.ID;
-    final public static String NAME           = "edges";
 
-    public EdgesElement(final String id, final String source, final String target) {
-        _id = id;
-        _source = source;
-        _target = target;
+    public EdgesElement(final long id, final long source, final long target) {
+        _id = String.valueOf(id);
+        _source = String.valueOf(source);
+        _target = String.valueOf(target);
     }
 
     public EdgesElement(final long id, final String source, final String target) {
@@ -32,10 +32,10 @@ public final class EdgesElement implements AspectElement {
         _target = target;
     }
 
-    public EdgesElement(final long id, final long source, final long target) {
-        _id = String.valueOf(id);
-        _source = String.valueOf(source);
-        _target = String.valueOf(target);
+    public EdgesElement(final String id, final String source, final String target) {
+        _id = id;
+        _source = source;
+        _target = target;
     }
 
     @Override

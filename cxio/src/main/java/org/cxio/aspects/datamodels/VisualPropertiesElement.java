@@ -16,13 +16,13 @@ import org.cxio.core.interfaces.AspectElement;
  */
 public final class VisualPropertiesElement implements AspectElement {
 
-    public final static String              NAME       = "visualProperties";
-    public final static String              PROPERTIES_OF       = "properties_of";
-    public final static String              APPLIES_TO = "applies_to";
-    public final static String              PROPERTIES = "properties";
+    public final static String              APPLIES_TO    = "applies_to";
+    public final static String              NAME          = "visualProperties";
+    public final static String              PROPERTIES    = "properties";
+    public final static String              PROPERTIES_OF = "properties_of";
 
-    private final SortedMap<String, String> _properties;
     private final List<String>              _applies_to;
+    private final SortedMap<String, String> _properties;
     private final String                    _properties_of;
 
     public VisualPropertiesElement(final String properties_of) {
@@ -31,13 +31,17 @@ public final class VisualPropertiesElement implements AspectElement {
         _properties = new TreeMap<String, String>();
     }
 
-    @Override
-    public String getAspectName() {
-        return NAME;
+    public final void addAppliesTo(final String applies_to) {
+        _applies_to.add(applies_to);
     }
 
     public final List<String> getAppliesTo() {
         return _applies_to;
+    }
+
+    @Override
+    public String getAspectName() {
+        return NAME;
     }
 
     public final SortedMap<String, String> getProperties() {
@@ -50,10 +54,6 @@ public final class VisualPropertiesElement implements AspectElement {
 
     public final void putProperty(final String name, final String value) {
         _properties.put(name, value);
-    }
-
-    public final void addAppliesTo(final String applies_to) {
-        _applies_to.add(applies_to);
     }
 
     @Override

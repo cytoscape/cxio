@@ -1,8 +1,6 @@
 package org.cxio.aspects.writers;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map.Entry;
 
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
 import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
@@ -25,31 +23,28 @@ public class EdgeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
 
     @Override
     protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
-        final EdgeAttributesElement ea = (EdgeAttributesElement) element;
-        w.writeStartObject();
-        w.writeStringField(EdgeAttributesElement.ID, ea.getId());
-        w.writeList(EdgeAttributesElement.EDGES, ea.getEdges());
-
-        if ((ea.getAttributesTypes() != null) && !ea.getAttributesTypes().isEmpty()) {
-            w.writeObjectFieldStart(AbstractAttributesElement.ATTRIBUTE_TYPES);
-            for (final Entry<String, ATTRIBUTE_TYPE> a : ea.getAttributesTypes().entrySet()) {
-                if ((_filter == null) || _filter.isPass(a.getKey())) {
-                    w.writeStringField(a.getKey(), a.getValue().toString());
-                }
+        final EdgeAttributesElement ea = ( EdgeAttributesElement) element;
+        if ((ea.getValues() != null) && (!ea.getValues().isEmpty())
+                && ((_filter == null) || _filter.isPass(ea.getName()))) {
+            w.writeStartObject();
+            if ( ea.getPropertyOf().size() == 1 ) {
+                w.writeStringField(AbstractAttributesElement.ATTR_PROERTY_OF, ea.getPropertyOf().get(0));
+            }
+            else {
+                w.writeList(AbstractAttributesElement.ATTR_PROERTY_OF, ea.getPropertyOf());
+            }
+            w.writeStringField(AbstractAttributesElement.ATTR_NAME, ea.getName());
+            if ( ea.getValues().size() == 1 ) {
+                w.writeStringField(AbstractAttributesElement.ATTR_VALUES, ea.getValues().get(0));
+            }
+            else {
+                w.writeList(AbstractAttributesElement.ATTR_VALUES, ea.getValues());
+            }
+            if (ea.getType() != ATTRIBUTE_TYPE.STRING) {
+                w.writeStringField(AbstractAttributesElement.ATTR_TYPE, ea.getType().toString());
             }
             w.writeEndObject();
         }
-
-        if ((ea.getAttributes() != null) && !ea.getAttributes().isEmpty()) {
-            w.writeObjectFieldStart(AbstractAttributesElement.ATTRIBUTES);
-            for (final Entry<String, List<String>> a : ea.getAttributes().entrySet()) {
-                if ((_filter == null) || _filter.isPass(a.getKey())) {
-                    w.writeList(a.getKey(), a.getValue());
-                }
-            }
-            w.writeEndObject();
-        }
-        w.writeEndObject();
     }
 
     @Override

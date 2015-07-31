@@ -263,9 +263,8 @@ public class Timings {
 
         w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
         for (int i = 0; i < _elements; ++i) {
-            final EdgeAttributesElement e = new EdgeAttributesElement("id", "id");
-            e.put("key1", "value", ATTRIBUTE_TYPE.STRING);
-            e.put("key2", "1", ATTRIBUTE_TYPE.INTEGER);
+            final EdgeAttributesElement e = new EdgeAttributesElement("1", "n", "v", ATTRIBUTE_TYPE.STRING);
+           
             elements.add(e);
         }
 
@@ -374,9 +373,7 @@ public class Timings {
 
         w.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
         for (int i = 0; i < _elements; ++i) {
-            final NodeAttributesElement e = new NodeAttributesElement("id", "id");
-            e.put("key1", "value", ATTRIBUTE_TYPE.STRING);
-            e.put("key2", "1", ATTRIBUTE_TYPE.INTEGER);
+            final NodeAttributesElement e = new NodeAttributesElement("1", "n", "v", ATTRIBUTE_TYPE.STRING);
             elements.add(e);
         }
 

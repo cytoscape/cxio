@@ -2,9 +2,11 @@ package org.cxio.aspects.readers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
+import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
@@ -12,6 +14,7 @@ import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -45,12 +48,15 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                final EdgeAttributesElement eae = new EdgeAttributesElement();
-                eae.setId(Util.getTextValueRequired(o, AbstractAttributesElement.ID));
-                eae.addEdges(Util.getStringListRequired(o, EdgeAttributesElement.EDGES));
-                Util.putAttributes(o, AbstractAttributesElement.ATTRIBUTES, eae);
-                Util.putAttributeTypes(o, AbstractAttributesElement.ATTRIBUTE_TYPES, eae);
-                ea_aspects.add(eae);
+                ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
+                if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
+                    type = AbstractAttributesElement.toType(Util.getTextValueRequired(o,
+                            AbstractAttributesElement.ATTR_TYPE));
+                }
+                ea_aspects.add(new EdgeAttributesElement(Util.getStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF),
+                                                         Util.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
+                                                         Util.getStringList(o, AbstractAttributesElement.ATTR_VALUES),
+                                                         type));
             }
             t = jp.nextToken();
         }

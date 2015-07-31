@@ -2,10 +2,8 @@ package org.cxio.aspects.datamodels;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import org.cxio.core.CxConstants;
-import org.cxio.util.Util;
+import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 
 /**
  * This class is used to represent a Cytoscape edge attribute aspect element.
@@ -16,82 +14,69 @@ import org.cxio.util.Util;
  */
 public final class EdgeAttributesElement extends AbstractAttributesElement {
 
-    private final List<String> _edges;
-    public final static String NAME  = "edgeAttributes";
-    public final static String EDGES = "edges";
-    public final static String ID    = CxConstants.ID;
+    public final static String NAME = "edgeAttributes";
 
-    public EdgeAttributesElement() {
-        _id = null;
-        _edges = new ArrayList<String>();
-
+    public EdgeAttributesElement(final List<String> property_of, final String name, final List<String> values) {
+        _property_of = property_of;
+        _name = name;
+        _values = values;
+        _type = ATTRIBUTE_TYPE.STRING;
     }
 
-    public EdgeAttributesElement(final String id) {
-        _id = id;
-        _edges = new ArrayList<String>();
+    public EdgeAttributesElement(final List<String> property_of,
+                                 final String name,
+                                 final List<String> values,
+                                 final ATTRIBUTE_TYPE type) {
+        _property_of = property_of;
+        _name = name;
+        _values = values;
+        _type = type;
     }
-
-    public EdgeAttributesElement(final String id, final String edge_id) {
-        _id = id;
-        _edges = new ArrayList<String>();
-        addEdge(edge_id);
+    
+    public EdgeAttributesElement(final String property_of,
+                                 final String name,
+                                 final String value,
+                                 final ATTRIBUTE_TYPE type) {
+        _property_of = new ArrayList<String>();
+        _property_of.add(property_of);
+        _name = name;
+        _values = new ArrayList<String>();
+        _values.add(value);
+        _type = type;
     }
-
-    public final void addEdge(final long edge_id) {
-        addEdge(String.valueOf(edge_id));
+   
+    public EdgeAttributesElement(final String property_of,
+                                 final String name,
+                                 final List<String> values,
+                                 final ATTRIBUTE_TYPE type) {
+        _property_of = new ArrayList<String>();
+        _property_of.add(property_of);
+        _name = name;
+        _values = values;
+        _type = type;
     }
-
-    public final void addEdge(final String edge_id) {
-        if (Util.isEmpty(edge_id)) {
-            throw new IllegalArgumentException("attempt to add null or empty edge id");
-        }
-        _edges.add(edge_id);
-    }
-
-    public final void addEdges(final List<String> edge_ids) {
-        _edges.addAll(edge_ids);
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
-            return true;
-        }
-        return (o instanceof EdgeAttributesElement) && _id.equals(((EdgeAttributesElement) o).getId());
-
-    }
+    
 
     @Override
     public String getAspectName() {
-        return EdgeAttributesElement.NAME;
-    }
-
-    public final List<String> getEdges() {
-        return _edges;
+        return NAME;
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("id: ");
-        sb.append(_id);
+        sb.append("property of edges: ");
+        sb.append(_property_of);
         sb.append("\n");
-        sb.append("edges: ");
-        sb.append(_edges);
+        sb.append("name : ");
+        sb.append(_name);
         sb.append("\n");
-        sb.append("attributes:");
-        for (final Map.Entry<String, List<String>> entry : _attributes.entrySet()) {
-            sb.append("\n");
-            sb.append(entry.getKey());
-            sb.append("=");
-            sb.append(entry.getValue());
-            if (_attributes_types.get(entry.getKey()) != null) {
-                sb.append(" (");
-                sb.append(_attributes_types.get(entry.getKey()));
-                sb.append(")");
-            }
-        }
+        sb.append("values: ");
+        sb.append(_values);
+        sb.append("\n");
+        sb.append("type : ");
+        sb.append(_type.toString());
+        sb.append("\n");
         return sb.toString();
     }
 

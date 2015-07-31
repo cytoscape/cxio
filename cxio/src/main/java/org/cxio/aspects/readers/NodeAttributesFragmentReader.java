@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
+import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
@@ -45,12 +46,15 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                final NodeAttributesElement nae = new NodeAttributesElement();
-                nae.setId(Util.getTextValueRequired(o, AbstractAttributesElement.ID));
-                nae.addNodes(Util.getStringListRequired(o, NodeAttributesElement.NODES));
-                Util.putAttributes(o, AbstractAttributesElement.ATTRIBUTES, nae);
-                Util.putAttributeTypes(o, AbstractAttributesElement.ATTRIBUTE_TYPES, nae);
-                na_aspects.add(nae);
+                ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
+                if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
+                    type = AbstractAttributesElement.toType(Util.getTextValueRequired(o,
+                            AbstractAttributesElement.ATTR_TYPE));
+                }
+                na_aspects.add(new NodeAttributesElement(Util.getStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF),
+                                                         Util.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
+                                                         Util.getStringList(o, AbstractAttributesElement.ATTR_VALUES),
+                                                         type));
             }
             t = jp.nextToken();
         }

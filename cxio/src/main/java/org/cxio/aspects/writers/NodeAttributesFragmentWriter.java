@@ -1,8 +1,6 @@
 package org.cxio.aspects.writers;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.Map.Entry;
 
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
 import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
@@ -26,29 +24,27 @@ public class NodeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
     @Override
     protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final NodeAttributesElement na = (NodeAttributesElement) element;
-        w.writeStartObject();
-        w.writeStringField(AbstractAttributesElement.ID, na.getId());
-        w.writeList(NodeAttributesElement.NODES, na.getNodes());
-        if ((na.getAttributesTypes() != null) && !na.getAttributesTypes().isEmpty()) {
-            w.writeObjectFieldStart(AbstractAttributesElement.ATTRIBUTE_TYPES);
-            for (final Entry<String, ATTRIBUTE_TYPE> a : na.getAttributesTypes().entrySet()) {
-                if ((_filter == null) || _filter.isPass(a.getKey())) {
-                    w.writeStringField(a.getKey(), a.getValue().toString());
-                }
+        if ((na.getValues() != null) && (!na.getValues().isEmpty())
+                && ((_filter == null) || _filter.isPass(na.getName()))) {
+            w.writeStartObject();
+            if ( na.getPropertyOf().size() == 1 ) {
+                w.writeStringField(AbstractAttributesElement.ATTR_PROERTY_OF, na.getPropertyOf().get(0));
+            }
+            else {
+                w.writeList(AbstractAttributesElement.ATTR_PROERTY_OF, na.getPropertyOf());
+            }
+            w.writeStringField(AbstractAttributesElement.ATTR_NAME, na.getName());
+            if ( na.getValues().size() == 1 ) {
+                w.writeStringField(AbstractAttributesElement.ATTR_VALUES, na.getValues().get(0));
+            }
+            else {
+                w.writeList(AbstractAttributesElement.ATTR_VALUES, na.getValues());
+            }
+            if (na.getType() != ATTRIBUTE_TYPE.STRING) {
+                w.writeStringField(AbstractAttributesElement.ATTR_TYPE, na.getType().toString());
             }
             w.writeEndObject();
         }
-
-        if ((na.getAttributes() != null) && !na.getAttributes().isEmpty()) {
-            w.writeObjectFieldStart(AbstractAttributesElement.ATTRIBUTES);
-            for (final Entry<String, List<String>> a : na.getAttributes().entrySet()) {
-                if ((_filter == null) || _filter.isPass(a.getKey())) {
-                    w.writeList(a.getKey(), a.getValue());
-                }
-            }
-            w.writeEndObject();
-        }
-        w.writeEndObject();
     }
 
     @Override

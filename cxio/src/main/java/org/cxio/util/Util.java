@@ -38,8 +38,9 @@ public final class Util {
     }
 
     public final static List<String> getStringList(final ObjectNode o, final String label) {
+        final List<String> l = new ArrayList<String>();
         if (o.has(label)) {
-            final List<String> l = new ArrayList<String>();
+            
             final Iterator<JsonNode> it = o.get(label).iterator();
             while (it.hasNext()) {
                 final String s = it.next().asText();
@@ -47,9 +48,9 @@ public final class Util {
                     l.add(s);
                 }
             }
-            return l;
+            
         }
-        return null;
+        return l;
     }
 
     public final static List<String> getStringListRequired(final ObjectNode o, final String label) throws IOException {
@@ -104,31 +105,33 @@ public final class Util {
         return map;
     }
 
-    public final static void putAttributes(final ObjectNode o, final String label, final AbstractAttributesElement ae) {
-        if (o.has(label)) {
-            final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
-            while (it1.hasNext()) {
-                final Entry<String, JsonNode> s = it1.next();
-                final String key = s.getKey();
-                final Iterator<JsonNode> it2 = s.getValue().iterator();
-                while (it2.hasNext()) {
-                    ae.putValue(key, it2.next().asText());
-                }
-            }
-        }
-    }
+   
 
-    public final static void putAttributeTypes(final ObjectNode o,
-                                               final String label,
-                                               final AbstractAttributesElement ae) {
-        if (o.has(label)) {
-            final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
-            while (it1.hasNext()) {
-                final Entry<String, JsonNode> s = it1.next();
-                ae.putType(s.getKey(), s.getValue().asText());
-
-            }
-        }
-    }
+//    public final static void putAttributes(final ObjectNode o, final String label, final AbstractAttributesElement ae) {
+//        if (o.has(label)) {
+//            final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
+//            while (it1.hasNext()) {
+//                final Entry<String, JsonNode> s = it1.next();
+//                final String key = s.getKey();
+//                final Iterator<JsonNode> it2 = s.getValue().iterator();
+//                while (it2.hasNext()) {
+//                    ae.putValue(key, it2.next().asText());
+//                }
+//            }
+//        }
+//    }
+//
+//    public final static void putAttributeTypes(final ObjectNode o,
+//                                               final String label,
+//                                               final AbstractAttributesElement ae) {
+//        if (o.has(label)) {
+//            final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
+//            while (it1.hasNext()) {
+//                final Entry<String, JsonNode> s = it1.next();
+//                ae.putType(s.getKey(), s.getValue().asText());
+//
+//            }
+//        }
+//    }
 
 }

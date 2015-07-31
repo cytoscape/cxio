@@ -42,7 +42,7 @@ public final class NodeAttributesElement extends AbstractAttributesElement {
         _values.add(value);
         _type = type;
     }
-    
+
     public NodeAttributesElement(final String property_of,
                                  final String name,
                                  final List<String> values,

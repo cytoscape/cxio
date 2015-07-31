@@ -54,39 +54,36 @@ public class Examples {
         final EdgeAttributesElement ea1 = new EdgeAttributesElement("edge0", "weight", "2", ATTRIBUTE_TYPE.INTEGER);
         final EdgeAttributesElement ea2 = new EdgeAttributesElement("edge1", "name", "B", ATTRIBUTE_TYPE.STRING);
         final EdgeAttributesElement ea3 = new EdgeAttributesElement("edge1", "weight", "3", ATTRIBUTE_TYPE.INTEGER);
-        
-       
+
         final List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
         edge_attributes_elements.add(ea0);
         edge_attributes_elements.add(ea1);
         edge_attributes_elements.add(ea2);
         edge_attributes_elements.add(ea3);
 
-        
-        ArrayList<String> v0 = new ArrayList<String>();
+        final ArrayList<String> v0 = new ArrayList<String>();
         v0.add("0.0");
         v0.add("0.1");
-        ArrayList<String> v1 = new ArrayList<String>();
+        final ArrayList<String> v1 = new ArrayList<String>();
         v1.add("1.0");
         v1.add("1.1");
-        ArrayList<String> v2 = new ArrayList<String>();
+        final ArrayList<String> v2 = new ArrayList<String>();
         v2.add("2.0");
         v2.add("2.1");
-        
+
         final NodeAttributesElement na0 = new NodeAttributesElement("node0", "expression", v0, ATTRIBUTE_TYPE.DOUBLE);
         final NodeAttributesElement na1 = new NodeAttributesElement("node1", "expression", v1, ATTRIBUTE_TYPE.DOUBLE);
         final NodeAttributesElement na2 = new NodeAttributesElement("node2", "expression", v2, ATTRIBUTE_TYPE.DOUBLE);
-        
-        ArrayList<String> n = new ArrayList<String>();
+
+        final ArrayList<String> n = new ArrayList<String>();
         n.add("node0");
         n.add("node1");
         n.add("node2");
-        
-        ArrayList<String> mm = new ArrayList<String>();
+
+        final ArrayList<String> mm = new ArrayList<String>();
         mm.add("Mus musculus");
         final NodeAttributesElement na3 = new NodeAttributesElement(n, "species", mm, ATTRIBUTE_TYPE.STRING);
-       
-      
+
         final List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();
         node_attributes_elements.add(na0);
         node_attributes_elements.add(na1);

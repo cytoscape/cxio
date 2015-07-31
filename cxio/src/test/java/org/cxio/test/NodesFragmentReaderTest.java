@@ -49,21 +49,21 @@ public class NodesFragmentReaderTest {
         assertTrue("failed to get expected NodeAspect instance", node_aspects.get(0) instanceof NodesElement);
 
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                node_aspects.contains(new NodesElement("_0")));
+                   node_aspects.contains(new NodesElement("_0")));
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                node_aspects.contains(new NodesElement("_1")));
+                   node_aspects.contains(new NodesElement("_1")));
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                node_aspects.contains(new NodesElement("_2")));
+                   node_aspects.contains(new NodesElement("_2")));
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                node_aspects.contains(new NodesElement("_3")));
+                   node_aspects.contains(new NodesElement("_3")));
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                node_aspects.contains(new NodesElement("_4")));
+                   node_aspects.contains(new NodesElement("_4")));
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                node_aspects.contains(new NodesElement("_5")));
+                   node_aspects.contains(new NodesElement("_5")));
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                node_aspects.contains(new NodesElement("_6")));
+                   node_aspects.contains(new NodesElement("_6")));
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                node_aspects.contains(new NodesElement("_7")));
+                   node_aspects.contains(new NodesElement("_7")));
 
     }
 
@@ -103,7 +103,7 @@ public class NodesFragmentReaderTest {
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertFalse("expected to parse no " + NodesElement.NAME + " aspects, got some",
-                r0.containsKey(NodesElement.NAME));
+                    r0.containsKey(NodesElement.NAME));
 
     }
 

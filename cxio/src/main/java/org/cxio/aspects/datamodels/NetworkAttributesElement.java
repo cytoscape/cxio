@@ -3,8 +3,6 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
-
 public final class NetworkAttributesElement extends AbstractAttributesElement {
 
     public final static String NAME = "networkAttributes";
@@ -25,11 +23,11 @@ public final class NetworkAttributesElement extends AbstractAttributesElement {
         _values = values;
         _type = type;
     }
-    
+
     public NetworkAttributesElement(final String property_of,
-                                 final String name,
-                                 final String value,
-                                 final ATTRIBUTE_TYPE type) {
+                                    final String name,
+                                    final String value,
+                                    final ATTRIBUTE_TYPE type) {
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;
@@ -37,11 +35,11 @@ public final class NetworkAttributesElement extends AbstractAttributesElement {
         _values.add(value);
         _type = type;
     }
-    
+
     public NetworkAttributesElement(final String property_of,
-                                 final String name,
-                                 final List<String> values,
-                                 final ATTRIBUTE_TYPE type) {
+                                    final String name,
+                                    final List<String> values,
+                                    final ATTRIBUTE_TYPE type) {
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;

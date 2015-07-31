@@ -20,8 +20,8 @@ public abstract class AbstractAttributesElement implements AspectElement {
      *
      */
     public enum ATTRIBUTE_TYPE {
-        BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT(
-                "short"), STRING("string");
+        BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING(
+                "string");
 
         private final String _name;
 
@@ -38,12 +38,12 @@ public abstract class AbstractAttributesElement implements AspectElement {
     public final static String ATTR_NAME       = "n";
     public final static String ATTR_PROERTY_OF = "po";
     public final static String ATTR_TYPE       = "t";
-    public final static String ATTR_VALUES      = "v";
-    
+    public final static String ATTR_VALUES     = "v";
+
     String                     _name;
     List<String>               _property_of;
     ATTRIBUTE_TYPE             _type;
-    List<String>                     _values;
+    List<String>               _values;
 
     /**
      * Convenience method to determine the type of a object.
@@ -78,6 +78,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
             throw new IllegalArgumentException("type '" + o.getClass() + "' is not supported");
         }
     }
+
     /**
      * Convenience method to go from a type described by a string to an actual
      * type enum entry.
@@ -111,7 +112,6 @@ public abstract class AbstractAttributesElement implements AspectElement {
             throw new IllegalArgumentException("type '" + s + "' is not supported");
         }
     }
-   
 
     public final String getName() {
         return _name;

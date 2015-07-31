@@ -2,7 +2,6 @@ package org.cxio.aspects.readers;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
@@ -13,7 +12,6 @@ import org.cxio.core.interfaces.AspectFragmentReader;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -49,13 +47,13 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
                 }
                 ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
                 if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
-                    type = AbstractAttributesElement.toType(ParserUtils.getTextValueRequired(o,
-                            AbstractAttributesElement.ATTR_TYPE));
+                    type = AbstractAttributesElement.toType(ParserUtils
+                            .getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
                 }
-                ea_aspects.add(new EdgeAttributesElement(ParserUtils.getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF),
-                                                         ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
-                                                         ParserUtils.getAsStringList(o, AbstractAttributesElement.ATTR_VALUES),
-                                                         type));
+                ea_aspects.add(new EdgeAttributesElement(ParserUtils
+                        .getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF), ParserUtils
+                        .getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME), ParserUtils
+                        .getAsStringList(o, AbstractAttributesElement.ATTR_VALUES), type));
             }
             t = jp.nextToken();
         }

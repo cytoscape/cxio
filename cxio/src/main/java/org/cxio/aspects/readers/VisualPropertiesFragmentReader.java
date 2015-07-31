@@ -46,8 +46,8 @@ public class VisualPropertiesFragmentReader implements AspectFragmentReader {
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                final VisualPropertiesElement vpe = new VisualPropertiesElement(ParserUtils.getTextValueRequired(o,
-                        VisualPropertiesElement.PROPERTIES_OF));
+                final VisualPropertiesElement vpe = new VisualPropertiesElement(
+                        ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF));
 
                 if (o.has(VisualPropertiesElement.APPLIES_TO)) {
                     final Iterator<JsonNode> e = o.get(VisualPropertiesElement.APPLIES_TO).elements();

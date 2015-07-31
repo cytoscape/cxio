@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.SortedMap;
 
+import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
@@ -37,61 +38,68 @@ public class NodeAttributesFragmentReaderTest {
                 + "{\"nodes\":[{\"@id\":\"_6\"}]},"
                 + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"_2\",\"x\":\"5\",\"y\":\"6\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_7\"}]},"
-                + "{\"nodeAttributes\":[{\"@id\":\"_na0\",\"nodes\":[\"_0\", \"_1\"], \"attributes\":{\"entrez_gene_locuslink\":[\"322397\", \"one more\"],\"name\":[\"_322397\"],\"PSIMI_25_aliases\":[\"322397\",\"80961\"]}},"
+                + "{\"nodeAttributesOLD\":[{\"@id\":\"_na0\",\"nodes\":[\"_0\", \"_1\"], \"attributes\":{\"entrez_gene_locuslink\":[\"322397\", \"one more\"],\"name\":[\"_322397\"],\"PSIMI_25_aliases\":[\"322397\",\"80961\"]}},"
                 + "{\"@id\":\"_na1\",\"nodes\":[\"_2\"], \"attributes\":{\"key\":[\"value\"]}},"
                 + "{\"@id\":\"_na2\",\"nodes\":[\"_3\"]}]},"
-                + "{\"edgeAttributes\":[{\"@id\":\"_ea0\",\"edges\":[\"_e0\", \"_e22\"], \"attributes\":{\"interaction\":[\"479019\", \"one more\"],\"name\":[\"768303 (479019) 791595\"],\"PSIMI_25_detection_method\":[\"genetic interference\"]}}]},"
-                + "{\"nodeAttributes\":[{\"@id\":\"_na3\",\"nodes\":[\"_33\"]}]},"
+                + "{\"edgeAttributesOLD\":[{\"@id\":\"_ea0\",\"edges\":[\"_e0\", \"_e22\"], \"attributes\":{\"interaction\":[\"479019\", \"one more\"],\"name\":[\"768303 (479019) 791595\"],\"PSIMI_25_detection_method\":[\"genetic interference\"]}}]},"
+                + "{\"nodeAttributesOLD\":[{\"@id\":\"_na3\",\"nodes\":[\"_33\"]}]},"
 
-                + "{\"nodeAttributes\":[{\"@id\":\"_na4\",\"nodes\":[\"_33\"],\"attributes\":{\"target\":[\"true\"]},  \"types\":{\"target\":\"boolean\"} }]}"
+                + "{\"nodeAttributesOLD\":[{\"@id\":\"_na4\",\"nodes\":[\"_33\"],\"attributes\":{\"target\":[\"true\"]},  \"types\":{\"target\":\"boolean\"} }]},"
+
+                + "{\"nodeAttributes\":[{\"po\":\"n0\",\"n\":\"name1\",\"v\":\"value\"}]},"
+                + "{\"nodeAttributes\":[{\"po\":\"n1\",\"n\":\"name2\",\"v\":\"12\",\"t\":\"integer\"}]},"
+                + "{\"nodeAttributes\":[{\"po\":[\"n0\",\"n1\"],\"n\":\"name3\",\"v\":\"true\",\"t\":\"boolean\"}]},"
+                + "{\"nodeAttributes\":[{\"po\":[\"n0\",\"n1\",\"n2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"t\":\"short\"}]}"
+
                 + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertTrue("failed to parse " + NodeAttributesElement.NAME + " aspect",
-                r0.containsKey(NodeAttributesElement.NAME));
+                   r0.containsKey(NodeAttributesElement.NAME));
         assertFalse("failed to parse " + NodeAttributesElement.NAME + " aspect", r0.get(NodeAttributesElement.NAME)
-                .isEmpty());
+                    .isEmpty());
         assertTrue("failed to get expected number of " + NodeAttributesElement.NAME + " aspects",
-                r0.get(NodeAttributesElement.NAME).size() == 5);
+                   r0.get(NodeAttributesElement.NAME).size() == 4);
 
         final List<AspectElement> aspects = r0.get(NodeAttributesElement.NAME);
 
-        final NodeAttributesElement na1 = (NodeAttributesElement) aspects.get(0);
-//        assertTrue(na1.getId().equals("_na0"));
-//        assertTrue(na1.getNodes().size() == 2);
-//        assertTrue(na1.getAttributes().size() == 3);
-//        assertTrue(na1.getNodes().contains("_0"));
-//        assertTrue(na1.getNodes().contains("_1"));
-//        assertTrue(na1.getValues("PSIMI_25_aliases").size() == 2);
-//        assertTrue(na1.getValues("entrez_gene_locuslink").size() == 2);
-//        assertTrue(na1.getValues("name").size() == 1);
-//        assertTrue(na1.getValues("PSIMI_25_aliases").contains("322397"));
-//        assertTrue(na1.getValues("PSIMI_25_aliases").contains("80961"));
-//        assertTrue(na1.getValues("entrez_gene_locuslink").contains("322397"));
-//        assertTrue(na1.getValues("entrez_gene_locuslink").contains("one more"));
-//        assertTrue(na1.getValues("name").contains("_322397"));
-//
-//        final NodeAttributesElement na2 = (NodeAttributesElement) aspects.get(1);
-//        assertTrue(na2.getId().equals("_na1"));
-//        assertTrue(na2.getNodes().size() == 1);
-//        assertTrue(na2.getAttributes().size() == 1);
-//        assertTrue(na2.getNodes().contains("_2"));
-//        assertTrue(na2.getValues("key").size() == 1);
-//        assertTrue(na2.getValues("key").contains("value"));
-//
-//        final NodeAttributesElement na3 = (NodeAttributesElement) aspects.get(2);
-//        assertTrue(na3.getId().equals("_na2"));
-//        assertTrue(na3.getNodes().size() == 1);
-//        assertTrue(na3.getAttributes().size() == 0);
-//        assertTrue(na3.getNodes().contains("_3"));
-//
-//        final NodeAttributesElement na4 = (NodeAttributesElement) aspects.get(3);
-//        assertTrue(na4.getId().equals("_na3"));
-//        assertTrue(na4.getNodes().size() == 1);
-//        assertTrue(na4.getAttributes().size() == 0);
-//        assertTrue(na4.getNodes().contains("_33"));
+        final NodeAttributesElement a0 = (NodeAttributesElement) aspects.get(0);
+        assertTrue(a0.getName().equals("name1"));
+        assertTrue(a0.getPropertyOf().size() == 1);
+        assertTrue(a0.getPropertyOf().contains("n0"));
+        assertTrue(a0.getType() == ATTRIBUTE_TYPE.STRING);
+        assertTrue(a0.getValues().size() == 1);
+        assertTrue(a0.getValues().contains("value"));
+
+        final NodeAttributesElement a1 = (NodeAttributesElement) aspects.get(1);
+        assertTrue(a1.getName().equals("name2"));
+        assertTrue(a1.getPropertyOf().size() == 1);
+        assertTrue(a1.getPropertyOf().contains("n1"));
+        assertTrue(a1.getType() == ATTRIBUTE_TYPE.INTEGER);
+        assertTrue(a1.getValues().size() == 1);
+        assertTrue(a1.getValues().contains("12"));
+
+        final NodeAttributesElement a2 = (NodeAttributesElement) aspects.get(2);
+        assertTrue(a2.getName().equals("name3"));
+        assertTrue(a2.getPropertyOf().size() == 2);
+        assertTrue(a2.getPropertyOf().contains("n0"));
+        assertTrue(a2.getPropertyOf().contains("n1"));
+        assertTrue(a2.getType() == ATTRIBUTE_TYPE.BOOLEAN);
+        assertTrue(a2.getValues().size() == 1);
+        assertTrue(a2.getValues().contains("true"));
+
+        final NodeAttributesElement a3 = (NodeAttributesElement) aspects.get(3);
+        assertTrue(a3.getName().equals("name4"));
+        assertTrue(a3.getPropertyOf().size() == 3);
+        assertTrue(a3.getPropertyOf().contains("n0"));
+        assertTrue(a3.getPropertyOf().contains("n1"));
+        assertTrue(a3.getPropertyOf().contains("n2"));
+        assertTrue(a3.getType() == ATTRIBUTE_TYPE.SHORT);
+        assertTrue(a3.getValues().size() == 2);
+        assertTrue(a3.getValues().contains("1"));
+        assertTrue(a3.getValues().contains("2"));
 
     }
 }

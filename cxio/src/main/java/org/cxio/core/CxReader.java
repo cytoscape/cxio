@@ -256,8 +256,8 @@ public final class CxReader {
                         --_level;
                         if (_level < 1) {
                             throw new IllegalStateException(
-                                    "this should never have happened (likely cause: problem with '" + name
-                                    + "' reader)");
+                                                            "this should never have happened (likely cause: problem with '" + name
+                                            + "' reader)");
                         }
                     }
                     _was_in_recognized_aspect = true;
@@ -266,7 +266,7 @@ public final class CxReader {
             if (_was_in_recognized_aspect && (_jp.getCurrentToken() != JsonToken.END_ARRAY)
                     && (_jp.getCurrentToken() != JsonToken.END_OBJECT)) {
                 throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name
-                        + "' reader)");
+                                                + "' reader)");
             }
             if ((_token == JsonToken.START_ARRAY) || (_token == JsonToken.START_OBJECT)) {
                 ++_level;

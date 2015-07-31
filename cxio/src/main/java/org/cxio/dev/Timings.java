@@ -53,7 +53,7 @@ public class Timings {
 
     private static void error() {
         System.out
-        .println("Usage: Timings [number of elements] [number of repeats] [pretty printing: true/false] [write to /dev/null: true/false]");
+                .println("Usage: Timings [number of elements] [number of repeats] [pretty printing: true/false] [write to /dev/null: true/false]");
         System.exit(-1);
     }
 
@@ -106,7 +106,7 @@ public class Timings {
         else {
             System.out.println("Writing to        :\tfile '" + _cx_out.getAbsolutePath() + "'");
             System.out.println("(first writing number is to '" + _cx_out.getAbsolutePath()
-                    + "', second one is to ByteArrayOutputStream)");
+                               + "', second one is to ByteArrayOutputStream)");
         }
 
         System.out.println();
@@ -264,7 +264,7 @@ public class Timings {
         w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
         for (int i = 0; i < _elements; ++i) {
             final EdgeAttributesElement e = new EdgeAttributesElement("1", "n", "v", ATTRIBUTE_TYPE.STRING);
-           
+
             elements.add(e);
         }
 

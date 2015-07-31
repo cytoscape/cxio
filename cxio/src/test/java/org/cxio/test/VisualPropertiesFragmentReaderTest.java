@@ -29,13 +29,13 @@ public class VisualPropertiesFragmentReaderTest {
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertTrue("failed to parse " + VisualPropertiesElement.NAME + " aspect",
-                r0.containsKey(VisualPropertiesElement.NAME));
+                   r0.containsKey(VisualPropertiesElement.NAME));
 
-        assertFalse("failed to parse " + VisualPropertiesElement.NAME + " aspect",
-                r0.get(VisualPropertiesElement.NAME).isEmpty());
+        assertFalse("failed to parse " + VisualPropertiesElement.NAME + " aspect", r0.get(VisualPropertiesElement.NAME)
+                    .isEmpty());
 
         assertTrue("failed to parse expected number of " + VisualPropertiesElement.NAME + " aspects",
-                r0.get(VisualPropertiesElement.NAME).size() == 3);
+                   r0.get(VisualPropertiesElement.NAME).size() == 3);
 
         final List<AspectElement> aspects = r0.get(VisualPropertiesElement.NAME);
 
@@ -44,23 +44,6 @@ public class VisualPropertiesFragmentReaderTest {
         assertTrue(v0.getPropertiesOf().equals("nodes:default"));
 
         assertTrue(v0.getProperties().size() == 3);
-//
-//        final VisualProperties p0 = v.getProperties().get(0);
-//        final VisualProperties p1 = v.getProperties().get(1);
-//
-//        assertTrue(p0.getSelector().equals("node:all"));
-//        assertTrue(p1.getSelector().equals("node:selected"));
-//        
-//        assertTrue(p0.getAppliesTo().equals("nodes"));
-//        assertTrue(p1.getAppliesTo().equals("nodes"));
-//
-//        assertTrue(p0.getProperties().size() == 3);
-//        assertTrue(p1.getProperties().size() == 1);
-//
-//        assertTrue(p0.getProperties().get("background-color").equals("rgb(204,204,255)"));
-//        assertTrue(p0.getProperties().get("text-opacity").equals("1.0"));
-//        assertTrue(p0.getProperties().get("width").equals("40.0"));
-//        assertTrue(p1.getProperties().get("background-color").equals("rgb(255,255,0)"));
 
     }
 

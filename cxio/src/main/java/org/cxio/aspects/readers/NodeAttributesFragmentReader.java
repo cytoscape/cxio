@@ -47,13 +47,13 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
                 }
                 ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
                 if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
-                    type = AbstractAttributesElement.toType(ParserUtils.getTextValueRequired(o,
-                            AbstractAttributesElement.ATTR_TYPE));
+                    type = AbstractAttributesElement.toType(ParserUtils
+                            .getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
                 }
-                na_aspects.add(new NodeAttributesElement(ParserUtils.getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF),
-                                                         ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
-                                                         ParserUtils.getAsStringList(o, AbstractAttributesElement.ATTR_VALUES),
-                                                         type));
+                na_aspects.add(new NodeAttributesElement(ParserUtils
+                        .getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF), ParserUtils
+                        .getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME), ParserUtils
+                        .getAsStringList(o, AbstractAttributesElement.ATTR_VALUES), type));
             }
             t = jp.nextToken();
         }

@@ -3,8 +3,6 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
-
 /**
  * This class is used to represent a Cytoscape edge attribute aspect element.
  *
@@ -32,7 +30,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _values = values;
         _type = type;
     }
-    
+
     public EdgeAttributesElement(final String property_of,
                                  final String name,
                                  final String value,
@@ -44,7 +42,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _values.add(value);
         _type = type;
     }
-   
+
     public EdgeAttributesElement(final String property_of,
                                  final String name,
                                  final List<String> values,
@@ -55,7 +53,6 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _values = values;
         _type = type;
     }
-    
 
     @Override
     public String getAspectName() {

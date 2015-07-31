@@ -46,23 +46,27 @@ public final class Util {
                                                            final boolean use_default_pretty_printer) throws IOException {
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters());
-       
+        final CxWriter w = CxWriter.createInstance(out,
+                                                   use_default_pretty_printer,
+                                                   getAllAvailableAspectFragmentWriters());
+
         w.start();
         w.writeAspectElements(elements);
         w.end();
 
         return out.toString();
     }
-    
+
     public final static String writeAspectElementsToString(final String cx_string,
                                                            final boolean use_default_pretty_printer) throws IOException {
         final CxReader p = CxReader.createInstance(cx_string, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(p);
-        
+
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters());
+        final CxWriter w = CxWriter.createInstance(out,
+                                                   use_default_pretty_printer,
+                                                   getAllAvailableAspectFragmentWriters());
         w.start();
         w.writeAspectElements(res.get(NodesElement.NAME));
         w.writeAspectElements(res.get(EdgesElement.NAME));
@@ -84,7 +88,7 @@ public final class Util {
         final AspectFragmentReader edge_attributes_reader = EdgeAttributesFragmentReader.createInstance();
         final AspectFragmentReader node_attributes_reader = NodeAttributesFragmentReader.createInstance();
         final AspectFragmentReader visual_properties_reader = VisualPropertiesFragmentReader.createInstance();
-        
+
         final Set<AspectFragmentReader> aspect_readers = new HashSet<AspectFragmentReader>();
         aspect_readers.add(node_reader);
         aspect_readers.add(edge_reader);
@@ -95,7 +99,7 @@ public final class Util {
         aspect_readers.add(visual_properties_reader);
         return aspect_readers;
     }
-    
+
     public final static Set<AspectFragmentWriter> getAllAvailableAspectFragmentWriters() {
         final AspectFragmentWriter node_writer = NodesFragmentWriter.createInstance();
         final AspectFragmentWriter edge_writer = EdgesFragmentWriter.createInstance();
@@ -104,7 +108,7 @@ public final class Util {
         final AspectFragmentWriter edge_attributes_writer = EdgeAttributesFragmentWriter.createInstance();
         final AspectFragmentWriter node_attributes_writer = NodeAttributesFragmentWriter.createInstance();
         final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance();
-        
+
         final Set<AspectFragmentWriter> aspect_writers = new HashSet<AspectFragmentWriter>();
         aspect_writers.add(node_writer);
         aspect_writers.add(edge_writer);
@@ -115,7 +119,5 @@ public final class Util {
         aspect_writers.add(visual_properties_writer);
         return aspect_writers;
     }
-
- 
 
 }

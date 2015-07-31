@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 public final class ParserUtils {
 
     final static List<String> parseSimpleStringList(final JsonParser jp, JsonToken t) throws IOException,
-    JsonParseException {
+            JsonParseException {
         final List<String> elements = new ArrayList<String>();
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.VALUE_STRING) {

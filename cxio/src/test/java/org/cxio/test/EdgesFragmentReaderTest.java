@@ -49,13 +49,13 @@ public class EdgesFragmentReaderTest {
         assertTrue("failed to get expected NodeAspect instance", edge_aspects.get(0) instanceof EdgesElement);
 
         assertTrue("failed to get expected " + EdgesElement.NAME + " aspect",
-                edge_aspects.contains(new EdgesElement("e0", "0", "0")));
+                   edge_aspects.contains(new EdgesElement("e0", "0", "0")));
         assertTrue("failed to get expected " + EdgesElement.NAME + " aspect",
-                edge_aspects.contains(new EdgesElement("e1", "0", "0")));
+                   edge_aspects.contains(new EdgesElement("e1", "0", "0")));
         assertTrue("failed to get expected " + EdgesElement.NAME + " aspect",
-                edge_aspects.contains(new EdgesElement("e2", "0", "0")));
+                   edge_aspects.contains(new EdgesElement("e2", "0", "0")));
         assertTrue("failed to get expected " + EdgesElement.NAME + " aspect",
-                edge_aspects.contains(new EdgesElement("e3", "0", "0")));
+                   edge_aspects.contains(new EdgesElement("e3", "0", "0")));
 
     }
 
@@ -114,7 +114,7 @@ public class EdgesFragmentReaderTest {
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertFalse("expected to parse no " + EdgesElement.NAME + " aspects, got some",
-                r0.containsKey(EdgesElement.NAME));
+                    r0.containsKey(EdgesElement.NAME));
 
     }
 

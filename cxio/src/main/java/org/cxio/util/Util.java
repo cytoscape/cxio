@@ -8,8 +8,6 @@ import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.aspects.datamodels.AbstractAttributesElement;
-
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -40,7 +38,6 @@ public final class Util {
     public final static List<String> getStringList(final ObjectNode o, final String label) {
         final List<String> l = new ArrayList<String>();
         if (o.has(label)) {
-            
             final Iterator<JsonNode> it = o.get(label).iterator();
             while (it.hasNext()) {
                 final String s = it.next().asText();
@@ -48,7 +45,6 @@ public final class Util {
                     l.add(s);
                 }
             }
-            
         }
         return l;
     }
@@ -66,6 +62,33 @@ public final class Util {
         }
         if (l.isEmpty()) {
             throw new IOException("malformed CX json: list '" + label + "' is missing or empty");
+        }
+        return l;
+    }
+
+    public final static List<String> getAsStringListRequired(final ObjectNode o, final String label) throws IOException {
+        final List<String> l = getAsStringList(o, label);
+        if (l.isEmpty()) {
+            throw new IOException("malformed CX json: list '" + label + "' is missing or empty");
+        }
+        return l;
+    }
+
+    public final static List<String> getAsStringList(final ObjectNode o, final String label) throws IOException {
+        final List<String> l = new ArrayList<String>();
+        if (o.has(label)) {
+            if (!o.get(label).isArray()) {
+                l.add(o.get(label).asText());
+            }
+            else {
+                final Iterator<JsonNode> it = o.get(label).iterator();
+                while (it.hasNext()) {
+                    final String s = it.next().asText();
+                    if (!isEmpty(s)) {
+                        l.add(s);
+                    }
+                }
+            }
         }
         return l;
     }
@@ -105,33 +128,32 @@ public final class Util {
         return map;
     }
 
-   
-
-//    public final static void putAttributes(final ObjectNode o, final String label, final AbstractAttributesElement ae) {
-//        if (o.has(label)) {
-//            final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
-//            while (it1.hasNext()) {
-//                final Entry<String, JsonNode> s = it1.next();
-//                final String key = s.getKey();
-//                final Iterator<JsonNode> it2 = s.getValue().iterator();
-//                while (it2.hasNext()) {
-//                    ae.putValue(key, it2.next().asText());
-//                }
-//            }
-//        }
-//    }
-//
-//    public final static void putAttributeTypes(final ObjectNode o,
-//                                               final String label,
-//                                               final AbstractAttributesElement ae) {
-//        if (o.has(label)) {
-//            final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
-//            while (it1.hasNext()) {
-//                final Entry<String, JsonNode> s = it1.next();
-//                ae.putType(s.getKey(), s.getValue().asText());
-//
-//            }
-//        }
-//    }
+    // public final static void putAttributes(final ObjectNode o, final String
+    // label, final AbstractAttributesElement ae) {
+    // if (o.has(label)) {
+    // final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
+    // while (it1.hasNext()) {
+    // final Entry<String, JsonNode> s = it1.next();
+    // final String key = s.getKey();
+    // final Iterator<JsonNode> it2 = s.getValue().iterator();
+    // while (it2.hasNext()) {
+    // ae.putValue(key, it2.next().asText());
+    // }
+    // }
+    // }
+    // }
+    //
+    // public final static void putAttributeTypes(final ObjectNode o,
+    // final String label,
+    // final AbstractAttributesElement ae) {
+    // if (o.has(label)) {
+    // final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
+    // while (it1.hasNext()) {
+    // final Entry<String, JsonNode> s = it1.next();
+    // ae.putType(s.getKey(), s.getValue().asText());
+    //
+    // }
+    // }
+    // }
 
 }

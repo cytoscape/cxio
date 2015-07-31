@@ -2,46 +2,45 @@ package org.cxio.aspects.readers;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
 import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
-import org.cxio.aspects.datamodels.EdgeAttributesElement;
+import org.cxio.aspects.datamodels.NetworkAttributesElement;
+import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class EdgeAttributesFragmentReader implements AspectFragmentReader {
+public class NetworkAttributesFragmentReader implements AspectFragmentReader {
 
     private final ObjectMapper _m;
 
-    public static EdgeAttributesFragmentReader createInstance() {
-        return new EdgeAttributesFragmentReader();
+    public static NetworkAttributesFragmentReader createInstance() {
+        return new NetworkAttributesFragmentReader();
     }
 
-    private EdgeAttributesFragmentReader() {
+    private NetworkAttributesFragmentReader() {
         _m = new ObjectMapper();
     }
 
     @Override
     public String getAspectName() {
-        return EdgeAttributesElement.NAME;
+        return NetworkAttributesElement.NAME;
     }
 
     @Override
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed CX json in element " + getAspectName());
+            throw new IOException("malformed cx json in '" + getAspectName() + "'");
         }
-        final List<AspectElement> ea_aspects = new ArrayList<AspectElement>();
+        final List<AspectElement> na_aspects = new ArrayList<AspectElement>();
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);
@@ -50,17 +49,16 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
                 }
                 ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
                 if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
-                    type = AbstractAttributesElement.toType(Util.getTextValueRequired(o,
-                            AbstractAttributesElement.ATTR_TYPE));
+                    type = AbstractAttributesElement.toType(Util
+                            .getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
                 }
-                ea_aspects.add(new EdgeAttributesElement(Util.getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF),
-                                                         Util.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
-                                                         Util.getAsStringList(o, AbstractAttributesElement.ATTR_VALUES),
-                                                         type));
+                na_aspects.add(new NetworkAttributesElement(Util
+                        .getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF), Util
+                        .getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME), Util
+                        .getAsStringList(o, AbstractAttributesElement.ATTR_VALUES), type));
             }
             t = jp.nextToken();
         }
-        return ea_aspects;
+        return na_aspects;
     }
-
 }

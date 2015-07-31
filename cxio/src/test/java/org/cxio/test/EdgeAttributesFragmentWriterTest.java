@@ -31,33 +31,33 @@ public class EdgeAttributesFragmentWriterTest {
 
         assertEquals("[]", out0.toString());
 
-        final EdgeAttributesElement ea0 = new EdgeAttributesElement("00");
-        ea0.addEdge("000");
-        ea0.addEdge("001");
-        ea0.putValue("A", "a1");
-        ea0.putValue("A", "a2");
-        ea0.putValue("A", "a3");
-
-        ea0.putValue("B", "b1");
-        ea0.putValue("B", "b2");
-        ea0.putValue("B", "b3");
-
-        ea0.putValue("X", "false");
-        ea0.putType("X", "boolean");
-
-        ea0.putValue("Y", "true");
-        ea0.putType("Y", ATTRIBUTE_TYPE.BOOLEAN);
-        ea0.putValue("Z", true);
-
-        ea0.putValue("L", 1l);
-        ea0.putValue("D", 2.0);
-        ea0.putValue("F", 3.0f);
-        ea0.putValue("I", 4);
-        ea0.putValue("I", 5);
-        ea0.putValue("I", 6);
+//        final EdgeAttributesElement ea0 = new EdgeAttributesElement("00");
+//        ea0.addEdge("000");
+//        ea0.addEdge("001");
+//        ea0.putValue("A", "a1");
+//        ea0.putValue("A", "a2");
+//        ea0.putValue("A", "a3");
+//
+//        ea0.putValue("B", "b1");
+//        ea0.putValue("B", "b2");
+//        ea0.putValue("B", "b3");
+//
+//        ea0.putValue("X", "false");
+//        ea0.putType("X", "boolean");
+//
+//        ea0.putValue("Y", "true");
+//        ea0.putType("Y", ATTRIBUTE_TYPE.BOOLEAN);
+//        ea0.putValue("Z", true);
+//
+//        ea0.putValue("L", 1l);
+//        ea0.putValue("D", 2.0);
+//        ea0.putValue("F", 3.0f);
+//        ea0.putValue("I", 4);
+//        ea0.putValue("I", 5);
+//        ea0.putValue("I", 6);
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
-        l1.add(ea0);
+       // l1.add(ea0);
 
         final OutputStream out1 = new ByteArrayOutputStream();
         final CxWriter w1 = CxWriter.createInstance(out1, false);

@@ -10,7 +10,6 @@ import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -50,12 +49,12 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
                 }
                 ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
                 if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
-                    type = AbstractAttributesElement.toType(Util.getTextValueRequired(o,
+                    type = AbstractAttributesElement.toType(ParserUtils.getTextValueRequired(o,
                             AbstractAttributesElement.ATTR_TYPE));
                 }
-                ea_aspects.add(new EdgeAttributesElement(Util.getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF),
-                                                         Util.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
-                                                         Util.getAsStringList(o, AbstractAttributesElement.ATTR_VALUES),
+                ea_aspects.add(new EdgeAttributesElement(ParserUtils.getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF),
+                                                         ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
+                                                         ParserUtils.getAsStringList(o, AbstractAttributesElement.ATTR_VALUES),
                                                          type));
             }
             t = jp.nextToken();

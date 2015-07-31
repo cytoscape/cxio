@@ -7,7 +7,6 @@ import java.util.List;
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -45,7 +44,7 @@ public final class NodesFragmentReader implements AspectFragmentReader {
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                node_elements.add(new NodesElement(Util.getTextValueRequired(o, NodesElement.ID)));
+                node_elements.add(new NodesElement(ParserUtils.getTextValueRequired(o, NodesElement.ID)));
             }
             t = jp.nextToken();
         }

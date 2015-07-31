@@ -34,23 +34,23 @@ public class NodeAttributesFragmentWriterFilterTest {
 
         assertEquals("[]", out0.toString());
 
-        final NodeAttributesElement na0 = new NodeAttributesElement("00");
-        na0.addNode("000");
-        na0.addNode("001");
-        na0.put("X", "x1", ATTRIBUTE_TYPE.STRING);
-        na0.put("X", "x2", ATTRIBUTE_TYPE.STRING);
-        na0.put("X", "x3", ATTRIBUTE_TYPE.STRING);
-        na0.put("Y", "y1", ATTRIBUTE_TYPE.STRING);
-        na0.put("Y", "y2", ATTRIBUTE_TYPE.STRING);
-        na0.put("Y", "y3", ATTRIBUTE_TYPE.STRING);
-        na0.put("I", "1", ATTRIBUTE_TYPE.INTEGER);
-        na0.put("D", "-1.111", ATTRIBUTE_TYPE.DOUBLE);
-        na0.put("F", "2.01", ATTRIBUTE_TYPE.FLOAT);
-        na0.put("L", "1111", ATTRIBUTE_TYPE.LONG);
-        na0.put("B", "true", ATTRIBUTE_TYPE.BOOLEAN);
+//        final NodeAttributesElement na0 = new NodeAttributesElement("00");
+//        na0.addNode("000");
+//        na0.addNode("001");
+//        na0.put("X", "x1", ATTRIBUTE_TYPE.STRING);
+//        na0.put("X", "x2", ATTRIBUTE_TYPE.STRING);
+//        na0.put("X", "x3", ATTRIBUTE_TYPE.STRING);
+//        na0.put("Y", "y1", ATTRIBUTE_TYPE.STRING);
+//        na0.put("Y", "y2", ATTRIBUTE_TYPE.STRING);
+//        na0.put("Y", "y3", ATTRIBUTE_TYPE.STRING);
+//        na0.put("I", "1", ATTRIBUTE_TYPE.INTEGER);
+//        na0.put("D", "-1.111", ATTRIBUTE_TYPE.DOUBLE);
+//        na0.put("F", "2.01", ATTRIBUTE_TYPE.FLOAT);
+//        na0.put("L", "1111", ATTRIBUTE_TYPE.LONG);
+//        na0.put("B", "true", ATTRIBUTE_TYPE.BOOLEAN);
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
-        l1.add(na0);
+      //  l1.add(na0);
 
         final OutputStream out1 = new ByteArrayOutputStream();
         final CxWriter w1 = CxWriter.createInstance(out1, false);

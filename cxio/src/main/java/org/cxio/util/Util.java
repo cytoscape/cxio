@@ -1,18 +1,40 @@
 package org.cxio.util;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
+import java.util.Set;
 import java.util.SortedMap;
-import java.util.TreeMap;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonToken;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.cxio.aspects.datamodels.CartesianLayoutElement;
+import org.cxio.aspects.datamodels.EdgeAttributesElement;
+import org.cxio.aspects.datamodels.EdgesElement;
+import org.cxio.aspects.datamodels.NetworkAttributesElement;
+import org.cxio.aspects.datamodels.NodeAttributesElement;
+import org.cxio.aspects.datamodels.NodesElement;
+import org.cxio.aspects.datamodels.VisualPropertiesElement;
+import org.cxio.aspects.readers.CartesianLayoutFragmentReader;
+import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
+import org.cxio.aspects.readers.EdgesFragmentReader;
+import org.cxio.aspects.readers.NetworkAttributesFragmentReader;
+import org.cxio.aspects.readers.NodeAttributesFragmentReader;
+import org.cxio.aspects.readers.NodesFragmentReader;
+import org.cxio.aspects.readers.VisualPropertiesFragmentReader;
+import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
+import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
+import org.cxio.aspects.writers.EdgesFragmentWriter;
+import org.cxio.aspects.writers.NetworkAttributesFragmentWriter;
+import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
+import org.cxio.aspects.writers.NodesFragmentWriter;
+import org.cxio.aspects.writers.VisualPropertiesFragmentWriter;
+import org.cxio.core.CxReader;
+import org.cxio.core.CxWriter;
+import org.cxio.core.interfaces.AspectElement;
+import org.cxio.core.interfaces.AspectFragmentReader;
+import org.cxio.core.interfaces.AspectFragmentWriter;
 
 public final class Util {
 
@@ -20,140 +42,80 @@ public final class Util {
         return (s == null) || (s.length() < 1);
     }
 
-    public final static List<String> parseSimpleStringList(final JsonParser jp, JsonToken t) throws IOException,
-            JsonParseException {
-        final List<String> elements = new ArrayList<String>();
-        while (t != JsonToken.END_ARRAY) {
-            if (t == JsonToken.VALUE_STRING) {
-                elements.add(jp.getText());
-            }
-            else if (t != JsonToken.START_OBJECT) {
-                throw new IOException("malformed cx json, expected " + JsonToken.START_OBJECT + ", got " + t);
-            }
-            t = jp.nextToken();
-        }
-        return elements;
+    public final static String writeAspectElementsToString(final ArrayList<AspectElement> elements,
+                                                           final boolean use_default_pretty_printer) throws IOException {
+        final OutputStream out = new ByteArrayOutputStream();
+
+        final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters());
+       
+        w.start();
+        w.writeAspectElements(elements);
+        w.end();
+
+        return out.toString();
+    }
+    
+    public final static String writeAspectElementsToString(final String cx_string,
+                                                           final boolean use_default_pretty_printer) throws IOException {
+        final CxReader p = CxReader.createInstance(cx_string, Util.getAllAvailableAspectFragmentReaders());
+        final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(p);
+        
+        final OutputStream out = new ByteArrayOutputStream();
+
+        final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters());
+        w.start();
+        w.writeAspectElements(res.get(NodesElement.NAME));
+        w.writeAspectElements(res.get(EdgesElement.NAME));
+        w.writeAspectElements(res.get(CartesianLayoutElement.NAME));
+        w.writeAspectElements(res.get(NetworkAttributesElement.NAME));
+        w.writeAspectElements(res.get(NodeAttributesElement.NAME));
+        w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
+        w.writeAspectElements(res.get(VisualPropertiesElement.NAME));
+        w.end();
+
+        return out.toString();
     }
 
-    public final static List<String> getStringList(final ObjectNode o, final String label) {
-        final List<String> l = new ArrayList<String>();
-        if (o.has(label)) {
-            final Iterator<JsonNode> it = o.get(label).iterator();
-            while (it.hasNext()) {
-                final String s = it.next().asText();
-                if (!isEmpty(s)) {
-                    l.add(s);
-                }
-            }
-        }
-        return l;
+    public final static Set<AspectFragmentReader> getAllAvailableAspectFragmentReaders() {
+        final AspectFragmentReader node_reader = NodesFragmentReader.createInstance();
+        final AspectFragmentReader edge_reader = EdgesFragmentReader.createInstance();
+        final AspectFragmentReader cartesian_layout_reader = CartesianLayoutFragmentReader.createInstance();
+        final AspectFragmentReader network_attributes_reader = NetworkAttributesFragmentReader.createInstance();
+        final AspectFragmentReader edge_attributes_reader = EdgeAttributesFragmentReader.createInstance();
+        final AspectFragmentReader node_attributes_reader = NodeAttributesFragmentReader.createInstance();
+        final AspectFragmentReader visual_properties_reader = VisualPropertiesFragmentReader.createInstance();
+        
+        final Set<AspectFragmentReader> aspect_readers = new HashSet<AspectFragmentReader>();
+        aspect_readers.add(node_reader);
+        aspect_readers.add(edge_reader);
+        aspect_readers.add(cartesian_layout_reader);
+        aspect_readers.add(network_attributes_reader);
+        aspect_readers.add(edge_attributes_reader);
+        aspect_readers.add(node_attributes_reader);
+        aspect_readers.add(visual_properties_reader);
+        return aspect_readers;
+    }
+    
+    public final static Set<AspectFragmentWriter> getAllAvailableAspectFragmentWriters() {
+        final AspectFragmentWriter node_writer = NodesFragmentWriter.createInstance();
+        final AspectFragmentWriter edge_writer = EdgesFragmentWriter.createInstance();
+        final AspectFragmentWriter cartesian_layout_writer = CartesianLayoutFragmentWriter.createInstance();
+        final AspectFragmentWriter network_attributes_writer = NetworkAttributesFragmentWriter.createInstance();
+        final AspectFragmentWriter edge_attributes_writer = EdgeAttributesFragmentWriter.createInstance();
+        final AspectFragmentWriter node_attributes_writer = NodeAttributesFragmentWriter.createInstance();
+        final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance();
+        
+        final Set<AspectFragmentWriter> aspect_writers = new HashSet<AspectFragmentWriter>();
+        aspect_writers.add(node_writer);
+        aspect_writers.add(edge_writer);
+        aspect_writers.add(cartesian_layout_writer);
+        aspect_writers.add(network_attributes_writer);
+        aspect_writers.add(edge_attributes_writer);
+        aspect_writers.add(node_attributes_writer);
+        aspect_writers.add(visual_properties_writer);
+        return aspect_writers;
     }
 
-    public final static List<String> getStringListRequired(final ObjectNode o, final String label) throws IOException {
-        final List<String> l = new ArrayList<String>();
-        if (o.has(label)) {
-            final Iterator<JsonNode> it = o.get(label).iterator();
-            while (it.hasNext()) {
-                final String s = it.next().asText();
-                if (!isEmpty(s)) {
-                    l.add(s);
-                }
-            }
-        }
-        if (l.isEmpty()) {
-            throw new IOException("malformed CX json: list '" + label + "' is missing or empty");
-        }
-        return l;
-    }
-
-    public final static List<String> getAsStringListRequired(final ObjectNode o, final String label) throws IOException {
-        final List<String> l = getAsStringList(o, label);
-        if (l.isEmpty()) {
-            throw new IOException("malformed CX json: list '" + label + "' is missing or empty");
-        }
-        return l;
-    }
-
-    public final static List<String> getAsStringList(final ObjectNode o, final String label) throws IOException {
-        final List<String> l = new ArrayList<String>();
-        if (o.has(label)) {
-            if (!o.get(label).isArray()) {
-                l.add(o.get(label).asText());
-            }
-            else {
-                final Iterator<JsonNode> it = o.get(label).iterator();
-                while (it.hasNext()) {
-                    final String s = it.next().asText();
-                    if (!isEmpty(s)) {
-                        l.add(s);
-                    }
-                }
-            }
-        }
-        return l;
-    }
-
-    public final static String getTextValue(final ObjectNode o, final String label) {
-        if (o.has(label)) {
-            return o.get(label).asText();
-        }
-        return null;
-    }
-
-    public final static String getTextValueRequired(final ObjectNode o, final String label) throws IOException {
-        String s = null;
-        if (o.has(label)) {
-            s = o.get(label).asText();
-        }
-        if (isEmpty(s)) {
-            throw new IOException("malformed CX json: " + label + " is missing");
-        }
-        return s;
-    }
-
-    public final static SortedMap<String, List<String>> getMap(final ObjectNode o, final String label) {
-        final SortedMap<String, List<String>> map = new TreeMap<String, List<String>>();
-        if (o.has(label)) {
-            final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
-            while (it1.hasNext()) {
-                final Entry<String, JsonNode> s = it1.next();
-                final ArrayList<String> l = new ArrayList<String>();
-                map.put(s.getKey(), l);
-                final Iterator<JsonNode> it2 = s.getValue().iterator();
-                while (it2.hasNext()) {
-                    l.add(it2.next().asText());
-                }
-            }
-        }
-        return map;
-    }
-
-    // public final static void putAttributes(final ObjectNode o, final String
-    // label, final AbstractAttributesElement ae) {
-    // if (o.has(label)) {
-    // final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
-    // while (it1.hasNext()) {
-    // final Entry<String, JsonNode> s = it1.next();
-    // final String key = s.getKey();
-    // final Iterator<JsonNode> it2 = s.getValue().iterator();
-    // while (it2.hasNext()) {
-    // ae.putValue(key, it2.next().asText());
-    // }
-    // }
-    // }
-    // }
-    //
-    // public final static void putAttributeTypes(final ObjectNode o,
-    // final String label,
-    // final AbstractAttributesElement ae) {
-    // if (o.has(label)) {
-    // final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();
-    // while (it1.hasNext()) {
-    // final Entry<String, JsonNode> s = it1.next();
-    // ae.putType(s.getKey(), s.getValue().asText());
-    //
-    // }
-    // }
-    // }
+ 
 
 }

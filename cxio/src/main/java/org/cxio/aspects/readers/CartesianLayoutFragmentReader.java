@@ -10,7 +10,6 @@ import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -48,15 +47,15 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
                 if (o.has(CartesianLayoutElement.Z)) {
-                    layout_aspects.add(new CartesianLayoutElement(Util.getTextValueRequired(o,
-                            CartesianLayoutElement.NODE), Util.getTextValueRequired(o, CartesianLayoutElement.X), 
+                    layout_aspects.add(new CartesianLayoutElement(ParserUtils.getTextValueRequired(o,
+                            CartesianLayoutElement.NODE), ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X), 
                             
-                            Util.getTextValueRequired(o, CartesianLayoutElement.Y),
-                            Util.getTextValueRequired(o, CartesianLayoutElement.Z)));
+                            ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
+                            ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Z)));
                 }
                 else {
-                    layout_aspects.add(new CartesianLayoutElement(Util.getTextValueRequired(o,
-                            CartesianLayoutElement.NODE), Util.getTextValueRequired(o, CartesianLayoutElement.X), Util
+                    layout_aspects.add(new CartesianLayoutElement(ParserUtils.getTextValueRequired(o,
+                            CartesianLayoutElement.NODE), ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
                             .getTextValueRequired(o, CartesianLayoutElement.Y)));
                 }
             }

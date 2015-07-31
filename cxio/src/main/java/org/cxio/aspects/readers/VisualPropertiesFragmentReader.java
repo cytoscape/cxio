@@ -9,7 +9,6 @@ import java.util.Map.Entry;
 import org.cxio.aspects.datamodels.VisualPropertiesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -47,7 +46,7 @@ public class VisualPropertiesFragmentReader implements AspectFragmentReader {
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                final VisualPropertiesElement vpe = new VisualPropertiesElement(Util.getTextValueRequired(o,
+                final VisualPropertiesElement vpe = new VisualPropertiesElement(ParserUtils.getTextValueRequired(o,
                         VisualPropertiesElement.PROPERTIES_OF));
 
                 if (o.has(VisualPropertiesElement.APPLIES_TO)) {

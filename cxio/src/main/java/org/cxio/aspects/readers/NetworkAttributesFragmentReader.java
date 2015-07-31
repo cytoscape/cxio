@@ -10,7 +10,6 @@ import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -49,12 +48,12 @@ public class NetworkAttributesFragmentReader implements AspectFragmentReader {
                 }
                 ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
                 if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
-                    type = AbstractAttributesElement.toType(Util
+                    type = AbstractAttributesElement.toType(ParserUtils
                             .getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
                 }
-                na_aspects.add(new NetworkAttributesElement(Util
-                        .getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF), Util
-                        .getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME), Util
+                na_aspects.add(new NetworkAttributesElement(ParserUtils
+                        .getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF), ParserUtils
+                        .getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME), ParserUtils
                         .getAsStringList(o, AbstractAttributesElement.ATTR_VALUES), type));
             }
             t = jp.nextToken();

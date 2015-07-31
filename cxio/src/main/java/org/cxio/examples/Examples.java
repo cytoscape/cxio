@@ -46,9 +46,9 @@ public class Examples {
         nodes_elements.add(new NodesElement("node2"));
 
         final List<AspectElement> cartesian_elements = new ArrayList<AspectElement>();
-        cartesian_elements.add(new CartesianLayoutElement("node0", 12, 21));
-        cartesian_elements.add(new CartesianLayoutElement("node1", 42, 23));
-        cartesian_elements.add(new CartesianLayoutElement("node2", 34, 23));
+        cartesian_elements.add(new CartesianLayoutElement("node0", 12, 21, 1));
+        cartesian_elements.add(new CartesianLayoutElement("node1", 42, 23, 2));
+        cartesian_elements.add(new CartesianLayoutElement("node2", 34, 23, 3));
 
         final EdgeAttributesElement ea0 = new EdgeAttributesElement("edge0", "name", "A", ATTRIBUTE_TYPE.STRING);
         final EdgeAttributesElement ea1 = new EdgeAttributesElement("edge0", "weight", "2", ATTRIBUTE_TYPE.INTEGER);

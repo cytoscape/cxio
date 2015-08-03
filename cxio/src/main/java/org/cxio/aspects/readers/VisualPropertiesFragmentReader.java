@@ -56,14 +56,17 @@ public class VisualPropertiesFragmentReader implements AspectFragmentReader {
                     vpe = new VisualPropertiesElement(
                             ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF));
                 }
+                if (o.has(VisualPropertiesElement.PROPERTIES)) {
+                    final Iterator<Entry<String, JsonNode>> it = o.get(VisualPropertiesElement.PROPERTIES).fields();
+                    if (it != null) {
+                        while (it.hasNext()) {
+                            final Entry<String, JsonNode> kv = it.next();
+                            vpe.putProperty(kv.getKey(), kv.getValue().asText());
+                        }
 
-                final Iterator<Entry<String, JsonNode>> it = o.get(VisualPropertiesElement.PROPERTIES).fields();
-                while (it.hasNext()) {
-                    final Entry<String, JsonNode> kv = it.next();
-                    vpe.putProperty(kv.getKey(), kv.getValue().asText());
+                        aspects.add(vpe);
+                    }
                 }
-
-                aspects.add(vpe);
             }
             t = jp.nextToken();
         }

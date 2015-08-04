@@ -2,12 +2,13 @@ package org.cxio.aspects.datamodels;
 
 import org.cxio.core.interfaces.AspectElement;
 
-public class Group implements AspectElement {
+public final class Group implements AspectElement {
+    
+    final public static String NAME           = "Group";
 
     @Override
-    public String getAspectName() {
-        // TODO Auto-generated method stub
-        return null;
+    public final String getAspectName() {
+        return NAME;
     }
 
 }

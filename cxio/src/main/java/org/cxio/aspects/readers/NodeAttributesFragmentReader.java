@@ -56,7 +56,7 @@ public class NodeAttributesFragmentReader implements AspectFragmentReader {
                                 .getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
                     }
                     na_aspects.add(new NodeAttributesElement(ParserUtils
-                            .getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF), ParserUtils
+                            .getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROPERTY_OF), ParserUtils
                             .getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME), ParserUtils
                             .getAsStringList(o, AbstractAttributesElement.ATTR_VALUES), type));
                 }

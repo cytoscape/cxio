@@ -28,10 +28,10 @@ public class EdgeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
                 && ((_filter == null) || _filter.isPass(ea.getName()))) {
             w.writeStartObject();
             if (ea.getPropertyOf().size() == 1) {
-                w.writeStringField(AbstractAttributesElement.ATTR_PROERTY_OF, ea.getPropertyOf().get(0));
+                w.writeStringField(AbstractAttributesElement.ATTR_PROPERTY_OF, ea.getPropertyOf().get(0));
             }
             else {
-                w.writeList(AbstractAttributesElement.ATTR_PROERTY_OF, ea.getPropertyOf());
+                w.writeList(AbstractAttributesElement.ATTR_PROPERTY_OF, ea.getPropertyOf());
             }
             w.writeStringField(AbstractAttributesElement.ATTR_NAME, ea.getName());
             if (ea.getValues().size() == 1) {

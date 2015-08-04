@@ -32,7 +32,7 @@ public class VisualPropertiesFragmentReaderTest {
                    r0.containsKey(VisualPropertiesElement.NAME));
 
         assertFalse("failed to parse " + VisualPropertiesElement.NAME + " aspect", r0.get(VisualPropertiesElement.NAME)
-                    .isEmpty());
+                .isEmpty());
 
         assertTrue("failed to parse expected number of " + VisualPropertiesElement.NAME + " aspects",
                    r0.get(VisualPropertiesElement.NAME).size() == 3);

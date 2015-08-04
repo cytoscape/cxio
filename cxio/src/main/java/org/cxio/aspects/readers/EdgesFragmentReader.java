@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 public class EdgesFragmentReader implements AspectFragmentReader {
 
     private final ObjectMapper _m;
+    private String             _time_stamp;
 
     public final static EdgesFragmentReader createInstance() {
         return new EdgesFragmentReader();
@@ -43,14 +44,24 @@ public class EdgesFragmentReader implements AspectFragmentReader {
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                edge_aspects.add(new EdgesElement(ParserUtils.getTextValueRequired(o, EdgesElement.ID), ParserUtils
-                                                  .getTextValueRequired(o, EdgesElement.SOURCE_NODE_ID), ParserUtils
-                        .getTextValueRequired(o, EdgesElement.TARGET_NODE_ID)));
+                if (ParserUtils.isTimeStamp(o)) {
+                    _time_stamp = ParserUtils.getTimeStampValue(o);
+                }
+                else {
+                    edge_aspects.add(new EdgesElement(ParserUtils.getTextValueRequired(o, EdgesElement.ID), ParserUtils
+                            .getTextValueRequired(o, EdgesElement.SOURCE_NODE_ID), ParserUtils
+                            .getTextValueRequired(o, EdgesElement.TARGET_NODE_ID)));
+                }
             }
             t = jp.nextToken();
         }
 
         return edge_aspects;
+    }
+
+    @Override
+    public String getTimeStamp() {
+        return _time_stamp;
     }
 
 }

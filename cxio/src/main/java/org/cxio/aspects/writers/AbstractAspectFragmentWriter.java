@@ -7,6 +7,7 @@ import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.filters.AspectKeyFilter;
+import org.cxio.util.Util;
 
 /**
  * This is a convenience class for classes implementing the AspectFragmentWriter
@@ -18,9 +19,16 @@ import org.cxio.filters.AspectKeyFilter;
  */
 public abstract class AbstractAspectFragmentWriter implements AspectFragmentWriter {
 
+    String _time_stamp = null;
+
     @Override
     public void addAspectKeyFilter(final AspectKeyFilter filter) {
         throw new UnsupportedOperationException("this writer does not implement aspect key filtering");
+    }
+
+    @Override
+    public void setTimeStamp(final String time_stamp) {
+        _time_stamp = time_stamp;
     }
 
     @Override
@@ -29,6 +37,9 @@ public abstract class AbstractAspectFragmentWriter implements AspectFragmentWrit
             return;
         }
         w.startArray(getAspectName());
+        if (!Util.isEmpty(_time_stamp)) {
+            WriterUtils.writeTimeStamp(_time_stamp, w);
+        }
         for (final AspectElement aspect_element : aspect_elements) {
             writeElement(aspect_element, w);
         }

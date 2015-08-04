@@ -96,7 +96,10 @@ public class Examples {
 
         final CxWriter w = CxWriter.createInstance(out, true);
 
-        w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
+        final EdgesFragmentWriter ew = EdgesFragmentWriter.createInstance();
+        ew.setTimeStamp("11:22:33");
+
+        w.addAspectFragmentWriter(ew);
         w.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
         w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
@@ -116,7 +119,10 @@ public class Examples {
         // Reading from CX
         // ---------------
         final Set<AspectFragmentReader> readers = new HashSet<>();
-        readers.add(EdgesFragmentReader.createInstance());
+
+        final EdgesFragmentReader er = EdgesFragmentReader.createInstance();
+
+        readers.add(er);
         readers.add(NodesFragmentReader.createInstance());
         readers.add(CartesianLayoutFragmentReader.createInstance());
         readers.add(EdgeAttributesFragmentReader.createInstance());
@@ -134,6 +140,7 @@ public class Examples {
                 }
             }
         }
+        System.out.println("egdes time stamp:" + er.getTimeStamp());
     }
 
 }

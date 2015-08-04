@@ -63,4 +63,9 @@ public final class AnonymousFragmentReader implements AspectFragmentReader {
     public final void setAspectName(final String name) {
         _name = name;
     }
+
+    @Override
+    public String getTimeStamp() {
+        throw new NoSuchMethodError();
+    }
 }

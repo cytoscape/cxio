@@ -160,7 +160,7 @@ public class AnonymousElementRoundTripTest {
         final List<AspectElement> res_anonymous = res.get("anonymous");
         assertTrue(res_anonymous.size() == 1);
         assertTrue(res_anonymous.get(0).toString()
-                .equals("anonymous: {\"one\":\"1\",\"two\":\"2\",\"1\":{\"_x\":\"x\",\"2\":{\"_y\":\"y\"}}}"));
+                   .equals("anonymous: {\"one\":\"1\",\"two\":\"2\",\"1\":{\"_x\":\"x\",\"2\":{\"_y\":\"y\"}}}"));
 
         final List<AspectElement> res_anonymous_too = res.get("anonymous too");
         assertTrue(res_anonymous_too.size() == 3);
@@ -174,7 +174,7 @@ public class AnonymousElementRoundTripTest {
         final List<AspectElement> res_single = res.get("single");
         assertTrue(res_single.size() == 1);
         assertTrue(res_single.get(0).toString()
-                .equals("single: {\"1\":\"1\",\"2\":\"2\",\"3\":\"3\",\"4\":\"4\",\"5\":\"5\"}"));
+                   .equals("single: {\"1\":\"1\",\"2\":\"2\",\"3\":\"3\",\"4\":\"4\",\"5\":\"5\"}"));
 
         final List<AspectElement> res_single2 = res.get("single2");
         assertTrue(res_single2.size() == 1);
@@ -183,12 +183,12 @@ public class AnonymousElementRoundTripTest {
         final List<AspectElement> res_unknown = res.get("unknown");
         assertTrue(res_unknown.size() == 1);
         assertTrue(res_unknown
-                .get(0)
-                .toString()
-                .equals("unknown: {\"A\":\"a\",\"B\":\"b\",\"C\":\"c\",\"D\":{\"AA\":\"aa\"},"
-                        + "\"E\":[\"1\",\"2\",\"3\"],\"F\":[{\"_a1\":\"aa1\",\"_a2\":\"aa2\","
-                        + "\"_a3\":\"aa3\"},{\"_b1\":\"bb1\",\"_b2\":\"bb2\",\"_b3\":\"bb3\"},"
-                        + "{\"_c1\":\"cc1\",\"_c2\":\"cc2\",\"_c3\":\"cc3\"}]}"));
+                   .get(0)
+                   .toString()
+                   .equals("unknown: {\"A\":\"a\",\"B\":\"b\",\"C\":\"c\",\"D\":{\"AA\":\"aa\"},"
+                           + "\"E\":[\"1\",\"2\",\"3\"],\"F\":[{\"_a1\":\"aa1\",\"_a2\":\"aa2\","
+                           + "\"_a3\":\"aa3\"},{\"_b1\":\"bb1\",\"_b2\":\"bb2\",\"_b3\":\"bb3\"},"
+                           + "{\"_c1\":\"cc1\",\"_c2\":\"cc2\",\"_c3\":\"cc3\"}]}"));
 
     }
 

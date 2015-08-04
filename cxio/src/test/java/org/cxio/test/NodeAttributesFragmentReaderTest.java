@@ -59,7 +59,7 @@ public class NodeAttributesFragmentReaderTest {
         assertTrue("failed to parse " + NodeAttributesElement.NAME + " aspect",
                    r0.containsKey(NodeAttributesElement.NAME));
         assertFalse("failed to parse " + NodeAttributesElement.NAME + " aspect", r0.get(NodeAttributesElement.NAME)
-                    .isEmpty());
+                .isEmpty());
         assertTrue("failed to get expected number of " + NodeAttributesElement.NAME + " aspects",
                    r0.get(NodeAttributesElement.NAME).size() == 4);
 

@@ -4,12 +4,16 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.NodesElement;
+import org.cxio.aspects.readers.NodesFragmentReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.util.Util;
 import org.junit.Test;
 
@@ -42,7 +46,7 @@ public class NodesFragmentReaderTest {
         assertFalse("failed to parse " + NodesElement.NAME + " aspect", r0.get(NodesElement.NAME).isEmpty());
 
         assertTrue("failed to parse expected number of " + NodesElement.NAME + " aspects", r0.get(NodesElement.NAME)
-                .size() == 8);
+                   .size() == 8);
 
         final List<AspectElement> node_aspects = r0.get(NodesElement.NAME);
 
@@ -81,6 +85,20 @@ public class NodesFragmentReaderTest {
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         CxReader.parseAsMap(p);
+
+    }
+
+    @Test
+    public void testTimeStamp() throws IOException {
+        final String t0 = "[{\"nodes\":[{\"time_stamp\":\"1234\"},{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]}]";
+
+        final NodesFragmentReader nfr = NodesFragmentReader.createInstance();
+        final Set<AspectFragmentReader> readers = new HashSet<>();
+        readers.add(nfr);
+        final CxReader p = CxReader.createInstance(t0, readers);
+        CxReader.parseAsMap(p);
+
+        assertTrue(nfr.getTimeStamp().equals("1234"));
 
     }
 

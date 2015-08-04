@@ -36,7 +36,7 @@ public final class VisualPropertiesElement implements AspectElement {
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
     }
-    
+
     public final void addAppliesTo(final String applies_to) {
         _applies_to.add(applies_to);
     }

@@ -320,7 +320,8 @@ public final class CxReader {
         _jp = createJsonParser(_input);
         _token = _jp.nextToken();
         if (_token != JsonToken.START_ARRAY) {
-            throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
+            throw new IllegalStateException("illegal cx json format: expected to start with an array: "
+                    + _token.asString());
         }
         getNext();
     }

@@ -26,7 +26,7 @@ public class VisualPropertiesFragmentWriter extends AbstractAspectFragmentWriter
         final VisualPropertiesElement c = (VisualPropertiesElement) element;
         w.writeStartObject();
         w.writeStringField(VisualPropertiesElement.PROPERTIES_OF, c.getPropertiesOf());
-        if ( c.getAppliesTo().size() == 1 ) {
+        if (c.getAppliesTo().size() == 1) {
             w.writeStringField(VisualPropertiesElement.APPLIES_TO, c.getAppliesTo().get(0));
         }
         else {

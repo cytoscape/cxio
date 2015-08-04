@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 public class VisualPropertiesFragmentReader implements AspectFragmentReader {
 
     private final ObjectMapper _m;
+    private String             _time_stamp;
 
     public static VisualPropertiesFragmentReader createInstance() {
         return new VisualPropertiesFragmentReader();
@@ -46,31 +47,41 @@ public class VisualPropertiesFragmentReader implements AspectFragmentReader {
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                VisualPropertiesElement vpe;
-                if (o.has(VisualPropertiesElement.APPLIES_TO)) {
-                    vpe = new VisualPropertiesElement(
-                            ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF),
-                            ParserUtils.getAsStringList(o, VisualPropertiesElement.APPLIES_TO));
+                if (ParserUtils.isTimeStamp(o)) {
+                    _time_stamp = ParserUtils.getTimeStampValue(o);
                 }
                 else {
-                    vpe = new VisualPropertiesElement(
-                            ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF));
-                }
-                if (o.has(VisualPropertiesElement.PROPERTIES)) {
-                    final Iterator<Entry<String, JsonNode>> it = o.get(VisualPropertiesElement.PROPERTIES).fields();
-                    if (it != null) {
-                        while (it.hasNext()) {
-                            final Entry<String, JsonNode> kv = it.next();
-                            vpe.putProperty(kv.getKey(), kv.getValue().asText());
-                        }
+                    VisualPropertiesElement vpe;
+                    if (o.has(VisualPropertiesElement.APPLIES_TO)) {
+                        vpe = new VisualPropertiesElement(
+                                ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF),
+                                ParserUtils.getAsStringList(o, VisualPropertiesElement.APPLIES_TO));
+                    }
+                    else {
+                        vpe = new VisualPropertiesElement(
+                                ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF));
+                    }
+                    if (o.has(VisualPropertiesElement.PROPERTIES)) {
+                        final Iterator<Entry<String, JsonNode>> it = o.get(VisualPropertiesElement.PROPERTIES).fields();
+                        if (it != null) {
+                            while (it.hasNext()) {
+                                final Entry<String, JsonNode> kv = it.next();
+                                vpe.putProperty(kv.getKey(), kv.getValue().asText());
+                            }
 
-                        aspects.add(vpe);
+                            aspects.add(vpe);
+                        }
                     }
                 }
             }
             t = jp.nextToken();
         }
         return aspects;
+    }
+
+    @Override
+    public String getTimeStamp() {
+        return _time_stamp;
     }
 
 }

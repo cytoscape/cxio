@@ -18,6 +18,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 public class EdgeAttributesFragmentReader implements AspectFragmentReader {
 
     private final ObjectMapper _m;
+    private String             _time_stamp;
 
     public static EdgeAttributesFragmentReader createInstance() {
         return new EdgeAttributesFragmentReader();
@@ -45,19 +46,29 @@ public class EdgeAttributesFragmentReader implements AspectFragmentReader {
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
-                if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
-                    type = AbstractAttributesElement.toType(ParserUtils
-                            .getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
+                if (ParserUtils.isTimeStamp(o)) {
+                    _time_stamp = ParserUtils.getTimeStampValue(o);
                 }
-                ea_aspects.add(new EdgeAttributesElement(ParserUtils
-                        .getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF), ParserUtils
-                        .getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME), ParserUtils
-                        .getAsStringList(o, AbstractAttributesElement.ATTR_VALUES), type));
+                else {
+                    ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
+                    if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
+                        type = AbstractAttributesElement.toType(ParserUtils
+                                .getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
+                    }
+                    ea_aspects.add(new EdgeAttributesElement(ParserUtils
+                            .getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROERTY_OF), ParserUtils
+                            .getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME), ParserUtils
+                            .getAsStringList(o, AbstractAttributesElement.ATTR_VALUES), type));
+                }
             }
             t = jp.nextToken();
         }
         return ea_aspects;
+    }
+
+    @Override
+    public String getTimeStamp() {
+        return _time_stamp;
     }
 
 }

@@ -19,6 +19,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 public final class CartesianLayoutFragmentReader implements AspectFragmentReader {
 
     private final ObjectMapper _m;
+    private String             _time_stamp;
 
     public static CartesianLayoutFragmentReader createInstance() {
         return new CartesianLayoutFragmentReader();
@@ -46,25 +47,35 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                if (o.has(CartesianLayoutElement.Z)) {
-                    layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                            .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                            .getTextValueRequired(o, CartesianLayoutElement.X),
-
-                    ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y), ParserUtils
-                            .getTextValueRequired(o, CartesianLayoutElement.Z)));
+                if (ParserUtils.isTimeStamp(o)) {
+                    _time_stamp = ParserUtils.getTimeStampValue(o);
                 }
                 else {
-                    layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                            .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                            .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
-                                                                  .getTextValueRequired(o, CartesianLayoutElement.Y)));
+                    if (o.has(CartesianLayoutElement.Z)) {
+                        layout_aspects.add(new CartesianLayoutElement(ParserUtils
+                                .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
+                                .getTextValueRequired(o, CartesianLayoutElement.X),
+
+                        ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y), ParserUtils
+                                .getTextValueRequired(o, CartesianLayoutElement.Z)));
+                    }
+                    else {
+                        layout_aspects.add(new CartesianLayoutElement(ParserUtils
+                                .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
+                                .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
+                                .getTextValueRequired(o, CartesianLayoutElement.Y)));
+                    }
                 }
             }
             t = jp.nextToken();
         }
 
         return layout_aspects;
+    }
+
+    @Override
+    public String getTimeStamp() {
+        return _time_stamp;
     }
 
     public static void main(final String[] args) throws IOException {

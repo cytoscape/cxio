@@ -6,10 +6,10 @@ import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
 @SuiteClasses({ AnonymousElementRoundTripTest.class, CartesianLayoutFragmentReaderTest.class,
-        CartesianLayoutFragmentWriterTest.class, CxParserTest.class, EdgeAttributesFragmentReaderTest.class,
-        EdgeAttributesFragmentWriterTest.class, EdgeElementTest.class, EdgesFragmentReaderTest.class,
-    EdgesFragmentWriterTest.class, NodeAttributesFragmentReaderTest.class, NodeAttributesFragmentWriterTest.class,
-    NodeElementTest.class, NodesFragmentReaderTest.class, NodesFragmentWriterTest.class, RoundTripTest.class })
+    CartesianLayoutFragmentWriterTest.class, CxParserTest.class, EdgeAttributesFragmentReaderTest.class,
+    EdgeAttributesFragmentWriterTest.class, EdgeElementTest.class, EdgesFragmentReaderTest.class,
+        EdgesFragmentWriterTest.class, NodeAttributesFragmentReaderTest.class, NodeAttributesFragmentWriterTest.class,
+        NodeElementTest.class, NodesFragmentReaderTest.class, NodesFragmentWriterTest.class, RoundTripTest.class })
 public class AllTests {
 
 }

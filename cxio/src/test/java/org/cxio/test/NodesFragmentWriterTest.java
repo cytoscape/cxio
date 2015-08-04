@@ -22,6 +22,7 @@ public class NodesFragmentWriterTest {
         final List<AspectElement> l0 = new ArrayList<AspectElement>();
         final OutputStream out0 = new ByteArrayOutputStream();
         final CxWriter w0 = CxWriter.createInstance(out0, false);
+
         w0.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
 
         w0.start();
@@ -40,13 +41,18 @@ public class NodesFragmentWriterTest {
 
         final OutputStream out1 = new ByteArrayOutputStream();
         final CxWriter w1 = CxWriter.createInstance(out1, false);
-        w1.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
+
+        final NodesFragmentWriter nfw = NodesFragmentWriter.createInstance();
+        nfw.setTimeStamp("123");
+
+        w1.addAspectFragmentWriter(nfw);
 
         w1.start();
         w1.writeAspectElements(l1);
         w1.end();
 
-        assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]}]", out1.toString());
+        assertEquals("[{\"nodes\":[{\"time_stamp\":\"123\"},{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]}]",
+                     out1.toString());
 
         final NodesElement n3 = new NodesElement("3");
         final NodesElement n4 = new NodesElement("4");
@@ -59,6 +65,7 @@ public class NodesFragmentWriterTest {
 
         final OutputStream out2 = new ByteArrayOutputStream();
         final CxWriter w2 = CxWriter.createInstance(out2, false);
+
         w2.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
 
         w2.start();

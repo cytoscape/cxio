@@ -21,6 +21,8 @@ public interface AspectFragmentReader {
      */
     public String getAspectName();
 
+    public String getTimeStamp();
+
     /**
      * This is the main method of AspectFragmentReaders. It takes a JsonParser
      * from Jackson Faster XML library

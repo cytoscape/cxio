@@ -11,14 +11,14 @@ public class GroupFragmentWriter extends AbstractAspectFragmentWriter {
     public static GroupFragmentWriter createInstance() {
         return new GroupFragmentWriter();
     }
-    
+
     private GroupFragmentWriter() {
     }
-    
+
     @Override
-    protected void writeElement(AspectElement element, JsonWriter w) throws IOException {
+    protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         // TODO Auto-generated method stub
-        
+
     }
 
     @Override

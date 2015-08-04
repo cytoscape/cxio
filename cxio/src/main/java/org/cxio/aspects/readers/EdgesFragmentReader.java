@@ -38,19 +38,20 @@ public class EdgesFragmentReader implements AspectFragmentReader {
             throw new IOException("malformed cx json in '" + EdgesElement.NAME + "'");
         }
         final List<AspectElement> edge_aspects = new ArrayList<AspectElement>();
+        _time_stamp = null;
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                if (ParserUtils.isTimeStamp(o)) {
+                if ((_time_stamp == null) && ParserUtils.isTimeStamp(o)) {
                     _time_stamp = ParserUtils.getTimeStampValue(o);
                 }
                 else {
                     edge_aspects.add(new EdgesElement(ParserUtils.getTextValueRequired(o, EdgesElement.ID), ParserUtils
-                            .getTextValueRequired(o, EdgesElement.SOURCE_NODE_ID), ParserUtils
-                            .getTextValueRequired(o, EdgesElement.TARGET_NODE_ID)));
+                                                      .getTextValueRequired(o, EdgesElement.SOURCE_NODE_ID), ParserUtils
+                                                      .getTextValueRequired(o, EdgesElement.TARGET_NODE_ID)));
                 }
             }
             t = jp.nextToken();

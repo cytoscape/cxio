@@ -41,25 +41,26 @@ public class VisualPropertiesFragmentReader implements AspectFragmentReader {
             throw new IOException("malformed cx json in '" + getAspectName() + "'");
         }
         final List<AspectElement> aspects = new ArrayList<AspectElement>();
+        _time_stamp = null;
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                if (ParserUtils.isTimeStamp(o)) {
+                if ((_time_stamp == null) && ParserUtils.isTimeStamp(o)) {
                     _time_stamp = ParserUtils.getTimeStampValue(o);
                 }
                 else {
                     VisualPropertiesElement vpe;
                     if (o.has(VisualPropertiesElement.APPLIES_TO)) {
                         vpe = new VisualPropertiesElement(
-                                ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF),
-                                ParserUtils.getAsStringList(o, VisualPropertiesElement.APPLIES_TO));
+                                                          ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF),
+                                                          ParserUtils.getAsStringList(o, VisualPropertiesElement.APPLIES_TO));
                     }
                     else {
                         vpe = new VisualPropertiesElement(
-                                ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF));
+                                                          ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF));
                     }
                     if (o.has(VisualPropertiesElement.PROPERTIES)) {
                         final Iterator<Entry<String, JsonNode>> it = o.get(VisualPropertiesElement.PROPERTIES).fields();

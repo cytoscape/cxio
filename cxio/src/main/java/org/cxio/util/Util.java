@@ -15,7 +15,6 @@ import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
-import org.cxio.aspects.datamodels.SubNetworkElement;
 import org.cxio.aspects.datamodels.VisualPropertiesElement;
 import org.cxio.aspects.readers.CartesianLayoutFragmentReader;
 import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
@@ -95,9 +94,9 @@ public final class Util {
         final AspectFragmentReader visual_properties_reader = VisualPropertiesFragmentReader.createInstance();
         final AspectFragmentReader group_reader = GroupFragmentReader.createInstance();
         final AspectFragmentReader subnetwork_reader = SubNetworkFragmentReader.createInstance();
-        
+
         final Set<AspectFragmentReader> aspect_readers = new HashSet<AspectFragmentReader>();
-        
+
         aspect_readers.add(node_reader);
         aspect_readers.add(edge_reader);
         aspect_readers.add(cartesian_layout_reader);
@@ -106,8 +105,8 @@ public final class Util {
         aspect_readers.add(node_attributes_reader);
         aspect_readers.add(visual_properties_reader);
         aspect_readers.add(group_reader);
-        aspect_readers.add(subnetwork_reader );
-        
+        aspect_readers.add(subnetwork_reader);
+
         return aspect_readers;
     }
 
@@ -121,7 +120,7 @@ public final class Util {
         final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance();
         final AspectFragmentWriter group_writer = GroupFragmentWriter.createInstance();
         final AspectFragmentWriter subnetwork_writer = SubNetworkFragmentWriter.createInstance();
-            
+
         final Set<AspectFragmentWriter> aspect_writers = new HashSet<AspectFragmentWriter>();
         aspect_writers.add(node_writer);
         aspect_writers.add(edge_writer);
@@ -134,8 +133,8 @@ public final class Util {
         aspect_writers.add(subnetwork_writer);
         return aspect_writers;
     }
-    
-    public final static Set<AspectFragmentWriter> getAllAvailableAspectFragmentWriters( final String time_stamp) {
+
+    public final static Set<AspectFragmentWriter> getAllAvailableAspectFragmentWriters(final String time_stamp) {
         final AspectFragmentWriter node_writer = NodesFragmentWriter.createInstance();
         final AspectFragmentWriter edge_writer = EdgesFragmentWriter.createInstance();
         final AspectFragmentWriter cartesian_layout_writer = CartesianLayoutFragmentWriter.createInstance();
@@ -145,7 +144,7 @@ public final class Util {
         final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance();
         final AspectFragmentWriter group_writer = GroupFragmentWriter.createInstance();
         final AspectFragmentWriter subnetwork_writer = SubNetworkFragmentWriter.createInstance();
-            
+
         node_writer.setTimeStamp(time_stamp);
         edge_writer.setTimeStamp(time_stamp);
         cartesian_layout_writer.setTimeStamp(time_stamp);
@@ -155,7 +154,7 @@ public final class Util {
         visual_properties_writer.setTimeStamp(time_stamp);
         group_writer.setTimeStamp(time_stamp);
         subnetwork_writer.setTimeStamp(time_stamp);
-        
+
         final Set<AspectFragmentWriter> aspect_writers = new HashSet<AspectFragmentWriter>();
         aspect_writers.add(node_writer);
         aspect_writers.add(edge_writer);
@@ -168,6 +167,5 @@ public final class Util {
         aspect_writers.add(subnetwork_writer);
         return aspect_writers;
     }
-    
 
 }

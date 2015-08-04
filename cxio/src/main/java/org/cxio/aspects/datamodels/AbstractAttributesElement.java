@@ -35,10 +35,10 @@ public abstract class AbstractAttributesElement implements AspectElement {
         }
     }
 
-    public final static String ATTR_NAME       = "n";
+    public final static String ATTR_NAME        = "n";
     public final static String ATTR_PROPERTY_OF = "po";
-    public final static String ATTR_TYPE       = "t";
-    public final static String ATTR_VALUES     = "v";
+    public final static String ATTR_TYPE        = "t";
+    public final static String ATTR_VALUES      = "v";
 
     String                     _name;
     List<String>               _property_of;

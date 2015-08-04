@@ -41,29 +41,30 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
             throw new IOException("malformed cx json in '" + CartesianLayoutElement.NAME + "'");
         }
         final List<AspectElement> layout_aspects = new ArrayList<AspectElement>();
+        _time_stamp = null;
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                if (ParserUtils.isTimeStamp(o)) {
+                if ((_time_stamp == null) && ParserUtils.isTimeStamp(o)) {
                     _time_stamp = ParserUtils.getTimeStampValue(o);
                 }
                 else {
                     if (o.has(CartesianLayoutElement.Z)) {
                         layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                .getTextValueRequired(o, CartesianLayoutElement.X),
+                                                                      .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
+                                                                      .getTextValueRequired(o, CartesianLayoutElement.X),
 
-                        ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y), ParserUtils
-                                .getTextValueRequired(o, CartesianLayoutElement.Z)));
+                                                                      ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y), ParserUtils
+                                                                      .getTextValueRequired(o, CartesianLayoutElement.Z)));
                     }
                     else {
                         layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
-                                .getTextValueRequired(o, CartesianLayoutElement.Y)));
+                                                                      .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
+                                                                      .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
+                                                                      .getTextValueRequired(o, CartesianLayoutElement.Y)));
                     }
                 }
             }

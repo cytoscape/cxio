@@ -39,13 +39,14 @@ public final class NodesFragmentReader implements AspectFragmentReader {
             throw new IOException("malformed cx json in '" + NodesElement.NAME + "'");
         }
         final List<AspectElement> node_elements = new ArrayList<AspectElement>();
+        _time_stamp = null;
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);
                 if (o == null) {
                     throw new IOException("malformed CX json in element " + getAspectName());
                 }
-                if (ParserUtils.isTimeStamp(o)) {
+                if ((_time_stamp == null) && ParserUtils.isTimeStamp(o)) {
                     _time_stamp = ParserUtils.getTimeStampValue(o);
                 }
                 else {

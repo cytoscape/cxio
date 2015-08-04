@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.cxio.core.interfaces.AspectElement;
 
-public final class SubNetwork implements AspectElement {
+public final class SubNetworkElement implements AspectElement {
 
     public final static String NAME         = "SubNetwork";
 
@@ -19,7 +19,7 @@ public final class SubNetwork implements AspectElement {
     final List<String>         _nodes;
     final List<String>         _edges;
 
-    public SubNetwork(final String id, final String name) {
+    public SubNetworkElement(final String id, final String name) {
         _id = id;
         _name = name;
         _nodes = new ArrayList<String>();

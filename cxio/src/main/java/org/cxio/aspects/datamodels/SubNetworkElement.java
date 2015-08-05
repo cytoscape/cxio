@@ -7,11 +7,11 @@ import org.cxio.core.interfaces.AspectElement;
 
 public final class SubNetworkElement implements AspectElement {
 
-    public final static String NAME         = "SubNetwork";
+    public final static String NAME         = "SubNetworks";
 
-    public final static String SUBNET_NAME  = "n";
+    public final static String SUBNET_NAME  = "name";
     public final static String SUBNET_NODES = "nodes";
-    public final static String SUBNET_EDGES = "nodes";
+    public final static String SUBNET_EDGES = "edges";
     public final static String SUBNET_ID    = "id";
 
     final String               _name;

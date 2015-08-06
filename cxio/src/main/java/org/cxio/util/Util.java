@@ -30,6 +30,7 @@ import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.GroupFragmentWriter;
 import org.cxio.aspects.writers.NetworkAttributesFragmentWriter;
+import org.cxio.aspects.writers.NetworkRelationsFragmentWriter;
 import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.aspects.writers.SubNetworkFragmentWriter;
@@ -120,6 +121,7 @@ public final class Util {
         final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance();
         final AspectFragmentWriter group_writer = GroupFragmentWriter.createInstance();
         final AspectFragmentWriter subnetwork_writer = SubNetworkFragmentWriter.createInstance();
+        final AspectFragmentWriter network_rel_writer = NetworkRelationsFragmentWriter.createInstance();
 
         final Set<AspectFragmentWriter> aspect_writers = new HashSet<AspectFragmentWriter>();
         aspect_writers.add(node_writer);
@@ -131,6 +133,7 @@ public final class Util {
         aspect_writers.add(visual_properties_writer);
         aspect_writers.add(group_writer);
         aspect_writers.add(subnetwork_writer);
+        aspect_writers.add(network_rel_writer);
         return aspect_writers;
     }
 
@@ -144,6 +147,7 @@ public final class Util {
         final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance();
         final AspectFragmentWriter group_writer = GroupFragmentWriter.createInstance();
         final AspectFragmentWriter subnetwork_writer = SubNetworkFragmentWriter.createInstance();
+        final AspectFragmentWriter network_rel_writer = NetworkRelationsFragmentWriter.createInstance();
 
         node_writer.setTimeStamp(time_stamp);
         edge_writer.setTimeStamp(time_stamp);
@@ -154,6 +158,7 @@ public final class Util {
         visual_properties_writer.setTimeStamp(time_stamp);
         group_writer.setTimeStamp(time_stamp);
         subnetwork_writer.setTimeStamp(time_stamp);
+        network_rel_writer.setTimeStamp(time_stamp);
 
         final Set<AspectFragmentWriter> aspect_writers = new HashSet<AspectFragmentWriter>();
         aspect_writers.add(node_writer);
@@ -165,6 +170,7 @@ public final class Util {
         aspect_writers.add(visual_properties_writer);
         aspect_writers.add(group_writer);
         aspect_writers.add(subnetwork_writer);
+        aspect_writers.add(network_rel_writer);
         return aspect_writers;
     }
 

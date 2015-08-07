@@ -17,7 +17,18 @@ public class GroupFragmentWriter extends AbstractAspectFragmentWriter {
 
     @Override
     protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
-        // TODO Auto-generated method stub
+        final GroupElement e = (GroupElement) element;
+        w.writeStartObject();
+        w.writeStringFieldIfNotEmpty(GroupElement.GROUP_ID, e.getId());
+        w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NAME, e.getName());
+        w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NETWORK, e.getNetwork());
+        if (e.getNodes().size() == 1) {
+            w.writeStringField(GroupElement.GROUP_NODES, e.getNodes().get(0));
+        }
+        else {
+            w.writeList(GroupElement.GROUP_NODES, e.getNodes());
+        }
+        w.writeEndObject();
 
     }
 

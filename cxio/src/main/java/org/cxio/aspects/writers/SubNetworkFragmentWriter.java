@@ -5,7 +5,6 @@ import java.io.IOException;
 import org.cxio.aspects.datamodels.SubNetworkElement;
 import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.Util;
 
 public class SubNetworkFragmentWriter extends AbstractAspectFragmentWriter {
 
@@ -20,14 +19,8 @@ public class SubNetworkFragmentWriter extends AbstractAspectFragmentWriter {
     protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final SubNetworkElement e = (SubNetworkElement) element;
         w.writeStartObject();
-        final String id = e.getId();
-        if (!Util.isEmpty(id)) {
-            w.writeStringField(SubNetworkElement.SUBNET_ID, id);
-        }
-        final String name = e.getName();
-        if (!Util.isEmpty(name)) {
-            w.writeStringField(SubNetworkElement.SUBNET_NAME, name);
-        }
+        w.writeStringFieldIfNotEmpty(SubNetworkElement.SUBNET_ID, e.getId());
+        w.writeStringFieldIfNotEmpty(SubNetworkElement.SUBNET_NAME, e.getName());
         if (e.getNodes().size() == 1) {
             w.writeStringField(SubNetworkElement.SUBNET_NODES, e.getNodes().get(0));
         }

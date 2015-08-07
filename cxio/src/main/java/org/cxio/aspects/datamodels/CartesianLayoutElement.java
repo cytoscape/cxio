@@ -12,53 +12,32 @@ public final class CartesianLayoutElement implements AspectElement {
 
     public final static String NAME = "cartesianLayout";
     public final static String NODE = "node";
+    public final static String NETWORK = "network";
     public final static String X    = "x";
     public final static String Y    = "y";
     public final static String Z    = "z";
     private final String       _node;
+    private  String       _network;
     private final double       _x;
     private final double       _y;
     private final double       _z;
-    private final boolean      _z_set;
 
-    public CartesianLayoutElement(final long node, final double x, final double y) {
-        _node = String.valueOf(node);
-        _x = x;
-        _y = y;
-        _z = 0;
-        _z_set = false;
-    }
-
-    public CartesianLayoutElement(final long node, final double x, final double y, final double z) {
-        _node = String.valueOf(node);
-        _x = x;
-        _y = y;
-        _z = z;
-        _z_set = true;
-    }
-
-    public CartesianLayoutElement(final String node, final double x, final double y) {
-        _node = node;
-        _x = x;
-        _y = y;
-        _z = 0;
-        _z_set = false;
-    }
+   
 
     public CartesianLayoutElement(final String node, final double x, final double y, final double z) {
         _node = node;
         _x = x;
         _y = y;
         _z = z;
-        _z_set = true;
+        _network = null;
     }
-
-    public CartesianLayoutElement(final String node, final String x, final String y) {
+    
+    public CartesianLayoutElement(final String node, final double x, final double y, final double z, final String network) {
         _node = node;
-        _x = Double.parseDouble(x);
-        _y = Double.parseDouble(y);
-        _z = 0;
-        _z_set = false;
+        _x = x;
+        _y = y;
+        _z = z;
+        _network = network;
     }
 
     public CartesianLayoutElement(final String node, final String x, final String y, final String z) {
@@ -66,9 +45,25 @@ public final class CartesianLayoutElement implements AspectElement {
         _x = Double.parseDouble(x);
         _y = Double.parseDouble(y);
         _z = Double.parseDouble(z);
-        _z_set = true;
+        _network = null;
+    }
+    
+    public CartesianLayoutElement(final String node, final String x, final String y, final String z, final String network) {
+        _node = node;
+        _x = Double.parseDouble(x);
+        _y = Double.parseDouble(y);
+        _z = Double.parseDouble(z);
+        _network = network;
     }
 
+    final public String getNetwork() {
+        return _network;
+    }
+    
+    final public void setNetwork( String network ) {
+        _network = network;
+    }
+    
     @Override
     public String getAspectName() {
         return CartesianLayoutElement.NAME;
@@ -90,9 +85,7 @@ public final class CartesianLayoutElement implements AspectElement {
         return _z;
     }
 
-    public boolean isZSet() {
-        return _z_set;
-    }
+    
 
     @Override
     public String toString() {
@@ -103,10 +96,9 @@ public final class CartesianLayoutElement implements AspectElement {
         sb.append(_x);
         sb.append(", y: ");
         sb.append(_y);
-        if (_z_set) {
             sb.append(", z: ");
             sb.append(_z);
-        }
+        
         return sb.toString();
     }
 

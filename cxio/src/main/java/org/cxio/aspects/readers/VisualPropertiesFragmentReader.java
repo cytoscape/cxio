@@ -53,7 +53,14 @@ public class VisualPropertiesFragmentReader implements AspectFragmentReader {
                 }
                 else {
                     VisualPropertiesElement vpe;
-                    if (o.has(VisualPropertiesElement.APPLIES_TO)) {
+                    if (o.has(VisualPropertiesElement.APPLIES_TO )
+                              && (o.has(VisualPropertiesElement.NETWORK))) {
+                        vpe = new VisualPropertiesElement(
+                                                          ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF),
+                                                          ParserUtils.getAsStringList(o, VisualPropertiesElement.APPLIES_TO),
+                                                          ParserUtils.getTextValue(o, VisualPropertiesElement.NETWORK));
+                    }
+                    else if (o.has(VisualPropertiesElement.APPLIES_TO)) {
                         vpe = new VisualPropertiesElement(
                                                           ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF),
                                                           ParserUtils.getAsStringList(o, VisualPropertiesElement.APPLIES_TO));

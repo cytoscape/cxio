@@ -18,10 +18,12 @@ public final class VisualPropertiesElement implements AspectElement {
 
     public final static String              APPLIES_TO    = "applies_to";
     public final static String              NAME          = "visualProperties";
+    public final static String              NETWORK       = "network";
     public final static String              PROPERTIES    = "properties";
     public final static String              PROPERTIES_OF = "properties_of";
 
     private final List<String>              _applies_to;
+    final String                            _network;
     private final SortedMap<String, String> _properties;
     private final String                    _properties_of;
 
@@ -29,14 +31,31 @@ public final class VisualPropertiesElement implements AspectElement {
         _properties_of = properties_of;
         _applies_to = new ArrayList<String>();
         _properties = new TreeMap<String, String>();
+        _network = null;
+    }
+    
+    public VisualPropertiesElement(final String properties_of, final String network) {
+        _properties_of = properties_of;
+        _applies_to = new ArrayList<String>();
+        _properties = new TreeMap<String, String>();
+        _network = network;
     }
 
-    public VisualPropertiesElement(final String properties_of, final List<String> applies_to) {
+    public VisualPropertiesElement(final String properties_of, final List<String> applies_to ) {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
+        _network = null;
     }
 
+    public VisualPropertiesElement(final String properties_of, final List<String> applies_to, final String network) {
+        _properties_of = properties_of;
+        _applies_to = applies_to;
+        _properties = new TreeMap<String, String>();
+        _network = network;
+    }
+    
+   
     public final void addAppliesTo(final String applies_to) {
         _applies_to.add(applies_to);
     }
@@ -48,6 +67,10 @@ public final class VisualPropertiesElement implements AspectElement {
     @Override
     public String getAspectName() {
         return NAME;
+    }
+
+    final public String getNetwork() {
+        return _network;
     }
 
     public final SortedMap<String, String> getProperties() {

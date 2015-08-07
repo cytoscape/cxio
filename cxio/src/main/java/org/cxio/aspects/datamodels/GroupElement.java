@@ -13,10 +13,10 @@ public final class GroupElement implements AspectElement {
     public final static String GROUP_NODES   = "nodes";
     public final static String NAME          = "Group";
 
-    private final String               _id;
-    private final String               _name;
-    private final String               _network;
-    private final List<String>         _nodes;
+    private final String       _id;
+    private final String       _name;
+    private final String       _network;
+    private final List<String> _nodes;
 
     public GroupElement(final String id, final String name) {
         _id = id;

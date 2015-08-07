@@ -18,7 +18,7 @@ public final class VisualPropertiesElement implements AspectElement {
 
     public final static String              APPLIES_TO    = "applies_to";
     public final static String              NAME          = "visualProperties";
-    public final static String              NETWORK       = "network";
+    public final static String              BELONGS_TO    = "belongs_to";
     public final static String              PROPERTIES    = "properties";
     public final static String              PROPERTIES_OF = "properties_of";
 
@@ -33,7 +33,7 @@ public final class VisualPropertiesElement implements AspectElement {
         _properties = new TreeMap<String, String>();
         _network = null;
     }
-    
+
     public VisualPropertiesElement(final String properties_of, final String network) {
         _properties_of = properties_of;
         _applies_to = new ArrayList<String>();
@@ -41,7 +41,7 @@ public final class VisualPropertiesElement implements AspectElement {
         _network = network;
     }
 
-    public VisualPropertiesElement(final String properties_of, final List<String> applies_to ) {
+    public VisualPropertiesElement(final String properties_of, final List<String> applies_to) {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
@@ -54,8 +54,7 @@ public final class VisualPropertiesElement implements AspectElement {
         _properties = new TreeMap<String, String>();
         _network = network;
     }
-    
-   
+
     public final void addAppliesTo(final String applies_to) {
         _applies_to.add(applies_to);
     }

@@ -53,46 +53,37 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
                 }
                 else {
                     if (o.has(CartesianLayoutElement.Z)) {
-                        if (o.has(CartesianLayoutElement.NETWORK)) {
+                        if (o.has(CartesianLayoutElement.BELONGS_TO)) {
                             layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                                                          .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                                                          .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
                                     .getTextValueRequired(o, CartesianLayoutElement.Y), ParserUtils
-                                                                          .getTextValueRequired(o, CartesianLayoutElement.Z),
-
-                            ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NETWORK))
-
-                            );
+                                    .getTextValueRequired(o, CartesianLayoutElement.Z), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.BELONGS_TO)));
                         }
                         else {
-
                             layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                                                          .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                                                          .getTextValueRequired(o, CartesianLayoutElement.X),
-
-                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y), ParserUtils
-                                                                          .getTextValueRequired(o, CartesianLayoutElement.Z)));
+                                    .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.Y), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.Z)));
                         }
                     }
                     else {
-                        if (o.has(CartesianLayoutElement.NETWORK)) {
+                        if (o.has(CartesianLayoutElement.BELONGS_TO)) {
+                            layout_aspects.add(new CartesianLayoutElement(ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.Y), "0", ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.BELONGS_TO)));
 
-                        layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                                                      .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                                                      .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
-                                                                      .getTextValueRequired(o, CartesianLayoutElement.Y),"0",
-
-                                                                      ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NETWORK)));
-                    
                         }
                         else {
-                            
                             layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                                                          .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                                                          .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
-                                                                          .getTextValueRequired(o, CartesianLayoutElement.Y),"0"));
-                        
-                            
+                                    .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
+                                    .getTextValueRequired(o, CartesianLayoutElement.Y), "0"));
+
                         }
                     }
                 }

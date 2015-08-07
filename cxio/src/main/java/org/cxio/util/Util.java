@@ -95,7 +95,7 @@ public final class Util {
         final AspectFragmentReader visual_properties_reader = VisualPropertiesFragmentReader.createInstance();
         final AspectFragmentReader group_reader = GroupFragmentReader.createInstance();
         final AspectFragmentReader subnetwork_reader = SubNetworkFragmentReader.createInstance();
-        
+
         final Set<AspectFragmentReader> aspect_readers = new HashSet<AspectFragmentReader>();
 
         aspect_readers.add(node_reader);

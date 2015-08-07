@@ -4,9 +4,9 @@ import org.cxio.core.interfaces.AspectElement;
 
 public final class NetworkRelationsElement implements AspectElement {
 
-    final public static String NAME = "NetworkRelations";
+    final public static String NAME   = "NetworkRelations";
     final public static String PARENT = "parent";
-    final public static String CHILD = "child";
+    final public static String CHILD  = "child";
 
     final private String       _parent;
     final private String       _child;

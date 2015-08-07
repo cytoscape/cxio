@@ -255,9 +255,8 @@ public final class CxReader {
                     if (!reader.isList()) {
                         --_level;
                         if (_level < 1) {
-                            throw new IllegalStateException(
-                                    "this should never have happened (likely cause: problem with '" + name
-                                                            + "' reader)");
+                            throw new IllegalStateException("this should never have happened (likely cause: problem with '"
+                                    + name + "' reader)");
                         }
                     }
                     _was_in_recognized_aspect = true;

@@ -54,9 +54,11 @@ public class SubNetworkFragmentReader implements AspectFragmentReader {
                     _time_stamp = ParserUtils.getTimeStampValue(o);
                 }
                 else {
-                    final SubNetworkElement e = new SubNetworkElement(
-                            ParserUtils.getTextValueRequired(o, SubNetworkElement.SUBNET_ID),
-                            ParserUtils.getTextValueRequired(o, SubNetworkElement.SUBNET_NAME));
+                    final SubNetworkElement e = new SubNetworkElement(ParserUtils.getTextValueRequired(o,
+                                                                                                       SubNetworkElement.SUBNET_ID),
+                                                                      ParserUtils
+                                                                              .getTextValueRequired(o,
+                                                                                                    SubNetworkElement.SUBNET_NAME));
                     if (o.has(SubNetworkElement.SUBNET_NODES)) {
                         e.getNodes().addAll(ParserUtils.getAsStringList(o, SubNetworkElement.SUBNET_NODES));
                     }

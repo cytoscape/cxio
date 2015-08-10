@@ -23,7 +23,7 @@ public final class VisualPropertiesElement implements AspectElement {
     public final static String              PROPERTIES_OF = "properties_of";
 
     private final List<String>              _applies_to;
-    final String                            _network;
+    final String                            _belongs_to;
     private final SortedMap<String, String> _properties;
     private final String                    _properties_of;
 
@@ -31,28 +31,28 @@ public final class VisualPropertiesElement implements AspectElement {
         _properties_of = properties_of;
         _applies_to = new ArrayList<String>();
         _properties = new TreeMap<String, String>();
-        _network = null;
+        _belongs_to = null;
     }
 
-    public VisualPropertiesElement(final String properties_of, final String network) {
+    public VisualPropertiesElement(final String properties_of, final String belongs_to) {
         _properties_of = properties_of;
         _applies_to = new ArrayList<String>();
         _properties = new TreeMap<String, String>();
-        _network = network;
+        _belongs_to = belongs_to;
     }
 
     public VisualPropertiesElement(final String properties_of, final List<String> applies_to) {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
-        _network = null;
+        _belongs_to = null;
     }
 
-    public VisualPropertiesElement(final String properties_of, final List<String> applies_to, final String network) {
+    public VisualPropertiesElement(final String properties_of, final List<String> applies_to, final String belongs_to) {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
-        _network = network;
+        _belongs_to = belongs_to;
     }
 
     public final void addAppliesTo(final String applies_to) {
@@ -69,7 +69,7 @@ public final class VisualPropertiesElement implements AspectElement {
     }
 
     final public String getNetwork() {
-        return _network;
+        return _belongs_to;
     }
 
     public final SortedMap<String, String> getProperties() {

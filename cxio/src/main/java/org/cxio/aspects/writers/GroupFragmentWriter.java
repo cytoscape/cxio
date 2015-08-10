@@ -19,14 +19,26 @@ public class GroupFragmentWriter extends AbstractAspectFragmentWriter {
     protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final GroupElement e = (GroupElement) element;
         w.writeStartObject();
-        w.writeStringFieldIfNotEmpty(GroupElement.GROUP_ID, e.getId());
+        w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NODE, e.getGroupNode());
         w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NAME, e.getName());
-        w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NETWORK, e.getNetwork());
+        w.writeStringFieldIfNotEmpty(GroupElement.BELONGS_TO, e.getBelongsTo());
         if (e.getNodes().size() == 1) {
-            w.writeStringField(GroupElement.GROUP_NODES, e.getNodes().get(0));
+            w.writeStringField(GroupElement.NODES, e.getNodes().get(0));
         }
         else {
-            w.writeList(GroupElement.GROUP_NODES, e.getNodes());
+            w.writeList(GroupElement.NODES, e.getNodes());
+        }
+        if (e.getExternalEdges().size() == 1) {
+            w.writeStringField(GroupElement.EXTERNAL_EDGES, e.getExternalEdges().get(0));
+        }
+        else {
+            w.writeList(GroupElement.EXTERNAL_EDGES, e.getExternalEdges());
+        }
+        if (e.getInternalEdges().size() == 1) {
+            w.writeStringField(GroupElement.INTERNAL_EDGES, e.getInternalEdges().get(0));
+        }
+        else {
+            w.writeList(GroupElement.INTERNAL_EDGES, e.getInternalEdges());
         }
         w.writeEndObject();
 

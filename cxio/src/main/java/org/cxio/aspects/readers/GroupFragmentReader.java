@@ -1,6 +1,7 @@
 package org.cxio.aspects.readers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.cxio.aspects.datamodels.GroupElement;
@@ -8,7 +9,9 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class GroupFragmentReader implements AspectFragmentReader {
 
@@ -30,14 +33,47 @@ public class GroupFragmentReader implements AspectFragmentReader {
 
     @Override
     public String getTimeStamp() {
-        // TODO Auto-generated method stub
-        return null;
+        return _time_stamp;
     }
 
     @Override
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
-        // TODO Auto-generated method stub
-        return null;
+        JsonToken t = jp.nextToken();
+        if (t != JsonToken.START_ARRAY) {
+            throw new IOException("malformed CX json in element " + getAspectName());
+        }
+        final List<AspectElement> aspects = new ArrayList<AspectElement>();
+        _time_stamp = null;
+        while (t != JsonToken.END_ARRAY) {
+            if (t == JsonToken.START_OBJECT) {
+                final ObjectNode o = _m.readTree(jp);
+                if (o == null) {
+                    throw new IOException("malformed CX json in element " + getAspectName());
+                }
+                if ((_time_stamp == null) && ParserUtils.isTimeStamp(o)) {
+                    _time_stamp = ParserUtils.getTimeStampValue(o);
+                }
+                else {
+                    final String name = ParserUtils.getTextValueRequired(o, GroupElement.GROUP_NAME);
+                    final String group_node = ParserUtils.getTextValue(o, GroupElement.GROUP_NODE);
+                    final String belongs_to = ParserUtils.getTextValueRequired(o, GroupElement.BELONGS_TO);
+
+                    final GroupElement e = new GroupElement(group_node, name, belongs_to);
+                    if (o.has(GroupElement.NODES)) {
+                        e.getNodes().addAll(ParserUtils.getAsStringList(o, GroupElement.NODES));
+                    }
+                    if (o.has(GroupElement.INTERNAL_EDGES)) {
+                        e.getInternalEdges().addAll(ParserUtils.getAsStringList(o, GroupElement.INTERNAL_EDGES));
+                    }
+                    if (o.has(GroupElement.EXTERNAL_EDGES)) {
+                        e.getExternalEdges().addAll(ParserUtils.getAsStringList(o, GroupElement.EXTERNAL_EDGES));
+                    }
+                    aspects.add(e);
+                }
+            }
+            t = jp.nextToken();
+        }
+        return aspects;
     }
 
 }

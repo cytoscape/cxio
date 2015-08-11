@@ -13,6 +13,12 @@ public class VisualPropertiesFragmentWriter extends AbstractAspectFragmentWriter
         return new VisualPropertiesFragmentWriter();
     }
 
+    public static VisualPropertiesFragmentWriter createInstance(final String time_stamp) {
+        final VisualPropertiesFragmentWriter w = new VisualPropertiesFragmentWriter();
+        w.setTimeStamp(time_stamp);
+        return w;
+    }
+
     private VisualPropertiesFragmentWriter() {
     }
 
@@ -32,7 +38,7 @@ public class VisualPropertiesFragmentWriter extends AbstractAspectFragmentWriter
         else {
             w.writeList(VisualPropertiesElement.APPLIES_TO, c.getAppliesTo());
         }
-        w.writeStringFieldIfNotEmpty(VisualPropertiesElement.BELONGS_TO, c.getNetwork());
+        w.writeStringFieldIfNotEmpty(VisualPropertiesElement.VIEW, c.getView());
         if ((c.getProperties() != null) && !c.getProperties().isEmpty()) {
             w.writeObjectFieldStart(VisualPropertiesElement.PROPERTIES);
             for (final Map.Entry<String, String> entry : c.getProperties().entrySet()) {

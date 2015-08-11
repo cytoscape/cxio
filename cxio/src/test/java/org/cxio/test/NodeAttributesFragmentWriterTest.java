@@ -54,8 +54,7 @@ public class NodeAttributesFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end();
 
-        assertEquals("[{\"nodeAttributes\":[{\"po\":[\"a\",\"b\"],\"n\":\"name\",\"v\":[\"1\",\"2\"],\"t\":\"float\"}]}]",
-                     out1.toString());
+        assertEquals("[{\"nodeAttributes\":[{\"po\":[\"a\",\"b\"],\"n\":\"name\",\"v\":[\"1\",\"2\"],\"t\":\"float\"}]}]", out1.toString());
 
     }
 

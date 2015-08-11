@@ -74,9 +74,7 @@ public final class Validator {
         return validate(in, true, readers);
     }
 
-    public final boolean validate(final InputStream in,
-                                  final boolean allow_anonymous_readers,
-                                  final Set<AspectFragmentReader> readers) {
+    public final boolean validate(final InputStream in, final boolean allow_anonymous_readers, final Set<AspectFragmentReader> readers) {
         init();
 
         try {
@@ -111,9 +109,7 @@ public final class Validator {
         return true;
     }
 
-    private final static CxReader makeReader(final InputStream in,
-                                             final boolean allow_anonymous_readers,
-                                             final Set<AspectFragmentReader> readers) throws IOException {
+    private final static CxReader makeReader(final InputStream in, final boolean allow_anonymous_readers, final Set<AspectFragmentReader> readers) throws IOException {
         return CxReader.createInstance(in, allow_anonymous_readers, readers);
     }
 

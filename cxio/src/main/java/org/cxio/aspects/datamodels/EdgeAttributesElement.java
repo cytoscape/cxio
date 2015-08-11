@@ -21,20 +21,14 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _type = ATTRIBUTE_TYPE.STRING;
     }
 
-    public EdgeAttributesElement(final List<String> property_of,
-                                 final String name,
-                                 final List<String> values,
-                                 final ATTRIBUTE_TYPE type) {
+    public EdgeAttributesElement(final List<String> property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
         _property_of = property_of;
         _name = name;
         _values = values;
         _type = type;
     }
 
-    public EdgeAttributesElement(final String property_of,
-                                 final String name,
-                                 final String value,
-                                 final ATTRIBUTE_TYPE type) {
+    public EdgeAttributesElement(final String property_of, final String name, final String value, final ATTRIBUTE_TYPE type) {
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;
@@ -43,10 +37,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _type = type;
     }
 
-    public EdgeAttributesElement(final String property_of,
-                                 final String name,
-                                 final List<String> values,
-                                 final ATTRIBUTE_TYPE type) {
+    public EdgeAttributesElement(final String property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;

@@ -46,8 +46,7 @@ public class NodeAttributesFragmentReaderTest {
 
                 + "{\"nodeAttributesOLD\":[{\"@id\":\"_na4\",\"nodes\":[\"_33\"],\"attributes\":{\"target\":[\"true\"]},  \"types\":{\"target\":\"boolean\"} }]},"
 
-                + "{\"nodeAttributes\":[{\"po\":\"n0\",\"n\":\"name1\",\"v\":\"value\"}]},"
-                + "{\"nodeAttributes\":[{\"po\":\"n1\",\"n\":\"name2\",\"v\":\"12\",\"t\":\"integer\"}]},"
+                + "{\"nodeAttributes\":[{\"po\":\"n0\",\"n\":\"name1\",\"v\":\"value\"}]}," + "{\"nodeAttributes\":[{\"po\":\"n1\",\"n\":\"name2\",\"v\":\"12\",\"t\":\"integer\"}]},"
                 + "{\"nodeAttributes\":[{\"po\":[\"n0\",\"n1\"],\"n\":\"name3\",\"v\":\"true\",\"t\":\"boolean\"}]},"
                 + "{\"nodeAttributes\":[{\"po\":[\"n0\",\"n1\",\"n2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"t\":\"short\"}]}"
 
@@ -56,12 +55,9 @@ public class NodeAttributesFragmentReaderTest {
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + NodeAttributesElement.NAME + " aspect",
-                   r0.containsKey(NodeAttributesElement.NAME));
-        assertFalse("failed to parse " + NodeAttributesElement.NAME + " aspect", r0.get(NodeAttributesElement.NAME)
-                .isEmpty());
-        assertTrue("failed to get expected number of " + NodeAttributesElement.NAME + " aspects",
-                   r0.get(NodeAttributesElement.NAME).size() == 4);
+        assertTrue("failed to parse " + NodeAttributesElement.NAME + " aspect", r0.containsKey(NodeAttributesElement.NAME));
+        assertFalse("failed to parse " + NodeAttributesElement.NAME + " aspect", r0.get(NodeAttributesElement.NAME).isEmpty());
+        assertTrue("failed to get expected number of " + NodeAttributesElement.NAME + " aspects", r0.get(NodeAttributesElement.NAME).size() == 4);
 
         final List<AspectElement> aspects = r0.get(NodeAttributesElement.NAME);
 

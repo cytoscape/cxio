@@ -13,6 +13,12 @@ public class EdgesFragmentWriter extends AbstractAspectFragmentWriter {
         return new EdgesFragmentWriter();
     }
 
+    public static EdgesFragmentWriter createInstance(final String time_stamp) {
+        final EdgesFragmentWriter w = new EdgesFragmentWriter();
+        w.setTimeStamp(time_stamp);
+        return w;
+    }
+
     private EdgesFragmentWriter() {
     }
 

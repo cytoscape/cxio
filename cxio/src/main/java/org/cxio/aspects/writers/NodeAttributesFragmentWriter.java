@@ -17,6 +17,12 @@ public class NodeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
         return new NodeAttributesFragmentWriter();
     }
 
+    public static NodeAttributesFragmentWriter createInstance(final String time_stamp) {
+        final NodeAttributesFragmentWriter w = new NodeAttributesFragmentWriter();
+        w.setTimeStamp(time_stamp);
+        return w;
+    }
+
     private NodeAttributesFragmentWriter() {
         _filter = null;
     }
@@ -24,8 +30,7 @@ public class NodeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
     @Override
     protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final NodeAttributesElement na = (NodeAttributesElement) element;
-        if ((na.getValues() != null) && (!na.getValues().isEmpty())
-                && ((_filter == null) || _filter.isPass(na.getName()))) {
+        if ((na.getValues() != null) && (!na.getValues().isEmpty()) && ((_filter == null) || _filter.isPass(na.getName()))) {
             w.writeStartObject();
             if (na.getPropertyOf().size() == 1) {
                 w.writeStringField(AbstractAttributesElement.ATTR_PROPERTY_OF, na.getPropertyOf().get(0));

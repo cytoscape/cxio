@@ -26,30 +26,21 @@ public class CartesianLayoutFragmentReaderTest {
                 + "{\"edgeIdentities\":[{\"@id\":\"ei0\",\"edges\":\"e0\",\"relationship\":\"BEL:INCREASES\"},{\"@id\":\"ei1\",\"edge\":\"e1\",\"relationship\":\"BEL:DECREASES\"}]},"
                 + "{\"elementProperties\":[{\"@id\":\"ep0\",\"elementId\":\"_0\",\"property\":\"property zero\",\"value\":\"value is zero\"},{\"@id\":\"ep1\",\"elementId\":\"_1\",\"property\":\"propery one\",\"value\":\"value is one\"}]},"
                 + "{\"functionTerms\":[{\"@id\":\"ft0\",\"function\":\"functions zero\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]},{\"@id\":\"ft1\",\"function\":\"functions one\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]}]},"
-                + "{\"weHaveNodesAndEdges\":[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"}]}]},"
-                + "{\"weHaveNodesAndEdges\":[{\"edges\":[{\"@id\":\"e0\",\"source\":\"_0\",\"target\":\"_1\"}]}]},"
-                + "{\"weHaveNodesToo\":[{\"nodes\":\"nodes\"}]},"
-                + "{\"weHaveEdgesToo\":[{\"edges\":\"edges\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_5\"}]},"
-                + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
-                + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]},"
-                + "{\"cartesianLayout\":[{\"node\":\"_0\",\"x\":\"123\",\"y\":\"456\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_4\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_6\"}]},"
+                + "{\"weHaveNodesAndEdges\":[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"}]}]}," + "{\"weHaveNodesAndEdges\":[{\"edges\":[{\"@id\":\"e0\",\"source\":\"_0\",\"target\":\"_1\"}]}]},"
+                + "{\"weHaveNodesToo\":[{\"nodes\":\"nodes\"}]}," + "{\"weHaveEdgesToo\":[{\"edges\":\"edges\"}]}," + "{\"nodes\":[{\"@id\":\"_5\"}]},"
+                + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]},"
+                + "{\"cartesianLayout\":[{\"node\":\"_0\",\"x\":\"123\",\"y\":\"456\"}]}," + "{\"nodes\":[{\"@id\":\"_4\"}]}," + "{\"nodes\":[{\"@id\":\"_6\"}]},"
                 + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"_2\",\"x\":\"5\",\"y\":\"6\"},{\"node\":\"_3\",\"x\":\"1\",\"y\":\"2\",\"z\":\"7\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + CartesianLayoutElement.NAME + " aspect",
-                   r0.containsKey(CartesianLayoutElement.NAME));
+        assertTrue("failed to parse " + CartesianLayoutElement.NAME + " aspect", r0.containsKey(CartesianLayoutElement.NAME));
 
-        assertFalse("failed to parse " + CartesianLayoutElement.NAME + " aspect", r0.get(CartesianLayoutElement.NAME)
-                    .isEmpty());
+        assertFalse("failed to parse " + CartesianLayoutElement.NAME + " aspect", r0.get(CartesianLayoutElement.NAME).isEmpty());
 
-        assertTrue("failed to parse expected number of " + CartesianLayoutElement.NAME + " aspects",
-                   r0.get(CartesianLayoutElement.NAME).size() == 4);
+        assertTrue("failed to parse expected number of " + CartesianLayoutElement.NAME + " aspects", r0.get(CartesianLayoutElement.NAME).size() == 4);
 
         final List<AspectElement> aspects = r0.get(CartesianLayoutElement.NAME);
 

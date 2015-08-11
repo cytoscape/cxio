@@ -26,7 +26,7 @@ final class TestUtil {
 
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, false, Util.getAllAvailableAspectFragmentWriters());
+        final CxWriter w = CxWriter.createInstance(out, false, Util.getAllAvailableAspectFragmentWriters(null));
 
         w.start();
         w.writeAspectElements(res.get(NodesElement.NAME));

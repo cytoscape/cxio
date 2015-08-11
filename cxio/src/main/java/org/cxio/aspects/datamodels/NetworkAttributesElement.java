@@ -14,20 +14,14 @@ public final class NetworkAttributesElement extends AbstractAttributesElement {
         _type = ATTRIBUTE_TYPE.STRING;
     }
 
-    public NetworkAttributesElement(final List<String> property_of,
-                                    final String name,
-                                    final List<String> values,
-                                    final ATTRIBUTE_TYPE type) {
+    public NetworkAttributesElement(final List<String> property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
         _property_of = property_of;
         _name = name;
         _values = values;
         _type = type;
     }
 
-    public NetworkAttributesElement(final String property_of,
-                                    final String name,
-                                    final String value,
-                                    final ATTRIBUTE_TYPE type) {
+    public NetworkAttributesElement(final String property_of, final String name, final String value, final ATTRIBUTE_TYPE type) {
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;
@@ -36,10 +30,7 @@ public final class NetworkAttributesElement extends AbstractAttributesElement {
         _type = type;
     }
 
-    public NetworkAttributesElement(final String property_of,
-                                    final String name,
-                                    final List<String> values,
-                                    final ATTRIBUTE_TYPE type) {
+    public NetworkAttributesElement(final String property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;

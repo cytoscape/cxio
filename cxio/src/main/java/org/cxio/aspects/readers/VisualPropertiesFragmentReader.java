@@ -53,25 +53,17 @@ public class VisualPropertiesFragmentReader implements AspectFragmentReader {
                 }
                 else {
                     VisualPropertiesElement vpe;
-                    if (o.has(VisualPropertiesElement.APPLIES_TO) && (o.has(VisualPropertiesElement.BELONGS_TO))) {
-                        vpe = new VisualPropertiesElement(ParserUtils.getTextValueRequired(o,
-                                                                                           VisualPropertiesElement.PROPERTIES_OF),
-                                                          ParserUtils
-                                                                  .getAsStringList(o,
-                                                                                   VisualPropertiesElement.APPLIES_TO),
-                                                          ParserUtils.getTextValue(o,
-                                                                                   VisualPropertiesElement.BELONGS_TO));
+                    if (o.has(VisualPropertiesElement.APPLIES_TO) && (o.has(VisualPropertiesElement.VIEW))) {
+                        vpe = new VisualPropertiesElement(ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF),
+                                                          ParserUtils.getAsStringList(o, VisualPropertiesElement.APPLIES_TO),
+                                                          ParserUtils.getTextValue(o, VisualPropertiesElement.VIEW));
                     }
                     else if (o.has(VisualPropertiesElement.APPLIES_TO)) {
-                        vpe = new VisualPropertiesElement(ParserUtils.getTextValueRequired(o,
-                                                                                           VisualPropertiesElement.PROPERTIES_OF),
-                                                          ParserUtils
-                                                                  .getAsStringList(o,
-                                                                                   VisualPropertiesElement.APPLIES_TO));
+                        vpe = new VisualPropertiesElement(ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF),
+                                                          ParserUtils.getAsStringList(o, VisualPropertiesElement.APPLIES_TO));
                     }
                     else {
-                        vpe = new VisualPropertiesElement(ParserUtils.getTextValueRequired(o,
-                                                                                           VisualPropertiesElement.PROPERTIES_OF));
+                        vpe = new VisualPropertiesElement(ParserUtils.getTextValueRequired(o, VisualPropertiesElement.PROPERTIES_OF));
                     }
                     if (o.has(VisualPropertiesElement.PROPERTIES)) {
                         final Iterator<Entry<String, JsonNode>> it = o.get(VisualPropertiesElement.PROPERTIES).fields();

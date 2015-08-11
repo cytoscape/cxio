@@ -12,6 +12,12 @@ public class CartesianLayoutFragmentWriter extends AbstractAspectFragmentWriter 
         return new CartesianLayoutFragmentWriter();
     }
 
+    public static CartesianLayoutFragmentWriter createInstance(final String time_stamp) {
+        final CartesianLayoutFragmentWriter w = new CartesianLayoutFragmentWriter();
+        w.setTimeStamp(time_stamp);
+        return w;
+    }
+
     private CartesianLayoutFragmentWriter() {
     }
 
@@ -20,7 +26,7 @@ public class CartesianLayoutFragmentWriter extends AbstractAspectFragmentWriter 
         final CartesianLayoutElement c = (CartesianLayoutElement) element;
         w.writeStartObject();
         w.writeStringField(CartesianLayoutElement.NODE, c.getNode());
-        w.writeStringFieldIfNotEmpty(CartesianLayoutElement.BELONGS_TO, c.getNetwork());
+        w.writeStringFieldIfNotEmpty(CartesianLayoutElement.VIEW, c.getView());
         w.writeNumberField(CartesianLayoutElement.X, c.getX());
         w.writeNumberField(CartesianLayoutElement.Y, c.getY());
         w.writeNumberField(CartesianLayoutElement.Z, c.getZ());

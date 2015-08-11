@@ -2,12 +2,9 @@ package org.cxio.aspects.readers;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
-import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 
@@ -53,36 +50,34 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
                 }
                 else {
                     if (o.has(CartesianLayoutElement.Z)) {
-                        if (o.has(CartesianLayoutElement.BELONGS_TO)) {
-                            layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.Y), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.Z), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.BELONGS_TO)));
+                        if (o.has(CartesianLayoutElement.VIEW)) {
+                            layout_aspects.add(new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
+                                                                          ParserUtils.getTextValue(o, CartesianLayoutElement.VIEW),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Z)));
                         }
                         else {
-                            layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.Y), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.Z)));
+                            layout_aspects.add(new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Z)));
                         }
                     }
                     else {
-                        if (o.has(CartesianLayoutElement.BELONGS_TO)) {
-                            layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.Y), "0", ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.BELONGS_TO)));
+                        if (o.has(CartesianLayoutElement.VIEW)) {
+                            layout_aspects.add(new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
+                                                                          ParserUtils.getTextValue(o, CartesianLayoutElement.VIEW),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
+                                                                          "0"));
 
                         }
                         else {
-                            layout_aspects.add(new CartesianLayoutElement(ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.NODE), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.X), ParserUtils
-                                    .getTextValueRequired(o, CartesianLayoutElement.Y), "0"));
+                            layout_aspects.add(new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
+                                                                          ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
+                                                                          "0"));
 
                         }
                     }
@@ -90,53 +85,12 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
             }
             t = jp.nextToken();
         }
-
         return layout_aspects;
     }
 
     @Override
     public String getTimeStamp() {
         return _time_stamp;
-    }
-
-    public static void main(final String[] args) throws IOException {
-        final String t0 = "["
-                + "{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
-                + "{\"edges\":[{\"@id\":\"e0\",\"source\":\"_0\",\"target\":\"_1\"},{\"@id\":\"e1\",\"source\":\"_1\",\"target\":\"_2\"}]},"
-                + "{\"nodeIdentities\":[{\"@id\":\"ni0\",\"nodes\":\"_0\",\"represents\":\"name is zero\"},{\"@id\":\"ni1\",\"node\":\"_1\",\"represents\":\"name is one\"}]},"
-                + "{\"edgeIdentities\":[{\"@id\":\"ei0\",\"edges\":\"e0\",\"relationship\":\"BEL:INCREASES\"},{\"@id\":\"ei1\",\"edge\":\"e1\",\"relationship\":\"BEL:DECREASES\"}]},"
-                + "{\"elementProperties\":[{\"@id\":\"ep0\",\"elementId\":\"_0\",\"property\":\"property zero\",\"value\":\"value is zero\"},{\"@id\":\"ep1\",\"elementId\":\"_1\",\"property\":\"propery one\",\"value\":\"value is one\"}]},"
-                + "{\"functionTerms\":[{\"@id\":\"ft0\",\"function\":\"functions zero\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]},{\"@id\":\"ft1\",\"function\":\"functions one\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]}]},"
-                + "{\"weHaveNodesAndEdges\":[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"}]}]},"
-                + "{\"weHaveNodesAndEdges\":[{\"edges\":[{\"@id\":\"e0\",\"source\":\"_0\",\"target\":\"_1\"}]}]},"
-                + "{\"weHaveNodesToo\":[{\"nodes\":\"nodes\"}]},"
-                + "{\"weHaveEdgesToo\":[{\"edges\":\"edges\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_5\"}]},"
-                + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
-                + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]},"
-                + "{\"cartesianLayout\":[{\"node\":\"_0\",\"x\":\"123\",\"y\":\"456\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_4\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_6\"}]},"
-                + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"_2\",\"x\":\"5\",\"y\":\"6\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
-
-        final Set<AspectFragmentReader> readers = new HashSet<>();
-        readers.add(CartesianLayoutFragmentReader.createInstance());
-        final CxReader p = CxReader.createInstance(t0, readers);
-
-        while (p.hasNext()) {
-            final List<AspectElement> elements = p.getNext();
-            if (!elements.isEmpty()) {
-                final String aspect_name = elements.get(0).getAspectName();
-                System.out.println();
-                System.out.println(aspect_name + ": ");
-                for (final AspectElement element : elements) {
-                    System.out.println(element.toString());
-                }
-            }
-        }
-
     }
 
 }

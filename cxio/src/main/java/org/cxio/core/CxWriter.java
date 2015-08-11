@@ -32,14 +32,11 @@ public class CxWriter {
         return new CxWriter(out, false);
     }
 
-    public final static CxWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer)
-            throws IOException {
+    public final static CxWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer) throws IOException {
         return new CxWriter(out, use_default_pretty_printer);
     }
 
-    public final static CxWriter createInstance(final OutputStream out,
-                                                final boolean use_default_pretty_printer,
-                                                final Set<AspectFragmentWriter> aspect_writers) throws IOException {
+    public final static CxWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer, final Set<AspectFragmentWriter> aspect_writers) throws IOException {
         final CxWriter w = new CxWriter(out, use_default_pretty_printer);
         for (final AspectFragmentWriter aspect_writer : aspect_writers) {
             w.addAspectFragmentWriter(aspect_writer);

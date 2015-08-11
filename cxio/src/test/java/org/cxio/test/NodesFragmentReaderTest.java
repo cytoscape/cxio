@@ -29,14 +29,10 @@ public class NodesFragmentReaderTest {
                 + "{\"edgeIdentities\":[{\"@id\":\"ei0\",\"edges\":\"e0\",\"relationship\":\"BEL:INCREASES\"},{\"@id\":\"ei1\",\"edge\":\"e1\",\"relationship\":\"BEL:DECREASES\"}]},"
                 + "{\"elementProperties\":[{\"@id\":\"ep0\",\"elementId\":\"_0\",\"property\":\"property zero\",\"value\":\"value is zero\"},{\"@id\":\"ep1\",\"elementId\":\"_1\",\"property\":\"propery one\",\"value\":\"value is one\"}]},"
                 + "{\"functionTerms\":[{\"@id\":\"ft0\",\"function\":\"functions zero\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]},{\"@id\":\"ft1\",\"function\":\"functions one\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]}]},"
-                + "{\"weHaveNodesAndEdges\":[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"}]}]},"
-                + "{\"weHaveNodesAndEdges\":[{\"edges\":[{\"@id\":\"e0\",\"source\":\"_0\",\"target\":\"_1\"}]}]},"
-                + "{\"weHaveNodesToo\":[{\"nodes\":\"nodes\"}]}," + "{\"weHaveEdgesToo\":[{\"edges\":\"edges\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_5\"}]},"
-                + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
-                + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_4\"}]}," + "{\"nodes\":[{\"@id\":\"_6\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
+                + "{\"weHaveNodesAndEdges\":[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"}]}]}," + "{\"weHaveNodesAndEdges\":[{\"edges\":[{\"@id\":\"e0\",\"source\":\"_0\",\"target\":\"_1\"}]}]},"
+                + "{\"weHaveNodesToo\":[{\"nodes\":\"nodes\"}]}," + "{\"weHaveEdgesToo\":[{\"edges\":\"edges\"}]}," + "{\"nodes\":[{\"@id\":\"_5\"}]},"
+                + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}," + "{\"nodes\":[{\"@id\":\"_4\"}]},"
+                + "{\"nodes\":[{\"@id\":\"_6\"}]}," + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
@@ -45,29 +41,20 @@ public class NodesFragmentReaderTest {
 
         assertFalse("failed to parse " + NodesElement.NAME + " aspect", r0.get(NodesElement.NAME).isEmpty());
 
-        assertTrue("failed to parse expected number of " + NodesElement.NAME + " aspects", r0.get(NodesElement.NAME)
-                   .size() == 8);
+        assertTrue("failed to parse expected number of " + NodesElement.NAME + " aspects", r0.get(NodesElement.NAME).size() == 8);
 
         final List<AspectElement> node_aspects = r0.get(NodesElement.NAME);
 
         assertTrue("failed to get expected NodeAspect instance", node_aspects.get(0) instanceof NodesElement);
 
-        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                   node_aspects.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                   node_aspects.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                   node_aspects.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                   node_aspects.contains(new NodesElement("_3")));
-        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                   node_aspects.contains(new NodesElement("_4")));
-        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                   node_aspects.contains(new NodesElement("_5")));
-        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                   node_aspects.contains(new NodesElement("_6")));
-        assertTrue("failed to get expected " + NodesElement.NAME + " aspect",
-                   node_aspects.contains(new NodesElement("_7")));
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_0")));
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_1")));
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_2")));
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_4")));
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_5")));
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_6")));
+        assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_7")));
 
     }
 
@@ -80,8 +67,7 @@ public class NodesFragmentReaderTest {
                 + "{\"edgeIdentities\":[{\"@id\":\"ei0\",\"edge\":\"e0\",\"relationship\":\"BEL:INCREASES\"},{\"@id\":\"ei1\",\"edge\":\"e1\",\"relationship\":\"BEL:DECREASES\"}]},"
                 + "{\"elementProperties\":[{\"@id\":\"ep0\",\"elementId\":\"_0\",\"property\":\"property zero\",\"value\":\"value is zero\"},{\"@id\":\"ep1\",\"elementId\":\"_1\",\"property\":\"propery one\",\"value\":\"value is one\"}]},"
                 + "{\"functionTerms\":[{\"@id\":\"ft0\",\"function\":\"functions zero\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]},{\"@id\":\"ft1\",\"function\":\"functions one\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]}]},"
-                + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
-                + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
+                + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         CxReader.parseAsMap(p);
@@ -111,17 +97,14 @@ public class NodesFragmentReaderTest {
                 + "{\"edgeIdentities\":[{\"@id\":\"ei0\",\"edges\":\"e0\",\"relationship\":\"BEL:INCREASES\"},{\"@id\":\"ei1\",\"edge\":\"e1\",\"relationship\":\"BEL:DECREASES\"}]},"
                 + "{\"elementProperties\":[{\"@id\":\"ep0\",\"elementId\":\"_0\",\"property\":\"property zero\",\"value\":\"value is zero\"},{\"@id\":\"ep1\",\"elementId\":\"_1\",\"property\":\"propery one\",\"value\":\"value is one\"}]},"
                 + "{\"functionTerms\":[{\"@id\":\"ft0\",\"function\":\"functions zero\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]},{\"@id\":\"ft1\",\"function\":\"functions one\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]}]},"
-                + "{\"weHaveNodesAndEdges\":[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"}]}]},"
-                + "{\"weHaveNodesAndEdges\":[{\"edges\":[{\"@id\":\"e0\",\"source\":\"_0\",\"target\":\"_1\"}]}]},"
-                + "{\"weHaveNodesToo\":[{\"nodes\":\"nodes\"}]}," + "{\"weHaveEdgesToo\":[{\"edges\":\"edges\"}]},"
-                + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
+                + "{\"weHaveNodesAndEdges\":[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"}]}]}," + "{\"weHaveNodesAndEdges\":[{\"edges\":[{\"@id\":\"e0\",\"source\":\"_0\",\"target\":\"_1\"}]}]},"
+                + "{\"weHaveNodesToo\":[{\"nodes\":\"nodes\"}]}," + "{\"weHaveEdgesToo\":[{\"edges\":\"edges\"}]}," + "{\"edges\":[{\"@id\":\"e2\",\"source\":\"_4\",\"target\":\"_5\"}]},"
                 + "{\"edges\":[{\"@id\":\"e3\",\"source\":\"_6\",\"target\":\"_7\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertFalse("expected to parse no " + NodesElement.NAME + " aspects, got some",
-                    r0.containsKey(NodesElement.NAME));
+        assertFalse("expected to parse no " + NodesElement.NAME + " aspects, got some", r0.containsKey(NodesElement.NAME));
 
     }
 

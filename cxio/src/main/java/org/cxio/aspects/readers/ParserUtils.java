@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.aspects.datamodels.TimeStamp;
+import org.cxio.core.CxConstants;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParseException;
@@ -20,15 +20,14 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 final class ParserUtils {
 
     final static String getTimeStampValue(final ObjectNode o) {
-        return o.get(TimeStamp.NAME).asText();
+        return o.get(CxConstants.TIME_STAMP_LABEL).asText();
     }
 
     final static boolean isTimeStamp(final ObjectNode o) {
-        return (o.size() == 1) && o.has(TimeStamp.NAME);
+        return (o.size() == 1) && o.has(CxConstants.TIME_STAMP_LABEL);
     }
 
-    final static List<String> parseSimpleStringList(final JsonParser jp, JsonToken t) throws IOException,
-    JsonParseException {
+    final static List<String> parseSimpleStringList(final JsonParser jp, JsonToken t) throws IOException, JsonParseException {
         final List<String> elements = new ArrayList<String>();
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.VALUE_STRING) {

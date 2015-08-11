@@ -17,6 +17,12 @@ public class NetworkAttributesFragmentWriter extends AbstractAspectFragmentWrite
         return new NetworkAttributesFragmentWriter();
     }
 
+    public static NetworkAttributesFragmentWriter createInstance(final String time_stamp) {
+        final NetworkAttributesFragmentWriter w = new NetworkAttributesFragmentWriter();
+        w.setTimeStamp(time_stamp);
+        return w;
+    }
+
     private NetworkAttributesFragmentWriter() {
         _filter = null;
     }
@@ -24,8 +30,7 @@ public class NetworkAttributesFragmentWriter extends AbstractAspectFragmentWrite
     @Override
     protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final NetworkAttributesElement na = (NetworkAttributesElement) element;
-        if ((na.getValues() != null) && (!na.getValues().isEmpty())
-                && ((_filter == null) || _filter.isPass(na.getName()))) {
+        if ((na.getValues() != null) && (!na.getValues().isEmpty()) && ((_filter == null) || _filter.isPass(na.getName()))) {
             w.writeStartObject();
             if (na.getPropertyOf().size() == 1) {
                 w.writeStringField(AbstractAttributesElement.ATTR_PROPERTY_OF, na.getPropertyOf().get(0));

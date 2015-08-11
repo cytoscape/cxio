@@ -17,6 +17,12 @@ public class EdgeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
         return new EdgeAttributesFragmentWriter();
     }
 
+    public static EdgeAttributesFragmentWriter createInstance(final String time_stamp) {
+        final EdgeAttributesFragmentWriter w = new EdgeAttributesFragmentWriter();
+        w.setTimeStamp(time_stamp);
+        return w;
+    }
+
     private EdgeAttributesFragmentWriter() {
         _filter = null;
     }
@@ -24,8 +30,7 @@ public class EdgeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
     @Override
     protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final EdgeAttributesElement ea = (EdgeAttributesElement) element;
-        if ((ea.getValues() != null) && (!ea.getValues().isEmpty())
-                && ((_filter == null) || _filter.isPass(ea.getName()))) {
+        if ((ea.getValues() != null) && (!ea.getValues().isEmpty()) && ((_filter == null) || _filter.isPass(ea.getName()))) {
             w.writeStartObject();
             if (ea.getPropertyOf().size() == 1) {
                 w.writeStringField(AbstractAttributesElement.ATTR_PROPERTY_OF, ea.getPropertyOf().get(0));

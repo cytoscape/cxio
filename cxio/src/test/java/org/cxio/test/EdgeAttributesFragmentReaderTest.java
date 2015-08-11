@@ -41,21 +41,16 @@ public class EdgeAttributesFragmentReaderTest {
                 + "{\"edgeAttributesOld\":[{\"@id\":\"_ea0\",\"edges\":[\"_e38\", \"_e39\"], \"attributes\":{\"interaction\":[\"479019\", \"one more\"],\"name\":[\"768303 (479019) 791595\"],\"PSIMI_25_detection_method\":[\"genetic interference\"]}}]},"
                 + "{\"edgeAttributesOld\":[{\"@id\":\"_ea1\",\"edges\":[\"_e22\", \"_e33\", \"_e44\"]}]},"
                 + "{\"edgeAttributesOld\":[{\"@id\":\"_ea2\",\"edges\":[\"_e38\"], \"attributes\":{\"deleted\":[\"true\"]}, \"types\":{\"deleted\":\"boolean\"}}]},"
-                + "{\"edgeAttributes\":[{\"po\":\"e0\",\"n\":\"name1\",\"v\":\"value\"}]},"
-                + "{\"edgeAttributes\":[{\"po\":\"e1\",\"n\":\"name2\",\"v\":\"12\",\"t\":\"integer\"}]},"
+                + "{\"edgeAttributes\":[{\"po\":\"e0\",\"n\":\"name1\",\"v\":\"value\"}]}," + "{\"edgeAttributes\":[{\"po\":\"e1\",\"n\":\"name2\",\"v\":\"12\",\"t\":\"integer\"}]},"
                 + "{\"edgeAttributes\":[{\"po\":[\"e0\",\"e1\"],\"n\":\"name3\",\"v\":\"true\",\"t\":\"boolean\"}]},"
-                + "{\"edgeAttributes\":[{\"po\":[\"e0\",\"e1\",\"e2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"t\":\"short\"}]}"
-                + "]";
+                + "{\"edgeAttributes\":[{\"po\":[\"e0\",\"e1\",\"e2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"t\":\"short\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + EdgeAttributesElement.NAME + " aspect",
-                   r0.containsKey(EdgeAttributesElement.NAME));
-        assertFalse("failed to parse " + EdgeAttributesElement.NAME + " aspect", r0.get(EdgeAttributesElement.NAME)
-                .isEmpty());
-        assertTrue("failed to get expected number of " + EdgeAttributesElement.NAME + " aspects",
-                   r0.get(EdgeAttributesElement.NAME).size() == 4);
+        assertTrue("failed to parse " + EdgeAttributesElement.NAME + " aspect", r0.containsKey(EdgeAttributesElement.NAME));
+        assertFalse("failed to parse " + EdgeAttributesElement.NAME + " aspect", r0.get(EdgeAttributesElement.NAME).isEmpty());
+        assertTrue("failed to get expected number of " + EdgeAttributesElement.NAME + " aspects", r0.get(EdgeAttributesElement.NAME).size() == 4);
 
         final List<AspectElement> aspects = r0.get(EdgeAttributesElement.NAME);
 

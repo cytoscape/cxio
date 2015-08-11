@@ -39,73 +39,56 @@ public final class CxReader {
     private boolean                                     _was_in_recognized_aspect;
 
     private final static void checkInputType(final Object input) {
-        if (!(input instanceof File) && !(input instanceof InputStream) && !(input instanceof Reader)
-                && !(input instanceof String) && !(input instanceof URL)) {
+        if (!(input instanceof File) && !(input instanceof InputStream) && !(input instanceof Reader) && !(input instanceof String) && !(input instanceof URL)) {
             throw new IllegalArgumentException("don't know how to process" + input.getClass());
         }
     }
 
-    public final static CxReader createInstance(final File file, final boolean read_anonymous_aspect_fragments)
-            throws IOException {
+    public final static CxReader createInstance(final File file, final boolean read_anonymous_aspect_fragments) throws IOException {
         return new CxReader(file, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final File file,
-                                                final boolean read_anonymous_aspect_fragments,
-                                                final Set<AspectFragmentReader> aspect_handlers) throws IOException {
+    public final static CxReader createInstance(final File file, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
         return new CxReader(file, aspect_handlers, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final File file, final Set<AspectFragmentReader> aspect_handlers)
-            throws IOException {
+    public final static CxReader createInstance(final File file, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
         return new CxReader(file, aspect_handlers);
     }
 
-    public final static CxReader createInstance(final InputStream input_stream,
-                                                final boolean read_anonymous_aspect_fragments) throws IOException {
+    public final static CxReader createInstance(final InputStream input_stream, final boolean read_anonymous_aspect_fragments) throws IOException {
         return new CxReader(input_stream, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final InputStream input_stream,
-                                                final boolean read_anonymous_aspect_fragments,
-                                                final Set<AspectFragmentReader> aspect_handlers) throws IOException {
+    public final static CxReader createInstance(final InputStream input_stream, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
         return new CxReader(input_stream, aspect_handlers, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final InputStream input_stream,
-                                                final Set<AspectFragmentReader> aspect_handlers) throws IOException {
+    public final static CxReader createInstance(final InputStream input_stream, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
         return new CxReader(input_stream, aspect_handlers);
     }
 
-    public final static CxReader createInstance(final String string, final boolean read_anonymous_aspect_fragments)
-            throws IOException {
+    public final static CxReader createInstance(final String string, final boolean read_anonymous_aspect_fragments) throws IOException {
         return new CxReader(string, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final String string,
-                                                final boolean read_anonymous_aspect_fragments,
-                                                final Set<AspectFragmentReader> aspect_handlers) throws IOException {
+    public final static CxReader createInstance(final String string, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
         return new CxReader(string, aspect_handlers, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final String string, final Set<AspectFragmentReader> aspect_handlers)
-            throws IOException {
+    public final static CxReader createInstance(final String string, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
         return new CxReader(string, aspect_handlers);
     }
 
-    public final static CxReader createInstance(final URL url, final boolean read_anonymous_aspect_fragments)
-            throws IOException {
+    public final static CxReader createInstance(final URL url, final boolean read_anonymous_aspect_fragments) throws IOException {
         return new CxReader(url, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final URL url,
-                                                final boolean read_anonymous_aspect_fragments,
-                                                final Set<AspectFragmentReader> aspect_handlers) throws IOException {
+    public final static CxReader createInstance(final URL url, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
         return new CxReader(url, aspect_handlers, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final URL url, final Set<AspectFragmentReader> aspect_handlers)
-            throws IOException {
+    public final static CxReader createInstance(final URL url, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
         return new CxReader(url, aspect_handlers);
     }
 
@@ -160,8 +143,7 @@ public final class CxReader {
         return ahs;
     }
 
-    private final static HashMap<String, AspectFragmentReader> setupAspectReaders(final Set<AspectFragmentReader> aspect_readers,
-                                                                                  final boolean allow_empty) {
+    private final static HashMap<String, AspectFragmentReader> setupAspectReaders(final Set<AspectFragmentReader> aspect_readers, final boolean allow_empty) {
         if (!allow_empty) {
             if ((aspect_readers == null) || aspect_readers.isEmpty()) {
                 throw new IllegalArgumentException("aspect handlers are null or empty");
@@ -208,9 +190,7 @@ public final class CxReader {
         reset();
     }
 
-    private CxReader(final Object input,
-                     final Set<AspectFragmentReader> aspect_readers,
-                     final boolean read_anonymous_aspect_fragments) throws IOException {
+    private CxReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments) throws IOException {
         if (input == null) {
             throw new IllegalArgumentException("cx input is null");
         }
@@ -255,17 +235,14 @@ public final class CxReader {
                     if (!reader.isList()) {
                         --_level;
                         if (_level < 1) {
-                            throw new IllegalStateException("this should never have happened (likely cause: problem with '"
-                                    + name + "' reader)");
+                            throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
                         }
                     }
                     _was_in_recognized_aspect = true;
                 }
             }
-            if (_was_in_recognized_aspect && (_jp.getCurrentToken() != JsonToken.END_ARRAY)
-                    && (_jp.getCurrentToken() != JsonToken.END_OBJECT)) {
-                throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name
-                        + "' reader)");
+            if (_was_in_recognized_aspect && (_jp.getCurrentToken() != JsonToken.END_ARRAY) && (_jp.getCurrentToken() != JsonToken.END_OBJECT)) {
+                throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
             }
             if ((_token == JsonToken.START_ARRAY) || (_token == JsonToken.START_OBJECT)) {
                 ++_level;
@@ -273,8 +250,7 @@ public final class CxReader {
             else if ((_token == JsonToken.END_ARRAY) || (_token == JsonToken.END_OBJECT)) {
                 --_level;
                 if (_level < 1) {
-                    throw new IllegalStateException("this should never have happened (likely cause: problem with '"
-                            + name + "' reader)");
+                    throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
                 }
             }
             _token = _jp.nextToken();
@@ -319,8 +295,7 @@ public final class CxReader {
         _jp = createJsonParser(_input);
         _token = _jp.nextToken();
         if (_token != JsonToken.START_ARRAY) {
-            throw new IllegalStateException("illegal cx json format: expected to start with an array: "
-                    + _token.asString());
+            throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
         getNext();
     }

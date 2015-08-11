@@ -52,8 +52,7 @@ public class Timings {
     private static final String          OUTPUT_FILE = "CX_timing_output.cx";
 
     private static void error() {
-        System.out
-        .println("Usage: Timings [number of elements] [number of repeats] [pretty printing: true/false] [write to /dev/null: true/false]");
+        System.out.println("Usage: Timings [number of elements] [number of repeats] [pretty printing: true/false] [write to /dev/null: true/false]");
         System.exit(-1);
     }
 
@@ -105,8 +104,7 @@ public class Timings {
         }
         else {
             System.out.println("Writing to        :\tfile '" + _cx_out.getAbsolutePath() + "'");
-            System.out.println("(first writing number is to '" + _cx_out.getAbsolutePath()
-                    + "', second one is to ByteArrayOutputStream)");
+            System.out.println("(first writing number is to '" + _cx_out.getAbsolutePath() + "', second one is to ByteArrayOutputStream)");
         }
 
         System.out.println();
@@ -226,8 +224,7 @@ public class Timings {
         return w;
     }
 
-    final static CxReader makeReader(final String cx_json_str, final Set<AspectFragmentReader> readers)
-            throws IOException {
+    final static CxReader makeReader(final String cx_json_str, final Set<AspectFragmentReader> readers) throws IOException {
         if (_write_to_dev_null) {
             return CxReader.createInstance(cx_json_str, readers);
         }

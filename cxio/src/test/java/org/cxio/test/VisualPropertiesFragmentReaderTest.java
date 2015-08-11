@@ -28,14 +28,11 @@ public class VisualPropertiesFragmentReaderTest {
         final CxReader p = CxReader.createInstance(t0, readers);
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + VisualPropertiesElement.NAME + " aspect",
-                   r0.containsKey(VisualPropertiesElement.NAME));
+        assertTrue("failed to parse " + VisualPropertiesElement.NAME + " aspect", r0.containsKey(VisualPropertiesElement.NAME));
 
-        assertFalse("failed to parse " + VisualPropertiesElement.NAME + " aspect", r0.get(VisualPropertiesElement.NAME)
-                .isEmpty());
+        assertFalse("failed to parse " + VisualPropertiesElement.NAME + " aspect", r0.get(VisualPropertiesElement.NAME).isEmpty());
 
-        assertTrue("failed to parse expected number of " + VisualPropertiesElement.NAME + " aspects",
-                   r0.get(VisualPropertiesElement.NAME).size() == 3);
+        assertTrue("failed to parse expected number of " + VisualPropertiesElement.NAME + " aspects", r0.get(VisualPropertiesElement.NAME).size() == 3);
 
         final List<AspectElement> aspects = r0.get(VisualPropertiesElement.NAME);
 

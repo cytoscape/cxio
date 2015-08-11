@@ -18,12 +18,12 @@ public final class VisualPropertiesElement implements AspectElement {
 
     public final static String              APPLIES_TO    = "applies_to";
     public final static String              NAME          = "visualProperties";
-    public final static String              BELONGS_TO    = "belongs_to";
+    public final static String              VIEW          = "view";
     public final static String              PROPERTIES    = "properties";
     public final static String              PROPERTIES_OF = "properties_of";
 
     private final List<String>              _applies_to;
-    final String                            _belongs_to;
+    final String                            _view;
     private final SortedMap<String, String> _properties;
     private final String                    _properties_of;
 
@@ -31,28 +31,28 @@ public final class VisualPropertiesElement implements AspectElement {
         _properties_of = properties_of;
         _applies_to = new ArrayList<String>();
         _properties = new TreeMap<String, String>();
-        _belongs_to = null;
+        _view = null;
     }
 
-    public VisualPropertiesElement(final String properties_of, final String belongs_to) {
+    public VisualPropertiesElement(final String properties_of, final String view) {
         _properties_of = properties_of;
         _applies_to = new ArrayList<String>();
         _properties = new TreeMap<String, String>();
-        _belongs_to = belongs_to;
+        _view = view;
     }
 
     public VisualPropertiesElement(final String properties_of, final List<String> applies_to) {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
-        _belongs_to = null;
+        _view = null;
     }
 
-    public VisualPropertiesElement(final String properties_of, final List<String> applies_to, final String belongs_to) {
+    public VisualPropertiesElement(final String properties_of, final List<String> applies_to, final String view) {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
-        _belongs_to = belongs_to;
+        _view = view;
     }
 
     public final void addAppliesTo(final String applies_to) {
@@ -68,8 +68,8 @@ public final class VisualPropertiesElement implements AspectElement {
         return NAME;
     }
 
-    final public String getNetwork() {
-        return _belongs_to;
+    final public String getView() {
+        return _view;
     }
 
     public final SortedMap<String, String> getProperties() {
@@ -87,8 +87,11 @@ public final class VisualPropertiesElement implements AspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("properties_of: ");
+        sb.append("properties of: ");
         sb.append(_properties_of);
+        sb.append("\n");
+        sb.append("view: ");
+        sb.append(_view);
         sb.append("\n");
         sb.append("applies to: ");
         for (final String a : _applies_to) {

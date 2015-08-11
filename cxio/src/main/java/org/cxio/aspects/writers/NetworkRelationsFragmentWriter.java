@@ -12,6 +12,12 @@ public class NetworkRelationsFragmentWriter extends AbstractAspectFragmentWriter
         return new NetworkRelationsFragmentWriter();
     }
 
+    public static NetworkRelationsFragmentWriter createInstance(final String time_stamp) {
+        final NetworkRelationsFragmentWriter w = new NetworkRelationsFragmentWriter();
+        w.setTimeStamp(time_stamp);
+        return w;
+    }
+
     private NetworkRelationsFragmentWriter() {
     }
 
@@ -20,10 +26,9 @@ public class NetworkRelationsFragmentWriter extends AbstractAspectFragmentWriter
         final NetworkRelationsElement na = (NetworkRelationsElement) element;
 
         w.writeStartObject();
-
         w.writeStringField(NetworkRelationsElement.PARENT, na.getParent());
         w.writeStringField(NetworkRelationsElement.CHILD, na.getChild());
-
+        w.writeStringField(NetworkRelationsElement.TYPE, na.getType());
         w.writeEndObject();
 
     }

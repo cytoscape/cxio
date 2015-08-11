@@ -43,8 +43,7 @@ public class EdgeAttributesFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end();
 
-        assertEquals("[{\"edgeAttributes\":[{\"po\":\"property_of\",\"n\":\"name\",\"v\":\"1.1\",\"t\":\"float\"}]}]",
-                     out1.toString());
+        assertEquals("[{\"edgeAttributes\":[{\"po\":\"property_of\",\"n\":\"name\",\"v\":\"1.1\",\"t\":\"float\"}]}]", out1.toString());
     }
 
 }

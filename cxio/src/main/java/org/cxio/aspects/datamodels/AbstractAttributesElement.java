@@ -20,8 +20,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      *
      */
     public enum ATTRIBUTE_TYPE {
-        BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING(
-                "string");
+        BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING("string");
 
         private final String _name;
 

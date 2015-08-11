@@ -20,8 +20,7 @@ public final class JsonWriter {
         return createInstance(out, false);
     }
 
-    final static JsonWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer)
-            throws IOException {
+    final static JsonWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer) throws IOException {
         return new JsonWriter(out, use_default_pretty_printer);
     }
 

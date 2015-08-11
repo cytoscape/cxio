@@ -12,6 +12,12 @@ public class NodesFragmentWriter extends AbstractAspectFragmentWriter {
         return new NodesFragmentWriter();
     }
 
+    public static NodesFragmentWriter createInstance(final String time_stamp) {
+        final NodesFragmentWriter w = new NodesFragmentWriter();
+        w.setTimeStamp(time_stamp);
+        return w;
+    }
+
     private NodesFragmentWriter() {
     }
 
@@ -25,7 +31,6 @@ public class NodesFragmentWriter extends AbstractAspectFragmentWriter {
         w.writeStartObject();
         w.writeStringField(NodesElement.ID, ((NodesElement) element).getId());
         w.writeEndObject();
-
     }
 
 }

@@ -11,6 +11,7 @@ import org.cxio.core.interfaces.AspectFragmentReader;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public final class AnonymousFragmentReader implements AspectFragmentReader {
 
@@ -48,7 +49,7 @@ public final class AnonymousFragmentReader implements AspectFragmentReader {
         if (_is_list) {
             while (t != JsonToken.END_ARRAY) {
                 if (t == JsonToken.START_OBJECT) {
-                    elements.add(new AnonymousElement(_name, _m.readTree(jp)));
+                    elements.add(new AnonymousElement(_name, (ObjectNode) _m.readTree(jp)));
                 }
                 t = jp.nextToken();
             }

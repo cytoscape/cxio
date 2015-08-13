@@ -50,7 +50,7 @@ public class EdgesFragmentReader implements AspectFragmentReader {
                 }
                 else {
                     edge_aspects.add(new EdgesElement(ParserUtils.getTextValueRequired(o, EdgesElement.ID), ParserUtils.getTextValueRequired(o, EdgesElement.SOURCE_NODE_ID), ParserUtils
-                            .getTextValueRequired(o, EdgesElement.TARGET_NODE_ID)));
+                                                      .getTextValueRequired(o, EdgesElement.TARGET_NODE_ID)));
                 }
             }
             t = jp.nextToken();

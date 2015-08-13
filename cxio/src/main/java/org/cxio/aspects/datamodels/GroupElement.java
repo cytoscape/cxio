@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.Util;
 
 public final class GroupElement implements AspectElement {
 
     public final static String GROUP_NODE     = "group_node";
-    public final static String BELONGS_TO     = "belongs_to";
+    public final static String VIEW           = "view";
     public final static String EXTERNAL_EDGES = "external_edges";
     public final static String GROUP_NAME     = "name";
     public final static String INTERNAL_EDGES = "internal_edges";
-    public final static String NAME           = "Group";
+    public final static String NAME           = "groups";
     public final static String NODES          = "nodes";
 
-    private final String       _belongs_to;
+    private final String       _view;
     private final List<String> _external_edges;
     private final String       _group_node;
     private final List<String> _internal_edges;
@@ -24,16 +25,16 @@ public final class GroupElement implements AspectElement {
 
     public GroupElement(final String group_node, final String name) {
         _name = name;
-        _belongs_to = null;
+        _view = null;
         _group_node = group_node;
         _nodes = new ArrayList<String>();
         _internal_edges = new ArrayList<String>();
         _external_edges = new ArrayList<String>();
     }
 
-    public GroupElement(final String group_node, final String name, final String belongs_to) {
+    public GroupElement(final String group_node, final String name, final String view) {
         _name = name;
-        _belongs_to = belongs_to;
+        _view = view;
         _group_node = group_node;
         _nodes = new ArrayList<String>();
         _internal_edges = new ArrayList<String>();
@@ -49,8 +50,8 @@ public final class GroupElement implements AspectElement {
         return NAME;
     }
 
-    final public String getBelongsTo() {
-        return _belongs_to;
+    final public String getView() {
+        return _view;
     }
 
     final public List<String> getExternalEdges() {
@@ -71,6 +72,44 @@ public final class GroupElement implements AspectElement {
 
     final public List<String> getNodes() {
         return _nodes;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("name: ");
+        sb.append(_name);
+        sb.append("\n");
+        sb.append("group node: ");
+        sb.append(_group_node);
+        sb.append("\n");
+        if (!Util.isEmpty(_view)) {
+            sb.append("view: ");
+            sb.append(_view);
+            sb.append("\n");
+        }
+        sb.append("nodes:");
+        for (final String s : _nodes) {
+            sb.append(" ");
+            sb.append(s);
+
+        }
+        sb.append("\n");
+        sb.append("internal edges:");
+        for (final String s : _internal_edges) {
+            sb.append(" ");
+            sb.append(s);
+
+        }
+        sb.append("\n");
+        sb.append("external edges:");
+        for (final String s : _external_edges) {
+            sb.append(" ");
+            sb.append(s);
+
+        }
+        sb.append("\n");
+        return sb.toString();
     }
 
 }

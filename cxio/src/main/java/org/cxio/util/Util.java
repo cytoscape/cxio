@@ -3,7 +3,10 @@ package org.cxio.util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -47,6 +50,8 @@ import org.cxio.core.interfaces.AspectFragmentWriter;
 
 public final class Util {
 
+    private final static DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy/MM/dd/HH/mm/ss.SSS");
+
     final public static boolean isEmpty(final String s) {
         return (s == null) || (s.length() < 1);
     }
@@ -61,6 +66,14 @@ public final class Util {
         w.end();
 
         return out.toString();
+    }
+
+    public final static String getCurrentDate(final String format) {
+        return new SimpleDateFormat(format).format(new Date());
+    }
+
+    public final static String getCurrentDate() {
+        return DATE_FORMAT.format(new Date());
     }
 
     public final static String writeAspectElementsToString(final String cx_string, final boolean use_default_pretty_printer) throws IOException {

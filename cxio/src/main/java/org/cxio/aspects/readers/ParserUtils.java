@@ -17,17 +17,17 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-final class ParserUtils {
+public final class ParserUtils {
 
-    final static String getTimeStampValue(final ObjectNode o) {
+    public final static String getTimeStampValue(final ObjectNode o) {
         return o.get(CxConstants.TIME_STAMP_LABEL).asText();
     }
 
-    final static boolean isTimeStamp(final ObjectNode o) {
+    public final static boolean isTimeStamp(final ObjectNode o) {
         return (o.size() == 1) && o.has(CxConstants.TIME_STAMP_LABEL);
     }
 
-    final static List<String> parseSimpleStringList(final JsonParser jp, JsonToken t) throws IOException, JsonParseException {
+    public final static List<String> parseSimpleStringList(final JsonParser jp, JsonToken t) throws IOException, JsonParseException {
         final List<String> elements = new ArrayList<String>();
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.VALUE_STRING) {
@@ -41,7 +41,7 @@ final class ParserUtils {
         return elements;
     }
 
-    final static List<String> getStringList(final ObjectNode o, final String label) {
+    public final static List<String> getStringList(final ObjectNode o, final String label) {
         final List<String> l = new ArrayList<String>();
         if (o.has(label)) {
             final Iterator<JsonNode> it = o.get(label).iterator();
@@ -55,7 +55,7 @@ final class ParserUtils {
         return l;
     }
 
-    final static List<String> getStringListRequired(final ObjectNode o, final String label) throws IOException {
+    public final static List<String> getStringListRequired(final ObjectNode o, final String label) throws IOException {
         final List<String> l = new ArrayList<String>();
         if (o.has(label)) {
             final Iterator<JsonNode> it = o.get(label).iterator();
@@ -72,7 +72,7 @@ final class ParserUtils {
         return l;
     }
 
-    final static List<String> getAsStringListRequired(final ObjectNode o, final String label) throws IOException {
+    public final static List<String> getAsStringListRequired(final ObjectNode o, final String label) throws IOException {
         final List<String> l = ParserUtils.getAsStringList(o, label);
         if (l.isEmpty()) {
             throw new IOException("malformed CX json: list '" + label + "' is missing or empty");
@@ -80,7 +80,7 @@ final class ParserUtils {
         return l;
     }
 
-    final static List<String> getAsStringList(final ObjectNode o, final String label) throws IOException {
+    public final static List<String> getAsStringList(final ObjectNode o, final String label) throws IOException {
         final List<String> l = new ArrayList<String>();
         if (o.has(label)) {
             if (!o.get(label).isArray()) {
@@ -99,14 +99,14 @@ final class ParserUtils {
         return l;
     }
 
-    final static String getTextValue(final ObjectNode o, final String label) {
+    public final static String getTextValue(final ObjectNode o, final String label) {
         if (o.has(label)) {
             return o.get(label).asText();
         }
         return null;
     }
 
-    final static String getTextValueRequired(final ObjectNode o, final String label) throws IOException {
+    public final static String getTextValueRequired(final ObjectNode o, final String label) throws IOException {
         String s = null;
         if (o.has(label)) {
             s = o.get(label).asText();
@@ -117,7 +117,7 @@ final class ParserUtils {
         return s;
     }
 
-    final static SortedMap<String, List<String>> getMap(final ObjectNode o, final String label) {
+    public final static SortedMap<String, List<String>> getMap(final ObjectNode o, final String label) {
         final SortedMap<String, List<String>> map = new TreeMap<String, List<String>>();
         if (o.has(label)) {
             final Iterator<Entry<String, JsonNode>> it1 = o.get(label).fields();

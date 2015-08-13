@@ -56,9 +56,9 @@ public class GroupFragmentReader implements AspectFragmentReader {
                 else {
                     final String name = ParserUtils.getTextValueRequired(o, GroupElement.GROUP_NAME);
                     final String group_node = ParserUtils.getTextValue(o, GroupElement.GROUP_NODE);
-                    final String belongs_to = ParserUtils.getTextValueRequired(o, GroupElement.BELONGS_TO);
+                    final String view = ParserUtils.getTextValue(o, GroupElement.VIEW);
 
-                    final GroupElement e = new GroupElement(group_node, name, belongs_to);
+                    final GroupElement e = new GroupElement(group_node, name, view);
                     if (o.has(GroupElement.NODES)) {
                         e.getNodes().addAll(ParserUtils.getAsStringList(o, GroupElement.NODES));
                     }

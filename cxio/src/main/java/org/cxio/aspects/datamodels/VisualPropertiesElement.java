@@ -7,6 +7,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.Util;
 
 /**
  *
@@ -90,9 +91,11 @@ public final class VisualPropertiesElement implements AspectElement {
         sb.append("properties of: ");
         sb.append(_properties_of);
         sb.append("\n");
-        sb.append("view: ");
-        sb.append(_view);
-        sb.append("\n");
+        if (!Util.isEmpty(_view)) {
+            sb.append("view: ");
+            sb.append(_view);
+            sb.append("\n");
+        }
         sb.append("applies to: ");
         for (final String a : _applies_to) {
             sb.append(a);

@@ -27,7 +27,7 @@ public class GroupFragmentWriter extends AbstractAspectFragmentWriter {
         w.writeStartObject();
         w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NODE, e.getGroupNode());
         w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NAME, e.getName());
-        w.writeStringFieldIfNotEmpty(GroupElement.BELONGS_TO, e.getBelongsTo());
+        w.writeStringFieldIfNotEmpty(GroupElement.VIEW, e.getView());
         if (e.getNodes().size() == 1) {
             w.writeStringField(GroupElement.NODES, e.getNodes().get(0));
         }

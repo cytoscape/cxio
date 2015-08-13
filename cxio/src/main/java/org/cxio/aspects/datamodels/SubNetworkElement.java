@@ -7,7 +7,7 @@ import org.cxio.core.interfaces.AspectElement;
 
 public final class SubNetworkElement implements AspectElement {
 
-    public final static String NAME         = "SubNetworks";
+    public final static String NAME         = "subNetworks";
 
     public final static String SUBNET_NAME  = "name";
     public final static String SUBNET_NODES = "nodes";
@@ -53,6 +53,29 @@ public final class SubNetworkElement implements AspectElement {
     @Override
     public final String getAspectName() {
         return NAME;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append("id: ");
+        sb.append(_id);
+        sb.append("\n");
+        sb.append("name: ");
+        sb.append(_name);
+        sb.append("\n");
+        sb.append("nodes:");
+        for (final String node : _nodes) {
+            sb.append(" ");
+            sb.append(node);
+        }
+        sb.append("\n");
+        sb.append("edges:");
+        for (final String edge : _edges) {
+            sb.append(" ");
+            sb.append(edge);
+        }
+        return sb.toString();
     }
 
 }

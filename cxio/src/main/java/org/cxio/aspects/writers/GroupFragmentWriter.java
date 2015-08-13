@@ -22,7 +22,7 @@ public class GroupFragmentWriter extends AbstractAspectFragmentWriter {
     }
 
     @Override
-    protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+    public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final GroupElement e = (GroupElement) element;
         w.writeStartObject();
         w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NODE, e.getGroupNode());

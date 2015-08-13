@@ -46,8 +46,6 @@ public abstract class AbstractAspectFragmentWriter implements AspectFragmentWrit
         w.endArray();
     }
 
-    abstract protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException;
-
     @Override
     abstract public String getAspectName();
 

@@ -22,7 +22,7 @@ public class NetworkRelationsFragmentWriter extends AbstractAspectFragmentWriter
     }
 
     @Override
-    protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+    public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final NetworkRelationsElement na = (NetworkRelationsElement) element;
 
         w.writeStartObject();

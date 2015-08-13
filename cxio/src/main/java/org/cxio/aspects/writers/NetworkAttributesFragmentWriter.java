@@ -28,7 +28,7 @@ public class NetworkAttributesFragmentWriter extends AbstractAspectFragmentWrite
     }
 
     @Override
-    protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+    public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final NetworkAttributesElement na = (NetworkAttributesElement) element;
         if ((na.getValues() != null) && (!na.getValues().isEmpty()) && ((_filter == null) || _filter.isPass(na.getName()))) {
             w.writeStartObject();

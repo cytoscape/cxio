@@ -28,7 +28,7 @@ public class EdgeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
     }
 
     @Override
-    protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+    public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final EdgeAttributesElement ea = (EdgeAttributesElement) element;
         if ((ea.getValues() != null) && (!ea.getValues().isEmpty()) && ((_filter == null) || _filter.isPass(ea.getName()))) {
             w.writeStartObject();

@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.cxio.aspects.datamodels.AnonymousElement;
+import org.cxio.aspects.writers.WriterUtils;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.util.JsonWriter;
@@ -24,10 +25,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public class CxWriter {
 
-    private boolean                                 ended;
-    private final JsonWriter                        jw;
-    private boolean                                 started;
-    private final Map<String, AspectFragmentWriter> writers;
+    private boolean                                 _ended;
+    private final JsonWriter                        _jw;
+    private boolean                                 _started;
+    private final Map<String, AspectFragmentWriter> _writers;
 
     public final static CxWriter createInstance(final OutputStream out) throws IOException {
         return new CxWriter(out, false);
@@ -49,10 +50,10 @@ public class CxWriter {
         if (out == null) {
             throw new IllegalArgumentException("output stream is null");
         }
-        this.writers = new HashMap<String, AspectFragmentWriter>();
-        this.jw = JsonWriter.createInstance(out, use_default_pretty_printer);
-        started = false;
-        ended = false;
+        _writers = new HashMap<String, AspectFragmentWriter>();
+        _jw = JsonWriter.createInstance(out, use_default_pretty_printer);
+        _started = false;
+        _ended = false;
     }
 
     public void addAspectFragmentWriter(final AspectFragmentWriter writer) {
@@ -62,79 +63,114 @@ public class CxWriter {
         if (Util.isEmpty(writer.getAspectName())) {
             throw new IllegalArgumentException("aspect name is null or empty");
         }
-        writers.put(writer.getAspectName(), writer);
+        _writers.put(writer.getAspectName(), writer);
     }
+    
+    
+    public void startAspectFragment( final String aspect_name ) throws IOException {
+        _jw.startArray( aspect_name);
+    }
+    
+    public void startAspectFragment( final String aspect_name, final String time_stamp ) throws IOException {
+        _jw.startArray( aspect_name);
+        if (!Util.isEmpty(time_stamp)) {
+            WriterUtils.writeTimeStamp(time_stamp, _jw);
+        }
+    }
+    
+    public void endAspectFragment() throws IOException {
+        _jw.endArray();
+    }
+   
+   
 
     public void end() throws IOException {
-        if (!started) {
+        if (!_started) {
             throw new IllegalStateException("not started");
         }
-        if (ended) {
+        if (_ended) {
             throw new IllegalStateException("already ended");
         }
-        ended = true;
-        jw.end();
+        _ended = true;
+        _jw.end();
     }
 
     public void start() throws IOException {
-        if (started) {
+        if (_started) {
             throw new IllegalStateException("already started");
         }
-        if (ended) {
+        if (_ended) {
             throw new IllegalStateException("already ended");
         }
-        started = true;
-        jw.start();
+        _started = true;
+        _jw.start();
     }
 
     public void writeAspectElements(final List<AspectElement> elements) throws IOException {
-        if (!started) {
+        if (!_started) {
             throw new IllegalStateException("not started");
         }
-        if (ended) {
+        if (_ended) {
             throw new IllegalStateException("already ended");
         }
         if ((elements == null) || elements.isEmpty()) {
             return;
         }
-        if (writers.containsKey(elements.get(0).getAspectName())) {
-            final AspectFragmentWriter writer = writers.get(elements.get(0).getAspectName());
-            writer.write(elements, jw);
+        if (_writers.containsKey(elements.get(0).getAspectName())) {
+            final AspectFragmentWriter writer = _writers.get(elements.get(0).getAspectName());
+            writer.write(elements, _jw);
         }
-
+    }
+    
+    public void writeAspectElement(final AspectElement element) throws IOException {
+        if (!_started) {
+            throw new IllegalStateException("not started");
+        }
+        if (_ended) {
+            throw new IllegalStateException("already ended");
+        }
+        if (element == null) {
+            return;
+        }
+        if (_writers.containsKey(element.getAspectName())) {
+            final AspectFragmentWriter writer = _writers.get(element.getAspectName());
+            writer.writeElement(element,_jw);
+        }
     }
 
     public void writeAnonymousAspectElement(final AnonymousElement element) throws IOException {
-        if (!started) {
+        if (!_started) {
             throw new IllegalStateException("not started");
         }
-        if (ended) {
+        if (_ended) {
             throw new IllegalStateException("already ended");
         }
         if (element == null) {
             return;
         }
-        jw.writeJsonObject(element.getAspectName(), element.getData());
+        _jw.writeJsonObject(element.getAspectName(), element.getData());
     }
+    
+    
 
     public void writeAnonymousAspectElementAsList(final AnonymousElement element) throws IOException {
-        if (!started) {
+        if (!_started) {
             throw new IllegalStateException("not started");
         }
-        if (ended) {
+        if (_ended) {
             throw new IllegalStateException("already ended");
         }
         if (element == null) {
             return;
         }
-        jw.writeJsonObjectAsList(element.getAspectName(), element.getData());
+        _jw.writeJsonObjectAsList(element.getAspectName(), element.getData());
     }
 
     public void writeAnonymousAspectElements(final List<AnonymousElement> elements) throws IOException {
-        if (!started) {
+        if (!_started) {
             throw new IllegalStateException("not started");
         }
-        if (ended) {
+        if (_ended) {
             throw new IllegalStateException("already ended");
         }
         if ((elements == null) || elements.isEmpty()) {
@@ -144,7 +180,7 @@ public class CxWriter {
         for (final AnonymousElement elem : elements) {
             datas.add(elem.getData());
         }
-        jw.writeJsonObjects(elements.get(0).getAspectName(), datas);
+        _jw.writeJsonObjects(elements.get(0).getAspectName(), datas);
     }
 
 }

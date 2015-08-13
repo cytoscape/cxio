@@ -28,7 +28,7 @@ public class VisualPropertiesFragmentWriter extends AbstractAspectFragmentWriter
     }
 
     @Override
-    protected final void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+    public final void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final VisualPropertiesElement c = (VisualPropertiesElement) element;
         w.writeStartObject();
         w.writeStringField(VisualPropertiesElement.PROPERTIES_OF, c.getPropertiesOf());

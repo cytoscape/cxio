@@ -22,7 +22,7 @@ public class SubNetworkFragmentWriter extends AbstractAspectFragmentWriter {
     }
 
     @Override
-    protected void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+    public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final SubNetworkElement e = (SubNetworkElement) element;
         w.writeStartObject();
         w.writeStringFieldIfNotEmpty(SubNetworkElement.SUBNET_ID, e.getId());

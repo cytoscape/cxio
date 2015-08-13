@@ -3,8 +3,8 @@ package org.cxio.core.interfaces;
 import java.io.IOException;
 import java.util.List;
 
-import org.cxio.core.JsonWriter;
 import org.cxio.filters.AspectKeyFilter;
+import org.cxio.util.JsonWriter;
 
 public interface AspectFragmentWriter {
 

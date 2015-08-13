@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.util.Map;
 
 import org.cxio.aspects.datamodels.VisualPropertiesElement;
-import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.JsonWriter;
 
 public class VisualPropertiesFragmentWriter extends AbstractAspectFragmentWriter {
 

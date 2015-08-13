@@ -1,7 +1,7 @@
 package org.cxio.aspects.datamodels;
 
-import org.cxio.core.CxConstants;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.CxConstants;
 
 /**
  * This is used to represent a Cytoscape node aspect element.

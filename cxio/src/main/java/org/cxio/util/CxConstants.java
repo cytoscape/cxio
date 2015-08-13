@@ -1,4 +1,4 @@
-package org.cxio.core;
+package org.cxio.util;
 
 /**
  * This class is to hold constants.

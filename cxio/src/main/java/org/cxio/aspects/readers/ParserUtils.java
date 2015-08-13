@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.core.CxConstants;
+import org.cxio.util.CxConstants;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParseException;

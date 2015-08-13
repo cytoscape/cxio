@@ -5,9 +5,9 @@ import java.io.IOException;
 import org.cxio.aspects.datamodels.AbstractAttributesElement;
 import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
-import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.filters.AspectKeyFilter;
+import org.cxio.util.JsonWriter;
 
 public class NodeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
 

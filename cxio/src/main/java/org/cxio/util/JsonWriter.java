@@ -1,4 +1,4 @@
-package org.cxio.core;
+package org.cxio.util;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -20,7 +20,7 @@ public final class JsonWriter {
         return createInstance(out, false);
     }
 
-    final static JsonWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer) throws IOException {
+    public final static JsonWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer) throws IOException {
         return new JsonWriter(out, use_default_pretty_printer);
     }
 

@@ -3,8 +3,8 @@ package org.cxio.aspects.writers;
 import java.io.IOException;
 
 import org.cxio.aspects.datamodels.NetworkRelationsElement;
-import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.JsonWriter;
 
 public class NetworkRelationsFragmentWriter extends AbstractAspectFragmentWriter {
 

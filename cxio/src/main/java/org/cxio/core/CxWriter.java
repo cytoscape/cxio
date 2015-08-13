@@ -11,6 +11,7 @@ import java.util.Set;
 import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
+import org.cxio.util.JsonWriter;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;

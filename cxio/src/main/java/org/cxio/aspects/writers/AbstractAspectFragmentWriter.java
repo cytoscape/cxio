@@ -3,10 +3,10 @@ package org.cxio.aspects.writers;
 import java.io.IOException;
 import java.util.List;
 
-import org.cxio.core.JsonWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.filters.AspectKeyFilter;
+import org.cxio.util.JsonWriter;
 import org.cxio.util.Util;
 
 /**

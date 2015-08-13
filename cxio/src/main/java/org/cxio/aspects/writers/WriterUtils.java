@@ -2,8 +2,8 @@ package org.cxio.aspects.writers;
 
 import java.io.IOException;
 
-import org.cxio.core.CxConstants;
-import org.cxio.core.JsonWriter;
+import org.cxio.util.CxConstants;
+import org.cxio.util.JsonWriter;
 import org.cxio.util.Util;
 
 final class WriterUtils {

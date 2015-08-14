@@ -11,6 +11,8 @@ public interface AspectFragmentWriter {
     public String getAspectName();
 
     public void setTimeStamp(String time_stamp);
+    
+    public String getTimeStamp();
 
     public void addAspectKeyFilter(final AspectKeyFilter filter);
 

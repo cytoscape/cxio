@@ -30,6 +30,11 @@ public abstract class AbstractAspectFragmentWriter implements AspectFragmentWrit
     public void setTimeStamp(final String time_stamp) {
         _time_stamp = time_stamp;
     }
+    
+    @Override
+    public String getTimeStamp() {
+        return _time_stamp;
+    }
 
     @Override
     public void write(final List<AspectElement> aspect_elements, final JsonWriter w) throws IOException {

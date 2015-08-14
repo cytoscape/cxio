@@ -18,6 +18,7 @@ import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
+import org.cxio.util.Util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -118,13 +119,27 @@ public class Examples2 {
         final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
         edges_elements.add(new EdgesElement("edge0", "node0", "node1"));
         edges_elements.add(new EdgesElement("edge1", "node0", "node2"));
+        
+        // ------------
+        final ObjectNode aa1 = m.createObjectNode();
+        aa1.put("k1", "a");
+        aa1.put("k2", "b");
+        final ObjectNode aa2 = m.createObjectNode();
+        aa2.put("k1", "c");
+        aa2.put("k2", "d");
+        final ObjectNode aa3 = m.createObjectNode();
+        aa3.put("k1", "e");
+        aa3.put("k2", "f");
+        final AnonymousElement a1 = new AnonymousElement("anon", aa1);
+        final AnonymousElement a2 = new AnonymousElement("anon", aa2);
+        final AnonymousElement a3 = new AnonymousElement("anon", aa3);
 
         // Writing to CX
         // -------------
 
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, true);
+        final CxWriter w = CxWriter.createInstance(out, true, Util.getCurrentDate());
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w.start();
@@ -135,6 +150,13 @@ public class Examples2 {
         w.writeAnonymousAspectElement(single_element2);
         w.writeAnonymousAspectElementAsList(single_element2);
         w.writeAspectElements(edges_elements);
+        
+        w.startAspectFragment("anon");
+        w.writeAnonymousAspectElement(a1);
+        w.writeAnonymousAspectElement(a2);
+        w.writeAnonymousAspectElement(a3);
+        w.endAspectFragment();
+        
         w.end();
 
         final String cx_json_str = out.toString();

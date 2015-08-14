@@ -55,7 +55,7 @@ public final class AnonymousFragmentReader implements AspectFragmentReader {
             }
         }
         else {
-            elements.add(new AnonymousElement(_name, _m.readTree(jp)));
+            elements.add(new AnonymousElement(_name, (ObjectNode) _m.readTree(jp)));
             t = jp.nextToken();
         }
         return elements;

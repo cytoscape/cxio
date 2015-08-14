@@ -15,7 +15,7 @@ public interface AspectFragmentWriter {
     public void addAspectKeyFilter(final AspectKeyFilter filter);
 
     public void write(final List<AspectElement> aspects, final JsonWriter json_writer) throws IOException;
-    
+
     public void writeElement(final AspectElement element, final JsonWriter json_writer) throws IOException;
 
 }

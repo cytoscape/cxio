@@ -70,14 +70,14 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
                                                                           ParserUtils.getTextValue(o, CartesianLayoutElement.VIEW),
                                                                           ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
                                                                           ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
-                                    "0"));
+                                                                          "0"));
 
                         }
                         else {
                             layout_aspects.add(new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
                                                                           ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
                                                                           ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
-                                    "0"));
+                                                                          "0"));
 
                         }
                     }

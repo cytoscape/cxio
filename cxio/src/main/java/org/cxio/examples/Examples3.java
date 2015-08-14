@@ -16,9 +16,6 @@ import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
 import org.cxio.aspects.readers.NodesFragmentReader;
-import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
-import org.cxio.aspects.writers.EdgesFragmentWriter;
-import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -50,29 +47,23 @@ public class Examples3 {
         // -------------
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, true);
-
-        final String time_stamp = Util.getCurrentDate();
-
-        w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
-        w.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
-        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
+        final CxWriter w = CxWriter.createInstanceNEC(out, true, Util.getCurrentDate());
 
         w.start();
 
-        w.startAspectFragment(NodesElement.NAME, time_stamp);
+        w.startAspectFragment(NodesElement.NAME);
         for (final AspectElement e : nodes_elements) {
             w.writeAspectElement(e);
         }
         w.endAspectFragment();
 
-        w.startAspectFragment(EdgesElement.NAME, time_stamp);
+        w.startAspectFragment(EdgesElement.NAME);
         for (final AspectElement e : edges_elements) {
             w.writeAspectElement(e);
         }
         w.endAspectFragment();
 
-        w.startAspectFragment(CartesianLayoutElement.NAME, time_stamp);
+        w.startAspectFragment(CartesianLayoutElement.NAME);
         for (final AspectElement e : cartesian_elements) {
             w.writeAspectElement(e);
         }

@@ -27,7 +27,7 @@ import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.readers.GroupFragmentReader;
 import org.cxio.aspects.readers.NetworkAttributesFragmentReader;
-import org.cxio.aspects.readers.NetworkRelationsReader;
+import org.cxio.aspects.readers.NetworkRelationsFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
 import org.cxio.aspects.readers.NodesFragmentReader;
 import org.cxio.aspects.readers.SubNetworkFragmentReader;
@@ -109,7 +109,7 @@ public final class Util {
         final AspectFragmentReader visual_properties_reader = VisualPropertiesFragmentReader.createInstance();
         final AspectFragmentReader group_reader = GroupFragmentReader.createInstance();
         final AspectFragmentReader subnetwork_reader = SubNetworkFragmentReader.createInstance();
-        final AspectFragmentReader network_rel_reader = NetworkRelationsReader.createInstance();
+        final AspectFragmentReader network_rel_reader = NetworkRelationsFragmentReader.createInstance();
 
         final Set<AspectFragmentReader> aspect_readers = new HashSet<AspectFragmentReader>();
 

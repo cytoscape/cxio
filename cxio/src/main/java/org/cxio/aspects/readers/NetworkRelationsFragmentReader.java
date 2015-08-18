@@ -13,16 +13,16 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class NetworkRelationsReader implements AspectFragmentReader {
+public class NetworkRelationsFragmentReader implements AspectFragmentReader {
 
     private final ObjectMapper _m;
     private String             _time_stamp;
 
-    public static NetworkRelationsReader createInstance() {
-        return new NetworkRelationsReader();
+    public static NetworkRelationsFragmentReader createInstance() {
+        return new NetworkRelationsFragmentReader();
     }
 
-    private NetworkRelationsReader() {
+    private NetworkRelationsFragmentReader() {
         _m = new ObjectMapper();
     }
 

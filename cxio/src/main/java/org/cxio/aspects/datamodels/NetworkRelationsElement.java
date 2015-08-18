@@ -1,6 +1,8 @@
 package org.cxio.aspects.datamodels;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.cxio.core.interfaces.AspectElement;
 
@@ -13,9 +15,10 @@ public final class NetworkRelationsElement implements AspectElement {
     final public static String      CHILD           = "child";
     final public static String      NAME            = "networkRelations";
     final public static String      PARENT          = "parent";
-    final public static String      TYPE            = "type";
     final private static String     SUBNETWORK_TYPE = "subnetwork";
+    final public static String      TYPE            = "type";
     final private static String     VIEW_TYPE       = "view";
+
     final private String            _child;
     final private String            _parent;
     final private RELATIONSHIP_TYPE _type;
@@ -48,6 +51,28 @@ public final class NetworkRelationsElement implements AspectElement {
         default:
             throw new IllegalStateException("don't know how to handle type '" + _type + "'");
         }
+    }
+
+    public final static List<String> getAllParentNetworkIds(final List<AspectElement> networks_relations) {
+        final List<String> parents = new ArrayList<String>();
+        for (final AspectElement e : networks_relations) {
+            final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
+            if (nwe.getType() == SUBNETWORK_TYPE) {
+                parents.add(nwe.getParent());
+            }
+        }
+        return parents;
+    }
+
+    public final static List<String> getSubNetworkIds(final String parent_id, final List<AspectElement> networks_relations) {
+        final List<String> subnets = new ArrayList<String>();
+        for (final AspectElement e : networks_relations) {
+            final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
+            if ((nwe.getType() == SUBNETWORK_TYPE) && nwe.getParent().equals(parent_id)) {
+                subnets.add(nwe.getChild());
+            }
+        }
+        return subnets;
     }
 
     private final static RELATIONSHIP_TYPE determineType(final String type) throws IOException {

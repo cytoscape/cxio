@@ -2,7 +2,9 @@ package org.cxio.aspects.datamodels;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.cxio.core.interfaces.AspectElement;
 
@@ -53,8 +55,8 @@ public final class NetworkRelationsElement implements AspectElement {
         }
     }
 
-    public final static List<String> getAllParentNetworkIds(final List<AspectElement> networks_relations) {
-        final List<String> parents = new ArrayList<String>();
+    public final static Set<String> getAllParentNetworkIds(final List<AspectElement> networks_relations) {
+        final Set<String> parents = new HashSet<String>();
         for (final AspectElement e : networks_relations) {
             final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
             if (nwe.getType() == SUBNETWORK_TYPE) {

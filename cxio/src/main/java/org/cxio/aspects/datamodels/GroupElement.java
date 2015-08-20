@@ -44,6 +44,14 @@ public final class GroupElement implements AspectElement {
     final public void addNode(final String node) {
         _nodes.add(node);
     }
+    
+    final public void addExternalEdge(final String edge) {
+        _external_edges.add(edge);
+    }
+    
+    final public void addInternalEdge(final String edge) {
+        _internal_edges.add(edge);
+    }
 
     @Override
     public final String getAspectName() {

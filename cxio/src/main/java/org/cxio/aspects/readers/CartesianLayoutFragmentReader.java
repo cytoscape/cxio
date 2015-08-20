@@ -6,17 +6,13 @@ import java.util.List;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.core.interfaces.AspectFragmentReader;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public final class CartesianLayoutFragmentReader implements AspectFragmentReader {
-
-    private final ObjectMapper _m;
-    private String             _time_stamp;
+public final class CartesianLayoutFragmentReader extends AbstractFragmentReader {
 
     public static CartesianLayoutFragmentReader createInstance() {
         return new CartesianLayoutFragmentReader();
@@ -38,7 +34,6 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
             throw new IOException("malformed cx json in '" + CartesianLayoutElement.NAME + "'");
         }
         final List<AspectElement> layout_aspects = new ArrayList<AspectElement>();
-        _time_stamp = null;
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);
@@ -70,14 +65,14 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
                                                                           ParserUtils.getTextValue(o, CartesianLayoutElement.VIEW),
                                                                           ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
                                                                           ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
-                                                                          "0"));
+                                    "0"));
 
                         }
                         else {
                             layout_aspects.add(new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
                                                                           ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
                                                                           ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
-                                                                          "0"));
+                                    "0"));
 
                         }
                     }
@@ -86,11 +81,6 @@ public final class CartesianLayoutFragmentReader implements AspectFragmentReader
             t = jp.nextToken();
         }
         return layout_aspects;
-    }
-
-    @Override
-    public String getTimeStamp() {
-        return _time_stamp;
     }
 
 }

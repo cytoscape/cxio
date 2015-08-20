@@ -6,18 +6,16 @@ import java.util.List;
 
 import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.core.interfaces.AspectFragmentReader;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public final class AnonymousFragmentReader implements AspectFragmentReader {
+public final class AnonymousFragmentReader extends AbstractFragmentReader {
 
-    private boolean            _is_list;
-    private final ObjectMapper _m;
-    private String             _name;
+    private boolean _is_list;
+    private String  _name;
 
     public final static AnonymousFragmentReader createInstance() {
         return new AnonymousFragmentReader();

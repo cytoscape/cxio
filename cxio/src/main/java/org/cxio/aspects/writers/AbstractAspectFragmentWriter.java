@@ -7,7 +7,6 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.filters.AspectKeyFilter;
 import org.cxio.util.JsonWriter;
-import org.cxio.util.Util;
 
 /**
  * This is a convenience class for classes implementing the AspectFragmentWriter
@@ -19,7 +18,8 @@ import org.cxio.util.Util;
  */
 public abstract class AbstractAspectFragmentWriter implements AspectFragmentWriter {
 
-    String _time_stamp = null;
+    String  _time_stamp         = null;
+    boolean _time_stamp_written = false;
 
     @Override
     public void addAspectKeyFilter(final AspectKeyFilter filter) {
@@ -28,9 +28,12 @@ public abstract class AbstractAspectFragmentWriter implements AspectFragmentWrit
 
     @Override
     public void setTimeStamp(final String time_stamp) {
+        if ((_time_stamp != null) && !_time_stamp.equals(time_stamp)) {
+            throw new IllegalStateException("illegal attempt to change the time stamp of a fragment writer");
+        }
         _time_stamp = time_stamp;
     }
-    
+
     @Override
     public String getTimeStamp() {
         return _time_stamp;
@@ -42,8 +45,10 @@ public abstract class AbstractAspectFragmentWriter implements AspectFragmentWrit
             return;
         }
         w.startArray(getAspectName());
-        if (!Util.isEmpty(_time_stamp)) {
+        if (!_time_stamp_written) {
             WriterUtils.writeTimeStamp(_time_stamp, w);
+            _time_stamp_written = true; // To prevent written the time stamp in
+                                        // multiple fragments of the same type.
         }
         for (final AspectElement aspect_element : aspect_elements) {
             writeElement(aspect_element, w);

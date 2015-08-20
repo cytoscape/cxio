@@ -69,11 +69,11 @@ public final class JsonWriter {
         new_parent.set(label, data_node);
         new_parent.serialize(_g, null);
     }
-    
-    public void writeJsonObject( final ObjectNode data_node) throws IOException {
-        //final ObjectNode new_parent = _m.createObjectNode();
+
+    public void writeJsonObject(final ObjectNode data_node) throws IOException {
+        // final ObjectNode new_parent = _m.createObjectNode();
         data_node.serialize(_g, null);
-        
+
     }
 
     public void writeJsonObjectAsList(final String label, final ObjectNode data_node) throws IOException {

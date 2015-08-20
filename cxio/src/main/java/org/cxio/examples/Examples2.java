@@ -119,7 +119,7 @@ public class Examples2 {
         final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
         edges_elements.add(new EdgesElement("edge0", "node0", "node1"));
         edges_elements.add(new EdgesElement("edge1", "node0", "node2"));
-        
+
         // ------------
         final ObjectNode aa1 = m.createObjectNode();
         aa1.put("k1", "a");
@@ -150,13 +150,13 @@ public class Examples2 {
         w.writeAnonymousAspectElement(single_element2);
         w.writeAnonymousAspectElementAsList(single_element2);
         w.writeAspectElements(edges_elements);
-        
+
         w.startAspectFragment("anon");
         w.writeAnonymousAspectElement(a1);
         w.writeAnonymousAspectElement(a2);
         w.writeAnonymousAspectElement(a3);
         w.endAspectFragment();
-        
+
         w.end();
 
         final String cx_json_str = out.toString();

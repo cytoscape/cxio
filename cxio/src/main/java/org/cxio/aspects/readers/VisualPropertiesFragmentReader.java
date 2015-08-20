@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 
 import org.cxio.aspects.datamodels.VisualPropertiesElement;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.core.interfaces.AspectFragmentReader;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -16,10 +15,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class VisualPropertiesFragmentReader implements AspectFragmentReader {
-
-    private final ObjectMapper _m;
-    private String             _time_stamp;
+public class VisualPropertiesFragmentReader extends AbstractFragmentReader {
 
     public static VisualPropertiesFragmentReader createInstance() {
         return new VisualPropertiesFragmentReader();
@@ -41,7 +37,6 @@ public class VisualPropertiesFragmentReader implements AspectFragmentReader {
             throw new IOException("malformed cx json in '" + getAspectName() + "'");
         }
         final List<AspectElement> aspects = new ArrayList<AspectElement>();
-        _time_stamp = null;
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);
@@ -81,11 +76,6 @@ public class VisualPropertiesFragmentReader implements AspectFragmentReader {
             t = jp.nextToken();
         }
         return aspects;
-    }
-
-    @Override
-    public String getTimeStamp() {
-        return _time_stamp;
     }
 
 }

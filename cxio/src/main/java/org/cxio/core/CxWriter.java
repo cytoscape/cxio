@@ -62,13 +62,13 @@ public class CxWriter {
     public final static CxWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer) throws IOException {
         return new CxWriter(out, use_default_pretty_printer);
     }
-    
+
     /**
      * Returns a CxWriter for reading from OutputStream out.
      * <br>
      * Subsequent calls to method {@link #addAspectFragmentWriter(AspectFragmentWriter writer)} are
-     * required to add {@link org.cxio.core.interfaces.AspectFragmentWriter} to the newly created CxWriter. 
-     * 
+     * required to add {@link org.cxio.core.interfaces.AspectFragmentWriter} to the newly created CxWriter.
+     *
      * @param out the OutputStream to read
      * @param use_default_pretty_printer to turn pretty printing on/off
      * @param time_stamp the default time stamp used by all AspectFragmentWriters
@@ -328,7 +328,7 @@ public class CxWriter {
         }
         if (_writers.containsKey(elements.get(0).getAspectName())) {
             final AspectFragmentWriter writer = _writers.get(elements.get(0).getAspectName());
-            if (!Util.isEmpty(_time_stamp) && Util.isEmpty(writer.getTimeStamp() ) ) {
+            if (!Util.isEmpty(_time_stamp) && Util.isEmpty(writer.getTimeStamp())) {
                 writer.setTimeStamp(_time_stamp);
             }
             writer.write(elements, _jw);
@@ -352,7 +352,7 @@ public class CxWriter {
         if ((elements == null) || elements.isEmpty()) {
             return;
         }
-        if (!Util.isEmpty(_time_stamp) && Util.isEmpty(writer.getTimeStamp() ) ) {
+        if (!Util.isEmpty(_time_stamp) && Util.isEmpty(writer.getTimeStamp())) {
             writer.setTimeStamp(_time_stamp);
         }
         writer.write(elements, _jw);
@@ -423,12 +423,12 @@ public class CxWriter {
         if (!_started) {
             throw new IllegalStateException("not started");
         }
-       
+
         if (element == null) {
             return;
         }
         if (_fragment_started) {
-            _jw.writeJsonObject( element.getData());
+            _jw.writeJsonObject(element.getData());
         }
         else {
             _jw.writeJsonObject(element.getAspectName(), element.getData());

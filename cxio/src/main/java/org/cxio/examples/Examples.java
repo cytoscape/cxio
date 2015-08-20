@@ -98,6 +98,7 @@ public class Examples {
         w.writeAspectElements(cartesian_elements);
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(node_attributes_elements);
+        w.writeAspectElements(edges_elements);
         w.end();
 
         final String cx_json_str = out.toString();

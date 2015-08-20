@@ -6,17 +6,13 @@ import java.util.List;
 
 import org.cxio.aspects.datamodels.GroupElement;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.core.interfaces.AspectFragmentReader;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class GroupFragmentReader implements AspectFragmentReader {
-
-    private final ObjectMapper _m;
-    private String             _time_stamp;
+public class GroupFragmentReader extends AbstractFragmentReader {
 
     public static GroupFragmentReader createInstance() {
         return new GroupFragmentReader();
@@ -32,18 +28,12 @@ public class GroupFragmentReader implements AspectFragmentReader {
     }
 
     @Override
-    public String getTimeStamp() {
-        return _time_stamp;
-    }
-
-    @Override
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         JsonToken t = jp.nextToken();
         if (t != JsonToken.START_ARRAY) {
             throw new IOException("malformed CX json in element " + getAspectName());
         }
         final List<AspectElement> aspects = new ArrayList<AspectElement>();
-        _time_stamp = null;
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);

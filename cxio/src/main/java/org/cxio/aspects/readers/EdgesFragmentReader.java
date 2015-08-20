@@ -6,17 +6,13 @@ import java.util.List;
 
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.core.interfaces.AspectFragmentReader;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class EdgesFragmentReader implements AspectFragmentReader {
-
-    private final ObjectMapper _m;
-    private String             _time_stamp;
+public class EdgesFragmentReader extends AbstractFragmentReader {
 
     public final static EdgesFragmentReader createInstance() {
         return new EdgesFragmentReader();
@@ -38,7 +34,6 @@ public class EdgesFragmentReader implements AspectFragmentReader {
             throw new IOException("malformed cx json in '" + EdgesElement.NAME + "'");
         }
         final List<AspectElement> edge_aspects = new ArrayList<AspectElement>();
-        _time_stamp = null;
         while (t != JsonToken.END_ARRAY) {
             if (t == JsonToken.START_OBJECT) {
                 final ObjectNode o = _m.readTree(jp);
@@ -57,11 +52,6 @@ public class EdgesFragmentReader implements AspectFragmentReader {
         }
 
         return edge_aspects;
-    }
-
-    @Override
-    public String getTimeStamp() {
-        return _time_stamp;
     }
 
 }

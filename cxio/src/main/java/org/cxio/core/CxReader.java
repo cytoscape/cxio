@@ -223,7 +223,6 @@ public final class CxReader {
             final String name = _jp.getCurrentName();
             _was_in_recognized_aspect = false;
             if ((_level == 2) && (_token == JsonToken.FIELD_NAME) && (name != null)) {
-                // System.out.println(">>>>> name: " + name);
                 if (_element_readers.containsKey(name)) {
                     elements = _element_readers.get(name).readAspectFragment(_jp);
                     _was_in_recognized_aspect = true;

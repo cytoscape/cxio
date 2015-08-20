@@ -33,6 +33,7 @@ public class CxWriter {
     private final String                            _time_stamp;
     private boolean                                 _fragment_started;
     private final Map<String, AspectFragmentWriter> _writers;
+    private final Map<String, String>               _aspect_name_to_time_stamp_map;
 
     /**
      * Returns a CxWriter for reading from OutputStream out.
@@ -240,7 +241,10 @@ public class CxWriter {
     }
 
     /**
-     *  This method is to be called prior to writing individual aspect elements of a given type/name.
+     * This method is to be called prior to writing individual aspect elements of a given type/name.
+     * <br>
+     * If the time stamp  argument is not null and not empty it will overwrite any time stamp set in
+     * the createInstance methods.
      *
      * @param aspect_name the name of the aspect elements to be written
      * @param time_stamp the time stamp for the aspect elements to be written
@@ -253,13 +257,25 @@ public class CxWriter {
         if (_fragment_started) {
             throw new IllegalStateException("fragment already started");
         }
+        boolean have_time_stamp = false;
+        if (!Util.isEmpty(time_stamp)) {
+            have_time_stamp = true;
+            if (_aspect_name_to_time_stamp_map.containsKey(aspect_name)) {
+                final String prev_time_stamp = _aspect_name_to_time_stamp_map.get(aspect_name);
+                if (!Util.isEmpty(prev_time_stamp)) {
+                    throw new IllegalStateException("illegal attempt to set multiple time stamps for aspect " + aspect_name);
+                }
+            }
+        }
         _fragment_started = true;
         _jw.startArray(aspect_name);
-        if (!Util.isEmpty(time_stamp)) {
+        if (have_time_stamp) {
             WriterUtils.writeTimeStamp(time_stamp, _jw);
+            _aspect_name_to_time_stamp_map.put(aspect_name, time_stamp);
         }
-        else if (!Util.isEmpty(_time_stamp)) {
+        else if (!Util.isEmpty(_time_stamp) && !_aspect_name_to_time_stamp_map.containsKey(aspect_name)) {
             WriterUtils.writeTimeStamp(_time_stamp, _jw);
+            _aspect_name_to_time_stamp_map.put(aspect_name, _time_stamp);
         }
     }
 
@@ -488,6 +504,7 @@ public class CxWriter {
         _time_stamp = null;
         _started = false;
         _fragment_started = false;
+        _aspect_name_to_time_stamp_map = new HashMap<String, String>();
     }
 
     private CxWriter(final OutputStream out, final boolean use_default_pretty_printer, final String time_stamp) throws IOException {
@@ -504,6 +521,7 @@ public class CxWriter {
         }
         _started = false;
         _fragment_started = false;
+        _aspect_name_to_time_stamp_map = new HashMap<String, String>();
     }
 
 }

@@ -47,13 +47,19 @@ public final class AnonymousFragmentReader extends AbstractFragmentReader {
         if (_is_list) {
             while (t != JsonToken.END_ARRAY) {
                 if (t == JsonToken.START_OBJECT) {
-                    elements.add(new AnonymousElement(_name, (ObjectNode) _m.readTree(jp)));
+                    final AnonymousElement e = new AnonymousElement(_name, (ObjectNode) _m.readTree(jp));
+                    if (e != null) {
+                        elements.add(e);
+                    }
                 }
                 t = jp.nextToken();
             }
         }
         else {
-            elements.add(new AnonymousElement(_name, (ObjectNode) _m.readTree(jp)));
+            final AnonymousElement e = new AnonymousElement(_name, (ObjectNode) _m.readTree(jp));
+            if (e != null) {
+                elements.add(e);
+            }
             t = jp.nextToken();
         }
         return elements;
@@ -66,5 +72,11 @@ public final class AnonymousFragmentReader extends AbstractFragmentReader {
     @Override
     public String getTimeStamp() {
         throw new NoSuchMethodError();
+    }
+
+    @Override
+    public final AspectElement readElement(final ObjectNode o) throws IOException {
+        // Not used.
+        return null;
     }
 }

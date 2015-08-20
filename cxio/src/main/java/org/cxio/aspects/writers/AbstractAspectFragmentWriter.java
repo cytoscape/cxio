@@ -48,7 +48,7 @@ public abstract class AbstractAspectFragmentWriter implements AspectFragmentWrit
         if (!_time_stamp_written) {
             WriterUtils.writeTimeStamp(_time_stamp, w);
             _time_stamp_written = true; // To prevent written the time stamp in
-                                        // multiple fragments of the same type.
+            // multiple fragments of the same type.
         }
         for (final AspectElement aspect_element : aspect_elements) {
             writeElement(aspect_element, w);

@@ -128,7 +128,7 @@ public class Examples {
                 }
             }
         }
-        System.out.println("edges time stamp:" + er.getTimeStamp());
+        System.out.println("edges time stamp: " + er.getTimeStamp());
     }
 
 }

@@ -99,7 +99,7 @@ public class Examples3 {
             }
         }
         System.out.println();
-        System.out.println("edges time stamp:" + er.getTimeStamp());
+        System.out.println("edges time stamp: " + er.getTimeStamp());
     }
 
 }

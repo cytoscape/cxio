@@ -224,9 +224,7 @@ public class CxWriter {
         if (Util.isEmpty(writer.getAspectName())) {
             throw new IllegalArgumentException("aspect name is null or empty");
         }
-        if (_writers.containsKey(writer.getAspectName())) {
-            throw new IllegalArgumentException("alreadt has a fragment writer for " + writer.getAspectName());
-        }
+
         _writers.put(writer.getAspectName(), writer);
     }
 
@@ -263,7 +261,12 @@ public class CxWriter {
             if (_aspect_name_to_time_stamp_map.containsKey(aspect_name)) {
                 final String prev_time_stamp = _aspect_name_to_time_stamp_map.get(aspect_name);
                 if (!Util.isEmpty(prev_time_stamp)) {
-                    throw new IllegalStateException("illegal attempt to set multiple time stamps for aspect " + aspect_name);
+                    if (prev_time_stamp.equals(time_stamp)) {
+                        have_time_stamp = false;
+                    }
+                    else {
+                        throw new IllegalStateException("illegal attempt to set multiple, different time stamps for aspect '" + aspect_name + "': '" + prev_time_stamp + "', '" + time_stamp + "'");
+                    }
                 }
             }
         }

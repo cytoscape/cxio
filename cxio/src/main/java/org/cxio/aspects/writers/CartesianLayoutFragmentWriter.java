@@ -6,7 +6,7 @@ import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 
-public class CartesianLayoutFragmentWriter extends AbstractAspectFragmentWriter {
+public class CartesianLayoutFragmentWriter extends AbstractFragmentWriter {
 
     public static CartesianLayoutFragmentWriter createInstance() {
         return new CartesianLayoutFragmentWriter();

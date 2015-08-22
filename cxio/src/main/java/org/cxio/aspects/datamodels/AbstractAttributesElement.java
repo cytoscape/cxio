@@ -6,7 +6,7 @@ import org.cxio.core.interfaces.AspectElement;
 
 /**
  *
- * This is the base class for EdgeAttributeElement and NodeAttributeElement.
+ * This is the base class for EdgeAttributeElement, NodeAttributeElement, and NetworkAttributesElement.
  *
  * @author cmzmasek
  *
@@ -14,9 +14,7 @@ import org.cxio.core.interfaces.AspectElement;
 public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
-     * Basic data types.
-     *
-     * @author cmzmasek
+     * The supported data types (either as atomic value or as list).
      *
      */
     public enum ATTRIBUTE_TYPE {
@@ -45,7 +43,46 @@ public abstract class AbstractAttributesElement implements AspectElement {
     List<String>               _values;
 
     /**
-     * Convenience method to determine the type of a object.
+     * This is for getting the name of the attribute.
+     *
+     * @return the name of the attribute
+     */
+    public final String getName() {
+        return _name;
+    }
+
+    /**
+     * This returns a list of identifiers of the elements this attribute is a property of.
+     *
+     *
+     * @return a list of identifiers of the elements this attribute is a property o
+     */
+    public final List<String> getPropertyOf() {
+        return _property_of;
+    }
+
+    /**
+     * This returns the type of the attribute.
+     *
+     *
+     * @return the type of the attribute
+     */
+    public final ATTRIBUTE_TYPE getType() {
+        return _type;
+    }
+
+    /**
+     * This returns the values of the attribute as list of Strings.
+     *
+     *
+     * @return the values of the attribute as list of Strings
+     */
+    public final List<String> getValues() {
+        return _values;
+    }
+
+    /**
+     * Convenience method to determine the type of an object.
      *
      * @param o
      * @return
@@ -110,22 +147,6 @@ public abstract class AbstractAttributesElement implements AspectElement {
         else {
             throw new IllegalArgumentException("type '" + s + "' is not supported");
         }
-    }
-
-    public final String getName() {
-        return _name;
-    }
-
-    public final List<String> getPropertyOf() {
-        return _property_of;
-    }
-
-    public final ATTRIBUTE_TYPE getType() {
-        return _type;
-    }
-
-    public final List<String> getValues() {
-        return _values;
     }
 
 }

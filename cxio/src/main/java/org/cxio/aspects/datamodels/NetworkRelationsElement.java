@@ -8,6 +8,13 @@ import java.util.Set;
 
 import org.cxio.core.interfaces.AspectElement;
 
+/**
+ * This is used to represent hierarchical relationship between networks/sub-networks/views.
+ *
+ *
+ * @author cmzmasek
+ *
+ */
 public final class NetworkRelationsElement implements AspectElement {
 
     private enum RELATIONSHIP_TYPE {

@@ -10,7 +10,8 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 
 /**
- *
+ * This class is used to represent a visual property of a
+ * network, node(s), or edge(s) in/under a network view.
  *
  * @author cmzmasek
  *

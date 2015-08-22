@@ -16,7 +16,7 @@ import org.cxio.util.JsonWriter;
  * @author cmzmasek
  *
  */
-public abstract class AbstractAspectFragmentWriter implements AspectFragmentWriter {
+public abstract class AbstractFragmentWriter implements AspectFragmentWriter {
 
     String  _time_stamp         = null;
     boolean _time_stamp_written = false;

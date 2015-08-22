@@ -3,6 +3,14 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class is used to present one attribute of a network.
+ * An attribute consists of a name, value(s), type, and
+ * a(n) identifier(s) of the network(s) the attribute is a property of.
+ *
+ * @author cmzmasek
+ *
+ */
 public final class NetworkAttributesElement extends AbstractAttributesElement {
 
     public final static String NAME = "networkAttributes";

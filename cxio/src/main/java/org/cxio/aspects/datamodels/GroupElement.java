@@ -6,6 +6,13 @@ import java.util.List;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 
+/**
+ * This class is used to represent a group of nodes in network.
+ *
+ *
+ * @author cmzmasek
+ *
+ */
 public final class GroupElement implements AspectElement {
 
     public final static String GROUP_NODE     = "group_node";

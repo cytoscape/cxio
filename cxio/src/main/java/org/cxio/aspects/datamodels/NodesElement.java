@@ -4,8 +4,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxConstants;
 
 /**
- * This is used to represent a Cytoscape node aspect element.
- *
+ * This is used to represent a node in a network.
  *
  * @author cmzmasek
  *

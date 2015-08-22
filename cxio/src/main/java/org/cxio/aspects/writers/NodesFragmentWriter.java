@@ -6,7 +6,7 @@ import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 
-public class NodesFragmentWriter extends AbstractAspectFragmentWriter {
+public class NodesFragmentWriter extends AbstractFragmentWriter {
 
     public static NodesFragmentWriter createInstance() {
         return new NodesFragmentWriter();

@@ -14,6 +14,7 @@ import com.fasterxml.jackson.core.JsonParser;
  *
  */
 public interface AspectFragmentReader {
+    
     /**
      * This returns the name of the Aspect a AspectFragmentReader can read.
      *
@@ -21,6 +22,12 @@ public interface AspectFragmentReader {
      */
     public String getAspectName();
 
+    
+    /**
+     * This returns the time stamp of the Aspect previously read by this AspectFragmentReader.
+     * 
+     * @return the time stamp of the Aspect previously read
+     */
     public String getTimeStamp();
 
     /**
@@ -28,7 +35,7 @@ public interface AspectFragmentReader {
      * from Jackson Faster XML library
      * http://fasterxml.github.io/jackson-core/javadoc
      * /2.0.0/com/fasterxml/jackson/core/JsonParser.html and returns a list of
-     * AspectElements (a Aspect Fragment).
+     * AspectElements (a aspect fragment).
      *
      * @param jp
      * @return

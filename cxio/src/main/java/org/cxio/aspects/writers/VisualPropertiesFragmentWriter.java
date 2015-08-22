@@ -7,7 +7,7 @@ import org.cxio.aspects.datamodels.VisualPropertiesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 
-public class VisualPropertiesFragmentWriter extends AbstractAspectFragmentWriter {
+public class VisualPropertiesFragmentWriter extends AbstractFragmentWriter {
 
     public static VisualPropertiesFragmentWriter createInstance() {
         return new VisualPropertiesFragmentWriter();

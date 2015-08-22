@@ -6,7 +6,7 @@ import org.cxio.aspects.datamodels.GroupElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 
-public class GroupFragmentWriter extends AbstractAspectFragmentWriter {
+public class GroupFragmentWriter extends AbstractFragmentWriter {
 
     public static GroupFragmentWriter createInstance() {
         return new GroupFragmentWriter();

@@ -38,58 +38,155 @@ public final class CxReader {
     private JsonToken                                   _token;
     private boolean                                     _was_in_recognized_aspect;
 
-    private final static void checkInputType(final Object input) {
-        if (!(input instanceof File) && !(input instanceof InputStream) && !(input instanceof Reader) && !(input instanceof String) && !(input instanceof URL)) {
-            throw new IllegalArgumentException("don't know how to process" + input.getClass());
-        }
-    }
-
+    /**
+     * This creates a new CxReader.
+     *
+     * @param file the File to parse
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @return a CxReader
+     * @throws IOException
+     */
     public final static CxReader createInstance(final File file, final boolean read_anonymous_aspect_fragments) throws IOException {
         return new CxReader(file, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final File file, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
-        return new CxReader(file, aspect_handlers, read_anonymous_aspect_fragments);
+    /**
+     * This creates a new CxReader.
+     *
+     * @param file the File to parse
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @param fragment_readers the set of AspectFragmentReaders to use
+     * @return a CxReader
+     * @throws IOException
+     */
+    public final static CxReader createInstance(final File file, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        return new CxReader(file, fragment_readers, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final File file, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
-        return new CxReader(file, aspect_handlers);
+    /**
+     * This creates a new CxReader.
+     *
+     * @param file the File to parse
+     * @param fragment_readers the set of AspectFragmentReaders to use
+     * @return a CxReader
+     * @throws IOException
+     */
+    public final static CxReader createInstance(final File file, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        return new CxReader(file, fragment_readers);
     }
 
+    /**
+     * This creates a new CxReader.
+     *
+     * @param input_stream the InputStream to parse
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @return a CxReader
+     * @throws IOException
+     */
     public final static CxReader createInstance(final InputStream input_stream, final boolean read_anonymous_aspect_fragments) throws IOException {
         return new CxReader(input_stream, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final InputStream input_stream, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
-        return new CxReader(input_stream, aspect_handlers, read_anonymous_aspect_fragments);
+    /**
+     * This creates a new CxReader.
+     *
+     * @param input_stream the InputStream to parse
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @param fragment_readers the set of AspectFragmentReaders to use
+     * @return a CxReader
+     * @throws IOException
+     */
+    public final static CxReader createInstance(final InputStream input_stream, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        return new CxReader(input_stream, fragment_readers, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final InputStream input_stream, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
-        return new CxReader(input_stream, aspect_handlers);
+    /**
+     * This creates a new CxReader.
+     *
+     * @param input_stream the InputStream to parse
+     * @param fragment_readers the set of AspectFragmentReaders to use
+     * @return a CxReader
+     * @throws IOException
+     */
+    public final static CxReader createInstance(final InputStream input_stream, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        return new CxReader(input_stream, fragment_readers);
     }
 
+    /**
+     * This creates a new CxReader.
+     *
+     *
+     * @param string the String to parse
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @return a CxReader
+     * @throws IOException
+     */
     public final static CxReader createInstance(final String string, final boolean read_anonymous_aspect_fragments) throws IOException {
         return new CxReader(string, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final String string, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
-        return new CxReader(string, aspect_handlers, read_anonymous_aspect_fragments);
+    /**
+     * This creates a new CxReader.
+     *
+     *
+     * @param string the String to parse
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @param fragment_readers the set of AspectFragmentReaders to use
+     * @return a CxReader
+     * @throws IOException
+     */
+    public final static CxReader createInstance(final String string, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        return new CxReader(string, fragment_readers, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final String string, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
-        return new CxReader(string, aspect_handlers);
+    /**
+     * This creates a new CxReader.
+     *
+     *
+     * @param string the String to parse
+     * @param fragment_readers the set of AspectFragmentReaders to use
+     * @return a CxReader
+     * @throws IOException
+     */
+    public final static CxReader createInstance(final String string, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        return new CxReader(string, fragment_readers);
     }
 
+    /**
+     * This creates a new CxReader.
+     *
+     * @param url the URL to parse from
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @return a CxReader
+     * @throws IOException
+     */
     public final static CxReader createInstance(final URL url, final boolean read_anonymous_aspect_fragments) throws IOException {
         return new CxReader(url, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final URL url, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
-        return new CxReader(url, aspect_handlers, read_anonymous_aspect_fragments);
+    /**
+     * This creates a new CxReader.
+     *
+     * @param url the URL to parse from
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @param fragment_readers the set of AspectFragmentReaders to use
+     * @return a CxReader
+     * @throws IOException
+     */
+    public final static CxReader createInstance(final URL url, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        return new CxReader(url, fragment_readers, read_anonymous_aspect_fragments);
     }
 
-    public final static CxReader createInstance(final URL url, final Set<AspectFragmentReader> aspect_handlers) throws IOException {
-        return new CxReader(url, aspect_handlers);
+    /**
+     * This creates a new CxReader.
+     *
+     * @param url the URL to parse from
+     * @param fragment_readers the set of AspectFragmentReaders to use
+     * @return a CxReader
+     * @throws IOException
+     */
+    public final static CxReader createInstance(final URL url, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        return new CxReader(url, fragment_readers);
     }
 
     private final static JsonParser createJsonParser(final Object input) throws IOException {
@@ -273,8 +370,9 @@ public final class CxReader {
     }
 
     /**
-     * This attempts to reset the iterator. ONLY works when the input is a
-     * String.
+     * This attempts to reset the iterator.
+     * <br>
+     * ONLY works when the input is based on a String.
      *
      * @throws IOException
      */
@@ -297,6 +395,12 @@ public final class CxReader {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
         getNext();
+    }
+
+    private final static void checkInputType(final Object input) {
+        if (!(input instanceof File) && !(input instanceof InputStream) && !(input instanceof Reader) && !(input instanceof String) && !(input instanceof URL)) {
+            throw new IllegalArgumentException("don't know how to process" + input.getClass());
+        }
     }
 
 }

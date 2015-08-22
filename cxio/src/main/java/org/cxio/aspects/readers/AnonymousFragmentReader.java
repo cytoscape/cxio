@@ -12,6 +12,12 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+/**
+ *  This is for parsing "anonymous", general aspect element fragments.
+ *
+ * @author cmzmasek
+ *
+ */
 public final class AnonymousFragmentReader extends AbstractFragmentReader {
 
     private boolean _is_list;

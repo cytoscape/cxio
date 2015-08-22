@@ -5,6 +5,14 @@ import java.util.List;
 
 import org.cxio.core.interfaces.AspectElement;
 
+/**
+ * This class is used to represent the nodes and edges which make
+ * up a sub-network.
+ *
+ *
+ * @author cmzmasek
+ *
+ */
 public final class SubNetworkElement implements AspectElement {
 
     public final static String NAME         = "subNetworks";

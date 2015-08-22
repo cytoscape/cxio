@@ -6,7 +6,7 @@ import org.cxio.aspects.datamodels.SubNetworkElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 
-public class SubNetworkFragmentWriter extends AbstractAspectFragmentWriter {
+public class SubNetworkFragmentWriter extends AbstractFragmentWriter {
 
     public static SubNetworkFragmentWriter createInstance() {
         return new SubNetworkFragmentWriter();

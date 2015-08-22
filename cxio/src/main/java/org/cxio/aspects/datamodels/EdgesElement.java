@@ -4,7 +4,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxConstants;
 
 /**
- * This class is used to represent a Cytoscape edge aspect element.
+ * This class is used to represent a edge in a network.
  *
  *
  * @author cmzmasek

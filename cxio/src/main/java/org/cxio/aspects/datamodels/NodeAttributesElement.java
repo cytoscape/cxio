@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class is used to represent a Cytoscape node attribute aspect element.
- *
+ * This class is used to present one attribute of a network node.
+ * An attribute consists of a name, value(s), type, and
+ * a(n) identifier(s) of the node(s) the attribute is a property of.
  *
  * @author cmzmasek
  *

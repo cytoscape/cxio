@@ -12,6 +12,12 @@ import com.fasterxml.jackson.core.JsonToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+/**
+ * This abstract class is for simplifying the implementation of AspectFragmentReaders.
+ *
+ * @author cmzmasek
+ *
+ */
 public abstract class AbstractFragmentReader implements AspectFragmentReader {
 
     protected ObjectMapper _m          = null;
@@ -21,11 +27,19 @@ public abstract class AbstractFragmentReader implements AspectFragmentReader {
         _m = new ObjectMapper();
     }
 
+    /**
+     * Returns the time stamp of the aspect.
+     *
+     */
     @Override
     public String getTimeStamp() {
         return _time_stamp;
     }
 
+    /**
+     * This uses method readElement to parse an entire Json array into a list of AspectElements.
+     *
+     */
     @Override
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
         JsonToken t = jp.nextToken();
@@ -57,5 +71,13 @@ public abstract class AbstractFragmentReader implements AspectFragmentReader {
         return elements;
     }
 
+    /**
+     * This is used for parsing one AspectElement from a ObjectNode.
+     *
+     *
+     * @param o the ObjectNode to be parsed
+     * @return an AspectElement
+     * @throws IOException
+     */
     protected abstract AspectElement readElement(final ObjectNode o) throws IOException;
 }

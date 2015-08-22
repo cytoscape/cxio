@@ -9,7 +9,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.filters.AspectKeyFilter;
 import org.cxio.util.JsonWriter;
 
-public class EdgeAttributesFragmentWriter extends AbstractAspectFragmentWriter {
+public class EdgeAttributesFragmentWriter extends AbstractFragmentWriter {
 
     private AspectKeyFilter _filter;
 

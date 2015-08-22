@@ -7,7 +7,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 import org.cxio.util.Util;
 
-public class EdgesFragmentWriter extends AbstractAspectFragmentWriter {
+public class EdgesFragmentWriter extends AbstractFragmentWriter {
 
     public static EdgesFragmentWriter createInstance() {
         return new EdgesFragmentWriter();

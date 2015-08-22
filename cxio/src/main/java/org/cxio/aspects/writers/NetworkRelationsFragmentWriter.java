@@ -6,7 +6,7 @@ import org.cxio.aspects.datamodels.NetworkRelationsElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 
-public class NetworkRelationsFragmentWriter extends AbstractAspectFragmentWriter {
+public class NetworkRelationsFragmentWriter extends AbstractFragmentWriter {
 
     public static NetworkRelationsFragmentWriter createInstance() {
         return new NetworkRelationsFragmentWriter();

@@ -4,7 +4,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 
 /**
- * This class is used to represent a Cytoscape layout aspect element.
+ * This class is used to represent the position of a network node in x, y, z coordinates.
  *
  * @author cmzmasek
  *

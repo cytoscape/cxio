@@ -23,7 +23,6 @@ import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
 
 public class Examples {
 
@@ -90,7 +89,7 @@ public class Examples {
         // -------------
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, Util.getCurrentDate());
+        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true);
 
         w.start();
         w.writeAspectElements(edges_elements);
@@ -127,7 +126,6 @@ public class Examples {
                 }
             }
         }
-        System.out.println("edges time stamp: " + er.getTimeStamp());
     }
 
 }

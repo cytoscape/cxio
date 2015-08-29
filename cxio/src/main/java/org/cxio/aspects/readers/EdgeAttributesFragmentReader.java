@@ -30,7 +30,8 @@ public final class EdgeAttributesFragmentReader extends AbstractFragmentReader {
         if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
             type = AbstractAttributesElement.toType(ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
         }
-        return new EdgeAttributesElement(ParserUtils.getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROPERTY_OF),
+        return new EdgeAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesElement.ATTR_SUBNETWORK),
+                                         ParserUtils.getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROPERTY_OF),
                                          ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
                                          ParserUtils.getAsStringList(o, AbstractAttributesElement.ATTR_VALUES),
                                          type);

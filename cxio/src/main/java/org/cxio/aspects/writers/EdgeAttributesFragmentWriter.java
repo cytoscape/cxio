@@ -17,12 +17,6 @@ public class EdgeAttributesFragmentWriter extends AbstractFragmentWriter {
         return new EdgeAttributesFragmentWriter();
     }
 
-    public static EdgeAttributesFragmentWriter createInstance(final String time_stamp) {
-        final EdgeAttributesFragmentWriter w = new EdgeAttributesFragmentWriter();
-        w.setTimeStamp(time_stamp);
-        return w;
-    }
-
     private EdgeAttributesFragmentWriter() {
         _filter = null;
     }
@@ -32,6 +26,7 @@ public class EdgeAttributesFragmentWriter extends AbstractFragmentWriter {
         final EdgeAttributesElement ea = (EdgeAttributesElement) element;
         if ((ea.getValues() != null) && (!ea.getValues().isEmpty()) && ((_filter == null) || _filter.isPass(ea.getName()))) {
             w.writeStartObject();
+            w.writeStringFieldIfNotEmpty(AbstractAttributesElement.ATTR_SUBNETWORK, ea.getSubnetwork());
             if (ea.getPropertyOf().size() == 1) {
                 w.writeStringField(AbstractAttributesElement.ATTR_PROPERTY_OF, ea.getPropertyOf().get(0));
             }

@@ -12,12 +12,6 @@ public class NetworkRelationsFragmentWriter extends AbstractFragmentWriter {
         return new NetworkRelationsFragmentWriter();
     }
 
-    public static NetworkRelationsFragmentWriter createInstance(final String time_stamp) {
-        final NetworkRelationsFragmentWriter w = new NetworkRelationsFragmentWriter();
-        w.setTimeStamp(time_stamp);
-        return w;
-    }
-
     private NetworkRelationsFragmentWriter() {
     }
 

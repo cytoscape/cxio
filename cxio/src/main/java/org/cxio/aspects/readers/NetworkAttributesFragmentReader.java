@@ -30,7 +30,7 @@ public final class NetworkAttributesFragmentReader extends AbstractFragmentReade
         if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
             type = AbstractAttributesElement.toType(ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
         }
-        return new NetworkAttributesElement(ParserUtils.getAsStringListRequired(o, AbstractAttributesElement.ATTR_PROPERTY_OF),
+        return new NetworkAttributesElement(ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_SUBNETWORK),
                                             ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
                                             ParserUtils.getAsStringList(o, AbstractAttributesElement.ATTR_VALUES),
                                             type);

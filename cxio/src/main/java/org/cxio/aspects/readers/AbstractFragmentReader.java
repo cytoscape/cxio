@@ -20,20 +20,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public abstract class AbstractFragmentReader implements AspectFragmentReader {
 
-    protected ObjectMapper _m          = null;
-    protected String       _time_stamp = null;
+    protected ObjectMapper _m = null;
 
     protected AbstractFragmentReader() {
         _m = new ObjectMapper();
-    }
-
-    /**
-     * Returns the time stamp of the aspect.
-     *
-     */
-    @Override
-    public String getTimeStamp() {
-        return _time_stamp;
     }
 
     /**
@@ -53,17 +43,9 @@ public abstract class AbstractFragmentReader implements AspectFragmentReader {
                 if (o == null) {
                     throw new IOException("malformed cx json in '" + getAspectName() + "'");
                 }
-                if ((_time_stamp == null) && ParserUtils.isTimeStamp(o)) {
-                    _time_stamp = ParserUtils.getTimeStampValue(o);
-                }
-                else if (ParserUtils.isTimeStamp(o)) {
-                    throw new IOException("multiple time stamps in '" + getAspectName() + "'");
-                }
-                else {
-                    final AspectElement e = readElement(o);
-                    if (e != null) {
-                        elements.add(e);
-                    }
+                final AspectElement e = readElement(o);
+                if (e != null) {
+                    elements.add(e);
                 }
             }
             t = jp.nextToken();

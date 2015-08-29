@@ -43,7 +43,6 @@ public class NodesFragmentWriterTest {
         final CxWriter w1 = CxWriter.createInstance(out1, false);
 
         final NodesFragmentWriter nfw = NodesFragmentWriter.createInstance();
-        nfw.setTimeStamp("123");
 
         w1.addAspectFragmentWriter(nfw);
 

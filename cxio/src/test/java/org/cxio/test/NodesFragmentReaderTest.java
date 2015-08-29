@@ -74,19 +74,7 @@ public class NodesFragmentReaderTest {
 
     }
 
-    @Test
-    public void testTimeStamp() throws IOException {
-        final String t0 = "[{\"nodes\":[{\"time_stamp\":\"1234\"},{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]}]";
-
-        final NodesFragmentReader nfr = NodesFragmentReader.createInstance();
-        final Set<AspectFragmentReader> readers = new HashSet<>();
-        readers.add(nfr);
-        final CxReader p = CxReader.createInstance(t0, readers);
-        CxReader.parseAsMap(p);
-
-        assertTrue(nfr.getTimeStamp().equals("1234"));
-
-    }
+  
 
     @Test
     public void testNodeAspectParsingWithNoNodeAspectPresent() throws IOException {

@@ -13,12 +13,6 @@ public class VisualPropertiesFragmentWriter extends AbstractFragmentWriter {
         return new VisualPropertiesFragmentWriter();
     }
 
-    public static VisualPropertiesFragmentWriter createInstance(final String time_stamp) {
-        final VisualPropertiesFragmentWriter w = new VisualPropertiesFragmentWriter();
-        w.setTimeStamp(time_stamp);
-        return w;
-    }
-
     private VisualPropertiesFragmentWriter() {
     }
 

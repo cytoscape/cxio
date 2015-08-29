@@ -3,6 +3,8 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cxio.util.Util;
+
 /**
  * This class is used to present one attribute of a network.
  * An attribute consists of a name, value(s), type, and
@@ -15,35 +17,56 @@ public final class NetworkAttributesElement extends AbstractAttributesElement {
 
     public final static String NAME = "networkAttributes";
 
-    public NetworkAttributesElement(final List<String> property_of, final String name, final List<String> values) {
-        _property_of = property_of;
+    public NetworkAttributesElement(final String subnetwork, final String name, final List<String> values) {
+        _subnetwork = subnetwork;
+        _property_of = null;
         _name = name;
         _values = values;
         _type = ATTRIBUTE_TYPE.STRING;
     }
 
-    public NetworkAttributesElement(final List<String> property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
-        _property_of = property_of;
+    public NetworkAttributesElement(final String subnetwork, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
+        _subnetwork = subnetwork;
+        _property_of = null;
         _name = name;
         _values = values;
         _type = type;
     }
 
-    public NetworkAttributesElement(final String property_of, final String name, final String value, final ATTRIBUTE_TYPE type) {
-        _property_of = new ArrayList<String>();
-        _property_of.add(property_of);
+    public NetworkAttributesElement(final String subnetwork, final String name, final String value, final ATTRIBUTE_TYPE type) {
+        _subnetwork = subnetwork;
+        _property_of = null;
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
         _type = type;
     }
 
-    public NetworkAttributesElement(final String property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
-        _property_of = new ArrayList<String>();
-        _property_of.add(property_of);
+    public NetworkAttributesElement(final String subnetwork, final String name, final String value) {
+        _subnetwork = subnetwork;
+        _property_of = null;
         _name = name;
-        _values = values;
-        _type = type;
+        _values = new ArrayList<String>();
+        _values.add(value);
+        _type = ATTRIBUTE_TYPE.STRING;
+    }
+
+    public NetworkAttributesElement(final String subnetwork, final String name, final Object value) {
+        _subnetwork = subnetwork;
+        _property_of = null;
+        _name = name;
+        _values = new ArrayList<String>();
+        _type = determineType(value);
+        _values.add(String.valueOf(value));
+    }
+
+    public NetworkAttributesElement(final String name, final Object value) {
+        _subnetwork = null;
+        _property_of = null;
+        _name = name;
+        _values = new ArrayList<String>();
+        _type = determineType(value);
+        _values.add(String.valueOf(value));
     }
 
     @Override
@@ -52,20 +75,29 @@ public final class NetworkAttributesElement extends AbstractAttributesElement {
     }
 
     @Override
+    public final List<String> getPropertyOf() {
+        throw new NoSuchMethodError("network attributes do not have a property-of data field");
+    }
+
+    @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("property of networks: ");
-        sb.append(_property_of);
+        if (Util.isEmpty(_subnetwork)) {
+            sb.append("property of network");
+        }
+        else {
+            sb.append("property of network: ");
+            sb.append(_subnetwork);
+        }
         sb.append("\n");
-        sb.append("name : ");
+        sb.append("name               : ");
         sb.append(_name);
         sb.append("\n");
-        sb.append("values: ");
+        sb.append("values             : ");
         sb.append(_values);
         sb.append("\n");
-        sb.append("type : ");
+        sb.append("type               : ");
         sb.append(_type.toString());
-        sb.append("\n");
         return sb.toString();
     }
 

@@ -12,12 +12,6 @@ public class SubNetworkFragmentWriter extends AbstractFragmentWriter {
         return new SubNetworkFragmentWriter();
     }
 
-    public static SubNetworkFragmentWriter createInstance(final String time_stamp) {
-        final SubNetworkFragmentWriter w = new SubNetworkFragmentWriter();
-        w.setTimeStamp(time_stamp);
-        return w;
-    }
-
     private SubNetworkFragmentWriter() {
     }
 

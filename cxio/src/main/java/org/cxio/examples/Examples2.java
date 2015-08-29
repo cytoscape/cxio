@@ -18,7 +18,6 @@ import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -139,7 +138,7 @@ public class Examples2 {
 
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, true, Util.getCurrentDate());
+        final CxWriter w = CxWriter.createInstance(out, true);
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w.start();

@@ -12,12 +12,6 @@ public class NodesFragmentWriter extends AbstractFragmentWriter {
         return new NodesFragmentWriter();
     }
 
-    public static NodesFragmentWriter createInstance(final String time_stamp) {
-        final NodesFragmentWriter w = new NodesFragmentWriter();
-        w.setTimeStamp(time_stamp);
-        return w;
-    }
-
     private NodesFragmentWriter() {
     }
 

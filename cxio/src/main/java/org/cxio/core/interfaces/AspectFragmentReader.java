@@ -14,21 +14,13 @@ import com.fasterxml.jackson.core.JsonParser;
  *
  */
 public interface AspectFragmentReader {
-    
+
     /**
      * This returns the name of the Aspect a AspectFragmentReader can read.
      *
      * @return the name of the Aspect this AspectFragmentReader can read
      */
     public String getAspectName();
-
-    
-    /**
-     * This returns the time stamp of the Aspect previously read by this AspectFragmentReader.
-     * 
-     * @return the time stamp of the Aspect previously read
-     */
-    public String getTimeStamp();
 
     /**
      * This is the main method of AspectFragmentReaders. It takes a JsonParser

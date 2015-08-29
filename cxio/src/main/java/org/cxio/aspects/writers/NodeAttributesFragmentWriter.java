@@ -17,12 +17,6 @@ public class NodeAttributesFragmentWriter extends AbstractFragmentWriter {
         return new NodeAttributesFragmentWriter();
     }
 
-    public static NodeAttributesFragmentWriter createInstance(final String time_stamp) {
-        final NodeAttributesFragmentWriter w = new NodeAttributesFragmentWriter();
-        w.setTimeStamp(time_stamp);
-        return w;
-    }
-
     private NodeAttributesFragmentWriter() {
         _filter = null;
     }

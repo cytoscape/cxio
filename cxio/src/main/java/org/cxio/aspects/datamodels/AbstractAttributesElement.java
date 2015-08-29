@@ -18,7 +18,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      *
      */
     public enum ATTRIBUTE_TYPE {
-        BOOLEAN("boolean"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING("string");
+        BOOLEAN("boolean"), BYTE("byte"), CHAR("char"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING("string");
 
         private final String _name;
 
@@ -32,13 +32,24 @@ public abstract class AbstractAttributesElement implements AspectElement {
         }
     }
 
+    /** The name of this attribute. */
     public final static String ATTR_NAME        = "n";
+
+    /** The node or edge this attribute is a property of. */
     public final static String ATTR_PROPERTY_OF = "po";
+
+    /** The subnetwork this attribute belongs to. */
+    public final static String ATTR_SUBNETWORK  = "s";
+
+    /** The type of this attribute (either atomic or list). */
     public final static String ATTR_TYPE        = "t";
+
+    /** The value(s) of this attribute. */
     public final static String ATTR_VALUES      = "v";
 
     String                     _name;
     List<String>               _property_of;
+    String                     _subnetwork;
     ATTRIBUTE_TYPE             _type;
     List<String>               _values;
 
@@ -54,11 +65,19 @@ public abstract class AbstractAttributesElement implements AspectElement {
     /**
      * This returns a list of identifiers of the elements this attribute is a property of.
      *
-     *
      * @return a list of identifiers of the elements this attribute is a property o
      */
-    public final List<String> getPropertyOf() {
+    public List<String> getPropertyOf() {
         return _property_of;
+    }
+
+    /**
+     * This returns the identifier of the subnetwork this attribute belongs to.
+     *
+     * @return the identifier of the subnetwork this attribute belongs to
+     */
+    public final String getSubnetwork() {
+        return _subnetwork;
     }
 
     /**
@@ -73,7 +92,6 @@ public abstract class AbstractAttributesElement implements AspectElement {
 
     /**
      * This returns the values of the attribute as list of Strings.
-     *
      *
      * @return the values of the attribute as list of Strings
      */
@@ -110,6 +128,12 @@ public abstract class AbstractAttributesElement implements AspectElement {
         else if (o instanceof Short) {
             return ATTRIBUTE_TYPE.SHORT;
         }
+        else if (o instanceof Byte) {
+            return ATTRIBUTE_TYPE.BYTE;
+        }
+        else if (o instanceof Character) {
+            return ATTRIBUTE_TYPE.CHAR;
+        }
         else {
             throw new IllegalArgumentException("type '" + o.getClass() + "' is not supported");
         }
@@ -144,9 +168,14 @@ public abstract class AbstractAttributesElement implements AspectElement {
         else if (s.equals(ATTRIBUTE_TYPE.SHORT.toString())) {
             return ATTRIBUTE_TYPE.SHORT;
         }
+        else if (s.equals(ATTRIBUTE_TYPE.BYTE.toString())) {
+            return ATTRIBUTE_TYPE.BYTE;
+        }
+        else if (s.equals(ATTRIBUTE_TYPE.CHAR.toString())) {
+            return ATTRIBUTE_TYPE.CHAR;
+        }
         else {
             throw new IllegalArgumentException("type '" + s + "' is not supported");
         }
     }
-
 }

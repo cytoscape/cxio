@@ -34,7 +34,7 @@ public final class ParserUtils {
                 elements.add(jp.getText());
             }
             else if (t != JsonToken.START_OBJECT) {
-                throw new IOException("malformed cx json, expected " + JsonToken.START_OBJECT + ", got " + t);
+                throw new IOException("malformed cx json, expected '" + JsonToken.START_OBJECT + "', got '" + t + "'");
             }
             t = jp.nextToken();
         }
@@ -67,7 +67,7 @@ public final class ParserUtils {
             }
         }
         if (l.isEmpty()) {
-            throw new IOException("malformed CX json: list '" + label + "' is missing or empty");
+            throw new IOException("malformed CX json: list '" + label + "' is missing or empty in " + o.toString());
         }
         return l;
     }
@@ -75,7 +75,7 @@ public final class ParserUtils {
     public final static List<String> getAsStringListRequired(final ObjectNode o, final String label) throws IOException {
         final List<String> l = ParserUtils.getAsStringList(o, label);
         if (l.isEmpty()) {
-            throw new IOException("malformed CX json: list '" + label + "' is missing or empty");
+            throw new IOException("malformed CX json: list '" + label + "' is missing or empty in " + o.toString());
         }
         return l;
     }
@@ -112,7 +112,7 @@ public final class ParserUtils {
             s = o.get(label).asText();
         }
         if (Util.isEmpty(s)) {
-            throw new IOException("malformed CX json: " + label + " is missing");
+            throw new IOException("malformed CX json: element '" + label + "' is missing in " + o.toString());
         }
         return s;
     }

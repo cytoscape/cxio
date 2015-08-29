@@ -12,12 +12,6 @@ public class GroupFragmentWriter extends AbstractFragmentWriter {
         return new GroupFragmentWriter();
     }
 
-    public static GroupFragmentWriter createInstance(final String time_stamp) {
-        final GroupFragmentWriter w = new GroupFragmentWriter();
-        w.setTimeStamp(time_stamp);
-        return w;
-    }
-
     private GroupFragmentWriter() {
     }
 

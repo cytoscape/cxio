@@ -3,7 +3,6 @@ package org.cxio.util;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -50,8 +49,6 @@ import org.cxio.core.interfaces.AspectFragmentWriter;
 
 public final class Util {
 
-    private final static DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy/MM/dd/HH/mm/ss.SSS");
-
     final public static boolean isEmpty(final String s) {
         return (s == null) || (s.length() < 1);
     }
@@ -59,7 +56,7 @@ public final class Util {
     public final static String writeAspectElementsToString(final ArrayList<AspectElement> elements, final boolean use_default_pretty_printer) throws IOException {
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters(null));
+        final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters());
 
         w.start();
         w.writeAspectElements(elements);
@@ -72,17 +69,13 @@ public final class Util {
         return new SimpleDateFormat(format).format(new Date());
     }
 
-    public final static String getCurrentDate() {
-        return DATE_FORMAT.format(new Date());
-    }
-
     public final static String writeAspectElementsToString(final String cx_string, final boolean use_default_pretty_printer) throws IOException {
         final CxReader p = CxReader.createInstance(cx_string, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(p);
 
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters(null));
+        final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters());
         w.start();
         w.writeAspectElements(res.get(NodesElement.NAME));
         w.writeAspectElements(res.get(EdgesElement.NAME));
@@ -127,17 +120,17 @@ public final class Util {
         return aspect_readers;
     }
 
-    public final static Set<AspectFragmentWriter> getAllAvailableAspectFragmentWriters(final String time_stamp) {
-        final AspectFragmentWriter node_writer = NodesFragmentWriter.createInstance(time_stamp);
-        final AspectFragmentWriter edge_writer = EdgesFragmentWriter.createInstance(time_stamp);
-        final AspectFragmentWriter cartesian_layout_writer = CartesianLayoutFragmentWriter.createInstance(time_stamp);
-        final AspectFragmentWriter network_attributes_writer = NetworkAttributesFragmentWriter.createInstance(time_stamp);
-        final AspectFragmentWriter edge_attributes_writer = EdgeAttributesFragmentWriter.createInstance(time_stamp);
-        final AspectFragmentWriter node_attributes_writer = NodeAttributesFragmentWriter.createInstance(time_stamp);
-        final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance(time_stamp);
-        final AspectFragmentWriter group_writer = GroupFragmentWriter.createInstance(time_stamp);
-        final AspectFragmentWriter subnetwork_writer = SubNetworkFragmentWriter.createInstance(time_stamp);
-        final AspectFragmentWriter network_rel_writer = NetworkRelationsFragmentWriter.createInstance(time_stamp);
+    public final static Set<AspectFragmentWriter> getAllAvailableAspectFragmentWriters() {
+        final AspectFragmentWriter node_writer = NodesFragmentWriter.createInstance();
+        final AspectFragmentWriter edge_writer = EdgesFragmentWriter.createInstance();
+        final AspectFragmentWriter cartesian_layout_writer = CartesianLayoutFragmentWriter.createInstance();
+        final AspectFragmentWriter network_attributes_writer = NetworkAttributesFragmentWriter.createInstance();
+        final AspectFragmentWriter edge_attributes_writer = EdgeAttributesFragmentWriter.createInstance();
+        final AspectFragmentWriter node_attributes_writer = NodeAttributesFragmentWriter.createInstance();
+        final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance();
+        final AspectFragmentWriter group_writer = GroupFragmentWriter.createInstance();
+        final AspectFragmentWriter subnetwork_writer = SubNetworkFragmentWriter.createInstance();
+        final AspectFragmentWriter network_rel_writer = NetworkRelationsFragmentWriter.createInstance();
 
         final Set<AspectFragmentWriter> aspect_writers = new HashSet<AspectFragmentWriter>();
         aspect_writers.add(node_writer);

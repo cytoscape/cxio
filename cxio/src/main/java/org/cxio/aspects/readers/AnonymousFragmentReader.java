@@ -76,11 +76,6 @@ public final class AnonymousFragmentReader extends AbstractFragmentReader {
     }
 
     @Override
-    public String getTimeStamp() {
-        throw new NoSuchMethodError();
-    }
-
-    @Override
     public final AspectElement readElement(final ObjectNode o) throws IOException {
         // Not used.
         return null;

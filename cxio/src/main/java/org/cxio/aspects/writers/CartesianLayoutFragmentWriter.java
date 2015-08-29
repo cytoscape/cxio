@@ -12,12 +12,6 @@ public class CartesianLayoutFragmentWriter extends AbstractFragmentWriter {
         return new CartesianLayoutFragmentWriter();
     }
 
-    public static CartesianLayoutFragmentWriter createInstance(final String time_stamp) {
-        final CartesianLayoutFragmentWriter w = new CartesianLayoutFragmentWriter();
-        w.setTimeStamp(time_stamp);
-        return w;
-    }
-
     private CartesianLayoutFragmentWriter() {
     }
 

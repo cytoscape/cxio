@@ -12,7 +12,6 @@ import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
-import org.cxio.aspects.writers.WriterUtils;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.util.JsonWriter;
@@ -30,10 +29,8 @@ public class CxWriter {
 
     private final JsonWriter                        _jw;
     private boolean                                 _started;
-    private final String                            _time_stamp;
     private boolean                                 _fragment_started;
     private final Map<String, AspectFragmentWriter> _writers;
-    private final Map<String, String>               _aspect_name_to_time_stamp_map;
 
     /**
      * Returns a CxWriter for reading from OutputStream out.
@@ -67,22 +64,6 @@ public class CxWriter {
     /**
      * Returns a CxWriter for reading from OutputStream out.
      * <br>
-     * Subsequent calls to method {@link #addAspectFragmentWriter(AspectFragmentWriter writer)} are
-     * required to add {@link org.cxio.core.interfaces.AspectFragmentWriter} to the newly created CxWriter.
-     *
-     * @param out the OutputStream to read
-     * @param use_default_pretty_printer to turn pretty printing on/off
-     * @param time_stamp the default time stamp used by all AspectFragmentWriters
-     * @return a CxWriter writer
-     * @throws IOException
-     */
-    public final static CxWriter createInstance(final OutputStream out, final boolean use_default_pretty_printer, final String time_stamp) throws IOException {
-        return new CxWriter(out, use_default_pretty_printer, time_stamp);
-    }
-
-    /**
-     * Returns a CxWriter for reading from OutputStream out.
-     * <br>
      *
      * @param out the OutputStream to read
      * @param use_default_pretty_printer to turn pretty printing on/off
@@ -95,26 +76,6 @@ public class CxWriter {
         for (final AspectFragmentWriter aspect_writer : aspect_writers) {
             w.addAspectFragmentWriter(aspect_writer);
         }
-        return w;
-    }
-
-    /**
-     * Returns a CxWriter for reading from OutputStream out.
-     * <br>
-     * Subsequent calls to method {@link #addAspectFragmentWriter(AspectFragmentWriter writer)} are
-     * required to add {@link org.cxio.core.interfaces.AspectFragmentWriter} to the newly created CxWriter.
-     *
-     * @param out the OutputStream to read
-     * @param use_default_pretty_printer to turn pretty printing on/off
-     * @param time_stamp the default time stamp used by all AspectFragmentWriters
-     * @return a CxWriter writer
-     * @throws IOException
-     */
-    public final static CxWriter createInstanceNEC(final OutputStream out, final boolean use_default_pretty_printer, final String time_stamp) throws IOException {
-        final CxWriter w = new CxWriter(out, use_default_pretty_printer, time_stamp);
-        w.addAspectFragmentWriter(NodesFragmentWriter.createInstance(time_stamp));
-        w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance(time_stamp));
-        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance(time_stamp));
         return w;
     }
 
@@ -132,29 +93,6 @@ public class CxWriter {
         w.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
-        return w;
-    }
-
-    /**
-     * Returns a CxWriter for reading from OutputStream out with AspectFragmentWriters for nodes, edges, and cartesian layout elements
-     * already added.
-     *
-     * @param out the OutputStream to read
-     * @param use_default_pretty_printer to turn pretty printing on/off
-     * @param aspect_writers the (additional) set of {@link org.cxio.core.interfaces.AspectFragmentWriter} to use
-     * @param time_stamp the default time stamp used by all AspectFragmentWriters
-     * @return a CxWriter writer
-     * @throws IOException
-     */
-    public final static CxWriter createInstanceNEC(final OutputStream out, final boolean use_default_pretty_printer, final Set<AspectFragmentWriter> aspect_writers, final String time_stamp)
-            throws IOException {
-        final CxWriter w = new CxWriter(out, use_default_pretty_printer, time_stamp);
-        w.addAspectFragmentWriter(NodesFragmentWriter.createInstance(time_stamp));
-        w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance(time_stamp));
-        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance(time_stamp));
-        for (final AspectFragmentWriter aspect_writer : aspect_writers) {
-            w.addAspectFragmentWriter(aspect_writer);
-        }
         return w;
     }
 
@@ -184,29 +122,12 @@ public class CxWriter {
      *
      * @param out the OutputStream to read
      * @param use_default_pretty_printer to turn pretty printing on/off
-     * @param time_stamp the default time stamp used by all AspectFragmentWriters
-     * @return a CxWriter writer
-     * @throws IOException
-     */
-    public final static CxWriter createInstanceWithAllAvailableWriters(final OutputStream out, final boolean use_default_pretty_printer, final String time_stamp) throws IOException {
-        final CxWriter w = new CxWriter(out, use_default_pretty_printer, time_stamp);
-        for (final AspectFragmentWriter afw : Util.getAllAvailableAspectFragmentWriters(time_stamp)) {
-            w.addAspectFragmentWriter(afw);
-        }
-        return w;
-    }
-
-    /**
-     * Returns a CxWriter for reading from OutputStream out with all AspectFragmentWriters implemented in this library already added.
-     *
-     * @param out the OutputStream to read
-     * @param use_default_pretty_printer to turn pretty printing on/off
      * @return a CxWriter writer
      * @throws IOException
      */
     public final static CxWriter createInstanceWithAllAvailableWriters(final OutputStream out, final boolean use_default_pretty_printer) throws IOException {
         final CxWriter w = new CxWriter(out, use_default_pretty_printer);
-        for (final AspectFragmentWriter afw : Util.getAllAvailableAspectFragmentWriters(null)) {
+        for (final AspectFragmentWriter afw : Util.getAllAvailableAspectFragmentWriters()) {
             w.addAspectFragmentWriter(afw);
         }
         return w;
@@ -230,56 +151,22 @@ public class CxWriter {
 
     /**
      * This method is to be called prior to writing individual aspect elements of a given type/name.
+     * <br>
      *
      * @param aspect_name the name of the aspect elements to be written
      * @throws IOException
      */
     public void startAspectFragment(final String aspect_name) throws IOException {
-        startAspectFragment(aspect_name, null);
-    }
-
-    /**
-     * This method is to be called prior to writing individual aspect elements of a given type/name.
-     * <br>
-     * If the time stamp  argument is not null and not empty it will overwrite any time stamp set in
-     * the createInstance methods.
-     *
-     * @param aspect_name the name of the aspect elements to be written
-     * @param time_stamp the time stamp for the aspect elements to be written
-     * @throws IOException
-     */
-    public void startAspectFragment(final String aspect_name, final String time_stamp) throws IOException {
         if (!_started) {
             throw new IllegalStateException("not started");
         }
         if (_fragment_started) {
             throw new IllegalStateException("fragment already started");
         }
-        boolean have_time_stamp = false;
-        if (!Util.isEmpty(time_stamp)) {
-            have_time_stamp = true;
-            if (_aspect_name_to_time_stamp_map.containsKey(aspect_name)) {
-                final String prev_time_stamp = _aspect_name_to_time_stamp_map.get(aspect_name);
-                if (!Util.isEmpty(prev_time_stamp)) {
-                    if (prev_time_stamp.equals(time_stamp)) {
-                        have_time_stamp = false;
-                    }
-                    else {
-                        throw new IllegalStateException("illegal attempt to set multiple, different time stamps for aspect '" + aspect_name + "': '" + prev_time_stamp + "', '" + time_stamp + "'");
-                    }
-                }
-            }
-        }
+
         _fragment_started = true;
         _jw.startArray(aspect_name);
-        if (have_time_stamp) {
-            WriterUtils.writeTimeStamp(time_stamp, _jw);
-            _aspect_name_to_time_stamp_map.put(aspect_name, time_stamp);
-        }
-        else if (!Util.isEmpty(_time_stamp) && !_aspect_name_to_time_stamp_map.containsKey(aspect_name)) {
-            WriterUtils.writeTimeStamp(_time_stamp, _jw);
-            _aspect_name_to_time_stamp_map.put(aspect_name, _time_stamp);
-        }
+
     }
 
     /**
@@ -347,9 +234,6 @@ public class CxWriter {
         }
         if (_writers.containsKey(elements.get(0).getAspectName())) {
             final AspectFragmentWriter writer = _writers.get(elements.get(0).getAspectName());
-            if (!Util.isEmpty(_time_stamp) && Util.isEmpty(writer.getTimeStamp())) {
-                writer.setTimeStamp(_time_stamp);
-            }
             writer.write(elements, _jw);
         }
     }
@@ -370,9 +254,6 @@ public class CxWriter {
         }
         if ((elements == null) || elements.isEmpty()) {
             return;
-        }
-        if (!Util.isEmpty(_time_stamp) && Util.isEmpty(writer.getTimeStamp())) {
-            writer.setTimeStamp(_time_stamp);
         }
         writer.write(elements, _jw);
     }
@@ -504,27 +385,8 @@ public class CxWriter {
         }
         _writers = new HashMap<String, AspectFragmentWriter>();
         _jw = JsonWriter.createInstance(out, use_default_pretty_printer);
-        _time_stamp = null;
         _started = false;
         _fragment_started = false;
-        _aspect_name_to_time_stamp_map = new HashMap<String, String>();
-    }
-
-    private CxWriter(final OutputStream out, final boolean use_default_pretty_printer, final String time_stamp) throws IOException {
-        if (out == null) {
-            throw new IllegalArgumentException("output stream is null");
-        }
-        _writers = new HashMap<String, AspectFragmentWriter>();
-        _jw = JsonWriter.createInstance(out, use_default_pretty_printer);
-        if (!Util.isEmpty(time_stamp)) {
-            _time_stamp = time_stamp;
-        }
-        else {
-            _time_stamp = null;
-        }
-        _started = false;
-        _fragment_started = false;
-        _aspect_name_to_time_stamp_map = new HashMap<String, String>();
     }
 
 }

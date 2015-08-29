@@ -18,25 +18,9 @@ import org.cxio.util.JsonWriter;
  */
 public abstract class AbstractFragmentWriter implements AspectFragmentWriter {
 
-    String  _time_stamp         = null;
-    boolean _time_stamp_written = false;
-
     @Override
     public void addAspectKeyFilter(final AspectKeyFilter filter) {
         throw new UnsupportedOperationException("this writer does not implement aspect key filtering");
-    }
-
-    @Override
-    public void setTimeStamp(final String time_stamp) {
-        if ((_time_stamp != null) && !_time_stamp.equals(time_stamp)) {
-            throw new IllegalStateException("illegal attempt to change the time stamp of a fragment writer");
-        }
-        _time_stamp = time_stamp;
-    }
-
-    @Override
-    public String getTimeStamp() {
-        return _time_stamp;
     }
 
     @Override
@@ -45,11 +29,6 @@ public abstract class AbstractFragmentWriter implements AspectFragmentWriter {
             return;
         }
         w.startArray(getAspectName());
-        if (!_time_stamp_written) {
-            WriterUtils.writeTimeStamp(_time_stamp, w);
-            _time_stamp_written = true; // To prevent written the time stamp in
-            // multiple fragments of the same type.
-        }
         for (final AspectElement aspect_element : aspect_elements) {
             writeElement(aspect_element, w);
         }

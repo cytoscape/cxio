@@ -22,6 +22,7 @@ public final class CartesianLayoutElement implements AspectElement {
     private final double       _x;
     private final double       _y;
     private final double       _z;
+    private final boolean      _z_set;
 
     public CartesianLayoutElement(final String node, final double x, final double y, final double z) {
         _node = node;
@@ -29,6 +30,7 @@ public final class CartesianLayoutElement implements AspectElement {
         _x = x;
         _y = y;
         _z = z;
+        _z_set = true;
     }
 
     public CartesianLayoutElement(final String node, final String view, final double x, final double y, final double z) {
@@ -37,6 +39,7 @@ public final class CartesianLayoutElement implements AspectElement {
         _x = x;
         _y = y;
         _z = z;
+        _z_set = true;
     }
 
     public CartesianLayoutElement(final String node, final String x, final String y, final String z) {
@@ -45,6 +48,7 @@ public final class CartesianLayoutElement implements AspectElement {
         _x = Double.parseDouble(x);
         _y = Double.parseDouble(y);
         _z = Double.parseDouble(z);
+        _z_set = true;
     }
 
     public CartesianLayoutElement(final String node, final String view, final String x, final String y, final String z) {
@@ -53,6 +57,34 @@ public final class CartesianLayoutElement implements AspectElement {
         _x = Double.parseDouble(x);
         _y = Double.parseDouble(y);
         _z = Double.parseDouble(z);
+        _z_set = true;
+    }
+
+    public CartesianLayoutElement(final String node, final double x, final double y) {
+        _node = node;
+        _view = null;
+        _x = x;
+        _y = y;
+        _z = 0;
+        _z_set = false;
+    }
+
+    public CartesianLayoutElement(final String node, final String view, final double x, final double y) {
+        _node = node;
+        _view = view;
+        _x = x;
+        _y = y;
+        _z = 0;
+        _z_set = false;
+    }
+
+    public CartesianLayoutElement(final String node, final String x, final String y) {
+        _node = node;
+        _view = null;
+        _x = Double.parseDouble(x);
+        _y = Double.parseDouble(y);
+        _z = 0;
+        _z_set = false;
     }
 
     @Override
@@ -80,6 +112,10 @@ public final class CartesianLayoutElement implements AspectElement {
         return _z;
     }
 
+    public boolean isZset() {
+        return _z_set;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
@@ -93,8 +129,10 @@ public final class CartesianLayoutElement implements AspectElement {
         sb.append(_x);
         sb.append(", y: ");
         sb.append(_y);
-        sb.append(", z: ");
-        sb.append(_z);
+        if (_z_set) {
+            sb.append(", z: ");
+            sb.append(_z);
+        }
         return sb.toString();
     }
 

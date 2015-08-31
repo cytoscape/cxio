@@ -44,15 +44,15 @@ public final class CartesianLayoutFragmentReader extends AbstractFragmentReader 
                 return new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
                                                   ParserUtils.getTextValue(o, CartesianLayoutElement.VIEW),
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
-                                                  ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
-                                                  "0");
+                                                  ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y)
+                                                  );
 
             }
             else {
                 return new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
-                                                  ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
-                                                  "0");
+                                                  ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y)
+                                                  );
 
             }
         }

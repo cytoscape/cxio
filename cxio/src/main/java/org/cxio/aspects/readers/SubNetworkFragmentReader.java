@@ -24,12 +24,22 @@ public final class SubNetworkFragmentReader extends AbstractFragmentReader {
 
     @Override
     protected final AspectElement readElement(final ObjectNode o) throws IOException {
-        final SubNetworkElement e = new SubNetworkElement(ParserUtils.getTextValueRequired(o, SubNetworkElement.SUBNET_ID), ParserUtils.getTextValueRequired(o, SubNetworkElement.SUBNET_NAME));
+        final SubNetworkElement e = new SubNetworkElement(ParserUtils.getTextValueRequired(o, SubNetworkElement.SUBNET_ID));
         if (o.has(SubNetworkElement.SUBNET_NODES)) {
-            e.getNodes().addAll(ParserUtils.getAsStringList(o, SubNetworkElement.SUBNET_NODES));
+            if (!o.get(SubNetworkElement.SUBNET_NODES).isArray() && o.get(SubNetworkElement.SUBNET_NODES).asText().equalsIgnoreCase("all")) {
+                e.setNodesAll(true);
+            }
+            else {
+                e.getNodes().addAll(ParserUtils.getAsStringList(o, SubNetworkElement.SUBNET_NODES));
+            }
         }
         if (o.has(SubNetworkElement.SUBNET_EDGES)) {
-            e.getEdges().addAll(ParserUtils.getAsStringList(o, SubNetworkElement.SUBNET_EDGES));
+            if (!o.get(SubNetworkElement.SUBNET_EDGES).isArray() && o.get(SubNetworkElement.SUBNET_EDGES).asText().equalsIgnoreCase("all")) {
+                e.setEdgesAll(true);
+            }
+            else {
+                e.getEdges().addAll(ParserUtils.getAsStringList(o, SubNetworkElement.SUBNET_EDGES));
+            }
         }
         return e;
     }

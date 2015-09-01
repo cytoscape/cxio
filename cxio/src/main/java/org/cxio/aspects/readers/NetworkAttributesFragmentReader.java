@@ -27,10 +27,10 @@ public final class NetworkAttributesFragmentReader extends AbstractFragmentReade
     @Override
     protected final AspectElement readElement(final ObjectNode o) throws IOException {
         ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
-        if (o.has(AbstractAttributesElement.ATTR_TYPE)) {
-            type = AbstractAttributesElement.toType(ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_TYPE));
+        if (o.has(AbstractAttributesElement.ATTR_DATA_TYPE)) {
+            type = AbstractAttributesElement.toDataType(ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_DATA_TYPE));
         }
-        return new NetworkAttributesElement(ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_SUBNETWORK),
+        return new NetworkAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesElement.ATTR_SUBNETWORK),
                                             ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_NAME),
                                             ParserUtils.getAsStringList(o, AbstractAttributesElement.ATTR_VALUES),
                                             type);

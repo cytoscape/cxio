@@ -3,7 +3,7 @@ package org.cxio.aspects.writers;
 import java.io.IOException;
 import java.util.Map;
 
-import org.cxio.aspects.datamodels.VisualPropertiesElement;
+import org.cxio.aspects.datamodels.CyVisualPropertiesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 
@@ -18,23 +18,23 @@ public class VisualPropertiesFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return VisualPropertiesElement.NAME;
+        return CyVisualPropertiesElement.NAME;
     }
 
     @Override
     public final void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
-        final VisualPropertiesElement c = (VisualPropertiesElement) element;
+        final CyVisualPropertiesElement c = (CyVisualPropertiesElement) element;
         w.writeStartObject();
-        w.writeStringField(VisualPropertiesElement.PROPERTIES_OF, c.getPropertiesOf());
+        w.writeStringField(CyVisualPropertiesElement.PROPERTIES_OF, c.getPropertiesOf());
         if (c.getAppliesTo().size() == 1) {
-            w.writeStringField(VisualPropertiesElement.APPLIES_TO, c.getAppliesTo().get(0));
+            w.writeStringField(CyVisualPropertiesElement.APPLIES_TO, c.getAppliesTo().get(0));
         }
         else {
-            w.writeList(VisualPropertiesElement.APPLIES_TO, c.getAppliesTo());
+            w.writeList(CyVisualPropertiesElement.APPLIES_TO, c.getAppliesTo());
         }
-        w.writeStringFieldIfNotEmpty(VisualPropertiesElement.VIEW, c.getView());
+        w.writeStringFieldIfNotEmpty(CyVisualPropertiesElement.VIEW, c.getView());
         if ((c.getProperties() != null) && !c.getProperties().isEmpty()) {
-            w.writeObjectFieldStart(VisualPropertiesElement.PROPERTIES);
+            w.writeObjectFieldStart(CyVisualPropertiesElement.PROPERTIES);
             for (final Map.Entry<String, String> entry : c.getProperties().entrySet()) {
                 if (entry.getValue() != null) {
                     w.writeStringField(entry.getKey(), entry.getValue());

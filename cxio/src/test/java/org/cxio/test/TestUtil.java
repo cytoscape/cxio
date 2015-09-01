@@ -12,7 +12,7 @@ import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
-import org.cxio.aspects.datamodels.VisualPropertiesElement;
+import org.cxio.aspects.datamodels.CyVisualPropertiesElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -35,7 +35,7 @@ final class TestUtil {
         w.writeAspectElements(res.get(NetworkAttributesElement.NAME));
         w.writeAspectElements(res.get(NodeAttributesElement.NAME));
         w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
-        w.writeAspectElements(res.get(VisualPropertiesElement.NAME));
+        w.writeAspectElements(res.get(CyVisualPropertiesElement.NAME));
         w.end();
 
         return out.toString();

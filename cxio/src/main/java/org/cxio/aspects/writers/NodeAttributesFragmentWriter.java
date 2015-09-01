@@ -39,8 +39,8 @@ public class NodeAttributesFragmentWriter extends AbstractFragmentWriter {
             else {
                 w.writeList(AbstractAttributesElement.ATTR_VALUES, na.getValues());
             }
-            if (na.getType() != ATTRIBUTE_TYPE.STRING) {
-                w.writeStringField(AbstractAttributesElement.ATTR_TYPE, na.getType().toString());
+            if (na.getDataType() != ATTRIBUTE_TYPE.STRING) {
+                w.writeStringField(AbstractAttributesElement.ATTR_DATA_TYPE, na.getDataType().toString());
             }
             w.writeEndObject();
         }

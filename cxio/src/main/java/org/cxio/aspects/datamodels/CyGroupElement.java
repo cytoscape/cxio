@@ -13,51 +13,51 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class GroupElement implements AspectElement {
+public final class CyGroupElement implements AspectElement {
 
-    public final static String GROUP_NODE     = "group_node";
     public final static String VIEW           = "view";
     public final static String EXTERNAL_EDGES = "external_edges";
     public final static String GROUP_NAME     = "name";
+    public final static String GROUP_ID       = "group";
     public final static String INTERNAL_EDGES = "internal_edges";
-    public final static String NAME           = "groups";
+    public final static String NAME           = "cyGroup";
     public final static String NODES          = "nodes";
 
     private final String       _view;
     private final List<String> _external_edges;
-    private final String       _group_node;
     private final List<String> _internal_edges;
     private final String       _name;
+    private final String       _group_id;
     private final List<String> _nodes;
 
-    public GroupElement(final String group_node, final String name) {
+    public CyGroupElement(final String group_id, final String name) {
         _name = name;
         _view = null;
-        _group_node = group_node;
+        _group_id = group_id;
         _nodes = new ArrayList<String>();
         _internal_edges = new ArrayList<String>();
         _external_edges = new ArrayList<String>();
     }
 
-    public GroupElement(final String group_node, final String name, final String view) {
+    public CyGroupElement(final String group_id, final String name, final String view) {
         _name = name;
         _view = view;
-        _group_node = group_node;
+        _group_id = group_id;
         _nodes = new ArrayList<String>();
         _internal_edges = new ArrayList<String>();
         _external_edges = new ArrayList<String>();
     }
 
-    final public void addNode(final String node) {
-        _nodes.add(node);
+    final public void addNode(final String node_id) {
+        _nodes.add(node_id);
     }
 
-    final public void addExternalEdge(final String edge) {
-        _external_edges.add(edge);
+    final public void addExternalEdge(final String edge_id) {
+        _external_edges.add(edge_id);
     }
 
-    final public void addInternalEdge(final String edge) {
-        _internal_edges.add(edge);
+    final public void addInternalEdge(final String edge_id) {
+        _internal_edges.add(edge_id);
     }
 
     @Override
@@ -73,8 +73,8 @@ public final class GroupElement implements AspectElement {
         return _external_edges;
     }
 
-    final public String getGroupNode() {
-        return _group_node;
+    final public String getGroupId() {
+        return _group_id;
     }
 
     final public List<String> getInternalEdges() {
@@ -95,8 +95,8 @@ public final class GroupElement implements AspectElement {
         sb.append("name: ");
         sb.append(_name);
         sb.append("\n");
-        sb.append("group node: ");
-        sb.append(_group_node);
+        sb.append("group id: ");
+        sb.append(_group_id);
         sb.append("\n");
         if (!Util.isEmpty(_view)) {
             sb.append("view: ");

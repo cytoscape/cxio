@@ -15,52 +15,72 @@ import org.cxio.core.interfaces.AspectElement;
  */
 public final class SubNetworkElement implements AspectElement {
 
-    public final static String NAME         = "subNetworks";
+    public final static String      NAME         = "subNetworks";
+    public final static String      SUBNET_EDGES = "edges";
+    public final static String      SUBNET_ID    = "id";
+    public final static String      SUBNET_NODES = "nodes";
 
-    public final static String SUBNET_NAME  = "name";
-    public final static String SUBNET_NODES = "nodes";
-    public final static String SUBNET_EDGES = "edges";
-    public final static String SUBNET_ID    = "id";
+    final private ArrayList<String> _edges;
+    private boolean                 _edges_all;
+    final private String            _id;
+    final private ArrayList<String> _nodes;
+    private boolean                 _nodes_all;
 
-    final String               _name;
-    final String               _id;
-    final List<String>         _nodes;
-    final List<String>         _edges;
-
-    public SubNetworkElement(final String id, final String name) {
+    public SubNetworkElement(final String id) {
         _id = id;
-        _name = name;
         _nodes = new ArrayList<String>();
         _edges = new ArrayList<String>();
+        setNodesAll(false);
+        setEdgesAll(false);
     }
 
-    final public String getId() {
-        return _id;
+    final public void addEdge(final String edge) {
+        _edges.add(edge);
+        setEdgesAll(false);
     }
 
-    final public String getName() {
-        return _name;
+    final public void addNode(final String node) {
+        _nodes.add(node);
+        setNodesAll(false);
     }
 
-    final public List<String> getNodes() {
-        return _nodes;
+    @Override
+    public final String getAspectName() {
+        return NAME;
     }
 
     final public List<String> getEdges() {
         return _edges;
     }
 
-    final public void addNode(final String node) {
-        _nodes.add(node);
+    final public String getId() {
+        return _id;
     }
 
-    final public void addEdge(final String edge) {
-        _edges.add(edge);
+    final public List<String> getNodes() {
+        return _nodes;
     }
 
-    @Override
-    public final String getAspectName() {
-        return NAME;
+    public boolean isEdgesAll() {
+        return _edges_all;
+    }
+
+    public boolean isNodesAll() {
+        return _nodes_all;
+    }
+
+    public void setEdgesAll(final boolean edges_all) {
+        _edges_all = edges_all;
+        if (edges_all) {
+            _edges.clear();
+        }
+    }
+
+    public void setNodesAll(final boolean nodes_all) {
+        _nodes_all = nodes_all;
+        if (nodes_all) {
+            _nodes.clear();
+        }
     }
 
     @Override
@@ -69,19 +89,27 @@ public final class SubNetworkElement implements AspectElement {
         sb.append("id: ");
         sb.append(_id);
         sb.append("\n");
-        sb.append("name: ");
-        sb.append(_name);
-        sb.append("\n");
+       
         sb.append("nodes:");
-        for (final String node : _nodes) {
-            sb.append(" ");
-            sb.append(node);
+        if (isNodesAll()) {
+            sb.append(" all");
+        }
+        else {
+            for (final String node : _nodes) {
+                sb.append(" ");
+                sb.append(node);
+            }
         }
         sb.append("\n");
         sb.append("edges:");
-        for (final String edge : _edges) {
-            sb.append(" ");
-            sb.append(edge);
+        if (isEdgesAll()) {
+            sb.append(" all");
+        }
+        else {
+            for (final String edge : _edges) {
+                sb.append(" ");
+                sb.append(edge);
+            }
         }
         return sb.toString();
     }

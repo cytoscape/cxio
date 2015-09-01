@@ -19,53 +19,47 @@ public final class NetworkAttributesElement extends AbstractAttributesElement {
 
     public NetworkAttributesElement(final String subnetwork, final String name, final List<String> values) {
         _subnetwork = subnetwork;
-        _property_of = null;
         _name = name;
         _values = values;
-        _type = ATTRIBUTE_TYPE.STRING;
+        _data_type = ATTRIBUTE_TYPE.STRING;
     }
 
     public NetworkAttributesElement(final String subnetwork, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
         _subnetwork = subnetwork;
-        _property_of = null;
         _name = name;
         _values = values;
-        _type = type;
+        _data_type = type;
     }
 
     public NetworkAttributesElement(final String subnetwork, final String name, final String value, final ATTRIBUTE_TYPE type) {
         _subnetwork = subnetwork;
-        _property_of = null;
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _type = type;
+        _data_type = type;
     }
 
     public NetworkAttributesElement(final String subnetwork, final String name, final String value) {
         _subnetwork = subnetwork;
-        _property_of = null;
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _type = ATTRIBUTE_TYPE.STRING;
+        _data_type = ATTRIBUTE_TYPE.STRING;
     }
 
     public NetworkAttributesElement(final String subnetwork, final String name, final Object value) {
         _subnetwork = subnetwork;
-        _property_of = null;
         _name = name;
         _values = new ArrayList<String>();
-        _type = determineType(value);
+        _data_type = determineDataType(value);
         _values.add(String.valueOf(value));
     }
 
     public NetworkAttributesElement(final String name, final Object value) {
         _subnetwork = null;
-        _property_of = null;
         _name = name;
         _values = new ArrayList<String>();
-        _type = determineType(value);
+        _data_type = determineDataType(value);
         _values.add(String.valueOf(value));
     }
 
@@ -97,7 +91,7 @@ public final class NetworkAttributesElement extends AbstractAttributesElement {
         sb.append(_values);
         sb.append("\n");
         sb.append("type               : ");
-        sb.append(_type.toString());
+        sb.append(_data_type.toString());
         return sb.toString();
     }
 

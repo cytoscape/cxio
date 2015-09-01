@@ -41,8 +41,8 @@ public abstract class AbstractAttributesElement implements AspectElement {
     /** The subnetwork this attribute belongs to. */
     public final static String ATTR_SUBNETWORK  = "s";
 
-    /** The type of this attribute (either atomic or list). */
-    public final static String ATTR_TYPE        = "t";
+    /** The data type of this attribute (either atomic or list). */
+    public final static String ATTR_DATA_TYPE        = "d";
 
     /** The value(s) of this attribute. */
     public final static String ATTR_VALUES      = "v";
@@ -50,7 +50,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
     String                     _name;
     List<String>               _property_of;
     String                     _subnetwork;
-    ATTRIBUTE_TYPE             _type;
+    ATTRIBUTE_TYPE             _data_type;
     List<String>               _values;
 
     /**
@@ -81,13 +81,13 @@ public abstract class AbstractAttributesElement implements AspectElement {
     }
 
     /**
-     * This returns the type of the attribute.
+     * This returns the data type of the attribute.
      *
      *
-     * @return the type of the attribute
+     * @return the data type of the attribute
      */
-    public final ATTRIBUTE_TYPE getType() {
-        return _type;
+    public final ATTRIBUTE_TYPE getDataType() {
+        return _data_type;
     }
 
     /**
@@ -105,7 +105,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @param o
      * @return
      */
-    public final static ATTRIBUTE_TYPE determineType(final Object o) {
+    public final static ATTRIBUTE_TYPE determineDataType(final Object o) {
 
         if (o instanceof String) {
             return ATTRIBUTE_TYPE.STRING;
@@ -146,7 +146,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
      * @param s
      * @return
      */
-    public final static ATTRIBUTE_TYPE toType(final String s) {
+    public final static ATTRIBUTE_TYPE toDataType(final String s) {
         if (s.equals(ATTRIBUTE_TYPE.STRING.toString())) {
             return ATTRIBUTE_TYPE.STRING;
         }

@@ -2,7 +2,7 @@ package org.cxio.aspects.writers;
 
 import java.io.IOException;
 
-import org.cxio.aspects.datamodels.GroupElement;
+import org.cxio.aspects.datamodels.CyGroupElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 
@@ -17,28 +17,28 @@ public class GroupFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
-        final GroupElement e = (GroupElement) element;
+        final CyGroupElement e = (CyGroupElement) element;
         w.writeStartObject();
-        w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NODE, e.getGroupNode());
-        w.writeStringFieldIfNotEmpty(GroupElement.GROUP_NAME, e.getName());
-        w.writeStringFieldIfNotEmpty(GroupElement.VIEW, e.getView());
+      
+        w.writeStringFieldIfNotEmpty(CyGroupElement.GROUP_NAME, e.getName());
+        w.writeStringFieldIfNotEmpty(CyGroupElement.VIEW, e.getView());
         if (e.getNodes().size() == 1) {
-            w.writeStringField(GroupElement.NODES, e.getNodes().get(0));
+            w.writeStringField(CyGroupElement.NODES, e.getNodes().get(0));
         }
         else {
-            w.writeList(GroupElement.NODES, e.getNodes());
+            w.writeList(CyGroupElement.NODES, e.getNodes());
         }
         if (e.getExternalEdges().size() == 1) {
-            w.writeStringField(GroupElement.EXTERNAL_EDGES, e.getExternalEdges().get(0));
+            w.writeStringField(CyGroupElement.EXTERNAL_EDGES, e.getExternalEdges().get(0));
         }
         else {
-            w.writeList(GroupElement.EXTERNAL_EDGES, e.getExternalEdges());
+            w.writeList(CyGroupElement.EXTERNAL_EDGES, e.getExternalEdges());
         }
         if (e.getInternalEdges().size() == 1) {
-            w.writeStringField(GroupElement.INTERNAL_EDGES, e.getInternalEdges().get(0));
+            w.writeStringField(CyGroupElement.INTERNAL_EDGES, e.getInternalEdges().get(0));
         }
         else {
-            w.writeList(GroupElement.INTERNAL_EDGES, e.getInternalEdges());
+            w.writeList(CyGroupElement.INTERNAL_EDGES, e.getInternalEdges());
         }
         w.writeEndObject();
 
@@ -46,7 +46,7 @@ public class GroupFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return GroupElement.NAME;
+        return CyGroupElement.NAME;
     }
 
 }

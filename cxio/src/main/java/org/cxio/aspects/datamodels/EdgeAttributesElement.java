@@ -7,8 +7,9 @@ import org.cxio.util.Util;
 
 /**
  * This class is used to present one attribute of a network edge.
- * An attribute consists of a name, value(s), type, and
- * a(n) identifier(s) of the edges(s) the attribute is a property of.
+ * An attribute consists of a name, value(s), data type (optional, if not set
+ * data type is string), a(n) identifier(s) of the edges(s) the attribute is a property of,
+ * and a (optional) sub-network identifier.
  *
  * @author cmzmasek
  *
@@ -22,7 +23,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _property_of = property_of;
         _name = name;
         _values = values;
-        _type = ATTRIBUTE_TYPE.STRING;
+        _data_type = ATTRIBUTE_TYPE.STRING;
     }
 
     public EdgeAttributesElement(final String subnetwork, final List<String> property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
@@ -30,7 +31,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _property_of = property_of;
         _name = name;
         _values = values;
-        _type = type;
+        _data_type = type;
     }
 
     public EdgeAttributesElement(final String subnetwork, final String property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
@@ -39,7 +40,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _property_of.add(property_of);
         _name = name;
         _values = values;
-        _type = type;
+        _data_type = type;
     }
 
     public EdgeAttributesElement(final String subnetwork, final String property_of, final String name, final String value) {
@@ -49,7 +50,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _type = ATTRIBUTE_TYPE.STRING;
+        _data_type = ATTRIBUTE_TYPE.STRING;
     }
 
     public EdgeAttributesElement(final String subnetwork, final String property_of, final String name, final Object value) {
@@ -58,7 +59,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _property_of.add(property_of);
         _name = name;
         _values = new ArrayList<String>();
-        _type = determineType(value);
+        _data_type = determineDataType(value);
         _values.add(String.valueOf(value));
     }
 
@@ -69,7 +70,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _type = type;
+        _data_type = type;
     }
 
     public EdgeAttributesElement(final String property_of, final String name, final String value, final ATTRIBUTE_TYPE type) {
@@ -79,7 +80,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _type = type;
+        _data_type = type;
     }
 
     public EdgeAttributesElement(final String property_of, final String name, final Object value) {
@@ -88,7 +89,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         _property_of.add(property_of);
         _name = name;
         _values = new ArrayList<String>();
-        _type = determineType(value);
+        _data_type = determineDataType(value);
         _values.add(String.valueOf(value));
     }
 
@@ -114,8 +115,8 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         sb.append("values           : ");
         sb.append(_values);
         sb.append("\n");
-        sb.append("type             : ");
-        sb.append(_type.toString());
+        sb.append("data type        : ");
+        sb.append(_data_type.toString());
         return sb.toString();
     }
 

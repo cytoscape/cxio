@@ -40,8 +40,8 @@ public class EdgeAttributesFragmentWriter extends AbstractFragmentWriter {
             else {
                 w.writeList(AbstractAttributesElement.ATTR_VALUES, ea.getValues());
             }
-            if (ea.getType() != ATTRIBUTE_TYPE.STRING) {
-                w.writeStringField(AbstractAttributesElement.ATTR_TYPE, ea.getType().toString());
+            if (ea.getDataType() != ATTRIBUTE_TYPE.STRING) {
+                w.writeStringField(AbstractAttributesElement.ATTR_DATA_TYPE, ea.getDataType().toString());
             }
             w.writeEndObject();
         }

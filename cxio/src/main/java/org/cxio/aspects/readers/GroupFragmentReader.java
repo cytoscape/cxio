@@ -2,7 +2,7 @@ package org.cxio.aspects.readers;
 
 import java.io.IOException;
 
-import org.cxio.aspects.datamodels.GroupElement;
+import org.cxio.aspects.datamodels.CyGroupElement;
 import org.cxio.core.interfaces.AspectElement;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -19,24 +19,24 @@ public final class GroupFragmentReader extends AbstractFragmentReader {
 
     @Override
     public final String getAspectName() {
-        return GroupElement.NAME;
+        return CyGroupElement.NAME;
     }
 
     @Override
     protected final AspectElement readElement(final ObjectNode o) throws IOException {
-        final String name = ParserUtils.getTextValueRequired(o, GroupElement.GROUP_NAME);
-        final String group_node = ParserUtils.getTextValue(o, GroupElement.GROUP_NODE);
-        final String view = ParserUtils.getTextValue(o, GroupElement.VIEW);
+        final String name = ParserUtils.getTextValueRequired(o, CyGroupElement.GROUP_NAME);
+        final String group_id = ParserUtils.getTextValueRequired(o, CyGroupElement.GROUP_ID);
+        final String view = ParserUtils.getTextValueRequired(o, CyGroupElement.VIEW);
 
-        final GroupElement e = new GroupElement(group_node, name, view);
-        if (o.has(GroupElement.NODES)) {
-            e.getNodes().addAll(ParserUtils.getAsStringList(o, GroupElement.NODES));
+        final CyGroupElement e = new CyGroupElement(group_id, name, view);
+        if (o.has(CyGroupElement.NODES)) {
+            e.getNodes().addAll(ParserUtils.getAsStringList(o, CyGroupElement.NODES));
         }
-        if (o.has(GroupElement.INTERNAL_EDGES)) {
-            e.getInternalEdges().addAll(ParserUtils.getAsStringList(o, GroupElement.INTERNAL_EDGES));
+        if (o.has(CyGroupElement.INTERNAL_EDGES)) {
+            e.getInternalEdges().addAll(ParserUtils.getAsStringList(o, CyGroupElement.INTERNAL_EDGES));
         }
-        if (o.has(GroupElement.EXTERNAL_EDGES)) {
-            e.getExternalEdges().addAll(ParserUtils.getAsStringList(o, GroupElement.EXTERNAL_EDGES));
+        if (o.has(CyGroupElement.EXTERNAL_EDGES)) {
+            e.getExternalEdges().addAll(ParserUtils.getAsStringList(o, CyGroupElement.EXTERNAL_EDGES));
         }
         return e;
     }

@@ -21,21 +21,38 @@ public final class NetworkRelationsElement implements AspectElement {
         SUBNETWORK, VIEW;
     }
 
-    final public static String      CHILD           = "child";
+    final public static String      CHILD           = "c";
     final public static String      NAME            = "networkRelations";
-    final public static String      PARENT          = "parent";
-    final private static String     SUBNETWORK_TYPE = "subnetwork";
-    final public static String      TYPE            = "type";
-    final private static String     VIEW_TYPE       = "view";
+    final public static String      PARENT          = "p";
+    final public static String      SUBNETWORK_TYPE = "subnetwork";
+    final public static String      RELATIONSHIP    = "r";
+    final public static String      CHILD_NAME      = "name";
+    final public static String      VIEW_TYPE       = "view";
 
     final private String            _child;
     final private String            _parent;
-    final private RELATIONSHIP_TYPE _type;
+    final private RELATIONSHIP_TYPE _relationship;
+    final private String            _child_name;
 
-    public NetworkRelationsElement(final String parent, final String child, final String type) throws IOException {
+    public NetworkRelationsElement(final String parent, final String child, final String relationship, final String child_name) throws IOException {
         _parent = parent;
         _child = child;
-        _type = determineType(type);
+        _relationship = determineRelationship(relationship);
+        _child_name = child_name;
+    }
+
+    public NetworkRelationsElement(final String child, final String relationship, final String child_name) throws IOException {
+        _parent = null;
+        _child = child;
+        _relationship = determineRelationship(relationship);
+        _child_name = child_name;
+    }
+
+    public NetworkRelationsElement(final String child, final String child_name) throws IOException {
+        _parent = null;
+        _child = child;
+        _relationship = null;
+        _child_name = child_name;
     }
 
     @Override
@@ -51,14 +68,20 @@ public final class NetworkRelationsElement implements AspectElement {
         return _parent;
     }
 
-    public final String getType() {
-        switch (_type) {
+    public final String getChildName() {
+        return _child_name;
+    }
+
+    
+    
+    public final String getRelationship() {
+        switch (_relationship) {
         case SUBNETWORK:
             return SUBNETWORK_TYPE;
         case VIEW:
             return VIEW_TYPE;
         default:
-            throw new IllegalStateException("don't know how to handle type '" + _type + "'");
+            throw new IllegalStateException("don't know how to handle relationship '" + _relationship + "'");
         }
     }
 
@@ -66,7 +89,7 @@ public final class NetworkRelationsElement implements AspectElement {
         final Set<String> parents = new HashSet<String>();
         for (final AspectElement e : networks_relations) {
             final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
-            if (nwe.getType() == SUBNETWORK_TYPE) {
+            if (nwe.getRelationship() == SUBNETWORK_TYPE) {
                 parents.add(nwe.getParent());
             }
         }
@@ -77,14 +100,14 @@ public final class NetworkRelationsElement implements AspectElement {
         final List<String> subnets = new ArrayList<String>();
         for (final AspectElement e : networks_relations) {
             final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
-            if ((nwe.getType() == SUBNETWORK_TYPE) && nwe.getParent().equals(parent_id)) {
+            if ((nwe.getRelationship() == SUBNETWORK_TYPE) && nwe.getParent().equals(parent_id)) {
                 subnets.add(nwe.getChild());
             }
         }
         return subnets;
     }
 
-    private final static RELATIONSHIP_TYPE determineType(final String type) throws IOException {
+    private final static RELATIONSHIP_TYPE determineRelationship(final String type) throws IOException {
         if (type.equalsIgnoreCase(SUBNETWORK_TYPE)) {
             return RELATIONSHIP_TYPE.SUBNETWORK;
         }

@@ -22,7 +22,7 @@ public class NetworkRelationsFragmentWriter extends AbstractFragmentWriter {
         w.writeStartObject();
         w.writeStringField(NetworkRelationsElement.PARENT, na.getParent());
         w.writeStringField(NetworkRelationsElement.CHILD, na.getChild());
-        w.writeStringField(NetworkRelationsElement.TYPE, na.getType());
+        w.writeStringField(NetworkRelationsElement.RELATIONSHIP, na.getRelationship());
         w.writeEndObject();
 
     }

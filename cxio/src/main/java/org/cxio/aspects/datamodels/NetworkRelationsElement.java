@@ -72,8 +72,6 @@ public final class NetworkRelationsElement implements AspectElement {
         return _child_name;
     }
 
-    
-    
     public final String getRelationship() {
         switch (_relationship) {
         case SUBNETWORK:

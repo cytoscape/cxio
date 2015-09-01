@@ -8,13 +8,13 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.VisualPropertiesElement;
+import org.cxio.aspects.datamodels.CyVisualPropertiesElement;
 import org.cxio.aspects.writers.VisualPropertiesFragmentWriter;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.junit.Test;
 
-public class VisualPropertiesFragmentWriterTest {
+public class CyVisualPropertiesFragmentWriterTest {
 
     @Test
     public void test() throws IOException {
@@ -29,16 +29,16 @@ public class VisualPropertiesFragmentWriterTest {
 
         assertEquals("[]", out0.toString());
 
-        final VisualPropertiesElement c1 = new VisualPropertiesElement("nodes:default");
+        final CyVisualPropertiesElement c1 = new CyVisualPropertiesElement("nodes:default");
 
         c1.putProperty("text-opacity", "1.0");
         c1.putProperty("width", "40.0");
         c1.putProperty("background-color", "rgb(204,204,255)");
 
-        final VisualPropertiesElement c2 = new VisualPropertiesElement("nodes:selected");
+        final CyVisualPropertiesElement c2 = new CyVisualPropertiesElement("nodes:selected");
         c2.putProperty("background-color", "rgb(255,255,0)");
 
-        final VisualPropertiesElement c3 = new VisualPropertiesElement("nodes");
+        final CyVisualPropertiesElement c3 = new CyVisualPropertiesElement("nodes");
         c3.addAppliesTo("1");
         c3.addAppliesTo("2");
         c3.putProperty("background-color", "rgb(0,0,0)");

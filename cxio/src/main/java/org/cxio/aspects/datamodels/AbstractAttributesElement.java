@@ -42,7 +42,7 @@ public abstract class AbstractAttributesElement implements AspectElement {
     public final static String ATTR_SUBNETWORK  = "s";
 
     /** The data type of this attribute (either atomic or list). */
-    public final static String ATTR_DATA_TYPE        = "d";
+    public final static String ATTR_DATA_TYPE   = "d";
 
     /** The value(s) of this attribute. */
     public final static String ATTR_VALUES      = "v";

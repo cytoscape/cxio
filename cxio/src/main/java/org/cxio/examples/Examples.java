@@ -77,7 +77,7 @@ public class Examples {
 
         final ArrayList<String> mm = new ArrayList<String>();
         mm.add("Mus musculus");
-        final NodeAttributesElement na3 = new NodeAttributesElement(n, "species", mm, ATTRIBUTE_TYPE.STRING);
+        final NodeAttributesElement na3 = new NodeAttributesElement("subnet 1", n, "species", mm, ATTRIBUTE_TYPE.STRING);
 
         final List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();
         node_attributes_elements.add(na0);

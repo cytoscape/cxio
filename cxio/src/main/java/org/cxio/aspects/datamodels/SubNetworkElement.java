@@ -89,7 +89,7 @@ public final class SubNetworkElement implements AspectElement {
         sb.append("id: ");
         sb.append(_id);
         sb.append("\n");
-       
+
         sb.append("nodes:");
         if (isNodesAll()) {
             sb.append(" all");

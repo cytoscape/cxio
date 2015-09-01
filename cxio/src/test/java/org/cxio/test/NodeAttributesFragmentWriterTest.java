@@ -40,7 +40,7 @@ public class NodeAttributesFragmentWriterTest {
         v.add("1");
         v.add("2");
 
-        final NodeAttributesElement na0 = new NodeAttributesElement(po, "name", v, ATTRIBUTE_TYPE.FLOAT);
+        final NodeAttributesElement na0 = new NodeAttributesElement("sub 1", po, "name", v, ATTRIBUTE_TYPE.FLOAT);
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(na0);
@@ -53,8 +53,7 @@ public class NodeAttributesFragmentWriterTest {
         w1.start();
         w1.writeAspectElements(l1);
         w1.end();
-
-        assertEquals("[{\"nodeAttributes\":[{\"po\":[\"a\",\"b\"],\"n\":\"name\",\"v\":[\"1\",\"2\"],\"t\":\"float\"}]}]", out1.toString());
+        assertEquals("[{\"nodeAttributes\":[{\"s\":\"sub 1\",\"po\":[\"a\",\"b\"],\"n\":\"name\",\"v\":[\"1\",\"2\"],\"d\":\"float\"}]}]", out1.toString());
 
     }
 

@@ -19,7 +19,7 @@ public class GroupFragmentWriter extends AbstractFragmentWriter {
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final CyGroupElement e = (CyGroupElement) element;
         w.writeStartObject();
-      
+
         w.writeStringFieldIfNotEmpty(CyGroupElement.GROUP_NAME, e.getName());
         w.writeStringFieldIfNotEmpty(CyGroupElement.VIEW, e.getView());
         if (e.getNodes().size() == 1) {

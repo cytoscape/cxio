@@ -44,10 +44,10 @@ public class EdgesFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end();
 
-        assertEquals("[{\"edges\":[{\"@id\":\"0\",\"source\":\"f0\",\"target\":\"t0\"},{\"@id\":\"1\",\"source\":\"f1\",\"target\":\"t1\"}]}]", out1.toString());
+        assertEquals("[{\"edges\":[{\"@id\":\"0\",\"s\":\"f0\",\"t\":\"t0\"},{\"@id\":\"1\",\"s\":\"f1\",\"t\":\"t1\"}]}]", out1.toString());
 
         final EdgesElement e3 = new EdgesElement("3", "f3", "t3");
-        final EdgesElement e4 = new EdgesElement("4", "f4", "t4");
+        final EdgesElement e4 = new EdgesElement("4", "f4", "t4", "rela");
         final List<AspectElement> l2 = new ArrayList<AspectElement>();
         l2.add(e3);
         final List<AspectElement> l3 = new ArrayList<AspectElement>();
@@ -62,7 +62,7 @@ public class EdgesFragmentWriterTest {
         w2.writeAspectElements(l3);
         w2.end();
 
-        assertEquals("[{\"edges\":[{\"@id\":\"3\",\"source\":\"f3\",\"target\":\"t3\"}]},{\"edges\":[{\"@id\":\"4\",\"source\":\"f4\",\"target\":\"t4\"}]}]", out2.toString());
+        assertEquals("[{\"edges\":[{\"@id\":\"3\",\"s\":\"f3\",\"t\":\"t3\"}]},{\"edges\":[{\"@id\":\"4\",\"s\":\"f4\",\"t\":\"t4\",\"r\":\"rela\"}]}]", out2.toString());
 
     }
 

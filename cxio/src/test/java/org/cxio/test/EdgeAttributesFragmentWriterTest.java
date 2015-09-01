@@ -18,7 +18,7 @@ import org.junit.Test;
 public class EdgeAttributesFragmentWriterTest {
 
     @Test
-    public void test() throws IOException {
+    public void test1() throws IOException {
 
         final List<AspectElement> l0 = new ArrayList<AspectElement>();
         final OutputStream out0 = new ByteArrayOutputStream();
@@ -43,7 +43,43 @@ public class EdgeAttributesFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end();
 
-        assertEquals("[{\"edgeAttributes\":[{\"po\":\"property_of\",\"n\":\"name\",\"v\":\"1.1\",\"t\":\"float\"}]}]", out1.toString());
+        assertEquals("[{\"edgeAttributes\":[{\"po\":\"property_of\",\"n\":\"name\",\"v\":\"1.1\",\"d\":\"float\"}]}]", out1.toString());
+    }
+    
+    @Test
+    public void test2() throws IOException {
+
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement("property_of", "name", 1.1f);
+        final List<AspectElement> l1 = new ArrayList<AspectElement>();
+        l1.add(ea0);
+
+        final OutputStream out1 = new ByteArrayOutputStream();
+        final CxWriter w1 = CxWriter.createInstance(out1, false);
+        w1.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
+
+        w1.start();
+        w1.writeAspectElements(l1);
+        w1.end();
+
+        assertEquals("[{\"edgeAttributes\":[{\"po\":\"property_of\",\"n\":\"name\",\"v\":\"1.1\",\"d\":\"float\"}]}]", out1.toString());
+    }
+    
+    @Test
+    public void test3() throws IOException {
+
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement("subnetwork1", "property_of1", "name1", 1.1f);
+        final List<AspectElement> l1 = new ArrayList<AspectElement>();
+        l1.add(ea0);
+
+        final OutputStream out1 = new ByteArrayOutputStream();
+        final CxWriter w1 = CxWriter.createInstance(out1, false);
+        w1.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
+
+        w1.start();
+        w1.writeAspectElements(l1);
+        w1.end();
+
+        assertEquals("[{\"edgeAttributes\":[{\"s\":\"subnetwork1\",\"po\":\"property_of1\",\"n\":\"name1\",\"v\":\"1.1\",\"d\":\"float\"}]}]", out1.toString());
     }
 
 }

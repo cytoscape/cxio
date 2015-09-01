@@ -26,7 +26,8 @@ public final class EdgesFragmentReader extends AbstractFragmentReader {
     protected final AspectElement readElement(final ObjectNode o) throws IOException {
         return new EdgesElement(ParserUtils.getTextValueRequired(o, EdgesElement.ID),
                                 ParserUtils.getTextValueRequired(o, EdgesElement.SOURCE_NODE_ID),
-                                ParserUtils.getTextValueRequired(o, EdgesElement.TARGET_NODE_ID));
+                                ParserUtils.getTextValueRequired(o, EdgesElement.TARGET_NODE_ID),
+                                ParserUtils.getTextValue(o, EdgesElement.RELATIONSHIP));
     }
 
 }

@@ -20,7 +20,7 @@ public class SubNetworkFragmentWriter extends AbstractFragmentWriter {
         final SubNetworkElement e = (SubNetworkElement) element;
         w.writeStartObject();
         w.writeStringFieldIfNotEmpty(SubNetworkElement.SUBNET_ID, e.getId());
-        
+
         if (e.getNodes().size() == 1) {
             w.writeStringField(SubNetworkElement.SUBNET_NODES, e.getNodes().get(0));
         }

@@ -3,8 +3,6 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
-
 /**
  * This class is used to present one attribute of a network node.
  * An attribute consists of a name, value(s), type, and
@@ -79,6 +77,16 @@ public final class NodeAttributesElement extends AbstractAttributesElement {
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
+        _data_type = type;
+    }
+
+    public NodeAttributesElement(final String property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
+        _subnetwork = null;
+        _property_of = new ArrayList<String>();
+        _property_of.add(property_of);
+        _name = name;
+        _values = new ArrayList<String>();
+        _values.addAll(values);
         _data_type = type;
     }
 

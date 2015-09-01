@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.Set;
 
 import org.cxio.aspects.readers.CartesianLayoutFragmentReader;
+import org.cxio.aspects.readers.CyVisualPropertiesFragmentReader;
 import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.readers.NetworkAttributesFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
 import org.cxio.aspects.readers.NodesFragmentReader;
-import org.cxio.aspects.readers.VisualPropertiesFragmentReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
@@ -32,7 +32,7 @@ public class Examples4 {
         readers.add(EdgeAttributesFragmentReader.createInstance());
         readers.add(NodeAttributesFragmentReader.createInstance());
         readers.add(NetworkAttributesFragmentReader.createInstance());
-        readers.add(VisualPropertiesFragmentReader.createInstance());
+        readers.add(CyVisualPropertiesFragmentReader.createInstance());
 
         final CxReader p = CxReader.createInstance(in, readers);
 

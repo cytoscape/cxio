@@ -12,7 +12,7 @@ import java.util.Set;
 import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
-import org.cxio.aspects.datamodels.CyGroupElement;
+import org.cxio.aspects.datamodels.CyGroupsElement;
 import org.cxio.aspects.datamodels.CyVisualPropertiesElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
@@ -25,7 +25,7 @@ import org.cxio.aspects.readers.CartesianLayoutFragmentReader;
 import org.cxio.aspects.readers.CyVisualPropertiesFragmentReader;
 import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
-import org.cxio.aspects.readers.GroupFragmentReader;
+import org.cxio.aspects.readers.CyGroupsFragmentReader;
 import org.cxio.aspects.readers.NetworkAttributesFragmentReader;
 import org.cxio.aspects.readers.NetworkRelationsFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
@@ -34,7 +34,7 @@ import org.cxio.aspects.readers.SubNetworkFragmentReader;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
-import org.cxio.aspects.writers.GroupFragmentWriter;
+import org.cxio.aspects.writers.CyGroupsFragmentWriter;
 import org.cxio.aspects.writers.NetworkAttributesFragmentWriter;
 import org.cxio.aspects.writers.NetworkRelationsFragmentWriter;
 import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
@@ -85,7 +85,7 @@ public final class Util {
         w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
         w.writeAspectElements(res.get(CartesianLayoutElement.NAME));
         w.writeAspectElements(res.get(CyVisualPropertiesElement.NAME));
-        w.writeAspectElements(res.get(CyGroupElement.NAME));
+        w.writeAspectElements(res.get(CyGroupsElement.NAME));
         w.writeAspectElements(res.get(SubNetworkElement.NAME));
         w.end();
 
@@ -100,7 +100,7 @@ public final class Util {
         final AspectFragmentReader edge_attributes_reader = EdgeAttributesFragmentReader.createInstance();
         final AspectFragmentReader node_attributes_reader = NodeAttributesFragmentReader.createInstance();
         final AspectFragmentReader visual_properties_reader = CyVisualPropertiesFragmentReader.createInstance();
-        final AspectFragmentReader group_reader = GroupFragmentReader.createInstance();
+        final AspectFragmentReader group_reader = CyGroupsFragmentReader.createInstance();
         final AspectFragmentReader subnetwork_reader = SubNetworkFragmentReader.createInstance();
         final AspectFragmentReader network_rel_reader = NetworkRelationsFragmentReader.createInstance();
 
@@ -128,7 +128,7 @@ public final class Util {
         final AspectFragmentWriter edge_attributes_writer = EdgeAttributesFragmentWriter.createInstance();
         final AspectFragmentWriter node_attributes_writer = NodeAttributesFragmentWriter.createInstance();
         final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance();
-        final AspectFragmentWriter group_writer = GroupFragmentWriter.createInstance();
+        final AspectFragmentWriter group_writer = CyGroupsFragmentWriter.createInstance();
         final AspectFragmentWriter subnetwork_writer = SubNetworkFragmentWriter.createInstance();
         final AspectFragmentWriter network_rel_writer = NetworkRelationsFragmentWriter.createInstance();
 

@@ -13,14 +13,14 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class CyGroupElement implements AspectElement {
+public final class CyGroupsElement implements AspectElement {
 
     public final static String VIEW           = "view";
     public final static String EXTERNAL_EDGES = "external_edges";
     public final static String GROUP_NAME     = "name";
     public final static String GROUP_ID       = "group";
     public final static String INTERNAL_EDGES = "internal_edges";
-    public final static String NAME           = "cyGroup";
+    public final static String NAME           = "cyGroups";
     public final static String NODES          = "nodes";
 
     private final String       _view;
@@ -30,16 +30,9 @@ public final class CyGroupElement implements AspectElement {
     private final String       _group_id;
     private final List<String> _nodes;
 
-    public CyGroupElement(final String group_id, final String name) {
-        _name = name;
-        _view = null;
-        _group_id = group_id;
-        _nodes = new ArrayList<String>();
-        _internal_edges = new ArrayList<String>();
-        _external_edges = new ArrayList<String>();
-    }
+   
 
-    public CyGroupElement(final String group_id, final String name, final String view) {
+    public CyGroupsElement(final String group_id, final String view, final String name ) {
         _name = name;
         _view = view;
         _group_id = group_id;

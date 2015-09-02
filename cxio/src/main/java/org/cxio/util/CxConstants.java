@@ -9,7 +9,6 @@ package org.cxio.util;
  */
 public final class CxConstants {
 
-    public final static String ID               = "@id";
-    public final static String TIME_STAMP_LABEL = "time_stamp";
+    public final static String ID = "@id";
 
 }

@@ -30,9 +30,7 @@ public final class CyGroupsElement implements AspectElement {
     private final String       _group_id;
     private final List<String> _nodes;
 
-   
-
-    public CyGroupsElement(final String group_id, final String view, final String name ) {
+    public CyGroupsElement(final String group_id, final String view, final String name) {
         _name = name;
         _view = view;
         _group_id = group_id;

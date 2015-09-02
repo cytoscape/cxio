@@ -13,28 +13,34 @@ import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.CyGroupsElement;
+import org.cxio.aspects.datamodels.CyViewsElement;
 import org.cxio.aspects.datamodels.CyVisualPropertiesElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
+import org.cxio.aspects.datamodels.HiddenAttributesElement;
 import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.cxio.aspects.datamodels.NetworkRelationsElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.aspects.datamodels.SubNetworkElement;
 import org.cxio.aspects.readers.CartesianLayoutFragmentReader;
+import org.cxio.aspects.readers.CyGroupsFragmentReader;
+import org.cxio.aspects.readers.CyViewsFragmentReader;
 import org.cxio.aspects.readers.CyVisualPropertiesFragmentReader;
 import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
-import org.cxio.aspects.readers.CyGroupsFragmentReader;
+import org.cxio.aspects.readers.HiddenAttributesFragmentReader;
 import org.cxio.aspects.readers.NetworkAttributesFragmentReader;
 import org.cxio.aspects.readers.NetworkRelationsFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
 import org.cxio.aspects.readers.NodesFragmentReader;
 import org.cxio.aspects.readers.SubNetworkFragmentReader;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
+import org.cxio.aspects.writers.CyGroupsFragmentWriter;
+import org.cxio.aspects.writers.CyViewsFragmentWriter;
 import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
-import org.cxio.aspects.writers.CyGroupsFragmentWriter;
+import org.cxio.aspects.writers.HiddenAttributesFragmentWriter;
 import org.cxio.aspects.writers.NetworkAttributesFragmentWriter;
 import org.cxio.aspects.writers.NetworkRelationsFragmentWriter;
 import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
@@ -83,10 +89,12 @@ public final class Util {
         w.writeAspectElements(res.get(NetworkAttributesElement.NAME));
         w.writeAspectElements(res.get(NodeAttributesElement.NAME));
         w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
+        w.writeAspectElements(res.get(HiddenAttributesElement.NAME));
         w.writeAspectElements(res.get(CartesianLayoutElement.NAME));
         w.writeAspectElements(res.get(CyVisualPropertiesElement.NAME));
         w.writeAspectElements(res.get(CyGroupsElement.NAME));
         w.writeAspectElements(res.get(SubNetworkElement.NAME));
+        w.writeAspectElements(res.get(CyViewsElement.NAME));
         w.end();
 
         return out.toString();
@@ -99,10 +107,12 @@ public final class Util {
         final AspectFragmentReader network_attributes_reader = NetworkAttributesFragmentReader.createInstance();
         final AspectFragmentReader edge_attributes_reader = EdgeAttributesFragmentReader.createInstance();
         final AspectFragmentReader node_attributes_reader = NodeAttributesFragmentReader.createInstance();
+        final AspectFragmentReader hidden_attributes_reader = HiddenAttributesFragmentReader.createInstance();
         final AspectFragmentReader visual_properties_reader = CyVisualPropertiesFragmentReader.createInstance();
         final AspectFragmentReader group_reader = CyGroupsFragmentReader.createInstance();
         final AspectFragmentReader subnetwork_reader = SubNetworkFragmentReader.createInstance();
         final AspectFragmentReader network_rel_reader = NetworkRelationsFragmentReader.createInstance();
+        final AspectFragmentReader views_reader = CyViewsFragmentReader.createInstance();
 
         final Set<AspectFragmentReader> aspect_readers = new HashSet<AspectFragmentReader>();
 
@@ -112,11 +122,12 @@ public final class Util {
         aspect_readers.add(network_attributes_reader);
         aspect_readers.add(edge_attributes_reader);
         aspect_readers.add(node_attributes_reader);
+        aspect_readers.add(hidden_attributes_reader);
         aspect_readers.add(visual_properties_reader);
         aspect_readers.add(group_reader);
         aspect_readers.add(subnetwork_reader);
         aspect_readers.add(network_rel_reader);
-
+        aspect_readers.add(views_reader);
         return aspect_readers;
     }
 
@@ -127,10 +138,12 @@ public final class Util {
         final AspectFragmentWriter network_attributes_writer = NetworkAttributesFragmentWriter.createInstance();
         final AspectFragmentWriter edge_attributes_writer = EdgeAttributesFragmentWriter.createInstance();
         final AspectFragmentWriter node_attributes_writer = NodeAttributesFragmentWriter.createInstance();
+        final AspectFragmentWriter hidden_attributes_writer = HiddenAttributesFragmentWriter.createInstance();
         final AspectFragmentWriter visual_properties_writer = VisualPropertiesFragmentWriter.createInstance();
         final AspectFragmentWriter group_writer = CyGroupsFragmentWriter.createInstance();
         final AspectFragmentWriter subnetwork_writer = SubNetworkFragmentWriter.createInstance();
         final AspectFragmentWriter network_rel_writer = NetworkRelationsFragmentWriter.createInstance();
+        final AspectFragmentWriter views_writer = CyViewsFragmentWriter.createInstance();
 
         final Set<AspectFragmentWriter> aspect_writers = new HashSet<AspectFragmentWriter>();
         aspect_writers.add(node_writer);
@@ -139,10 +152,12 @@ public final class Util {
         aspect_writers.add(network_attributes_writer);
         aspect_writers.add(node_attributes_writer);
         aspect_writers.add(edge_attributes_writer);
+        aspect_writers.add(hidden_attributes_writer);
         aspect_writers.add(cartesian_layout_writer);
         aspect_writers.add(visual_properties_writer);
         aspect_writers.add(group_writer);
         aspect_writers.add(subnetwork_writer);
+        aspect_writers.add(views_writer);
         return aspect_writers;
     }
 

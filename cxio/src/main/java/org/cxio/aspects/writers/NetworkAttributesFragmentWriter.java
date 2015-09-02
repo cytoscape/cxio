@@ -26,7 +26,7 @@ public class NetworkAttributesFragmentWriter extends AbstractFragmentWriter {
         final NetworkAttributesElement na = (NetworkAttributesElement) element;
         if ((na.getValues() != null) && (!na.getValues().isEmpty()) && ((_filter == null) || _filter.isPass(na.getName()))) {
             w.writeStartObject();
-            w.writeStringField(AbstractAttributesElement.ATTR_SUBNETWORK, na.getSubnetwork());
+            w.writeStringFieldIfNotEmpty(AbstractAttributesElement.ATTR_SUBNETWORK, na.getSubnetwork());
             w.writeStringField(AbstractAttributesElement.ATTR_NAME, na.getName());
             if (na.getValues().size() == 1) {
                 w.writeStringField(AbstractAttributesElement.ATTR_VALUES, na.getValues().get(0));

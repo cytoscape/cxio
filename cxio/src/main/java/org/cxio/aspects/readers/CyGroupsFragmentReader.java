@@ -28,7 +28,7 @@ public final class CyGroupsFragmentReader extends AbstractFragmentReader {
         final String group_id = ParserUtils.getTextValueRequired(o, CyGroupsElement.GROUP_ID);
         final String view = ParserUtils.getTextValueRequired(o, CyGroupsElement.VIEW);
 
-        final CyGroupsElement e = new CyGroupsElement(group_id, view, name );
+        final CyGroupsElement e = new CyGroupsElement(group_id, view, name);
         if (o.has(CyGroupsElement.NODES)) {
             e.getNodes().addAll(ParserUtils.getAsStringList(o, CyGroupsElement.NODES));
         }

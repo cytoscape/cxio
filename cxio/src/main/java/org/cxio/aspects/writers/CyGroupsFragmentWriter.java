@@ -23,7 +23,7 @@ public class CyGroupsFragmentWriter extends AbstractFragmentWriter {
         w.writeStringFieldIfNotEmpty(CyGroupsElement.GROUP_ID, e.getGroupId());
         w.writeStringFieldIfNotEmpty(CyGroupsElement.VIEW, e.getView());
         w.writeStringFieldIfNotEmpty(CyGroupsElement.GROUP_NAME, e.getName());
-       
+
         if (e.getNodes().size() == 1) {
             w.writeStringField(CyGroupsElement.NODES, e.getNodes().get(0));
         }

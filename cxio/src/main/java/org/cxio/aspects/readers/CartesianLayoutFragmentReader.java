@@ -23,7 +23,7 @@ public final class CartesianLayoutFragmentReader extends AbstractFragmentReader 
     }
 
     @Override
-    protected final AspectElement readElement(final ObjectNode o) throws IOException {
+    public final AspectElement readElement(final ObjectNode o) throws IOException {
         if (o.has(CartesianLayoutElement.Z)) {
             if (o.has(CartesianLayoutElement.VIEW)) {
                 return new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),

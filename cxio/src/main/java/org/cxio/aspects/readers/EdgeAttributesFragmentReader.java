@@ -25,7 +25,7 @@ public final class EdgeAttributesFragmentReader extends AbstractFragmentReader {
     }
 
     @Override
-    protected final AspectElement readElement(final ObjectNode o) throws IOException {
+    public final AspectElement readElement(final ObjectNode o) throws IOException {
         ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
         if (o.has(AbstractAttributesElement.ATTR_DATA_TYPE)) {
             type = AbstractAttributesElement.toDataType(ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_DATA_TYPE));

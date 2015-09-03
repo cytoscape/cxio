@@ -23,7 +23,7 @@ public class CyViewsFragmentReader extends AbstractFragmentReader {
     }
 
     @Override
-    protected AspectElement readElement(final ObjectNode o) throws IOException {
+    public AspectElement readElement(final ObjectNode o) throws IOException {
         return new CyViewsElement(ParserUtils.getTextValueRequired(o, CyViewsElement.SUBWORKNET_ID));
     }
 

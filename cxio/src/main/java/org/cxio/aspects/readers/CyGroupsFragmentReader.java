@@ -23,7 +23,7 @@ public final class CyGroupsFragmentReader extends AbstractFragmentReader {
     }
 
     @Override
-    protected final AspectElement readElement(final ObjectNode o) throws IOException {
+    public final AspectElement readElement(final ObjectNode o) throws IOException {
         final String name = ParserUtils.getTextValueRequired(o, CyGroupsElement.GROUP_NAME);
         final String group_id = ParserUtils.getTextValueRequired(o, CyGroupsElement.GROUP_ID);
         final String view = ParserUtils.getTextValueRequired(o, CyGroupsElement.VIEW);

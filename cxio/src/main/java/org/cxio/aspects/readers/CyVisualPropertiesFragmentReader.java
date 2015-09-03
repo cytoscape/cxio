@@ -26,7 +26,7 @@ public final class CyVisualPropertiesFragmentReader extends AbstractFragmentRead
     }
 
     @Override
-    protected final AspectElement readElement(final ObjectNode o) throws IOException {
+    public final AspectElement readElement(final ObjectNode o) throws IOException {
         CyVisualPropertiesElement vpe;
         if (o.has(CyVisualPropertiesElement.APPLIES_TO) && (o.has(CyVisualPropertiesElement.VIEW))) {
             vpe = new CyVisualPropertiesElement(ParserUtils.getTextValueRequired(o, CyVisualPropertiesElement.PROPERTIES_OF),

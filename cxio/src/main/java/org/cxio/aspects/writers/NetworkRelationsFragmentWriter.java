@@ -17,12 +17,13 @@ public class NetworkRelationsFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
-        final NetworkRelationsElement na = (NetworkRelationsElement) element;
+        final NetworkRelationsElement e = (NetworkRelationsElement) element;
 
         w.writeStartObject();
-        w.writeStringField(NetworkRelationsElement.PARENT, na.getParent());
-        w.writeStringField(NetworkRelationsElement.CHILD, na.getChild());
-        w.writeStringField(NetworkRelationsElement.RELATIONSHIP, na.getRelationship());
+        w.writeStringFieldIfNotEmpty(NetworkRelationsElement.PARENT, e.getParent());
+        w.writeStringField(NetworkRelationsElement.CHILD, e.getChild());
+        w.writeStringFieldIfNotEmpty(NetworkRelationsElement.RELATIONSHIP, e.getRelationship());
+        w.writeStringField(NetworkRelationsElement.CHILD_NAME, e.getChildName());
         w.writeEndObject();
 
     }

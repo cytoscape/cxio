@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * The interface for Aspect Fragment readers (Aspect Fragments are lists of
@@ -34,4 +35,6 @@ public interface AspectFragmentReader {
      * @throws IOException
      */
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException;
+    
+    public AspectElement readElement(final ObjectNode o) throws IOException;
 }

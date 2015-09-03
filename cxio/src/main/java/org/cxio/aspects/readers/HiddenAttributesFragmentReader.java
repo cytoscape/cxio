@@ -25,7 +25,7 @@ public class HiddenAttributesFragmentReader extends AbstractFragmentReader {
     }
 
     @Override
-    protected AspectElement readElement(final ObjectNode o) throws IOException {
+    public AspectElement readElement(final ObjectNode o) throws IOException {
         ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
         if (o.has(AbstractAttributesElement.ATTR_DATA_TYPE)) {
             type = AbstractAttributesElement.toDataType(ParserUtils.getTextValueRequired(o, AbstractAttributesElement.ATTR_DATA_TYPE));

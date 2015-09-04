@@ -7,6 +7,7 @@ import java.io.Reader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
@@ -32,7 +33,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-public final class CxElementReader {
+public final class CxElementReader implements Iterable<AspectElement> {
 
     private final static boolean                        DEBUG = false;
     private boolean                                     _anonymous_reader_used;
@@ -258,8 +259,7 @@ public final class CxElementReader {
             throw new IllegalArgumentException("reader is null");
         }
         final SortedMap<String, List<AspectElement>> all_aspects = new TreeMap<String, List<AspectElement>>();
-        while (cxr.hasNext()) {
-            final AspectElement e = cxr.getNext();
+        for (final AspectElement e : cxr) {
             if (e != null) {
                 final String name = e.getAspectName();
                 if (!all_aspects.containsKey(name)) {
@@ -372,6 +372,48 @@ public final class CxElementReader {
      */
     public final boolean hasNext() throws IOException {
         return _current != null;
+    }
+
+    /**
+     * This returns a Iterator for AspectElements
+     *
+     * @return Iterator for AspectElements
+     *
+     */
+    @Override
+    public Iterator<AspectElement> iterator() {
+        final Iterator<AspectElement> it = new Iterator<AspectElement>() {
+
+            @Override
+            public boolean hasNext() {
+                try {
+                    return CxElementReader.this.hasNext();
+
+                }
+                catch (final IOException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+
+            @Override
+            public AspectElement next() {
+                try {
+                    return CxElementReader.this.getNext();
+                }
+                catch (final IOException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+        };
+        return it;
     }
 
     /**

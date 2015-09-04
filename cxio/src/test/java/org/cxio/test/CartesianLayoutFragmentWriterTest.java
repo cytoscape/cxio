@@ -31,7 +31,7 @@ public class CartesianLayoutFragmentWriterTest {
 
         assertEquals("[]", out0.toString());
 
-        final CartesianLayoutElement c0 = new CartesianLayoutElement("00", "0", "0" );
+        final CartesianLayoutElement c0 = new CartesianLayoutElement("00", "0", "0");
         final CartesianLayoutElement c1 = new CartesianLayoutElement("01", "1", "2", "0");
         final CartesianLayoutElement c2 = new CartesianLayoutElement("02", "3", "4", "0");
         final CartesianLayoutElement c3 = new CartesianLayoutElement("03", "3", "4", "7");

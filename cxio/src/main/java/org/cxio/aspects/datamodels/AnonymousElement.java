@@ -18,11 +18,19 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 public final class AnonymousElement implements AspectElement {
 
     private final ObjectNode _data;
+    private final String     _string_data;
     private final String     _name;
 
     public AnonymousElement(final String name, final ObjectNode data) {
         _name = name;
         _data = data;
+        _string_data = null;
+    }
+
+    public AnonymousElement(final String name, final String string_data) {
+        _name = name;
+        _data = null;
+        _string_data = string_data;
     }
 
     @Override
@@ -34,9 +42,22 @@ public final class AnonymousElement implements AspectElement {
         return _data;
     }
 
+    final public String getStingData() {
+        return _string_data;
+    }
+
     public final String toJsonString() throws IOException {
-        final ObjectMapper m = new ObjectMapper();
-        return m.writeValueAsString(_data);
+        if (_data != null) {
+            final ObjectMapper m = new ObjectMapper();
+            return m.writeValueAsString(_data);
+        }
+        else {
+            final StringBuilder sb = new StringBuilder();
+            sb.append("\"");
+            sb.append(_string_data);
+            sb.append("\"");
+            return sb.toString();
+        }
     }
 
     @Override

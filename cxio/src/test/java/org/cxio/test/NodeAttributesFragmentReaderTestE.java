@@ -9,12 +9,12 @@ import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
-import org.cxio.core.CxReader;
+import org.cxio.core.CxElementReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 import org.junit.Test;
 
-public class NodeAttributesFragmentReaderTest {
+public class NodeAttributesFragmentReaderTestE {
 
     @Test
     public void test() throws IOException {
@@ -22,8 +22,8 @@ public class NodeAttributesFragmentReaderTest {
                 + "{\"nodeAttributes\":[{\"po\":[\"n0\",\"n1\"],\"n\":\"name3\",\"v\":\"true\",\"d\":\"boolean\"}]},"
                 + "{\"nodeAttributes\":[{\"po\":[\"n0\",\"n1\",\"n2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"d\":\"short\",\"s\":\"subnet A\"}]}" + "]";
 
-        final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
-        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
+        final CxElementReader p = CxElementReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
+        final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
 
         assertTrue("failed to parse " + NodeAttributesElement.NAME + " aspect", r0.containsKey(NodeAttributesElement.NAME));
         assertFalse("failed to parse " + NodeAttributesElement.NAME + " aspect", r0.get(NodeAttributesElement.NAME).isEmpty());

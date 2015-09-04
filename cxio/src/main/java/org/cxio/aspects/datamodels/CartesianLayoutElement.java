@@ -119,6 +119,8 @@ public final class CartesianLayoutElement implements AspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
         sb.append("node: ");
         sb.append(_node);
         if (!Util.isEmpty(_view)) {

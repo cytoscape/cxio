@@ -83,6 +83,8 @@ public final class CyGroupsElement implements AspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
         sb.append("name: ");
         sb.append(_name);
         sb.append("\n");

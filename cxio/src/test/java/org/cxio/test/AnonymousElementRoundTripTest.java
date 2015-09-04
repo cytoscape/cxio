@@ -131,11 +131,11 @@ public class AnonymousElementRoundTripTest {
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w.start();
-        w.writeAnonymousAspectElement(unknown_element);
+        w.writeAnonymousAspectElementAsList(unknown_element);
         w.writeAnonymousAspectElementAsList(anonymous_element);
         w.writeAnonymousAspectElements(anonymous_too_elements);
-        w.writeAnonymousAspectElement(single_element);
-        w.writeAnonymousAspectElement(single_element2);
+        w.writeAnonymousAspectElementAsList(single_element);
+        w.writeAnonymousAspectElementAsList(single_element2);
         w.writeAspectElements(edges_elements);
         w.end();
 
@@ -181,10 +181,10 @@ public class AnonymousElementRoundTripTest {
         final List<AspectElement> res_unknown = res.get("unknown");
         assertTrue(res_unknown.size() == 1);
         assertTrue(res_unknown
-                   .get(0)
-                   .toString()
-                   .equals("unknown: {\"A\":\"a\",\"B\":\"b\",\"C\":\"c\",\"D\":{\"AA\":\"aa\"}," + "\"E\":[\"1\",\"2\",\"3\"],\"F\":[{\"_a1\":\"aa1\",\"_a2\":\"aa2\","
-                           + "\"_a3\":\"aa3\"},{\"_b1\":\"bb1\",\"_b2\":\"bb2\",\"_b3\":\"bb3\"}," + "{\"_c1\":\"cc1\",\"_c2\":\"cc2\",\"_c3\":\"cc3\"}]}"));
+                .get(0)
+                .toString()
+                .equals("unknown: {\"A\":\"a\",\"B\":\"b\",\"C\":\"c\",\"D\":{\"AA\":\"aa\"}," + "\"E\":[\"1\",\"2\",\"3\"],\"F\":[{\"_a1\":\"aa1\",\"_a2\":\"aa2\","
+                        + "\"_a3\":\"aa3\"},{\"_b1\":\"bb1\",\"_b2\":\"bb2\",\"_b3\":\"bb3\"}," + "{\"_c1\":\"cc1\",\"_c2\":\"cc2\",\"_c3\":\"cc3\"}]}"));
 
     }
 

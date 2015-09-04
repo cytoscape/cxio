@@ -1,4 +1,7 @@
-package org.cxio.examples;
+package org.cxio.test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -6,7 +9,6 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
 
@@ -14,19 +16,20 @@ import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
-import org.cxio.core.CxReader;
+import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
+import org.junit.Test;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class Examples2 {
+public class AnonymousElementRoundTripTestE {
 
-    public static void main(final String[] args) throws IOException {
-
+    @Test
+    public void test() throws IOException {
         final ObjectMapper m = new ObjectMapper();
         final ObjectNode unknown = m.createObjectNode();
         final ObjectNode node1 = m.createObjectNode();
@@ -119,20 +122,6 @@ public class Examples2 {
         edges_elements.add(new EdgesElement("edge0", "node0", "node1"));
         edges_elements.add(new EdgesElement("edge1", "node0", "node2"));
 
-        // ------------
-        final ObjectNode aa1 = m.createObjectNode();
-        aa1.put("k1", "a");
-        aa1.put("k2", "b");
-        final ObjectNode aa2 = m.createObjectNode();
-        aa2.put("k1", "c");
-        aa2.put("k2", "d");
-        final ObjectNode aa3 = m.createObjectNode();
-        aa3.put("k1", "e");
-        aa3.put("k2", "f");
-        final AnonymousElement a1 = new AnonymousElement("anon", aa1);
-        final AnonymousElement a2 = new AnonymousElement("anon", aa2);
-        final AnonymousElement a3 = new AnonymousElement("anon", aa3);
-
         // Writing to CX
         // -------------
 
@@ -147,16 +136,11 @@ public class Examples2 {
         w.writeAnonymousAspectElements(anonymous_too_elements);
         w.writeAnonymousAspectElementAsList(single_element);
         w.writeAnonymousAspectElementAsList(single_element2);
-        w.writeAnonymousAspectElementAsList(single_element2);
         w.writeAspectElements(edges_elements);
-
-        w.writeAnonymousAspectElementAsList(a1);
-        w.writeAnonymousAspectElementAsList(a2);
-        w.writeAnonymousAspectElementAsList(a3);
-
         w.end();
 
         final String cx_json_str = out.toString();
+
         System.out.println(cx_json_str);
 
         // Reading from CX
@@ -164,76 +148,46 @@ public class Examples2 {
 
         final Set<AspectFragmentReader> readers = new HashSet<>();
         readers.add(EdgesFragmentReader.createInstance());
-        final CxReader r = CxReader.createInstance(cx_json_str, true, readers);
+        final CxElementReader r = CxElementReader.createInstance(cx_json_str, true, readers);
 
-        final List<List<AspectElement>> res = new ArrayList<List<AspectElement>>();
-        while (r.hasNext()) {
-            final List<AspectElement> elements = r.getNext();
-            if (!elements.isEmpty()) {
-                res.add(elements);
-            }
-        }
+        final SortedMap<String, List<AspectElement>> res = CxElementReader.parseAsMap(r);
 
-        for (final List<AspectElement> elements : res) {
-            final String aspect_name = elements.get(0).getAspectName();
-            System.out.println();
-            System.out.println("> " + aspect_name + ": ");
-            for (final AspectElement element : elements) {
-                System.out.println(element.toString());
-            }
-        }
+        assertEquals(res.size(), 6);
+        assertTrue(res.containsKey("anonymous"));
+        assertTrue(res.containsKey("anonymous too"));
+        assertTrue(res.containsKey("edges"));
+        assertTrue(res.containsKey("single"));
+        assertTrue(res.containsKey("single2"));
+        assertTrue(res.containsKey("unknown"));
 
-        //
-        final Set<AspectFragmentReader> readers2 = new HashSet<>();
-        readers2.add(EdgesFragmentReader.createInstance());
-        final CxReader r2 = CxReader.createInstance(cx_json_str, true, readers2);
+        final List<AspectElement> res_anonymous = res.get("anonymous");
+        assertTrue(res_anonymous.size() == 1);
+        assertTrue(res_anonymous.get(0).toString().equals("anonymous: {\"one\":\"1\",\"two\":\"2\",\"1\":{\"_x\":\"x\",\"2\":{\"_y\":\"y\"}}}"));
 
-        final SortedMap<String, List<AspectElement>> res2 = CxReader.parseAsMap(r2);
+        final List<AspectElement> res_anonymous_too = res.get("anonymous too");
+        assertTrue(res_anonymous_too.size() == 3);
+        assertTrue(res_anonymous_too.get(0).toString().equals("anonymous too: {\"qwerty\":\"1\",\"asdf\":\"1\"}"));
+        assertTrue(res_anonymous_too.get(1).toString().equals("anonymous too: {\"qwerty\":\"2\",\"asdf\":\"2\"}"));
+        assertTrue(res_anonymous_too.get(2).toString().equals("anonymous too: {\"qwerty\":\"3\",\"asdf\":\"3\"}"));
 
-        for (final Entry<String, List<AspectElement>> entry : res2.entrySet()) {
-            System.out.println("> " + entry.getKey() + ": ");
-            for (final AspectElement element : entry.getValue()) {
-                System.out.println(element.toString());
-            }
-        }
+        final List<AspectElement> res_edges = res.get("edges");
+        assertTrue(res_edges.size() == 2);
 
-        test2();
+        final List<AspectElement> res_single = res.get("single");
+        assertTrue(res_single.size() == 1);
+        assertTrue(res_single.get(0).toString().equals("single: {\"1\":\"1\",\"2\":\"2\",\"3\":\"3\",\"4\":\"4\",\"5\":\"5\"}"));
 
-    }
+        final List<AspectElement> res_single2 = res.get("single2");
+        assertTrue(res_single2.size() == 1);
+        assertTrue(res_single2.get(0).toString().equals("single2: {\"1\":\"1\",\"2\":\"2\"}"));
 
-    static void test2() throws IOException {
-        final ObjectMapper m = new ObjectMapper();
-        final ObjectNode anonymous = m.createObjectNode();
-        anonymous.put("one", "1");
-        anonymous.put("two", "2");
-
-        final AnonymousElement anonymous_element = new AnonymousElement("anonymous", anonymous);
-
-        final OutputStream out = new ByteArrayOutputStream();
-
-        final CxWriter w = CxWriter.createInstance(out, true);
-
-        w.start();
-        w.writeAnonymousAspectElementAsList(anonymous_element);
-        w.end();
-
-        final String cx_json_str = out.toString();
-
-        System.out.println(cx_json_str);
-
-        // By setting the second argument to true, this reader will return
-        // anonymous aspect elements:
-        final CxReader r = CxReader.createInstance(cx_json_str, true);
-        while (r.hasNext()) {
-            final List<AspectElement> elements = r.getNext();
-            if (!elements.isEmpty()) {
-                final String aspect_name = elements.get(0).getAspectName();
-                // Do something with "elements":
-                for (final AspectElement element : elements) {
-                    System.out.println(element.toString());
-                }
-            }
-        }
+        final List<AspectElement> res_unknown = res.get("unknown");
+        assertTrue(res_unknown.size() == 1);
+        assertTrue(res_unknown
+                   .get(0)
+                   .toString()
+                   .equals("unknown: {\"A\":\"a\",\"B\":\"b\",\"C\":\"c\",\"D\":{\"AA\":\"aa\"}," + "\"E\":[\"1\",\"2\",\"3\"],\"F\":[{\"_a1\":\"aa1\",\"_a2\":\"aa2\","
+                           + "\"_a3\":\"aa3\"},{\"_b1\":\"bb1\",\"_b2\":\"bb2\",\"_b3\":\"bb3\"}," + "{\"_c1\":\"cc1\",\"_c2\":\"cc2\",\"_c3\":\"cc3\"}]}"));
 
     }
 

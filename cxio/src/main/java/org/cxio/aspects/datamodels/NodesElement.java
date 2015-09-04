@@ -47,7 +47,11 @@ public final class NodesElement implements AspectElement {
 
     @Override
     public String toString() {
-        return _id;
+        final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
+        sb.append(_id);
+        return sb.toString();
     }
 
 }

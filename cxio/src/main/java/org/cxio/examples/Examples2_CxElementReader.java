@@ -4,26 +4,22 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.aspects.datamodels.EdgesElement;
-import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
-import org.cxio.core.CxReader;
+import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.core.interfaces.AspectFragmentReader;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class Examples2 {
+public class Examples2_CxElementReader {
 
     public static void main(final String[] args) throws IOException {
 
@@ -157,38 +153,32 @@ public class Examples2 {
         w.end();
 
         final String cx_json_str = out.toString();
-        System.out.println(cx_json_str);
+        // System.out.println(cx_json_str);
 
         // Reading from CX
         // ---------------
 
-        final Set<AspectFragmentReader> readers = new HashSet<>();
-        readers.add(EdgesFragmentReader.createInstance());
-        final CxReader r = CxReader.createInstance(cx_json_str, true, readers);
+        final CxElementReader r = CxElementReader.createInstanceWithAllAvailableReaders(cx_json_str, true);
 
-        final List<List<AspectElement>> res = new ArrayList<List<AspectElement>>();
+        final List<AspectElement> res = new ArrayList<AspectElement>();
         while (r.hasNext()) {
-            final List<AspectElement> elements = r.getNext();
-            if (!elements.isEmpty()) {
-                res.add(elements);
-            }
+            final AspectElement element = r.getNext();
+
+            res.add(element);
+
         }
 
-        for (final List<AspectElement> elements : res) {
-            final String aspect_name = elements.get(0).getAspectName();
-            System.out.println();
-            System.out.println("> " + aspect_name + ": ");
-            for (final AspectElement element : elements) {
-                System.out.println(element.toString());
-            }
+        for (final AspectElement e : res) {
+
+            System.out.println(e);
+
         }
 
         //
-        final Set<AspectFragmentReader> readers2 = new HashSet<>();
-        readers2.add(EdgesFragmentReader.createInstance());
-        final CxReader r2 = CxReader.createInstance(cx_json_str, true, readers2);
 
-        final SortedMap<String, List<AspectElement>> res2 = CxReader.parseAsMap(r2);
+        final CxElementReader r2 = CxElementReader.createInstanceWithAllAvailableReaders(cx_json_str, false);
+
+        final SortedMap<String, List<AspectElement>> res2 = CxElementReader.parseAsMap(r2);
 
         for (final Entry<String, List<AspectElement>> entry : res2.entrySet()) {
             System.out.println("> " + entry.getKey() + ": ");
@@ -223,16 +213,9 @@ public class Examples2 {
 
         // By setting the second argument to true, this reader will return
         // anonymous aspect elements:
-        final CxReader r = CxReader.createInstance(cx_json_str, true);
+        final CxElementReader r = CxElementReader.createInstance(cx_json_str, true);
         while (r.hasNext()) {
-            final List<AspectElement> elements = r.getNext();
-            if (!elements.isEmpty()) {
-                final String aspect_name = elements.get(0).getAspectName();
-                // Do something with "elements":
-                for (final AspectElement element : elements) {
-                    System.out.println(element.toString());
-                }
-            }
+            System.out.println(r.getNext());
         }
 
     }

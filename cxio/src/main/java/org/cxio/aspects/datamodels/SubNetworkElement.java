@@ -86,6 +86,9 @@ public final class SubNetworkElement implements AspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
+        sb.append("\n");
         sb.append("id: ");
         sb.append(_id);
         sb.append("\n");

@@ -89,6 +89,8 @@ public final class CyVisualPropertiesElement implements AspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
         sb.append("properties of: ");
         sb.append(_properties_of);
         sb.append("\n");

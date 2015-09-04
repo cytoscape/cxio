@@ -35,6 +35,6 @@ public interface AspectFragmentReader {
      * @throws IOException
      */
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException;
-    
+
     public AspectElement readElement(final ObjectNode o) throws IOException;
 }

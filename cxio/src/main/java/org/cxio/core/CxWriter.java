@@ -314,28 +314,6 @@ public class CxWriter {
     }
 
     /**
-     * This is for writing a single {@link org.cxio.aspects.datamodels.AnonymousElement}.
-     *
-     * @param element the AnonymousElement to be written
-     * @throws IOException
-     */
-    public void writeAnonymousAspectElement(final AnonymousElement element) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
-
-        if (element == null) {
-            return;
-        }
-        if (_fragment_started) {
-            _jw.writeJsonObject(element.getData());
-        }
-        else {
-            _jw.writeJsonObject(element.getAspectName(), element.getData());
-        }
-    }
-
-    /**
      * This is for writing a single {@link org.cxio.aspects.datamodels.AnonymousElement}
      * as the single member of Json array.
      *

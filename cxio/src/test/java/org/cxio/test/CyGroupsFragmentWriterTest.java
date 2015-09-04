@@ -15,7 +15,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.junit.Test;
 
 public class CyGroupsFragmentWriterTest {
-    
+
     final static String CX_GROUPS_STR = "[{\"cyGroups\":[{\"group\":\"group_id\",\"view\":\"view\",\"name\":\"name\",\"nodes\":[\"n1\",\"n2\"],\"external_edges\":[\"ext1\",\"ext2\"],\"internal_edges\":[\"int1\",\"int2\"]}]}]";
 
     @Test
@@ -42,8 +42,7 @@ public class CyGroupsFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end();
 
-        assertEquals(CX_GROUPS_STR,
-                     out1.toString());
+        assertEquals(CX_GROUPS_STR, out1.toString());
 
     }
 

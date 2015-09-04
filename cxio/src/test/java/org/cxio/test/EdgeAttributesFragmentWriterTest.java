@@ -45,7 +45,7 @@ public class EdgeAttributesFragmentWriterTest {
 
         assertEquals("[{\"edgeAttributes\":[{\"po\":\"property_of\",\"n\":\"name\",\"v\":\"1.1\",\"d\":\"float\"}]}]", out1.toString());
     }
-    
+
     @Test
     public void test2() throws IOException {
 
@@ -63,7 +63,7 @@ public class EdgeAttributesFragmentWriterTest {
 
         assertEquals("[{\"edgeAttributes\":[{\"po\":\"property_of\",\"n\":\"name\",\"v\":\"1.1\",\"d\":\"float\"}]}]", out1.toString());
     }
-    
+
     @Test
     public void test3() throws IOException {
 

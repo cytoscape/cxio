@@ -76,6 +76,9 @@ public final class NetworkAttributesElement extends AbstractAttributesElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
+        sb.append("\n");
         if (Util.isEmpty(_subnetwork)) {
             sb.append("property of network");
         }

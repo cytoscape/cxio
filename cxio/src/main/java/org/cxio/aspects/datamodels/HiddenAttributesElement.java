@@ -84,11 +84,14 @@ public final class HiddenAttributesElement extends AbstractAttributesElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
+        sb.append("\n");
         if (!Util.isEmpty(_subnetwork)) {
             sb.append("subnetwork       : ");
             sb.append(_subnetwork);
+            sb.append("\n");
         }
-        sb.append("\n");
         sb.append("name             : ");
         sb.append(_name);
         sb.append("\n");

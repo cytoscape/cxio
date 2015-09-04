@@ -21,4 +21,14 @@ public final class CyViewsElement implements AspectElement {
         return _subnetwork_id;
     }
 
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
+        sb.append("subnetwork: ");
+        sb.append(getSubnetworkId());
+        return sb.toString();
+    }
+
 }

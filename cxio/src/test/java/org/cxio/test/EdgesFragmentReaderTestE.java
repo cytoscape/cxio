@@ -8,12 +8,12 @@ import java.util.List;
 import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.EdgesElement;
-import org.cxio.core.CxReader;
+import org.cxio.core.CxElementReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 import org.junit.Test;
 
-public class EdgesFragmentReaderTest {
+public class EdgesFragmentReaderTestE {
 
     @Test
     public void testEdgesAspectParsing() throws IOException, ClassNotFoundException {
@@ -21,8 +21,8 @@ public class EdgesFragmentReaderTest {
 
         + "{\"edges\":[{\"@id\":\"e2\",\"s\":\"_4\",\"t\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e3\",\"s\":\"_6\",\"t\":\"_7\",\"r\":\"rel A\"}]}" + "]";
 
-        final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
-        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
+        final CxElementReader p = CxElementReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
+        final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
 
         assertTrue("failed to parse " + EdgesElement.NAME + " aspect", r0.containsKey(EdgesElement.NAME));
 

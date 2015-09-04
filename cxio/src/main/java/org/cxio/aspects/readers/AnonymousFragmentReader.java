@@ -20,16 +20,41 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public final class AnonymousFragmentReader extends AbstractFragmentReader {
 
-    private boolean _is_list;
-    private String  _name;
+    private boolean          _is_list;
+    private String           _name;
+    private final JsonParser _jp;
 
     public final static AnonymousFragmentReader createInstance() {
         return new AnonymousFragmentReader();
     }
 
+    public final static AnonymousFragmentReader createInstance(final JsonParser jp) {
+        return new AnonymousFragmentReader(jp);
+    }
+
+    public final static AnonymousFragmentReader createInstance(final JsonParser jp, final String name) {
+        return new AnonymousFragmentReader(jp, name);
+    }
+
     private AnonymousFragmentReader() {
         _name = null;
         _m = new ObjectMapper();
+        _jp = null;
+        _is_list = false;
+
+    }
+
+    private AnonymousFragmentReader(final JsonParser jp) {
+        _name = null;
+        _m = new ObjectMapper();
+        _jp = jp;
+        _is_list = false;
+    }
+
+    private AnonymousFragmentReader(final JsonParser jp, final String name) {
+        _name = name;
+        _m = new ObjectMapper();
+        _jp = jp;
         _is_list = false;
     }
 
@@ -77,7 +102,6 @@ public final class AnonymousFragmentReader extends AbstractFragmentReader {
 
     @Override
     public final AspectElement readElement(final ObjectNode o) throws IOException {
-        // Not used.
-        return null;
+        return new AnonymousElement(_name, o);
     }
 }

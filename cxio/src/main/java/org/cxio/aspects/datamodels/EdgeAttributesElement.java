@@ -101,14 +101,17 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("property of edges: ");
+        sb.append(NAME);
+        sb.append(": ");
+        sb.append("\n");
+        sb.append("edges: ");
         sb.append(_property_of);
         sb.append("\n");
         if (!Util.isEmpty(_subnetwork)) {
             sb.append("subnetwork       : ");
             sb.append(_subnetwork);
+            sb.append("\n");
         }
-        sb.append("\n");
         sb.append("name             : ");
         sb.append(_name);
         sb.append("\n");
@@ -117,6 +120,7 @@ public final class EdgeAttributesElement extends AbstractAttributesElement {
         sb.append("\n");
         sb.append("data type        : ");
         sb.append(_data_type.toString());
+        sb.append("\n");
         return sb.toString();
     }
 

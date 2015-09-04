@@ -103,10 +103,12 @@ public final class EdgesElement implements AspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
         sb.append(getId());
         sb.append(" ");
         sb.append(getSource());
-        sb.append(" ");
+        sb.append("->");
         sb.append(getTarget());
         if (!Util.isEmpty(getRelationship())) {
             sb.append(" ");

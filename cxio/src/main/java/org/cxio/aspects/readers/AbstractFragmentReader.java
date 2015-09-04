@@ -61,5 +61,6 @@ public abstract class AbstractFragmentReader implements AspectFragmentReader {
      * @return an AspectElement
      * @throws IOException
      */
+    @Override
     public abstract AspectElement readElement(final ObjectNode o) throws IOException;
 }

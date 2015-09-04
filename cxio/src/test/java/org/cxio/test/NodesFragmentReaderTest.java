@@ -18,8 +18,7 @@ public class NodesFragmentReaderTest {
     @Test
     public void testNodeAspectParsing() throws IOException, ClassNotFoundException {
         final String t0 = "[" + "{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"nodes\":[{\"@id\":\"_4\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_5\"}]},"
+                + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"nodes\":[{\"@id\":\"_4\"}]}," + "{\"nodes\":[{\"@id\":\"_5\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_6\"}]}," + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());

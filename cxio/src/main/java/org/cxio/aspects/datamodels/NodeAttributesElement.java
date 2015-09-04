@@ -108,6 +108,9 @@ public final class NodeAttributesElement extends AbstractAttributesElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
+        sb.append(NAME);
+        sb.append(": ");
+        sb.append("\n");
         sb.append("property of nodes: ");
         sb.append(_property_of);
         sb.append("\n");

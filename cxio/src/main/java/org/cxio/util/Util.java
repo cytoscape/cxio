@@ -1,8 +1,15 @@
 package org.cxio.util;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -55,6 +62,8 @@ import org.cxio.core.interfaces.AspectFragmentWriter;
 
 public final class Util {
 
+    public final static String LINE_SEPARATOR = System.getProperty("line.separator");
+
     final public static boolean isEmpty(final String s) {
         return (s == null) || (s.length() < 1);
     }
@@ -69,6 +78,16 @@ public final class Util {
         w.end();
 
         return out.toString();
+    }
+
+    final public static int countChars(final String str, final char c) {
+        int count = 0;
+        for (int i = 0; i < str.length(); ++i) {
+            if (str.charAt(i) == c) {
+                ++count;
+            }
+        }
+        return count;
     }
 
     public final static String getCurrentDate(final String format) {
@@ -159,6 +178,36 @@ public final class Util {
         aspect_writers.add(subnetwork_writer);
         aspect_writers.add(views_writer);
         return aspect_writers;
+    }
+
+    final public static BufferedReader obtainReader(final Object source) throws IOException, FileNotFoundException {
+        BufferedReader reader = null;
+        if (source instanceof File) {
+            final File f = (File) source;
+            if (!f.exists()) {
+                throw new IOException("\"" + f.getAbsolutePath() + "\" does not exist");
+            }
+            else if (!f.isFile()) {
+                throw new IOException("\"" + f.getAbsolutePath() + "\" is not a file");
+            }
+            else if (!f.canRead()) {
+                throw new IOException("\"" + f.getAbsolutePath() + "\" is not a readable");
+            }
+            reader = new BufferedReader(new FileReader(f));
+        }
+        else if (source instanceof InputStream) {
+            reader = new BufferedReader(new InputStreamReader((InputStream) source));
+        }
+        else if (source instanceof String) {
+            reader = new BufferedReader(new StringReader((String) source));
+        }
+        else if (source instanceof StringBuffer) {
+            reader = new BufferedReader(new StringReader(source.toString()));
+        }
+        else {
+            throw new IllegalArgumentException("attempt to parse object of type [" + source.getClass() + "] (can only parse objects of type File, InputStream, String, or StringBuffer)");
+        }
+        return reader;
     }
 
 }

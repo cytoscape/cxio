@@ -2,6 +2,7 @@ package org.cxio.util;
 
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
@@ -101,7 +102,17 @@ public final class JsonWriter {
         _g.writeEndArray();
     }
 
-    public final void writeList(final String label, final List<String> list) throws IOException {
+//    public final void writeList(final String label, final List<String> list) throws IOException {
+//        if ((list != null) && !list.isEmpty()) {
+//            _g.writeArrayFieldStart(label);
+//            for (final String s : list) {
+//                _g.writeString(s);
+//            }
+//            _g.writeEndArray();
+//        }
+//    }
+    
+    public final void writeList(final String label, final Collection<String> list) throws IOException {
         if ((list != null) && !list.isEmpty()) {
             _g.writeArrayFieldStart(label);
             for (final String s : list) {

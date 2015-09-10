@@ -15,4 +15,6 @@ public interface AspectElement {
      */
     public String getAspectName();
 
+    public long getSum();
+
 }

@@ -1,6 +1,5 @@
 package org.cxio.aspects.datamodels;
 
-import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 
 /**
@@ -9,7 +8,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class CartesianLayoutElement implements AspectElement {
+public final class CartesianLayoutElement extends AbstractAspectElement {
 
     public final static String NAME = "cartesianLayout";
     public final static String NODE = "node";
@@ -19,71 +18,71 @@ public final class CartesianLayoutElement implements AspectElement {
     public final static String Z    = "z";
     private final String       _node;
     private final String       _view;
-    private final double       _x;
-    private final double       _y;
-    private final double       _z;
+    private final String       _x;
+    private final String       _y;
+    private final String       _z;
     private final boolean      _z_set;
 
     public CartesianLayoutElement(final String node, final double x, final double y, final double z) {
         _node = node;
         _view = null;
-        _x = x;
-        _y = y;
-        _z = z;
+        _x = String.valueOf(x);
+        _y = String.valueOf(y);
+        _z = String.valueOf(z);
         _z_set = true;
     }
 
     public CartesianLayoutElement(final String node, final String view, final double x, final double y, final double z) {
         _node = node;
         _view = view;
-        _x = x;
-        _y = y;
-        _z = z;
+        _x = String.valueOf(x);
+        _y = String.valueOf(y);
+        _z = String.valueOf(z);
         _z_set = true;
     }
 
     public CartesianLayoutElement(final String node, final String x, final String y, final String z) {
         _node = node;
         _view = null;
-        _x = Double.parseDouble(x);
-        _y = Double.parseDouble(y);
-        _z = Double.parseDouble(z);
+        _x = x;
+        _y = y;
+        _z = z;
         _z_set = true;
     }
 
     public CartesianLayoutElement(final String node, final String view, final String x, final String y, final String z) {
         _node = node;
         _view = view;
-        _x = Double.parseDouble(x);
-        _y = Double.parseDouble(y);
-        _z = Double.parseDouble(z);
+        _x = x;
+        _y = y;
+        _z = z;
         _z_set = true;
     }
 
     public CartesianLayoutElement(final String node, final double x, final double y) {
         _node = node;
         _view = null;
-        _x = x;
-        _y = y;
-        _z = 0;
+        _x = String.valueOf(x);
+        _y = String.valueOf(y);
+        _z = String.valueOf(0);
         _z_set = false;
     }
 
     public CartesianLayoutElement(final String node, final String view, final double x, final double y) {
         _node = node;
         _view = view;
-        _x = x;
-        _y = y;
-        _z = 0;
+        _x = String.valueOf(x);
+        _y = String.valueOf(y);
+        _z = String.valueOf(0);
         _z_set = false;
     }
 
     public CartesianLayoutElement(final String node, final String x, final String y) {
         _node = node;
         _view = null;
-        _x = Double.parseDouble(x);
-        _y = Double.parseDouble(y);
-        _z = 0;
+        _x = x;
+        _y = y;
+        _z = String.valueOf(0);
         _z_set = false;
     }
 
@@ -100,15 +99,15 @@ public final class CartesianLayoutElement implements AspectElement {
         return _node;
     }
 
-    public double getX() {
+    public String getX() {
         return _x;
     }
 
-    public double getY() {
+    public String getY() {
         return _y;
     }
 
-    public double getZ() {
+    public String getZ() {
         return _z;
     }
 
@@ -136,6 +135,11 @@ public final class CartesianLayoutElement implements AspectElement {
             sb.append(_z);
         }
         return sb.toString();
+    }
+
+    @Override
+    public long getSum() {
+        return Util.stringToSum(_x) + Util.stringToSum(_y) + Util.stringToSum(_z);
     }
 
 }

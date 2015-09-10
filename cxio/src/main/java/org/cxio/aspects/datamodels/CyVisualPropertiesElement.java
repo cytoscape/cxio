@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 
 /**
@@ -16,7 +15,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class CyVisualPropertiesElement implements AspectElement {
+public final class CyVisualPropertiesElement extends AbstractAspectElement {
 
     public final static String              APPLIES_TO    = "applies_to";
     public final static String              NAME          = "visualProperties";
@@ -112,6 +111,24 @@ public final class CyVisualPropertiesElement implements AspectElement {
             sb.append("\n");
         }
         return sb.toString();
+    }
+
+    @Override
+    public long getSum() {
+        long s = 0;
+        if (_applies_to != null) {
+            s += _applies_to.size();
+        }
+        if (_view != null) {
+            s += Util.stringToSum(_view);
+        }
+        if (_properties != null) {
+            s += _properties.size();
+        }
+        if (_properties_of != null) {
+            s += Util.stringToSum(_properties_of);
+        }
+        return s;
     }
 
 }

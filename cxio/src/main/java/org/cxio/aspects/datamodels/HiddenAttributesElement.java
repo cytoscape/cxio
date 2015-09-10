@@ -13,7 +13,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class HiddenAttributesElement extends AbstractAttributesElement {
+public final class HiddenAttributesElement extends AbstractAttributesAspectElement {
 
     public final static String NAME = "hiddenAttributes";
 

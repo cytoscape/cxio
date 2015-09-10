@@ -2,7 +2,7 @@ package org.cxio.aspects.datamodels;
 
 import java.io.IOException;
 
-import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.Util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -15,7 +15,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-public final class AnonymousElement implements AspectElement {
+public final class AnonymousElement extends AbstractAspectElement {
 
     private final ObjectNode _data;
     private final String     _string_data;
@@ -72,6 +72,17 @@ public final class AnonymousElement implements AspectElement {
             sb.append(e.getMessage());
         }
         return sb.toString();
+    }
+
+    @Override
+    public long getSum() {
+        if (_data != null) {
+            return _data.size();
+        }
+        else if (_string_data != null) {
+            return Util.stringToSum(_string_data);
+        }
+        return 0;
     }
 
 }

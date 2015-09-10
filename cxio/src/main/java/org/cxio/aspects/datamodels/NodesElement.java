@@ -1,7 +1,7 @@
 package org.cxio.aspects.datamodels;
 
-import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxConstants;
+import org.cxio.util.Util;
 
 /**
  * This is used to represent a node in a network.
@@ -9,7 +9,7 @@ import org.cxio.util.CxConstants;
  * @author cmzmasek
  *
  */
-public final class NodesElement implements AspectElement {
+public final class NodesElement extends AbstractAspectElement {
 
     public final static String ID   = CxConstants.ID;
     public final static String NAME = "nodes";
@@ -52,6 +52,14 @@ public final class NodesElement implements AspectElement {
         sb.append(": ");
         sb.append(_id);
         return sb.toString();
+    }
+
+    @Override
+    public long getSum() {
+        if (_id != null) {
+            return Util.stringToSum(_id);
+        }
+        return 0;
     }
 
 }

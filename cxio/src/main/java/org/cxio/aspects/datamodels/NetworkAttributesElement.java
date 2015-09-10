@@ -13,7 +13,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class NetworkAttributesElement extends AbstractAttributesElement {
+public final class NetworkAttributesElement extends AbstractAttributesAspectElement {
 
     public final static String NAME = "networkAttributes";
 

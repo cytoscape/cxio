@@ -157,6 +157,9 @@ public class Examples2 {
         w.end();
 
         final String cx_json_str = out.toString();
+
+        System.out.println(w.getAspectElementCounts());
+
         System.out.println(cx_json_str);
 
         // Reading from CX
@@ -223,7 +226,7 @@ public class Examples2 {
 
         // By setting the second argument to true, this reader will return
         // anonymous aspect elements:
-        final CxReader r = CxReader.createInstance(cx_json_str, true);
+        final CxReader r = CxReader.createInstance(cx_json_str, true, null);
         while (r.hasNext()) {
             final List<AspectElement> elements = r.getNext();
             if (!elements.isEmpty()) {

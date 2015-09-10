@@ -48,18 +48,8 @@ public final class CxElementReader implements Iterable<AspectElement> {
     private final boolean                               _read_anonymous_aspect_fragments;
     private AspectFragmentReader                        _reader;
     private JsonToken                                   _token;
-
-    /**
-     * This creates a new CxElementReader.
-     *
-     * @param file the File to parse
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final File file, final boolean read_anonymous_aspect_fragments) throws IOException {
-        return new CxElementReader(file, read_anonymous_aspect_fragments);
-    }
+    private final AspectElementCounts                   _element_counts;
+    private boolean                                     _calculate_element_counts;
 
     /**
      * This creates a new CxElementReader with all AspectFragmentReaders implemented in this library already added.
@@ -97,18 +87,6 @@ public final class CxElementReader implements Iterable<AspectElement> {
      */
     public final static CxElementReader createInstance(final File file, final Set<AspectFragmentReader> fragment_readers) throws IOException {
         return new CxElementReader(file, fragment_readers);
-    }
-
-    /**
-     * This creates a new CxElementReader.
-     *
-     * @param input_stream the InputStream to parse
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final InputStream input_stream, final boolean read_anonymous_aspect_fragments) throws IOException {
-        return new CxElementReader(input_stream, read_anonymous_aspect_fragments);
     }
 
     /**
@@ -150,18 +128,6 @@ public final class CxElementReader implements Iterable<AspectElement> {
     }
 
     /**
-     * This creates a new CxElementReader.
-     *
-     * @param string the String to parse
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final String string, final boolean read_anonymous_aspect_fragments) throws IOException {
-        return new CxElementReader(string, read_anonymous_aspect_fragments);
-    }
-
-    /**
      * This creates a new CxElementReader with all AspectFragmentReaders implemented in this library already added.
      *
      * @param string the String to parse
@@ -198,18 +164,6 @@ public final class CxElementReader implements Iterable<AspectElement> {
      */
     public final static CxElementReader createInstance(final String string, final Set<AspectFragmentReader> fragment_readers) throws IOException {
         return new CxElementReader(string, fragment_readers);
-    }
-
-    /**
-     * This creates a new CxElementReader.
-     *
-     * @param url the URL to parse from
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final URL url, final boolean read_anonymous_aspect_fragments) throws IOException {
-        return new CxElementReader(url, read_anonymous_aspect_fragments);
     }
 
     /**
@@ -318,6 +272,11 @@ public final class CxElementReader implements Iterable<AspectElement> {
                 }
                 else if (_token == null) {
                     _jp.close();
+                    if (_calculate_element_counts) {
+                        if (_prev != null) {
+                            _element_counts.processAspectElement(_prev);
+                        }
+                    }
                     return _prev;
                 }
             }
@@ -361,6 +320,11 @@ public final class CxElementReader implements Iterable<AspectElement> {
             }
         }
         nextToken();
+        if (_calculate_element_counts) {
+            if (_prev != null) {
+                _element_counts.processAspectElement(_prev);
+            }
+        }
         return _prev;
     }
 
@@ -388,10 +352,8 @@ public final class CxElementReader implements Iterable<AspectElement> {
             public boolean hasNext() {
                 try {
                     return CxElementReader.this.hasNext();
-
                 }
                 catch (final IOException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                     return false;
                 }
@@ -445,6 +407,25 @@ public final class CxElementReader implements Iterable<AspectElement> {
         getNext();
     }
 
+    /**
+     * This returns an object which gives access to a checksum and element counts
+     * for the aspect element read in.
+     *
+     * @return the ElementCounts
+     */
+    public final AspectElementCounts getAspectElementCounts() {
+        return _element_counts;
+    }
+
+    /**
+     * To turn on/off the calculation of checksum and aspect element counts.
+     *
+     * @param calculate_element_counts
+     */
+    public final void setCalculateAspectElementCounts(final boolean calculate_element_counts) {
+        _calculate_element_counts = calculate_element_counts;
+    }
+
     private final static JsonParser createJsonParser(final Object input) throws IOException {
         final JsonFactory f = new JsonFactory();
         JsonParser jp = null;
@@ -466,11 +447,6 @@ public final class CxElementReader implements Iterable<AspectElement> {
         return jp;
     }
 
-    private final static HashMap<String, AspectFragmentReader> setupAspectReaders() {
-        final HashMap<String, AspectFragmentReader> ahs = new HashMap<String, AspectFragmentReader>();
-        return ahs;
-    }
-
     private final static HashMap<String, AspectFragmentReader> setupAspectReaders(final Set<AspectFragmentReader> aspect_readers, final boolean allow_empty) {
         if (!allow_empty) {
             if ((aspect_readers == null) || aspect_readers.isEmpty()) {
@@ -478,56 +454,12 @@ public final class CxElementReader implements Iterable<AspectElement> {
             }
         }
         final HashMap<String, AspectFragmentReader> ahs = new HashMap<String, AspectFragmentReader>();
-        for (final AspectFragmentReader aspect_reader : aspect_readers) {
-            ahs.put(aspect_reader.getAspectName(), aspect_reader);
+        if (aspect_readers != null) {
+            for (final AspectFragmentReader aspect_reader : aspect_readers) {
+                ahs.put(aspect_reader.getAspectName(), aspect_reader);
+            }
         }
         return ahs;
-    }
-
-    private CxElementReader(final Object input) throws IOException {
-        if (input == null) {
-            throw new IllegalArgumentException("cx input is null");
-        }
-        checkInputType(input);
-        _input = input;
-        _element_readers = setupAspectReaders();
-        _read_anonymous_aspect_fragments = false;
-    }
-
-    private CxElementReader(final Object input, final boolean read_anonymous_aspect_fragments) throws IOException {
-        if (input == null) {
-            throw new IllegalArgumentException("cx input is null");
-        }
-        checkInputType(input);
-        _input = input;
-        _element_readers = setupAspectReaders();
-        _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
-        if (read_anonymous_aspect_fragments) {
-            reset();
-        }
-    }
-
-    private CxElementReader(final Object input, final Set<AspectFragmentReader> aspect_readers) throws IOException {
-        if (input == null) {
-            throw new IllegalArgumentException("cx input is null");
-        }
-        checkInputType(input);
-        _input = input;
-        _element_readers = setupAspectReaders(aspect_readers, false);
-        _read_anonymous_aspect_fragments = false;
-        reset();
-    }
-
-    private CxElementReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments) throws IOException {
-        if (input == null) {
-            throw new IllegalArgumentException("cx input is null");
-        }
-        checkInputType(input);
-        _input = input;
-
-        _element_readers = setupAspectReaders(aspect_readers, read_anonymous_aspect_fragments);
-        _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
-        reset();
     }
 
     private final static void checkInputType(final Object input) {
@@ -544,6 +476,47 @@ public final class CxElementReader implements Iterable<AspectElement> {
             --_level;
         }
         _token = _jp.nextToken();
+    }
+
+    /**
+     * Hidden constructor.
+     *
+     * @param input
+     * @param aspect_readers
+     * @throws IOException
+     */
+    private CxElementReader(final Object input, final Set<AspectFragmentReader> aspect_readers) throws IOException {
+        if (input == null) {
+            throw new IllegalArgumentException("cx input is null");
+        }
+        checkInputType(input);
+        _input = input;
+        _element_readers = setupAspectReaders(aspect_readers, false);
+        _read_anonymous_aspect_fragments = false;
+        _calculate_element_counts = true;
+        _element_counts = AspectElementCounts.createInstance();
+        reset();
+    }
+
+    /**
+     * Hidden constructor.
+     *
+     * @param input
+     * @param aspect_readers
+     * @param read_anonymous_aspect_fragments
+     * @throws IOException
+     */
+    private CxElementReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments) throws IOException {
+        if (input == null) {
+            throw new IllegalArgumentException("cx input is null");
+        }
+        checkInputType(input);
+        _input = input;
+        _element_readers = setupAspectReaders(aspect_readers, read_anonymous_aspect_fragments);
+        _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
+        _calculate_element_counts = true;
+        _element_counts = AspectElementCounts.createInstance();
+        reset();
     }
 
 }

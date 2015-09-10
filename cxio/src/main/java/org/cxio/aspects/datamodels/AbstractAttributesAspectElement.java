@@ -2,7 +2,7 @@ package org.cxio.aspects.datamodels;
 
 import java.util.List;
 
-import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.Util;
 
 /**
  *
@@ -11,7 +11,7 @@ import org.cxio.core.interfaces.AspectElement;
  * @author cmzmasek
  *
  */
-public abstract class AbstractAttributesElement implements AspectElement {
+public abstract class AbstractAttributesAspectElement extends AbstractAspectElement {
 
     /**
      * The supported data types (either as atomic value or as list).
@@ -177,5 +177,26 @@ public abstract class AbstractAttributesElement implements AspectElement {
         else {
             throw new IllegalArgumentException("type '" + s + "' is not supported");
         }
+    }
+
+    @Override
+    public long getSum() {
+        long s = 0;
+        if (_property_of != null) {
+            s += _property_of.size();
+        }
+        if (_subnetwork != null) {
+            s += Util.stringToSum(_subnetwork);
+        }
+        if (_name != null) {
+            s += Util.stringToSum(_name);
+        }
+        if (_values != null) {
+            s += _values.size();
+        }
+        if (_data_type != null) {
+            s += Util.stringToSum(_data_type.toString());
+        }
+        return s;
     }
 }

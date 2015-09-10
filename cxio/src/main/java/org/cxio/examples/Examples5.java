@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
@@ -86,14 +86,7 @@ public class Examples5 {
 
         w.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
-        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance()); // Will
-        // use
-        // default
-        // time
-        // stamp
-        // of
-        // w
-        // (2015/08/14)
+        w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
 
         w.start();
         w.writeAspectElements(nodes_elements);
@@ -102,7 +95,8 @@ public class Examples5 {
         w.end();
 
         final String cx_json_str = out.toString();
-        // System.out.println(cx_json_str);
+        System.out.println(cx_json_str);
+        System.out.println(w.getAspectElementCounts());
 
         // --------------------
 
@@ -138,7 +132,7 @@ public class Examples5 {
 
         final String cx_json_str2 = out2.toString();
         System.out.println(cx_json_str2);
-
+        System.out.println(w.getAspectElementCounts());
     }
 
 }

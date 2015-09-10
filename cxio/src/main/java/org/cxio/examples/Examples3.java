@@ -71,6 +71,7 @@ public class Examples3 {
         w.end();
 
         final String cx_json_str = out.toString();
+        System.out.println(w.getAspectElementCounts());
         System.out.println(cx_json_str);
 
         // Reading from CX

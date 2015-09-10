@@ -14,7 +14,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class EdgeAttributesElement extends AbstractAttributesElement {
+public final class EdgeAttributesElement extends AbstractAttributesAspectElement {
 
     public final static String NAME = "edgeAttributes";
 

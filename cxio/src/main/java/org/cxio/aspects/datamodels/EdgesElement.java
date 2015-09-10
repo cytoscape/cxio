@@ -1,6 +1,5 @@
 package org.cxio.aspects.datamodels;
 
-import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxConstants;
 import org.cxio.util.Util;
 
@@ -11,7 +10,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class EdgesElement implements AspectElement {
+public final class EdgesElement extends AbstractAspectElement {
 
     public final static String ID             = CxConstants.ID;
     final public static String NAME           = "edges";
@@ -115,6 +114,24 @@ public final class EdgesElement implements AspectElement {
             sb.append(getRelationship());
         }
         return sb.toString();
+    }
+
+    @Override
+    public long getSum() {
+        long s = 0;
+        if (_id != null) {
+            s += Util.stringToSum(_id);
+        }
+        if (_source != null) {
+            s += Util.stringToSum(_source);
+        }
+        if (_target != null) {
+            s += Util.stringToSum(_target);
+        }
+        if (_relationship != null) {
+            s += Util.stringToSum(_relationship);
+        }
+        return s;
     }
 
 }

@@ -11,7 +11,7 @@ import java.util.List;
  * @author cmzmasek
  *
  */
-public final class NodeAttributesElement extends AbstractAttributesElement {
+public final class NodeAttributesElement extends AbstractAttributesAspectElement {
 
     public final static String NAME = "nodeAttributes";
 

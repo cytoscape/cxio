@@ -68,6 +68,14 @@ public final class Util {
         return (s == null) || (s.length() < 1);
     }
 
+    public final static long stringToSum(final String str) {
+        long l = 0;
+        for (int i = 0, n = str.length(); i < n; ++i) {
+            l += str.charAt(i);
+        }
+        return l;
+    }
+
     public final static String writeAspectElementsToString(final ArrayList<AspectElement> elements, final boolean use_default_pretty_printer) throws IOException {
         final OutputStream out = new ByteArrayOutputStream();
 

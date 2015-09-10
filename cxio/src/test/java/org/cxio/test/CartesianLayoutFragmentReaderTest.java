@@ -36,17 +36,17 @@ public class CartesianLayoutFragmentReaderTest {
         final CartesianLayoutElement a0 = (CartesianLayoutElement) aspects.get(0);
 
         assertEquals(a0.getNode(), "_0");
-        assertTrue(a0.getX() == 123);
-        assertTrue(a0.getY() == 456);
-        assertTrue(a0.getZ() == 0);
+        assertTrue(a0.getX().equals("123"));
+        assertTrue(a0.getY().equals("456"));
+        assertTrue(a0.getZ().equals("0"));
         assertTrue(a0.isZset() == false);
 
         final CartesianLayoutElement a1 = (CartesianLayoutElement) aspects.get(1);
 
         assertEquals(a1.getNode(), "_1");
-        assertTrue(a1.getX() == 3);
-        assertTrue(a1.getY() == 4);
-        assertTrue(a1.getZ() == 2);
+        assertTrue(a1.getX().equals("3"));
+        assertTrue(a1.getY().equals("4"));
+        assertTrue(a1.getZ().equals("2"));
         assertTrue(a1.isZset() == true);
     }
 

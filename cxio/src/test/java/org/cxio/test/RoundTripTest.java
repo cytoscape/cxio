@@ -33,14 +33,14 @@ public class RoundTripTest {
     @Test
     public void testRoundTrip0() throws IOException {
         final String a0 = "[]";
-        final String res = TestUtil.cyCxRoundTrip(a0);
+        final String res = TestUtil.cyCxRoundTrip(a0, true);
         assertEquals(a0, res);
     }
 
     @Test
     public void testRoundTrip1() throws IOException {
 
-        final String res = TestUtil.cyCxRoundTrip(A0);
+        final String res = TestUtil.cyCxRoundTrip(A0, true);
         assertEquals(A0, res);
 
     }
@@ -48,7 +48,7 @@ public class RoundTripTest {
     @Test
     public void testRoundTrip2() throws IOException {
 
-        final String res = TestUtil.cyCxElementRoundTrip(A0);
+        final String res = TestUtil.cyCxElementRoundTrip(A0, true);
         assertEquals(A0, res);
 
     }
@@ -56,7 +56,7 @@ public class RoundTripTest {
     @Test
     public void testRoundTrip3() throws IOException {
 
-        final String res = TestUtil.cyCxRoundTrip(A1);
+        final String res = TestUtil.cyCxRoundTrip(A1, false);
         assertEquals(A1R, res);
 
     }
@@ -64,7 +64,7 @@ public class RoundTripTest {
     @Test
     public void testRoundTrip4() throws IOException {
 
-        final String res = TestUtil.cyCxElementRoundTrip(A1);
+        final String res = TestUtil.cyCxElementRoundTrip(A1, false);
         assertEquals(A1R, res);
 
     }

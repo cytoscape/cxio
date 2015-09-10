@@ -213,7 +213,8 @@ public class Examples2_CxElementReader {
 
         // By setting the second argument to true, this reader will return
         // anonymous aspect elements:
-        final CxElementReader r = CxElementReader.createInstance(cx_json_str, true);
+        final CxElementReader r = CxElementReader.createInstance(cx_json_str, true, null);
+
         while (r.hasNext()) {
             System.out.println(r.getNext());
         }

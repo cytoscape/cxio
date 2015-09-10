@@ -3,7 +3,7 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.Util;
 
 /**
  * This class is used to represent the nodes and edges which make
@@ -13,7 +13,7 @@ import org.cxio.core.interfaces.AspectElement;
  * @author cmzmasek
  *
  */
-public final class SubNetworkElement implements AspectElement {
+public final class SubNetworkElement extends AbstractAspectElement {
 
     public final static String      NAME         = "subNetworks";
     public final static String      SUBNET_EDGES = "edges";
@@ -115,6 +115,21 @@ public final class SubNetworkElement implements AspectElement {
             }
         }
         return sb.toString();
+    }
+
+    @Override
+    public long getSum() {
+        long s = 0;
+        if (_edges != null) {
+            s += _edges.size();
+        }
+        if (_id != null) {
+            s += Util.stringToSum(_id);
+        }
+        if (_nodes != null) {
+            s += _nodes.size();
+        }
+        return s;
     }
 
 }

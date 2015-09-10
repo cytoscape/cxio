@@ -31,6 +31,8 @@ public class CxWriter {
     private boolean                                 _started;
     private boolean                                 _fragment_started;
     private final Map<String, AspectFragmentWriter> _writers;
+    private final AspectElementCounts               _element_counts;
+    private boolean                                 _calculate_element_counts;
 
     /**
      * Returns a CxWriter for reading from OutputStream out.
@@ -145,7 +147,6 @@ public class CxWriter {
         if (Util.isEmpty(writer.getAspectName())) {
             throw new IllegalArgumentException("aspect name is null or empty");
         }
-
         _writers.put(writer.getAspectName(), writer);
     }
 
@@ -163,10 +164,8 @@ public class CxWriter {
         if (_fragment_started) {
             throw new IllegalStateException("fragment already started");
         }
-
         _fragment_started = true;
         _jw.startArray(aspect_name);
-
     }
 
     /**
@@ -181,7 +180,6 @@ public class CxWriter {
         if (!_fragment_started) {
             throw new IllegalStateException("fragment not started");
         }
-
         _fragment_started = false;
         _jw.endArray();
     }
@@ -235,6 +233,9 @@ public class CxWriter {
         if (_writers.containsKey(elements.get(0).getAspectName())) {
             final AspectFragmentWriter writer = _writers.get(elements.get(0).getAspectName());
             writer.write(elements, _jw);
+            if (_calculate_element_counts) {
+                _element_counts.processAspectElements(elements);
+            }
         }
     }
 
@@ -256,6 +257,9 @@ public class CxWriter {
             return;
         }
         writer.write(elements, _jw);
+        if (_calculate_element_counts) {
+            _element_counts.processAspectElements(elements);
+        }
     }
 
     /**
@@ -284,6 +288,9 @@ public class CxWriter {
         if (_writers.containsKey(element.getAspectName())) {
             final AspectFragmentWriter writer = _writers.get(element.getAspectName());
             writer.writeElement(element, _jw);
+            if (_calculate_element_counts) {
+                _element_counts.processAspectElement(element);
+            }
         }
     }
 
@@ -311,6 +318,9 @@ public class CxWriter {
             return;
         }
         writer.writeElement(element, _jw);
+        if (_calculate_element_counts) {
+            _element_counts.processAspectElement(element);
+        }
     }
 
     /**
@@ -332,6 +342,9 @@ public class CxWriter {
             return;
         }
         _jw.writeJsonObjectAsList(element.getAspectName(), element.getData());
+        if (_calculate_element_counts) {
+            _element_counts.processAspectElement(element);
+        }
     }
 
     /**
@@ -355,6 +368,28 @@ public class CxWriter {
             datas.add(elem.getData());
         }
         _jw.writeJsonObjects(elements.get(0).getAspectName(), datas);
+        if (_calculate_element_counts) {
+            _element_counts.processAnonymousAspectElements(elements);
+        }
+    }
+
+    /**
+     * This returns an object which gives access to a checksum and element counts
+     * for the aspect element written out.
+     *
+     * @return the ElementCounts
+     */
+    public final AspectElementCounts getAspectElementCounts() {
+        return _element_counts;
+    }
+
+    /**
+     * To turn on/off the calculation of checksum and aspect element counts.
+     *
+     * @param calculate_element_counts
+     */
+    public final void setCalculateAspectElementCounts(final boolean calculate_element_counts) {
+        _calculate_element_counts = calculate_element_counts;
     }
 
     private CxWriter(final OutputStream out, final boolean use_default_pretty_printer) throws IOException {
@@ -365,6 +400,8 @@ public class CxWriter {
         _jw = JsonWriter.createInstance(out, use_default_pretty_printer);
         _started = false;
         _fragment_started = false;
+        _calculate_element_counts = true;
+        _element_counts = AspectElementCounts.createInstance();
     }
 
 }

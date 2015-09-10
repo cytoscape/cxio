@@ -31,16 +31,16 @@ import org.cxio.core.interfaces.AspectElement;
  */
 public final class Edgelist2Cx {
 
-    private static final char COLUMN_DELIMITER = '\t';
-    private static final String WEIGHT = "weight";
-    private static final String NAME = "name";
+    private static final char   COLUMN_DELIMITER = '\t';
+    private static final String WEIGHT           = "weight";
+    private static final String NAME             = "name";
 
     public static void main(final String[] args) throws IOException {
 
-//        if (args.length != 0) {
-//            System.out.println("Usage: ");
-//            System.exit(-1);
-//        }
+        // if (args.length != 0) {
+        // System.out.println("Usage: ");
+        // System.exit(-1);
+        // }
         final File infile = new File("/Users/cmzmasek/WORK/DATA/HN90_edgelist_trim.csv");
         final File outfile = new File("/Users/cmzmasek/WORK/DATA/HN90_edgelist_trim.cx");
 
@@ -90,7 +90,7 @@ public final class Edgelist2Cx {
         w.writeAspectElements(cx_node_attributes);
         w.writeAspectElements(cx_edge_attributes);
         w.end();
-        
+
         out.close();
 
     }

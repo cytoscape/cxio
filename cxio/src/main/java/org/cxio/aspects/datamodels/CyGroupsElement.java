@@ -3,7 +3,6 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 
 /**
@@ -13,7 +12,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class CyGroupsElement implements AspectElement {
+public final class CyGroupsElement extends AbstractAspectElement {
 
     public final static String VIEW           = "view";
     public final static String EXTERNAL_EDGES = "external_edges";
@@ -118,6 +117,30 @@ public final class CyGroupsElement implements AspectElement {
         }
         sb.append("\n");
         return sb.toString();
+    }
+
+    @Override
+    public long getSum() {
+        long s = 0;
+        if (_name != null) {
+            s += Util.stringToSum(_name);
+        }
+        if (_view != null) {
+            s += Util.stringToSum(_view);
+        }
+        if (_external_edges != null) {
+            s += _external_edges.size();
+        }
+        if (_internal_edges != null) {
+            s += _internal_edges.size();
+        }
+        if (_group_id != null) {
+            s += Util.stringToSum(_group_id);
+        }
+        if (_nodes != null) {
+            s += _nodes.size();
+        }
+        return s;
     }
 
 }

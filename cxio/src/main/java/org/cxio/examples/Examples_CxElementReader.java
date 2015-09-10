@@ -6,13 +6,14 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
+import org.cxio.core.AspectElementCounts;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -133,6 +134,7 @@ public class Examples_CxElementReader {
 
         final String cx_json_str = out.toString();
         System.out.println(cx_json_str);
+        final AspectElementCounts cw = w.getAspectElementCounts();
 
         // Reading from CX using CxElementReader
         // -------------------------------------
@@ -142,6 +144,15 @@ public class Examples_CxElementReader {
         while (p.hasNext()) {
             final AspectElement e = p.getNext();
             System.out.println(e);
+        }
+
+        final AspectElementCounts cr = p.getAspectElementCounts();
+        System.out.println(cr);
+        if (!cw.isCountsAreEqual(cr)) {
+            System.out.println("some thing went wrong");
+        }
+        if (!cw.isSumsAreEqual(cr)) {
+            System.out.println("some thing went wrong");
         }
 
     }

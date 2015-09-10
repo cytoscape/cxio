@@ -2,8 +2,8 @@ package org.cxio.aspects.writers;
 
 import java.io.IOException;
 
-import org.cxio.aspects.datamodels.AbstractAttributesElement;
-import org.cxio.aspects.datamodels.AbstractAttributesElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.filters.AspectKeyFilter;
@@ -26,16 +26,16 @@ public class NetworkAttributesFragmentWriter extends AbstractFragmentWriter {
         final NetworkAttributesElement na = (NetworkAttributesElement) element;
         if ((na.getValues() != null) && (!na.getValues().isEmpty()) && ((_filter == null) || _filter.isPass(na.getName()))) {
             w.writeStartObject();
-            w.writeStringFieldIfNotEmpty(AbstractAttributesElement.ATTR_SUBNETWORK, na.getSubnetwork());
-            w.writeStringField(AbstractAttributesElement.ATTR_NAME, na.getName());
+            w.writeStringFieldIfNotEmpty(AbstractAttributesAspectElement.ATTR_SUBNETWORK, na.getSubnetwork());
+            w.writeStringField(AbstractAttributesAspectElement.ATTR_NAME, na.getName());
             if (na.getValues().size() == 1) {
-                w.writeStringField(AbstractAttributesElement.ATTR_VALUES, na.getValues().get(0));
+                w.writeStringField(AbstractAttributesAspectElement.ATTR_VALUES, na.getValues().get(0));
             }
             else {
-                w.writeList(AbstractAttributesElement.ATTR_VALUES, na.getValues());
+                w.writeList(AbstractAttributesAspectElement.ATTR_VALUES, na.getValues());
             }
             if (na.getDataType() != ATTRIBUTE_TYPE.STRING) {
-                w.writeStringField(AbstractAttributesElement.ATTR_DATA_TYPE, na.getDataType().toString());
+                w.writeStringField(AbstractAttributesAspectElement.ATTR_DATA_TYPE, na.getDataType().toString());
             }
             w.writeEndObject();
         }

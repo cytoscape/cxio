@@ -24,6 +24,9 @@ public abstract class AbstractFragmentWriter implements AspectFragmentWriter {
     }
 
     @Override
+    abstract public String getAspectName();
+
+    @Override
     public void write(final List<AspectElement> aspect_elements, final JsonWriter w) throws IOException {
         if (aspect_elements == null) {
             return;
@@ -36,6 +39,8 @@ public abstract class AbstractFragmentWriter implements AspectFragmentWriter {
     }
 
     @Override
-    abstract public String getAspectName();
+    public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+        w.writeObject(element);
+    }
 
 }

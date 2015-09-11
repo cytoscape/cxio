@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +15,7 @@ import java.util.TreeMap;
 import org.cxio.aspects.readers.AnonymousFragmentReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
+import org.cxio.metadata.MetaData;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
@@ -29,6 +31,7 @@ import com.fasterxml.jackson.core.JsonToken;
  */
 public final class CxReader {
 
+    private static final boolean                        DEBUG = false;
     private List<AspectElement>                         _current;
     private final HashMap<String, AspectFragmentReader> _element_readers;
     private final Object                                _input;
@@ -39,6 +42,7 @@ public final class CxReader {
     private boolean                                     _was_in_recognized_aspect;
     private final AspectElementCounts                   _element_counts;
     private boolean                                     _calculate_element_counts;
+    private final List<MetaData>                        _meta_datas;
 
     /**
      * This creates a new CxReader.
@@ -222,11 +226,24 @@ public final class CxReader {
         while ((_token != JsonToken.END_ARRAY) || (_jp.getCurrentName() != null)) {
             List<AspectElement> elements = null;
             final String name = _jp.getCurrentName();
+            if (DEBUG) {
+                System.out.println(">>> NAME: " + name);
+            }
             _was_in_recognized_aspect = false;
             if ((_level == 2) && (_token == JsonToken.FIELD_NAME) && (name != null)) {
                 if (_element_readers.containsKey(name)) {
                     elements = _element_readers.get(name).readAspectFragment(_jp);
                     _was_in_recognized_aspect = true;
+                }
+                else if (name.equals(MetaData.NAME)) {
+                    --_level;
+                    if (_level < 1) {
+                        throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
+                    }
+                    final MetaData md = MetaData.createInstanceFromJson(_jp);
+                    if ((md != null) && !md.getMetaData().isEmpty()) {
+                        _meta_datas.add(md);
+                    }
                 }
                 else if (_read_anonymous_aspect_fragments) {
                     final AnonymousFragmentReader reader = AnonymousFragmentReader.createInstance();
@@ -284,6 +301,15 @@ public final class CxReader {
     }
 
     /**
+     * This returns the list of meta data elements encountered so far.
+     *
+     * @return list of MetaData
+     */
+    public final List<MetaData> getMetaData() {
+        return _meta_datas;
+    }
+
+    /**
      * This attempts to reset the iterator.
      * <br>
      * ONLY works when the input is based on a String.
@@ -305,6 +331,7 @@ public final class CxReader {
         _current = null;
         _jp = createJsonParser(_input);
         _token = _jp.nextToken();
+        _meta_datas.clear();
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
@@ -346,6 +373,7 @@ public final class CxReader {
         _read_anonymous_aspect_fragments = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
+        _meta_datas = new ArrayList<MetaData>();
         reset();
     }
 
@@ -359,6 +387,7 @@ public final class CxReader {
         _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
+        _meta_datas = new ArrayList<MetaData>();
         reset();
     }
 

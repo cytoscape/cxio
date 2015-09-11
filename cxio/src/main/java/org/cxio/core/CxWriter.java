@@ -14,6 +14,7 @@ import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
+import org.cxio.metadata.MetaData;
 import org.cxio.util.JsonWriter;
 import org.cxio.util.Util;
 
@@ -402,6 +403,10 @@ public class CxWriter {
         _fragment_started = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
+    }
+
+    public void writeMetaData(final MetaData meta_data) throws IOException {
+        meta_data.toJson(_jw);
     }
 
 }

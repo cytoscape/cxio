@@ -17,6 +17,7 @@ import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.aspects.readers.AnonymousFragmentReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
+import org.cxio.metadata.MetaData;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonFactory;
@@ -37,6 +38,7 @@ public final class CxElementReader implements Iterable<AspectElement> {
 
     private final static boolean                        DEBUG = false;
     private boolean                                     _anonymous_reader_used;
+    private boolean                                     _meta_data;
     private String                                      _aspect_name;
     private AspectElement                               _current;
     private final HashMap<String, AspectFragmentReader> _element_readers;
@@ -50,6 +52,7 @@ public final class CxElementReader implements Iterable<AspectElement> {
     private JsonToken                                   _token;
     private final AspectElementCounts                   _element_counts;
     private boolean                                     _calculate_element_counts;
+    private final List<MetaData>                        _meta_datas;
 
     /**
      * This creates a new CxElementReader with all AspectFragmentReaders implemented in this library already added.
@@ -253,19 +256,33 @@ public final class CxElementReader implements Iterable<AspectElement> {
                     if (_element_readers.containsKey(_aspect_name)) {
                         _reader = _element_readers.get(_aspect_name);
                         _anonymous_reader_used = false;
+                        _meta_data = false;
+                    }
+                    else if (_aspect_name.equals(MetaData.NAME)) {
+                        final MetaData md = MetaData.createInstanceFromJson(_jp);
+                        if ((md != null) && !md.getMetaData().isEmpty()) {
+                            _meta_datas.add(md);
+                        }
+                        _anonymous_reader_used = false;
+                        _meta_data = true;
                     }
                     else if (_read_anonymous_aspect_fragments) {
                         _reader = AnonymousFragmentReader.createInstance(_jp, _aspect_name);
                         _anonymous_reader_used = true;
+                        _meta_data = false;
                     }
-                    nextToken();
+                    if (!_meta_data) {
+                        nextToken();
+                    }
                     if (DEBUG) {
                         System.out.println("2 " + _token + " " + _jp.getCurrentName());
                     }
                     if ((_reader != null) && !_anonymous_reader_used && (_token != JsonToken.START_ARRAY)) {
                         throw new IOException("malformed cx json in '" + _aspect_name + "'");
                     }
-                    nextToken();
+                    if (!_meta_data) {
+                        nextToken();
+                    }
                     if (DEBUG) {
                         System.out.println("3 " + _token + " " + _jp.getCurrentName());
                     }
@@ -308,6 +325,12 @@ public final class CxElementReader implements Iterable<AspectElement> {
                             if (_reader != null) {
                                 _current = _reader.readElement(o);
                             }
+                        }
+                    }
+                    else if (_meta_data) {
+                        final MetaData md = MetaData.createInstanceFromJson(_jp);
+                        if ((md != null) && !md.getMetaData().isEmpty()) {
+                            _meta_datas.add(md);
                         }
                     }
                     else {
@@ -379,6 +402,15 @@ public final class CxElementReader implements Iterable<AspectElement> {
     }
 
     /**
+     * This returns the list of meta data elements encountered so far.
+     *
+     * @return list of MetaData
+     */
+    public final List<MetaData> getMetaData() {
+        return _meta_datas;
+    }
+
+    /**
      * This attempts to reset the iterator.
      * <br>
      * ONLY works when the input is based on a String.
@@ -401,6 +433,7 @@ public final class CxElementReader implements Iterable<AspectElement> {
         _token = _jp.nextToken();
         _aspect_name = null;
         _m = new ObjectMapper();
+        _meta_datas.clear();
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
@@ -495,6 +528,7 @@ public final class CxElementReader implements Iterable<AspectElement> {
         _read_anonymous_aspect_fragments = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
+        _meta_datas = new ArrayList<MetaData>();
         reset();
     }
 
@@ -516,6 +550,7 @@ public final class CxElementReader implements Iterable<AspectElement> {
         _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
+        _meta_datas = new ArrayList<MetaData>();
         reset();
     }
 

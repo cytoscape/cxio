@@ -8,6 +8,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import org.cxio.util.Util;
+import org.cxio.core.interfaces.AspectElement;
 
 public class MetaDataElement {
 
@@ -99,6 +100,10 @@ public class MetaDataElement {
 
     public final void setName(final String name) {
         _data.put(NAME, name);
+    }
+    
+    public final void setName(final AspectElement e) {
+        _data.put(NAME, e.getAspectName());
     }
 
     public final void setVersion(final String version) {

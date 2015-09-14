@@ -62,8 +62,10 @@ public final class MetaData {
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         for (final MetaDataElement e : asListOfMetaDataElements()) {
-            sb.append(e.toString());
-            sb.append(Util.LINE_SEPARATOR);
+            if ((e != null) && !e.getData().isEmpty()) {
+                sb.append(e);
+                sb.append(Util.LINE_SEPARATOR);
+            }
         }
         return sb.toString();
     }

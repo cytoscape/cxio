@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
 import org.cxio.aspects.datamodels.AnonymousElement;
@@ -121,29 +123,42 @@ public class Examples_CxElementReader_MetaData {
 
         // Meta data
         // ---------
-        final MetaData md0 = new MetaData();
+        final MetaData md_pre = new MetaData();
 
-        final MetaDataElement meta_element1 = new MetaDataElement();
+        final MetaDataElement node_meta = new MetaDataElement();
 
-        meta_element1.put("edges", 2);
-        meta_element1.put("nodes", 3);
-        meta_element1.put("date", "150914");
-        final int[] c = new int[] { 1, 2 };
-        final double[] d = new double[] { 1.11, 2.22, 3.33 };
-        final List<Object> li = new ArrayList<Object>();
-        li.add(c);
-        li.add(d);
-        meta_element1.put("some datastructure", li);
-        meta_element1.put("some booleans", new boolean[] { true, false });
-        md0.addMetaDataElement(meta_element1);
+        
+        node_meta.setName(NodesElement.NAME);
+        node_meta.setVersion("1.0");
+        node_meta.setIdCounter(200L);
+        node_meta.setLastUpdate("1034334343");
+        node_meta.setElementCount(32L);
+        node_meta.setConsistencyGroup(1L);
 
-        final MetaDataElement meta_element2 = new MetaDataElement();
-        meta_element2.put("checksum", 23932);
-        md0.addMetaDataElement(meta_element2);
-        final MetaData md1 = new MetaData();
-        final MetaDataElement meta_element3 = new MetaDataElement();
-        meta_element3.put("edges", 4);
-        md1.addMetaDataElement(meta_element3);
+        md_pre.addMetaDataElement(node_meta);
+
+        final MetaDataElement citation_meta = new MetaDataElement();
+
+        citation_meta.setName("Citation");
+        citation_meta.setVersion("1.0");
+        citation_meta.setLastUpdate("1034334343");
+        citation_meta.setConsistencyGroup(1L);
+
+        final Map<String, String> prop = new TreeMap<String, String>();
+        prop.put("name", "curator");
+        prop.put("value", "Ideker Lab");
+        citation_meta.addProperty(prop);
+
+        md_pre.addMetaDataElement(citation_meta);
+
+        final MetaData md_post = new MetaData();
+
+        final MetaDataElement meta_post = new MetaDataElement();
+        meta_post.setName("post meta data");
+        meta_post.put("write time", 0.34);
+        meta_post.put("success", true);
+
+        md_post.addMetaDataElement(meta_post);
 
         // Writing to CX
         // -------------
@@ -152,15 +167,17 @@ public class Examples_CxElementReader_MetaData {
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true);
 
         w.start();
-        w.writeMetaData(md0);
+        w.writeMetaData(md_pre);
         w.writeAspectElements(edges_elements);
         w.writeAspectElements(nodes_elements);
         w.writeAspectElements(cartesian_elements);
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(node_attributes_elements);
         w.writeAnonymousAspectElementAsList(unknown_element);
-        w.writeMetaData(md1);
+        w.writeMetaData(md_post);
         w.end();
+        
+        
 
         final String cx_json_str = out.toString();
         System.out.println(cx_json_str);
@@ -170,7 +187,7 @@ public class Examples_CxElementReader_MetaData {
         // -------------------------------------
 
         final CxElementReader p = CxElementReader.createInstanceWithAllAvailableReaders(cx_json_str, true);
-
+       
         while (p.hasNext()) {
             final AspectElement e = p.getNext();
             System.out.println(e);
@@ -188,9 +205,9 @@ public class Examples_CxElementReader_MetaData {
         System.out.println();
         System.out.println("Meta datas:");
         for (final MetaData my_md : p.getMetaData()) {
-            System.out.println(my_md);
-            System.out.println();
+            System.out.print(my_md);
         }
+        System.out.println();
 
     }
 

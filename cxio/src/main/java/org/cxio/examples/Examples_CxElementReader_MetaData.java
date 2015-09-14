@@ -18,6 +18,7 @@ import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.metadata.MetaData;
+import org.cxio.metadata.MetaDataElement;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -121,20 +122,28 @@ public class Examples_CxElementReader_MetaData {
         // Meta data
         // ---------
         final MetaData md0 = new MetaData();
-        md0.put("key1", "value1");
-        md0.put("key2", "value2");
-        md0.put("key3", new String[] { "aa", "bb" });
+
+        final MetaDataElement meta_element1 = new MetaDataElement();
+
+        meta_element1.put("edges", 2);
+        meta_element1.put("nodes", 3);
+        meta_element1.put("date", "150914");
         final int[] c = new int[] { 1, 2 };
         final double[] d = new double[] { 1.11, 2.22, 3.33 };
         final List<Object> li = new ArrayList<Object>();
         li.add(c);
         li.add(d);
-        md0.put("key4", li);
-        md0.put("key5", new boolean[] { true, false });
+        meta_element1.put("some datastructure", li);
+        meta_element1.put("some booleans", new boolean[] { true, false });
+        md0.addMetaDataElement(meta_element1);
+
+        final MetaDataElement meta_element2 = new MetaDataElement();
+        meta_element2.put("checksum", 23932);
+        md0.addMetaDataElement(meta_element2);
         final MetaData md1 = new MetaData();
-        md1.put("nodes", 3);
-        final MetaData md2 = new MetaData();
-        md2.put("edges", 4);
+        final MetaDataElement meta_element3 = new MetaDataElement();
+        meta_element3.put("edges", 4);
+        md1.addMetaDataElement(meta_element3);
 
         // Writing to CX
         // -------------
@@ -144,14 +153,13 @@ public class Examples_CxElementReader_MetaData {
 
         w.start();
         w.writeMetaData(md0);
-        w.writeMetaData(md1);
         w.writeAspectElements(edges_elements);
         w.writeAspectElements(nodes_elements);
         w.writeAspectElements(cartesian_elements);
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(node_attributes_elements);
         w.writeAnonymousAspectElementAsList(unknown_element);
-        w.writeMetaData(md2);
+        w.writeMetaData(md1);
         w.end();
 
         final String cx_json_str = out.toString();

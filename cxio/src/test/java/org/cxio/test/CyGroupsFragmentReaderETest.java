@@ -11,12 +11,12 @@ import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.CyGroupsElement;
 import org.cxio.aspects.readers.CyGroupsFragmentReader;
-import org.cxio.core.CxReader;
+import org.cxio.core.CxElementReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.junit.Test;
 
-public class GroupsFragmentReaderTestE {
+public class CyGroupsFragmentReaderETest {
 
     @Test
     public void test() throws IOException {
@@ -26,8 +26,8 @@ public class GroupsFragmentReaderTestE {
         final Set<AspectFragmentReader> readers = new HashSet<AspectFragmentReader>();
         readers.add(r);
 
-        final CxReader p = CxReader.createInstance(t0, readers);
-        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
+        final CxElementReader p = CxElementReader.createInstance(t0, readers);
+        final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
 
         assertTrue("failed to parse " + CyGroupsElement.NAME + " aspect", r0.containsKey(CyGroupsElement.NAME));
 

@@ -16,7 +16,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.junit.Test;
 
-public class CyVisualPropertiesFragmentReaderTestE {
+public class CyVisualPropertiesFragmentReaderETest {
 
     @Test
     public void test() throws IOException {

@@ -14,7 +14,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 import org.junit.Test;
 
-public class EdgeAttributesFragmentReaderTestE {
+public class EdgeAttributesFragmentReaderETest {
 
     @Test
     public void test() throws IOException {

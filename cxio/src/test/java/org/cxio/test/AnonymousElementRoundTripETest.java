@@ -26,7 +26,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class AnonymousElementRoundTripTestE {
+public class AnonymousElementRoundTripETest {
 
     @Test
     public void test() throws IOException {

@@ -14,7 +14,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 import org.junit.Test;
 
-public class CartesianLayoutFragmentReaderTestE {
+public class CartesianLayoutFragmentReaderETest {
 
     @Test
     public void test1() throws IOException {

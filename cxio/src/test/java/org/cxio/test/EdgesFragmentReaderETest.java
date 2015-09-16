@@ -13,7 +13,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 import org.junit.Test;
 
-public class EdgesFragmentReaderTestE {
+public class EdgesFragmentReaderETest {
 
     @Test
     public void testEdgesAspectParsing() throws IOException, ClassNotFoundException {

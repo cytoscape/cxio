@@ -131,7 +131,7 @@ public class Examples_CxElementReader_MetaData {
         node_meta.setName(NodesElement.NAME);
         node_meta.setVersion("1.0");
         node_meta.setIdCounter(200L);
-        node_meta.setLastUpdate("1034334343");
+        node_meta.setLastUpdate(1034334343L);
         node_meta.setElementCount(32L);
         node_meta.setConsistencyGroup(1L);
 
@@ -141,7 +141,7 @@ public class Examples_CxElementReader_MetaData {
 
         citation_meta.setName("Citation");
         citation_meta.setVersion("1.0");
-        citation_meta.setLastUpdate("1034334343");
+        citation_meta.setLastUpdate(1034334343L);
         citation_meta.setConsistencyGroup(1L);
 
         final Map<String, String> prop = new TreeMap<String, String>();

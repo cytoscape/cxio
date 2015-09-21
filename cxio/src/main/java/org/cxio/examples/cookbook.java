@@ -92,7 +92,7 @@ public class cookbook {
         four(edges_elements, nodes_elements, cartesian_elements);
 
         five();
-        
+
         System.out.println("OK");
 
     }
@@ -126,10 +126,8 @@ public class cookbook {
         w.writeAnonymousAspectElements(anon);
         w.end();
 
-        //System.out.println(out.toString());
+        // System.out.println(out.toString());
     }
-    
-   
 
     protected static void four(final List<AspectElement> edges_elements, final List<AspectElement> nodes_elements, final List<AspectElement> cartesian_elements) throws IOException {
         final OutputStream out = new ByteArrayOutputStream();

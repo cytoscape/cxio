@@ -112,8 +112,8 @@ public class MetaDataElement {
      *
      * @return the last update value
      */
-    public final String getLastUpdate() {
-        return (String) _data.get(LAST_UPDATE);
+    public final Long getLastUpdate() {
+        return Long.valueOf((String) _data.get(LAST_UPDATE));
     }
 
     /**
@@ -205,8 +205,8 @@ public class MetaDataElement {
      *
      * @param last_update
      */
-    public final void setLastUpdate(final String last_update) {
-        _data.put(LAST_UPDATE, last_update);
+    public final void setLastUpdate(final Long last_update) {
+        _data.put(LAST_UPDATE, String.valueOf(last_update));
     }
 
     /**

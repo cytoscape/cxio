@@ -34,22 +34,6 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
     final private RELATIONSHIP_TYPE _relationship;
     final private String            _child_name;
 
-    @Override
-    public long getSum() {
-        long s = 0;
-        if (_child != null) {
-            s += _child.length();
-        }
-        if (_parent != null) {
-            s += _parent.length();
-        }
-        if (_child_name != null) {
-            s += _child_name.length();
-        }
-
-        return s;
-    }
-
     public NetworkRelationsElement(final String parent, final String child, final String relationship, final String child_name) throws IOException {
         _parent = parent;
         _child = child;

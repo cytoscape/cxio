@@ -54,6 +54,7 @@ import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.aspects.writers.SubNetworkFragmentWriter;
 import org.cxio.aspects.writers.VisualPropertiesFragmentWriter;
+import org.cxio.core.AspectElementCounts;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -63,17 +64,22 @@ import org.cxio.core.interfaces.AspectFragmentWriter;
 public final class Util {
 
     public final static String LINE_SEPARATOR = System.getProperty("line.separator");
+    public final static String MD5            = "MD5";
 
     final public static boolean isEmpty(final String s) {
         return (s == null) || (s.length() < 1);
     }
 
-    public final static long stringToSum(final String str) {
-        long l = 0;
-        for (int i = 0, n = str.length(); i < n; ++i) {
-            l += str.charAt(i);
+    public final static boolean isAreByteArraysEqual(final byte[] a0, final byte[] a1) {
+        if (a0.length != a1.length) {
+            return false;
         }
-        return l;
+        for (int i = 0; i < a1.length; ++i) {
+            if (a0[i] != a1[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public final static String writeAspectElementsToString(final ArrayList<AspectElement> elements, final boolean use_default_pretty_printer) throws IOException {
@@ -216,6 +222,18 @@ public final class Util {
             throw new IllegalArgumentException("attempt to parse object of type [" + source.getClass() + "] (can only parse objects of type File, InputStream, String, or StringBuffer)");
         }
         return reader;
+    }
+
+    public static void validate(final byte[] writer_checksum, final byte[] reader_checksum, final AspectElementCounts writer_counts, final AspectElementCounts reader_counts) {
+        if (!AspectElementCounts.isCountsAreEqual(reader_counts, writer_counts)) {
+            System.out.println("something went wrong: element counts do not match");
+        }
+        else if (!isAreByteArraysEqual(reader_checksum, writer_checksum)) {
+            System.out.println("something went wrong: checksums do not match");
+        }
+        else {
+            System.out.println("OK");
+        }
     }
 
 }

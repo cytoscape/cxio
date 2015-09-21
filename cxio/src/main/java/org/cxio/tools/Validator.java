@@ -110,7 +110,7 @@ public final class Validator {
     }
 
     private final static CxReader makeReader(final InputStream in, final boolean allow_anonymous_readers, final Set<AspectFragmentReader> readers) throws IOException {
-        return CxReader.createInstance(in, allow_anonymous_readers, readers);
+        return CxReader.createInstance(in, allow_anonymous_readers, false, readers);
     }
 
     public static void main(final String[] args) {

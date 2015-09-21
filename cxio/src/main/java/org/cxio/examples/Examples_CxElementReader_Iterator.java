@@ -17,6 +17,7 @@ import org.cxio.core.AspectElementCounts;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.Util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -121,7 +122,7 @@ public class Examples_CxElementReader_Iterator {
         // -------------
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true);
+        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
 
         w.start();
         w.writeAspectElements(edges_elements);
@@ -139,7 +140,7 @@ public class Examples_CxElementReader_Iterator {
         // Reading from CX using CxElementReader
         // -------------------------------------
 
-        final CxElementReader p = CxElementReader.createInstanceWithAllAvailableReaders(cx_json_str, true);
+        final CxElementReader p = CxElementReader.createInstanceWithAllAvailableReaders(cx_json_str, true, true);
 
         for (final AspectElement e : p) {
             System.out.println(e);
@@ -147,12 +148,7 @@ public class Examples_CxElementReader_Iterator {
 
         final AspectElementCounts cr = p.getAspectElementCounts();
         System.out.println(cr);
-        if (!cw.isCountsAreEqual(cr)) {
-            System.out.println("some thing went wrong");
-        }
-        if (!cw.isSumsAreEqual(cr)) {
-            System.out.println("some thing went wrong");
-        }
+        Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
 
     }
 

@@ -1,10 +1,7 @@
 package org.cxio.core;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
-import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -20,7 +17,6 @@ import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaData;
 import org.cxio.util.Util;
 
-import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
@@ -34,11 +30,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-public final class CxElementReader implements Iterable<AspectElement> {
+public final class CxElementReader extends AbstractCxReader implements Iterable<AspectElement> {
 
     private final static boolean                        DEBUG = false;
     private boolean                                     _anonymous_reader_used;
-    private boolean                                     _meta_data;
     private String                                      _aspect_name;
     private AspectElement                               _current;
     private final HashMap<String, AspectFragmentReader> _element_readers;
@@ -50,160 +45,88 @@ public final class CxElementReader implements Iterable<AspectElement> {
     private final boolean                               _read_anonymous_aspect_fragments;
     private AspectFragmentReader                        _reader;
     private JsonToken                                   _token;
-    private final AspectElementCounts                   _element_counts;
-    private boolean                                     _calculate_element_counts;
-    private final List<MetaData>                        _meta_datas;
 
     /**
      * This creates a new CxElementReader with all AspectFragmentReaders implemented in this library already added.
      *
-     * @param file the File to parse
+     * @param input the input object to parse
      * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
      * @return a CxElementReader
      * @throws IOException
      */
-    public final static CxElementReader createInstanceWithAllAvailableWriters(final File file, final boolean read_anonymous_aspect_fragments) throws IOException {
-        return new CxElementReader(file, Util.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments);
-
+    public final static CxElementReader createInstanceWithAllAvailableReaders(final Object input, final boolean read_anonymous_aspect_fragments) throws IOException {
+        try {
+            return new CxElementReader(input, Util.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments, false);
+        }
+        catch (final NoSuchAlgorithmException e) {
+            throw new IOException(e.getMessage());
+        }
     }
 
-    /**
-     * This creates a new CxElementReader.
-     *
-     * @param file the File to parse
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @param fragment_readers the set of AspectFragmentReaders to use
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final File file, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> fragment_readers) throws IOException {
-        return new CxElementReader(file, fragment_readers, read_anonymous_aspect_fragments);
-    }
-
-    /**
-     * This creates a new CxElementReader.
-     *
-     * @param file the File to parse
-     * @param fragment_readers the set of AspectFragmentReaders to use
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final File file, final Set<AspectFragmentReader> fragment_readers) throws IOException {
-        return new CxElementReader(file, fragment_readers);
-    }
-
-    /**
-     * This creates a new CxElementReader with all AspectFragmentReaders implemented in this library already added.
-     *
-     * @param input_stream the InputStream to parse
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstanceWithAllAvailableReaders(final InputStream input_stream, final boolean read_anonymous_aspect_fragments) throws IOException {
-        return new CxElementReader(input_stream, Util.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments);
-    }
-
-    /**
-     * This creates a new CxElementReader.
-     *
-     * @param input_stream the InputStream to parse
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @param fragment_readers the set of AspectFragmentReaders to use
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final InputStream input_stream, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> fragment_readers)
+    public final static CxElementReader createInstanceWithAllAvailableReaders(final Object input, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum)
             throws IOException {
-        return new CxElementReader(input_stream, fragment_readers, read_anonymous_aspect_fragments);
+        try {
+            return new CxElementReader(input, Util.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments, calculate_md5_checksum);
+        }
+        catch (final NoSuchAlgorithmException e) {
+            throw new IOException(e.getMessage());
+        }
     }
 
     /**
      * This creates a new CxElementReader.
      *
-     * @param input_stream the InputStream to parse
-     * @param fragment_readers the set of AspectFragmentReaders to use
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final InputStream input_stream, final Set<AspectFragmentReader> fragment_readers) throws IOException {
-        return new CxElementReader(input_stream, fragment_readers);
-    }
-
-    /**
-     * This creates a new CxElementReader with all AspectFragmentReaders implemented in this library already added.
-     *
-     * @param string the String to parse
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstanceWithAllAvailableReaders(final String string, final boolean read_anonymous_aspect_fragments) throws IOException {
-        return new CxElementReader(string, Util.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments);
-    }
-
-    /**
-     * This creates a new CxElementReader.
-     *
-     *
-     * @param string the String to parse
+     * @param input the input object to parse
      * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
      * @param fragment_readers the set of AspectFragmentReaders to use
      * @return a CxElementReader
      * @throws IOException
      */
-    public final static CxElementReader createInstance(final String string, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> fragment_readers) throws IOException {
-        return new CxElementReader(string, fragment_readers, read_anonymous_aspect_fragments);
+    public final static CxElementReader createInstance(final Object input, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        try {
+            return new CxElementReader(input, fragment_readers, read_anonymous_aspect_fragments, false);
+        }
+        catch (final NoSuchAlgorithmException e) {
+            throw new IOException(e.getMessage());
+        }
+    }
+
+    public final static CxElementReader createInstance(final Object input,
+                                                       final boolean read_anonymous_aspect_fragments,
+                                                       final boolean calculate_md5_checksum,
+                                                       final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        try {
+            return new CxElementReader(input, fragment_readers, read_anonymous_aspect_fragments, calculate_md5_checksum);
+        }
+        catch (final NoSuchAlgorithmException e) {
+            throw new IOException(e.getMessage());
+        }
     }
 
     /**
      * This creates a new CxElementReader.
      *
-     *
-     * @param string the String to parse
+     * @param input the input object to parse
      * @param fragment_readers the set of AspectFragmentReaders to use
      * @return a CxElementReader
      * @throws IOException
      */
-    public final static CxElementReader createInstance(final String string, final Set<AspectFragmentReader> fragment_readers) throws IOException {
-        return new CxElementReader(string, fragment_readers);
+    public final static CxElementReader createInstance(final Object input, final Set<AspectFragmentReader> fragment_readers) throws IOException {
+        try {
+            return new CxElementReader(input, fragment_readers, false, false);
+        }
+        catch (final NoSuchAlgorithmException e) {
+            throw new IOException(e.getMessage());
+        }
     }
 
-    /**
-     * This creates a new CxElementReader with all AspectFragmentReaders implemented in this library already added..
-     *
-     * @param url the URL to parse from
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstanceWithAllAvailableReaders(final URL url, final boolean read_anonymous_aspect_fragments) throws IOException {
-        return new CxElementReader(url, Util.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments);
-    }
-
-    /**
-     * This creates a new CxElementReader.
-     *
-     * @param url the URL to parse from
-     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
-     * @param fragment_readers the set of AspectFragmentReaders to use
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final URL url, final boolean read_anonymous_aspect_fragments, final Set<AspectFragmentReader> fragment_readers) throws IOException {
-        return new CxElementReader(url, fragment_readers, read_anonymous_aspect_fragments);
-    }
-
-    /**
-     * This creates a new CxElementReader.
-     *
-     * @param url the URL to parse from
-     * @param fragment_readers the set of AspectFragmentReaders to use
-     * @return a CxElementReader
-     * @throws IOException
-     */
-    public final static CxElementReader createInstance(final URL url, final Set<AspectFragmentReader> fragment_readers) throws IOException {
-        return new CxElementReader(url, fragment_readers);
+    public final static CxElementReader createInstance(final Object input, final Set<AspectFragmentReader> fragment_readers, final boolean calculate_md5_checksum) throws IOException {
+        try {
+            return new CxElementReader(input, fragment_readers, false, calculate_md5_checksum);
+        }
+        catch (final NoSuchAlgorithmException e) {
+            throw new IOException(e.getMessage());
+        }
     }
 
     /**
@@ -402,22 +325,14 @@ public final class CxElementReader implements Iterable<AspectElement> {
     }
 
     /**
-     * This returns the list of meta data elements encountered so far.
-     *
-     * @return list of MetaData
-     */
-    public final List<MetaData> getMetaData() {
-        return _meta_datas;
-    }
-
-    /**
      * This attempts to reset the iterator.
      * <br>
      * ONLY works when the input is based on a String.
      *
      * @throws IOException
+     * @throws NoSuchAlgorithmException
      */
-    public final void reset() throws IOException {
+    public final void reset() throws IOException, NoSuchAlgorithmException {
         if (_input == null) {
             throw new IllegalStateException("input for cx parser is null");
         }
@@ -440,67 +355,6 @@ public final class CxElementReader implements Iterable<AspectElement> {
         getNext();
     }
 
-    /**
-     * This returns an object which gives access to a checksum and element counts
-     * for the aspect element read in.
-     *
-     * @return the ElementCounts
-     */
-    public final AspectElementCounts getAspectElementCounts() {
-        return _element_counts;
-    }
-
-    /**
-     * To turn on/off the calculation of checksum and aspect element counts.
-     *
-     * @param calculate_element_counts
-     */
-    public final void setCalculateAspectElementCounts(final boolean calculate_element_counts) {
-        _calculate_element_counts = calculate_element_counts;
-    }
-
-    private final static JsonParser createJsonParser(final Object input) throws IOException {
-        final JsonFactory f = new JsonFactory();
-        JsonParser jp = null;
-        if (input instanceof String) {
-            jp = f.createParser((String) input);
-        }
-        else if (input instanceof File) {
-            jp = f.createParser((File) input);
-        }
-        else if (input instanceof InputStream) {
-            jp = f.createParser((InputStream) input);
-        }
-        else if (input instanceof URL) {
-            jp = f.createParser((URL) input);
-        }
-        else {
-            throw new IllegalStateException("cx parser does not know how to handle input of type " + input.getClass());
-        }
-        return jp;
-    }
-
-    private final static HashMap<String, AspectFragmentReader> setupAspectReaders(final Set<AspectFragmentReader> aspect_readers, final boolean allow_empty) {
-        if (!allow_empty) {
-            if ((aspect_readers == null) || aspect_readers.isEmpty()) {
-                throw new IllegalArgumentException("aspect handlers are null or empty");
-            }
-        }
-        final HashMap<String, AspectFragmentReader> ahs = new HashMap<String, AspectFragmentReader>();
-        if (aspect_readers != null) {
-            for (final AspectFragmentReader aspect_reader : aspect_readers) {
-                ahs.put(aspect_reader.getAspectName(), aspect_reader);
-            }
-        }
-        return ahs;
-    }
-
-    private final static void checkInputType(final Object input) {
-        if (!(input instanceof File) && !(input instanceof InputStream) && !(input instanceof Reader) && !(input instanceof String) && !(input instanceof URL)) {
-            throw new IllegalArgumentException("don't know how to process" + input.getClass());
-        }
-    }
-
     private void nextToken() throws IOException {
         if ((_token == JsonToken.START_ARRAY) || (_token == JsonToken.START_OBJECT)) {
             ++_level;
@@ -516,31 +370,13 @@ public final class CxElementReader implements Iterable<AspectElement> {
      *
      * @param input
      * @param aspect_readers
-     * @throws IOException
-     */
-    private CxElementReader(final Object input, final Set<AspectFragmentReader> aspect_readers) throws IOException {
-        if (input == null) {
-            throw new IllegalArgumentException("cx input is null");
-        }
-        checkInputType(input);
-        _input = input;
-        _element_readers = setupAspectReaders(aspect_readers, false);
-        _read_anonymous_aspect_fragments = false;
-        _calculate_element_counts = true;
-        _element_counts = AspectElementCounts.createInstance();
-        _meta_datas = new ArrayList<MetaData>();
-        reset();
-    }
-
-    /**
-     * Hidden constructor.
-     *
-     * @param input
-     * @param aspect_readers
      * @param read_anonymous_aspect_fragments
+     * @param calculate_md5_checksum
      * @throws IOException
+     * @throws NoSuchAlgorithmException
      */
-    private CxElementReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments) throws IOException {
+    private CxElementReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum)
+            throws IOException, NoSuchAlgorithmException {
         if (input == null) {
             throw new IllegalArgumentException("cx input is null");
         }
@@ -549,6 +385,7 @@ public final class CxElementReader implements Iterable<AspectElement> {
         _element_readers = setupAspectReaders(aspect_readers, read_anonymous_aspect_fragments);
         _read_anonymous_aspect_fragments = read_anonymous_aspect_fragments;
         _calculate_element_counts = true;
+        _calculate_md5_checksum = calculate_md5_checksum;
         _element_counts = AspectElementCounts.createInstance();
         _meta_datas = new ArrayList<MetaData>();
         reset();

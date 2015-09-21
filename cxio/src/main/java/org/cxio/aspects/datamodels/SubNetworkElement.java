@@ -3,8 +3,6 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.util.Util;
-
 /**
  * This class is used to represent the nodes and edges which make
  * up a sub-network.
@@ -115,21 +113,6 @@ public final class SubNetworkElement extends AbstractAspectElement {
             }
         }
         return sb.toString();
-    }
-
-    @Override
-    public long getSum() {
-        long s = 0;
-        if (_edges != null) {
-            s += _edges.size();
-        }
-        if (_id != null) {
-            s += Util.stringToSum(_id);
-        }
-        if (_nodes != null) {
-            s += _nodes.size();
-        }
-        return s;
     }
 
 }

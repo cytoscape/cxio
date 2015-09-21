@@ -5,6 +5,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -23,7 +24,7 @@ import org.junit.Test;
 public class CxParserTest {
 
     @Test
-    public void testEmpty1() throws IOException {
+    public void testEmpty1() throws IOException, NoSuchAlgorithmException {
 
         final String j = "[]";
         final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
@@ -41,7 +42,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void testEmpty2() throws IOException {
+    public void testEmpty2() throws IOException, NoSuchAlgorithmException {
         final String j = "[{}]";
         final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
 
@@ -58,7 +59,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void test1() throws IOException {
+    public void test1() throws IOException, NoSuchAlgorithmException {
         final String j = "[{\"key\":\"value\"}]";
         final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
 
@@ -75,7 +76,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void test2() throws IOException {
+    public void test2() throws IOException, NoSuchAlgorithmException {
         final String j = "[{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}]";
         final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
 
@@ -92,7 +93,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void test3() throws IOException {
+    public void test3() throws IOException, NoSuchAlgorithmException {
         final String j = "[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}]";
         final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
 
@@ -127,7 +128,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void test4() throws IOException {
+    public void test4() throws IOException, NoSuchAlgorithmException {
         final String j = "[" + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
                 + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}" + "]";
         final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
@@ -176,7 +177,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void test5() throws IOException {
+    public void test5() throws IOException, NoSuchAlgorithmException {
         final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"key\":\"value\"},"
                 + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
@@ -229,11 +230,11 @@ public class CxParserTest {
     }
 
     @Test
-    public void test6() throws IOException {
+    public void test6() throws IOException, NoSuchAlgorithmException {
         final String j = "["
 
         + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"key\":\"value\"},"
-        + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
+                + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
@@ -281,7 +282,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void test7() throws IOException {
+    public void test7() throws IOException, NoSuchAlgorithmException {
         final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
 
         + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
@@ -332,7 +333,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void test8() throws IOException {
+    public void test8() throws IOException, NoSuchAlgorithmException {
         final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"key\":\"value\"},"
                 + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}" + "]";
         final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
@@ -384,7 +385,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void test9() throws IOException {
+    public void test9() throws IOException, NoSuchAlgorithmException {
         final String j = "["
                 + "{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
@@ -481,7 +482,7 @@ public class CxParserTest {
     }
 
     @Test
-    public void test10() throws IOException {
+    public void test10() throws IOException, NoSuchAlgorithmException {
         final String j = "[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}]";
         final Set<AspectFragmentReader> readers = new HashSet<>();
         readers.add(EdgesFragmentReader.createInstance());
@@ -517,49 +518,5 @@ public class CxParserTest {
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect", y.contains(new NodesElement("_3")));
 
     }
-
-    // @Test
-    // public void test11() throws IOException {
-    // File f = new File("/Users/cmzmasek/Desktop/dan.cx");
-    // InputStream in = new FileInputStream(f);
-    // final CxReader p = CxReader.createInstance(in);
-    // p.addAspectFragmentReader(EdgesFragmentReader.createInstance());
-    // p.addAspectFragmentReader(NodesFragmentReader.createInstance());
-    // p.reset();
-    // assertTrue(p.hasNext());
-    // while( p.hasNext() ) {
-    // System.out.println( p.getNext());
-    // }
-    //
-    // }
-    //
-    // @Test
-    // public void test12() throws IOException {
-    // File f = new File("/Users/cmzmasek/Desktop/dan.cx");
-    // InputStream in = new FileInputStream(f);
-    // final CxReader p = CxReader.createInstance(in);
-    // p.addAspectFragmentReader(EdgesFragmentReader.createInstance());
-    // p.addAspectFragmentReader(NodesFragmentReader.createInstance());
-    // p.reset();
-    // final SortedMap<String, List<AspectElement>> res =
-    // CxReader.parseAsMap(p);
-    // System.out.println( res );
-    //
-    // }
-    //
-    // @Test
-    // public void test13() throws IOException {
-    // File f = new File("/Users/cmzmasek/Desktop/simple.cx");
-    // InputStream in = new FileInputStream(f);
-    // final CxReader p = CxReader.createInstance(in);
-    // p.addAspectFragmentReader(EdgesFragmentReader.createInstance());
-    // p.addAspectFragmentReader(NodesFragmentReader.createInstance());
-    // p.addAspectFragmentReader(CartesianLayoutFragmentReader.createInstance());
-    // p.reset();
-    // final SortedMap<String, List<AspectElement>> res =
-    // CxReader.parseAsMap(p);
-    // System.out.println( res );
-    //
-    // }
 
 }

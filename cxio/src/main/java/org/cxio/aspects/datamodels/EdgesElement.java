@@ -116,22 +116,4 @@ public final class EdgesElement extends AbstractAspectElement {
         return sb.toString();
     }
 
-    @Override
-    public long getSum() {
-        long s = 0;
-        if (_id != null) {
-            s += Util.stringToSum(_id);
-        }
-        if (_source != null) {
-            s += Util.stringToSum(_source);
-        }
-        if (_target != null) {
-            s += Util.stringToSum(_target);
-        }
-        if (_relationship != null) {
-            s += Util.stringToSum(_relationship);
-        }
-        return s;
-    }
-
 }

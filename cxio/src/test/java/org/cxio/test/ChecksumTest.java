@@ -1,4 +1,7 @@
-package org.cxio.examples;
+package org.cxio.test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -25,11 +28,12 @@ import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.util.Util;
+import org.junit.Test;
 
-public class Examples {
+public class ChecksumTest {
 
-    public static void main(final String[] args) throws IOException {
-
+    @Test
+    public void test() throws IOException {
         // Creating same AspectElements and adding them to Lists (representing
         // AspectFragments)
         // --------------------------------------------------------------------
@@ -89,52 +93,105 @@ public class Examples {
 
         // Writing to CX
         // -------------
-        final OutputStream out = new ByteArrayOutputStream();
+        final OutputStream out0 = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
+        final CxWriter w0 = CxWriter.createInstanceWithAllAvailableWriters(out0, true, true);
 
-        w.start();
-        w.writeAspectElements(edges_elements);
-        w.writeAspectElements(nodes_elements);
-        w.writeAspectElements(cartesian_elements);
-        w.writeAspectElements(edge_attributes_elements);
-        w.writeAspectElements(node_attributes_elements);
-        w.end();
+        w0.start();
+        w0.writeAspectElements(edges_elements);
+        w0.writeAspectElements(nodes_elements);
+        w0.writeAspectElements(cartesian_elements);
+        w0.writeAspectElements(edge_attributes_elements);
+        w0.writeAspectElements(node_attributes_elements);
+        w0.end();
 
-        final String cx_json_str = out.toString();
+        final String cx_json_str0 = out0.toString();
 
-        final AspectElementCounts cw = w.getAspectElementCounts();
+        final AspectElementCounts cw0 = w0.getAspectElementCounts();
 
-        System.out.println(cx_json_str);
+        // Writing to CX
+        // -------------
+        final OutputStream out1 = new ByteArrayOutputStream();
+
+        final CxWriter w1 = CxWriter.createInstanceWithAllAvailableWriters(out1, true, true);
+
+        w1.start();
+        w1.writeAspectElements(nodes_elements);
+        w1.writeAspectElements(cartesian_elements);
+        w1.writeAspectElements(edge_attributes_elements);
+        w1.writeAspectElements(node_attributes_elements);
+        w1.end();
+
+        final String cx_json_str1 = out1.toString();
+
+        final AspectElementCounts cw1 = w1.getAspectElementCounts();
 
         // Reading from CX
         // ---------------
-        final Set<AspectFragmentReader> readers = new HashSet<>();
+        final Set<AspectFragmentReader> readers0 = new HashSet<>();
 
         final EdgesFragmentReader er = EdgesFragmentReader.createInstance();
 
-        readers.add(er);
-        readers.add(NodesFragmentReader.createInstance());
-        readers.add(CartesianLayoutFragmentReader.createInstance());
-        readers.add(EdgeAttributesFragmentReader.createInstance());
-        readers.add(NodeAttributesFragmentReader.createInstance());
-        final CxReader p = CxReader.createInstance(cx_json_str, true, true, readers);
+        readers0.add(er);
+        readers0.add(NodesFragmentReader.createInstance());
+        readers0.add(CartesianLayoutFragmentReader.createInstance());
+        readers0.add(EdgeAttributesFragmentReader.createInstance());
+        readers0.add(NodeAttributesFragmentReader.createInstance());
+        final CxReader p0 = CxReader.createInstance(cx_json_str0, true, true, readers0);
 
-        while (p.hasNext()) {
-            final List<AspectElement> elements = p.getNext();
-            if (!elements.isEmpty()) {
-                final String aspect_name = elements.get(0).getAspectName();
-                System.out.println();
-                System.out.println(aspect_name + ": ");
-                for (final AspectElement element : elements) {
-                    System.out.println(element.toString());
-                }
-            }
+        while (p0.hasNext()) {
+            p0.getNext();
         }
 
-        final AspectElementCounts cr = p.getAspectElementCounts();
-        System.out.println(cr);
-        Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
+        final AspectElementCounts cr0 = p0.getAspectElementCounts();
+
+        // Reading from CX
+        // ---------------
+        final Set<AspectFragmentReader> readers1 = new HashSet<>();
+
+        readers1.add(er);
+        readers1.add(NodesFragmentReader.createInstance());
+        readers1.add(CartesianLayoutFragmentReader.createInstance());
+        readers1.add(EdgeAttributesFragmentReader.createInstance());
+        readers1.add(NodeAttributesFragmentReader.createInstance());
+        final CxReader p1 = CxReader.createInstance(cx_json_str1, true, true, readers1);
+
+        while (p1.hasNext()) {
+            p1.getNext();
+        }
+
+        final byte[] cs_r0 = p0.getMd5Checksum();
+        final byte[] cs_r1 = p1.getMd5Checksum();
+        final byte[] cs_w0 = w0.getMd5Checksum();
+        final byte[] cs_w1 = w1.getMd5Checksum();
+
+        final AspectElementCounts cr1 = p1.getAspectElementCounts();
+
+        assertTrue(AspectElementCounts.isCountsAreEqual(cw0, cw0));
+        assertTrue(AspectElementCounts.isCountsAreEqual(cr0, cr0));
+        assertTrue(AspectElementCounts.isCountsAreEqual(cw1, cw1));
+        assertTrue(AspectElementCounts.isCountsAreEqual(cr1, cr1));
+        assertTrue(AspectElementCounts.isCountsAreEqual(cr0, cw0));
+        assertTrue(AspectElementCounts.isCountsAreEqual(cr1, cw1));
+        assertTrue(AspectElementCounts.isCountsAreEqual(cw0, cr0));
+        assertTrue(AspectElementCounts.isCountsAreEqual(cw1, cr1));
+
+        assertFalse(AspectElementCounts.isCountsAreEqual(cr0, cr1));
+        assertFalse(AspectElementCounts.isCountsAreEqual(cr1, cr0));
+
+        assertFalse(AspectElementCounts.isCountsAreEqual(cw0, cw1));
+        assertFalse(AspectElementCounts.isCountsAreEqual(cw1, cw0));
+
+        assertTrue(Util.isAreByteArraysEqual(cs_r0, cs_w0));
+        assertTrue(Util.isAreByteArraysEqual(cs_r1, cs_w1));
+        assertTrue(Util.isAreByteArraysEqual(cs_w0, cs_r0));
+        assertTrue(Util.isAreByteArraysEqual(cs_w1, cs_r1));
+
+        assertFalse(Util.isAreByteArraysEqual(cs_r0, cs_w1));
+        assertFalse(Util.isAreByteArraysEqual(cs_w1, cs_r0));
+
+        assertFalse(Util.isAreByteArraysEqual(cs_w0, cs_r1));
+        assertFalse(Util.isAreByteArraysEqual(cs_r1, cs_w0));
 
     }
 

@@ -13,7 +13,6 @@ import org.cxio.util.Util;
 public final class AspectElementCounts {
 
     private final SortedMap<String, Integer> _count_data;
-    private long                             _sum;
 
     public final static AspectElementCounts createInstance() {
         return new AspectElementCounts();
@@ -34,27 +33,20 @@ public final class AspectElementCounts {
         return 0;
     }
 
-    public final long getSum() {
-        return _sum;
-    }
-
-    public final boolean isCountsAreEqual(final AspectElementCounts o) {
-        if (getAllAspectNames().size() != o.getAllAspectNames().size()) {
+    public final static boolean isCountsAreEqual(final AspectElementCounts c0, final AspectElementCounts c1) {
+        if (c0.getAllAspectNames().size() != c1.getAllAspectNames().size()) {
             return false;
         }
-        if (!getAllAspectNames().containsAll(o.getAllAspectNames())) {
+        if (!c0.getAllAspectNames().containsAll(c1.getAllAspectNames())) {
             return false;
         }
-        for (final Map.Entry<String, Integer> e : _count_data.entrySet()) {
-            if (e.getValue() != o.getAspectElementCount(e.getKey())) {
+        for (final String n : c0.getAllAspectNames()) {
+            if (c0.getAspectElementCount(n) != c1.getAspectElementCount(n)) {
                 return false;
             }
         }
-        return true;
-    }
 
-    public final boolean isSumsAreEqual(final AspectElementCounts o) {
-        return getSum() == o.getSum();
+        return true;
     }
 
     public final void setAspectElementCount(final AspectElement element, final int count) {
@@ -74,28 +66,19 @@ public final class AspectElementCounts {
             sb.append(e.getValue());
             sb.append(Util.LINE_SEPARATOR);
         }
-        sb.append("sum : ");
-        sb.append(getSum());
         return sb.toString();
     }
 
     final void processAspectElement(final AspectElement element) {
         increaseAspectElementCount(element.getAspectName());
-        _sum += element.getSum();
     }
 
     final void processAspectElements(final List<AspectElement> elements) {
         increaseAspectElementCount(elements.get(0).getAspectName(), elements.size());
-        for (final AspectElement element : elements) {
-            _sum += element.getSum();
-        }
     }
 
     final void processAnonymousAspectElements(final List<AnonymousElement> elements) {
         increaseAspectElementCount(elements.get(0).getAspectName(), elements.size());
-        for (final AspectElement element : elements) {
-            _sum += element.getSum();
-        }
     }
 
     private final void increaseAspectElementCount(final String aspect_name) {
@@ -118,7 +101,6 @@ public final class AspectElementCounts {
 
     private AspectElementCounts() {
         _count_data = new TreeMap<String, Integer>();
-        _sum = 0;
     }
 
 }

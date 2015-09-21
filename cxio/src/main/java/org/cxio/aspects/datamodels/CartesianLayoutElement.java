@@ -137,9 +137,4 @@ public final class CartesianLayoutElement extends AbstractAspectElement {
         return sb.toString();
     }
 
-    @Override
-    public long getSum() {
-        return Util.stringToSum(_x) + Util.stringToSum(_y) + Util.stringToSum(_z);
-    }
-
 }

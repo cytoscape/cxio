@@ -21,6 +21,7 @@ import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.metadata.MetaData;
 import org.cxio.metadata.MetaDataElement;
+import org.cxio.util.Util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -127,7 +128,6 @@ public class Examples_CxElementReader_MetaData {
 
         final MetaDataElement node_meta = new MetaDataElement();
 
-        
         node_meta.setName(NodesElement.NAME);
         node_meta.setVersion("1.0");
         node_meta.setIdCounter(200L);
@@ -164,7 +164,7 @@ public class Examples_CxElementReader_MetaData {
         // -------------
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true);
+        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
 
         w.start();
         w.writeMetaData(md_pre);
@@ -176,8 +176,6 @@ public class Examples_CxElementReader_MetaData {
         w.writeAnonymousAspectElementAsList(unknown_element);
         w.writeMetaData(md_post);
         w.end();
-        
-        
 
         final String cx_json_str = out.toString();
         System.out.println(cx_json_str);
@@ -186,8 +184,8 @@ public class Examples_CxElementReader_MetaData {
         // Reading from CX using CxElementReader
         // -------------------------------------
 
-        final CxElementReader p = CxElementReader.createInstanceWithAllAvailableReaders(cx_json_str, true);
-       
+        final CxElementReader p = CxElementReader.createInstanceWithAllAvailableReaders(cx_json_str, true, true);
+
         while (p.hasNext()) {
             final AspectElement e = p.getNext();
             System.out.println(e);
@@ -195,12 +193,6 @@ public class Examples_CxElementReader_MetaData {
 
         final AspectElementCounts cr = p.getAspectElementCounts();
         System.out.println(cr);
-        if (!cw.isCountsAreEqual(cr)) {
-            System.out.println("some thing went wrong");
-        }
-        if (!cw.isSumsAreEqual(cr)) {
-            System.out.println("some thing went wrong");
-        }
 
         System.out.println();
         System.out.println("Meta datas:");
@@ -208,6 +200,7 @@ public class Examples_CxElementReader_MetaData {
             System.out.print(my_md);
         }
         System.out.println();
+        Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
 
     }
 

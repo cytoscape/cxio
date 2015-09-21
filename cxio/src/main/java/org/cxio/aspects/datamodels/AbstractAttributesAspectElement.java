@@ -2,8 +2,6 @@ package org.cxio.aspects.datamodels;
 
 import java.util.List;
 
-import org.cxio.util.Util;
-
 /**
  *
  * This is the base class for EdgeAttributeElement, NodeAttributeElement, and NetworkAttributesElement.
@@ -179,24 +177,4 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
         }
     }
 
-    @Override
-    public long getSum() {
-        long s = 0;
-        if (_property_of != null) {
-            s += _property_of.size();
-        }
-        if (_subnetwork != null) {
-            s += Util.stringToSum(_subnetwork);
-        }
-        if (_name != null) {
-            s += Util.stringToSum(_name);
-        }
-        if (_values != null) {
-            s += _values.size();
-        }
-        if (_data_type != null) {
-            s += Util.stringToSum(_data_type.toString());
-        }
-        return s;
-    }
 }

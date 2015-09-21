@@ -113,22 +113,4 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         return sb.toString();
     }
 
-    @Override
-    public long getSum() {
-        long s = 0;
-        if (_applies_to != null) {
-            s += _applies_to.size();
-        }
-        if (_view != null) {
-            s += Util.stringToSum(_view);
-        }
-        if (_properties != null) {
-            s += _properties.size();
-        }
-        if (_properties_of != null) {
-            s += Util.stringToSum(_properties_of);
-        }
-        return s;
-    }
-
 }

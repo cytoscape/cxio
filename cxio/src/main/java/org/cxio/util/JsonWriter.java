@@ -59,7 +59,6 @@ public final class JsonWriter {
 
     public void writeJsonObject(final ObjectNode data_node) throws IOException {
         data_node.serialize(_g, null);
-
     }
 
     public void writeJsonObject(final String label, final ObjectNode data_node) throws IOException {

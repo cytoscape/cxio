@@ -26,6 +26,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaData;
 import org.cxio.metadata.MetaDataElement;
+import org.cxio.util.Util;
 
 public class Examples_MetaData {
 
@@ -114,7 +115,7 @@ public class Examples_MetaData {
         // -------------
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true);
+        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
 
         w.start();
         w.writeMetaData(md0);
@@ -143,7 +144,7 @@ public class Examples_MetaData {
         readers.add(CartesianLayoutFragmentReader.createInstance());
         readers.add(EdgeAttributesFragmentReader.createInstance());
         readers.add(NodeAttributesFragmentReader.createInstance());
-        final CxReader p = CxReader.createInstance(cx_json_str, readers);
+        final CxReader p = CxReader.createInstance(cx_json_str, true, true, readers);
 
         while (p.hasNext()) {
             final List<AspectElement> elements = p.getNext();
@@ -157,21 +158,16 @@ public class Examples_MetaData {
             }
         }
 
-        final AspectElementCounts cr = p.getAspectElementCounts();
-        System.out.println(cr);
-        if (!cw.isCountsAreEqual(cr)) {
-            System.out.println("some thing went wrong");
-        }
-        if (!cw.isSumsAreEqual(cr)) {
-            System.out.println("some thing went wrong");
-        }
-
         System.out.println();
         System.out.println("Meta datas:");
         for (final MetaData my_md : p.getMetaData()) {
             System.out.println(my_md);
             System.out.println();
         }
+
+        final AspectElementCounts cr = p.getAspectElementCounts();
+        System.out.println(cr);
+        Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
 
     }
 

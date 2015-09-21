@@ -119,28 +119,4 @@ public final class CyGroupsElement extends AbstractAspectElement {
         return sb.toString();
     }
 
-    @Override
-    public long getSum() {
-        long s = 0;
-        if (_name != null) {
-            s += Util.stringToSum(_name);
-        }
-        if (_view != null) {
-            s += Util.stringToSum(_view);
-        }
-        if (_external_edges != null) {
-            s += _external_edges.size();
-        }
-        if (_internal_edges != null) {
-            s += _internal_edges.size();
-        }
-        if (_group_id != null) {
-            s += Util.stringToSum(_group_id);
-        }
-        if (_nodes != null) {
-            s += _nodes.size();
-        }
-        return s;
-    }
-
 }

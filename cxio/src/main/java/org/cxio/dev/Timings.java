@@ -2,6 +2,7 @@ package org.cxio.dev;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -229,7 +230,7 @@ public class Timings {
             return CxReader.createInstance(cx_json_str, readers);
         }
         else {
-            return CxReader.createInstance(_cx_out, readers);
+            return CxReader.createInstance(new FileInputStream(_cx_out), readers);
         }
     }
 

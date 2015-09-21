@@ -167,7 +167,7 @@ public class Examples2 {
 
         final Set<AspectFragmentReader> readers = new HashSet<>();
         readers.add(EdgesFragmentReader.createInstance());
-        final CxReader r = CxReader.createInstance(cx_json_str, true, readers);
+        final CxReader r = CxReader.createInstance(cx_json_str, true, true, readers);
 
         final List<List<AspectElement>> res = new ArrayList<List<AspectElement>>();
         while (r.hasNext()) {
@@ -189,7 +189,7 @@ public class Examples2 {
         //
         final Set<AspectFragmentReader> readers2 = new HashSet<>();
         readers2.add(EdgesFragmentReader.createInstance());
-        final CxReader r2 = CxReader.createInstance(cx_json_str, true, readers2);
+        final CxReader r2 = CxReader.createInstance(cx_json_str, true, true, readers2);
 
         final SortedMap<String, List<AspectElement>> res2 = CxReader.parseAsMap(r2);
 
@@ -226,7 +226,7 @@ public class Examples2 {
 
         // By setting the second argument to true, this reader will return
         // anonymous aspect elements:
-        final CxReader r = CxReader.createInstance(cx_json_str, true, null);
+        final CxReader r = CxReader.createInstance(cx_json_str, true, true, null);
         while (r.hasNext()) {
             final List<AspectElement> elements = r.getNext();
             if (!elements.isEmpty()) {

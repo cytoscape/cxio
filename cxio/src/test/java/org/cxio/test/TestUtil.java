@@ -23,7 +23,7 @@ import org.cxio.util.Util;
 final class TestUtil {
 
     final static String cyCxRoundTrip(final String input_cx, final boolean compare_counts) throws IOException {
-        final CxReader p = CxReader.createInstance(input_cx, true, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(input_cx, true, true, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(p);
         final AspectElementCounts cr = p.getAspectElementCounts();
 
@@ -43,11 +43,8 @@ final class TestUtil {
 
         if (compare_counts) {
             final AspectElementCounts cw = w.getAspectElementCounts();
-            if (!cw.isCountsAreEqual(cr)) {
+            if (!AspectElementCounts.isCountsAreEqual(cw, cr)) {
                 throw new IllegalStateException("counts are not equal:\n" + cw + "\n" + cr);
-            }
-            if (!cw.isSumsAreEqual(cr)) {
-                throw new IllegalStateException("sums are not equal:\n" + cw + "\n" + cr);
             }
         }
 
@@ -75,12 +72,10 @@ final class TestUtil {
 
         if (compare_counts) {
             final AspectElementCounts cw = w.getAspectElementCounts();
-            if (!cw.isCountsAreEqual(cr)) {
+            if (!AspectElementCounts.isCountsAreEqual(cw, cr)) {
                 throw new IllegalStateException("counts are not equal:\n" + cw + "\n" + cr);
             }
-            if (!cw.isSumsAreEqual(cr)) {
-                throw new IllegalStateException("sums are not equal:\n" + cw + "\n" + cr);
-            }
+
         }
 
         return out.toString();

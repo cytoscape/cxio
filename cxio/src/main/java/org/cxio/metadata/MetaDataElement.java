@@ -147,7 +147,7 @@ public class MetaDataElement {
 
     /**
      * Convenience method to get the (corresponding aspect) version.
-     * 
+     *
      * @return the (corresponding aspect) version
      */
     public final String getVersion() {

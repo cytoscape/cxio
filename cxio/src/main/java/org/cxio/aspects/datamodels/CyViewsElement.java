@@ -1,6 +1,8 @@
 package org.cxio.aspects.datamodels;
 
-public final class CyViewsElement extends AbstractAspectElement {
+import org.cxio.core.interfaces.AspectElement;
+
+public final class CyViewsElement implements AspectElement {
 
     public final static String NAME          = "cyViews";
     public final static String SUBWORKNET_ID = "s";

@@ -6,6 +6,7 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 
 /**
@@ -15,7 +16,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class CyVisualPropertiesElement extends AbstractAspectElement {
+public final class CyVisualPropertiesElement implements AspectElement {
 
     public final static String              APPLIES_TO    = "applies_to";
     public final static String              NAME          = "visualProperties";

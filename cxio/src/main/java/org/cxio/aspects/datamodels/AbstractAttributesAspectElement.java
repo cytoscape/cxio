@@ -2,6 +2,8 @@ package org.cxio.aspects.datamodels;
 
 import java.util.List;
 
+import org.cxio.core.interfaces.AspectElement;
+
 /**
  *
  * This is the base class for EdgeAttributeElement, NodeAttributeElement, and NetworkAttributesElement.
@@ -9,7 +11,7 @@ import java.util.List;
  * @author cmzmasek
  *
  */
-public abstract class AbstractAttributesAspectElement extends AbstractAspectElement {
+public abstract class AbstractAttributesAspectElement implements AspectElement {
 
     /**
      * The supported data types (either as atomic value or as list).

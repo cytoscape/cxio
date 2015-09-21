@@ -1,5 +1,6 @@
 package org.cxio.aspects.datamodels;
 
+import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 
 /**
@@ -8,7 +9,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class CartesianLayoutElement extends AbstractAspectElement {
+public final class CartesianLayoutElement implements AspectElement {
 
     public final static String NAME = "cartesianLayout";
     public final static String NODE = "node";

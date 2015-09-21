@@ -1,5 +1,6 @@
 package org.cxio.aspects.datamodels;
 
+import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxConstants;
 
 /**
@@ -8,7 +9,7 @@ import org.cxio.util.CxConstants;
  * @author cmzmasek
  *
  */
-public final class NodesElement extends AbstractAspectElement {
+public final class NodesElement implements AspectElement {
 
     public final static String ID   = CxConstants.ID;
     public final static String NAME = "nodes";

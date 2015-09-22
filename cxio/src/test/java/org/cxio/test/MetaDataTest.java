@@ -105,7 +105,7 @@ public class MetaDataTest {
 
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true);
+        final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
 
         w.start();
         w.writeMetaData(md);

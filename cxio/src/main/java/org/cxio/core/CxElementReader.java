@@ -63,10 +63,45 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
         }
     }
 
+    /**
+     * This creates a new CxElementReader with all AspectFragmentReaders implemented in this library already added.
+     *
+     * @param input the input object to parse
+     * @param read_anonymous_aspect_fragments
+     * @param calculate_md5_checksum to turn checksum calculation on/off
+     * @return a CxElementReader
+     * @throws IOException
+     */
     public final static CxElementReader createInstanceWithAllAvailableReaders(final Object input, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum)
             throws IOException {
         try {
             return new CxElementReader(input, Util.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments, calculate_md5_checksum);
+        }
+        catch (final NoSuchAlgorithmException e) {
+            throw new IOException(e.getMessage());
+        }
+    }
+
+    /**
+     *  This creates a new CxtReader with all AspectFragmentReaders implemented in this library already added.
+     *  It allows to add additional AspectFragmentReader.
+     *
+     * @param input the input object to parse
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @param calculate_md5_checksum to turn checksum calculation on/off
+     * @param fragment_readers the set of additional AspectFragmentReaders to use
+     * @return a CxElementReader
+     * @throws IOException
+     */
+    public final static CxElementReader createInstanceWithAllAvailableReaders(final Object input,
+                                                                              final boolean read_anonymous_aspect_fragments,
+                                                                              final boolean calculate_md5_checksum,
+                                                                              final Set<AspectFragmentReader> fragment_readers) throws IOException {
+
+        final Set<AspectFragmentReader> r = Util.getAllAvailableAspectFragmentReaders();
+        r.addAll(fragment_readers);
+        try {
+            return new CxElementReader(input, r, read_anonymous_aspect_fragments, calculate_md5_checksum);
         }
         catch (final NoSuchAlgorithmException e) {
             throw new IOException(e.getMessage());
@@ -91,6 +126,16 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
         }
     }
 
+    /**
+     * This creates a new CxElementReader.
+     *
+     * @param input the input object to parse
+     * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
+     * @param calculate_md5_checksum to turn checksum calculation on/off
+     * @param fragment_readers the set of AspectFragmentReaders to use
+     * @return a CxElementReade
+     * @throws IOException
+     */
     public final static CxElementReader createInstance(final Object input,
                                                        final boolean read_anonymous_aspect_fragments,
                                                        final boolean calculate_md5_checksum,

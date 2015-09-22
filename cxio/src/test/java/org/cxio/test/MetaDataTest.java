@@ -138,6 +138,31 @@ public class MetaDataTest {
         assertTrue(mde1.get("key1").equals("value1"));
         assertTrue(mde1.get("key2").equals(true));
 
+        assertTrue(md.getMetaDataElement("Citation").getName().equals("Citation"));
+        assertTrue(md.getMetaDataElement(NodesElement.NAME).getName().equals(NodesElement.NAME));
+        assertTrue(md.getMetaDataElement("xyz") == null);
+
+    }
+
+    @Test
+    public void test3() throws IOException {
+        final MetaData md = new MetaData();
+
+        md.setIdCounter("one", 1L);
+        md.setVersion("one", "1");
+        md.setVersion("two", "2");
+        md.setConsistencyGroup("two", 3L);
+        md.setElementCount("two", 4L);
+        md.setLastUpdate("two", 5L);
+
+        assertTrue(md.getIdCounter("one") == 1L);
+        assertTrue(md.getVersion("one").equals("1"));
+
+        assertTrue(md.getVersion("two").equals("2"));
+        assertTrue(md.getConsistencyGroup("two") == 3L);
+        assertTrue(md.getElementCount("two") == 4L);
+        assertTrue(md.getLastUpdate("two") == 5L);
+
     }
 
 }

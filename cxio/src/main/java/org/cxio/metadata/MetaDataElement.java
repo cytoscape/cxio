@@ -125,15 +125,6 @@ public class MetaDataElement {
         return (String) _data.get(NAME);
     }
 
-    /**
-     * Convenience method to add a "property" (a map mapping String keys
-     * to String values).
-     *
-     * @return a "property" as map mapping String keys
-     * to String values
-     *
-     */
-
     @SuppressWarnings("unchecked")
     /**
      * Convenience method to get all "properties" (maps mapping String keys

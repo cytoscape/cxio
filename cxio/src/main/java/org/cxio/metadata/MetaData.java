@@ -81,6 +81,30 @@ public final class MetaData {
     }
 
     /**
+     * This method returns the MetaDataElement with a given name
+     * (getName() returns name).
+     * Return null if not found.
+     * Throws a IllegalArgumentException if more than two elements with the same name.
+     *
+     * @param name the name of the MetaDataElement to find
+     * @return a MetaDataElement with a given name, null if no such element
+     */
+    public final MetaDataElement getMetaDataElement(final String name) {
+        MetaDataElement res = null;
+        for (final MetaDataElement e : asListOfMetaDataElements()) {
+            if (e.getName().equals(name)) {
+                if (res == null) {
+                    res = e;
+                }
+                else {
+                    throw new IllegalArgumentException("more than one meta data element with name '" + name + "'");
+                }
+            }
+        }
+        return res;
+    }
+
+    /**
      * This returns the number of MetaDataElements.
      *
      * @return the number of MetaDataElements
@@ -145,6 +169,158 @@ public final class MetaData {
     public final static MetaData createInstanceFromJson(final String str) throws IOException {
         final ObjectMapper m = new ObjectMapper();
         return m.readValue(str, MetaData.class);
+    }
+
+    // ///
+
+    /**
+     * Convenience method to get the consistency group of the meta data element with
+     * a give name.
+     *
+     * @param name
+     * @return
+     */
+    public final Long getConsistencyGroup(final String name) {
+        final MetaDataElement e = getMetaDataElement(name);
+        if (e != null) {
+            return e.getConsistencyGroup();
+        }
+        return null;
+    }
+
+    /**
+     * Convenience method to get the element count of the meta data element with
+     * a give name.
+     *
+     * @param name
+     * @return the element count
+     */
+    public final Long getElementCount(final String name) {
+        final MetaDataElement e = getMetaDataElement(name);
+        if (e != null) {
+            return e.getElementCount();
+        }
+        return null;
+    }
+
+    /**
+     * Convenience method to get the id counter of the meta data element with
+     * a give name.
+     *
+     * @param name
+     * @return the id counter
+     */
+    public final Long getIdCounter(final String name) {
+        final MetaDataElement e = getMetaDataElement(name);
+        if (e != null) {
+            return e.getIdCounter();
+        }
+        return null;
+    }
+
+    /**
+     * Convenience method to get the last update value of the meta data element with
+     * a give name.
+     *
+     * @param name
+     * @return the last update value
+     */
+    public final Long getLastUpdate(final String name) {
+        final MetaDataElement e = getMetaDataElement(name);
+        if (e != null) {
+            return e.getLastUpdate();
+        }
+        return null;
+    }
+
+    /**
+     * Convenience method to get the (corresponding aspect) version of the meta data element with
+     * a give name.
+     *
+     * @param name
+     * @return the (corresponding aspect) version
+     */
+    public final String getVersion(final String name) {
+        final MetaDataElement e = getMetaDataElement(name);
+        if (e != null) {
+            return e.getVersion();
+        }
+        return null;
+    }
+
+    /**
+     * Convenience method to set the consistency group for the meta data element with
+     * a give name.
+     * If no such element exist, a new one will be created.
+     *
+     * @param name
+     * @param c
+     */
+    public final void setConsistencyGroup(final String name, final Long c) {
+        final MetaDataElement e = checkIfElementPresent(name);
+        e.setConsistencyGroup(c);
+    }
+
+    /**
+     * Convenience method to set the element count for the meta data element with
+     * a give name.
+     * If no such element exist, a new one will be created.
+     *
+     * @param name
+     * @param c
+     */
+    public final void setElementCount(final String name, final Long c) {
+        final MetaDataElement e = checkIfElementPresent(name);
+        e.setElementCount(c);
+    }
+
+    /**
+     * Convenience method to set the id counter for the meta data element with
+     * a give name.
+     * If no such element exist, a new one will be created.
+     *
+     * @param name
+     * @param c
+     */
+    public final void setIdCounter(final String name, final Long c) {
+        final MetaDataElement e = checkIfElementPresent(name);
+        e.setIdCounter(c);
+    }
+
+    /**
+     * Convenience method to set the last update value for the meta data element with
+     * a give name.
+     * If no such element exist, a new one will be created.
+     *
+     * @param name
+     * @param last_update
+     */
+    public final void setLastUpdate(final String name, final Long last_update) {
+        final MetaDataElement e = checkIfElementPresent(name);
+        e.setLastUpdate(last_update);
+    }
+
+    /**
+     * Convenience method to set the (corresponding aspect) version for the meta data element with
+     * a give name.
+     * If no such element exist, a new one will be created.
+     *
+     * @param name
+     * @param the (corresponding aspect) version
+     */
+    public final void setVersion(final String name, final String version) {
+        final MetaDataElement e = checkIfElementPresent(name);
+        e.setVersion(version);
+    }
+
+    private MetaDataElement checkIfElementPresent(final String name) {
+        MetaDataElement e = getMetaDataElement(name);
+        if (e == null) {
+            e = new MetaDataElement();
+            e.setName(name);
+            addMetaDataElement(e);
+        }
+        return e;
     }
 
 }

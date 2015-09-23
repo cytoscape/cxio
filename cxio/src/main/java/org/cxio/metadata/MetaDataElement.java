@@ -50,9 +50,7 @@ public class MetaDataElement {
      * Convenience method to add a "property" (a map mapping String keys
      * to String values).
      *
-     * @return a "property" as map mapping String keys
-     * to String values
-     *
+     * @param property a map mapping String keys to String values to add
      */
     public final void addProperty(final Map<String, String> property) {
         if (!_data.containsKey(PROPERTIES)) {
@@ -203,7 +201,7 @@ public class MetaDataElement {
     /**
      * Convenience method to set the name (of the corresponding aspect).
      *
-     * @param the name (of the corresponding aspect)
+     * @param name the name (of the corresponding aspect)
      */
     public final void setName(final String name) {
         _data.put(NAME, name);
@@ -221,7 +219,7 @@ public class MetaDataElement {
     /**
      * Convenience method to set the (corresponding aspect) version.
      *
-     * @param the (corresponding aspect) version
+     * @param version the (corresponding aspect) version
      */
     public final void setVersion(final String version) {
         _data.put(VERSION, version);

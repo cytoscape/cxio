@@ -30,11 +30,18 @@ public interface AspectFragmentReader {
      * /2.0.0/com/fasterxml/jackson/core/JsonParser.html and returns a list of
      * AspectElements (a aspect fragment).
      *
-     * @param jp
-     * @return
+     * @param jp the JsonParser
+     * @return a List of AspectElements
      * @throws IOException
      */
     public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException;
 
+    /**
+     * This method takes one ObjectNode and parses it into a AspectElement.
+     *
+     * @param o an ObjectNode
+     * @return an AspectElement
+     * @throws IOException
+     */
     public AspectElement readElement(final ObjectNode o) throws IOException;
 }

@@ -175,7 +175,6 @@ public class CxWriter {
      * @param calculate_md5_checksum  to turn MD5 checksum calculation on/off
      * @return a CxWriter writer
      * @throws IOException
-     * @throws NoSuchAlgorithmException
      */
     public final static CxWriter createInstanceWithAllAvailableWriters(final OutputStream out, final boolean use_default_pretty_printer, final boolean calculate_md5_checksum) throws IOException {
         CxWriter w;

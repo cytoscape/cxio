@@ -150,7 +150,7 @@ public final class MetaData {
     /**
      * This is to create a MetaData object from a JsonParser.
      *
-     * @param is a JsonParser
+     * @param jp a JsonParser
      * @return a MetaData object
      * @throws IOException
      */
@@ -306,7 +306,7 @@ public final class MetaData {
      * If no such element exist, a new one will be created.
      *
      * @param name
-     * @param the (corresponding aspect) version
+     * @param version the (corresponding aspect) version
      */
     public final void setVersion(final String name, final String version) {
         final MetaDataElement e = checkIfElementPresent(name);

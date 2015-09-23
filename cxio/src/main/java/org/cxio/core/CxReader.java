@@ -106,7 +106,7 @@ public final class CxReader extends AbstractCxReader {
      * @param read_anonymous_aspect_fragments to enable reading of anonymous aspect fragments
      * @param calculate_md5_checksum to turn checksum calculation on/off
      * @param fragment_readers the set of AspectFragmentReaders to use
-     * @returna a CxReader
+     * @return a CxReader
      * @throws IOException
      */
     public final static CxReader createInstance(final Object input,
@@ -297,7 +297,7 @@ public final class CxReader extends AbstractCxReader {
      * @throws NoSuchAlgorithmException
      */
     private CxReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum) throws IOException,
-            NoSuchAlgorithmException {
+    NoSuchAlgorithmException {
         if (input == null) {
             throw new IllegalArgumentException("cx input is null");
         }

@@ -1,0 +1,9 @@
+org.cxio.aspects.datamodels
+org.cxio.aspects.readers
+org.cxio.aspects.writers
+org.cxio.core
+org.cxio.core.interfaces
+org.cxio.filters
+org.cxio.metadata
+org.cxio.tools
+org.cxio.util

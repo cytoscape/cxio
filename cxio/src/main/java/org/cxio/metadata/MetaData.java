@@ -2,6 +2,7 @@ package org.cxio.metadata;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.SortedMap;
@@ -21,13 +22,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author cmzmasek
  *
  */
-public final class MetaData {
+public final class MetaData implements Serializable {
+
+    private static final long                     serialVersionUID = 7233278148613095352L;
 
     /**
      * The name of the MetaDataElement list when serialized to json.
      *
      */
-    public final static String                    NAME = "metaData";
+    public final static String                    NAME             = "metaData";
     final private List<SortedMap<String, Object>> _data;
 
     /**

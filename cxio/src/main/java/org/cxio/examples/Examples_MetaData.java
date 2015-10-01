@@ -116,15 +116,15 @@ public class Examples_MetaData {
         final OutputStream out = new ByteArrayOutputStream();
 
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
+        w.addPreMetaData(md0);
+        w.addPostMetaData(md1);
 
         w.start();
-        w.writeMetaData(md0);
         w.writeAspectElements(edges_elements);
         w.writeAspectElements(nodes_elements);
         w.writeAspectElements(cartesian_elements);
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(node_attributes_elements);
-        w.writeMetaData(md1);
         w.end();
 
         final String cx_json_str = out.toString();
@@ -146,6 +146,14 @@ public class Examples_MetaData {
         readers.add(NodeAttributesFragmentReader.createInstance());
         final CxReader p = CxReader.createInstance(cx_json_str, true, true, readers);
 
+        System.out.println();
+
+        System.out.println("Pre meta datas:");
+        for (final MetaData my_md : p.getPreMetaData()) {
+            System.out.println(my_md);
+            System.out.println();
+        }
+
         while (p.hasNext()) {
             final List<AspectElement> elements = p.getNext();
             if (!elements.isEmpty()) {
@@ -158,9 +166,8 @@ public class Examples_MetaData {
             }
         }
 
-        System.out.println();
-        System.out.println("Meta datas:");
-        for (final MetaData my_md : p.getMetaData()) {
+        System.out.println("Post meta datas:");
+        for (final MetaData my_md : p.getPostMetaData()) {
             System.out.println(my_md);
             System.out.println();
         }

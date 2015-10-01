@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -224,19 +225,18 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                     if (_element_readers.containsKey(_aspect_name)) {
                         _reader = _element_readers.get(_aspect_name);
                         _anonymous_reader_used = false;
+                        _encountered_non_meta_content = true;
                         _meta_data = false;
                     }
                     else if (_aspect_name.equals(MetaData.NAME)) {
-                        final MetaData md = MetaData.createInstanceFromJson(_jp);
-                        if ((md != null) && !md.getMetaData().isEmpty()) {
-                            _meta_datas.add(md);
-                        }
+                        addMetaData(_jp);
                         _anonymous_reader_used = false;
                         _meta_data = true;
                     }
                     else if (_read_anonymous_aspect_fragments) {
                         _reader = AnonymousFragmentReader.createInstance(_jp, _aspect_name);
                         _anonymous_reader_used = true;
+                        _encountered_non_meta_content = true;
                         _meta_data = false;
                     }
                     if (!_meta_data) {
@@ -274,12 +274,14 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                         if (DEBUG) {
                             System.out.println(">" + o);
                         }
-                        if (_reader != null) {
-                            _current = _reader.readElement(o);
-                        }
-                        else {
-                            throw new IOException("malformed cx json in '" + _aspect_name + "'");
-                        }
+                        // if (_reader != null) { //could remove //TODO
+                        _current = _reader.readElement(o);
+                        // }
+                        // else {
+                        // throw new IOException("malformed cx json in '" +
+                        // _aspect_name + "'");
+                        // }
+                        _encountered_non_meta_content = true;
                     }
                     else if (_anonymous_reader_used) {
                         if (_token == JsonToken.VALUE_STRING) {
@@ -290,16 +292,14 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                             if (DEBUG) {
                                 System.out.println(">>>" + o);
                             }
-                            if (_reader != null) {
-                                _current = _reader.readElement(o);
-                            }
+                            // if (_reader != null) { //could remove //TODO
+                            _current = _reader.readElement(o);
+                            // }
                         }
+                        _encountered_non_meta_content = true;
                     }
                     else if (_meta_data) {
-                        final MetaData md = MetaData.createInstanceFromJson(_jp);
-                        if ((md != null) && !md.getMetaData().isEmpty()) {
-                            _meta_datas.add(md);
-                        }
+                        addMetaData(_jp);
                     }
                     else {
                         throw new IOException("malformed cx json in '" + _aspect_name + "'");
@@ -393,7 +393,9 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
         _token = _jp.nextToken();
         _aspect_name = null;
         _m = new ObjectMapper();
-        _meta_datas.clear();
+        _encountered_non_meta_content = false;
+        _pre_meta_datas = new HashSet<MetaData>();
+        _post_meta_datas = new HashSet<MetaData>();
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
@@ -432,7 +434,9 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
         _calculate_element_counts = true;
         _calculate_md5_checksum = calculate_md5_checksum;
         _element_counts = AspectElementCounts.createInstance();
-        _meta_datas = new ArrayList<MetaData>();
+        _encountered_non_meta_content = false;
+        _pre_meta_datas = new HashSet<MetaData>();
+        _post_meta_datas = new HashSet<MetaData>();
         reset();
     }
 

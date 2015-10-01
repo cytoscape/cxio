@@ -6,7 +6,9 @@ import java.security.DigestOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -29,7 +31,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-public class CxWriter {
+public final class CxWriter {
 
     private final JsonWriter                        _jw;
     private final MessageDigest                     _md;
@@ -38,6 +40,8 @@ public class CxWriter {
     private final Map<String, AspectFragmentWriter> _writers;
     private final AspectElementCounts               _element_counts;
     private boolean                                 _calculate_element_counts;
+    private final Set<MetaData>                     _pre_meta_datas;
+    private final Set<MetaData>                     _post_meta_datas;
 
     /**
      * Returns a CxWriter for reading from OutputStream out.
@@ -249,6 +253,7 @@ public class CxWriter {
             throw new IllegalStateException("not started");
         }
         _started = false;
+        writeMetaDatas(_post_meta_datas);
         _jw.end();
     }
 
@@ -263,6 +268,17 @@ public class CxWriter {
         }
         _started = true;
         _jw.start();
+        writeMetaDatas(_pre_meta_datas);
+    }
+
+    private final void writeMetaDatas(final Set<MetaData> mds) throws IOException {
+        if ((mds != null) && !mds.isEmpty()) {
+            for (final MetaData md : mds) {
+                if ((md != null) && !md.getMetaData().isEmpty()) {
+                    writeMetaData(md);
+                }
+            }
+        }
     }
 
     /**
@@ -447,11 +463,35 @@ public class CxWriter {
         _calculate_element_counts = calculate_element_counts;
     }
 
-    public byte[] getMd5Checksum() {
+    public final byte[] getMd5Checksum() {
         if (_md == null) {
             throw new IllegalStateException("cx writer is not set up to calculare checksum");
         }
         return _md.digest();
+    }
+
+    public final void addPreMetaData(final MetaData pre_meta_data) {
+        _pre_meta_datas.add(pre_meta_data);
+
+    }
+
+    public final void addPostMetaData(final MetaData post_meta_data) {
+        _post_meta_datas.add(post_meta_data);
+
+    }
+
+    public final void addPreMetaData(final Collection<MetaData> pre_meta_datas) {
+        _pre_meta_datas.addAll(pre_meta_datas);
+
+    }
+
+    public final void addPostMetaData(final Collection<MetaData> post_meta_datas) {
+        _post_meta_datas.addAll(post_meta_datas);
+
+    }
+
+    private final void writeMetaData(final MetaData meta_data) throws IOException {
+        meta_data.toJson(_jw);
     }
 
     private CxWriter(final OutputStream os, final boolean use_default_pretty_printer, final boolean calculate_md5_checksum) throws IOException, NoSuchAlgorithmException {
@@ -475,6 +515,8 @@ public class CxWriter {
         _fragment_started = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
+        _pre_meta_datas = new HashSet();
+        _post_meta_datas = new HashSet();
 
     }
 
@@ -489,10 +531,8 @@ public class CxWriter {
         _fragment_started = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
-    }
-
-    public void writeMetaData(final MetaData meta_data) throws IOException {
-        meta_data.toJson(_jw);
+        _pre_meta_datas = new HashSet();
+        _post_meta_datas = new HashSet();
     }
 
 }

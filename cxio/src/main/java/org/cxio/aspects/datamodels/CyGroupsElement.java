@@ -15,20 +15,20 @@ import org.cxio.util.Util;
  */
 public final class CyGroupsElement implements AspectElement {
 
-    public final static String VIEW           = "view";
     public final static String EXTERNAL_EDGES = "external_edges";
-    public final static String GROUP_NAME     = "name";
     public final static String GROUP_ID       = "group";
+    public final static String GROUP_NAME     = "name";
     public final static String INTERNAL_EDGES = "internal_edges";
     public final static String NAME           = "cyGroups";
     public final static String NODES          = "nodes";
+    public final static String VIEW           = "view";
 
-    private final String       _view;
     private final List<String> _external_edges;
+    private final String       _group_id;
     private final List<String> _internal_edges;
     private final String       _name;
-    private final String       _group_id;
     private final List<String> _nodes;
+    private final String       _view;
 
     public CyGroupsElement(final String group_id, final String view, final String name) {
         _name = name;
@@ -39,10 +39,6 @@ public final class CyGroupsElement implements AspectElement {
         _external_edges = new ArrayList<String>();
     }
 
-    final public void addNode(final String node_id) {
-        _nodes.add(node_id);
-    }
-
     final public void addExternalEdge(final String edge_id) {
         _external_edges.add(edge_id);
     }
@@ -51,13 +47,13 @@ public final class CyGroupsElement implements AspectElement {
         _internal_edges.add(edge_id);
     }
 
+    final public void addNode(final String node_id) {
+        _nodes.add(node_id);
+    }
+
     @Override
     public final String getAspectName() {
         return NAME;
-    }
-
-    final public String getView() {
-        return _view;
     }
 
     final public List<String> getExternalEdges() {
@@ -78,6 +74,10 @@ public final class CyGroupsElement implements AspectElement {
 
     final public List<String> getNodes() {
         return _nodes;
+    }
+
+    final public String getView() {
+        return _view;
     }
 
     @Override

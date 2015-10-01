@@ -35,18 +35,16 @@ public class ExamplesM {
 
         final String cx_json_str = out.toString();
 
-        
         // Reading from CX
         // ---------------
         final Set<AspectFragmentReader> readers = new HashSet<>();
         readers.add(EdgesFragmentReader.createInstance());
 
-        final CxElementReader reader = CxElementReader.createInstance(cx_json_str, 
-                                                                      false, // Reading
-                                                                             // anonymous
-                                                                             // elements
+        final CxElementReader reader = CxElementReader.createInstance(cx_json_str, false, // Reading
+                                                                                          // anonymous
+                                                                                          // elements
                                                                       false, // Checksum
-                                                                              // calculation
+                                                                             // calculation
                                                                       readers);
 
         for (final AspectElement e : reader) {

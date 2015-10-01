@@ -11,7 +11,6 @@ import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 
 import org.cxio.core.interfaces.AspectFragmentReader;
@@ -19,7 +18,9 @@ import org.cxio.metadata.MetaData;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 class AbstractCxReader {
 
@@ -27,8 +28,10 @@ class AbstractCxReader {
     boolean             _calculate_md5_checksum;
     AspectElementCounts _element_counts;
     boolean             _meta_data;
-    List<MetaData>      _meta_datas;
+    Set<MetaData>       _pre_meta_datas;
+    Set<MetaData>       _post_meta_datas;
     MessageDigest       _md;
+    boolean             _encountered_non_meta_content;
 
     /**
      * This returns an object which gives access to a checksum and element counts
@@ -41,12 +44,21 @@ class AbstractCxReader {
     }
 
     /**
-     * This returns the list of meta data elements encountered so far.
+     * This returns a set of post meta data objects encountered so far.
      *
-     * @return list of MetaData
+     * @return set of MetaData
      */
-    public final List<MetaData> getMetaData() {
-        return _meta_datas;
+    public final Set<MetaData> getPostMetaData() {
+        return _post_meta_datas;
+    }
+
+    /**
+     * This returns a set of pre meta data objects encountered so far.
+     *
+     * @return set of MetaData
+     */
+    public final Set<MetaData> getPreMetaData() {
+        return _pre_meta_datas;
     }
 
     /**
@@ -117,6 +129,18 @@ class AbstractCxReader {
             throw new IllegalStateException("cx reader is not set up to calculare checksum");
         }
         return _md.digest();
+    }
+
+    void addMetaData(final JsonParser _jp) throws JsonParseException, JsonMappingException, IOException {
+        final MetaData md = MetaData.createInstanceFromJson(_jp);
+        if ((md != null) && !md.getMetaData().isEmpty()) {
+            if (_encountered_non_meta_content) {
+                _post_meta_datas.add(md);
+            }
+            else {
+                _pre_meta_datas.add(md);
+            }
+        }
     }
 
 }

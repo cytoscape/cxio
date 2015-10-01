@@ -106,18 +106,17 @@ public class MetaDataTest {
         final OutputStream out = new ByteArrayOutputStream();
 
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
-
+        w.addPreMetaData(md);
         w.start();
-        w.writeMetaData(md);
         w.end();
 
         final String cx_json_str = out.toString();
 
         final CxElementReader p = CxElementReader.createInstanceWithAllAvailableReaders(cx_json_str, true);
 
-        assertTrue(p.getMetaData().size() == 1);
+        assertTrue(p.getPreMetaData().size() == 1);
 
-        final MetaData my_md = p.getMetaData().get(0);
+        final MetaData my_md = (MetaData) p.getPreMetaData().toArray()[ 0];
 
         assertTrue(my_md.size() == 2);
 

@@ -2,8 +2,8 @@ package org.cxio.core;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
@@ -190,16 +190,14 @@ public final class CxReader extends AbstractCxReader {
                 if (_element_readers.containsKey(name)) {
                     elements = _element_readers.get(name).readAspectFragment(_jp);
                     _was_in_recognized_aspect = true;
+                    _encountered_non_meta_content = true;
                 }
                 else if (name.equals(MetaData.NAME)) {
                     --_level;
                     if (_level < 1) {
                         throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
                     }
-                    final MetaData md = MetaData.createInstanceFromJson(_jp);
-                    if ((md != null) && !md.getMetaData().isEmpty()) {
-                        _meta_datas.add(md);
-                    }
+                    addMetaData(_jp);
                 }
                 else if (_read_anonymous_aspect_fragments) {
                     final AnonymousFragmentReader reader = AnonymousFragmentReader.createInstance();
@@ -212,6 +210,7 @@ public final class CxReader extends AbstractCxReader {
                         }
                     }
                     _was_in_recognized_aspect = true;
+                    _encountered_non_meta_content = true;
                 }
             }
             if (_was_in_recognized_aspect && (_jp.getCurrentToken() != JsonToken.END_ARRAY) && (_jp.getCurrentToken() != JsonToken.END_OBJECT)) {
@@ -279,7 +278,9 @@ public final class CxReader extends AbstractCxReader {
         _current = null;
         _jp = createJsonParser(_input);
         _token = _jp.nextToken();
-        _meta_datas.clear();
+        _encountered_non_meta_content = false;
+        _pre_meta_datas = new HashSet<MetaData>();
+        _post_meta_datas = new HashSet<MetaData>();
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
@@ -308,7 +309,9 @@ public final class CxReader extends AbstractCxReader {
         _calculate_element_counts = true;
         _calculate_md5_checksum = calculate_md5_checksum;
         _element_counts = AspectElementCounts.createInstance();
-        _meta_datas = new ArrayList<MetaData>();
+        _encountered_non_meta_content = false;
+        _pre_meta_datas = new HashSet<MetaData>();
+        _post_meta_datas = new HashSet<MetaData>();
         reset();
     }
 

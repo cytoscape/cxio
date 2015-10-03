@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 
-import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
+import org.cxio.core.AnonymousElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;

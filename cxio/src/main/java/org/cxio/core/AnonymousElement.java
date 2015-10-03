@@ -1,9 +1,12 @@
-package org.cxio.aspects.datamodels;
+package org.cxio.core;
 
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.Util;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -17,20 +20,33 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  */
 public final class AnonymousElement implements AspectElement {
 
-    private final ObjectNode _data;
-    private final String     _string_data;
-    private final String     _name;
+    private final JsonNode            _data;
+    private final String              _name;
+    private final static ObjectMapper mapper = new ObjectMapper();
+
+    public AnonymousElement(final String name, final JsonNode data) {
+        _name = name;
+        _data = data;
+    }
 
     public AnonymousElement(final String name, final ObjectNode data) {
         _name = name;
         _data = data;
-        _string_data = null;
     }
 
-    public AnonymousElement(final String name, final String string_data) {
+    public AnonymousElement(final String name, final String json_string) throws IOException {
         _name = name;
-        _data = null;
-        _string_data = string_data;
+        _data = mapper.readTree(json_string);
+    }
+
+    public AnonymousElement(final String name, final byte[] json_byte_array) throws IOException {
+        _name = name;
+        _data = mapper.readTree(json_byte_array);
+    }
+
+    public AnonymousElement(final String name, final InputStream json_is) throws IOException {
+        _name = name;
+        _data = mapper.readTree(json_is);
     }
 
     @Override
@@ -38,33 +54,26 @@ public final class AnonymousElement implements AspectElement {
         return _name;
     }
 
-    final public ObjectNode getData() {
+    final public JsonNode getData() {
         return _data;
-    }
-
-    final public String getStingData() {
-        return _string_data;
     }
 
     public final String toJsonString() throws IOException {
         if (_data != null) {
-            final ObjectMapper m = new ObjectMapper();
-            return m.writeValueAsString(_data);
+            return mapper.writeValueAsString(_data);
         }
         else {
-            final StringBuilder sb = new StringBuilder();
-            sb.append("\"");
-            sb.append(_string_data);
-            sb.append("\"");
-            return sb.toString();
+            return "";
         }
     }
 
     @Override
     public final String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(_name);
-        sb.append(": ");
+        if (!Util.isEmpty(_name)) {
+            sb.append(_name);
+            sb.append(": ");
+        }
         try {
             sb.append(toJsonString());
         }

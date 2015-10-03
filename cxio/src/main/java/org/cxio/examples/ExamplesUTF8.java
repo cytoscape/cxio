@@ -8,7 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
@@ -47,10 +47,10 @@ public class ExamplesUTF8 {
         cartesian_elements.add(new CartesianLayoutElement("chữ Quốc ngữ", 42, 23, 2));
         cartesian_elements.add(new CartesianLayoutElement("カタカナ", 34, 23, 3));
 
-        final EdgeAttributesElement ea0 = new EdgeAttributesElement("ひらがな", "한글", "☃", ATTRIBUTE_TYPE.STRING);
-        final EdgeAttributesElement ea1 = new EdgeAttributesElement("ひらがな", "weight", "☎", ATTRIBUTE_TYPE.INTEGER);
-        final EdgeAttributesElement ea2 = new EdgeAttributesElement("อักษรไทย", "한글", "☔", ATTRIBUTE_TYPE.STRING);
-        final EdgeAttributesElement ea3 = new EdgeAttributesElement("อักษรไทย", "weight", "♨", ATTRIBUTE_TYPE.INTEGER);
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement("ひらがな", "한글", "☃", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea1 = new EdgeAttributesElement("ひらがな", "weight", "☎", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea2 = new EdgeAttributesElement("อักษรไทย", "한글", "☔", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea3 = new EdgeAttributesElement("อักษรไทย", "weight", "♨", ATTRIBUTE_DATA_TYPE.INTEGER);
 
         final List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
         edge_attributes_elements.add(ea0);
@@ -68,18 +68,16 @@ public class ExamplesUTF8 {
         v2.add("2.0");
         v2.add("2.1");
 
-        final NodeAttributesElement na0 = new NodeAttributesElement("漢字", "한글", v0, ATTRIBUTE_TYPE.DOUBLE);
-        final NodeAttributesElement na1 = new NodeAttributesElement("chữ Quốc ngữ", "БПД", v1, ATTRIBUTE_TYPE.DOUBLE);
-        final NodeAttributesElement na2 = new NodeAttributesElement("カタカナ", "БПД", v2, ATTRIBUTE_TYPE.DOUBLE);
+        final NodeAttributesElement na0 = new NodeAttributesElement("漢字", "한글", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na1 = new NodeAttributesElement("chữ Quốc ngữ", "БПД", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na2 = new NodeAttributesElement("カタカナ", "БПД", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
 
         final ArrayList<String> n = new ArrayList<String>();
         n.add("漢字");
         n.add("chữ Quốc ngữ");
         n.add("カタカナ");
 
-        final ArrayList<String> mm = new ArrayList<String>();
-        mm.add("Mus musculus");
-        final NodeAttributesElement na3 = new NodeAttributesElement("subnet 1", n, "species", mm, ATTRIBUTE_TYPE.STRING);
+        final NodeAttributesElement na3 = new NodeAttributesElement("subnet 1", n, "species", "Mus musculus", ATTRIBUTE_DATA_TYPE.STRING);
 
         final List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();
         node_attributes_elements.add(na0);

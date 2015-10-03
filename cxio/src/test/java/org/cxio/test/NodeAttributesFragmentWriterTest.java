@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
 import org.cxio.core.CxWriter;
@@ -40,7 +40,7 @@ public class NodeAttributesFragmentWriterTest {
         v.add("1");
         v.add("2");
 
-        final NodeAttributesElement na0 = new NodeAttributesElement("sub 1", po, "name", v, ATTRIBUTE_TYPE.FLOAT);
+        final NodeAttributesElement na0 = new NodeAttributesElement("sub 1", po, "name", v, ATTRIBUTE_DATA_TYPE.LIST_OF_FLOAT);
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(na0);

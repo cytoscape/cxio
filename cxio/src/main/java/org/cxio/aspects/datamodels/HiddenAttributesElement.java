@@ -21,10 +21,10 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         _subnetwork = subnetwork;
         _name = name;
         _values = values;
-        _data_type = ATTRIBUTE_TYPE.STRING;
+        _data_type = ATTRIBUTE_DATA_TYPE.STRING;
     }
 
-    public HiddenAttributesElement(final String subnetwork, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
+    public HiddenAttributesElement(final String subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
         _subnetwork = subnetwork;
         _name = name;
         _values = values;
@@ -36,7 +36,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _data_type = ATTRIBUTE_TYPE.STRING;
+        _data_type = ATTRIBUTE_DATA_TYPE.STRING;
     }
 
     public HiddenAttributesElement(final String subnetwork, final String name, final Object value) {
@@ -47,7 +47,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         _values.add(String.valueOf(value));
     }
 
-    public HiddenAttributesElement(final String subnetwork, final String name, final String value, final ATTRIBUTE_TYPE type) {
+    public HiddenAttributesElement(final String subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
         _subnetwork = subnetwork;
         _name = name;
         _values = new ArrayList<String>();
@@ -55,7 +55,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         _data_type = type;
     }
 
-    public HiddenAttributesElement(final String name, final String value, final ATTRIBUTE_TYPE type) {
+    public HiddenAttributesElement(final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
         _subnetwork = null;
         _name = name;
         _values = new ArrayList<String>();

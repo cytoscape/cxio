@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.SortedMap;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.interfaces.AspectElement;
@@ -35,26 +35,23 @@ public class EdgeAttributesFragmentReaderETest {
         assertTrue(ea0.getName().equals("name1"));
         assertTrue(ea0.getPropertyOf().size() == 1);
         assertTrue(ea0.getPropertyOf().contains("e0"));
-        assertTrue(ea0.getDataType() == ATTRIBUTE_TYPE.STRING);
-        assertTrue(ea0.getValues().size() == 1);
-        assertTrue(ea0.getValues().contains("value"));
+        assertTrue(ea0.getDataType() == ATTRIBUTE_DATA_TYPE.STRING);
+        assertTrue(ea0.getValue().equals("value"));
 
         final EdgeAttributesElement ea1 = (EdgeAttributesElement) aspects.get(1);
         assertTrue(ea1.getName().equals("name2"));
         assertTrue(ea1.getPropertyOf().size() == 1);
         assertTrue(ea1.getPropertyOf().contains("e1"));
-        assertTrue(ea1.getDataType() == ATTRIBUTE_TYPE.INTEGER);
-        assertTrue(ea1.getValues().size() == 1);
-        assertTrue(ea1.getValues().contains("12"));
+        assertTrue(ea1.getDataType() == ATTRIBUTE_DATA_TYPE.INTEGER);
+        assertTrue(ea1.getValue().equals("12"));
 
         final EdgeAttributesElement ea2 = (EdgeAttributesElement) aspects.get(2);
         assertTrue(ea2.getName().equals("name3"));
         assertTrue(ea2.getPropertyOf().size() == 2);
         assertTrue(ea2.getPropertyOf().contains("e0"));
         assertTrue(ea2.getPropertyOf().contains("e1"));
-        assertTrue(ea2.getDataType() == ATTRIBUTE_TYPE.BOOLEAN);
-        assertTrue(ea2.getValues().size() == 1);
-        assertTrue(ea2.getValues().contains("true"));
+        assertTrue(ea2.getDataType() == ATTRIBUTE_DATA_TYPE.BOOLEAN);
+        assertTrue(ea2.getValue().equals("true"));
 
         final EdgeAttributesElement ea3 = (EdgeAttributesElement) aspects.get(3);
         assertTrue(ea3.getName().equals("name4"));
@@ -62,7 +59,7 @@ public class EdgeAttributesFragmentReaderETest {
         assertTrue(ea3.getPropertyOf().contains("e0"));
         assertTrue(ea3.getPropertyOf().contains("e1"));
         assertTrue(ea3.getPropertyOf().contains("e2"));
-        assertTrue(ea3.getDataType() == ATTRIBUTE_TYPE.SHORT);
+        assertTrue(ea3.getDataType() == ATTRIBUTE_DATA_TYPE.LIST_OF_SHORT);
         assertTrue(ea3.getValues().size() == 2);
         assertTrue(ea3.getValues().contains("1"));
         assertTrue(ea3.getValues().contains("2"));

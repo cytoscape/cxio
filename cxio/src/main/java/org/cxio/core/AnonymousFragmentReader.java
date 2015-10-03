@@ -1,10 +1,10 @@
-package org.cxio.aspects.readers;
+package org.cxio.core;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AnonymousElement;
+import org.cxio.aspects.readers.AbstractFragmentReader;
 import org.cxio.core.interfaces.AspectElement;
 
 import com.fasterxml.jackson.core.JsonParser;
@@ -18,21 +18,21 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-public final class AnonymousFragmentReader extends AbstractFragmentReader {
+final class AnonymousFragmentReader extends AbstractFragmentReader {
 
     private boolean          _is_list;
     private String           _name;
     private final JsonParser _jp;
 
-    public final static AnonymousFragmentReader createInstance() {
+    final static AnonymousFragmentReader createInstance() {
         return new AnonymousFragmentReader();
     }
 
-    public final static AnonymousFragmentReader createInstance(final JsonParser jp) {
+    final static AnonymousFragmentReader createInstance(final JsonParser jp) {
         return new AnonymousFragmentReader(jp);
     }
 
-    public final static AnonymousFragmentReader createInstance(final JsonParser jp, final String name) {
+    final static AnonymousFragmentReader createInstance(final JsonParser jp, final String name) {
         return new AnonymousFragmentReader(jp, name);
     }
 
@@ -63,7 +63,7 @@ public final class AnonymousFragmentReader extends AbstractFragmentReader {
         return _name;
     }
 
-    public final boolean isList() {
+    final boolean isList() {
         return _is_list;
     }
 
@@ -96,7 +96,7 @@ public final class AnonymousFragmentReader extends AbstractFragmentReader {
         return elements;
     }
 
-    public final void setAspectName(final String name) {
+    final void setAspectName(final String name) {
         _name = name;
     }
 

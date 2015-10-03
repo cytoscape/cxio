@@ -11,8 +11,6 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.aspects.datamodels.AnonymousElement;
-import org.cxio.aspects.readers.AnonymousFragmentReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaData;
@@ -285,7 +283,9 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                     }
                     else if (_anonymous_reader_used) {
                         if (_token == JsonToken.VALUE_STRING) {
-                            _current = new AnonymousElement(_aspect_name, _jp.getText());
+                            // FIXME
+                            // TODO _current = new
+                            // AnonymousElement(_aspect_name, _jp.getText());
                         }
                         else {
                             final ObjectNode o = _m.readTree(_jp);

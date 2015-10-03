@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 

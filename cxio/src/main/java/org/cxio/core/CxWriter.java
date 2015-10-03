@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.cxio.aspects.datamodels.AnonymousElement;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
@@ -23,7 +22,7 @@ import org.cxio.metadata.MetaData;
 import org.cxio.util.JsonWriter;
 import org.cxio.util.Util;
 
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.JsonNode;
 
 /**
  * This class is for writing aspect fragments (lists of aspects).
@@ -395,7 +394,7 @@ public final class CxWriter {
     }
 
     /**
-     * This is for writing a single {@link org.cxio.aspects.datamodels.AnonymousElement}
+     * This is for writing a single {@link org.cxio.core.AnonymousElement}
      * as the single member of Json array.
      *
      *
@@ -412,14 +411,15 @@ public final class CxWriter {
         if (element == null) {
             return;
         }
-        _jw.writeJsonObjectAsList(element.getAspectName(), element.getData());
+        _jw.writeJsonNodeAsList(element.getAspectName(), element.getData());
+
         if (_calculate_element_counts) {
             _element_counts.processAspectElement(element);
         }
     }
 
     /**
-     * This is for writing a list of {@link org.cxio.aspects.datamodels.AnonymousElement}.
+     * This is for writing a list of {@link org.cxio.core.AnonymousElement}.
      *
      * @param elements the AnonymousElements to be written
      * @throws IOException
@@ -434,11 +434,11 @@ public final class CxWriter {
         if ((elements == null) || elements.isEmpty()) {
             return;
         }
-        final List<ObjectNode> datas = new ArrayList<ObjectNode>();
+        final List<JsonNode> datas = new ArrayList<JsonNode>();
         for (final AnonymousElement elem : elements) {
             datas.add(elem.getData());
         }
-        _jw.writeJsonObjects(elements.get(0).getAspectName(), datas);
+        _jw.writeJsonObjects2(elements.get(0).getAspectName(), datas);
         if (_calculate_element_counts) {
             _element_counts.processAnonymousAspectElements(elements);
         }
@@ -515,8 +515,8 @@ public final class CxWriter {
         _fragment_started = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
-        _pre_meta_datas = new HashSet();
-        _post_meta_datas = new HashSet();
+        _pre_meta_datas = new HashSet<MetaData>();
+        _post_meta_datas = new HashSet<MetaData>();
 
     }
 
@@ -531,8 +531,14 @@ public final class CxWriter {
         _fragment_started = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
-        _pre_meta_datas = new HashSet();
-        _post_meta_datas = new HashSet();
+        _pre_meta_datas = new HashSet<MetaData>();
+        _post_meta_datas = new HashSet<MetaData>();
+    }
+
+    public void writeAnonymousAspectElements(final String name, final String json) throws IOException {
+        final AnonymousElement a0 = new AnonymousElement(name, json);
+        writeAnonymousAspectElementAsList(a0);
+
     }
 
 }

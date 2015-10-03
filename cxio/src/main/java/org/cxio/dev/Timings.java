@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
@@ -261,7 +261,7 @@ public class Timings {
 
         w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
         for (int i = 0; i < _elements; ++i) {
-            final EdgeAttributesElement e = new EdgeAttributesElement("1", "n", "v", ATTRIBUTE_TYPE.STRING);
+            final EdgeAttributesElement e = new EdgeAttributesElement("1", "n", "v", ATTRIBUTE_DATA_TYPE.STRING);
 
             elements.add(e);
         }
@@ -371,7 +371,7 @@ public class Timings {
 
         w.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
         for (int i = 0; i < _elements; ++i) {
-            final NodeAttributesElement e = new NodeAttributesElement("1", "n", "v", ATTRIBUTE_TYPE.STRING);
+            final NodeAttributesElement e = new NodeAttributesElement("1", "n", "v", ATTRIBUTE_DATA_TYPE.STRING);
             elements.add(e);
         }
 

@@ -17,12 +17,14 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
      * The supported data types (either as atomic value or as list).
      *
      */
-    public enum ATTRIBUTE_TYPE {
-        BOOLEAN("boolean"), BYTE("byte"), CHAR("char"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING("string");
+    public enum ATTRIBUTE_DATA_TYPE {
+
+        BOOLEAN("boolean"), BYTE("byte"), CHAR("char"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING("string"), LIST_OF_BOOLEAN("boolean"), LIST_OF_BYTE(
+                "byte"), LIST_OF_CHAR("char"), LIST_OF_DOUBLE("double"), LIST_OF_FLOAT("float"), LIST_OF_INTEGER("integer"), LIST_OF_LONG("long"), LIST_OF_SHORT("short"), LIST_OF_STRING("string");
 
         private final String _name;
 
-        private ATTRIBUTE_TYPE(final String name) {
+        private ATTRIBUTE_DATA_TYPE(final String name) {
             _name = name;
         }
 
@@ -50,8 +52,9 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
     String                     _name;
     List<String>               _property_of;
     String                     _subnetwork;
-    ATTRIBUTE_TYPE             _data_type;
+    ATTRIBUTE_DATA_TYPE        _data_type;
     List<String>               _values;
+    boolean                    _is_single_value;
 
     /**
      * This is for getting the name of the attribute.
@@ -86,17 +89,43 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
      *
      * @return the data type of the attribute
      */
-    public final ATTRIBUTE_TYPE getDataType() {
+    public final ATTRIBUTE_DATA_TYPE getDataType() {
         return _data_type;
     }
 
     /**
-     * This returns the values of the attribute as list of Strings.
+     * This returns the list values of the attribute as list of Strings.
      *
-     * @return the values of the attribute as list of Strings
+     * @return the list values of the attribute as list of Strings
      */
     public final List<String> getValues() {
+        if (isSingleValue()) {
+            throw new IllegalStateException("attempt to return single value as list of values");
+        }
         return _values;
+    }
+
+    /**
+     * This returns the value of the attribute as String.
+     *
+     * @return the value of the attribute as Strings
+     */
+    public final String getValue() {
+        if (!isSingleValue()) {
+            throw new IllegalStateException("attempt to return list of values as single value");
+        }
+        return _values.get(0);
+    }
+
+    /**
+     * This returns true if the value of this attribute is a single value,
+     * false if it is a list of values (even if the list just contains one value).
+     *
+     *
+     * @return true if single value, false if list of values
+     */
+    public final boolean isSingleValue() {
+        return _is_single_value;
     }
 
     /**
@@ -105,37 +134,75 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
      * @param o
      * @return
      */
-    public final static ATTRIBUTE_TYPE determineDataType(final Object o) {
+    final static ATTRIBUTE_DATA_TYPE determineDataType(final Object o) {
 
         if (o instanceof String) {
-            return ATTRIBUTE_TYPE.STRING;
+            return ATTRIBUTE_DATA_TYPE.STRING;
         }
         else if (o instanceof Boolean) {
-            return ATTRIBUTE_TYPE.BOOLEAN;
+            return ATTRIBUTE_DATA_TYPE.BOOLEAN;
         }
         else if (o instanceof Double) {
-            return ATTRIBUTE_TYPE.DOUBLE;
+            return ATTRIBUTE_DATA_TYPE.DOUBLE;
         }
         else if (o instanceof Integer) {
-            return ATTRIBUTE_TYPE.INTEGER;
+            return ATTRIBUTE_DATA_TYPE.INTEGER;
         }
         else if (o instanceof Long) {
-            return ATTRIBUTE_TYPE.LONG;
+            return ATTRIBUTE_DATA_TYPE.LONG;
         }
         else if (o instanceof Float) {
-            return ATTRIBUTE_TYPE.FLOAT;
+            return ATTRIBUTE_DATA_TYPE.FLOAT;
         }
         else if (o instanceof Short) {
-            return ATTRIBUTE_TYPE.SHORT;
+            return ATTRIBUTE_DATA_TYPE.SHORT;
         }
         else if (o instanceof Byte) {
-            return ATTRIBUTE_TYPE.BYTE;
+            return ATTRIBUTE_DATA_TYPE.BYTE;
         }
         else if (o instanceof Character) {
-            return ATTRIBUTE_TYPE.CHAR;
+            return ATTRIBUTE_DATA_TYPE.CHAR;
+        }
+        else if (o instanceof List) {
+            throw new IllegalArgumentException("cannot determine type of list");
         }
         else {
             throw new IllegalArgumentException("type '" + o.getClass() + "' is not supported");
+        }
+    }
+
+    final public static ATTRIBUTE_DATA_TYPE toList(final ATTRIBUTE_DATA_TYPE type) {
+
+        if (type == ATTRIBUTE_DATA_TYPE.STRING) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
+        }
+        else if (type == ATTRIBUTE_DATA_TYPE.BOOLEAN) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_BOOLEAN;
+        }
+        else if (type == ATTRIBUTE_DATA_TYPE.DOUBLE) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE;
+        }
+        else if (type == ATTRIBUTE_DATA_TYPE.INTEGER) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_INTEGER;
+        }
+        else if (type == ATTRIBUTE_DATA_TYPE.LONG) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_LONG;
+        }
+        else if (type == ATTRIBUTE_DATA_TYPE.FLOAT) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_FLOAT;
+        }
+        else if (type == ATTRIBUTE_DATA_TYPE.SHORT) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_SHORT;
+        }
+        else if (type == ATTRIBUTE_DATA_TYPE.BYTE) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_BYTE;
+        }
+        else if (type == ATTRIBUTE_DATA_TYPE.CHAR) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_CHAR;
+        }
+
+        else {
+            throw new IllegalArgumentException();
         }
     }
 
@@ -146,37 +213,43 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
      * @param s
      * @return
      */
-    public final static ATTRIBUTE_TYPE toDataType(final String s) {
-        if (s.equals(ATTRIBUTE_TYPE.STRING.toString())) {
-            return ATTRIBUTE_TYPE.STRING;
+    public final static ATTRIBUTE_DATA_TYPE toDataType(final String s) {
+        if (s.equals(ATTRIBUTE_DATA_TYPE.STRING.toString())) {
+            return ATTRIBUTE_DATA_TYPE.STRING;
         }
-        else if (s.equals(ATTRIBUTE_TYPE.BOOLEAN.toString())) {
-            return ATTRIBUTE_TYPE.BOOLEAN;
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.BOOLEAN.toString())) {
+            return ATTRIBUTE_DATA_TYPE.BOOLEAN;
         }
-        else if (s.equals(ATTRIBUTE_TYPE.DOUBLE.toString())) {
-            return ATTRIBUTE_TYPE.DOUBLE;
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.DOUBLE.toString())) {
+            return ATTRIBUTE_DATA_TYPE.DOUBLE;
         }
-        else if (s.equals(ATTRIBUTE_TYPE.INTEGER.toString())) {
-            return ATTRIBUTE_TYPE.INTEGER;
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.INTEGER.toString())) {
+            return ATTRIBUTE_DATA_TYPE.INTEGER;
         }
-        else if (s.equals(ATTRIBUTE_TYPE.LONG.toString())) {
-            return ATTRIBUTE_TYPE.LONG;
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LONG.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LONG;
         }
-        else if (s.equals(ATTRIBUTE_TYPE.FLOAT.toString())) {
-            return ATTRIBUTE_TYPE.FLOAT;
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.FLOAT.toString())) {
+            return ATTRIBUTE_DATA_TYPE.FLOAT;
         }
-        else if (s.equals(ATTRIBUTE_TYPE.SHORT.toString())) {
-            return ATTRIBUTE_TYPE.SHORT;
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.SHORT.toString())) {
+            return ATTRIBUTE_DATA_TYPE.SHORT;
         }
-        else if (s.equals(ATTRIBUTE_TYPE.BYTE.toString())) {
-            return ATTRIBUTE_TYPE.BYTE;
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.BYTE.toString())) {
+            return ATTRIBUTE_DATA_TYPE.BYTE;
         }
-        else if (s.equals(ATTRIBUTE_TYPE.CHAR.toString())) {
-            return ATTRIBUTE_TYPE.CHAR;
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.CHAR.toString())) {
+            return ATTRIBUTE_DATA_TYPE.CHAR;
         }
         else {
             throw new IllegalArgumentException("type '" + s + "' is not supported");
         }
+    }
+
+    public final static boolean isListType(final ATTRIBUTE_DATA_TYPE data_type) {
+        return (data_type == ATTRIBUTE_DATA_TYPE.LIST_OF_BOOLEAN) || (data_type == ATTRIBUTE_DATA_TYPE.LIST_OF_BYTE) || (data_type == ATTRIBUTE_DATA_TYPE.LIST_OF_CHAR)
+                || (data_type == ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE) || (data_type == ATTRIBUTE_DATA_TYPE.LIST_OF_FLOAT) || (data_type == ATTRIBUTE_DATA_TYPE.LIST_OF_INTEGER)
+                || (data_type == ATTRIBUTE_DATA_TYPE.LIST_OF_LONG) || (data_type == ATTRIBUTE_DATA_TYPE.LIST_OF_SHORT) || (data_type == ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
     }
 
 }

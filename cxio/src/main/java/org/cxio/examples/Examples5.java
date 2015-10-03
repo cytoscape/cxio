@@ -6,14 +6,16 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
+import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
+import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -38,16 +40,27 @@ public class Examples5 {
         cartesian_elements.add(new CartesianLayoutElement("node1", 42, 23, 2));
         cartesian_elements.add(new CartesianLayoutElement("node2", 34, 23, 3));
 
-        final EdgeAttributesElement ea0 = new EdgeAttributesElement("edge0", "name", "A", ATTRIBUTE_TYPE.STRING);
-        final EdgeAttributesElement ea1 = new EdgeAttributesElement("edge0", "weight", "2", ATTRIBUTE_TYPE.INTEGER);
-        final EdgeAttributesElement ea2 = new EdgeAttributesElement("edge1", "name", "B", ATTRIBUTE_TYPE.STRING);
-        final EdgeAttributesElement ea3 = new EdgeAttributesElement("edge1", "weight", "3", ATTRIBUTE_TYPE.INTEGER);
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement("edge0", "name", "A", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea1 = new EdgeAttributesElement("edge0", "weight", "2", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea2 = new EdgeAttributesElement("edge1", "name", "[ ³a²]", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea3 = new EdgeAttributesElement("edge1", "weight", "3", ATTRIBUTE_DATA_TYPE.INTEGER);
+
+        final List<String> x = new ArrayList();
+        x.add("[{..%");
+        x.add("[,e,,,,]");
+        x.add("\"]");
+        final EdgeAttributesElement ea4 = new EdgeAttributesElement("subnet1", "edge1", "weight", x, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
+
+        // public EdgeAttributesElement(final String subnetwork, final String
+        // property_of, final String name, final List<String> values, final
+        // ATTRIBUTE_TYPE type) {
 
         final List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
         edge_attributes_elements.add(ea0);
         edge_attributes_elements.add(ea1);
         edge_attributes_elements.add(ea2);
         edge_attributes_elements.add(ea3);
+        edge_attributes_elements.add(ea4);
 
         final ArrayList<String> v0 = new ArrayList<String>();
         v0.add("0.0");
@@ -59,18 +72,16 @@ public class Examples5 {
         v2.add("2.0");
         v2.add("2.1");
 
-        final NodeAttributesElement na0 = new NodeAttributesElement("node0", "expression", v0, ATTRIBUTE_TYPE.DOUBLE);
-        final NodeAttributesElement na1 = new NodeAttributesElement("node1", "expression", v1, ATTRIBUTE_TYPE.DOUBLE);
-        final NodeAttributesElement na2 = new NodeAttributesElement("node2", "expression", v2, ATTRIBUTE_TYPE.DOUBLE);
+        final NodeAttributesElement na0 = new NodeAttributesElement("node0", "expression", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na1 = new NodeAttributesElement("node1", "expression", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na2 = new NodeAttributesElement("node2", "expression", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
 
         final ArrayList<String> n = new ArrayList<String>();
         n.add("node0");
         n.add("node1");
         n.add("node2");
 
-        final ArrayList<String> mm = new ArrayList<String>();
-        mm.add("Mus musculus");
-        final NodeAttributesElement na3 = new NodeAttributesElement(null, n, "species", mm, ATTRIBUTE_TYPE.STRING);
+        final NodeAttributesElement na3 = new NodeAttributesElement(null, n, "species", "Mus musculus", ATTRIBUTE_DATA_TYPE.STRING);
 
         final List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();
         node_attributes_elements.add(na0);
@@ -85,12 +96,16 @@ public class Examples5 {
         final CxWriter w = CxWriter.createInstance(out, true);
 
         w.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(NodeAttributesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
+        w.addAspectFragmentWriter(EdgeAttributesFragmentWriter.createInstance());
         w.addAspectFragmentWriter(CartesianLayoutFragmentWriter.createInstance());
 
         w.start();
         w.writeAspectElements(nodes_elements);
+        w.writeAspectElements(node_attributes_elements);
         w.writeAspectElements(edges_elements);
+        w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(cartesian_elements);
         w.end();
 

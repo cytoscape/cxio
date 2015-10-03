@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.core.CxWriter;
@@ -31,7 +31,7 @@ public class EdgeAttributesFragmentWriterTest {
 
         assertEquals("[]", out0.toString());
 
-        final EdgeAttributesElement ea0 = new EdgeAttributesElement("property_of", "name", "1.1", ATTRIBUTE_TYPE.FLOAT);
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement("property_of", "name", "1.1", ATTRIBUTE_DATA_TYPE.FLOAT);
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(ea0);
 

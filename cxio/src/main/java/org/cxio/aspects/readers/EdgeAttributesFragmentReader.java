@@ -3,7 +3,7 @@ package org.cxio.aspects.readers;
 import java.io.IOException;
 
 import org.cxio.aspects.datamodels.AbstractAttributesAspectElement;
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.core.interfaces.AspectElement;
 
@@ -26,15 +26,23 @@ public final class EdgeAttributesFragmentReader extends AbstractFragmentReader {
 
     @Override
     public final AspectElement readElement(final ObjectNode o) throws IOException {
-        ATTRIBUTE_TYPE type = ATTRIBUTE_TYPE.STRING;
+        ATTRIBUTE_DATA_TYPE type = ATTRIBUTE_DATA_TYPE.STRING;
         if (o.has(AbstractAttributesAspectElement.ATTR_DATA_TYPE)) {
             type = AbstractAttributesAspectElement.toDataType(ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_DATA_TYPE));
+        }
+        if (ParserUtils.isArray(o, AbstractAttributesAspectElement.ATTR_VALUES)) {
+            return new EdgeAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),
+                                             ParserUtils.getAsStringListRequired(o, AbstractAttributesAspectElement.ATTR_PROPERTY_OF),
+                                             ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_NAME),
+                                             ParserUtils.getAsStringList(o, AbstractAttributesAspectElement.ATTR_VALUES),
+                                             AbstractAttributesAspectElement.toList(type));
         }
         return new EdgeAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),
                                          ParserUtils.getAsStringListRequired(o, AbstractAttributesAspectElement.ATTR_PROPERTY_OF),
                                          ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_NAME),
-                                         ParserUtils.getAsStringList(o, AbstractAttributesAspectElement.ATTR_VALUES),
+                                         ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_VALUES),
                                          type);
+
     }
 
 }

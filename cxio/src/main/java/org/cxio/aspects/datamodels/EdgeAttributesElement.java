@@ -19,77 +19,137 @@ public final class EdgeAttributesElement extends AbstractAttributesAspectElement
     public final static String NAME = "edgeAttributes";
 
     public EdgeAttributesElement(final String subnetwork, final List<String> property_of, final String name, final List<String> values) {
+        _data_type = ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
+        _is_single_value = false;
         _subnetwork = subnetwork;
         _property_of = property_of;
         _name = name;
         _values = values;
-        _data_type = ATTRIBUTE_TYPE.STRING;
     }
 
-    public EdgeAttributesElement(final String subnetwork, final List<String> property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
-        _subnetwork = subnetwork;
-        _property_of = property_of;
-        _name = name;
-        _values = values;
+    public EdgeAttributesElement(final String subnetwork, final List<String> property_of, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
+        if (!isListType(type)) {
+            throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
+        }
         _data_type = type;
+        _is_single_value = false;
+        _subnetwork = subnetwork;
+        _property_of = property_of;
+        _name = name;
+        _values = values;
     }
 
-    public EdgeAttributesElement(final String subnetwork, final String property_of, final String name, final List<String> values, final ATTRIBUTE_TYPE type) {
+    public EdgeAttributesElement(final String subnetwork, final List<String> property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+
+        if (isListType(type)) {
+            throw new IllegalArgumentException("single value provided, but given data type is " + type.toString());
+        }
+        _data_type = type;
+        _is_single_value = true;
+        _subnetwork = subnetwork;
+        _property_of = property_of;
+        _name = name;
+        _values = new ArrayList<String>();
+        _values.add(value);
+    }
+
+    public EdgeAttributesElement(final String subnetwork, final String property_of, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
+
+        if (!isListType(type)) {
+            throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
+        }
+        _data_type = type;
+        _is_single_value = false;
         _subnetwork = subnetwork;
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;
         _values = values;
-        _data_type = type;
+
     }
 
     public EdgeAttributesElement(final String subnetwork, final String property_of, final String name, final String value) {
+        _data_type = ATTRIBUTE_DATA_TYPE.STRING;
+        _is_single_value = true;
         _subnetwork = subnetwork;
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _data_type = ATTRIBUTE_TYPE.STRING;
+
     }
 
     public EdgeAttributesElement(final String subnetwork, final String property_of, final String name, final Object value) {
+        if (value instanceof List) {
+            throw new IllegalArgumentException("constructor only applicable for singe values");
+        }
+        _data_type = determineDataType(value);
+        _is_single_value = true;
         _subnetwork = subnetwork;
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;
         _values = new ArrayList<String>();
-        _data_type = determineDataType(value);
         _values.add(String.valueOf(value));
     }
 
-    public EdgeAttributesElement(final String subnetwork, final String property_of, final String name, final String value, final ATTRIBUTE_TYPE type) {
+    public EdgeAttributesElement(final String subnetwork, final String property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+
+        if (isListType(type)) {
+            throw new IllegalArgumentException("single value provided, but given data type is " + type.toString());
+        }
+        _data_type = type;
+        _is_single_value = true;
         _subnetwork = subnetwork;
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _data_type = type;
+
     }
 
-    public EdgeAttributesElement(final String property_of, final String name, final String value, final ATTRIBUTE_TYPE type) {
+    public EdgeAttributesElement(final String property_of, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
+
+        if (!isListType(type)) {
+            throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
+        }
+        _data_type = type;
+        _is_single_value = true;
+        _subnetwork = null;
+        _property_of = new ArrayList<String>();
+        _property_of.add(property_of);
+        _name = name;
+        _values = values;
+    }
+
+    public EdgeAttributesElement(final String property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+
+        if (isListType(type)) {
+            throw new IllegalArgumentException("single value provided, but given data type is " + type.toString());
+        }
+        _data_type = type;
+        _is_single_value = true;
         _subnetwork = null;
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _data_type = type;
     }
 
     public EdgeAttributesElement(final String property_of, final String name, final Object value) {
+        if (value instanceof List) {
+            throw new IllegalArgumentException("constructor only applicable for singe values");
+        }
+        _data_type = determineDataType(value);
+        _is_single_value = true;
         _subnetwork = null;
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
         _name = name;
         _values = new ArrayList<String>();
-        _data_type = determineDataType(value);
         _values.add(String.valueOf(value));
     }
 

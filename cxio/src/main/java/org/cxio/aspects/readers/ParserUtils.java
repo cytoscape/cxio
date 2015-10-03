@@ -90,6 +90,10 @@ public final class ParserUtils {
         return l;
     }
 
+    public final static boolean isArray(final ObjectNode o, final String label) throws IOException {
+        return o.get(label).isArray();
+    }
+
     public final static String getTextValue(final ObjectNode o, final String label) {
         if (o.has(label)) {
             return o.get(label).asText();

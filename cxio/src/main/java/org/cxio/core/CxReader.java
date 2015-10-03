@@ -9,7 +9,6 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.aspects.readers.AnonymousFragmentReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaData;
@@ -298,7 +297,7 @@ public final class CxReader extends AbstractCxReader {
      * @throws NoSuchAlgorithmException
      */
     private CxReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum) throws IOException,
-    NoSuchAlgorithmException {
+            NoSuchAlgorithmException {
         if (input == null) {
             throw new IllegalArgumentException("cx input is null");
         }

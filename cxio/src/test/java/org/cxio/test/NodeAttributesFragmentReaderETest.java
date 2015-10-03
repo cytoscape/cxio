@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.SortedMap;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.interfaces.AspectElement;
@@ -35,26 +35,23 @@ public class NodeAttributesFragmentReaderETest {
         assertTrue(a0.getName().equals("name1"));
         assertTrue(a0.getPropertyOf().size() == 1);
         assertTrue(a0.getPropertyOf().contains("n0"));
-        assertTrue(a0.getDataType() == ATTRIBUTE_TYPE.STRING);
-        assertTrue(a0.getValues().size() == 1);
-        assertTrue(a0.getValues().contains("value"));
+        assertTrue(a0.getDataType() == ATTRIBUTE_DATA_TYPE.STRING);
+        assertTrue(a0.getValue().equals("value"));
 
         final NodeAttributesElement a1 = (NodeAttributesElement) aspects.get(1);
         assertTrue(a1.getName().equals("name2"));
         assertTrue(a1.getPropertyOf().size() == 1);
         assertTrue(a1.getPropertyOf().contains("n1"));
-        assertTrue(a1.getDataType() == ATTRIBUTE_TYPE.INTEGER);
-        assertTrue(a1.getValues().size() == 1);
-        assertTrue(a1.getValues().contains("12"));
+        assertTrue(a1.getDataType() == ATTRIBUTE_DATA_TYPE.INTEGER);
+        assertTrue(a1.getValue().equals("12"));
 
         final NodeAttributesElement a2 = (NodeAttributesElement) aspects.get(2);
         assertTrue(a2.getName().equals("name3"));
         assertTrue(a2.getPropertyOf().size() == 2);
         assertTrue(a2.getPropertyOf().contains("n0"));
         assertTrue(a2.getPropertyOf().contains("n1"));
-        assertTrue(a2.getDataType() == ATTRIBUTE_TYPE.BOOLEAN);
-        assertTrue(a2.getValues().size() == 1);
-        assertTrue(a2.getValues().contains("true"));
+        assertTrue(a2.getDataType() == ATTRIBUTE_DATA_TYPE.BOOLEAN);
+        assertTrue(a2.getValue().equals("true"));
 
         final NodeAttributesElement a3 = (NodeAttributesElement) aspects.get(3);
         assertTrue(a3.getName().equals("name4"));
@@ -62,7 +59,7 @@ public class NodeAttributesFragmentReaderETest {
         assertTrue(a3.getPropertyOf().contains("n0"));
         assertTrue(a3.getPropertyOf().contains("n1"));
         assertTrue(a3.getPropertyOf().contains("n2"));
-        assertTrue(a3.getDataType() == ATTRIBUTE_TYPE.SHORT);
+        assertTrue(a3.getDataType() == ATTRIBUTE_DATA_TYPE.LIST_OF_SHORT);
         assertTrue(a3.getValues().size() == 2);
         assertTrue(a3.getValues().contains("1"));
         assertTrue(a3.getValues().contains("2"));

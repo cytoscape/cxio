@@ -41,10 +41,10 @@ public class ExamplesM {
         readers.add(EdgesFragmentReader.createInstance());
 
         final CxElementReader reader = CxElementReader.createInstance(cx_json_str, false, // Reading
-                                                                                          // anonymous
-                                                                                          // elements
+                                                                      // anonymous
+                                                                      // elements
                                                                       false, // Checksum
-                                                                             // calculation
+                                                                      // calculation
                                                                       readers);
 
         for (final AspectElement e : reader) {

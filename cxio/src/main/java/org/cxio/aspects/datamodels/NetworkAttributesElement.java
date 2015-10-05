@@ -90,8 +90,14 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         sb.append("name               : ");
         sb.append(_name);
         sb.append("\n");
-        sb.append("values             : ");
-        sb.append(_values);
+        if (_is_single_value) {
+            sb.append("value            : ");
+            sb.append(_values.get(0));
+        }
+        else {
+            sb.append("values           : ");
+            sb.append(_values);
+        }
         sb.append("\n");
         sb.append("type               : ");
         sb.append(_data_type.toString());

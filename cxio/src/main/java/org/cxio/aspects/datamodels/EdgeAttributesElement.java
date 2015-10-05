@@ -116,7 +116,7 @@ public final class EdgeAttributesElement extends AbstractAttributesAspectElement
             throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
         }
         _data_type = type;
-        _is_single_value = true;
+        _is_single_value = false;
         _subnetwork = null;
         _property_of = new ArrayList<String>();
         _property_of.add(property_of);
@@ -175,8 +175,14 @@ public final class EdgeAttributesElement extends AbstractAttributesAspectElement
         sb.append("name             : ");
         sb.append(_name);
         sb.append("\n");
-        sb.append("values           : ");
-        sb.append(_values);
+        if (_is_single_value) {
+            sb.append("value            : ");
+            sb.append(_values.get(0));
+        }
+        else {
+            sb.append("values           : ");
+            sb.append(_values);
+        }
         sb.append("\n");
         sb.append("data type        : ");
         sb.append(_data_type.toString());

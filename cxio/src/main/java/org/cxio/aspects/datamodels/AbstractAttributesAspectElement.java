@@ -19,8 +19,8 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
      */
     public enum ATTRIBUTE_DATA_TYPE {
 
-        BOOLEAN("boolean"), BYTE("byte"), CHAR("char"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING("string"), LIST_OF_BOOLEAN("boolean"), LIST_OF_BYTE(
-                "byte"), LIST_OF_CHAR("char"), LIST_OF_DOUBLE("double"), LIST_OF_FLOAT("float"), LIST_OF_INTEGER("integer"), LIST_OF_LONG("long"), LIST_OF_SHORT("short"), LIST_OF_STRING("string");
+        BOOLEAN("boolean"), BYTE("byte"), CHAR("char"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING("string"), LIST_OF_BOOLEAN("list_of_boolean"), LIST_OF_BYTE(
+                "list_of_byte"), LIST_OF_CHAR("list_of_char"), LIST_OF_DOUBLE("list_of_double"), LIST_OF_FLOAT("list_of_float"), LIST_OF_INTEGER("list_of_integer"), LIST_OF_LONG("list_of_long"), LIST_OF_SHORT("list_of_short"), LIST_OF_STRING("list_of_string");
 
         private final String _name;
 
@@ -31,6 +31,49 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
         @Override
         public String toString() {
             return _name;
+        }
+        
+      
+        public static String toCxLabel( ATTRIBUTE_DATA_TYPE dt ) {
+            switch ( dt ) {
+            case BOOLEAN:
+                return "boolean";
+            case BYTE:
+                return "byte";
+            case CHAR:
+                return "char";
+            case DOUBLE:
+                return "double";
+            case FLOAT:
+                return "float";
+            case INTEGER:
+                return "integer";
+            case LONG:
+                return "long";
+            case SHORT:
+                return "short";
+            case STRING:
+                return "string";
+            case LIST_OF_BOOLEAN:
+                return "boolean";
+            case LIST_OF_BYTE:
+                return "byte";
+            case LIST_OF_CHAR:
+                return "char";
+            case LIST_OF_DOUBLE:
+                return "double";
+            case LIST_OF_FLOAT:
+                return "float";
+            case LIST_OF_INTEGER:
+                return "integer";
+            case LIST_OF_LONG:
+                return "long";
+            case LIST_OF_SHORT:
+                return "short";
+            case LIST_OF_STRING:
+                return "string";
+            default: throw new IllegalStateException( "don't know type " + dt);
+            }
         }
     }
 

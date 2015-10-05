@@ -535,10 +535,11 @@ public final class CxWriter {
         _post_meta_datas = new HashSet<MetaData>();
     }
 
-    public void writeAnonymousAspectElements(final String name, final String json) throws IOException {
-        final AnonymousElement a0 = new AnonymousElement(name, json);
+    public void writeAnonymousAspectElements(final String name, final String json_element) throws IOException {
+        final AnonymousElement a0 = new AnonymousElement(name, json_element);
         writeAnonymousAspectElementAsList(a0);
-
     }
+    
+    
 
 }

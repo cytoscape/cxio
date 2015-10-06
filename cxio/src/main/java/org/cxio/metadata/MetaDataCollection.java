@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.SortedMap;
 
@@ -22,7 +23,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author cmzmasek
  *
  */
-public final class MetaData implements Serializable {
+public final class MetaDataCollection implements Serializable {
 
     private static final long                     serialVersionUID = 7233278148613095352L;
 
@@ -37,7 +38,7 @@ public final class MetaData implements Serializable {
      * Constructor, to create an empty MetaData object.
      *
      */
-    public MetaData() {
+    public MetaDataCollection() {
         _data = new ArrayList<SortedMap<String, Object>>();
     }
 
@@ -55,10 +56,10 @@ public final class MetaData implements Serializable {
      *
      * @return a list of MetaDataElements
      */
-    public final List<MetaDataElement> asListOfMetaDataElements() {
+    public final Collection<MetaDataElement> asCollectionOfMetaDataElements() {
         final ArrayList<MetaDataElement> l = new ArrayList<MetaDataElement>();
         for (int i = 0; i < size(); i++) {
-            l.add(getMetaDataElement(i));
+            l.add(new MetaDataElement(_data.get(i)));
         }
         return l;
     }
@@ -68,19 +69,8 @@ public final class MetaData implements Serializable {
      *
      * @return a list of sorted maps (String to Object)
      */
-    public final List<SortedMap<String, Object>> getMetaData() {
+    public final Collection<SortedMap<String, Object>> getMetaData() {
         return _data;
-    }
-
-    /**
-     * This is to get a MetaDataElement.
-     *
-     *
-     * @param index the index of the MetaDataElement
-     * @return a MetaDataElement
-     */
-    public final MetaDataElement getMetaDataElement(final int index) {
-        return new MetaDataElement(_data.get(index));
     }
 
     /**
@@ -94,7 +84,7 @@ public final class MetaData implements Serializable {
      */
     public final MetaDataElement getMetaDataElement(final String name) {
         MetaDataElement res = null;
-        for (final MetaDataElement e : asListOfMetaDataElements()) {
+        for (final MetaDataElement e : asCollectionOfMetaDataElements()) {
             if (e.getName().equals(name)) {
                 if (res == null) {
                     res = e;
@@ -129,7 +119,7 @@ public final class MetaData implements Serializable {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        for (final MetaDataElement e : asListOfMetaDataElements()) {
+        for (final MetaDataElement e : asCollectionOfMetaDataElements()) {
             if ((e != null) && !e.getData().isEmpty()) {
                 sb.append(e);
                 sb.append(Util.LINE_SEPARATOR);
@@ -145,9 +135,9 @@ public final class MetaData implements Serializable {
      * @return a MetaData object
      * @throws IOException
      */
-    public final static MetaData createInstanceFromJson(final InputStream is) throws IOException {
+    public final static MetaDataCollection createInstanceFromJson(final InputStream is) throws IOException {
         final ObjectMapper m = new ObjectMapper();
-        return m.readValue(is, MetaData.class);
+        return m.readValue(is, MetaDataCollection.class);
     }
 
     /**
@@ -157,9 +147,9 @@ public final class MetaData implements Serializable {
      * @return a MetaData object
      * @throws IOException
      */
-    public static MetaData createInstanceFromJson(final JsonParser jp) throws JsonParseException, JsonMappingException, IOException {
+    public static MetaDataCollection createInstanceFromJson(final JsonParser jp) throws JsonParseException, JsonMappingException, IOException {
         final ObjectMapper m = new ObjectMapper();
-        return m.readValue(jp, MetaData.class);
+        return m.readValue(jp, MetaDataCollection.class);
     }
 
     /**
@@ -169,9 +159,9 @@ public final class MetaData implements Serializable {
      * @return a MetaData object
      * @throws IOException
      */
-    public final static MetaData createInstanceFromJson(final String str) throws IOException {
+    public final static MetaDataCollection createInstanceFromJson(final String str) throws IOException {
         final ObjectMapper m = new ObjectMapper();
-        return m.readValue(str, MetaData.class);
+        return m.readValue(str, MetaDataCollection.class);
     }
 
     // ///

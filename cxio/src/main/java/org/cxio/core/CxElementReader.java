@@ -12,7 +12,7 @@ import java.util.TreeMap;
 
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.metadata.MetaData;
+import org.cxio.metadata.MetaDataCollection;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
@@ -225,7 +225,7 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                         _encountered_non_meta_content = true;
                         _meta_data = false;
                     }
-                    else if (_aspect_name.equals(MetaData.NAME)) {
+                    else if (_aspect_name.equals(MetaDataCollection.NAME)) {
                         addMetaData(_jp);
                         _anonymous_reader_used = false;
                         _meta_data = true;
@@ -393,8 +393,8 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
         _aspect_name = null;
         _m = new ObjectMapper();
         _encountered_non_meta_content = false;
-        _pre_meta_datas = new ArrayList<MetaData>();
-        _post_meta_datas = new ArrayList<MetaData>();
+        _pre_meta_data = null;
+        _post_meta_data = null;
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
@@ -434,8 +434,8 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
         _calculate_md5_checksum = calculate_md5_checksum;
         _element_counts = AspectElementCounts.createInstance();
         _encountered_non_meta_content = false;
-        _pre_meta_datas = new ArrayList<MetaData>();
-        _post_meta_datas = new ArrayList<MetaData>();
+        _pre_meta_data = null;
+        _post_meta_data = null;
         reset();
     }
 

@@ -58,10 +58,9 @@ public final class JsonWriter {
         _g.writeEndObject();
     }
 
-    // public void writeJsonObject(final ObjectNode data_node) throws
-    // IOException {
-    // data_node.serialize(_g, null);
-    // }
+    public final void writeJsonObject(final JsonNode data_node) throws IOException {
+        data_node.serialize(_g, null);
+    }
 
     // public void writeJsonObject(final String label, final ObjectNode
     // data_node) throws IOException {
@@ -77,13 +76,13 @@ public final class JsonWriter {
     // new_parent.serialize(_g, null);
     // }
 
-    public void writeJsonNodeAsList(final String label, final JsonNode data_node) throws IOException {
+    public final void writeJsonNodeAsList(final String label, final JsonNode data_node) throws IOException {
         final ObjectNode new_parent = _m.createObjectNode();
         new_parent.set(label, new_parent.arrayNode().add(data_node));
         new_parent.serialize(_g, null);
     }
 
-    public void writeJsonObjects2(final String label, final List<JsonNode> data_nodes) throws IOException {
+    public final void writeJsonObjects2(final String label, final List<JsonNode> data_nodes) throws IOException {
         final ObjectNode new_parent = _m.createObjectNode();
         final ArrayNode array_node = new_parent.arrayNode();
 
@@ -92,6 +91,14 @@ public final class JsonWriter {
         }
         new_parent.set(label, array_node);
         new_parent.serialize(_g, null);
+    }
+
+    public final JsonGenerator getJsonGenerator() {
+        return _g;
+    }
+
+    public final ObjectMapper getObjectMapper() {
+        return _m;
     }
 
     // public void writeJsonObjects(final String label, final List<ObjectNode>

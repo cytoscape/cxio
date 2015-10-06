@@ -24,7 +24,7 @@ import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.metadata.MetaData;
+import org.cxio.metadata.MetaDataCollection;
 import org.cxio.metadata.MetaDataElement;
 import org.cxio.util.Util;
 
@@ -89,7 +89,7 @@ public class Examples_MetaData {
 
         // Meta data
         // ---------
-        final MetaData md0 = new MetaData();
+        final MetaDataCollection md0 = new MetaDataCollection();
 
         final MetaDataElement meta_element1 = new MetaDataElement();
 
@@ -104,7 +104,7 @@ public class Examples_MetaData {
         meta_element1.put("some datastructure", li);
         meta_element1.put("some booleans", new boolean[] { true, false });
         md0.addMetaDataElement(meta_element1);
-        final MetaData md1 = new MetaData();
+        final MetaDataCollection md1 = new MetaDataCollection();
         final MetaDataElement meta_element2 = new MetaDataElement();
         meta_element2.put("checksum", 23932);
         md1.addMetaDataElement(meta_element2);
@@ -147,10 +147,8 @@ public class Examples_MetaData {
         System.out.println();
 
         System.out.println("Pre meta datas:");
-        for (final MetaData my_md : p.getPreMetaData()) {
-            System.out.println(my_md);
-            System.out.println();
-        }
+
+        System.out.println(p.getPreMetaData());
 
         while (p.hasNext()) {
             final List<AspectElement> elements = p.getNext();
@@ -165,10 +163,9 @@ public class Examples_MetaData {
         }
 
         System.out.println("Post meta datas:");
-        for (final MetaData my_md : p.getPostMetaData()) {
-            System.out.println(my_md);
-            System.out.println();
-        }
+
+        System.out.println(p.getPostMetaData());
+        System.out.println();
 
         final AspectElementCounts cr = p.getAspectElementCounts();
         System.out.println(cr);

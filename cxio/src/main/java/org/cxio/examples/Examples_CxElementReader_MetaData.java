@@ -19,7 +19,7 @@ import org.cxio.core.AspectElementCounts;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.metadata.MetaData;
+import org.cxio.metadata.MetaDataCollection;
 import org.cxio.metadata.MetaDataElement;
 import org.cxio.util.Util;
 
@@ -122,7 +122,7 @@ public class Examples_CxElementReader_MetaData {
 
         // Meta data
         // ---------
-        final MetaData md_pre = new MetaData();
+        final MetaDataCollection md_pre = new MetaDataCollection();
 
         final MetaDataElement node_meta = new MetaDataElement();
 
@@ -149,7 +149,7 @@ public class Examples_CxElementReader_MetaData {
 
         md_pre.addMetaDataElement(citation_meta);
 
-        final MetaData md_post = new MetaData();
+        final MetaDataCollection md_post = new MetaDataCollection();
 
         final MetaDataElement meta_post = new MetaDataElement();
         meta_post.setName("post meta data");
@@ -186,9 +186,9 @@ public class Examples_CxElementReader_MetaData {
 
         System.out.println();
         System.out.println("Pre meta datas:");
-        for (final MetaData my_md : p.getPreMetaData()) {
-            System.out.print(my_md);
-        }
+
+        System.out.print(p.getPreMetaData());
+
         System.out.println();
 
         while (p.hasNext()) {
@@ -201,9 +201,9 @@ public class Examples_CxElementReader_MetaData {
 
         System.out.println();
         System.out.println("Post meta datas:");
-        for (final MetaData my_md : p.getPostMetaData()) {
-            System.out.print(my_md);
-        }
+
+        System.out.print(p.getPostMetaData());
+
         System.out.println();
         Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
 

@@ -8,7 +8,6 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -18,11 +17,14 @@ import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
-import org.cxio.metadata.MetaData;
+import org.cxio.metadata.MetaDataCollection;
 import org.cxio.util.JsonWriter;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * This class is for writing aspect fragments (lists of aspects).
@@ -39,8 +41,8 @@ public final class CxWriter {
     private final Map<String, AspectFragmentWriter> _writers;
     private final AspectElementCounts               _element_counts;
     private boolean                                 _calculate_element_counts;
-    private final Set<MetaData>                     _pre_meta_datas;
-    private final Set<MetaData>                     _post_meta_datas;
+    private MetaDataCollection                      _pre_meta_data;
+    private MetaDataCollection                      _post_meta_data;
 
     /**
      * Returns a CxWriter for reading from OutputStream out.
@@ -252,7 +254,7 @@ public final class CxWriter {
             throw new IllegalStateException("not started");
         }
         _started = false;
-        writeMetaDatas(_post_meta_datas);
+        writeMetaData(_post_meta_data);
         _jw.end();
     }
 
@@ -267,17 +269,7 @@ public final class CxWriter {
         }
         _started = true;
         _jw.start();
-        writeMetaDatas(_pre_meta_datas);
-    }
-
-    private final void writeMetaDatas(final Set<MetaData> mds) throws IOException {
-        if ((mds != null) && !mds.isEmpty()) {
-            for (final MetaData md : mds) {
-                if ((md != null) && !md.getMetaData().isEmpty()) {
-                    writeMetaData(md);
-                }
-            }
-        }
+        writeMetaData(_pre_meta_data);
     }
 
     /**
@@ -470,28 +462,19 @@ public final class CxWriter {
         return _md.digest();
     }
 
-    public final void addPreMetaData(final MetaData pre_meta_data) {
-        _pre_meta_datas.add(pre_meta_data);
+    public final void addPreMetaData(final MetaDataCollection pre_meta_data) {
+        _pre_meta_data = pre_meta_data;
+    }
+
+    public final void addPostMetaData(final MetaDataCollection post_meta_data) {
+        _post_meta_data = post_meta_data;
 
     }
 
-    public final void addPostMetaData(final MetaData post_meta_data) {
-        _post_meta_datas.add(post_meta_data);
-
-    }
-
-    public final void addPreMetaData(final Collection<MetaData> pre_meta_datas) {
-        _pre_meta_datas.addAll(pre_meta_datas);
-
-    }
-
-    public final void addPostMetaData(final Collection<MetaData> post_meta_datas) {
-        _post_meta_datas.addAll(post_meta_datas);
-
-    }
-
-    private final void writeMetaData(final MetaData meta_data) throws IOException {
-        meta_data.toJson(_jw);
+    private final void writeMetaData(final MetaDataCollection md) throws IOException {
+        if ((md != null) && !md.getMetaData().isEmpty()) {
+            md.toJson(_jw);
+        }
     }
 
     private CxWriter(final OutputStream os, final boolean use_default_pretty_printer, final boolean calculate_md5_checksum) throws IOException, NoSuchAlgorithmException {
@@ -515,8 +498,8 @@ public final class CxWriter {
         _fragment_started = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
-        _pre_meta_datas = new HashSet<MetaData>();
-        _post_meta_datas = new HashSet<MetaData>();
+        _pre_meta_data = null;
+        _post_meta_data = null;
 
     }
 
@@ -531,20 +514,24 @@ public final class CxWriter {
         _fragment_started = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
-        _pre_meta_datas = new HashSet<MetaData>();
-        _post_meta_datas = new HashSet<MetaData>();
+        _pre_meta_data = null;
+        _post_meta_data = null;
     }
 
-    public void writeAnonymousAspectElements(final String name, final String json_element) throws IOException {
+    public void writeAnonymousAspectElement(final String name, final String json_element) throws IOException {
         final AnonymousElement a0 = new AnonymousElement(name, json_element);
         writeAnonymousAspectElementAsList(a0);
     }
 
-    public void writeAnonymousAspectElements(final String name, final Collection<String> json_element) throws IOException {
-        _jw.writeStartArray(name);
-        for (final String string : json_element) {
-            // _jw.writeJsonObjects2(label, data_nodes);
+    public void writeAnonymousAspectElements(final String name, final Collection<String> json_elements) throws IOException {
+        final ObjectMapper m = _jw.getObjectMapper();
+        final ObjectNode new_parent = m.createObjectNode();
+        final ArrayNode array_node = new_parent.arrayNode();
+        for (final String json_element : json_elements) {
+            array_node.add(m.readTree(json_element));
         }
+        new_parent.set(name, array_node);
+        new_parent.serialize(_jw.getJsonGenerator(), null);
     }
 
 }

@@ -12,7 +12,7 @@ import java.util.TreeMap;
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
-import org.cxio.metadata.MetaData;
+import org.cxio.metadata.MetaDataCollection;
 import org.cxio.metadata.MetaDataElement;
 import org.junit.Test;
 
@@ -20,7 +20,7 @@ public class MetaDataTest {
 
     @Test
     public void test1() {
-        final MetaData md = new MetaData();
+        final MetaDataCollection md = new MetaDataCollection();
 
         final MetaDataElement node_meta = new MetaDataElement();
 
@@ -52,8 +52,8 @@ public class MetaDataTest {
 
         assertEquals(2, md.size());
 
-        final MetaDataElement mde0 = md.getMetaDataElement(0);
-        final MetaDataElement mde1 = md.getMetaDataElement(1);
+        final MetaDataElement mde0 = md.getMetaDataElement(NodesElement.NAME);
+        final MetaDataElement mde1 = md.getMetaDataElement("Citation");
 
         assertEquals(NodesElement.NAME, mde0.getName());
         assertEquals("1.0", mde0.getVersion());
@@ -73,7 +73,7 @@ public class MetaDataTest {
 
     @Test
     public void test2() throws IOException {
-        final MetaData md = new MetaData();
+        final MetaDataCollection md = new MetaDataCollection();
 
         final MetaDataElement node_meta = new MetaDataElement();
 
@@ -114,14 +114,15 @@ public class MetaDataTest {
 
         final CxElementReader p = CxElementReader.createInstanceWithAllAvailableReaders(cx_json_str, true);
 
-        assertTrue(p.getPreMetaData().size() == 1);
+        assertTrue(p.getPreMetaData().size() == 2);
 
-        final MetaData my_md = (MetaData) p.getPreMetaData().toArray()[ 0];
+        final MetaDataCollection my_md = p.getPreMetaData();
 
         assertTrue(my_md.size() == 2);
 
-        final MetaDataElement mde0 = my_md.getMetaDataElement(0);
-        final MetaDataElement mde1 = my_md.getMetaDataElement(1);
+        
+        final MetaDataElement mde0 = md.getMetaDataElement(NodesElement.NAME);
+        final MetaDataElement mde1 = md.getMetaDataElement("Citation");
 
         assertEquals(NodesElement.NAME, mde0.getName());
         assertEquals("1.0", mde0.getVersion());
@@ -145,7 +146,7 @@ public class MetaDataTest {
 
     @Test
     public void test3() throws IOException {
-        final MetaData md = new MetaData();
+        final MetaDataCollection md = new MetaDataCollection();
 
         md.setIdCounter("one", 1L);
         md.setVersion("one", "1");

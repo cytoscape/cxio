@@ -10,13 +10,11 @@ import java.nio.charset.StandardCharsets;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Set;
 
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.metadata.MetaData;
+import org.cxio.metadata.MetaDataCollection;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonFactory;
@@ -30,8 +28,8 @@ class AbstractCxReader {
     boolean             _calculate_md5_checksum;
     AspectElementCounts _element_counts;
     boolean             _meta_data;
-    List<MetaData>      _pre_meta_datas;
-    List<MetaData>      _post_meta_datas;
+    MetaDataCollection  _pre_meta_data;
+    MetaDataCollection  _post_meta_data;
     MessageDigest       _md;
     boolean             _encountered_non_meta_content;
 
@@ -46,21 +44,21 @@ class AbstractCxReader {
     }
 
     /**
-     * This returns a set of post meta data objects encountered so far.
+     * This returns the post meta data encountered so far.
      *
-     * @return set of MetaData
+     * @return a MetaData object
      */
-    public final Collection<MetaData> getPostMetaData() {
-        return _post_meta_datas;
+    public final MetaDataCollection getPostMetaData() {
+        return _post_meta_data;
     }
 
     /**
-     * This returns a set of pre meta data objects encountered so far.
+     * This returns the pre meta data encountered so far.
      *
-     * @return set of MetaData
+     * @return a MetaData object
      */
-    public final Collection<MetaData> getPreMetaData() {
-        return _pre_meta_datas;
+    public final MetaDataCollection getPreMetaData() {
+        return _pre_meta_data;
     }
 
     /**
@@ -134,13 +132,13 @@ class AbstractCxReader {
     }
 
     void addMetaData(final JsonParser _jp) throws JsonParseException, JsonMappingException, IOException {
-        final MetaData md = MetaData.createInstanceFromJson(_jp);
+        final MetaDataCollection md = MetaDataCollection.createInstanceFromJson(_jp);
         if ((md != null) && !md.getMetaData().isEmpty()) {
             if (_encountered_non_meta_content) {
-                _post_meta_datas.add(md);
+                _post_meta_data = md;
             }
             else {
-                _pre_meta_datas.add(md);
+                _pre_meta_data = md;
             }
         }
     }

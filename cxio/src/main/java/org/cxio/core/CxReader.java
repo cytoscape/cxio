@@ -2,7 +2,6 @@ package org.cxio.core;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -11,7 +10,7 @@ import java.util.TreeMap;
 
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.metadata.MetaData;
+import org.cxio.metadata.MetaDataCollection;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.core.JsonParser;
@@ -191,7 +190,7 @@ public final class CxReader extends AbstractCxReader {
                     _was_in_recognized_aspect = true;
                     _encountered_non_meta_content = true;
                 }
-                else if (name.equals(MetaData.NAME)) {
+                else if (name.equals(MetaDataCollection.NAME)) {
                     --_level;
                     if (_level < 1) {
                         throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
@@ -278,8 +277,8 @@ public final class CxReader extends AbstractCxReader {
         _jp = createJsonParser(_input);
         _token = _jp.nextToken();
         _encountered_non_meta_content = false;
-        _pre_meta_datas = new ArrayList<MetaData>();
-        _post_meta_datas = new ArrayList<MetaData>();
+        _pre_meta_data = null;
+        _post_meta_data = null;
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
@@ -309,8 +308,8 @@ public final class CxReader extends AbstractCxReader {
         _calculate_md5_checksum = calculate_md5_checksum;
         _element_counts = AspectElementCounts.createInstance();
         _encountered_non_meta_content = false;
-        _pre_meta_datas = new ArrayList<MetaData>();
-        _post_meta_datas = new ArrayList<MetaData>();
+        _pre_meta_data = null;
+        _post_meta_data = null;
         reset();
     }
 

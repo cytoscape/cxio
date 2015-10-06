@@ -2,8 +2,8 @@ package org.cxio.core;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
@@ -278,8 +278,8 @@ public final class CxReader extends AbstractCxReader {
         _jp = createJsonParser(_input);
         _token = _jp.nextToken();
         _encountered_non_meta_content = false;
-        _pre_meta_datas = new HashSet<MetaData>();
-        _post_meta_datas = new HashSet<MetaData>();
+        _pre_meta_datas = new ArrayList<MetaData>();
+        _post_meta_datas = new ArrayList<MetaData>();
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
@@ -297,7 +297,7 @@ public final class CxReader extends AbstractCxReader {
      * @throws NoSuchAlgorithmException
      */
     private CxReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum) throws IOException,
-            NoSuchAlgorithmException {
+    NoSuchAlgorithmException {
         if (input == null) {
             throw new IllegalArgumentException("cx input is null");
         }
@@ -309,8 +309,8 @@ public final class CxReader extends AbstractCxReader {
         _calculate_md5_checksum = calculate_md5_checksum;
         _element_counts = AspectElementCounts.createInstance();
         _encountered_non_meta_content = false;
-        _pre_meta_datas = new HashSet<MetaData>();
-        _post_meta_datas = new HashSet<MetaData>();
+        _pre_meta_datas = new ArrayList<MetaData>();
+        _post_meta_datas = new ArrayList<MetaData>();
         reset();
     }
 

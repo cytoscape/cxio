@@ -47,7 +47,7 @@ public class EdgeAttributesFragmentWriter extends AbstractFragmentWriter {
                 else {
                     w.writeList(AbstractAttributesAspectElement.ATTR_VALUES, e.getValues());
                 }
-                if (e.getDataType() != ATTRIBUTE_DATA_TYPE.STRING && e.getDataType() != ATTRIBUTE_DATA_TYPE.LIST_OF_STRING) {
+                if (e.getDataType() != ATTRIBUTE_DATA_TYPE.STRING) {
                     w.writeStringField(AbstractAttributesAspectElement.ATTR_DATA_TYPE, AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE.toCxLabel(e.getDataType()));
                 }
                 w.writeEndObject();

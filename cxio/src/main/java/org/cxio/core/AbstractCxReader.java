@@ -10,7 +10,9 @@ import java.nio.charset.StandardCharsets;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Set;
 
 import org.cxio.core.interfaces.AspectFragmentReader;
@@ -28,8 +30,8 @@ class AbstractCxReader {
     boolean             _calculate_md5_checksum;
     AspectElementCounts _element_counts;
     boolean             _meta_data;
-    Set<MetaData>       _pre_meta_datas;
-    Set<MetaData>       _post_meta_datas;
+    List<MetaData>      _pre_meta_datas;
+    List<MetaData>      _post_meta_datas;
     MessageDigest       _md;
     boolean             _encountered_non_meta_content;
 
@@ -48,7 +50,7 @@ class AbstractCxReader {
      *
      * @return set of MetaData
      */
-    public final Set<MetaData> getPostMetaData() {
+    public final Collection<MetaData> getPostMetaData() {
         return _post_meta_datas;
     }
 
@@ -57,7 +59,7 @@ class AbstractCxReader {
      *
      * @return set of MetaData
      */
-    public final Set<MetaData> getPreMetaData() {
+    public final Collection<MetaData> getPreMetaData() {
         return _pre_meta_datas;
     }
 

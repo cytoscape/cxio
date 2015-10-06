@@ -20,7 +20,7 @@ public class EdgeAttributesFragmentReaderTest {
     public void test() throws IOException {
         final String t0 = "[" + "{\"edgeAttributes\":[{\"po\":\"e0\",\"n\":\"name1\",\"v\":\"value\"}]}," + "{\"edgeAttributes\":[{\"po\":\"e1\",\"n\":\"name2\",\"v\":\"12\",\"d\":\"integer\"}]},"
                 + "{\"edgeAttributes\":[{\"po\":[\"e0\",\"e1\"],\"n\":\"name3\",\"v\":\"true\",\"d\":\"boolean\"}]},"
-                + "{\"edgeAttributes\":[{\"po\":[\"e0\",\"e1\",\"e2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"d\":\"short\",\"s\":\"1234\"}]}" + "]";
+                + "{\"edgeAttributes\":[{\"po\":[\"e0\",\"e1\",\"e2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"d\":\"list_of_short\",\"s\":\"1234\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);

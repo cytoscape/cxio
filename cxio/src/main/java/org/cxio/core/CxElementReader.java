@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -394,8 +393,8 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
         _aspect_name = null;
         _m = new ObjectMapper();
         _encountered_non_meta_content = false;
-        _pre_meta_datas = new HashSet<MetaData>();
-        _post_meta_datas = new HashSet<MetaData>();
+        _pre_meta_datas = new ArrayList<MetaData>();
+        _post_meta_datas = new ArrayList<MetaData>();
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }
@@ -435,8 +434,8 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
         _calculate_md5_checksum = calculate_md5_checksum;
         _element_counts = AspectElementCounts.createInstance();
         _encountered_non_meta_content = false;
-        _pre_meta_datas = new HashSet<MetaData>();
-        _post_meta_datas = new HashSet<MetaData>();
+        _pre_meta_datas = new ArrayList<MetaData>();
+        _post_meta_datas = new ArrayList<MetaData>();
         reset();
     }
 

@@ -35,7 +35,7 @@ public final class EdgeAttributesFragmentReader extends AbstractFragmentReader {
                                              ParserUtils.getAsStringListRequired(o, AbstractAttributesAspectElement.ATTR_PROPERTY_OF),
                                              ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_NAME),
                                              ParserUtils.getAsStringList(o, AbstractAttributesAspectElement.ATTR_VALUES),
-                                             AbstractAttributesAspectElement.toList(type));
+                                             type);
         }
         return new EdgeAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),
                                          ParserUtils.getAsStringListRequired(o, AbstractAttributesAspectElement.ATTR_PROPERTY_OF),

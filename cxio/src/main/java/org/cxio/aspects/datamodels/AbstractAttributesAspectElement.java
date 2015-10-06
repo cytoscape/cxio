@@ -19,8 +19,24 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
      */
     public enum ATTRIBUTE_DATA_TYPE {
 
-        BOOLEAN("boolean"), BYTE("byte"), CHAR("char"), DOUBLE("double"), FLOAT("float"), INTEGER("integer"), LONG("long"), SHORT("short"), STRING("string"), LIST_OF_BOOLEAN("list_of_boolean"), LIST_OF_BYTE(
-                "list_of_byte"), LIST_OF_CHAR("list_of_char"), LIST_OF_DOUBLE("list_of_double"), LIST_OF_FLOAT("list_of_float"), LIST_OF_INTEGER("list_of_integer"), LIST_OF_LONG("list_of_long"), LIST_OF_SHORT("list_of_short"), LIST_OF_STRING("list_of_string");
+        BOOLEAN("boolean"),
+        BYTE("byte"),
+        CHAR("char"),
+        DOUBLE("double"),
+        FLOAT("float"),
+        INTEGER("integer"),
+        LONG("long"),
+        SHORT("short"),
+        STRING("string"),
+        LIST_OF_BOOLEAN("list_of_boolean"),
+        LIST_OF_BYTE("list_of_byte"),
+        LIST_OF_CHAR("list_of_char"),
+        LIST_OF_DOUBLE("list_of_double"),
+        LIST_OF_FLOAT("list_of_float"),
+        LIST_OF_INTEGER("list_of_integer"),
+        LIST_OF_LONG("list_of_long"),
+        LIST_OF_SHORT("list_of_short"),
+        LIST_OF_STRING("list_of_string");
 
         private final String _name;
 
@@ -32,10 +48,9 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
         public String toString() {
             return _name;
         }
-        
-      
-        public static String toCxLabel( ATTRIBUTE_DATA_TYPE dt ) {
-            switch ( dt ) {
+
+        public static String toCxLabel(final ATTRIBUTE_DATA_TYPE dt) {
+            switch (dt) {
             case BOOLEAN:
                 return "boolean";
             case BYTE:
@@ -55,24 +70,25 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
             case STRING:
                 return "string";
             case LIST_OF_BOOLEAN:
-                return "boolean";
+                return "list_of_boolean";
             case LIST_OF_BYTE:
-                return "byte";
+                return "list_of_byte";
             case LIST_OF_CHAR:
-                return "char";
+                return "list_of_char";
             case LIST_OF_DOUBLE:
-                return "double";
+                return "list_of_double";
             case LIST_OF_FLOAT:
-                return "float";
+                return "list_of_float";
             case LIST_OF_INTEGER:
-                return "integer";
+                return "list_of_integer";
             case LIST_OF_LONG:
-                return "long";
+                return "list_of_long";
             case LIST_OF_SHORT:
-                return "short";
+                return "list_of_short";
             case LIST_OF_STRING:
-                return "string";
-            default: throw new IllegalStateException( "don't know type " + dt);
+                return "list_of_string";
+            default:
+                throw new IllegalStateException("don't know type " + dt);
             }
         }
     }
@@ -214,41 +230,6 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
         }
     }
 
-    final public static ATTRIBUTE_DATA_TYPE toList(final ATTRIBUTE_DATA_TYPE type) {
-
-        if (type == ATTRIBUTE_DATA_TYPE.STRING) {
-            return ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
-        }
-        else if (type == ATTRIBUTE_DATA_TYPE.BOOLEAN) {
-            return ATTRIBUTE_DATA_TYPE.LIST_OF_BOOLEAN;
-        }
-        else if (type == ATTRIBUTE_DATA_TYPE.DOUBLE) {
-            return ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE;
-        }
-        else if (type == ATTRIBUTE_DATA_TYPE.INTEGER) {
-            return ATTRIBUTE_DATA_TYPE.LIST_OF_INTEGER;
-        }
-        else if (type == ATTRIBUTE_DATA_TYPE.LONG) {
-            return ATTRIBUTE_DATA_TYPE.LIST_OF_LONG;
-        }
-        else if (type == ATTRIBUTE_DATA_TYPE.FLOAT) {
-            return ATTRIBUTE_DATA_TYPE.LIST_OF_FLOAT;
-        }
-        else if (type == ATTRIBUTE_DATA_TYPE.SHORT) {
-            return ATTRIBUTE_DATA_TYPE.LIST_OF_SHORT;
-        }
-        else if (type == ATTRIBUTE_DATA_TYPE.BYTE) {
-            return ATTRIBUTE_DATA_TYPE.LIST_OF_BYTE;
-        }
-        else if (type == ATTRIBUTE_DATA_TYPE.CHAR) {
-            return ATTRIBUTE_DATA_TYPE.LIST_OF_CHAR;
-        }
-
-        else {
-            throw new IllegalArgumentException();
-        }
-    }
-
     /**
      * Convenience method to go from a type described by a string to an actual
      * type enum entry.
@@ -284,6 +265,35 @@ public abstract class AbstractAttributesAspectElement implements AspectElement {
         else if (s.equals(ATTRIBUTE_DATA_TYPE.CHAR.toString())) {
             return ATTRIBUTE_DATA_TYPE.CHAR;
         }
+
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_STRING.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
+        }
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_BOOLEAN.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_BOOLEAN;
+        }
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE;
+        }
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_INTEGER.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_INTEGER;
+        }
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_LONG.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_LONG;
+        }
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_FLOAT.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_FLOAT;
+        }
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_SHORT.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_SHORT;
+        }
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_BYTE.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_BYTE;
+        }
+        else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_CHAR.toString())) {
+            return ATTRIBUTE_DATA_TYPE.LIST_OF_CHAR;
+        }
+
         else {
             throw new IllegalArgumentException("type '" + s + "' is not supported");
         }

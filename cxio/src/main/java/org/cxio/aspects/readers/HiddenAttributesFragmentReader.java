@@ -34,7 +34,7 @@ public class HiddenAttributesFragmentReader extends AbstractFragmentReader {
             return new HiddenAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),
                                                ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_NAME),
                                                ParserUtils.getAsStringList(o, AbstractAttributesAspectElement.ATTR_VALUES),
-                                               AbstractAttributesAspectElement.toList(type));
+                                               type);
         }
 
         return new HiddenAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),

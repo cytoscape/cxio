@@ -18,48 +18,55 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
     public final static String NAME = "networkAttributes";
 
     public NetworkAttributesElement(final String subnetwork, final String name, final List<String> values) {
+        _data_type = ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
+        _is_single_value = false;
         _subnetwork = subnetwork;
         _name = name;
         _values = values;
-        _data_type = ATTRIBUTE_DATA_TYPE.STRING;
     }
 
     public NetworkAttributesElement(final String subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
+        if (!isListType(type)) {
+            throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
+        }
+        _data_type = type;
+        _is_single_value = false;
         _subnetwork = subnetwork;
         _name = name;
         _values = values;
-        _data_type = type;
     }
 
     public NetworkAttributesElement(final String subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+        if (isListType(type)) {
+            throw new IllegalArgumentException("single value provided, but given data type is " + type.toString());
+        }
+        _data_type = type;
+        _is_single_value = true;
         _subnetwork = subnetwork;
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _data_type = type;
     }
 
     public NetworkAttributesElement(final String subnetwork, final String name, final String value) {
+        _data_type = ATTRIBUTE_DATA_TYPE.STRING;
+        _is_single_value = true;
         _subnetwork = subnetwork;
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-        _data_type = ATTRIBUTE_DATA_TYPE.STRING;
+
     }
 
     public NetworkAttributesElement(final String subnetwork, final String name, final Object value) {
+        if (value instanceof List) {
+            throw new IllegalArgumentException("constructor only applicable for singe values");
+        }
+        _data_type = determineDataType(value);
+        _is_single_value = true;
         _subnetwork = subnetwork;
         _name = name;
         _values = new ArrayList<String>();
-        _data_type = determineDataType(value);
-        _values.add(String.valueOf(value));
-    }
-
-    public NetworkAttributesElement(final String name, final Object value) {
-        _subnetwork = null;
-        _name = name;
-        _values = new ArrayList<String>();
-        _data_type = determineDataType(value);
         _values.add(String.valueOf(value));
     }
 

@@ -20,7 +20,7 @@ public class NodeAttributesFragmentReaderTest {
     public void test() throws IOException {
         final String t0 = "[" + "{\"nodeAttributes\":[{\"po\":\"n0\",\"n\":\"name1\",\"v\":\"value\"}]}," + "{\"nodeAttributes\":[{\"po\":\"n1\",\"n\":\"name2\",\"v\":\"12\",\"d\":\"integer\"}]},"
                 + "{\"nodeAttributes\":[{\"po\":[\"n0\",\"n1\"],\"n\":\"name3\",\"v\":\"true\",\"d\":\"boolean\"}]},"
-                + "{\"nodeAttributes\":[{\"po\":[\"n0\",\"n1\",\"n2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"d\":\"short\",\"s\":\"subnet A\"}]}" + "]";
+                + "{\"nodeAttributes\":[{\"po\":[\"n0\",\"n1\",\"n2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"d\":\"list_of_short\",\"s\":\"subnet A\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);

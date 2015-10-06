@@ -539,7 +539,12 @@ public final class CxWriter {
         final AnonymousElement a0 = new AnonymousElement(name, json_element);
         writeAnonymousAspectElementAsList(a0);
     }
-    
-    
+
+    public void writeAnonymousAspectElements(final String name, final Collection<String> json_element) throws IOException {
+        _jw.writeStartArray(name);
+        for (final String string : json_element) {
+            // _jw.writeJsonObjects2(label, data_nodes);
+        }
+    }
 
 }

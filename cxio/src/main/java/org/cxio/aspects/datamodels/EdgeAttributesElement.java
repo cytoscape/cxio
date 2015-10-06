@@ -107,7 +107,6 @@ public final class EdgeAttributesElement extends AbstractAttributesAspectElement
         _name = name;
         _values = new ArrayList<String>();
         _values.add(value);
-
     }
 
     public EdgeAttributesElement(final String property_of, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {

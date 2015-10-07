@@ -167,7 +167,7 @@ public final class MetaDataCollection implements Serializable {
 
     /**
      * This method returns the MetaDataElement with a given name
-     * (getName() returns name).
+     * (for which getName() returns name).
      * Return null if not found.
      * Throws a IllegalArgumentException if more than two elements with the same name.
      *
@@ -216,6 +216,34 @@ public final class MetaDataCollection implements Serializable {
      */
     public Iterator<MetaDataElement> iterator() {
         return toCollection().iterator();
+    }
+
+    /**
+     * To remove a MetaDataElement with a given name.
+     * Returns null if no such element.
+     *
+     *
+     * @param name the name of the MetaDataElement to remove
+     * @return the removed MetaDataElement, null if no such element.
+     */
+    public MetaDataElement remove(final String name) {
+        MetaDataElement remove_me = null;
+        if (!isEmpty()) {
+            int found_index = -1;
+            for (int i = 0; i < size(); i++) {
+                if (_data.get(i).get(MetaDataElement.NAME).equals(name)) {
+                    if (found_index >= 0) {
+                        throw new IllegalArgumentException("more than one meta data element with name '" + name + "'");
+                    }
+                    found_index = i;
+                }
+            }
+            if (found_index >= 0) {
+                remove_me = new MetaDataElement(_data.get(found_index));
+                _data.remove(found_index);
+            }
+        }
+        return remove_me;
     }
 
     /**

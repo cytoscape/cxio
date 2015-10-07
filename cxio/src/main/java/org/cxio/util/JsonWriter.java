@@ -46,6 +46,20 @@ public final class JsonWriter {
         _g.writeArrayFieldStart(label);
     }
 
+    public void writeAnonymousAspectElement(final String json_string) throws IOException {
+        writeJsonObject(_m.readTree(json_string));
+    }
+
+    public final void writeAnonymousAspectElements(final String label, final Collection<String> json_strings) throws IOException {
+        final ObjectNode new_parent = _m.createObjectNode();
+        final ArrayNode array_node = new_parent.arrayNode();
+        for (final String json_string : json_strings) {
+            array_node.add(_m.readTree(json_string));
+        }
+        new_parent.set(label, array_node);
+        new_parent.serialize(_g, null);
+    }
+
     public final void writeBooleanField(final String field_name, final boolean value) throws IOException {
         _g.writeBooleanField(field_name, value);
     }
@@ -58,60 +72,30 @@ public final class JsonWriter {
         _g.writeEndObject();
     }
 
-    public final void writeJsonObject(final JsonNode data_node) throws IOException {
-        data_node.serialize(_g, null);
-    }
-
-    // public void writeJsonObject(final String label, final ObjectNode
-    // data_node) throws IOException {
-    // final ObjectNode new_parent = _m.createObjectNode();
-    // new_parent.set(label, data_node);
-    // new_parent.serialize(_g, null);
-    // }
-
-    // public void writeJsonObjectAsList(final String label, final ObjectNode
-    // data_node) throws IOException {
-    // final ObjectNode new_parent = _m.createObjectNode();
-    // new_parent.set(label, new_parent.arrayNode().add(data_node));
-    // new_parent.serialize(_g, null);
-    // }
-
     public final void writeJsonNodeAsList(final String label, final JsonNode data_node) throws IOException {
         final ObjectNode new_parent = _m.createObjectNode();
         new_parent.set(label, new_parent.arrayNode().add(data_node));
         new_parent.serialize(_g, null);
     }
 
-    public final void writeJsonObjects2(final String label, final List<JsonNode> data_nodes) throws IOException {
+    public final void writeJsonNodeAsList(final String label, final String json_string) throws IOException {
+        writeJsonNodeAsList(label, _m.readTree(json_string));
+    }
+
+    public final void writeJsonNodes(final String label, final List<JsonNode> json_nodes) throws IOException {
         final ObjectNode new_parent = _m.createObjectNode();
         final ArrayNode array_node = new_parent.arrayNode();
 
-        for (final JsonNode data_node : data_nodes) {
-            array_node.add(data_node);
+        for (final JsonNode json_node : json_nodes) {
+            array_node.add(json_node);
         }
         new_parent.set(label, array_node);
         new_parent.serialize(_g, null);
     }
 
-    public final JsonGenerator getJsonGenerator() {
-        return _g;
+    public final void writeJsonObject(final JsonNode data_node) throws IOException {
+        data_node.serialize(_g, null);
     }
-
-    public final ObjectMapper getObjectMapper() {
-        return _m;
-    }
-
-    // public void writeJsonObjects(final String label, final List<ObjectNode>
-    // data_nodes) throws IOException {
-    // final ObjectNode new_parent = _m.createObjectNode();
-    // final ArrayNode array_node = new_parent.arrayNode();
-    //
-    // for (final ObjectNode data_node : data_nodes) {
-    // array_node.add(data_node);
-    // }
-    // new_parent.set(label, array_node);
-    // new_parent.serialize(_g, null);
-    // }
 
     public final void writeList(final String label, final Collection<String> list) throws IOException {
         if ((list != null) && !list.isEmpty()) {

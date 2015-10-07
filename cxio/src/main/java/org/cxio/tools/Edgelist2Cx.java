@@ -33,7 +33,7 @@ public final class Edgelist2Cx {
 
     private static final char   COLUMN_DELIMITER = '\t';
     private static final String WEIGHT           = "weight";
-    private static final String NAME             = "name";
+    private static final String NAME             = "gene_id";
 
     public static void main(final String[] args) throws IOException {
 
@@ -41,8 +41,8 @@ public final class Edgelist2Cx {
         // System.out.println("Usage: ");
         // System.exit(-1);
         // }
-        final File infile = new File("/Users/cmzmasek/WORK/DATA/HN90_edgelist_trim.csv");
-        final File outfile = new File("/Users/cmzmasek/WORK/DATA/HN90_edgelist_trim.cx");
+        final File infile = new File("/Users/cmzmasek/WORK/DATA/HN90_edgelist_trim_entrez.txt");
+        final File outfile = new File("/Users/cmzmasek/WORK/DATA/HN90_edgelist_trim_entrez.cx");
 
         final BasicTable<String> t = BasicTableParser.parse(infile, COLUMN_DELIMITER);
 

@@ -72,6 +72,14 @@ public final class AspectElementCounts {
         increaseAspectElementCount(element.getAspectName());
     }
 
+    final void processAspectElement(final String element_name) {
+        increaseAspectElementCount(element_name);
+    }
+
+    final void processAspectElement(final String element_name, final int count) {
+        increaseAspectElementCount(element_name, count);
+    }
+
     final void processAspectElements(final List<AspectElement> elements) {
         increaseAspectElementCount(elements.get(0).getAspectName(), elements.size());
     }

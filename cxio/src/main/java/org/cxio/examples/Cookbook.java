@@ -292,24 +292,24 @@ public class Cookbook {
         final AnonymousElement a2 = new AnonymousElement("anon", aa2);
         final AnonymousElement a3 = new AnonymousElement("anon", aa3);
 
-        final List<AnonymousElement> anon = new ArrayList<AnonymousElement>();
-        anon.add(a1);
-        anon.add(a2);
-        anon.add(a3);
+        final List<String> anon = new ArrayList<String>();
+        anon.add(a1.toJsonString());
+        anon.add(a2.toJsonString());
+        anon.add(a3.toJsonString());
 
         // Writing to CX
         final OutputStream out = new ByteArrayOutputStream();
         final CxWriter w = CxWriter.createInstance(out, true);
 
         w.start();
-        w.writeAnonymousAspectElements(anon);
+        w.writeAnonymousAspectFragment("anon", anon);
         w.end();
 
         System.out.println(out.toString());
     }
 
     private final static void checksum(final List<AspectElement> edges_elements, final List<AspectElement> nodes_elements, final List<AspectElement> cartesian_elements) throws IOException,
-    NoSuchAlgorithmException {
+            NoSuchAlgorithmException {
         final OutputStream out = new ByteArrayOutputStream();
         // Pretty printing is true.
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);

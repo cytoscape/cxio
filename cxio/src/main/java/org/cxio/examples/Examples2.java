@@ -142,17 +142,18 @@ public class Examples2 {
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w.start();
-        w.writeAnonymousAspectElementAsList(unknown_element);
-        w.writeAnonymousAspectElementAsList(anonymous_element);
-        w.writeAnonymousAspectElements(anonymous_too_elements);
-        w.writeAnonymousAspectElementAsList(single_element);
-        w.writeAnonymousAspectElementAsList(single_element2);
-        w.writeAnonymousAspectElementAsList(single_element2);
-        w.writeAspectElements(edges_elements);
-
-        w.writeAnonymousAspectElementAsList(a1);
-        w.writeAnonymousAspectElementAsList(a2);
-        w.writeAnonymousAspectElementAsList(a3);
+        // TODO //FIXME
+        // w.writeAnonymousAspectElementAsList(unknown_element);
+        // w.writeAnonymousAspectElementAsList(anonymous_element);
+        // w.writeAnonymousAspectElements(anonymous_too_elements);
+        // w.writeAnonymousAspectElementAsList(single_element);
+        // w.writeAnonymousAspectElementAsList(single_element2);
+        // w.writeAnonymousAspectElementAsList(single_element2);
+        // w.writeAspectElements(edges_elements);
+        //
+        // w.writeAnonymousAspectElementAsList(a1);
+        // w.writeAnonymousAspectElementAsList(a2);
+        // w.writeAnonymousAspectElementAsList(a3);
 
         w.end();
 
@@ -217,7 +218,7 @@ public class Examples2 {
         final CxWriter w = CxWriter.createInstance(out, true);
 
         w.start();
-        w.writeAnonymousAspectElementAsList(anonymous_element);
+        w.writeAnonymousAspectFragment("anonymous", anonymous_element.toJsonString());
         w.end();
 
         final String cx_json_str = out.toString();

@@ -5,7 +5,6 @@ import java.io.OutputStream;
 import java.security.DigestOutputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
@@ -21,11 +20,6 @@ import org.cxio.metadata.MetaDataCollection;
 import org.cxio.util.JsonWriter;
 import org.cxio.util.Util;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-
 /**
  * This class is for writing aspect fragments (lists of aspects).
  *
@@ -38,6 +32,7 @@ public final class CxWriter {
     private final MessageDigest                     _md;
     private boolean                                 _started;
     private boolean                                 _fragment_started;
+    private String                                  _current_fragment_name;
     private final Map<String, AspectFragmentWriter> _writers;
     private final AspectElementCounts               _element_counts;
     private boolean                                 _calculate_element_counts;
@@ -224,7 +219,11 @@ public final class CxWriter {
         if (_fragment_started) {
             throw new IllegalStateException("fragment already started");
         }
+        if (Util.isEmpty(aspect_name)) {
+            throw new IllegalStateException("aspect fragment name must not be empty or null");
+        }
         _fragment_started = true;
+        _current_fragment_name = aspect_name;
         _jw.startArray(aspect_name);
     }
 
@@ -241,6 +240,7 @@ public final class CxWriter {
             throw new IllegalStateException("fragment not started");
         }
         _fragment_started = false;
+        _current_fragment_name = null;
         _jw.endArray();
     }
 
@@ -254,6 +254,7 @@ public final class CxWriter {
             throw new IllegalStateException("not started");
         }
         _started = false;
+        _current_fragment_name = null;
         writeMetaData(_post_meta_data);
         _jw.end();
     }
@@ -386,57 +387,6 @@ public final class CxWriter {
     }
 
     /**
-     * This is for writing a single {@link org.cxio.core.AnonymousElement}
-     * as the single member of Json array.
-     *
-     *
-     * @param element  the AnonymousElement to be written
-     * @throws IOException
-     */
-    public void writeAnonymousAspectElementAsList(final AnonymousElement element) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
-        if (_fragment_started) {
-            throw new IllegalStateException("in individual elements writing state");
-        }
-        if (element == null) {
-            return;
-        }
-        _jw.writeJsonNodeAsList(element.getAspectName(), element.getData());
-
-        if (_calculate_element_counts) {
-            _element_counts.processAspectElement(element);
-        }
-    }
-
-    /**
-     * This is for writing a list of {@link org.cxio.core.AnonymousElement}.
-     *
-     * @param elements the AnonymousElements to be written
-     * @throws IOException
-     */
-    public void writeAnonymousAspectElements(final List<AnonymousElement> elements) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
-        if (_fragment_started) {
-            throw new IllegalStateException("in individual elements writing state");
-        }
-        if ((elements == null) || elements.isEmpty()) {
-            return;
-        }
-        final List<JsonNode> datas = new ArrayList<JsonNode>();
-        for (final AnonymousElement elem : elements) {
-            datas.add(elem.getData());
-        }
-        _jw.writeJsonObjects2(elements.get(0).getAspectName(), datas);
-        if (_calculate_element_counts) {
-            _element_counts.processAnonymousAspectElements(elements);
-        }
-    }
-
-    /**
      * This returns an object which gives access to the element counts
      * for the aspect element written out.
      *
@@ -468,13 +418,61 @@ public final class CxWriter {
 
     public final void addPostMetaData(final MetaDataCollection post_meta_data) {
         _post_meta_data = post_meta_data;
-
     }
 
     private final void writeMetaData(final MetaDataCollection md) throws IOException {
         if ((md != null) && !md.getMetaData().isEmpty()) {
             md.toJson(_jw);
         }
+    }
+
+    public final void writeAnonymousAspectFragment(final String name, final String json_string) throws IOException {
+        if (!_started) {
+            throw new IllegalStateException("not started");
+        }
+        if (_fragment_started) {
+            throw new IllegalStateException("in individual elements writing state");
+        }
+        if (Util.isEmpty(json_string)) {
+            return;
+        }
+        _jw.writeJsonNodeAsList(name, json_string);
+        if (_calculate_element_counts) {
+            _element_counts.processAspectElement(name);
+        }
+    }
+
+    public final void writeAnonymousAspectElement(final String json_string) throws IOException {
+        if (!_started) {
+            throw new IllegalStateException("not started");
+        }
+        if (!_fragment_started) {
+            throw new IllegalStateException("fragment not started");
+        }
+        if (Util.isEmpty(json_string)) {
+            return;
+        }
+        _jw.writeAnonymousAspectElement(json_string);
+        if (_calculate_element_counts) {
+            _element_counts.processAspectElement(_current_fragment_name);
+        }
+    }
+
+    public final void writeAnonymousAspectFragment(final String name, final Collection<String> json_strings) throws IOException {
+        if (!_started) {
+            throw new IllegalStateException("not started");
+        }
+        if (_fragment_started) {
+            throw new IllegalStateException("in individual elements writing state");
+        }
+        if ((json_strings == null) || json_strings.isEmpty()) {
+            return;
+        }
+        _jw.writeAnonymousAspectElements(name, json_strings);
+        if (_calculate_element_counts) {
+            _element_counts.processAspectElement(name, json_strings.size());
+        }
+
     }
 
     private CxWriter(final OutputStream os, final boolean use_default_pretty_printer, final boolean calculate_md5_checksum) throws IOException, NoSuchAlgorithmException {
@@ -517,21 +515,4 @@ public final class CxWriter {
         _pre_meta_data = null;
         _post_meta_data = null;
     }
-
-    public void writeAnonymousAspectElement(final String name, final String json_element) throws IOException {
-        final AnonymousElement a0 = new AnonymousElement(name, json_element);
-        writeAnonymousAspectElementAsList(a0);
-    }
-
-    public void writeAnonymousAspectElements(final String name, final Collection<String> json_elements) throws IOException {
-        final ObjectMapper m = _jw.getObjectMapper();
-        final ObjectNode new_parent = m.createObjectNode();
-        final ArrayNode array_node = new_parent.arrayNode();
-        for (final String json_element : json_elements) {
-            array_node.add(m.readTree(json_element));
-        }
-        new_parent.set(name, array_node);
-        new_parent.serialize(_jw.getJsonGenerator(), null);
-    }
-
 }

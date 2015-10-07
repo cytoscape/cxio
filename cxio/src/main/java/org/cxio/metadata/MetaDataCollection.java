@@ -17,7 +17,8 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * This class is to hold a list of MetaDataElements to serialize this
+ * This class is a collection of MetaDataElements.
+ * Its primary purpose is to serialize this
  * data to json, and to de-serialize from json.
  *
  * @author cmzmasek
@@ -163,8 +164,6 @@ public final class MetaDataCollection implements Serializable {
         final ObjectMapper m = new ObjectMapper();
         return m.readValue(str, MetaDataCollection.class);
     }
-
-    // ///
 
     /**
      * Convenience method to get the consistency group of the meta data element with

@@ -3,7 +3,6 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 
 /**
@@ -13,7 +12,7 @@ import org.cxio.util.Util;
  * @author cmzmasek
  *
  */
-public final class CyGroupsElement implements AspectElement {
+public final class CyGroupsElement extends AbstractAspectElement {
 
     public final static String EXTERNAL_EDGES = "external_edges";
     public final static String GROUP_ID       = "group";

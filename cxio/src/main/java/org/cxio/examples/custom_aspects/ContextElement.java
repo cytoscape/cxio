@@ -4,9 +4,9 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.core.interfaces.AspectElement;
+import org.cxio.aspects.datamodels.AbstractAspectElement;
 
-public final class ContextElement implements AspectElement {
+public final class ContextElement extends AbstractAspectElement {
 
     public final static String              NAME = "context";
 

@@ -43,9 +43,17 @@ public abstract class AbstractFragmentWriter implements AspectFragmentWriter {
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         w.writeObject(element);
     }
-    
+
     @Override
-    public int compareTo(AspectFragmentReader o) {
+    public boolean equals(final Object o) {
+        if ((o != null) && (o instanceof AbstractFragmentWriter)) {
+            return getAspectName().equals(((AbstractFragmentWriter) o).getAspectName());
+        }
+        return false;
+    }
+
+    @Override
+    public int compareTo(final AspectFragmentReader o) {
         return getAspectName().compareTo(o.getAspectName());
     }
 

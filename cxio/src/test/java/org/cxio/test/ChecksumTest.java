@@ -81,7 +81,6 @@ public class ChecksumTest {
         n.add("node1");
         n.add("node2");
 
-       
         final NodeAttributesElement na3 = new NodeAttributesElement("subnet 1", n, "species", "Mus musculus", ATTRIBUTE_DATA_TYPE.STRING);
 
         final List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();

@@ -53,7 +53,6 @@ public class NodeAttributesFragmentReaderTest {
         assertTrue(a2.getDataType() == ATTRIBUTE_DATA_TYPE.BOOLEAN);
         assertTrue(a2.getValue().equals("true"));
 
-
         final NodeAttributesElement a3 = (NodeAttributesElement) aspects.get(3);
         assertTrue(a3.getName().equals("name4"));
         assertTrue(a3.getPropertyOf().size() == 3);

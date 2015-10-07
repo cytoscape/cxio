@@ -15,7 +15,7 @@ import org.cxio.core.interfaces.AspectElement;
  * @author cmzmasek
  *
  */
-public final class NetworkRelationsElement implements AspectElement {
+public final class NetworkRelationsElement extends AbstractAspectElement {
 
     private enum RELATIONSHIP_TYPE {
         SUBNETWORK, VIEW;

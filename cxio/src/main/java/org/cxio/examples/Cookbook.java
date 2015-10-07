@@ -18,10 +18,10 @@ import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
-import org.cxio.core.OpaqueElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
+import org.cxio.core.OpaqueElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.examples.custom_aspects.ContextElement;
@@ -309,7 +309,7 @@ public class Cookbook {
     }
 
     private final static void checksum(final List<AspectElement> edges_elements, final List<AspectElement> nodes_elements, final List<AspectElement> cartesian_elements) throws IOException,
-            NoSuchAlgorithmException {
+    NoSuchAlgorithmException {
         final OutputStream out = new ByteArrayOutputStream();
         // Pretty printing is true.
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);

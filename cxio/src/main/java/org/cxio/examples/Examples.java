@@ -10,6 +10,7 @@ import java.util.Set;
 
 import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
+import org.cxio.aspects.datamodels.CyVisualPropertiesElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
@@ -85,6 +86,11 @@ public class Examples {
         node_attributes_elements.add(na2);
         node_attributes_elements.add(na3);
 
+        final List<String> applies_to = new ArrayList<String>();
+        applies_to.add("12");
+        final List<AspectElement> vp_elements = new ArrayList<AspectElement>();
+        vp_elements.add(new CyVisualPropertiesElement("network", applies_to, "view1"));
+
         // Writing to CX
         // -------------
         final OutputStream out = new ByteArrayOutputStream();
@@ -97,6 +103,7 @@ public class Examples {
         w.writeAspectElements(cartesian_elements);
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(node_attributes_elements);
+        w.writeAspectElements(vp_elements);
         w.end();
 
         final String cx_json_str = out.toString();

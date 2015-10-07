@@ -15,9 +15,9 @@ import java.util.TreeSet;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
-import org.cxio.core.OpaqueElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
+import org.cxio.core.OpaqueElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 

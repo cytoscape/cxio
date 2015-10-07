@@ -6,7 +6,7 @@ package org.cxio.core.interfaces;
  * @author cmzmasek
  *
  */
-public interface AspectElement {
+public interface AspectElement extends Comparable<AspectElement> {
 
     /**
      * This returns the name of the aspect.

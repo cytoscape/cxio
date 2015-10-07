@@ -121,7 +121,6 @@ public class MetaDataTest {
 
         assertTrue(my_md.size() == 2);
 
-        
         final MetaDataElement mde0 = md.getMetaDataElement(NodesElement.NAME);
         final MetaDataElement mde1 = md.getMetaDataElement("Citation");
 
@@ -142,12 +141,11 @@ public class MetaDataTest {
         assertTrue(md.getMetaDataElement("Citation").getName().equals("Citation"));
         assertTrue(md.getMetaDataElement(NodesElement.NAME).getName().equals(NodesElement.NAME));
         assertTrue(md.getMetaDataElement("xyz") == null);
-        
-        
-        Iterator<MetaDataElement> it = md.iterator();
-         
-        while( it.hasNext() ) {
-            System.out.println( it.next());
+
+        final Iterator<MetaDataElement> it = md.iterator();
+
+        while (it.hasNext()) {
+            System.out.println(it.next());
         }
 
     }

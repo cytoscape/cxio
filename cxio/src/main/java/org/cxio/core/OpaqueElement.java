@@ -3,7 +3,7 @@ package org.cxio.core;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.cxio.core.interfaces.AspectElement;
+import org.cxio.aspects.datamodels.AbstractAspectElement;
 import org.cxio.util.Util;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -18,7 +18,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-public final class OpaqueElement implements AspectElement {
+public final class OpaqueElement extends AbstractAspectElement {
 
     private final JsonNode            _data;
     private final String              _name;

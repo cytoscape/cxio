@@ -198,7 +198,7 @@ public final class CxReader extends AbstractCxReader {
                     addMetaData(_jp);
                 }
                 else if (_read_anonymous_aspect_fragments) {
-                    final AnonymousFragmentReader reader = AnonymousFragmentReader.createInstance();
+                    final OpaqueFragmentReader reader = OpaqueFragmentReader.createInstance();
                     reader.setAspectName(name);
                     elements = reader.readAspectFragment(_jp);
                     if (!reader.isList()) {

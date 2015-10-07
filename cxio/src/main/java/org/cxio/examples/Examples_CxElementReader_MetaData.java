@@ -14,7 +14,7 @@ import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
-import org.cxio.core.AnonymousElement;
+import org.cxio.core.OpaqueElement;
 import org.cxio.core.AspectElementCounts;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
@@ -86,7 +86,7 @@ public class Examples_CxElementReader_MetaData {
         node_attributes_elements.add(na2);
         node_attributes_elements.add(na3);
 
-        // AnonymousElement:
+        // OpaqueElement:
         final ObjectMapper m = new ObjectMapper();
         final ObjectNode unknown = m.createObjectNode();
         final ObjectNode node1 = m.createObjectNode();
@@ -118,7 +118,7 @@ public class Examples_CxElementReader_MetaData {
         abc.add(node_b);
         abc.add(node_c);
         unknown.putArray("F").addAll(abc);
-        final AnonymousElement unknown_element = new AnonymousElement("unknown", unknown);
+        final OpaqueElement unknown_element = new OpaqueElement("unknown", unknown);
 
         // Meta data
         // ---------
@@ -172,7 +172,7 @@ public class Examples_CxElementReader_MetaData {
         w.writeAspectElements(cartesian_elements);
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(node_attributes_elements);
-        w.writeAnonymousAspectFragment("unknown_element", unknown_element.toJsonString());
+        w.writeOpaqueAspectFragment("unknown_element", unknown_element.toJsonString());
         w.end();
 
         final String cx_json_str = out.toString();

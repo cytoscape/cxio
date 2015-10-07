@@ -18,25 +18,25 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-final class AnonymousFragmentReader extends AbstractFragmentReader {
+final class OpaqueFragmentReader extends AbstractFragmentReader {
 
     private boolean          _is_list;
     private String           _name;
     private final JsonParser _jp;
 
-    final static AnonymousFragmentReader createInstance() {
-        return new AnonymousFragmentReader();
+    final static OpaqueFragmentReader createInstance() {
+        return new OpaqueFragmentReader();
     }
 
-    final static AnonymousFragmentReader createInstance(final JsonParser jp) {
-        return new AnonymousFragmentReader(jp);
+    final static OpaqueFragmentReader createInstance(final JsonParser jp) {
+        return new OpaqueFragmentReader(jp);
     }
 
-    final static AnonymousFragmentReader createInstance(final JsonParser jp, final String name) {
-        return new AnonymousFragmentReader(jp, name);
+    final static OpaqueFragmentReader createInstance(final JsonParser jp, final String name) {
+        return new OpaqueFragmentReader(jp, name);
     }
 
-    private AnonymousFragmentReader() {
+    private OpaqueFragmentReader() {
         _name = null;
         _m = new ObjectMapper();
         _jp = null;
@@ -44,14 +44,14 @@ final class AnonymousFragmentReader extends AbstractFragmentReader {
 
     }
 
-    private AnonymousFragmentReader(final JsonParser jp) {
+    private OpaqueFragmentReader(final JsonParser jp) {
         _name = null;
         _m = new ObjectMapper();
         _jp = jp;
         _is_list = false;
     }
 
-    private AnonymousFragmentReader(final JsonParser jp, final String name) {
+    private OpaqueFragmentReader(final JsonParser jp, final String name) {
         _name = name;
         _m = new ObjectMapper();
         _jp = jp;
@@ -78,7 +78,7 @@ final class AnonymousFragmentReader extends AbstractFragmentReader {
         if (_is_list) {
             while (t != JsonToken.END_ARRAY) {
                 if (t == JsonToken.START_OBJECT) {
-                    final AnonymousElement e = new AnonymousElement(_name, (ObjectNode) _m.readTree(jp));
+                    final OpaqueElement e = new OpaqueElement(_name, (ObjectNode) _m.readTree(jp));
                     if (e != null) {
                         elements.add(e);
                     }
@@ -87,7 +87,7 @@ final class AnonymousFragmentReader extends AbstractFragmentReader {
             }
         }
         else {
-            final AnonymousElement e = new AnonymousElement(_name, (ObjectNode) _m.readTree(jp));
+            final OpaqueElement e = new OpaqueElement(_name, (ObjectNode) _m.readTree(jp));
             if (e != null) {
                 elements.add(e);
             }
@@ -102,6 +102,6 @@ final class AnonymousFragmentReader extends AbstractFragmentReader {
 
     @Override
     public final AspectElement readElement(final ObjectNode o) throws IOException {
-        return new AnonymousElement(_name, o);
+        return new OpaqueElement(_name, o);
     }
 }

@@ -231,7 +231,7 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                         _meta_data = true;
                     }
                     else if (_read_anonymous_aspect_fragments) {
-                        _reader = AnonymousFragmentReader.createInstance(_jp, _aspect_name);
+                        _reader = OpaqueFragmentReader.createInstance(_jp, _aspect_name);
                         _anonymous_reader_used = true;
                         _encountered_non_meta_content = true;
                         _meta_data = false;
@@ -284,7 +284,7 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                         if (_token == JsonToken.VALUE_STRING) {
                             // FIXME
                             // TODO _current = new
-                            // AnonymousElement(_aspect_name, _jp.getText());
+                            // OpaqueElement(_aspect_name, _jp.getText());
                         }
                         else {
                             final ObjectNode o = _m.readTree(_jp);

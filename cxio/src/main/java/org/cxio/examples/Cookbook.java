@@ -18,7 +18,7 @@ import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
-import org.cxio.core.AnonymousElement;
+import org.cxio.core.OpaqueElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
@@ -288,9 +288,9 @@ public class Cookbook {
         final ObjectNode aa3 = m.createObjectNode();
         aa3.put("k1", "e");
         aa3.put("k2", "f");
-        final AnonymousElement a1 = new AnonymousElement("anon", aa1);
-        final AnonymousElement a2 = new AnonymousElement("anon", aa2);
-        final AnonymousElement a3 = new AnonymousElement("anon", aa3);
+        final OpaqueElement a1 = new OpaqueElement("anon", aa1);
+        final OpaqueElement a2 = new OpaqueElement("anon", aa2);
+        final OpaqueElement a3 = new OpaqueElement("anon", aa3);
 
         final List<String> anon = new ArrayList<String>();
         anon.add(a1.toJsonString());
@@ -302,7 +302,7 @@ public class Cookbook {
         final CxWriter w = CxWriter.createInstance(out, true);
 
         w.start();
-        w.writeAnonymousAspectFragment("anon", anon);
+        w.writeOpaqueAspectFragment("anon", anon);
         w.end();
 
         System.out.println(out.toString());

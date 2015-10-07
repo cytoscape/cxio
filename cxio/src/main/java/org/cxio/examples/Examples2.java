@@ -13,7 +13,7 @@ import java.util.SortedMap;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
-import org.cxio.core.AnonymousElement;
+import org.cxio.core.OpaqueElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -58,7 +58,7 @@ public class Examples2 {
         abc.add(node_b);
         abc.add(node_c);
         unknown.putArray("F").addAll(abc);
-        final AnonymousElement unknown_element = new AnonymousElement("unknown", unknown);
+        final OpaqueElement unknown_element = new OpaqueElement("unknown", unknown);
 
         // ---------
 
@@ -72,7 +72,7 @@ public class Examples2 {
         anonymous2.set("2", anonymous3);
         anonymous.set("1", anonymous2);
 
-        final AnonymousElement anonymous_element = new AnonymousElement("anonymous", anonymous);
+        final OpaqueElement anonymous_element = new OpaqueElement("anonymous", anonymous);
 
         // ---------
 
@@ -87,11 +87,11 @@ public class Examples2 {
         anonymous_too_2.put("asdf", "2");
         anonymous_too_3.put("asdf", "3");
 
-        final AnonymousElement anonymous_too_1_elem = new AnonymousElement("anonymous too", anonymous_too_1);
-        final AnonymousElement anonymous_too_2_elem = new AnonymousElement("anonymous too", anonymous_too_2);
-        final AnonymousElement anonymous_too_3_elem = new AnonymousElement("anonymous too", anonymous_too_3);
+        final OpaqueElement anonymous_too_1_elem = new OpaqueElement("anonymous too", anonymous_too_1);
+        final OpaqueElement anonymous_too_2_elem = new OpaqueElement("anonymous too", anonymous_too_2);
+        final OpaqueElement anonymous_too_3_elem = new OpaqueElement("anonymous too", anonymous_too_3);
 
-        final List<AnonymousElement> anonymous_too_elements = new ArrayList<AnonymousElement>();
+        final List<OpaqueElement> anonymous_too_elements = new ArrayList<OpaqueElement>();
         anonymous_too_elements.add(anonymous_too_1_elem);
         anonymous_too_elements.add(anonymous_too_2_elem);
         anonymous_too_elements.add(anonymous_too_3_elem);
@@ -104,14 +104,14 @@ public class Examples2 {
         single.put("3", "3");
         single.put("4", "4");
         single.put("5", "5");
-        final AnonymousElement single_element = new AnonymousElement("single", single);
+        final OpaqueElement single_element = new OpaqueElement("single", single);
 
         // ---------
 
         final ObjectNode single2 = m.createObjectNode();
         single2.put("1", "1");
         single2.put("2", "2");
-        final AnonymousElement single_element2 = new AnonymousElement("single2", single2);
+        final OpaqueElement single_element2 = new OpaqueElement("single2", single2);
 
         // ---------
 
@@ -129,9 +129,9 @@ public class Examples2 {
         final ObjectNode aa3 = m.createObjectNode();
         aa3.put("k1", "e");
         aa3.put("k2", "f");
-        final AnonymousElement a1 = new AnonymousElement("anon", aa1);
-        final AnonymousElement a2 = new AnonymousElement("anon", aa2);
-        final AnonymousElement a3 = new AnonymousElement("anon", aa3);
+        final OpaqueElement a1 = new OpaqueElement("anon", aa1);
+        final OpaqueElement a2 = new OpaqueElement("anon", aa2);
+        final OpaqueElement a3 = new OpaqueElement("anon", aa3);
 
         // Writing to CX
         // -------------
@@ -211,14 +211,14 @@ public class Examples2 {
         anonymous.put("one", "1");
         anonymous.put("two", "2");
 
-        final AnonymousElement anonymous_element = new AnonymousElement("anonymous", anonymous);
+        final OpaqueElement anonymous_element = new OpaqueElement("anonymous", anonymous);
 
         final OutputStream out = new ByteArrayOutputStream();
 
         final CxWriter w = CxWriter.createInstance(out, true);
 
         w.start();
-        w.writeAnonymousAspectFragment("anonymous", anonymous_element.toJsonString());
+        w.writeOpaqueAspectFragment("anonymous", anonymous_element.toJsonString());
         w.end();
 
         final String cx_json_str = out.toString();

@@ -421,12 +421,12 @@ public final class CxWriter {
     }
 
     private final void writeMetaData(final MetaDataCollection md) throws IOException {
-        if ((md != null) && !md.getMetaData().isEmpty()) {
+        if ((md != null) && !md.isEmpty()) {
             md.toJson(_jw);
         }
     }
 
-    public final void writeAnonymousAspectFragment(final String name, final String json_string) throws IOException {
+    public final void writeOpaqueAspectFragment(final String name, final String json_string) throws IOException {
         if (!_started) {
             throw new IllegalStateException("not started");
         }
@@ -442,7 +442,7 @@ public final class CxWriter {
         }
     }
 
-    public final void writeAnonymousAspectElement(final String json_string) throws IOException {
+    public final void writeOpaqueAspectElement(final String json_string) throws IOException {
         if (!_started) {
             throw new IllegalStateException("not started");
         }
@@ -458,7 +458,7 @@ public final class CxWriter {
         }
     }
 
-    public final void writeAnonymousAspectFragment(final String name, final Collection<String> json_strings) throws IOException {
+    public final void writeOpaqueAspectFragment(final String name, final Collection<String> json_strings) throws IOException {
         if (!_started) {
             throw new IllegalStateException("not started");
         }

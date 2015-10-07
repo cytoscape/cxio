@@ -84,7 +84,7 @@ public final class AspectElementCounts {
         increaseAspectElementCount(elements.get(0).getAspectName(), elements.size());
     }
 
-    final void processAnonymousAspectElements(final List<AnonymousElement> elements) {
+    final void processAnonymousAspectElements(final List<OpaqueElement> elements) {
         increaseAspectElementCount(elements.get(0).getAspectName(), elements.size());
     }
 

@@ -15,8 +15,8 @@ import java.util.SortedMap;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
-import org.cxio.core.AnonymousElement;
-import org.cxio.core.CxReader;
+import org.cxio.core.OpaqueElement;
+import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
@@ -26,11 +26,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
-public class AnonymousElementRoundTripTest {
+public class OpaqueElementRoundTripETest {
 
     @Test
     public void test() throws IOException {
-        
         //TODO
 //        final ObjectMapper m = new ObjectMapper();
 //        final ObjectNode unknown = m.createObjectNode();
@@ -63,7 +62,7 @@ public class AnonymousElementRoundTripTest {
 //        abc.add(node_b);
 //        abc.add(node_c);
 //        unknown.putArray("F").addAll(abc);
-//        final AnonymousElement unknown_element = new AnonymousElement("unknown", unknown);
+//        final OpaqueElement unknown_element = new OpaqueElement("unknown", unknown);
 //
 //        // ---------
 //
@@ -77,7 +76,7 @@ public class AnonymousElementRoundTripTest {
 //        anonymous2.set("2", anonymous3);
 //        anonymous.set("1", anonymous2);
 //
-//        final AnonymousElement anonymous_element = new AnonymousElement("anonymous", anonymous);
+//        final OpaqueElement anonymous_element = new OpaqueElement("anonymous", anonymous);
 //
 //        // ---------
 //
@@ -92,11 +91,11 @@ public class AnonymousElementRoundTripTest {
 //        anonymous_too_2.put("asdf", "2");
 //        anonymous_too_3.put("asdf", "3");
 //
-//        final AnonymousElement anonymous_too_1_elem = new AnonymousElement("anonymous too", anonymous_too_1);
-//        final AnonymousElement anonymous_too_2_elem = new AnonymousElement("anonymous too", anonymous_too_2);
-//        final AnonymousElement anonymous_too_3_elem = new AnonymousElement("anonymous too", anonymous_too_3);
+//        final OpaqueElement anonymous_too_1_elem = new OpaqueElement("anonymous too", anonymous_too_1);
+//        final OpaqueElement anonymous_too_2_elem = new OpaqueElement("anonymous too", anonymous_too_2);
+//        final OpaqueElement anonymous_too_3_elem = new OpaqueElement("anonymous too", anonymous_too_3);
 //
-//        final List<AnonymousElement> anonymous_too_elements = new ArrayList<AnonymousElement>();
+//        final List<OpaqueElement> anonymous_too_elements = new ArrayList<OpaqueElement>();
 //        anonymous_too_elements.add(anonymous_too_1_elem);
 //        anonymous_too_elements.add(anonymous_too_2_elem);
 //        anonymous_too_elements.add(anonymous_too_3_elem);
@@ -109,14 +108,14 @@ public class AnonymousElementRoundTripTest {
 //        single.put("3", "3");
 //        single.put("4", "4");
 //        single.put("5", "5");
-//        final AnonymousElement single_element = new AnonymousElement("single", single);
+//        final OpaqueElement single_element = new OpaqueElement("single", single);
 //
 //        // ---------
 //
 //        final ObjectNode single2 = m.createObjectNode();
 //        single2.put("1", "1");
 //        single2.put("2", "2");
-//        final AnonymousElement single_element2 = new AnonymousElement("single2", single2);
+//        final OpaqueElement single_element2 = new OpaqueElement("single2", single2);
 //
 //        // ---------
 //
@@ -133,7 +132,7 @@ public class AnonymousElementRoundTripTest {
 //        w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 //
 //        w.start();
-//        w.writeAnonymousAspectElementAsList(unknown_element);
+//        w.writeAnonymousAspectElementAsList(unknown_element.toJsonString());
 //        w.writeAnonymousAspectElementAsList(anonymous_element);
 //        w.writeAnonymousAspectElements(anonymous_too_elements);
 //        w.writeAnonymousAspectElementAsList(single_element);
@@ -142,14 +141,17 @@ public class AnonymousElementRoundTripTest {
 //        w.end();
 //
 //        final String cx_json_str = out.toString();
+//
+//        System.out.println(cx_json_str);
+//
 //        // Reading from CX
 //        // ---------------
 //
 //        final Set<AspectFragmentReader> readers = new HashSet<>();
 //        readers.add(EdgesFragmentReader.createInstance());
-//        final CxReader r = CxReader.createInstance(cx_json_str, true, true, readers);
+//        final CxElementReader r = CxElementReader.createInstance(cx_json_str, true, readers);
 //
-//        final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(r);
+//        final SortedMap<String, List<AspectElement>> res = CxElementReader.parseAsMap(r);
 //
 //        assertEquals(res.size(), 6);
 //        assertTrue(res.containsKey("anonymous"));
@@ -183,10 +185,10 @@ public class AnonymousElementRoundTripTest {
 //        final List<AspectElement> res_unknown = res.get("unknown");
 //        assertTrue(res_unknown.size() == 1);
 //        assertTrue(res_unknown
-//                   .get(0)
-//                   .toString()
-//                   .equals("unknown: {\"A\":\"a\",\"B\":\"b\",\"C\":\"c\",\"D\":{\"AA\":\"aa\"}," + "\"E\":[\"1\",\"2\",\"3\"],\"F\":[{\"_a1\":\"aa1\",\"_a2\":\"aa2\","
-//                           + "\"_a3\":\"aa3\"},{\"_b1\":\"bb1\",\"_b2\":\"bb2\",\"_b3\":\"bb3\"}," + "{\"_c1\":\"cc1\",\"_c2\":\"cc2\",\"_c3\":\"cc3\"}]}"));
+//                .get(0)
+//                .toString()
+//                .equals("unknown: {\"A\":\"a\",\"B\":\"b\",\"C\":\"c\",\"D\":{\"AA\":\"aa\"}," + "\"E\":[\"1\",\"2\",\"3\"],\"F\":[{\"_a1\":\"aa1\",\"_a2\":\"aa2\","
+//                        + "\"_a3\":\"aa3\"},{\"_b1\":\"bb1\",\"_b2\":\"bb2\",\"_b3\":\"bb3\"}," + "{\"_c1\":\"cc1\",\"_c2\":\"cc2\",\"_c3\":\"cc3\"}]}"));
 
     }
 

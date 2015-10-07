@@ -18,33 +18,33 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-public final class AnonymousElement implements AspectElement {
+public final class OpaqueElement implements AspectElement {
 
     private final JsonNode            _data;
     private final String              _name;
     private final static ObjectMapper mapper = new ObjectMapper();
 
-    public AnonymousElement(final String name, final JsonNode data) {
+    public OpaqueElement(final String name, final JsonNode data) {
         _name = name;
         _data = data;
     }
 
-    public AnonymousElement(final String name, final ObjectNode data) {
+    public OpaqueElement(final String name, final ObjectNode data) {
         _name = name;
         _data = data;
     }
 
-    public AnonymousElement(final String name, final String json_string) throws IOException {
+    public OpaqueElement(final String name, final String json_string) throws IOException {
         _name = name;
         _data = mapper.readTree(json_string);
     }
 
-    public AnonymousElement(final String name, final byte[] json_byte_array) throws IOException {
+    public OpaqueElement(final String name, final byte[] json_byte_array) throws IOException {
         _name = name;
         _data = mapper.readTree(json_byte_array);
     }
 
-    public AnonymousElement(final String name, final InputStream json_is) throws IOException {
+    public OpaqueElement(final String name, final InputStream json_is) throws IOException {
         _name = name;
         _data = mapper.readTree(json_is);
     }

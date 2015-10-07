@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.readers.EdgesFragmentReader;
@@ -166,7 +168,7 @@ public class Examples2 {
         // Reading from CX
         // ---------------
 
-        final Set<AspectFragmentReader> readers = new HashSet<>();
+        final SortedSet<AspectFragmentReader> readers = new TreeSet<>();
         readers.add(EdgesFragmentReader.createInstance());
         final CxReader r = CxReader.createInstance(cx_json_str, true, true, readers);
 

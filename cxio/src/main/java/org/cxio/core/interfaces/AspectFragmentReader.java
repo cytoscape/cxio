@@ -14,7 +14,7 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-public interface AspectFragmentReader {
+public interface AspectFragmentReader extends Comparable<AspectFragmentReader> {
 
     /**
      * This returns the name of the Aspect a AspectFragmentReader can read.

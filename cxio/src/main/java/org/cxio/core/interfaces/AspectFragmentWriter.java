@@ -6,7 +6,7 @@ import java.util.List;
 import org.cxio.filters.AspectKeyFilter;
 import org.cxio.util.JsonWriter;
 
-public interface AspectFragmentWriter {
+public interface AspectFragmentWriter extends Comparable<AspectFragmentReader> {
 
     public String getAspectName();
 

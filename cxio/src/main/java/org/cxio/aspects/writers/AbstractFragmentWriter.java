@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.List;
 
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.filters.AspectKeyFilter;
 import org.cxio.util.JsonWriter;
@@ -41,6 +42,11 @@ public abstract class AbstractFragmentWriter implements AspectFragmentWriter {
     @Override
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         w.writeObject(element);
+    }
+    
+    @Override
+    public int compareTo(AspectFragmentReader o) {
+        return getAspectName().compareTo(o.getAspectName());
     }
 
 }

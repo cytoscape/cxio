@@ -53,6 +53,11 @@ public abstract class AbstractFragmentReader implements AspectFragmentReader {
         return elements;
     }
 
+    @Override
+    public int compareTo(AspectFragmentReader o) {
+        return getAspectName().compareTo(o.getAspectName());
+    }
+    
     /**
      * This is used for parsing one AspectElement from a ObjectNode.
      *

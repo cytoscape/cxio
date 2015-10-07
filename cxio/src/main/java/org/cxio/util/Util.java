@@ -224,7 +224,7 @@ public final class Util {
         return reader;
     }
 
-    public static void validate(final byte[] writer_checksum, final byte[] reader_checksum, final AspectElementCounts writer_counts, final AspectElementCounts reader_counts) {
+    public static boolean validate(final byte[] writer_checksum, final byte[] reader_checksum, final AspectElementCounts writer_counts, final AspectElementCounts reader_counts) {
         if (!AspectElementCounts.isCountsAreEqual(reader_counts, writer_counts)) {
             System.out.println("something went wrong: element counts do not match");
         }
@@ -233,7 +233,9 @@ public final class Util {
         }
         else {
             System.out.println("OK");
+            return true;
         }
+        return false;
     }
 
 }

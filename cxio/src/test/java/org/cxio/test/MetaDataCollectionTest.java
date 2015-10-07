@@ -162,7 +162,7 @@ public class MetaDataCollectionTest {
         md.toJson(jw);
 
         assertTrue(out.toString()
-                .equals("{\"metaData\":[{\"elementCount\":\"2\",\"name\":\"name_0\",\"version\":\"v0\"},{\"name\":\"name_1\",\"version\":\"v1\"},{\"name\":\"name_2\",\"version\":\"v2\"}]}"));
+                   .equals("{\"metaData\":[{\"elementCount\":\"2\",\"name\":\"name_0\",\"version\":\"v0\"},{\"name\":\"name_1\",\"version\":\"v1\"},{\"name\":\"name_2\",\"version\":\"v2\"}]}"));
 
     }
 

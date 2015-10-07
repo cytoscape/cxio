@@ -1,6 +1,5 @@
 package org.cxio.aspects.datamodels;
 
-
 public final class CyViewsElement extends AbstractAspectElement {
 
     public final static String NAME          = "cyViews";

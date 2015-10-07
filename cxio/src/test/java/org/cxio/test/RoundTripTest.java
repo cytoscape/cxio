@@ -1,6 +1,5 @@
 package org.cxio.test;
 
-
 public class RoundTripTest {
 
     // private final static String A0 =

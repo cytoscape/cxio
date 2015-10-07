@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -31,7 +32,7 @@ public class MetaDataTest {
         node_meta.setElementCount(32L);
         node_meta.setConsistencyGroup(1L);
 
-        md.addMetaDataElement(node_meta);
+        md.add(node_meta);
 
         final MetaDataElement citation_meta = new MetaDataElement();
 
@@ -48,7 +49,7 @@ public class MetaDataTest {
         citation_meta.put("key1", "value1");
         citation_meta.put("key2", true);
 
-        md.addMetaDataElement(citation_meta);
+        md.add(citation_meta);
 
         assertEquals(2, md.size());
 
@@ -84,7 +85,7 @@ public class MetaDataTest {
         node_meta.setElementCount(32L);
         node_meta.setConsistencyGroup(1L);
 
-        md.addMetaDataElement(node_meta);
+        md.add(node_meta);
 
         final MetaDataElement citation_meta = new MetaDataElement();
 
@@ -101,7 +102,7 @@ public class MetaDataTest {
         citation_meta.put("key1", "value1");
         citation_meta.put("key2", true);
 
-        md.addMetaDataElement(citation_meta);
+        md.add(citation_meta);
 
         final OutputStream out = new ByteArrayOutputStream();
 
@@ -141,6 +142,13 @@ public class MetaDataTest {
         assertTrue(md.getMetaDataElement("Citation").getName().equals("Citation"));
         assertTrue(md.getMetaDataElement(NodesElement.NAME).getName().equals(NodesElement.NAME));
         assertTrue(md.getMetaDataElement("xyz") == null);
+        
+        
+        Iterator<MetaDataElement> it = md.iterator();
+         
+        while( it.hasNext() ) {
+            System.out.println( it.next());
+        }
 
     }
 

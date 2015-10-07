@@ -103,11 +103,11 @@ public class Examples_MetaData {
         li.add(d);
         meta_element1.put("some datastructure", li);
         meta_element1.put("some booleans", new boolean[] { true, false });
-        md0.addMetaDataElement(meta_element1);
+        md0.add(meta_element1);
         final MetaDataCollection md1 = new MetaDataCollection();
         final MetaDataElement meta_element2 = new MetaDataElement();
         meta_element2.put("checksum", 23932);
-        md1.addMetaDataElement(meta_element2);
+        md1.add(meta_element2);
 
         // Writing to CX
         // -------------

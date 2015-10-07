@@ -133,7 +133,7 @@ public class Examples_CxElementReader_MetaData {
         node_meta.setElementCount(32L);
         node_meta.setConsistencyGroup(1L);
 
-        md_pre.addMetaDataElement(node_meta);
+        md_pre.add(node_meta);
 
         final MetaDataElement citation_meta = new MetaDataElement();
 
@@ -147,7 +147,7 @@ public class Examples_CxElementReader_MetaData {
         prop.put("value", "Ideker Lab");
         citation_meta.addProperty(prop);
 
-        md_pre.addMetaDataElement(citation_meta);
+        md_pre.add(citation_meta);
 
         final MetaDataCollection md_post = new MetaDataCollection();
 
@@ -156,7 +156,7 @@ public class Examples_CxElementReader_MetaData {
         meta_post.put("write time", 0.34);
         meta_post.put("success", true);
 
-        md_post.addMetaDataElement(meta_post);
+        md_post.add(meta_post);
 
         // Writing to CX
         // -------------

@@ -5,12 +5,14 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 import java.util.SortedMap;
 
 import org.cxio.util.JsonWriter;
 import org.cxio.util.Util;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -26,108 +28,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public final class MetaDataCollection implements Serializable {
 
-    private static final long                     serialVersionUID = 7233278148613095352L;
-
     /**
      * The name of the MetaDataElement list when serialized to json.
      *
      */
     public final static String                    NAME             = "metaData";
+
+    private static final long                     serialVersionUID = 7233278148613095352L;
+
     final private List<SortedMap<String, Object>> _data;
-
-    /**
-     * Constructor, to create an empty MetaData object.
-     *
-     */
-    public MetaDataCollection() {
-        _data = new ArrayList<SortedMap<String, Object>>();
-    }
-
-    /**
-     * This method id to add a MetaDataElement
-     *
-     * @param e a MetaDataElement
-     */
-    public final void addMetaDataElement(final MetaDataElement e) {
-        _data.add(e.getData());
-    }
-
-    /**
-     * This is to get the meta data as list of MetaDataElements
-     *
-     * @return a list of MetaDataElements
-     */
-    public final Collection<MetaDataElement> asCollectionOfMetaDataElements() {
-        final ArrayList<MetaDataElement> l = new ArrayList<MetaDataElement>();
-        for (int i = 0; i < size(); i++) {
-            l.add(new MetaDataElement(_data.get(i)));
-        }
-        return l;
-    }
-
-    /**
-     * This is to get the meta data as list of sorted maps (String to Object).
-     *
-     * @return a list of sorted maps (String to Object)
-     */
-    public final Collection<SortedMap<String, Object>> getMetaData() {
-        return _data;
-    }
-
-    /**
-     * This method returns the MetaDataElement with a given name
-     * (getName() returns name).
-     * Return null if not found.
-     * Throws a IllegalArgumentException if more than two elements with the same name.
-     *
-     * @param name the name of the MetaDataElement to find
-     * @return a MetaDataElement with a given name, null if no such element
-     */
-    public final MetaDataElement getMetaDataElement(final String name) {
-        MetaDataElement res = null;
-        for (final MetaDataElement e : asCollectionOfMetaDataElements()) {
-            if (e.getName().equals(name)) {
-                if (res == null) {
-                    res = e;
-                }
-                else {
-                    throw new IllegalArgumentException("more than one meta data element with name '" + name + "'");
-                }
-            }
-        }
-        return res;
-    }
-
-    /**
-     * This returns the number of MetaDataElements.
-     *
-     * @return the number of MetaDataElements
-     */
-    public final int size() {
-        return _data.size();
-    }
-
-    /**
-     * This is the serialize this MetaData object to json.
-     *
-     * @param w a JsonWriter
-     * @throws IOException
-     */
-    public final void toJson(final JsonWriter w) throws IOException {
-        w.writeObject(this);
-    }
-
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder();
-        for (final MetaDataElement e : asCollectionOfMetaDataElements()) {
-            if ((e != null) && !e.getData().isEmpty()) {
-                sb.append(e);
-                sb.append(Util.LINE_SEPARATOR);
-            }
-        }
-        return sb.toString();
-    }
 
     /**
      * This is to create a MetaData object from a json formatted InputStream.
@@ -163,6 +72,28 @@ public final class MetaDataCollection implements Serializable {
     public final static MetaDataCollection createInstanceFromJson(final String str) throws IOException {
         final ObjectMapper m = new ObjectMapper();
         return m.readValue(str, MetaDataCollection.class);
+    }
+
+    /**
+     * Constructor, to create an empty MetaData object.
+     *
+     */
+    public MetaDataCollection() {
+        _data = new ArrayList<SortedMap<String, Object>>();
+    }
+
+    /**
+     * This method id to add a MetaDataElement
+     *
+     * @param e a MetaDataElement
+     */
+    public final boolean add(final MetaDataElement e) {
+        _data.add(e.getData());
+        return true;
+    }
+
+    public void clear() {
+        _data.clear();
     }
 
     /**
@@ -226,6 +157,39 @@ public final class MetaDataCollection implements Serializable {
     }
 
     /**
+     * This is to get the meta data as list of sorted maps (String to Object).
+     *
+     * @return a list of sorted maps (String to Object)
+     */
+    public final Collection<SortedMap<String, Object>> getMetaData() {
+        return _data;
+    }
+
+    /**
+     * This method returns the MetaDataElement with a given name
+     * (getName() returns name).
+     * Return null if not found.
+     * Throws a IllegalArgumentException if more than two elements with the same name.
+     *
+     * @param name the name of the MetaDataElement to find
+     * @return a MetaDataElement with a given name, null if no such element
+     */
+    public final MetaDataElement getMetaDataElement(final String name) {
+        MetaDataElement res = null;
+        for (final MetaDataElement e : toCollection()) {
+            if (e.getName().equals(name)) {
+                if (res == null) {
+                    res = e;
+                }
+                else {
+                    throw new IllegalArgumentException("more than one meta data element with name '" + name + "'");
+                }
+            }
+        }
+        return res;
+    }
+
+    /**
      * Convenience method to get the (corresponding aspect) version of the meta data element with
      * a give name.
      *
@@ -238,6 +202,20 @@ public final class MetaDataCollection implements Serializable {
             return e.getVersion();
         }
         return null;
+    }
+
+    @JsonIgnore
+    public boolean isEmpty() {
+        return size() == 0;
+    }
+
+    /**
+     * Returns a Iterator to iterate over the MetaDataElements.
+     *
+     * @return Iterator to iterate over the MetaDataElements
+     */
+    public Iterator<MetaDataElement> iterator() {
+        return toCollection().iterator();
     }
 
     /**
@@ -305,12 +283,65 @@ public final class MetaDataCollection implements Serializable {
         e.setVersion(version);
     }
 
+    /**
+     * This returns the number of MetaDataElements.
+     *
+     * @return the number of MetaDataElements
+     */
+    public final int size() {
+        return _data.size();
+    }
+
+    /**
+     * Return the contents as Object array.
+     *
+     * @return the contents as Object arra
+     */
+    public final Object[] toArray() {
+        return toCollection().toArray();
+    }
+
+    /**
+     * This is to get the meta data as list of MetaDataElements
+     *
+     * @return a list of MetaDataElements
+     */
+    public final Collection<MetaDataElement> toCollection() {
+        final ArrayList<MetaDataElement> l = new ArrayList<MetaDataElement>();
+        for (int i = 0; i < size(); i++) {
+            l.add(new MetaDataElement(_data.get(i)));
+        }
+        return l;
+    }
+
+    /**
+     * This is the serialize this MetaData object to json.
+     *
+     * @param w a JsonWriter
+     * @throws IOException
+     */
+    public final void toJson(final JsonWriter w) throws IOException {
+        w.writeObject(this);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder();
+        for (final MetaDataElement e : toCollection()) {
+            if ((e != null) && !e.getData().isEmpty()) {
+                sb.append(e);
+                sb.append(Util.LINE_SEPARATOR);
+            }
+        }
+        return sb.toString();
+    }
+
     private MetaDataElement checkIfElementPresent(final String name) {
         MetaDataElement e = getMetaDataElement(name);
         if (e == null) {
             e = new MetaDataElement();
             e.setName(name);
-            addMetaDataElement(e);
+            add(e);
         }
         return e;
     }

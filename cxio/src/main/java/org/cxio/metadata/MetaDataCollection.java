@@ -177,7 +177,7 @@ public final class MetaDataCollection implements Serializable {
     public final MetaDataElement getMetaDataElement(final String name) {
         MetaDataElement res = null;
         for (final MetaDataElement e : toCollection()) {
-            if (e.getName() != null && e.getName().equals(name)) {
+            if ((e.getName() != null) && e.getName().equals(name)) {
                 if (res == null) {
                     res = e;
                 }

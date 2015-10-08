@@ -132,7 +132,10 @@ public class MetaDataElement {
      * @return the name (of the corresponding aspect)
      */
     public final String getName() {
-        return (String) _data.get(NAME);
+        if (_data.get(NAME) != null) {
+            return (String) _data.get(NAME);
+        }
+        return null;
     }
 
     @SuppressWarnings("unchecked")
@@ -152,7 +155,10 @@ public class MetaDataElement {
      * @return the (corresponding aspect) version
      */
     public final String getVersion() {
-        return (String) _data.get(VERSION);
+        if (_data.get(VERSION) != null) {
+            return (String) _data.get(VERSION);
+        }
+        return null;
     }
 
     /**

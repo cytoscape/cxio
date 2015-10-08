@@ -13,12 +13,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.core.AspectElementCounts;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
@@ -182,7 +182,7 @@ public class MetaDataCollectionTest {
         md.toJson(jw);
 
         assertTrue(out.toString()
-                   .equals("{\"metaData\":[{\"elementCount\":\"2\",\"name\":\"name_0\",\"version\":\"v0\"},{\"name\":\"name_1\",\"version\":\"v1\"},{\"name\":\"name_2\",\"version\":\"v2\"}]}"));
+                .equals("{\"metaData\":[{\"elementCount\":\"2\",\"name\":\"name_0\",\"version\":\"v0\"},{\"name\":\"name_1\",\"version\":\"v1\"},{\"name\":\"name_2\",\"version\":\"v2\"}]}"));
 
     }
 
@@ -201,14 +201,14 @@ public class MetaDataCollectionTest {
         assertTrue(out.toString().equals("{\"metaData\":[]}"));
 
     }
-    
+
     @Test
     public void testX() throws IOException {
         final MetaDataCollection md = new MetaDataCollection();
         md.setVersion("name_2", "v2");
         System.out.println(md.getMetaDataElement("x"));
-        
-     // Creating same AspectElements and adding them to Lists (representing
+
+        // Creating same AspectElements and adding them to Lists (representing
         // AspectFragments)
         // --------------------------------------------------------------------
         final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
@@ -383,28 +383,25 @@ public class MetaDataCollectionTest {
 
         System.out.println();
         Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
-        
-        
+
         MetaDataCollection metadata = null;
-        MetaDataCollection postmetadata = p.getPostMetaData();
-        if ( postmetadata !=null) {
-            //if( metadata == null) {
-           //     metadata = postmetadata;
-           // } else {
+        final MetaDataCollection postmetadata = p.getPostMetaData();
+        if (postmetadata != null) {
+            // if( metadata == null) {
+            // metadata = postmetadata;
+            // } else {
             metadata = postmetadata;
-                for (MetaDataElement e : postmetadata.toCollection()) {
-                    Long cnt = e.getIdCounter();
-                    if ( cnt !=null) {
-                       metadata.setIdCounter(e.getName(),cnt);
-                    }
-                    cnt = e.getElementCount() ;
-                    if ( cnt !=null) {
-                           metadata.setElementCount(e.getName(),cnt);
-                    }
+            for (final MetaDataElement e : postmetadata.toCollection()) {
+                Long cnt = e.getIdCounter();
+                if (cnt != null) {
+                    metadata.setIdCounter(e.getName(), cnt);
+                }
+                cnt = e.getElementCount();
+                if (cnt != null) {
+                    metadata.setElementCount(e.getName(), cnt);
                 }
             }
-        
-        
+        }
 
     }
 

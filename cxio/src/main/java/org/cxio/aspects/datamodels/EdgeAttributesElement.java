@@ -189,4 +189,32 @@ public final class EdgeAttributesElement extends AbstractAttributesAspectElement
         return sb.toString();
     }
 
+    public final static EdgeAttributesElement createInstanceWithSingleValue(final String subnetwork,
+                                                                            final List<String> property_of,
+                                                                            final String name,
+                                                                            final String value,
+                                                                            final ATTRIBUTE_DATA_TYPE type) {
+
+        return new EdgeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value), type);
+    }
+
+    public final static EdgeAttributesElement createInstanceWithSingleValue(final String subnetwork, final String property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+
+        return new EdgeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value), type);
+    }
+
+    public final static EdgeAttributesElement createInstanceWithMultipleValues(final String subnetwork,
+                                                                               final List<String> property_of,
+                                                                               final String name,
+                                                                               final String values,
+                                                                               final ATTRIBUTE_DATA_TYPE type) {
+
+        return new EdgeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values), type);
+    }
+
+    public final static EdgeAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String property_of, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
+
+        return new EdgeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values), type);
+    }
+
 }

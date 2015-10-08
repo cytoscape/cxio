@@ -3,6 +3,8 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.cxio.util.Util;
+
 /**
  * This class is used to present one attribute of a network node.
  * An attribute consists of a name, value(s), type, and
@@ -180,6 +182,34 @@ public final class NodeAttributesElement extends AbstractAttributesAspectElement
         sb.append(_data_type.toString());
         sb.append("\n");
         return sb.toString();
+    }
+
+    public final static NodeAttributesElement createInstanceWithSingleValue(final String subnetwork,
+                                                                            final List<String> property_of,
+                                                                            final String name,
+                                                                            final String value,
+                                                                            final ATTRIBUTE_DATA_TYPE type) {
+
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value), type);
+    }
+
+    public final static NodeAttributesElement createInstanceWithSingleValue(final String subnetwork, final String property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value), type);
+    }
+
+    public final static NodeAttributesElement createInstanceWithMultipleValues(final String subnetwork,
+                                                                               final List<String> property_of,
+                                                                               final String name,
+                                                                               final String values,
+                                                                               final ATTRIBUTE_DATA_TYPE type) {
+
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values), type);
+    }
+
+    public final static NodeAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String property_of, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
+
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values), type);
     }
 
 }

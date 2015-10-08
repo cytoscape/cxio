@@ -238,4 +238,33 @@ public final class Util {
         return false;
     }
 
+    public final static List<String> parseStringToStringList(final String string) {
+        final List<String> l = new ArrayList<String>();
+        String str = string.trim();
+        if (str.startsWith("[") && str.endsWith("]")) {
+            str = str.substring(1, str.length() - 1);
+            for (String s : str.split(",")) {
+                s = s.trim();
+                if (s.startsWith("\"") && s.endsWith("\"")) {
+                    l.add(s.substring(1, s.length() - 1).trim());
+                }
+                else {
+                    throw new IllegalArgumentException("illegal format: " + str);
+                }
+            }
+        }
+        else {
+            throw new IllegalArgumentException("illegal format: " + str);
+        }
+        return l;
+    }
+
+    public final static String removeParanthesis(final String string) {
+        String str = string.trim();
+        if (str.startsWith("\"") && str.endsWith("\"")) {
+            str = str.substring(1, str.length() - 1).trim();
+        }
+        return str;
+    }
+
 }

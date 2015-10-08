@@ -151,9 +151,9 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
     }
 
     /**
-     * This returns the list values of the attribute as list of Strings.
+     * This returns the list values of the (list) attribute as list of Strings.
      *
-     * @return the list values of the attribute as list of Strings
+     * @return the list values of the (list) attribute as list of Strings
      */
     public final List<String> getValues() {
         if (isSingleValue()) {
@@ -163,9 +163,41 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
     }
 
     /**
-     * This returns the value of the attribute as String.
+     * This returns the values of the attribute as String in the form "value" for single values and in
+     * the form ["value1","value2",...] for list values.
      *
-     * @return the value of the attribute as Strings
+     * @return  the value(s) of the attribute as String
+     */
+    public final String getValuesAsString() {
+        final StringBuilder sb = new StringBuilder();
+        if (isSingleValue()) {
+            sb.append("\"");
+            sb.append(getValue());
+            sb.append("\"");
+        }
+        else {
+            sb.append("[");
+            boolean first = true;
+            for (final String v : getValues()) {
+                if (first) {
+                    first = false;
+                }
+                else {
+                    sb.append(",");
+                }
+                sb.append("\"");
+                sb.append(v);
+                sb.append("\"");
+            }
+            sb.append("]");
+        }
+        return sb.toString();
+    }
+
+    /**
+     * This returns the value of the (single) attribute as String.
+     *
+     * @return the value of the (single) attribute as String
      */
     public final String getValue() {
         if (!isSingleValue()) {

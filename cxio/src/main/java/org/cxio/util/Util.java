@@ -246,7 +246,7 @@ public final class Util {
             for (String s : str.split(",")) {
                 s = s.trim();
                 if (s.startsWith("\"") && s.endsWith("\"")) {
-                    l.add(s.substring(1, s.length() - 1).trim());
+                    l.add(s.substring(1, s.length() - 1));
                 }
                 else {
                     throw new IllegalArgumentException("illegal format: " + str);
@@ -262,7 +262,7 @@ public final class Util {
     public final static String removeParanthesis(final String string) {
         String str = string.trim();
         if (str.startsWith("\"") && str.endsWith("\"")) {
-            str = str.substring(1, str.length() - 1).trim();
+            str = str.substring(1, str.length() - 1);
         }
         return str;
     }

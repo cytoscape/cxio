@@ -36,11 +36,7 @@ public class NodeAttributesFragmentWriterTest {
         po.add("a");
         po.add("b");
 
-        final List<String> v = new ArrayList<String>();
-        v.add("1");
-        v.add("2");
-
-        final NodeAttributesElement na0 = new NodeAttributesElement("sub 1", po, "name", v, ATTRIBUTE_DATA_TYPE.LIST_OF_FLOAT);
+        final NodeAttributesElement na0 = NodeAttributesElement.createInstanceWithMultipleValues("sub 1", po, "name", "[\"1\",\"2\"]", ATTRIBUTE_DATA_TYPE.LIST_OF_FLOAT);
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(na0);

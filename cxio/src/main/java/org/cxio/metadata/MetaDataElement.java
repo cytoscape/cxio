@@ -75,7 +75,10 @@ public class MetaDataElement {
      * @return the consistency group
      */
     public final Long getConsistencyGroup() {
-        return Long.valueOf((String) _data.get(CONSISTENCY_GROUP));
+        if (_data.get(CONSISTENCY_GROUP) != null) {
+            return Long.valueOf((String) _data.get(CONSISTENCY_GROUP));
+        }
+        return null;
     }
 
     /**
@@ -93,7 +96,10 @@ public class MetaDataElement {
      * @return the element count
      */
     public final Long getElementCount() {
-        return Long.valueOf((String) _data.get(ELEMENT_COUNT));
+        if (_data.get(ELEMENT_COUNT) != null) {
+            return Long.valueOf((String) _data.get(ELEMENT_COUNT));
+        }
+        return null;
     }
 
     /**
@@ -102,7 +108,10 @@ public class MetaDataElement {
      * @return the id counter
      */
     public final Long getIdCounter() {
-        return Long.valueOf((String) _data.get(ID_COUNTER));
+        if (_data.get(ID_COUNTER) != null) {
+            return Long.valueOf((String) _data.get(ID_COUNTER));
+        }
+        return null;
     }
 
     /**
@@ -111,7 +120,10 @@ public class MetaDataElement {
      * @return the last update value
      */
     public final Long getLastUpdate() {
-        return Long.valueOf((String) _data.get(LAST_UPDATE));
+        if (_data.get(LAST_UPDATE) != null) {
+            return Long.valueOf((String) _data.get(LAST_UPDATE));
+        }
+        return null;
     }
 
     /**

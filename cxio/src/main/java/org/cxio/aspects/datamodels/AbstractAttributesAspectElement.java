@@ -223,7 +223,7 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
      * @param o
      * @return
      */
-    final static ATTRIBUTE_DATA_TYPE determineDataType(final Object o) {
+    final public static ATTRIBUTE_DATA_TYPE determineDataType(final Object o) {
 
         if (o instanceof String) {
             return ATTRIBUTE_DATA_TYPE.STRING;
@@ -295,7 +295,6 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
         else if (s.equals(ATTRIBUTE_DATA_TYPE.CHAR.toString())) {
             return ATTRIBUTE_DATA_TYPE.CHAR;
         }
-
         else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_STRING.toString())) {
             return ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
         }
@@ -323,7 +322,6 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
         else if (s.equals(ATTRIBUTE_DATA_TYPE.LIST_OF_CHAR.toString())) {
             return ATTRIBUTE_DATA_TYPE.LIST_OF_CHAR;
         }
-
         else {
             throw new IllegalArgumentException("type '" + s + "' is not supported");
         }

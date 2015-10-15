@@ -18,7 +18,8 @@ public class CartesianLayoutFragmentReaderTest {
 
     @Test
     public void test1() throws IOException {
-        final String t0 = "[" + "{\"cartesianLayout\":[{\"node\":\"_0\",\"x\":\"123\",\"y\":\"456\"}]}," + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\",\"z\":\"2\"}]}" + "]";
+        final String t0 = "[" + "{\"cartesianLayout\":[{\"node\":\"_0\",\"view\":\"52\",\"x\":\"123\",\"y\":\"456\"}]},"
+                              + "{\"cartesianLayout\":[{\"node\":\"_1\",\"view\":\"52\",\"x\":\"3\",\"y\":\"4\",\"z\":\"2\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
@@ -34,11 +35,12 @@ public class CartesianLayoutFragmentReaderTest {
         assertTrue("failed to get expected instance", aspects.get(0) instanceof CartesianLayoutElement);
 
         final CartesianLayoutElement a0 = (CartesianLayoutElement) aspects.get(0);
-
+        System.out.println(a0);
         assertEquals(a0.getNode(), "_0");
         assertTrue(a0.getX().equals("123"));
         assertTrue(a0.getY().equals("456"));
         assertTrue(a0.getZ().equals("0"));
+        assertTrue(a0.getView().equals("52"));
         assertTrue(a0.isZset() == false);
 
         final CartesianLayoutElement a1 = (CartesianLayoutElement) aspects.get(1);
@@ -47,6 +49,7 @@ public class CartesianLayoutFragmentReaderTest {
         assertTrue(a1.getX().equals("3"));
         assertTrue(a1.getY().equals("4"));
         assertTrue(a1.getZ().equals("2"));
+        assertTrue(a1.getView().equals("52"));
         assertTrue(a1.isZset() == true);
     }
 

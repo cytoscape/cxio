@@ -223,8 +223,11 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
      * @param o
      * @return
      */
+    @SuppressWarnings("rawtypes")
     final public static ATTRIBUTE_DATA_TYPE determineDataType(final Object o) {
-
+        if ( o == null ) {
+            throw new IllegalArgumentException("attempt to determine type of null object");
+        }
         if (o instanceof String) {
             return ATTRIBUTE_DATA_TYPE.STRING;
         }
@@ -253,12 +256,48 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
             return ATTRIBUTE_DATA_TYPE.CHAR;
         }
         else if (o instanceof List) {
-            throw new IllegalArgumentException("cannot determine type of list");
+            if ( ((List) o).isEmpty() ) {
+                throw new IllegalArgumentException("attempt to determine type of empty list");
+            }
+            final Object e = ( (List) o).get(0);
+            if (e instanceof String) {
+                return ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
+            }
+            else if (e instanceof Boolean) {
+                return ATTRIBUTE_DATA_TYPE.LIST_OF_BOOLEAN;
+            }
+            else if (e instanceof Double) {
+                return ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE;
+            }
+            else if (e instanceof Integer) {
+                return ATTRIBUTE_DATA_TYPE.LIST_OF_INTEGER;
+            }
+            else if (e instanceof Long) {
+                return ATTRIBUTE_DATA_TYPE.LIST_OF_LONG;
+            }
+            else if (e instanceof Float) {
+                return ATTRIBUTE_DATA_TYPE.LIST_OF_FLOAT;
+            }
+            else if (e instanceof Short) {
+                return ATTRIBUTE_DATA_TYPE.LIST_OF_SHORT;
+            }
+            else if (e instanceof Byte) {
+                return ATTRIBUTE_DATA_TYPE.LIST_OF_BYTE;
+            }
+            else if (e instanceof Character) {
+                return ATTRIBUTE_DATA_TYPE.LIST_OF_CHAR;
+            }
+            else {
+                throw new IllegalArgumentException("type '" + o.getClass() + "' is not supported");
+            }
         }
         else {
             throw new IllegalArgumentException("type '" + o.getClass() + "' is not supported");
         }
     }
+    
+    
+    
 
     /**
      * Convenience method to go from a type described by a string to an actual

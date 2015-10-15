@@ -41,13 +41,13 @@ public final class CartesianLayoutElement extends AbstractAspectElement {
         _z_set = true;
     }
 
-    public CartesianLayoutElement(final String node, final String x, final String y, final String z) {
+    public CartesianLayoutElement(final String node, final String view, final String x, final String y) {
         _node = node;
-        _view = null;
+        _view = view;
         _x = x;
         _y = y;
-        _z = z;
-        _z_set = true;
+        _z = String.valueOf(0);
+        _z_set = false;
     }
 
     public CartesianLayoutElement(final String node, final String view, final String x, final String y, final String z) {

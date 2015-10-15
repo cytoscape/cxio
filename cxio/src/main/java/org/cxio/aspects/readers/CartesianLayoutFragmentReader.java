@@ -27,13 +27,14 @@ public final class CartesianLayoutFragmentReader extends AbstractFragmentReader 
         if (o.has(CartesianLayoutElement.Z)) {
             if (o.has(CartesianLayoutElement.VIEW)) {
                 return new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
-                                                  ParserUtils.getTextValue(o, CartesianLayoutElement.VIEW),
+                                                  ParserUtils.getTextValueRequired(o, CartesianLayoutElement.VIEW),
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Z));
             }
             else {
                 return new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
+                                                  null,
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y),
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Z));
@@ -42,7 +43,7 @@ public final class CartesianLayoutFragmentReader extends AbstractFragmentReader 
         else {
             if (o.has(CartesianLayoutElement.VIEW)) {
                 return new CartesianLayoutElement(ParserUtils.getTextValueRequired(o, CartesianLayoutElement.NODE),
-                                                  ParserUtils.getTextValue(o, CartesianLayoutElement.VIEW),
+                                                  ParserUtils.getTextValueRequired(o, CartesianLayoutElement.VIEW),
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.X),
                                                   ParserUtils.getTextValueRequired(o, CartesianLayoutElement.Y));
 

@@ -23,7 +23,7 @@ final class WriterUtil {
             }
             w.writeStringField(AbstractAttributesAspectElement.ATTR_NAME, e.getName());
             if (e.isSingleValue()) {
-                w.writeStringFieldIfNotEmpty(AbstractAttributesAspectElement.ATTR_VALUES, e.getValue());
+                w.writeStringField(AbstractAttributesAspectElement.ATTR_VALUES, e.getValue());
             }
             else {
                 w.writeList(AbstractAttributesAspectElement.ATTR_VALUES, e.getValues());
@@ -32,7 +32,6 @@ final class WriterUtil {
                 w.writeStringField(AbstractAttributesAspectElement.ATTR_DATA_TYPE, AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE.toCxLabel(e.getDataType()));
             }
             w.writeEndObject();
-
         }
     }
 

@@ -98,14 +98,15 @@ public final class JsonWriter {
     }
 
     public final void writeList(final String label, final Collection<String> list) throws IOException {
-        if ( list != null ) {
+        if (list != null) {
             _g.writeArrayFieldStart(label);
             for (final String s : list) {
-                if ( s != null ) {
-                    _g.writeString(s);
-                }
+                _g.writeString(s);
             }
             _g.writeEndArray();
+        }
+        else {
+            throw new IllegalArgumentException("attempt to write null list to json");
         }
     }
 
@@ -143,6 +144,12 @@ public final class JsonWriter {
     }
 
     public final void writeStringFieldIfNotEmpty(final String field_name, final String value) throws IOException {
+        if (!Util.isEmpty(value)) {
+            _g.writeStringField(field_name, value);
+        }
+    }
+
+    public final void writeStringFieldIfNotNull(final String field_name, final String value) throws IOException {
         if (value != null) {
             _g.writeStringField(field_name, value);
         }

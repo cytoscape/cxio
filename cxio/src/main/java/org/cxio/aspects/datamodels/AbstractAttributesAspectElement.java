@@ -225,7 +225,7 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
      */
     @SuppressWarnings("rawtypes")
     final public static ATTRIBUTE_DATA_TYPE determineDataType(final Object o) {
-        if ( o == null ) {
+        if (o == null) {
             throw new IllegalArgumentException("attempt to determine type of null object");
         }
         if (o instanceof String) {
@@ -256,10 +256,10 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
             return ATTRIBUTE_DATA_TYPE.CHAR;
         }
         else if (o instanceof List) {
-            if ( ((List) o).isEmpty() ) {
+            if (((List) o).isEmpty()) {
                 throw new IllegalArgumentException("attempt to determine type of empty list");
             }
-            final Object e = ( (List) o).get(0);
+            final Object e = ((List) o).get(0);
             if (e instanceof String) {
                 return ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
             }
@@ -295,9 +295,6 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
             throw new IllegalArgumentException("type '" + o.getClass() + "' is not supported");
         }
     }
-    
-    
-    
 
     /**
      * Convenience method to go from a type described by a string to an actual

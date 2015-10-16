@@ -29,7 +29,7 @@ public class VisualPropertiesFragmentWriter extends AbstractFragmentWriter {
         if (c.getAppliesTo().size() == 1) {
             w.writeStringField(CyVisualPropertiesElement.APPLIES_TO, c.getAppliesTo().get(0));
         }
-        else {
+        else if (c.getAppliesTo().size() > 1) {
             w.writeList(CyVisualPropertiesElement.APPLIES_TO, c.getAppliesTo());
         }
         w.writeStringFieldIfNotEmpty(CyVisualPropertiesElement.VIEW, c.getView());

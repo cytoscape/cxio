@@ -42,7 +42,7 @@ public class EdgeAttributesFragmentWriter extends AbstractFragmentWriter {
                 }
                 w.writeStringField(AbstractAttributesAspectElement.ATTR_NAME, e.getName());
                 if (is_single) {
-                    w.writeStringField(AbstractAttributesAspectElement.ATTR_VALUES, e.getValue());
+                    w.writeStringFieldIfNotEmpty(AbstractAttributesAspectElement.ATTR_VALUES, e.getValue());
                 }
                 else {
                     w.writeList(AbstractAttributesAspectElement.ATTR_VALUES, e.getValues());

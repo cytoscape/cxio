@@ -240,6 +240,9 @@ public final class Util {
 
     public final static List<String> parseStringToStringList(final String string) {
         final List<String> l = new ArrayList<String>();
+        if ( string == null ) {
+            return null;
+        }
         String str = string.trim();
         if (str.startsWith("[") && str.endsWith("]")) {
             str = str.substring(1, str.length() - 1);
@@ -260,6 +263,9 @@ public final class Util {
     }
 
     public final static String removeParanthesis(final String string) {
+        if ( string == null ) {
+            return null;
+        }
         String str = string.trim();
         if (str.startsWith("\"") && str.endsWith("\"")) {
             str = str.substring(1, str.length() - 1);

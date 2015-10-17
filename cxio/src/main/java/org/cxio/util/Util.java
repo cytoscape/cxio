@@ -251,8 +251,7 @@ public final class Util {
             }
             for (String s : str.split(",", -1)) {
                 s = s.trim();
-                System.out.println("." + s + ".");
-                if ( s.length() == 0 ||  s.equals("null") ) {
+                if (  s.equals("null") ) {
                     l.add(null);
                 }
                 else if (s.startsWith("\"") && s.endsWith("\"")) {

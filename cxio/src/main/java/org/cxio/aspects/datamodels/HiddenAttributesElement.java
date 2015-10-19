@@ -110,12 +110,12 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
 
     public final static HiddenAttributesElement createInstanceWithSingleValue(final String subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new HiddenAttributesElement(subnetwork, name, Util.removeParanthesis(value), type);
+        return new HiddenAttributesElement(subnetwork, name, Util.removeParanthesis(value, type), type);
     }
 
     public final static HiddenAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new HiddenAttributesElement(subnetwork, name, Util.parseStringToStringList(values), type);
+        return new HiddenAttributesElement(subnetwork, name, Util.parseStringToStringList(values, type), type);
     }
 
 }

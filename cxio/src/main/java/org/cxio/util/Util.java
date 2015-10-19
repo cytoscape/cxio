@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.CyGroupsElement;
 import org.cxio.aspects.datamodels.CyViewsElement;
@@ -238,24 +239,29 @@ public final class Util {
         return false;
     }
 
-    public final static List<String> parseStringToStringList(final String string) {
+    public final static List<String> parseStringToStringList(final String string, final ATTRIBUTE_DATA_TYPE type) {
         final List<String> l = new ArrayList<String>();
         if (string == null) {
             return null;
         }
+        final boolean allow_empty_string = (type == ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
         String str = string.trim();
         if (str.startsWith("[") && str.endsWith("]")) {
             str = str.substring(1, str.length() - 1).trim();
-            if ( str.length() == 0 ) {
+            if (str.length() == 0) {
                 return l;
             }
             for (String s : str.split(",", -1)) {
                 s = s.trim();
-                if (  s.equals("null") ) {
+                if (s.equals("null")) {
                     l.add(null);
                 }
                 else if (s.startsWith("\"") && s.endsWith("\"")) {
-                    l.add(s.substring(1, s.length() - 1));
+                    final String substring = s.substring(1, s.length() - 1);
+                    if (!allow_empty_string && (substring.trim().length() < 1)) {
+                        throw new IllegalArgumentException("illegal format, empty strings not allowed: " + str);
+                    }
+                    l.add(substring);
                 }
                 else {
                     throw new IllegalArgumentException("illegal format: " + str);
@@ -268,15 +274,25 @@ public final class Util {
         return l;
     }
 
-    public final static String removeParanthesis(final String string) {
+    public final static String removeParanthesis(final String string, final ATTRIBUTE_DATA_TYPE type) {
         if (string == null) {
             return null;
         }
-        String str = string.trim();
-        if (str.startsWith("\"") && str.endsWith("\"")) {
-            str = str.substring(1, str.length() - 1);
+        String substring = string.trim();
+        if (substring.equals("null")) {
+            return null;
         }
-        return str;
+        if (substring.startsWith("\"") && substring.endsWith("\"")) {
+            substring = substring.substring(1, substring.length() - 1);
+        }
+        else {
+            throw new IllegalArgumentException("illegal format: " + string);
+        }
+        final boolean allow_empty_string = (type == ATTRIBUTE_DATA_TYPE.STRING);
+        if (!allow_empty_string && (substring.trim().length() < 1)) {
+            throw new IllegalArgumentException("illegal format, empty strings not allowed: " + string);
+        }
+        return substring;
     }
 
 }

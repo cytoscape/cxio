@@ -190,12 +190,12 @@ public final class NodeAttributesElement extends AbstractAttributesAspectElement
                                                                             final String value,
                                                                             final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value, type), type);
     }
 
     public final static NodeAttributesElement createInstanceWithSingleValue(final String subnetwork, final String property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value, type), type);
     }
 
     public final static NodeAttributesElement createInstanceWithMultipleValues(final String subnetwork,
@@ -204,12 +204,12 @@ public final class NodeAttributesElement extends AbstractAttributesAspectElement
                                                                                final String values,
                                                                                final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values, type), type);
     }
 
     public final static NodeAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String property_of, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values, type), type);
     }
 
 }

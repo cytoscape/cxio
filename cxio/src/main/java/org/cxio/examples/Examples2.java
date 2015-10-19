@@ -145,7 +145,7 @@ public class Examples2 {
 
         w.start();
         // TODO //FIXME
-        // w.writeAnonymousAspectElementAsList(unknown_element);
+         w.writeOpaqueAspectFragment("unknown",unknown_element.toJsonString());
         // w.writeAnonymousAspectElementAsList(anonymous_element);
         // w.writeAnonymousAspectElements(anonymous_too_elements);
         // w.writeAnonymousAspectElementAsList(single_element);

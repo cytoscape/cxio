@@ -113,12 +113,12 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
 
     public final static NetworkAttributesElement createInstanceWithSingleValue(final String subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NetworkAttributesElement(subnetwork, name, Util.removeParanthesis(value), type);
+        return new NetworkAttributesElement(subnetwork, name, Util.removeParanthesis(value, type), type);
     }
 
     public final static NetworkAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NetworkAttributesElement(subnetwork, name, Util.parseStringToStringList(values), type);
+        return new NetworkAttributesElement(subnetwork, name, Util.parseStringToStringList(values, type), type);
     }
 
 }

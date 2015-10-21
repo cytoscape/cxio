@@ -197,6 +197,13 @@ public final class CxReader extends AbstractCxReader {
                     }
                     addMetaData(_jp);
                 }
+                else if (name.equals(Status.NAME)) {
+                    --_level;
+                    if (_level < 1) {
+                        throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
+                    }
+                    addStatus(_jp);
+                }
                 else if (_read_anonymous_aspect_fragments) {
                     final OpaqueFragmentReader reader = OpaqueFragmentReader.createInstance();
                     reader.setAspectName(name);
@@ -296,7 +303,7 @@ public final class CxReader extends AbstractCxReader {
      * @throws NoSuchAlgorithmException
      */
     private CxReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum) throws IOException,
-            NoSuchAlgorithmException {
+    NoSuchAlgorithmException {
         if (input == null) {
             throw new IllegalArgumentException("cx input is null");
         }

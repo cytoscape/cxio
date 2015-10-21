@@ -30,6 +30,7 @@ class AbstractCxReader {
     boolean             _meta_data;
     MetaDataCollection  _pre_meta_data;
     MetaDataCollection  _post_meta_data;
+    Status              _status;
     MessageDigest       _md;
     boolean             _encountered_non_meta_content;
 
@@ -50,6 +51,15 @@ class AbstractCxReader {
      */
     public final MetaDataCollection getPostMetaData() {
         return _post_meta_data;
+    }
+
+    /**
+     * This returns the status oject, if present.
+     *
+     * @return the Status object
+     */
+    public final Status getStatus() {
+        return _status;
     }
 
     /**
@@ -140,6 +150,13 @@ class AbstractCxReader {
             else {
                 _pre_meta_data = md;
             }
+        }
+    }
+
+    void addStatus(final JsonParser _jp) throws JsonParseException, JsonMappingException, IOException {
+        final Status status = Status.createInstanceFromJson(_jp);
+        if ((status != null)) {
+            _status = status;
         }
     }
 

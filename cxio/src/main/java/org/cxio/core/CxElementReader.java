@@ -18,6 +18,7 @@ import org.cxio.util.Util;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.JsonToken;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
@@ -230,6 +231,11 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                         _anonymous_reader_used = false;
                         _meta_data = true;
                     }
+                    else if (_aspect_name.equals(Status.NAME)) {
+                        addStatus(_jp);
+                        _anonymous_reader_used = false;
+                        _meta_data = true;
+                    }
                     else if (_read_anonymous_aspect_fragments) {
                         _reader = OpaqueFragmentReader.createInstance(_jp, _aspect_name);
                         _anonymous_reader_used = true;
@@ -287,12 +293,16 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                             // OpaqueElement(_aspect_name, _jp.getText());
                         }
                         else {
-                            final ObjectNode o = _m.readTree(_jp);
+
+                            final JsonNode o = _m.readTree(_jp);
                             if (DEBUG) {
                                 System.out.println(">>>" + o);
                             }
                             // if (_reader != null) { //could remove //TODO
-                            _current = _reader.readElement(o);
+                            // if ( o instanceof ObjectNode) {
+                            _current = _reader.readElement((ObjectNode) o);
+                            // }
+
                             // }
                         }
                         _encountered_non_meta_content = true;

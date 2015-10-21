@@ -38,6 +38,7 @@ public final class CxWriter {
     private boolean                                 _calculate_element_counts;
     private MetaDataCollection                      _pre_meta_data;
     private MetaDataCollection                      _post_meta_data;
+    private Status                                  _status;
 
     /**
      * Returns a CxWriter for reading from OutputStream out.
@@ -249,14 +250,33 @@ public final class CxWriter {
      *
      * @throws IOException
      */
-    public void end() throws IOException {
+    public void end(final boolean write_status) throws IOException {
         if (!_started) {
             throw new IllegalStateException("not started");
         }
         _started = false;
         _current_fragment_name = null;
         writeMetaData(_post_meta_data);
+        if (write_status) {
+            if (!hasStatus()) {
+                setStatus(null, false);
+            }
+            writeStatus();
+        }
         _jw.end();
+    }
+
+    /**
+     * This method is to be called at the end of writing to a stream.
+     *
+     * @throws IOException
+     */
+    public void end() throws IOException {
+        end(false);
+    }
+
+    private boolean hasStatus() {
+        return _status != null;
     }
 
     /**
@@ -426,6 +446,24 @@ public final class CxWriter {
         }
     }
 
+    public void setStatus(final String error_message, final boolean has_error) {
+        _status = new Status(error_message, has_error);
+    }
+
+    public void deleteStatus() {
+        _status = null;
+    }
+
+    private final void writeStatus() throws IOException {
+        if (_status != null) {
+            _status.toJson(_jw);
+        }
+    }
+
+    public final void writeOpaqueAspectFragment(final String name, final OpaqueElement opque_element) throws IOException {
+        writeOpaqueAspectFragment(name, opque_element.toJsonString());
+    }
+
     public final void writeOpaqueAspectFragment(final String name, final String json_string) throws IOException {
         if (!_started) {
             throw new IllegalStateException("not started");
@@ -442,6 +480,10 @@ public final class CxWriter {
         }
     }
 
+    public final void writeOpaqueAspectElement(final OpaqueElement opque_element) throws IOException {
+        writeOpaqueAspectElement(opque_element.toJsonString());
+    }
+
     public final void writeOpaqueAspectElement(final String json_string) throws IOException {
         if (!_started) {
             throw new IllegalStateException("not started");
@@ -456,6 +498,23 @@ public final class CxWriter {
         if (_calculate_element_counts) {
             _element_counts.processAspectElement(_current_fragment_name);
         }
+    }
+
+    public final void writeOpaqueAspectFragment2(final String name, final Collection<OpaqueElement> opque_elements) throws IOException {
+        if (!_started) {
+            throw new IllegalStateException("not started");
+        }
+        if (_fragment_started) {
+            throw new IllegalStateException("in individual elements writing state");
+        }
+        if ((opque_elements == null) || opque_elements.isEmpty()) {
+            return;
+        }
+        startAspectFragment(name);
+        for (final OpaqueElement opaque_element : opque_elements) {
+            writeOpaqueAspectElement(opaque_element.toJsonString());
+        }
+        endAspectFragment();
     }
 
     public final void writeOpaqueAspectFragment(final String name, final Collection<String> json_strings) throws IOException {

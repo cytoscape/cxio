@@ -12,7 +12,6 @@ import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.core.CxReader;
@@ -98,43 +97,6 @@ public class Examples2 {
         anonymous_too_elements.add(anonymous_too_2_elem);
         anonymous_too_elements.add(anonymous_too_3_elem);
 
-        // ---------
-
-        final ObjectNode single = m.createObjectNode();
-        single.put("1", "1");
-        single.put("2", "2");
-        single.put("3", "3");
-        single.put("4", "4");
-        single.put("5", "5");
-        final OpaqueElement single_element = new OpaqueElement("single", single);
-
-        // ---------
-
-        final ObjectNode single2 = m.createObjectNode();
-        single2.put("1", "1");
-        single2.put("2", "2");
-        final OpaqueElement single_element2 = new OpaqueElement("single2", single2);
-
-        // ---------
-
-        final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
-        edges_elements.add(new EdgesElement("edge0", "node0", "node1"));
-        edges_elements.add(new EdgesElement("edge1", "node0", "node2"));
-
-        // ------------
-        final ObjectNode aa1 = m.createObjectNode();
-        aa1.put("k1", "a");
-        aa1.put("k2", "b");
-        final ObjectNode aa2 = m.createObjectNode();
-        aa2.put("k1", "c");
-        aa2.put("k2", "d");
-        final ObjectNode aa3 = m.createObjectNode();
-        aa3.put("k1", "e");
-        aa3.put("k2", "f");
-        final OpaqueElement a1 = new OpaqueElement("anon", aa1);
-        final OpaqueElement a2 = new OpaqueElement("anon", aa2);
-        final OpaqueElement a3 = new OpaqueElement("anon", aa3);
-
         // Writing to CX
         // -------------
 
@@ -144,18 +106,10 @@ public class Examples2 {
         w.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
         w.start();
-        // TODO //FIXME
-         w.writeOpaqueAspectFragment("unknown",unknown_element.toJsonString());
-        // w.writeAnonymousAspectElementAsList(anonymous_element);
-        // w.writeAnonymousAspectElements(anonymous_too_elements);
-        // w.writeAnonymousAspectElementAsList(single_element);
-        // w.writeAnonymousAspectElementAsList(single_element2);
-        // w.writeAnonymousAspectElementAsList(single_element2);
-        // w.writeAspectElements(edges_elements);
-        //
-        // w.writeAnonymousAspectElementAsList(a1);
-        // w.writeAnonymousAspectElementAsList(a2);
-        // w.writeAnonymousAspectElementAsList(a3);
+
+        w.writeOpaqueAspectFragment("unknown", unknown_element.toJsonString());
+        w.writeOpaqueAspectFragment("name", anonymous_element);
+        w.writeOpaqueAspectFragment2("anon", anonymous_too_elements);
 
         w.end();
 
@@ -189,7 +143,6 @@ public class Examples2 {
             }
         }
 
-        //
         final Set<AspectFragmentReader> readers2 = new HashSet<>();
         readers2.add(EdgesFragmentReader.createInstance());
         final CxReader r2 = CxReader.createInstance(cx_json_str, true, true, readers2);

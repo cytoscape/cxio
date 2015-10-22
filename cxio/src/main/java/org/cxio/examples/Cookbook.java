@@ -309,7 +309,7 @@ public class Cookbook {
     }
 
     private final static void checksum(final List<AspectElement> edges_elements, final List<AspectElement> nodes_elements, final List<AspectElement> cartesian_elements) throws IOException,
-    NoSuchAlgorithmException {
+            NoSuchAlgorithmException {
         final OutputStream out = new ByteArrayOutputStream();
         // Pretty printing is true.
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);

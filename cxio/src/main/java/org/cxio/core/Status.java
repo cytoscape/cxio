@@ -19,12 +19,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public final class Status implements Serializable {
 
-    private static final String                   ERROR_MESSAGE    = "error_message";
-    private static final String                   HAS_ERROR        = "has_error";
+    private static final String                   ERROR            = "error";
     public final static String                    NAME             = "status";
     private static final long                     serialVersionUID = 6558992873250381652L;
-
-    private final List<SortedMap<String, String>> _data            = new ArrayList<SortedMap<String, String>>();
+    private static final String                   SUCCESS          = "success";
+    private final List<SortedMap<String, String>> _data;
 
     public final static Status createInstanceFromJson(final InputStream is) throws IOException {
         final ObjectMapper m = new ObjectMapper();
@@ -42,26 +41,27 @@ public final class Status implements Serializable {
     }
 
     public Status() {
-        init();
-        _data.get(0).put(ERROR_MESSAGE, "");
-        _data.get(0).put(HAS_ERROR, String.valueOf(false));
+        _data = new ArrayList<SortedMap<String, String>>();
+
     }
 
-    public Status(final boolean has_error) {
-        init();
-        _data.get(0).put(ERROR_MESSAGE, "");
-        _data.get(0).put(HAS_ERROR, String.valueOf(has_error));
+    public Status(final boolean success) {
+        _data = new ArrayList<SortedMap<String, String>>();
+        _data.add(new TreeMap<String, String>());
+        _data.get(0).put(ERROR, "");
+        _data.get(0).put(SUCCESS, String.valueOf(success));
     }
 
-    public Status(final String error_message, final boolean has_error) {
-        init();
-        _data.get(0).put(ERROR_MESSAGE, error_message == null ? "" : error_message);
-        _data.get(0).put(HAS_ERROR, String.valueOf(has_error));
+    public Status(final boolean success, final String error) {
+        _data = new ArrayList<SortedMap<String, String>>();
+        _data.add(new TreeMap<String, String>());
+        _data.get(0).put(ERROR, error == null ? "" : error);
+        _data.get(0).put(SUCCESS, String.valueOf(success));
     }
 
     @JsonIgnore
-    public final String getErrorMessage() {
-        return _data.get(0).get(ERROR_MESSAGE);
+    public final String getError() {
+        return _data.get(0).get(ERROR);
     }
 
     public List<SortedMap<String, String>> getStatus() {
@@ -73,8 +73,8 @@ public final class Status implements Serializable {
     }
 
     @JsonIgnore
-    public final boolean isHasError() {
-        return Boolean.valueOf(_data.get(0).get(HAS_ERROR));
+    public final boolean isSuccess() {
+        return Boolean.valueOf(_data.get(0).get(SUCCESS));
     }
 
     public final void toJson(final JsonWriter w) throws IOException {
@@ -84,9 +84,9 @@ public final class Status implements Serializable {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append("has error    : " + isHasError());
-        if (!Util.isEmpty(getErrorMessage())) {
-            sb.append("error message: " + getErrorMessage());
+        sb.append("success: " + isSuccess());
+        if (!Util.isEmpty(getError())) {
+            sb.append("error  : " + getError());
         }
         return sb.toString();
     }

@@ -259,7 +259,7 @@ public final class CxWriter {
         writeMetaData(_post_meta_data);
         if (write_status) {
             if (!hasStatus()) {
-                setStatus(null, false);
+                setStatus(true);
             }
             writeStatus();
         }
@@ -446,8 +446,12 @@ public final class CxWriter {
         }
     }
 
-    public void setStatus(final String error_message, final boolean has_error) {
-        _status = new Status(error_message, has_error);
+    public void setStatus(final boolean success, final String message) {
+        _status = new Status(success, message);
+    }
+
+    public void setStatus(final boolean success) {
+        _status = new Status(success);
     }
 
     public void deleteStatus() {

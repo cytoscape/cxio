@@ -10,16 +10,30 @@ import org.cxio.util.CxConstants;
  */
 public final class NodesElement extends AbstractAspectElement {
 
-    public final static String ID   = CxConstants.ID;
-    public final static String NAME = "nodes";
+    public final static String ID        = CxConstants.ID;
+    public final static String NODE_NAME = "n";
+    public final static String NAME      = "nodes";
     private final String       _id;
+    private final String       _node_name;
 
     public NodesElement(final long id) {
         _id = String.valueOf(id);
+        _node_name = null;
     }
 
     public NodesElement(final String id) {
         _id = id;
+        _node_name = null;
+    }
+
+    public NodesElement(final long id, final String node_name) {
+        _id = String.valueOf(id);
+        _node_name = node_name;
+    }
+
+    public NodesElement(final String id, final String node_name) {
+        _id = id;
+        _node_name = node_name;
     }
 
     @Override
@@ -39,6 +53,10 @@ public final class NodesElement extends AbstractAspectElement {
         return _id;
     }
 
+    final public String getNodeName() {
+        return _node_name;
+    }
+
     @Override
     public int hashCode() {
         return _id.hashCode();
@@ -47,8 +65,10 @@ public final class NodesElement extends AbstractAspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(NAME);
-        sb.append(": ");
+        if (_node_name != null) {
+            sb.append(_node_name);
+            sb.append(" ");
+        }
         sb.append(_id);
         return sb.toString();
     }

@@ -19,7 +19,7 @@ public class NodesFragmentReaderTest {
     public void testNodeAspectParsing() throws IOException, ClassNotFoundException {
         final String t0 = "[" + "{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
                 + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"nodes\":[{\"@id\":\"_4\"}]}," + "{\"nodes\":[{\"@id\":\"_5\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_6\"}]}," + "{\"nodes\":[{\"@id\":\"_7\"}]}" + "]";
+                + "{\"nodes\":[{\"@id\":\"_6\"}]}," + "{\"nodes\":[{\"@id\":\"_7\",\"n\":\"name 2\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
@@ -42,6 +42,8 @@ public class NodesFragmentReaderTest {
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_5")));
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_6")));
         assertTrue("failed to get expected " + NodesElement.NAME + " aspect", node_aspects.contains(new NodesElement("_7")));
+        assertTrue( ((NodesElement ) node_aspects.get(7)).getNodeName().equals("name 2"));
+        assertTrue( ((NodesElement ) node_aspects.get(6)).getNodeName() == null);
 
     }
 

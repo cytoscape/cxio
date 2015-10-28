@@ -33,7 +33,7 @@ public class NodesFragmentWriterTest {
 
         final NodesElement n0 = new NodesElement("0");
         final NodesElement n1 = new NodesElement("1");
-        final NodesElement n2 = new NodesElement("2");
+        final NodesElement n2 = new NodesElement("2", "name 2");
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(n0);
         l1.add(n1);
@@ -50,7 +50,7 @@ public class NodesFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end(true,"");
 
-        assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out1.toString());
+        assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\",\"n\":\"name 2\"}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out1.toString());
 
       
 

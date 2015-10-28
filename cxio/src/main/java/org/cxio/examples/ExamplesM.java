@@ -31,7 +31,7 @@ public class ExamplesM {
 
         w.start();
         w.writeAspectElements(edges_elements);
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 

@@ -107,7 +107,7 @@ public class Examples5 {
         w.writeAspectElements(edges_elements);
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(cartesian_elements);
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
         System.out.println(cx_json_str);
@@ -143,7 +143,7 @@ public class Examples5 {
         }
         w2.endAspectFragment();
 
-        w2.end();
+        w2.end(true, "");
 
         final String cx_json_str2 = out2.toString();
         System.out.println(cx_json_str2);

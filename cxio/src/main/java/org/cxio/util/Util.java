@@ -90,7 +90,7 @@ public final class Util {
 
         w.start();
         w.writeAspectElements(elements);
-        w.end();
+        w.end(true, "");
 
         return out.toString();
     }
@@ -129,7 +129,7 @@ public final class Util {
         w.writeAspectElements(res.get(CyGroupsElement.NAME));
         w.writeAspectElements(res.get(SubNetworkElement.NAME));
         w.writeAspectElements(res.get(CyViewsElement.NAME));
-        w.end();
+        w.end(true, "");
 
         return out.toString();
     }

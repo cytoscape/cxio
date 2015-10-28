@@ -86,6 +86,7 @@ public final class Status implements Serializable {
         final StringBuilder sb = new StringBuilder();
         sb.append("success: " + isSuccess());
         if (!Util.isEmpty(getError())) {
+            sb.append("\n");
             sb.append("error  : " + getError());
         }
         return sb.toString();

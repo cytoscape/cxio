@@ -135,7 +135,7 @@ public class ExamplesOpaque {
         w.writeAspectElements(group_elements);
         w.writeAspectElements(views_elements);
         w.writeAspectElements(hidden_elements);
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 

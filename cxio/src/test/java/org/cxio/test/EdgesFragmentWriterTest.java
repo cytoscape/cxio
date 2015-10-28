@@ -25,9 +25,9 @@ public class EdgesFragmentWriterTest {
 
         w0.start();
         w0.writeAspectElements(l0);
-        w0.end();
+        w0.end(true,"");
 
-        assertEquals("[]", out0.toString());
+        assertEquals("[{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out0.toString());
 
         final EdgesElement e0 = new EdgesElement("0", "f0", "t0");
         final EdgesElement e1 = new EdgesElement("1", "f1", "t1");
@@ -42,28 +42,11 @@ public class EdgesFragmentWriterTest {
 
         w1.start();
         w1.writeAspectElements(l1);
-        w1.end();
+        w1.end(true,"");
 
-        assertEquals("[{\"edges\":[{\"@id\":\"0\",\"s\":\"f0\",\"t\":\"t0\"},{\"@id\":\"1\",\"s\":\"f1\",\"t\":\"t1\"}]}]", out1.toString());
+        assertEquals("[{\"edges\":[{\"@id\":\"0\",\"s\":\"f0\",\"t\":\"t0\"},{\"@id\":\"1\",\"s\":\"f1\",\"t\":\"t1\"}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out1.toString());
 
-        final EdgesElement e3 = new EdgesElement("3", "f3", "t3");
-        final EdgesElement e4 = new EdgesElement("4", "f4", "t4", "rela");
-        final List<AspectElement> l2 = new ArrayList<AspectElement>();
-        l2.add(e3);
-        final List<AspectElement> l3 = new ArrayList<AspectElement>();
-        l3.add(e4);
-
-        final ByteArrayOutputStream out2 = new ByteArrayOutputStream();
-        final CxWriter w2 = CxWriter.createInstance(out2, false);
-        w2.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
-
-        w2.start();
-        w2.writeAspectElements(l2);
-        w2.writeAspectElements(l3);
-        w2.end();
-
-        assertEquals("[{\"edges\":[{\"@id\":\"3\",\"s\":\"f3\",\"t\":\"t3\"}]},{\"edges\":[{\"@id\":\"4\",\"s\":\"f4\",\"t\":\"t4\",\"r\":\"rela\"}]}]", out2.toString());
-
+       
     }
 
 }

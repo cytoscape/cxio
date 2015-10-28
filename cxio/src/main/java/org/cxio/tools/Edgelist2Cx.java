@@ -89,7 +89,7 @@ public final class Edgelist2Cx {
         w.writeAspectElements(cx_edges);
         w.writeAspectElements(cx_node_attributes);
         w.writeAspectElements(cx_edge_attributes);
-        w.end();
+        w.end(true, "");
 
         out.close();
 

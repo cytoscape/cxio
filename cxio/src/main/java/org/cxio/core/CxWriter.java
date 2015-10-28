@@ -38,7 +38,6 @@ public final class CxWriter {
     private boolean                                 _calculate_element_counts;
     private MetaDataCollection                      _pre_meta_data;
     private MetaDataCollection                      _post_meta_data;
-    private Status                                  _status;
 
     /**
      * Returns a CxWriter for reading from OutputStream out.
@@ -250,33 +249,18 @@ public final class CxWriter {
      *
      * @throws IOException
      */
-    public void end(final boolean write_status) throws IOException {
+    public void end(final boolean success, final String message) throws IOException {
         if (!_started) {
             throw new IllegalStateException("not started");
         }
         _started = false;
         _current_fragment_name = null;
         writeMetaData(_post_meta_data);
-        if (write_status) {
-            if (!hasStatus()) {
-                setStatus(true);
-            }
-            writeStatus();
+        final Status status = new Status(success, message);
+        if (status != null) {
+            status.toJson(_jw);
         }
         _jw.end();
-    }
-
-    /**
-     * This method is to be called at the end of writing to a stream.
-     *
-     * @throws IOException
-     */
-    public void end() throws IOException {
-        end(false);
-    }
-
-    private boolean hasStatus() {
-        return _status != null;
     }
 
     /**
@@ -443,24 +427,6 @@ public final class CxWriter {
     private final void writeMetaData(final MetaDataCollection md) throws IOException {
         if ((md != null) && !md.isEmpty()) {
             md.toJson(_jw);
-        }
-    }
-
-    public void setStatus(final boolean success, final String message) {
-        _status = new Status(success, message);
-    }
-
-    public void setStatus(final boolean success) {
-        _status = new Status(success);
-    }
-
-    public void deleteStatus() {
-        _status = null;
-    }
-
-    private final void writeStatus() throws IOException {
-        if (_status != null) {
-            _status.toJson(_jw);
         }
     }
 

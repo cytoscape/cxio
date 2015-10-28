@@ -39,7 +39,7 @@ final class TestUtil {
         w.writeAspectElements(res.get(NodeAttributesElement.NAME));
         w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
         w.writeAspectElements(res.get(CyVisualPropertiesElement.NAME));
-        w.end();
+        w.end(true,"");
 
         if (compare_counts) {
             final AspectElementCounts cw = w.getAspectElementCounts();
@@ -68,7 +68,7 @@ final class TestUtil {
         w.writeAspectElements(res.get(NodeAttributesElement.NAME));
         w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
         w.writeAspectElements(res.get(CyVisualPropertiesElement.NAME));
-        w.end();
+        w.end(true,"");
 
         if (compare_counts) {
             final AspectElementCounts cw = w.getAspectElementCounts();

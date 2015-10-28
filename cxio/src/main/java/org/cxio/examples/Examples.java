@@ -104,7 +104,7 @@ public class Examples {
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(node_attributes_elements);
         w.writeAspectElements(vp_elements);
-        w.end(true);
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 

@@ -173,7 +173,7 @@ public class Examples_CxElementReader_MetaData {
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(node_attributes_elements);
         w.writeOpaqueAspectFragment("unknown_element", unknown_element.toJsonString());
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
         System.out.println(cx_json_str);

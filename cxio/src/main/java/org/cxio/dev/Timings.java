@@ -268,7 +268,7 @@ public class Timings {
 
         w.start();
         w.writeAspectElements(elements);
-        w.end();
+        w.end(true, "");
         return System.currentTimeMillis() - t0;
     }
 
@@ -304,7 +304,7 @@ public class Timings {
 
         w.start();
         w.writeAspectElements(elements);
-        w.end();
+        w.end(true, "");
         return System.currentTimeMillis() - t0;
     }
 
@@ -340,7 +340,7 @@ public class Timings {
 
         w.start();
         w.writeAspectElements(elements);
-        w.end();
+        w.end(true, "");
         return System.currentTimeMillis() - t0;
     }
 
@@ -377,7 +377,7 @@ public class Timings {
 
         w.start();
         w.writeAspectElements(elements);
-        w.end();
+        w.end(true, "");
         return System.currentTimeMillis() - t0;
     }
 
@@ -413,7 +413,7 @@ public class Timings {
 
         w.start();
         w.writeAspectElements(nodes_elements);
-        w.end();
+        w.end(true, "");
         return System.currentTimeMillis() - t0;
     }
 

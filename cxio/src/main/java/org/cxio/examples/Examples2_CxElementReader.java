@@ -102,7 +102,7 @@ public class Examples2_CxElementReader {
         w.writeOpaqueAspectFragment("name", anonymous_element);
         w.writeOpaqueAspectFragment2("anon", anonymous_too_elements);
 
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
         // System.out.println(cx_json_str);

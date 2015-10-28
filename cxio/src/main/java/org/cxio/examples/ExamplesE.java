@@ -49,9 +49,9 @@ public class ExamplesE {
         final CxWriter w = CxWriter.createInstanceNEC(out, true);
 
         w.start();
-
+        boolean success = true;
+        String msg = null;
         try {
-
             w.startAspectFragment(NodesElement.NAME);
             for (final AspectElement e : nodes_elements) {
                 w.writeAspectElement(e);
@@ -72,13 +72,11 @@ public class ExamplesE {
 
         }
         catch (final Exception e) {
-            w.setStatus(false, e.getMessage()); // This sets the status message
-                                                // to be written ("success" =
-                                                // false).
+            success = false;
+            msg = e.getMessage();
         }
 
-        w.end(true); // This writes out a status message before closing. Default
-                     // status is "success" = true).
+        w.end(success, msg);
 
         final String cx_json_str = out.toString();
         System.out.println(w.getAspectElementCounts());

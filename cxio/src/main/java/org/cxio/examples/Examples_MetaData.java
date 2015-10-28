@@ -123,7 +123,7 @@ public class Examples_MetaData {
         w.writeAspectElements(cartesian_elements);
         w.writeAspectElements(edge_attributes_elements);
         w.writeAspectElements(node_attributes_elements);
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 

@@ -27,9 +27,9 @@ public class NodesFragmentWriterTest {
 
         w0.start();
         w0.writeAspectElements(l0);
-        w0.end();
+        w0.end(true,"");
 
-        assertEquals("[]", out0.toString());
+        assertEquals("[{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out0.toString());
 
         final NodesElement n0 = new NodesElement("0");
         final NodesElement n1 = new NodesElement("1");
@@ -48,30 +48,11 @@ public class NodesFragmentWriterTest {
 
         w1.start();
         w1.writeAspectElements(l1);
-        w1.end();
+        w1.end(true,"");
 
-        assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]}]", out1.toString());
+        assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out1.toString());
 
-        final NodesElement n3 = new NodesElement("3");
-        final NodesElement n4 = new NodesElement("4");
-        final NodesElement n5 = new NodesElement("5");
-        final List<AspectElement> l2 = new ArrayList<AspectElement>();
-        l2.add(n3);
-        l2.add(n4);
-        final List<AspectElement> l3 = new ArrayList<AspectElement>();
-        l3.add(n5);
-
-        final OutputStream out2 = new ByteArrayOutputStream();
-        final CxWriter w2 = CxWriter.createInstance(out2, false);
-
-        w2.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
-
-        w2.start();
-        w2.writeAspectElements(l2);
-        w2.writeAspectElements(l3);
-        w2.end();
-
-        assertEquals("[{\"nodes\":[{\"@id\":\"3\"},{\"@id\":\"4\"}]},{\"nodes\":[{\"@id\":\"5\"}]}]", out2.toString());
+      
 
     }
 

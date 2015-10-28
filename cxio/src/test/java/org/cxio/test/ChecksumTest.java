@@ -101,7 +101,7 @@ public class ChecksumTest {
         w0.writeAspectElements(cartesian_elements);
         w0.writeAspectElements(edge_attributes_elements);
         w0.writeAspectElements(node_attributes_elements);
-        w0.end();
+        w0.end(true,"");
 
         final String cx_json_str0 = out0.toString();
 
@@ -118,7 +118,7 @@ public class ChecksumTest {
         w1.writeAspectElements(cartesian_elements);
         w1.writeAspectElements(edge_attributes_elements);
         w1.writeAspectElements(node_attributes_elements);
-        w1.end();
+        w1.end(true,"");
 
         final String cx_json_str1 = out1.toString();
 

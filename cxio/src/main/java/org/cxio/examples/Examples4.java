@@ -22,9 +22,8 @@ import org.cxio.core.interfaces.AspectFragmentReader;
 public class Examples4 {
 
     public static void main(final String[] args) throws IOException {
-        final File f = new File("/Users/cmzmasek/Desktop/aa.cx");
+        final File f = new File("/Users/cmzmasek/Desktop/cx example files/0nn6.cx");
         final InputStream in = new FileInputStream(f);
-
         final Set<AspectFragmentReader> readers = new HashSet<>();
         readers.add(EdgesFragmentReader.createInstance());
         readers.add(NodesFragmentReader.createInstance());

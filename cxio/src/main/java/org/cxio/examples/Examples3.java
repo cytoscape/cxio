@@ -68,7 +68,7 @@ public class Examples3 {
         }
         w.endAspectFragment();
 
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
         System.out.println(w.getAspectElementCounts());

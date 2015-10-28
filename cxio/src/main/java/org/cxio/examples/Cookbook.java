@@ -123,7 +123,7 @@ public class Cookbook {
         w.writeAspectElements(nodes_elements);
         w.writeAspectElements(edges_elements);
         w.writeAspectElements(cartesian_elements);
-        w.end();
+        w.end(true, "");
     }
 
     private final static void customElementWriterAndReader() throws IOException {
@@ -171,7 +171,7 @@ public class Cookbook {
         w.writeAspectElements(nodes_elements);
         w.writeAspectElements(edges_elements);
         w.writeAspectElements(cartesian_elements);
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
         System.out.println(cx_json_str);
@@ -211,7 +211,7 @@ public class Cookbook {
         w.writeAspectElements(nodes_elements);
         w.writeAspectElements(edges_elements);
         w.writeAspectElements(cartesian_elements);
-        w.end();
+        w.end(true, "");
     }
 
     private final static void explicitlyAddingWritersWritngOneByOne(final List<AspectElement> edges_elements, final List<AspectElement> nodes_elements, final List<AspectElement> cartesian_elements)
@@ -244,7 +244,7 @@ public class Cookbook {
         }
         w.endAspectFragment();
 
-        w.end();
+        w.end(true, "");
     }
 
     private final static void writingElementsOneByOne(final List<AspectElement> edges_elements, final List<AspectElement> nodes_elements, final List<AspectElement> cartesian_elements)
@@ -273,7 +273,7 @@ public class Cookbook {
         }
         w.endAspectFragment();
 
-        w.end();
+        w.end(true, "");
     }
 
     private final static void writingOfAnonymousElements() throws IOException {
@@ -303,7 +303,7 @@ public class Cookbook {
 
         w.start();
         w.writeOpaqueAspectFragment("anon", anon);
-        w.end();
+        w.end(true, "");
 
         System.out.println(out.toString());
     }
@@ -334,7 +334,7 @@ public class Cookbook {
         }
         w.endAspectFragment();
 
-        w.end(false);
+        w.end(true, "");
 
         final byte[] checksum0 = w.getMd5Checksum();
 

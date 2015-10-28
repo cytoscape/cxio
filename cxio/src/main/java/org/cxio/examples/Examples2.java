@@ -111,7 +111,7 @@ public class Examples2 {
         w.writeOpaqueAspectFragment("name", anonymous_element);
         w.writeOpaqueAspectFragment2("anon", anonymous_too_elements);
 
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 
@@ -174,7 +174,7 @@ public class Examples2 {
 
         w.start();
         w.writeOpaqueAspectFragment("anonymous", anonymous_element.toJsonString());
-        w.end();
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 

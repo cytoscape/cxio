@@ -142,7 +142,7 @@ public class OpaqueElementTest {
         w.writeAspectElements(group_elements);
         w.writeAspectElements(views_elements);
         w.writeAspectElements(hidden_elements);
-        w.end();
+        w.end(true,"");
 
         final String cx_json_str = out.toString();
 
@@ -301,7 +301,7 @@ public class OpaqueElementTest {
         w.writeOpaqueAspectElement(s1);
         w.writeOpaqueAspectElement(s2);
         w.endAspectFragment();
-        w.end();
+        w.end(true,"");
 
         final String cx_json_str = out.toString();
 
@@ -354,7 +354,7 @@ public class OpaqueElementTest {
         w.writeOpaqueAspectFragment("one", s0);
         w.writeOpaqueAspectFragment("two", s1);
         w.writeOpaqueAspectFragment("three", s2);
-        w.end();
+        w.end(true,"");
 
         final String cx_json_str = out.toString();
 
@@ -399,7 +399,7 @@ public class OpaqueElementTest {
 
         w.start();
         w.writeOpaqueAspectFragment("all", l);
-        w.end();
+        w.end(true,"");
 
         final String cx_json_str = out.toString();
 
@@ -442,7 +442,7 @@ public class OpaqueElementTest {
         w.writeOpaqueAspectElement(s1);
         w.writeOpaqueAspectElement(s2);
         w.endAspectFragment();
-        w.end();
+        w.end(true,"");
 
         final String cx_json_str = out.toString();
 
@@ -485,7 +485,7 @@ public class OpaqueElementTest {
         w.writeOpaqueAspectElement(s1);
         w.writeOpaqueAspectElement(s2);
         w.endAspectFragment();
-        w.end();
+        w.end(true,"");
 
         final String cx_json_str = out.toString();
 

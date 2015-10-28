@@ -16,7 +16,7 @@ import org.junit.Test;
 
 public class CyGroupsFragmentWriterTest {
 
-    final static String CX_GROUPS_STR = "[{\"cyGroups\":[{\"group\":\"group_id\",\"view\":\"view\",\"name\":\"name\",\"nodes\":[\"n1\",\"n2\"],\"external_edges\":[\"ext1\",\"ext2\"],\"internal_edges\":[\"int1\",\"int2\"]}]}]";
+    final static String CX_GROUPS_STR = "[{\"cyGroups\":[{\"group\":\"group_id\",\"view\":\"view\",\"name\":\"name\",\"nodes\":[\"n1\",\"n2\"],\"external_edges\":[\"ext1\",\"ext2\"],\"internal_edges\":[\"int1\",\"int2\"]}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]";
 
     @Test
     public void test() throws IOException {
@@ -40,7 +40,7 @@ public class CyGroupsFragmentWriterTest {
 
         w1.start();
         w1.writeAspectElements(l1);
-        w1.end();
+        w1.end(true,"");
 
         assertEquals(CX_GROUPS_STR, out1.toString());
 

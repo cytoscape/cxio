@@ -6,7 +6,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
@@ -125,19 +125,19 @@ public class Examples5 {
 
         w2.start();
 
-        w2.startAspectFragment(NodesElement.NAME);
+        w2.startAspectFragment(NodesElement.ASPECT_NAME);
         for (final AspectElement e : nodes_elements) {
             w2.writeAspectElement(e);
         }
         w2.endAspectFragment();
 
-        w2.startAspectFragment(EdgesElement.NAME);
+        w2.startAspectFragment(EdgesElement.ASPECT_NAME);
         for (final AspectElement e : edges_elements) {
             w2.writeAspectElement(e);
         }
         w2.endAspectFragment();
 
-        w2.startAspectFragment(CartesianLayoutElement.NAME);
+        w2.startAspectFragment(CartesianLayoutElement.ASPECT_NAME);
         for (final AspectElement e : cartesian_elements) {
             w2.writeAspectElement(e);
         }

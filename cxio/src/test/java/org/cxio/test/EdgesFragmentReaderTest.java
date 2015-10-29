@@ -19,25 +19,25 @@ public class EdgesFragmentReaderTest {
     public void testEdgesAspectParsing() throws IOException, ClassNotFoundException {
         final String t0 = "["
 
-        + "{\"edges\":[{\"@id\":\"e2\",\"s\":\"_4\",\"t\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e3\",\"s\":\"_6\",\"t\":\"_7\",\"r\":\"rel A\"}]}" + "]";
+        + "{\"edges\":[{\"@id\":\"e2\",\"s\":\"_4\",\"t\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e3\",\"s\":\"_6\",\"t\":\"_7\",\"i\":\"rel A\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + EdgesElement.NAME + " aspect", r0.containsKey(EdgesElement.NAME));
+        assertTrue("failed to parse " + EdgesElement.ASPECT_NAME + " aspect", r0.containsKey(EdgesElement.ASPECT_NAME));
 
-        assertFalse("failed to parse " + EdgesElement.NAME + " aspect", r0.get(EdgesElement.NAME).isEmpty());
+        assertFalse("failed to parse " + EdgesElement.ASPECT_NAME + " aspect", r0.get(EdgesElement.ASPECT_NAME).isEmpty());
 
-        assertTrue("failed to parse expected number of " + EdgesElement.NAME + " aspects", r0.get(EdgesElement.NAME).size() == 2);
+        assertTrue("failed to parse expected number of " + EdgesElement.ASPECT_NAME + " aspects", r0.get(EdgesElement.ASPECT_NAME).size() == 2);
 
-        final List<AspectElement> edge_aspects = r0.get(EdgesElement.NAME);
+        final List<AspectElement> edge_aspects = r0.get(EdgesElement.ASPECT_NAME);
 
         assertTrue("failed to get expected NodeAspect instance", edge_aspects.get(0) instanceof EdgesElement);
 
-        assertTrue("failed to get expected " + EdgesElement.NAME + " aspect", edge_aspects.contains(new EdgesElement("e2", "0", "0")));
-        assertTrue("failed to get expected " + EdgesElement.NAME + " aspect", edge_aspects.contains(new EdgesElement("e3", "0", "0")));
+        assertTrue("failed to get expected " + EdgesElement.ASPECT_NAME + " aspect", edge_aspects.contains(new EdgesElement("e2", "0", "0")));
+        assertTrue("failed to get expected " + EdgesElement.ASPECT_NAME + " aspect", edge_aspects.contains(new EdgesElement("e3", "0", "0")));
 
-        assertTrue(((EdgesElement) edge_aspects.get(1)).getRelationship().equals("rel A"));
+        assertTrue(((EdgesElement) edge_aspects.get(1)).getInteraction().equals("rel A"));
 
     }
 

@@ -13,6 +13,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Set;
 
+import org.cxio.aux.AspectElementCounts;
+import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;
 import org.cxio.util.Util;

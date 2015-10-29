@@ -48,11 +48,11 @@ public class ExamplesM {
                                                                       readers);
 
         for (final AspectElement e : reader) {
-            if (e.getAspectName() == EdgesElement.NAME) {
+            if (e.getAspectName() == EdgesElement.ASPECT_NAME) {
                 final EdgesElement ee = (EdgesElement) e;
                 final String s = ee.getSource();
                 final String t = ee.getTarget();
-                final String r = ee.getRelationship();
+                final String r = ee.getInteraction();
                 System.out.println(ee);
             }
         }

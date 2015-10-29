@@ -13,7 +13,7 @@ import java.util.List;
  */
 public final class SubNetworkElement extends AbstractAspectElement {
 
-    public final static String      NAME         = "subNetworks";
+    public final static String      ASPECT_NAME  = "subNetworks";
     public final static String      SUBNET_EDGES = "edges";
     public final static String      SUBNET_ID    = "id";
     public final static String      SUBNET_NODES = "nodes";
@@ -44,7 +44,7 @@ public final class SubNetworkElement extends AbstractAspectElement {
 
     @Override
     public final String getAspectName() {
-        return NAME;
+        return ASPECT_NAME;
     }
 
     final public List<String> getEdges() {
@@ -84,7 +84,7 @@ public final class SubNetworkElement extends AbstractAspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(NAME);
+        sb.append(ASPECT_NAME);
         sb.append(": ");
         sb.append("\n");
         sb.append("id: ");

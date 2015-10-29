@@ -2,8 +2,9 @@ package org.cxio.aspects.readers;
 
 import java.io.IOException;
 
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.AbstractAttributesAspectElement;
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.AttributesAspectUtils;
 import org.cxio.aspects.datamodels.HiddenAttributesElement;
 import org.cxio.core.interfaces.AspectElement;
 
@@ -21,14 +22,14 @@ public class HiddenAttributesFragmentReader extends AbstractFragmentReader {
 
     @Override
     public String getAspectName() {
-        return HiddenAttributesElement.NAME;
+        return HiddenAttributesElement.ASPECT_NAME;
     }
 
     @Override
     public AspectElement readElement(final ObjectNode o) throws IOException {
         ATTRIBUTE_DATA_TYPE type = ATTRIBUTE_DATA_TYPE.STRING;
         if (o.has(AbstractAttributesAspectElement.ATTR_DATA_TYPE)) {
-            type = AbstractAttributesAspectElement.toDataType(ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_DATA_TYPE));
+            type = AttributesAspectUtils.toDataType(ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_DATA_TYPE));
         }
         if (ParserUtils.isArray(o, AbstractAttributesAspectElement.ATTR_VALUES)) {
             return new HiddenAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),

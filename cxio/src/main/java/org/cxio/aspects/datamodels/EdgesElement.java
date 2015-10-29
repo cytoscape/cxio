@@ -13,55 +13,55 @@ import org.cxio.util.Util;
 public final class EdgesElement extends AbstractAspectElement {
 
     public final static String ID             = CxConstants.ID;
-    final public static String NAME           = "edges";
+    final public static String ASPECT_NAME    = "edges";
     public final static String SOURCE_NODE_ID = "s";
     public final static String TARGET_NODE_ID = "t";
-    public final static String RELATIONSHIP   = "r";
+    public final static String INTERACTION    = "i";
     final private String       _id;
     final private String       _source;
     final private String       _target;
-    final private String       _relationship;
+    final private String       _interaction;
 
     public EdgesElement(final long id, final long source, final long target) {
         _id = String.valueOf(id);
         _source = String.valueOf(source);
         _target = String.valueOf(target);
-        _relationship = null;
+        _interaction = null;
     }
 
     public EdgesElement(final long id, final String source, final String target) {
         _id = String.valueOf(id);
         _source = source;
         _target = target;
-        _relationship = null;
+        _interaction = null;
     }
 
     public EdgesElement(final String id, final String source, final String target) {
         _id = id;
         _source = source;
         _target = target;
-        _relationship = null;
+        _interaction = null;
     }
 
-    public EdgesElement(final long id, final long source, final long target, final String relationship) {
+    public EdgesElement(final long id, final long source, final long target, final String interaction) {
         _id = String.valueOf(id);
         _source = String.valueOf(source);
         _target = String.valueOf(target);
-        _relationship = relationship;
+        _interaction = interaction;
     }
 
-    public EdgesElement(final long id, final String source, final String target, final String relationship) {
+    public EdgesElement(final long id, final String source, final String target, final String interaction) {
         _id = String.valueOf(id);
         _source = source;
         _target = target;
-        _relationship = relationship;
+        _interaction = interaction;
     }
 
-    public EdgesElement(final String id, final String source, final String target, final String relationship) {
+    public EdgesElement(final String id, final String source, final String target, final String interaction) {
         _id = id;
         _source = source;
         _target = target;
-        _relationship = relationship;
+        _interaction = interaction;
     }
 
     @Override
@@ -75,7 +75,7 @@ public final class EdgesElement extends AbstractAspectElement {
 
     @Override
     public String getAspectName() {
-        return EdgesElement.NAME;
+        return EdgesElement.ASPECT_NAME;
     }
 
     public final String getId() {
@@ -90,8 +90,8 @@ public final class EdgesElement extends AbstractAspectElement {
         return _target;
     }
 
-    public final String getRelationship() {
-        return _relationship;
+    public final String getInteraction() {
+        return _interaction;
     }
 
     @Override
@@ -102,16 +102,16 @@ public final class EdgesElement extends AbstractAspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(NAME);
+        sb.append(ASPECT_NAME);
         sb.append(": ");
         sb.append(getId());
         sb.append(" ");
         sb.append(getSource());
         sb.append("->");
         sb.append(getTarget());
-        if (!Util.isEmpty(getRelationship())) {
-            sb.append(" ");
-            sb.append(getRelationship());
+        if (!Util.isEmpty(getInteraction())) {
+            sb.append(" interaction: ");
+            sb.append(getInteraction());
         }
         return sb.toString();
     }

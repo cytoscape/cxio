@@ -17,7 +17,7 @@ public class EdgesFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return EdgesElement.NAME;
+        return EdgesElement.ASPECT_NAME;
     }
 
     @Override
@@ -27,7 +27,7 @@ public class EdgesFragmentWriter extends AbstractFragmentWriter {
         w.writeStringField(EdgesElement.ID, e.getId());
         w.writeStringField(EdgesElement.SOURCE_NODE_ID, e.getSource());
         w.writeStringField(EdgesElement.TARGET_NODE_ID, e.getTarget());
-        w.writeStringFieldIfNotEmpty(EdgesElement.RELATIONSHIP, e.getRelationship());
+        w.writeStringFieldIfNotEmpty(EdgesElement.INTERACTION, e.getInteraction());
         w.writeEndObject();
 
     }

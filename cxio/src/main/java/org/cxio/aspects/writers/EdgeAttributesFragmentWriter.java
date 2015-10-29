@@ -27,7 +27,7 @@ public class EdgeAttributesFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return EdgeAttributesElement.NAME;
+        return EdgeAttributesElement.ASPECT_NAME;
     }
 
     @Override

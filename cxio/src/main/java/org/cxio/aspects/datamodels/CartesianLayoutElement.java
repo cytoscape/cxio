@@ -10,12 +10,12 @@ import org.cxio.util.Util;
  */
 public final class CartesianLayoutElement extends AbstractAspectElement {
 
-    public final static String NAME = "cartesianLayout";
-    public final static String NODE = "node";
-    public final static String VIEW = "view";
-    public final static String X    = "x";
-    public final static String Y    = "y";
-    public final static String Z    = "z";
+    public final static String ASPECT_NAME = "cartesianLayout";
+    public final static String NODE        = "node";
+    public final static String VIEW        = "view";
+    public final static String X           = "x";
+    public final static String Y           = "y";
+    public final static String Z           = "z";
     private final String       _node;
     private final String       _view;
     private final String       _x;
@@ -88,7 +88,7 @@ public final class CartesianLayoutElement extends AbstractAspectElement {
 
     @Override
     public String getAspectName() {
-        return CartesianLayoutElement.NAME;
+        return CartesianLayoutElement.ASPECT_NAME;
     }
 
     final public String getView() {
@@ -118,7 +118,7 @@ public final class CartesianLayoutElement extends AbstractAspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(NAME);
+        sb.append(ASPECT_NAME);
         sb.append(": ");
         sb.append("node: ");
         sb.append(_node);

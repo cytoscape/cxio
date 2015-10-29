@@ -15,7 +15,7 @@ import org.cxio.util.Util;
  */
 public final class HiddenAttributesElement extends AbstractAttributesAspectElement {
 
-    public final static String NAME = "hiddenAttributes";
+    public final static String ASPECT_NAME = "hiddenAttributes";
 
     public HiddenAttributesElement(final String subnetwork, final String name, final List<String> values) {
         _data_type = ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
@@ -26,7 +26,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
     }
 
     public HiddenAttributesElement(final String subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
-        if (!isListType(type)) {
+        if (!AttributesAspectUtils.isListType(type)) {
             throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
         }
         _data_type = type;
@@ -37,7 +37,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
     }
 
     public HiddenAttributesElement(final String subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
-        if (isListType(type)) {
+        if (AttributesAspectUtils.isListType(type)) {
             throw new IllegalArgumentException("single value provided, but given data type is " + type.toString());
         }
         _data_type = type;
@@ -62,7 +62,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         if (value instanceof List) {
             throw new IllegalArgumentException("constructor only applicable for singe values");
         }
-        _data_type = determineDataType(value);
+        _data_type = AttributesAspectUtils.determineDataType(value);
         _is_single_value = true;
         _subnetwork = subnetwork;
         _name = name;
@@ -77,13 +77,13 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
 
     @Override
     public String getAspectName() {
-        return NAME;
+        return ASPECT_NAME;
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(NAME);
+        sb.append(ASPECT_NAME);
         sb.append(": ");
         sb.append("\n");
         if (!Util.isEmpty(_subnetwork)) {

@@ -1,4 +1,4 @@
-package org.cxio.core;
+package org.cxio.aux;
 
 import java.io.IOException;
 import java.io.InputStream;

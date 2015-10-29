@@ -28,16 +28,16 @@ public class CyVisualPropertiesFragmentReaderTest {
         final CxReader p = CxReader.createInstance(t0, readers);
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + CyVisualPropertiesElement.NAME + " aspect", r0.containsKey(CyVisualPropertiesElement.NAME));
+        assertTrue("failed to parse " + CyVisualPropertiesElement.ASPECT_NAME + " aspect", r0.containsKey(CyVisualPropertiesElement.ASPECT_NAME));
 
-        assertFalse("failed to parse " + CyVisualPropertiesElement.NAME + " aspect", r0.get(CyVisualPropertiesElement.NAME).isEmpty());
+        assertFalse("failed to parse " + CyVisualPropertiesElement.ASPECT_NAME + " aspect", r0.get(CyVisualPropertiesElement.ASPECT_NAME).isEmpty());
 
-        assertTrue("failed to parse expected number of " + CyVisualPropertiesElement.NAME + " aspects", r0.get(CyVisualPropertiesElement.NAME).size() == 3);
+        assertTrue("failed to parse expected number of " + CyVisualPropertiesElement.ASPECT_NAME + " aspects", r0.get(CyVisualPropertiesElement.ASPECT_NAME).size() == 3);
 
-        final List<AspectElement> aspects = r0.get(CyVisualPropertiesElement.NAME);
+        final List<AspectElement> aspects = r0.get(CyVisualPropertiesElement.ASPECT_NAME);
 
         final CyVisualPropertiesElement v0 = (CyVisualPropertiesElement) aspects.get(0);
-        assertTrue(v0.getAspectName().equals(CyVisualPropertiesElement.NAME));
+        assertTrue(v0.getAspectName().equals(CyVisualPropertiesElement.ASPECT_NAME));
         assertTrue(v0.getPropertiesOf().equals("nodes:default"));
 
         assertTrue(v0.getProperties().size() == 3);

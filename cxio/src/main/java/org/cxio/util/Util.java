@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.CyGroupsElement;
 import org.cxio.aspects.datamodels.CyViewsElement;
@@ -55,7 +55,7 @@ import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.aspects.writers.SubNetworkFragmentWriter;
 import org.cxio.aspects.writers.VisualPropertiesFragmentWriter;
-import org.cxio.core.AspectElementCounts;
+import org.cxio.aux.AspectElementCounts;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -117,18 +117,18 @@ public final class Util {
 
         final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters());
         w.start();
-        w.writeAspectElements(res.get(NodesElement.NAME));
-        w.writeAspectElements(res.get(EdgesElement.NAME));
-        w.writeAspectElements(res.get(NetworkRelationsElement.NAME));
-        w.writeAspectElements(res.get(NetworkAttributesElement.NAME));
-        w.writeAspectElements(res.get(NodeAttributesElement.NAME));
-        w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
-        w.writeAspectElements(res.get(HiddenAttributesElement.NAME));
-        w.writeAspectElements(res.get(CartesianLayoutElement.NAME));
-        w.writeAspectElements(res.get(CyVisualPropertiesElement.NAME));
-        w.writeAspectElements(res.get(CyGroupsElement.NAME));
-        w.writeAspectElements(res.get(SubNetworkElement.NAME));
-        w.writeAspectElements(res.get(CyViewsElement.NAME));
+        w.writeAspectElements(res.get(NodesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(EdgesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(NetworkRelationsElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(NetworkAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(NodeAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(EdgeAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(HiddenAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(CartesianLayoutElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(CyVisualPropertiesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(CyGroupsElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(SubNetworkElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(CyViewsElement.ASPECT_NAME));
         w.end(true, "");
 
         return out.toString();

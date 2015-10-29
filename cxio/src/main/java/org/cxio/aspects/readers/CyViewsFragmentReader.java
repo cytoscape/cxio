@@ -19,7 +19,7 @@ public class CyViewsFragmentReader extends AbstractFragmentReader {
 
     @Override
     public final String getAspectName() {
-        return CyViewsElement.NAME;
+        return CyViewsElement.ASPECT_NAME;
     }
 
     @Override

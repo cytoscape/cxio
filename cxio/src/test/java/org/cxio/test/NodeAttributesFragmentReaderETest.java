@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.SortedMap;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.interfaces.AspectElement;
@@ -25,11 +25,11 @@ public class NodeAttributesFragmentReaderETest {
         final CxElementReader p = CxElementReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + NodeAttributesElement.NAME + " aspect", r0.containsKey(NodeAttributesElement.NAME));
-        assertFalse("failed to parse " + NodeAttributesElement.NAME + " aspect", r0.get(NodeAttributesElement.NAME).isEmpty());
-        assertTrue("failed to get expected number of " + NodeAttributesElement.NAME + " aspects", r0.get(NodeAttributesElement.NAME).size() == 4);
+        assertTrue("failed to parse " + NodeAttributesElement.ASPECT_NAME + " aspect", r0.containsKey(NodeAttributesElement.ASPECT_NAME));
+        assertFalse("failed to parse " + NodeAttributesElement.ASPECT_NAME + " aspect", r0.get(NodeAttributesElement.ASPECT_NAME).isEmpty());
+        assertTrue("failed to get expected number of " + NodeAttributesElement.ASPECT_NAME + " aspects", r0.get(NodeAttributesElement.ASPECT_NAME).size() == 4);
 
-        final List<AspectElement> aspects = r0.get(NodeAttributesElement.NAME);
+        final List<AspectElement> aspects = r0.get(NodeAttributesElement.ASPECT_NAME);
 
         final NodeAttributesElement a0 = (NodeAttributesElement) aspects.get(0);
         assertTrue(a0.getName().equals("name1"));

@@ -1,4 +1,4 @@
-package org.cxio.core;
+package org.cxio.aux;
 
 import java.util.List;
 import java.util.Map;
@@ -68,19 +68,19 @@ public final class AspectElementCounts {
         return sb.toString();
     }
 
-    final void processAspectElement(final AspectElement element) {
+    final public void processAspectElement(final AspectElement element) {
         increaseAspectElementCount(element.getAspectName());
     }
 
-    final void processAspectElement(final String element_name) {
+    public final void processAspectElement(final String element_name) {
         increaseAspectElementCount(element_name);
     }
 
-    final void processAspectElement(final String element_name, final int count) {
+    public final void processAspectElement(final String element_name, final int count) {
         increaseAspectElementCount(element_name, count);
     }
 
-    final void processAspectElements(final List<AspectElement> elements) {
+    public final void processAspectElements(final List<AspectElement> elements) {
         increaseAspectElementCount(elements.get(0).getAspectName(), elements.size());
     }
 

@@ -22,7 +22,7 @@ public final class CyVisualPropertiesFragmentReader extends AbstractFragmentRead
 
     @Override
     public final String getAspectName() {
-        return CyVisualPropertiesElement.NAME;
+        return CyVisualPropertiesElement.ASPECT_NAME;
     }
 
     @Override

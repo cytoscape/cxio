@@ -18,7 +18,7 @@ public class VisualPropertiesFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return CyVisualPropertiesElement.NAME;
+        return CyVisualPropertiesElement.ASPECT_NAME;
     }
 
     @Override

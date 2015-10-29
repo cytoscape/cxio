@@ -8,6 +8,9 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import org.cxio.aux.AspectElementCounts;
+import org.cxio.aux.OpaqueFragmentReader;
+import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;
@@ -181,7 +184,7 @@ public final class CxReader extends AbstractCxReader {
             List<AspectElement> elements = null;
             final String name = _jp.getCurrentName();
             if (DEBUG) {
-                System.out.println(">>> NAME: " + name);
+                System.out.println(">>> ASPECT_NAME: " + name);
             }
             _was_in_recognized_aspect = false;
             if ((_level == 2) && (_token == JsonToken.FIELD_NAME) && (name != null)) {

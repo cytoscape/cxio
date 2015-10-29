@@ -40,7 +40,7 @@ public class CyGroupsFragmentWriterTest {
 
         w1.start();
         w1.writeAspectElements(l1);
-        w1.end(true,"");
+        w1.end(true, "");
 
         assertEquals(CX_GROUPS_STR, out1.toString());
 

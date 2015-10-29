@@ -13,7 +13,7 @@ import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
-import org.cxio.core.AspectElementCounts;
+import org.cxio.aux.AspectElementCounts;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
@@ -32,14 +32,14 @@ final class TestUtil {
         final CxWriter w = CxWriter.createInstance(out, false, Util.getAllAvailableAspectFragmentWriters());
 
         w.start();
-        w.writeAspectElements(res.get(NodesElement.NAME));
-        w.writeAspectElements(res.get(EdgesElement.NAME));
-        w.writeAspectElements(res.get(CartesianLayoutElement.NAME));
-        w.writeAspectElements(res.get(NetworkAttributesElement.NAME));
-        w.writeAspectElements(res.get(NodeAttributesElement.NAME));
-        w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
-        w.writeAspectElements(res.get(CyVisualPropertiesElement.NAME));
-        w.end(true,"");
+        w.writeAspectElements(res.get(NodesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(EdgesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(CartesianLayoutElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(NetworkAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(NodeAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(EdgeAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(CyVisualPropertiesElement.ASPECT_NAME));
+        w.end(true, "");
 
         if (compare_counts) {
             final AspectElementCounts cw = w.getAspectElementCounts();
@@ -61,14 +61,14 @@ final class TestUtil {
         final CxWriter w = CxWriter.createInstance(out, false, Util.getAllAvailableAspectFragmentWriters());
 
         w.start();
-        w.writeAspectElements(res.get(NodesElement.NAME));
-        w.writeAspectElements(res.get(EdgesElement.NAME));
-        w.writeAspectElements(res.get(CartesianLayoutElement.NAME));
-        w.writeAspectElements(res.get(NetworkAttributesElement.NAME));
-        w.writeAspectElements(res.get(NodeAttributesElement.NAME));
-        w.writeAspectElements(res.get(EdgeAttributesElement.NAME));
-        w.writeAspectElements(res.get(CyVisualPropertiesElement.NAME));
-        w.end(true,"");
+        w.writeAspectElements(res.get(NodesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(EdgesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(CartesianLayoutElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(NetworkAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(NodeAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(EdgeAttributesElement.ASPECT_NAME));
+        w.writeAspectElements(res.get(CyVisualPropertiesElement.ASPECT_NAME));
+        w.end(true, "");
 
         if (compare_counts) {
             final AspectElementCounts cw = w.getAspectElementCounts();

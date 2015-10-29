@@ -2,8 +2,8 @@ package org.cxio.aspects.writers;
 
 import java.io.IOException;
 
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.AbstractAttributesAspectElement;
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
 import org.cxio.filters.AspectKeyFilter;
 import org.cxio.util.JsonWriter;
 
@@ -29,7 +29,7 @@ final class WriterUtil {
                 w.writeList(AbstractAttributesAspectElement.ATTR_VALUES, e.getValues());
             }
             if (e.getDataType() != ATTRIBUTE_DATA_TYPE.STRING) {
-                w.writeStringField(AbstractAttributesAspectElement.ATTR_DATA_TYPE, AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE.toCxLabel(e.getDataType()));
+                w.writeStringField(AbstractAttributesAspectElement.ATTR_DATA_TYPE, ATTRIBUTE_DATA_TYPE.toCxLabel(e.getDataType()));
             }
             w.writeEndObject();
         }

@@ -19,7 +19,7 @@ public final class CartesianLayoutFragmentReader extends AbstractFragmentReader 
 
     @Override
     public final String getAspectName() {
-        return CartesianLayoutElement.NAME;
+        return CartesianLayoutElement.ASPECT_NAME;
     }
 
     @Override

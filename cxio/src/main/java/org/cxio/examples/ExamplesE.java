@@ -52,19 +52,19 @@ public class ExamplesE {
         boolean success = true;
         String msg = null;
         try {
-            w.startAspectFragment(NodesElement.NAME);
+            w.startAspectFragment(NodesElement.ASPECT_NAME);
             for (final AspectElement e : nodes_elements) {
                 w.writeAspectElement(e);
             }
             w.endAspectFragment();
 
-            w.startAspectFragment(EdgesElement.NAME);
+            w.startAspectFragment(EdgesElement.ASPECT_NAME);
             for (final AspectElement e : edges_elements) {
                 w.writeAspectElement(e);
             }
             w.endAspectFragment();
 
-            w.startAspectFragment(CartesianLayoutElement.NAME);
+            w.startAspectFragment(CartesianLayoutElement.ASPECT_NAME);
             for (final AspectElement e : cartesian_elements) {
                 w.writeAspectElement(e);
             }

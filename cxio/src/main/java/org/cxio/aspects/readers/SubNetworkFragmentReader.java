@@ -19,7 +19,7 @@ public final class SubNetworkFragmentReader extends AbstractFragmentReader {
 
     @Override
     public final String getAspectName() {
-        return SubNetworkElement.NAME;
+        return SubNetworkElement.ASPECT_NAME;
     }
 
     @Override

@@ -17,7 +17,7 @@ public class NodesFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return NodesElement.NAME;
+        return NodesElement.ASPECT_NAME;
     }
 
     @Override
@@ -27,6 +27,9 @@ public class NodesFragmentWriter extends AbstractFragmentWriter {
         w.writeStringField(NodesElement.ID, e.getId());
         if (e.getNodeName() != null) {
             w.writeStringField(NodesElement.NODE_NAME, e.getNodeName());
+        }
+        if (e.getNodeRepresents() != null) {
+            w.writeStringField(NodesElement.NODE_REPRESENTS, e.getNodeRepresents());
         }
         w.writeEndObject();
     }

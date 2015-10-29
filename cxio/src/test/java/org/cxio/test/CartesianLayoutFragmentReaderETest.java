@@ -23,13 +23,13 @@ public class CartesianLayoutFragmentReaderETest {
         final CxElementReader p = CxElementReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + CartesianLayoutElement.NAME + " aspect", r0.containsKey(CartesianLayoutElement.NAME));
+        assertTrue("failed to parse " + CartesianLayoutElement.ASPECT_NAME + " aspect", r0.containsKey(CartesianLayoutElement.ASPECT_NAME));
 
-        assertFalse("failed to parse " + CartesianLayoutElement.NAME + " aspect", r0.get(CartesianLayoutElement.NAME).isEmpty());
+        assertFalse("failed to parse " + CartesianLayoutElement.ASPECT_NAME + " aspect", r0.get(CartesianLayoutElement.ASPECT_NAME).isEmpty());
 
-        assertTrue("failed to parse expected number of " + CartesianLayoutElement.NAME + " aspects", r0.get(CartesianLayoutElement.NAME).size() == 2);
+        assertTrue("failed to parse expected number of " + CartesianLayoutElement.ASPECT_NAME + " aspects", r0.get(CartesianLayoutElement.ASPECT_NAME).size() == 2);
 
-        final List<AspectElement> aspects = r0.get(CartesianLayoutElement.NAME);
+        final List<AspectElement> aspects = r0.get(CartesianLayoutElement.ASPECT_NAME);
 
         assertTrue("failed to get expected instance", aspects.get(0) instanceof CartesianLayoutElement);
 

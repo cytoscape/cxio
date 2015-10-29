@@ -19,7 +19,7 @@ public final class NetworkRelationsFragmentReader extends AbstractFragmentReader
 
     @Override
     public final String getAspectName() {
-        return NetworkRelationsElement.NAME;
+        return NetworkRelationsElement.ASPECT_NAME;
     }
 
     @Override

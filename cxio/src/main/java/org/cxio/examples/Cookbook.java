@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
@@ -18,10 +18,10 @@ import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
+import org.cxio.aux.OpaqueElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
-import org.cxio.core.OpaqueElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.examples.custom_aspects.ContextElement;
@@ -226,19 +226,19 @@ public class Cookbook {
 
         w.start();
 
-        w.startAspectFragment(NodesElement.NAME);
+        w.startAspectFragment(NodesElement.ASPECT_NAME);
         for (final AspectElement e : nodes_elements) {
             w.writeAspectElement(e);
         }
         w.endAspectFragment();
 
-        w.startAspectFragment(EdgesElement.NAME);
+        w.startAspectFragment(EdgesElement.ASPECT_NAME);
         for (final AspectElement e : edges_elements) {
             w.writeAspectElement(e);
         }
         w.endAspectFragment();
 
-        w.startAspectFragment(CartesianLayoutElement.NAME);
+        w.startAspectFragment(CartesianLayoutElement.ASPECT_NAME);
         for (final AspectElement e : cartesian_elements) {
             w.writeAspectElement(e);
         }
@@ -255,19 +255,19 @@ public class Cookbook {
 
         w.start();
 
-        w.startAspectFragment(NodesElement.NAME);
+        w.startAspectFragment(NodesElement.ASPECT_NAME);
         for (final AspectElement e : nodes_elements) {
             w.writeAspectElement(e);
         }
         w.endAspectFragment();
 
-        w.startAspectFragment(EdgesElement.NAME);
+        w.startAspectFragment(EdgesElement.ASPECT_NAME);
         for (final AspectElement e : edges_elements) {
             w.writeAspectElement(e);
         }
         w.endAspectFragment();
 
-        w.startAspectFragment(CartesianLayoutElement.NAME);
+        w.startAspectFragment(CartesianLayoutElement.ASPECT_NAME);
         for (final AspectElement e : cartesian_elements) {
             w.writeAspectElement(e);
         }
@@ -316,19 +316,19 @@ public class Cookbook {
 
         w.start();
 
-        w.startAspectFragment(NodesElement.NAME);
+        w.startAspectFragment(NodesElement.ASPECT_NAME);
         for (final AspectElement e : nodes_elements) {
             w.writeAspectElement(e);
         }
         w.endAspectFragment();
 
-        w.startAspectFragment(EdgesElement.NAME);
+        w.startAspectFragment(EdgesElement.ASPECT_NAME);
         for (final AspectElement e : edges_elements) {
             w.writeAspectElement(e);
         }
         w.endAspectFragment();
 
-        w.startAspectFragment(CartesianLayoutElement.NAME);
+        w.startAspectFragment(CartesianLayoutElement.ASPECT_NAME);
         for (final AspectElement e : cartesian_elements) {
             w.writeAspectElement(e);
         }

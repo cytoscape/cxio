@@ -25,7 +25,7 @@ public class MetaDataTest {
 
         final MetaDataElement node_meta = new MetaDataElement();
 
-        node_meta.setName(NodesElement.NAME);
+        node_meta.setName(NodesElement.ASPECT_NAME);
         node_meta.setVersion("1.0");
         node_meta.setIdCounter(200L);
         node_meta.setLastUpdate(1034334343L);
@@ -53,10 +53,10 @@ public class MetaDataTest {
 
         assertEquals(2, md.size());
 
-        final MetaDataElement mde0 = md.getMetaDataElement(NodesElement.NAME);
+        final MetaDataElement mde0 = md.getMetaDataElement(NodesElement.ASPECT_NAME);
         final MetaDataElement mde1 = md.getMetaDataElement("Citation");
 
-        assertEquals(NodesElement.NAME, mde0.getName());
+        assertEquals(NodesElement.ASPECT_NAME, mde0.getName());
         assertEquals("1.0", mde0.getVersion());
         assertTrue(mde0.getIdCounter() == 200L);
         assertTrue(mde0.getLastUpdate() == 1034334343L);
@@ -78,7 +78,7 @@ public class MetaDataTest {
 
         final MetaDataElement node_meta = new MetaDataElement();
 
-        node_meta.setName(NodesElement.NAME);
+        node_meta.setName(NodesElement.ASPECT_NAME);
         node_meta.setVersion("1.0");
         node_meta.setIdCounter(200L);
         node_meta.setLastUpdate(1034334343L);
@@ -109,7 +109,7 @@ public class MetaDataTest {
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
         w.addPreMetaData(md);
         w.start();
-        w.end(true,"");
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 
@@ -121,10 +121,10 @@ public class MetaDataTest {
 
         assertTrue(my_md.size() == 2);
 
-        final MetaDataElement mde0 = md.getMetaDataElement(NodesElement.NAME);
+        final MetaDataElement mde0 = md.getMetaDataElement(NodesElement.ASPECT_NAME);
         final MetaDataElement mde1 = md.getMetaDataElement("Citation");
 
-        assertEquals(NodesElement.NAME, mde0.getName());
+        assertEquals(NodesElement.ASPECT_NAME, mde0.getName());
         assertEquals("1.0", mde0.getVersion());
         assertTrue(mde0.getIdCounter() == 200L);
         assertTrue(mde0.getLastUpdate() == 1034334343L);
@@ -139,7 +139,7 @@ public class MetaDataTest {
         assertTrue(mde1.get("key2").equals(true));
 
         assertTrue(md.getMetaDataElement("Citation").getName().equals("Citation"));
-        assertTrue(md.getMetaDataElement(NodesElement.NAME).getName().equals(NodesElement.NAME));
+        assertTrue(md.getMetaDataElement(NodesElement.ASPECT_NAME).getName().equals(NodesElement.ASPECT_NAME));
         assertTrue(md.getMetaDataElement("xyz") == null);
 
         final Iterator<MetaDataElement> it = md.iterator();

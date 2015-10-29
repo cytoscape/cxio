@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.SortedMap;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.interfaces.AspectElement;
@@ -25,11 +25,11 @@ public class EdgeAttributesFragmentReaderETest {
         final CxElementReader p = CxElementReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + EdgeAttributesElement.NAME + " aspect", r0.containsKey(EdgeAttributesElement.NAME));
-        assertFalse("failed to parse " + EdgeAttributesElement.NAME + " aspect", r0.get(EdgeAttributesElement.NAME).isEmpty());
-        assertTrue("failed to get expected number of " + EdgeAttributesElement.NAME + " aspects", r0.get(EdgeAttributesElement.NAME).size() == 4);
+        assertTrue("failed to parse " + EdgeAttributesElement.ASPECT_NAME + " aspect", r0.containsKey(EdgeAttributesElement.ASPECT_NAME));
+        assertFalse("failed to parse " + EdgeAttributesElement.ASPECT_NAME + " aspect", r0.get(EdgeAttributesElement.ASPECT_NAME).isEmpty());
+        assertTrue("failed to get expected number of " + EdgeAttributesElement.ASPECT_NAME + " aspects", r0.get(EdgeAttributesElement.ASPECT_NAME).size() == 4);
 
-        final List<AspectElement> aspects = r0.get(EdgeAttributesElement.NAME);
+        final List<AspectElement> aspects = r0.get(EdgeAttributesElement.ASPECT_NAME);
 
         final EdgeAttributesElement ea0 = (EdgeAttributesElement) aspects.get(0);
         assertTrue(ea0.getName().equals("name1"));

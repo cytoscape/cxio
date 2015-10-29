@@ -94,6 +94,14 @@ public final class ParserUtils {
         return o.get(label).isArray();
     }
 
+    /**
+     * Returns the value for label.
+     * Return null if no such label.
+     *
+     * @param o
+     * @param label
+     * @return
+     */
     public final static String getTextValue(final ObjectNode o, final String label) {
         if (o.has(label)) {
             return o.get(label).asText();

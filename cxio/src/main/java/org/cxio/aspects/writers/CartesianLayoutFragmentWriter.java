@@ -31,7 +31,7 @@ public class CartesianLayoutFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return CartesianLayoutElement.NAME;
+        return CartesianLayoutElement.ASPECT_NAME;
     }
 
 }

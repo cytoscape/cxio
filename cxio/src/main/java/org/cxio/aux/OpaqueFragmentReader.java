@@ -1,4 +1,4 @@
-package org.cxio.core;
+package org.cxio.aux;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,13 +18,12 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
  * @author cmzmasek
  *
  */
-final class OpaqueFragmentReader extends AbstractFragmentReader {
+public final class OpaqueFragmentReader extends AbstractFragmentReader {
 
-    private boolean          _is_list;
-    private String           _name;
-    private final JsonParser _jp;
+    private boolean _is_list;
+    private String  _name;
 
-    final static OpaqueFragmentReader createInstance() {
+    public final static OpaqueFragmentReader createInstance() {
         return new OpaqueFragmentReader();
     }
 
@@ -32,14 +31,13 @@ final class OpaqueFragmentReader extends AbstractFragmentReader {
         return new OpaqueFragmentReader(jp);
     }
 
-    final static OpaqueFragmentReader createInstance(final JsonParser jp, final String name) {
+    public final static OpaqueFragmentReader createInstance(final JsonParser jp, final String name) {
         return new OpaqueFragmentReader(jp, name);
     }
 
     private OpaqueFragmentReader() {
         _name = null;
         _m = new ObjectMapper();
-        _jp = null;
         _is_list = false;
 
     }
@@ -47,14 +45,12 @@ final class OpaqueFragmentReader extends AbstractFragmentReader {
     private OpaqueFragmentReader(final JsonParser jp) {
         _name = null;
         _m = new ObjectMapper();
-        _jp = jp;
         _is_list = false;
     }
 
     private OpaqueFragmentReader(final JsonParser jp, final String name) {
         _name = name;
         _m = new ObjectMapper();
-        _jp = jp;
         _is_list = false;
     }
 
@@ -63,7 +59,7 @@ final class OpaqueFragmentReader extends AbstractFragmentReader {
         return _name;
     }
 
-    final boolean isList() {
+    public final boolean isList() {
         return _is_list;
     }
 
@@ -96,7 +92,7 @@ final class OpaqueFragmentReader extends AbstractFragmentReader {
         return elements;
     }
 
-    final void setAspectName(final String name) {
+    public final void setAspectName(final String name) {
         _name = name;
     }
 

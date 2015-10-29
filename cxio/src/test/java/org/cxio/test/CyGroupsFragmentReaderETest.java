@@ -29,13 +29,13 @@ public class CyGroupsFragmentReaderETest {
         final CxElementReader p = CxElementReader.createInstance(t0, readers);
         final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
 
-        assertTrue("failed to parse " + CyGroupsElement.NAME + " aspect", r0.containsKey(CyGroupsElement.NAME));
+        assertTrue("failed to parse " + CyGroupsElement.ASPECT_NAME + " aspect", r0.containsKey(CyGroupsElement.ASPECT_NAME));
 
-        assertFalse("failed to parse " + CyGroupsElement.NAME + " aspect", r0.get(CyGroupsElement.NAME).isEmpty());
+        assertFalse("failed to parse " + CyGroupsElement.ASPECT_NAME + " aspect", r0.get(CyGroupsElement.ASPECT_NAME).isEmpty());
 
-        assertTrue("failed to parse expected number of " + CyGroupsElement.NAME + " aspects", r0.get(CyGroupsElement.NAME).size() == 1);
+        assertTrue("failed to parse expected number of " + CyGroupsElement.ASPECT_NAME + " aspects", r0.get(CyGroupsElement.ASPECT_NAME).size() == 1);
 
-        final List<AspectElement> aspects = r0.get(CyGroupsElement.NAME);
+        final List<AspectElement> aspects = r0.get(CyGroupsElement.ASPECT_NAME);
 
         final CyGroupsElement g0 = (CyGroupsElement) aspects.get(0);
 

@@ -27,7 +27,7 @@ public class NetworkAttributesFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return NetworkAttributesElement.NAME;
+        return NetworkAttributesElement.ASPECT_NAME;
     }
 
     @Override

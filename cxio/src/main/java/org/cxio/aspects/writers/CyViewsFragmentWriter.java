@@ -17,7 +17,7 @@ public class CyViewsFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return CyViewsElement.NAME;
+        return CyViewsElement.ASPECT_NAME;
     }
 
     @Override

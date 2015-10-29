@@ -2,7 +2,7 @@ package org.cxio.test;
 
 import static org.junit.Assert.assertTrue;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.junit.Test;
 

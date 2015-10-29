@@ -39,7 +39,7 @@ public class SubNetworkFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return SubNetworkElement.NAME;
+        return SubNetworkElement.ASPECT_NAME;
     }
 
 }

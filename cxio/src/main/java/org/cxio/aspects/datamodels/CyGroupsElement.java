@@ -18,7 +18,7 @@ public final class CyGroupsElement extends AbstractAspectElement {
     public final static String GROUP_ID       = "group";
     public final static String GROUP_NAME     = "name";
     public final static String INTERNAL_EDGES = "internal_edges";
-    public final static String NAME           = "cyGroups";
+    public final static String ASPECT_NAME    = "cyGroups";
     public final static String NODES          = "nodes";
     public final static String VIEW           = "view";
 
@@ -52,7 +52,7 @@ public final class CyGroupsElement extends AbstractAspectElement {
 
     @Override
     public final String getAspectName() {
-        return NAME;
+        return ASPECT_NAME;
     }
 
     final public List<String> getExternalEdges() {
@@ -82,7 +82,7 @@ public final class CyGroupsElement extends AbstractAspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(NAME);
+        sb.append(ASPECT_NAME);
         sb.append(": ");
         sb.append("name: ");
         sb.append(_name);

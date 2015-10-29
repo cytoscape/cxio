@@ -1,4 +1,4 @@
-package org.cxio.core;
+package org.cxio.aux;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -66,10 +66,6 @@ public final class Status implements Serializable {
 
     public List<SortedMap<String, String>> getStatus() {
         return _data;
-    }
-
-    private final void init() {
-        _data.add(new TreeMap<String, String>());
     }
 
     @JsonIgnore

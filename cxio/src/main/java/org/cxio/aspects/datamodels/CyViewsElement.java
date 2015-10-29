@@ -2,7 +2,7 @@ package org.cxio.aspects.datamodels;
 
 public final class CyViewsElement extends AbstractAspectElement {
 
-    public final static String NAME          = "cyViews";
+    public final static String ASPECT_NAME   = "cyViews";
     public final static String SUBWORKNET_ID = "s";
     private final String       _subnetwork_id;
 
@@ -12,7 +12,7 @@ public final class CyViewsElement extends AbstractAspectElement {
 
     @Override
     public String getAspectName() {
-        return NAME;
+        return ASPECT_NAME;
     }
 
     public String getSubnetworkId() {
@@ -22,7 +22,7 @@ public final class CyViewsElement extends AbstractAspectElement {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
-        sb.append(NAME);
+        sb.append(ASPECT_NAME);
         sb.append(": ");
         sb.append("subnetwork: ");
         sb.append(getSubnetworkId());

@@ -22,7 +22,7 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
     }
 
     final public static String      CHILD           = "c";
-    final public static String      NAME            = "networkRelations";
+    final public static String      ASPECT_NAME     = "networkRelations";
     final public static String      PARENT          = "p";
     final public static String      SUBNETWORK_TYPE = "subnetwork";
     final public static String      RELATIONSHIP    = "r";
@@ -57,7 +57,7 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
 
     @Override
     public String getAspectName() {
-        return NAME;
+        return ASPECT_NAME;
     }
 
     public final String getChild() {

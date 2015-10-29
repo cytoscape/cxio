@@ -6,16 +6,16 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
-import org.cxio.core.AspectElementCounts;
+import org.cxio.aux.AspectElementCounts;
+import org.cxio.aux.OpaqueElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
-import org.cxio.core.OpaqueElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 

@@ -25,7 +25,7 @@ public class EdgesFragmentWriterTest {
 
         w0.start();
         w0.writeAspectElements(l0);
-        w0.end(true,"");
+        w0.end(true, "");
 
         assertEquals("[{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out0.toString());
 
@@ -42,11 +42,10 @@ public class EdgesFragmentWriterTest {
 
         w1.start();
         w1.writeAspectElements(l1);
-        w1.end(true,"");
+        w1.end(true, "");
 
         assertEquals("[{\"edges\":[{\"@id\":\"0\",\"s\":\"f0\",\"t\":\"t0\"},{\"@id\":\"1\",\"s\":\"f1\",\"t\":\"t1\"}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out1.toString());
 
-       
     }
 
 }

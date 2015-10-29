@@ -8,7 +8,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.CyGroupsElement;
 import org.cxio.aspects.datamodels.CyViewsElement;
@@ -18,11 +18,11 @@ import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.HiddenAttributesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
-import org.cxio.core.AspectElementCounts;
+import org.cxio.aux.AspectElementCounts;
+import org.cxio.aux.OpaqueElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
-import org.cxio.core.OpaqueElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.Util;
 import org.junit.Test;
@@ -142,7 +142,7 @@ public class OpaqueElementTest {
         w.writeAspectElements(group_elements);
         w.writeAspectElements(views_elements);
         w.writeAspectElements(hidden_elements);
-        w.end(true,"");
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 
@@ -301,7 +301,7 @@ public class OpaqueElementTest {
         w.writeOpaqueAspectElement(s1);
         w.writeOpaqueAspectElement(s2);
         w.endAspectFragment();
-        w.end(true,"");
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 
@@ -354,7 +354,7 @@ public class OpaqueElementTest {
         w.writeOpaqueAspectFragment("one", s0);
         w.writeOpaqueAspectFragment("two", s1);
         w.writeOpaqueAspectFragment("three", s2);
-        w.end(true,"");
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 
@@ -399,7 +399,7 @@ public class OpaqueElementTest {
 
         w.start();
         w.writeOpaqueAspectFragment("all", l);
-        w.end(true,"");
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 
@@ -442,7 +442,7 @@ public class OpaqueElementTest {
         w.writeOpaqueAspectElement(s1);
         w.writeOpaqueAspectElement(s2);
         w.endAspectFragment();
-        w.end(true,"");
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 
@@ -485,7 +485,7 @@ public class OpaqueElementTest {
         w.writeOpaqueAspectElement(s1);
         w.writeOpaqueAspectElement(s2);
         w.endAspectFragment();
-        w.end(true,"");
+        w.end(true, "");
 
         final String cx_json_str = out.toString();
 

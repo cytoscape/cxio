@@ -48,7 +48,7 @@ public class CyGroupsFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return CyGroupsElement.NAME;
+        return CyGroupsElement.ASPECT_NAME;
     }
 
 }

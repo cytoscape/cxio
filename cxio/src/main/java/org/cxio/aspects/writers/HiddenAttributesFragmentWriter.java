@@ -27,7 +27,7 @@ public class HiddenAttributesFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return HiddenAttributesElement.NAME;
+        return HiddenAttributesElement.ASPECT_NAME;
     }
 
     @Override

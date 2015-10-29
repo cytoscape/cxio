@@ -8,16 +8,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
-import org.cxio.core.AspectElementCounts;
+import org.cxio.aux.AspectElementCounts;
+import org.cxio.aux.OpaqueElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
-import org.cxio.core.OpaqueElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.metadata.MetaDataCollection;
 import org.cxio.metadata.MetaDataElement;
@@ -126,7 +126,7 @@ public class Examples_CxElementReader_MetaData {
 
         final MetaDataElement node_meta = new MetaDataElement();
 
-        node_meta.setName(NodesElement.NAME);
+        node_meta.setName(NodesElement.ASPECT_NAME);
         node_meta.setVersion("1.0");
         node_meta.setIdCounter(200L);
         node_meta.setLastUpdate(1034334343L);

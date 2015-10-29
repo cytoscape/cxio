@@ -19,7 +19,7 @@ public final class EdgesFragmentReader extends AbstractFragmentReader {
 
     @Override
     public final String getAspectName() {
-        return EdgesElement.NAME;
+        return EdgesElement.ASPECT_NAME;
     }
 
     @Override
@@ -27,7 +27,7 @@ public final class EdgesFragmentReader extends AbstractFragmentReader {
         return new EdgesElement(ParserUtils.getTextValueRequired(o, EdgesElement.ID),
                                 ParserUtils.getTextValueRequired(o, EdgesElement.SOURCE_NODE_ID),
                                 ParserUtils.getTextValueRequired(o, EdgesElement.TARGET_NODE_ID),
-                                ParserUtils.getTextValue(o, EdgesElement.RELATIONSHIP));
+                                ParserUtils.getTextValue(o, EdgesElement.INTERACTION));
     }
 
 }

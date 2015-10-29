@@ -10,6 +10,9 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import org.cxio.aux.AspectElementCounts;
+import org.cxio.aux.OpaqueFragmentReader;
+import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;

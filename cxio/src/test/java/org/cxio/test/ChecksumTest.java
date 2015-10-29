@@ -11,7 +11,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.cxio.aspects.datamodels.AbstractAttributesAspectElement.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
@@ -22,7 +22,7 @@ import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
 import org.cxio.aspects.readers.EdgesFragmentReader;
 import org.cxio.aspects.readers.NodeAttributesFragmentReader;
 import org.cxio.aspects.readers.NodesFragmentReader;
-import org.cxio.core.AspectElementCounts;
+import org.cxio.aux.AspectElementCounts;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -101,7 +101,7 @@ public class ChecksumTest {
         w0.writeAspectElements(cartesian_elements);
         w0.writeAspectElements(edge_attributes_elements);
         w0.writeAspectElements(node_attributes_elements);
-        w0.end(true,"");
+        w0.end(true, "");
 
         final String cx_json_str0 = out0.toString();
 
@@ -118,7 +118,7 @@ public class ChecksumTest {
         w1.writeAspectElements(cartesian_elements);
         w1.writeAspectElements(edge_attributes_elements);
         w1.writeAspectElements(node_attributes_elements);
-        w1.end(true,"");
+        w1.end(true, "");
 
         final String cx_json_str1 = out1.toString();
 

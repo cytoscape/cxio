@@ -30,7 +30,7 @@ public class NetworkRelationsFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public String getAspectName() {
-        return NetworkRelationsElement.NAME;
+        return NetworkRelationsElement.ASPECT_NAME;
     }
 
 }

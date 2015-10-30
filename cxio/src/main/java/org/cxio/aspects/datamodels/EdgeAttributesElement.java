@@ -195,12 +195,12 @@ public final class EdgeAttributesElement extends AbstractAttributesAspectElement
                                                                             final String value,
                                                                             final ATTRIBUTE_DATA_TYPE type) {
 
-        return new EdgeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value, type), type);
+        return new EdgeAttributesElement(subnetwork, property_of, name, Util.removeParenthesis(value, type), type);
     }
 
     public final static EdgeAttributesElement createInstanceWithSingleValue(final String subnetwork, final String property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new EdgeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value, type), type);
+        return new EdgeAttributesElement(subnetwork, property_of, name, Util.removeParenthesis(value, type), type);
     }
 
     public final static EdgeAttributesElement createInstanceWithMultipleValues(final String subnetwork,

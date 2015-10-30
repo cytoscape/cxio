@@ -190,12 +190,12 @@ public final class NodeAttributesElement extends AbstractAttributesAspectElement
                                                                             final String value,
                                                                             final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value, type), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParenthesis(value, type), type);
     }
 
     public final static NodeAttributesElement createInstanceWithSingleValue(final String subnetwork, final String property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParanthesis(value, type), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParenthesis(value, type), type);
     }
 
     public final static NodeAttributesElement createInstanceWithMultipleValues(final String subnetwork,

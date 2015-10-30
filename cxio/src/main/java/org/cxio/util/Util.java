@@ -274,7 +274,7 @@ public final class Util {
         return l;
     }
 
-    public final static String removeParanthesis(final String string, final ATTRIBUTE_DATA_TYPE type) {
+    public final static String removeParenthesis(final String string, final ATTRIBUTE_DATA_TYPE type) {
         if (string == null) {
             return null;
         }
@@ -284,9 +284,6 @@ public final class Util {
         }
         if (substring.startsWith("\"") && substring.endsWith("\"")) {
             substring = substring.substring(1, substring.length() - 1);
-        }
-        else {
-            throw new IllegalArgumentException("illegal format: " + string);
         }
         final boolean allow_empty_string = (type == ATTRIBUTE_DATA_TYPE.STRING);
         if (!allow_empty_string && (substring.trim().length() < 1)) {

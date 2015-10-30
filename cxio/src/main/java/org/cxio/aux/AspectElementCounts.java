@@ -7,7 +7,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 public final class AspectElementCounts {
 
@@ -63,7 +63,7 @@ public final class AspectElementCounts {
             sb.append(e.getKey());
             sb.append(": ");
             sb.append(e.getValue());
-            sb.append(Util.LINE_SEPARATOR);
+            sb.append(CxioUtil.LINE_SEPARATOR);
         }
         return sb.toString();
     }

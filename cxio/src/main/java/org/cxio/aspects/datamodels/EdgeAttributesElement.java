@@ -3,7 +3,7 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 /**
  * This class is used to present one attribute of a network edge.
@@ -166,7 +166,7 @@ public final class EdgeAttributesElement extends AbstractAttributesAspectElement
         sb.append("edges: ");
         sb.append(_property_of);
         sb.append("\n");
-        if (!Util.isEmpty(_subnetwork)) {
+        if (!CxioUtil.isEmpty(_subnetwork)) {
             sb.append("subnetwork       : ");
             sb.append(_subnetwork);
             sb.append("\n");
@@ -195,12 +195,12 @@ public final class EdgeAttributesElement extends AbstractAttributesAspectElement
                                                                             final String value,
                                                                             final ATTRIBUTE_DATA_TYPE type) {
 
-        return new EdgeAttributesElement(subnetwork, property_of, name, Util.removeParenthesis(value, type), type);
+        return new EdgeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.removeParenthesis(value, type), type);
     }
 
     public final static EdgeAttributesElement createInstanceWithSingleValue(final String subnetwork, final String property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new EdgeAttributesElement(subnetwork, property_of, name, Util.removeParenthesis(value, type), type);
+        return new EdgeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.removeParenthesis(value, type), type);
     }
 
     public final static EdgeAttributesElement createInstanceWithMultipleValues(final String subnetwork,
@@ -209,12 +209,12 @@ public final class EdgeAttributesElement extends AbstractAttributesAspectElement
                                                                                final String values,
                                                                                final ATTRIBUTE_DATA_TYPE type) {
 
-        return new EdgeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values, type), type);
+        return new EdgeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }
 
     public final static EdgeAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String property_of, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new EdgeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values, type), type);
+        return new EdgeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }
 
 }

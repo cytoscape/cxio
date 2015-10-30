@@ -18,7 +18,7 @@ import org.cxio.aspects.readers.NodesFragmentReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 import org.junit.Test;
 
 public class CxParserTest {
@@ -27,7 +27,7 @@ public class CxParserTest {
     public void testEmpty1() throws IOException, NoSuchAlgorithmException {
 
         final String j = "[]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertFalse(p.hasNext());
         assertEquals(p.getNext(), null);
@@ -44,7 +44,7 @@ public class CxParserTest {
     @Test
     public void testEmpty2() throws IOException, NoSuchAlgorithmException {
         final String j = "[{}]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertFalse(p.hasNext());
         assertEquals(p.getNext(), null);
@@ -61,7 +61,7 @@ public class CxParserTest {
     @Test
     public void test1() throws IOException, NoSuchAlgorithmException {
         final String j = "[{\"key\":\"value\"}]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertFalse(p.hasNext());
         assertEquals(p.getNext(), null);
@@ -78,7 +78,7 @@ public class CxParserTest {
     @Test
     public void test2() throws IOException, NoSuchAlgorithmException {
         final String j = "[{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertFalse(p.hasNext());
         assertEquals(p.getNext(), null);
@@ -95,7 +95,7 @@ public class CxParserTest {
     @Test
     public void test3() throws IOException, NoSuchAlgorithmException {
         final String j = "[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
         final List<AspectElement> x = p.getNext();
@@ -131,7 +131,7 @@ public class CxParserTest {
     public void test4() throws IOException, NoSuchAlgorithmException {
         final String j = "[" + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
                 + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}" + "]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
         assertTrue(p.hasNext());
         final List<AspectElement> x = p.getNext();
         assertFalse(x == null);
@@ -180,7 +180,7 @@ public class CxParserTest {
     public void test5() throws IOException, NoSuchAlgorithmException {
         final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"key\":\"value\"},"
                 + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
         final List<AspectElement> x = p.getNext();
@@ -235,7 +235,7 @@ public class CxParserTest {
 
         + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"key\":\"value\"},"
         + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
         final List<AspectElement> x = p.getNext();
@@ -286,7 +286,7 @@ public class CxParserTest {
         final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
 
         + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
         final List<AspectElement> x = p.getNext();
@@ -336,7 +336,7 @@ public class CxParserTest {
     public void test8() throws IOException, NoSuchAlgorithmException {
         final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"key\":\"value\"},"
                 + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}" + "]";
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
         assertTrue(p.hasNext());
         final List<AspectElement> x = p.getNext();
         assertFalse(x == null);
@@ -400,7 +400,7 @@ public class CxParserTest {
                 + "{\"table\":[{\"row 0\":[\"00\",\"10\" ,\"20\"],\"row 1\":[\"01\",\"11\",\"21\"]}]}," + "{\"cartesianLayout\":[{\"node\":\"_0\",\"x\":\"123\",\"y\":\"456\"}]},"
                 + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"_2\",\"x\":\"5\",\"y\":\"6\"}]}" + "]";
 
-        final CxReader p = CxReader.createInstance(j, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
         //
         assertTrue(p.hasNext());
         List<AspectElement> x = p.getNext();

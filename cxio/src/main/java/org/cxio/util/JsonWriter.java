@@ -144,7 +144,7 @@ public final class JsonWriter {
     }
 
     public final void writeStringFieldIfNotEmpty(final String field_name, final String value) throws IOException {
-        if (!Util.isEmpty(value)) {
+        if (!CxioUtil.isEmpty(value)) {
             _g.writeStringField(field_name, value);
         }
     }

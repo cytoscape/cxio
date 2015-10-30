@@ -14,7 +14,7 @@ import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonToken;
@@ -49,7 +49,7 @@ public final class CxReader extends AbstractCxReader {
      */
     public final static CxReader createInstanceWithAllAvailableReaders(final Object input, final boolean read_anonymous_aspect_fragments) throws IOException {
         try {
-            return new CxReader(input, Util.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments, false);
+            return new CxReader(input, CxioUtil.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments, false);
         }
         catch (final NoSuchAlgorithmException e) {
             throw new IOException(e.getMessage());
@@ -67,7 +67,7 @@ public final class CxReader extends AbstractCxReader {
      */
     public final static CxReader createInstanceWithAllAvailableReaders(final Object input, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum) throws IOException {
         try {
-            return new CxReader(input, Util.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments, calculate_md5_checksum);
+            return new CxReader(input, CxioUtil.getAllAvailableAspectFragmentReaders(), read_anonymous_aspect_fragments, calculate_md5_checksum);
         }
         catch (final NoSuchAlgorithmException e) {
             throw new IOException(e.getMessage());
@@ -90,7 +90,7 @@ public final class CxReader extends AbstractCxReader {
                                                                        final boolean calculate_md5_checksum,
                                                                        final Set<AspectFragmentReader> fragment_readers) throws IOException {
 
-        final Set<AspectFragmentReader> r = Util.getAllAvailableAspectFragmentReaders();
+        final Set<AspectFragmentReader> r = CxioUtil.getAllAvailableAspectFragmentReaders();
         r.addAll(fragment_readers);
         try {
             return new CxReader(input, r, read_anonymous_aspect_fragments, calculate_md5_checksum);
@@ -306,7 +306,7 @@ public final class CxReader extends AbstractCxReader {
      * @throws NoSuchAlgorithmException
      */
     private CxReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum) throws IOException,
-            NoSuchAlgorithmException {
+    NoSuchAlgorithmException {
         if (input == null) {
             throw new IllegalArgumentException("cx input is null");
         }

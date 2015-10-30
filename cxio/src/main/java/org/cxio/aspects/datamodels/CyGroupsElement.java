@@ -3,7 +3,7 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 /**
  * This class is used to represent a group of nodes in network.
@@ -90,7 +90,7 @@ public final class CyGroupsElement extends AbstractAspectElement {
         sb.append("group id: ");
         sb.append(_group_id);
         sb.append("\n");
-        if (!Util.isEmpty(_view)) {
+        if (!CxioUtil.isEmpty(_view)) {
             sb.append("view: ");
             sb.append(_view);
             sb.append("\n");

@@ -21,7 +21,7 @@ import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.metadata.MetaDataCollection;
 import org.cxio.metadata.MetaDataElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -205,7 +205,7 @@ public class Examples_CxElementReader_MetaData {
         System.out.print(p.getPostMetaData());
 
         System.out.println();
-        Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
+        CxioUtil.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
 
     }
 

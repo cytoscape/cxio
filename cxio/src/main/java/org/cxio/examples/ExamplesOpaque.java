@@ -21,7 +21,7 @@ import org.cxio.core.CxElementReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 public class ExamplesOpaque {
 
@@ -163,7 +163,7 @@ public class ExamplesOpaque {
         final AspectElementCounts cr = p.getAspectElementCounts();
         System.out.println(cr);
         final byte[] wmd5 = w.getMd5Checksum();
-        Util.validate(wmd5, p.getMd5Checksum(), cw, cr);
+        CxioUtil.validate(wmd5, p.getMd5Checksum(), cw, cr);
 
         // Reading from CX
         // ---------------
@@ -176,8 +176,8 @@ public class ExamplesOpaque {
 
         final AspectElementCounts cr2 = p2.getAspectElementCounts();
         System.out.println(cr2);
-        Util.validate(wmd5, p2.getMd5Checksum(), cw, cr2);
-        Util.validate(wmd5, wmd5, cr, cr2);
+        CxioUtil.validate(wmd5, p2.getMd5Checksum(), cw, cr2);
+        CxioUtil.validate(wmd5, wmd5, cr, cr2);
 
     }
 

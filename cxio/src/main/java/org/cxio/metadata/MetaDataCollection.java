@@ -9,8 +9,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.SortedMap;
 
+import org.cxio.util.CxioUtil;
 import org.cxio.util.JsonWriter;
-import org.cxio.util.Util;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -358,7 +358,7 @@ public final class MetaDataCollection implements Serializable {
         for (final MetaDataElement e : toCollection()) {
             if ((e != null) && !e.getData().isEmpty()) {
                 sb.append(e);
-                sb.append(Util.LINE_SEPARATOR);
+                sb.append(CxioUtil.LINE_SEPARATOR);
             }
         }
         return sb.toString();

@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import org.cxio.util.CxioUtil;
 import org.cxio.util.JsonWriter;
-import org.cxio.util.Util;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -81,7 +81,7 @@ public final class Status implements Serializable {
     public String toString() {
         final StringBuilder sb = new StringBuilder();
         sb.append("success: " + isSuccess());
-        if (!Util.isEmpty(getError())) {
+        if (!CxioUtil.isEmpty(getError())) {
             sb.append("\n");
             sb.append("error  : " + getError());
         }

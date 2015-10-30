@@ -82,54 +82,9 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
         return _values;
     }
 
-    /**
-     * This returns the values of the attribute as String in the form "value" for single values and in
-     * the form ["value1","value2",...] for list values.
-     *
-     * @return  the value(s) of the attribute as String
-     */
-    public final String getValuesAsString() {
-        final StringBuilder sb = new StringBuilder();
-        if (isSingleValue()) {
-            if (getValue() != null) {
-                sb.append("\"");
-                sb.append(getValue());
-                sb.append("\"");
-            }
-            else {
-                sb.append("null");
-            }
-        }
-        else {
-            if (getValues() != null) {
-                sb.append("[");
-                boolean first = true;
-                for (final String v : getValues()) {
-                    if (first) {
-                        first = false;
-                    }
-                    else {
-                        sb.append(",");
-                    }
-                    if (v != null) {
-                        sb.append("\"");
-                        sb.append(v);
-                        sb.append("\"");
-                    }
-                    else {
-                        sb.append("null");
-                    }
+   
 
-                }
-                sb.append("]");
-            }
-            else {
-                sb.append("null");
-            }
-        }
-        return sb.toString();
-    }
-
+   
     /**
      * This returns the value of the (single) attribute as String.
      *

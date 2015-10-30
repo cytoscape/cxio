@@ -3,7 +3,7 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 /**
  * This class is used to present one hidden attribute.
@@ -86,7 +86,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         sb.append(ASPECT_NAME);
         sb.append(": ");
         sb.append("\n");
-        if (!Util.isEmpty(_subnetwork)) {
+        if (!CxioUtil.isEmpty(_subnetwork)) {
             sb.append("subnetwork       : ");
             sb.append(_subnetwork);
             sb.append("\n");
@@ -110,12 +110,12 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
 
     public final static HiddenAttributesElement createInstanceWithSingleValue(final String subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new HiddenAttributesElement(subnetwork, name, Util.removeParenthesis(value, type), type);
+        return new HiddenAttributesElement(subnetwork, name, DatamodelsUtil.removeParenthesis(value, type), type);
     }
 
     public final static HiddenAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new HiddenAttributesElement(subnetwork, name, Util.parseStringToStringList(values, type), type);
+        return new HiddenAttributesElement(subnetwork, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }
 
 }

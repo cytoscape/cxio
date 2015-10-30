@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import org.cxio.aspects.datamodels.AbstractAspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -70,7 +70,7 @@ public final class OpaqueElement extends AbstractAspectElement {
     @Override
     public final String toString() {
         final StringBuilder sb = new StringBuilder();
-        if (!Util.isEmpty(_name)) {
+        if (!CxioUtil.isEmpty(_name)) {
             sb.append(_name);
             sb.append(": ");
         }

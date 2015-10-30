@@ -17,7 +17,7 @@ import org.cxio.aux.OpaqueElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -146,7 +146,7 @@ public class Examples_CxElementReader_Iterator {
 
         final AspectElementCounts cr = p.getAspectElementCounts();
         System.out.println(cr);
-        Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
+        CxioUtil.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
 
     }
 

@@ -24,7 +24,7 @@ import org.cxio.core.CxElementReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 import org.junit.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -165,7 +165,7 @@ public class OpaqueElementTest {
 
         final AspectElementCounts cr = p.getAspectElementCounts();
         final byte[] wmd5 = w.getMd5Checksum();
-        assertTrue(Util.validate(wmd5, p.getMd5Checksum(), cw, cr));
+        assertTrue(CxioUtil.validate(wmd5, p.getMd5Checksum(), cw, cr));
 
         // Reading from CX
         // ---------------
@@ -177,8 +177,8 @@ public class OpaqueElementTest {
         }
 
         final AspectElementCounts cr2 = p2.getAspectElementCounts();
-        assertTrue(Util.validate(wmd5, p2.getMd5Checksum(), cw, cr2));
-        assertTrue(Util.validate(wmd5, wmd5, cr, cr2));
+        assertTrue(CxioUtil.validate(wmd5, p2.getMd5Checksum(), cw, cr2));
+        assertTrue(CxioUtil.validate(wmd5, wmd5, cr, cr2));
     }
 
     @Test
@@ -324,7 +324,7 @@ public class OpaqueElementTest {
 
         final AspectElementCounts cr = p.getAspectElementCounts();
         final byte[] wmd5 = w.getMd5Checksum();
-        assertTrue(Util.validate(wmd5, p.getMd5Checksum(), cw, cr));
+        assertTrue(CxioUtil.validate(wmd5, p.getMd5Checksum(), cw, cr));
 
         // Reading from CX
         // ---------------
@@ -336,8 +336,8 @@ public class OpaqueElementTest {
         }
 
         final AspectElementCounts cr2 = p2.getAspectElementCounts();
-        assertTrue(Util.validate(wmd5, p2.getMd5Checksum(), cw, cr2));
-        assertTrue(Util.validate(wmd5, wmd5, cr, cr2));
+        assertTrue(CxioUtil.validate(wmd5, p2.getMd5Checksum(), cw, cr2));
+        assertTrue(CxioUtil.validate(wmd5, wmd5, cr, cr2));
     }
 
     @Test

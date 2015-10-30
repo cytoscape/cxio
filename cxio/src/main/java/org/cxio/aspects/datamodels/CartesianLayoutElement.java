@@ -1,6 +1,6 @@
 package org.cxio.aspects.datamodels;
 
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 /**
  * This class is used to represent the position of a network node in x, y, z coordinates.
@@ -122,7 +122,7 @@ public final class CartesianLayoutElement extends AbstractAspectElement {
         sb.append(": ");
         sb.append("node: ");
         sb.append(_node);
-        if (!Util.isEmpty(_view)) {
+        if (!CxioUtil.isEmpty(_view)) {
             sb.append(", view: ");
             sb.append(_view);
         }

@@ -30,7 +30,6 @@ import org.cxio.examples.custom_aspects.ContextFragmentWriter;
 import org.cxio.examples.custom_aspects.ProfileElement;
 import org.cxio.examples.custom_aspects.ProfileFragmentReader;
 import org.cxio.examples.custom_aspects.ProfileFragmentWriter;
-import org.cxio.util.Util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -355,13 +354,6 @@ public class Cookbook {
             System.out.print(b + " ");
         }
         System.out.println();
-
-        if (Util.isAreByteArraysEqual(checksum0, checksum1)) {
-            System.out.println("checksums match");
-        }
-        else {
-            System.out.println("checksums do not match!");
-        }
 
     }
 

@@ -26,7 +26,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;
 import org.cxio.metadata.MetaDataElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 public class Examples_MetaData {
 
@@ -169,7 +169,7 @@ public class Examples_MetaData {
 
         final AspectElementCounts cr = p.getAspectElementCounts();
         System.out.println(cr);
-        Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
+        CxioUtil.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
 
     }
 

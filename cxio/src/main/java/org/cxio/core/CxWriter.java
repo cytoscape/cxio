@@ -20,8 +20,8 @@ import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.metadata.MetaDataCollection;
+import org.cxio.util.CxioUtil;
 import org.cxio.util.JsonWriter;
-import org.cxio.util.Util;
 
 /**
  * This class is for writing aspect fragments (lists of aspects).
@@ -187,7 +187,7 @@ public final class CxWriter {
         catch (final NoSuchAlgorithmException e) {
             throw new IOException(e.getMessage());
         }
-        for (final AspectFragmentWriter afw : Util.getAllAvailableAspectFragmentWriters()) {
+        for (final AspectFragmentWriter afw : CxioUtil.getAllAvailableAspectFragmentWriters()) {
             w.addAspectFragmentWriter(afw);
         }
         return w;
@@ -202,7 +202,7 @@ public final class CxWriter {
         if (writer == null) {
             throw new IllegalArgumentException("aspect fragment writer is null");
         }
-        if (Util.isEmpty(writer.getAspectName())) {
+        if (CxioUtil.isEmpty(writer.getAspectName())) {
             throw new IllegalArgumentException("aspect name is null or empty");
         }
         _writers.put(writer.getAspectName(), writer);
@@ -222,7 +222,7 @@ public final class CxWriter {
         if (_fragment_started) {
             throw new IllegalStateException("fragment already started");
         }
-        if (Util.isEmpty(aspect_name)) {
+        if (CxioUtil.isEmpty(aspect_name)) {
             throw new IllegalStateException("aspect fragment name must not be empty or null");
         }
         _fragment_started = true;
@@ -444,7 +444,7 @@ public final class CxWriter {
         if (_fragment_started) {
             throw new IllegalStateException("in individual elements writing state");
         }
-        if (Util.isEmpty(json_string)) {
+        if (CxioUtil.isEmpty(json_string)) {
             return;
         }
         _jw.writeJsonNodeAsList(name, json_string);
@@ -464,7 +464,7 @@ public final class CxWriter {
         if (!_fragment_started) {
             throw new IllegalStateException("fragment not started");
         }
-        if (Util.isEmpty(json_string)) {
+        if (CxioUtil.isEmpty(json_string)) {
             return;
         }
         _jw.writeAnonymousAspectElement(json_string);
@@ -515,7 +515,7 @@ public final class CxWriter {
 
         OutputStream my_os;
         if (calculate_md5_checksum) {
-            _md = MessageDigest.getInstance(Util.MD5);
+            _md = MessageDigest.getInstance(CxioUtil.MD5);
             my_os = new DigestOutputStream(os, _md);
         }
         else {

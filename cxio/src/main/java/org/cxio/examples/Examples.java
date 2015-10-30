@@ -25,7 +25,7 @@ import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 public class Examples {
 
@@ -139,7 +139,7 @@ public class Examples {
 
         final AspectElementCounts cr = p.getAspectElementCounts();
         System.out.println(cr);
-        Util.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
+        CxioUtil.validate(w.getMd5Checksum(), p.getMd5Checksum(), cw, cr);
 
     }
 

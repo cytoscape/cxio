@@ -18,18 +18,18 @@ import org.cxio.core.CxElementReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 final class TestUtil {
 
     final static String cyCxRoundTrip(final String input_cx, final boolean compare_counts) throws IOException {
-        final CxReader p = CxReader.createInstance(input_cx, true, true, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(input_cx, true, true, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(p);
         final AspectElementCounts cr = p.getAspectElementCounts();
 
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, false, Util.getAllAvailableAspectFragmentWriters());
+        final CxWriter w = CxWriter.createInstance(out, false, CxioUtil.getAllAvailableAspectFragmentWriters());
 
         w.start();
         w.writeAspectElements(res.get(NodesElement.ASPECT_NAME));
@@ -52,13 +52,13 @@ final class TestUtil {
     }
 
     final static String cyCxElementRoundTrip(final String input_cx, final boolean compare_counts) throws IOException {
-        final CxElementReader p = CxElementReader.createInstance(input_cx, true, Util.getAllAvailableAspectFragmentReaders());
+        final CxElementReader p = CxElementReader.createInstance(input_cx, true, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> res = CxElementReader.parseAsMap(p);
         final AspectElementCounts cr = p.getAspectElementCounts();
 
         final OutputStream out = new ByteArrayOutputStream();
 
-        final CxWriter w = CxWriter.createInstance(out, false, Util.getAllAvailableAspectFragmentWriters());
+        final CxWriter w = CxWriter.createInstance(out, false, CxioUtil.getAllAvailableAspectFragmentWriters());
 
         w.start();
         w.writeAspectElements(res.get(NodesElement.ASPECT_NAME));
@@ -79,5 +79,17 @@ final class TestUtil {
         }
 
         return out.toString();
+    }
+    
+    final static boolean isAreByteArraysEqual(final byte[] a0, final byte[] a1) {
+        if (a0.length != a1.length) {
+            return false;
+        }
+        for (int i = 0; i < a1.length; ++i) {
+            if (a0[i] != a1[i]) {
+                return false;
+            }
+        }
+        return true;
     }
 }

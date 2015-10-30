@@ -1,7 +1,7 @@
 package org.cxio.aspects.datamodels;
 
 import org.cxio.util.CxConstants;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 /**
  * This class is used to represent a edge in a network.
@@ -109,7 +109,7 @@ public final class EdgesElement extends AbstractAspectElement {
         sb.append(getSource());
         sb.append("->");
         sb.append(getTarget());
-        if (!Util.isEmpty(getInteraction())) {
+        if (!CxioUtil.isEmpty(getInteraction())) {
             sb.append(" interaction: ");
             sb.append(getInteraction());
         }

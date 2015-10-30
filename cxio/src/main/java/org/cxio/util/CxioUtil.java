@@ -1,24 +1,15 @@
 package org.cxio.util;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.io.StringReader;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
 
-import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.AbstractAttributesAspectElement;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.aspects.datamodels.CyGroupsElement;
 import org.cxio.aspects.datamodels.CyViewsElement;
@@ -62,7 +53,7 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 
-public final class Util {
+public final class CxioUtil {
 
     public final static String LINE_SEPARATOR = System.getProperty("line.separator");
     public final static String MD5            = "MD5";
@@ -71,18 +62,60 @@ public final class Util {
         return (s == null) || (s.length() < 1);
     }
 
-    public final static boolean isAreByteArraysEqual(final byte[] a0, final byte[] a1) {
-        if (a0.length != a1.length) {
-            return false;
+    /**
+     * This returns the values of AttributesAspectElement e as String in the form '"value"' for single values and in
+     * the form '["value1","value2",...]' for list values. Null value are return as 'null'.
+     * 
+     * @param a AttributesAspectElement
+     * @return value(s) as String 
+     */
+    public final static String getAttributeValuesAsString(final AbstractAttributesAspectElement e) {
+        if ( e == null ) {
+            throw new IllegalArgumentException( "attempt to get values as string for null AbstractAttributesAspectElement" );
         }
-        for (int i = 0; i < a1.length; ++i) {
-            if (a0[i] != a1[i]) {
-                return false;
+        final StringBuilder sb = new StringBuilder();
+        if (e.isSingleValue()) {
+            if (e.getValue() != null) {
+                sb.append("\"");
+                sb.append(e.getValue());
+                sb.append("\"");
+            }
+            else {
+                sb.append("null");
             }
         }
-        return true;
+        else {
+            if (e.getValues() != null) {
+                sb.append("[");
+                boolean first = true;
+                for (final String v : e.getValues()) {
+                    if (first) {
+                        first = false;
+                    }
+                    else {
+                        sb.append(",");
+                    }
+                    if (v != null) {
+                        sb.append("\"");
+                        sb.append(v);
+                        sb.append("\"");
+                    }
+                    else {
+                        sb.append("null");
+                    }
+
+                }
+                sb.append("]");
+            }
+            else {
+                sb.append("null");
+            }
+        }
+        return sb.toString();
     }
 
+    
+    
     public final static String writeAspectElementsToString(final ArrayList<AspectElement> elements, final boolean use_default_pretty_printer) throws IOException {
         final OutputStream out = new ByteArrayOutputStream();
 
@@ -95,22 +128,8 @@ public final class Util {
         return out.toString();
     }
 
-    final public static int countChars(final String str, final char c) {
-        int count = 0;
-        for (int i = 0; i < str.length(); ++i) {
-            if (str.charAt(i) == c) {
-                ++count;
-            }
-        }
-        return count;
-    }
-
-    public final static String getCurrentDate(final String format) {
-        return new SimpleDateFormat(format).format(new Date());
-    }
-
     public final static String writeAspectElementsToString(final String cx_string, final boolean use_default_pretty_printer) throws IOException {
-        final CxReader p = CxReader.createInstance(cx_string, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(cx_string, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> res = CxReader.parseAsMap(p);
 
         final OutputStream out = new ByteArrayOutputStream();
@@ -195,36 +214,6 @@ public final class Util {
         return aspect_writers;
     }
 
-    final public static BufferedReader obtainReader(final Object source) throws IOException, FileNotFoundException {
-        BufferedReader reader = null;
-        if (source instanceof File) {
-            final File f = (File) source;
-            if (!f.exists()) {
-                throw new IOException("\"" + f.getAbsolutePath() + "\" does not exist");
-            }
-            else if (!f.isFile()) {
-                throw new IOException("\"" + f.getAbsolutePath() + "\" is not a file");
-            }
-            else if (!f.canRead()) {
-                throw new IOException("\"" + f.getAbsolutePath() + "\" is not a readable");
-            }
-            reader = new BufferedReader(new FileReader(f));
-        }
-        else if (source instanceof InputStream) {
-            reader = new BufferedReader(new InputStreamReader((InputStream) source));
-        }
-        else if (source instanceof String) {
-            reader = new BufferedReader(new StringReader((String) source));
-        }
-        else if (source instanceof StringBuffer) {
-            reader = new BufferedReader(new StringReader(source.toString()));
-        }
-        else {
-            throw new IllegalArgumentException("attempt to parse object of type [" + source.getClass() + "] (can only parse objects of type File, InputStream, String, or StringBuffer)");
-        }
-        return reader;
-    }
-
     public static boolean validate(final byte[] writer_checksum, final byte[] reader_checksum, final AspectElementCounts writer_counts, final AspectElementCounts reader_counts) {
         if (!AspectElementCounts.isCountsAreEqual(reader_counts, writer_counts)) {
             System.out.println("something went wrong: element counts do not match");
@@ -239,57 +228,16 @@ public final class Util {
         return false;
     }
 
-    public final static List<String> parseStringToStringList(final String string, final ATTRIBUTE_DATA_TYPE type) {
-        final List<String> l = new ArrayList<String>();
-        if (string == null) {
-            return null;
+    private final static boolean isAreByteArraysEqual(final byte[] a0, final byte[] a1) {
+        if (a0.length != a1.length) {
+            return false;
         }
-        final boolean allow_empty_string = (type == ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
-        String str = string.trim();
-        if (str.startsWith("[") && str.endsWith("]")) {
-            str = str.substring(1, str.length() - 1).trim();
-            if (str.length() == 0) {
-                return l;
-            }
-            for (String s : str.split(",", -1)) {
-                s = s.trim();
-                if (s.equals("null")) {
-                    l.add(null);
-                }
-                else if (s.startsWith("\"") && s.endsWith("\"")) {
-                    final String substring = s.substring(1, s.length() - 1);
-                    if (!allow_empty_string && (substring.trim().length() < 1)) {
-                        throw new IllegalArgumentException("illegal format, empty strings not allowed: " + str);
-                    }
-                    l.add(substring);
-                }
-                else {
-                    throw new IllegalArgumentException("illegal format: " + str);
-                }
+        for (int i = 0; i < a1.length; ++i) {
+            if (a0[i] != a1[i]) {
+                return false;
             }
         }
-        else {
-            throw new IllegalArgumentException("illegal format: " + str);
-        }
-        return l;
-    }
-
-    public final static String removeParenthesis(final String string, final ATTRIBUTE_DATA_TYPE type) {
-        if (string == null) {
-            return null;
-        }
-        String substring = string.trim();
-        if (substring.equals("null")) {
-            return null;
-        }
-        if (substring.startsWith("\"") && substring.endsWith("\"")) {
-            substring = substring.substring(1, substring.length() - 1);
-        }
-        final boolean allow_empty_string = (type == ATTRIBUTE_DATA_TYPE.STRING);
-        if (!allow_empty_string && (substring.trim().length() < 1)) {
-            throw new IllegalArgumentException("illegal format, empty strings not allowed: " + string);
-        }
-        return substring;
+        return true;
     }
 
 }

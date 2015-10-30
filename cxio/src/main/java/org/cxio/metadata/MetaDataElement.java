@@ -8,7 +8,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 /**
  * This is to hold meta data.
@@ -250,7 +250,7 @@ public class MetaDataElement {
             sb.append(e.getKey());
             sb.append(": ");
             sb.append(e.getValue());
-            sb.append(Util.LINE_SEPARATOR);
+            sb.append(CxioUtil.LINE_SEPARATOR);
         }
         return sb.toString();
     }

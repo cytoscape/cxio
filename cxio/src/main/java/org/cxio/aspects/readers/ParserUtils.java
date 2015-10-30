@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonParser;
@@ -38,7 +38,7 @@ public final class ParserUtils {
             final Iterator<JsonNode> it = o.get(label).iterator();
             while (it.hasNext()) {
                 final String s = it.next().asText();
-                if (!Util.isEmpty(s)) {
+                if (!CxioUtil.isEmpty(s)) {
                     l.add(s);
                 }
             }
@@ -52,7 +52,7 @@ public final class ParserUtils {
             final Iterator<JsonNode> it = o.get(label).iterator();
             while (it.hasNext()) {
                 final String s = it.next().asText();
-                if (!Util.isEmpty(s)) {
+                if (!CxioUtil.isEmpty(s)) {
                     l.add(s);
                 }
             }
@@ -81,7 +81,7 @@ public final class ParserUtils {
                 final Iterator<JsonNode> it = o.get(label).iterator();
                 while (it.hasNext()) {
                     final String s = it.next().asText();
-                    if (!Util.isEmpty(s)) {
+                    if (!CxioUtil.isEmpty(s)) {
                         l.add(s);
                     }
                 }
@@ -114,7 +114,7 @@ public final class ParserUtils {
         if (o.has(label)) {
             s = o.get(label).asText();
         }
-        if (Util.isEmpty(s)) {
+        if (CxioUtil.isEmpty(s)) {
             throw new IOException("malformed CX json: element '" + label + "' is missing in " + o.toString());
         }
         return s;

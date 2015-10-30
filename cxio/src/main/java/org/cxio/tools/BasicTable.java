@@ -4,9 +4,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.cxio.util.Util;
-
 public class BasicTable<E> {
+
+    public final static String          LINE_SEPARATOR = System.getProperty("line.separator");
 
     private int                         _max_col;
     private int                         _max_row;
@@ -143,7 +143,7 @@ public class BasicTable<E> {
                 }
             }
             if (row < (getNumberOfRows() - 1)) {
-                sb.append(Util.LINE_SEPARATOR);
+                sb.append(LINE_SEPARATOR);
             }
         }
         return sb.toString();

@@ -27,7 +27,7 @@ import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 import org.junit.Test;
 
 public class ChecksumTest {
@@ -180,16 +180,16 @@ public class ChecksumTest {
         assertFalse(AspectElementCounts.isCountsAreEqual(cw0, cw1));
         assertFalse(AspectElementCounts.isCountsAreEqual(cw1, cw0));
 
-        assertTrue(Util.isAreByteArraysEqual(cs_r0, cs_w0));
-        assertTrue(Util.isAreByteArraysEqual(cs_r1, cs_w1));
-        assertTrue(Util.isAreByteArraysEqual(cs_w0, cs_r0));
-        assertTrue(Util.isAreByteArraysEqual(cs_w1, cs_r1));
+        assertTrue(TestUtil.isAreByteArraysEqual(cs_r0, cs_w0));
+        assertTrue(TestUtil.isAreByteArraysEqual(cs_r1, cs_w1));
+        assertTrue(TestUtil.isAreByteArraysEqual(cs_w0, cs_r0));
+        assertTrue(TestUtil.isAreByteArraysEqual(cs_w1, cs_r1));
 
-        assertFalse(Util.isAreByteArraysEqual(cs_r0, cs_w1));
-        assertFalse(Util.isAreByteArraysEqual(cs_w1, cs_r0));
+        assertFalse(TestUtil.isAreByteArraysEqual(cs_r0, cs_w1));
+        assertFalse(TestUtil.isAreByteArraysEqual(cs_w1, cs_r0));
 
-        assertFalse(Util.isAreByteArraysEqual(cs_w0, cs_r1));
-        assertFalse(Util.isAreByteArraysEqual(cs_r1, cs_w0));
+        assertFalse(TestUtil.isAreByteArraysEqual(cs_w0, cs_r1));
+        assertFalse(TestUtil.isAreByteArraysEqual(cs_r1, cs_w0));
 
     }
 

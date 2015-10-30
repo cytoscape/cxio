@@ -10,7 +10,7 @@ import java.util.SortedMap;
 import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 import org.junit.Test;
 
 public class EdgesFragmentReaderTest {
@@ -21,7 +21,7 @@ public class EdgesFragmentReaderTest {
 
         + "{\"edges\":[{\"@id\":\"e2\",\"s\":\"_4\",\"t\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e3\",\"s\":\"_6\",\"t\":\"_7\",\"i\":\"rel A\"}]}" + "]";
 
-        final CxReader p = CxReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
+        final CxReader p = CxReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
 
         assertTrue("failed to parse " + EdgesElement.ASPECT_NAME + " aspect", r0.containsKey(EdgesElement.ASPECT_NAME));

@@ -3,7 +3,7 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 /**
  * This class is used to present one attribute of a network.
@@ -86,7 +86,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         sb.append(ASPECT_NAME);
         sb.append(": ");
         sb.append("\n");
-        if (Util.isEmpty(_subnetwork)) {
+        if (CxioUtil.isEmpty(_subnetwork)) {
             sb.append("property of network");
         }
         else {
@@ -113,12 +113,12 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
 
     public final static NetworkAttributesElement createInstanceWithSingleValue(final String subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NetworkAttributesElement(subnetwork, name, Util.removeParenthesis(value, type), type);
+        return new NetworkAttributesElement(subnetwork, name, DatamodelsUtil.removeParenthesis(value, type), type);
     }
 
     public final static NetworkAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NetworkAttributesElement(subnetwork, name, Util.parseStringToStringList(values, type), type);
+        return new NetworkAttributesElement(subnetwork, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }
 
 }

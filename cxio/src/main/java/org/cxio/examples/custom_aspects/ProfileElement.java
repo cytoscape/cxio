@@ -1,7 +1,7 @@
 package org.cxio.examples.custom_aspects;
 
 import org.cxio.aspects.datamodels.AbstractAspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 public final class ProfileElement extends AbstractAspectElement {
 
@@ -17,10 +17,10 @@ public final class ProfileElement extends AbstractAspectElement {
     }
 
     public ProfileElement(final String name, final String description) {
-        if (Util.isEmpty(name)) {
+        if (CxioUtil.isEmpty(name)) {
             throw new IllegalArgumentException("profile name must not be null or empty");
         }
-        if (Util.isEmpty(description)) {
+        if (CxioUtil.isEmpty(description)) {
             throw new IllegalArgumentException("profile description must not be null or empty");
         }
         _name = name;

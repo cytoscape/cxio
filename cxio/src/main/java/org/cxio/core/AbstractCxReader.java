@@ -17,7 +17,7 @@ import org.cxio.aux.AspectElementCounts;
 import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -125,7 +125,7 @@ class AbstractCxReader {
         }
 
         if (_calculate_md5_checksum) {
-            _md = MessageDigest.getInstance(Util.MD5);
+            _md = MessageDigest.getInstance(CxioUtil.MD5);
             my_is = new DigestInputStream(my_is, _md);
         }
         else {

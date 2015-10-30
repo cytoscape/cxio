@@ -11,7 +11,7 @@ import java.util.SortedMap;
 import org.cxio.aspects.datamodels.CartesianLayoutElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.interfaces.AspectElement;
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 import org.junit.Test;
 
 public class CartesianLayoutFragmentReaderETest {
@@ -20,7 +20,7 @@ public class CartesianLayoutFragmentReaderETest {
     public void test1() throws IOException {
         final String t0 = "[" + "{\"cartesianLayout\":[{\"node\":\"_0\",\"x\":\"123\",\"y\":\"456\"}]}," + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\",\"z\":\"2\"}]}" + "]";
 
-        final CxElementReader p = CxElementReader.createInstance(t0, Util.getAllAvailableAspectFragmentReaders());
+        final CxElementReader p = CxElementReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
 
         assertTrue("failed to parse " + CartesianLayoutElement.ASPECT_NAME + " aspect", r0.containsKey(CartesianLayoutElement.ASPECT_NAME));

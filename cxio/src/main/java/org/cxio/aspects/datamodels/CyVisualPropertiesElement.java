@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.util.Util;
+import org.cxio.util.CxioUtil;
 
 /**
  * This class is used to represent a visual property of a
@@ -93,7 +93,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         sb.append("properties of: ");
         sb.append(_properties_of);
         sb.append("\n");
-        if (!Util.isEmpty(_view)) {
+        if (!CxioUtil.isEmpty(_view)) {
             sb.append("view: ");
             sb.append(_view);
             sb.append("\n");

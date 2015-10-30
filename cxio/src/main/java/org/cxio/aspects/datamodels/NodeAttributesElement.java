@@ -3,8 +3,6 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.util.Util;
-
 /**
  * This class is used to present one attribute of a network node.
  * An attribute consists of a name, value(s), type, and
@@ -190,12 +188,12 @@ public final class NodeAttributesElement extends AbstractAttributesAspectElement
                                                                             final String value,
                                                                             final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParenthesis(value, type), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.removeParenthesis(value, type), type);
     }
 
     public final static NodeAttributesElement createInstanceWithSingleValue(final String subnetwork, final String property_of, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.removeParenthesis(value, type), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.removeParenthesis(value, type), type);
     }
 
     public final static NodeAttributesElement createInstanceWithMultipleValues(final String subnetwork,
@@ -204,12 +202,12 @@ public final class NodeAttributesElement extends AbstractAttributesAspectElement
                                                                                final String values,
                                                                                final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values, type), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }
 
     public final static NodeAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String property_of, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
 
-        return new NodeAttributesElement(subnetwork, property_of, name, Util.parseStringToStringList(values, type), type);
+        return new NodeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }
 
 }

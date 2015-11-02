@@ -65,13 +65,13 @@ public final class CxioUtil {
     /**
      * This returns the values of AttributesAspectElement e as String in the form '"value"' for single values and in
      * the form '["value1","value2",...]' for list values. Null value are return as 'null'.
-     * 
+     *
      * @param a AttributesAspectElement
-     * @return value(s) as String 
+     * @return value(s) as String
      */
     public final static String getAttributeValuesAsString(final AbstractAttributesAspectElement e) {
-        if ( e == null ) {
-            throw new IllegalArgumentException( "attempt to get values as string for null AbstractAttributesAspectElement" );
+        if (e == null) {
+            throw new IllegalArgumentException("attempt to get values as string for null AbstractAttributesAspectElement");
         }
         final StringBuilder sb = new StringBuilder();
         if (e.isSingleValue()) {
@@ -114,8 +114,6 @@ public final class CxioUtil {
         return sb.toString();
     }
 
-    
-    
     public final static String writeAspectElementsToString(final ArrayList<AspectElement> elements, final boolean use_default_pretty_printer) throws IOException {
         final OutputStream out = new ByteArrayOutputStream();
 

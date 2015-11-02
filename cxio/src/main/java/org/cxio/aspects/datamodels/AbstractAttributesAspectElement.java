@@ -82,9 +82,6 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
         return _values;
     }
 
-   
-
-   
     /**
      * This returns the value of the (single) attribute as String.
      *

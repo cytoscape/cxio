@@ -1,7 +1,5 @@
 package org.cxio.metadata;
 
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
@@ -47,16 +45,15 @@ public class MetaDataElement {
     }
 
     /**
-     * Convenience method to add a "property" (a map mapping String keys
-     * to String values).
+     * Convenience method to add a "property".
      *
-     * @param property a map mapping String keys to String values to add
+     * @param property a key value pair
      */
-    public final void addProperty(final Map<String, String> property) {
+    public final void addProperty(final String key, final String value) {
         if (!_data.containsKey(PROPERTIES)) {
-            _data.put(PROPERTIES, new ArrayList<Map<String, String>>());
+            _data.put(PROPERTIES, new TreeMap<String, String>());
         }
-        getProperties().add(property);
+        getProperties().put(key, value);
     }
 
     /**
@@ -145,8 +142,8 @@ public class MetaDataElement {
      *
      * @return  all "properties"
      */
-    public final ArrayList<Map<String, String>> getProperties() {
-        return ((ArrayList<Map<String, String>>) _data.get(PROPERTIES));
+    public final SortedMap<String, String> getProperties() {
+        return (SortedMap<String, String>) _data.get(PROPERTIES);
     }
 
     /**

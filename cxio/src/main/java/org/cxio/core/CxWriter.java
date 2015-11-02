@@ -34,6 +34,7 @@ public final class CxWriter {
     private final JsonWriter                        _jw;
     private final MessageDigest                     _md;
     private boolean                                 _started;
+    private boolean                                 _ended;
     private boolean                                 _fragment_started;
     private String                                  _current_fragment_name;
     private final Map<String, AspectFragmentWriter> _writers;
@@ -216,9 +217,8 @@ public final class CxWriter {
      * @throws IOException
      */
     public void startAspectFragment(final String aspect_name) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (_fragment_started) {
             throw new IllegalStateException("fragment already started");
         }
@@ -230,15 +230,20 @@ public final class CxWriter {
         _jw.startArray(aspect_name);
     }
 
+    private final void checkIfEnded() {
+        if (_ended) {
+            throw new IllegalStateException("already ended");
+        }
+    }
+
     /**
      * This method is to be called after writing individual aspect elements of a given type/name.
      *
      * @throws IOException
      */
     public void endAspectFragment() throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (!_fragment_started) {
             throw new IllegalStateException("fragment not started");
         }
@@ -253,9 +258,9 @@ public final class CxWriter {
      * @throws IOException
      */
     public void end(final boolean success, final String message) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
+        _ended = true;
         _started = false;
         _current_fragment_name = null;
         writeMetaData(_post_meta_data);
@@ -266,16 +271,24 @@ public final class CxWriter {
         _jw.end();
     }
 
+    private final void checkIfNotStarted() {
+        if (!_started) {
+            throw new IllegalStateException("not started");
+        }
+    }
+
     /**
      *  This method is to be called at the beginning of writing to a stream.
      *
      * @throws IOException
      */
     public void start() throws IOException {
+        checkIfEnded();
         if (_started) {
             throw new IllegalStateException("already started");
         }
         _started = true;
+        _ended = false;
         _jw.start();
         writeMetaData(_pre_meta_data);
     }
@@ -291,9 +304,8 @@ public final class CxWriter {
      * @throws IOException
      */
     public void writeAspectElements(final List<AspectElement> elements) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (_fragment_started) {
             throw new IllegalStateException("in individual elements writing state");
         }
@@ -317,9 +329,8 @@ public final class CxWriter {
      * @throws IOException
      */
     public void writeAspectElements(final List<AspectElement> elements, final AspectFragmentWriter writer) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (_fragment_started) {
             throw new IllegalStateException("in individual elements writing state");
         }
@@ -346,9 +357,8 @@ public final class CxWriter {
      * @throws IOException
      */
     public void writeAspectElement(final AspectElement element) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (!_fragment_started) {
             throw new IllegalStateException("fragment not started");
         }
@@ -377,9 +387,8 @@ public final class CxWriter {
      * @throws IOException
      */
     public void writeAspectElement(final AspectElement element, final AspectFragmentWriter writer) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (!_fragment_started) {
             throw new IllegalStateException("fragment not started");
         }
@@ -420,10 +429,15 @@ public final class CxWriter {
     }
 
     public final void addPreMetaData(final MetaDataCollection pre_meta_data) {
+        checkIfEnded();
+        if (_started) {
+            throw new IllegalStateException("illegal attempt to add pre meta-data: already started");
+        }
         _pre_meta_data = pre_meta_data;
     }
 
     public final void addPostMetaData(final MetaDataCollection post_meta_data) {
+        checkIfEnded();
         _post_meta_data = post_meta_data;
     }
 
@@ -438,9 +452,8 @@ public final class CxWriter {
     }
 
     public final void writeOpaqueAspectFragment(final String name, final String json_string) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (_fragment_started) {
             throw new IllegalStateException("in individual elements writing state");
         }
@@ -458,9 +471,8 @@ public final class CxWriter {
     }
 
     public final void writeOpaqueAspectElement(final String json_string) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (!_fragment_started) {
             throw new IllegalStateException("fragment not started");
         }
@@ -474,9 +486,8 @@ public final class CxWriter {
     }
 
     public final void writeOpaqueAspectFragment2(final String name, final Collection<OpaqueElement> opque_elements) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (_fragment_started) {
             throw new IllegalStateException("in individual elements writing state");
         }
@@ -491,9 +502,8 @@ public final class CxWriter {
     }
 
     public final void writeOpaqueAspectFragment(final String name, final Collection<String> json_strings) throws IOException {
-        if (!_started) {
-            throw new IllegalStateException("not started");
-        }
+        checkIfEnded();
+        checkIfNotStarted();
         if (_fragment_started) {
             throw new IllegalStateException("in individual elements writing state");
         }
@@ -525,6 +535,7 @@ public final class CxWriter {
 
         _jw = JsonWriter.createInstance(my_os, use_default_pretty_printer);
         _started = false;
+        _ended = false;
         _fragment_started = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();
@@ -541,6 +552,7 @@ public final class CxWriter {
         _md = null;
         _jw = JsonWriter.createInstance(os, use_default_pretty_printer);
         _started = false;
+        _ended = false;
         _fragment_started = false;
         _calculate_element_counts = true;
         _element_counts = AspectElementCounts.createInstance();

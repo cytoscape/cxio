@@ -311,6 +311,12 @@ public final class MetaDataCollection implements Serializable {
         e.setVersion(version);
     }
 
+    public final void setProperty(final String name, final String key, final String value) {
+        final MetaDataElement e = checkIfElementPresent(name);
+
+        e.addProperty(key, value);
+    }
+
     /**
      * This returns the number of MetaDataElements.
      *

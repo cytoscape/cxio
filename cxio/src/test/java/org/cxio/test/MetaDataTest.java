@@ -41,10 +41,11 @@ public class MetaDataTest {
         citation_meta.setLastUpdate(1034334343L);
         citation_meta.setConsistencyGroup(1L);
 
-        final Map<String, String> prop = new TreeMap<String, String>();
-        prop.put("name", "curator");
-        prop.put("value", "Ideker Lab");
-        citation_meta.addProperty(prop);
+        //final Map<String, String> prop = new TreeMap<String, String>();
+       // prop.put("name", "curator");
+       // prop.put("value", "Ideker Lab");
+        citation_meta.addProperty("name", "curator");
+        citation_meta.addProperty("value", "Ideker Lab");
 
         citation_meta.put("key1", "value1");
         citation_meta.put("key2", true);
@@ -63,9 +64,9 @@ public class MetaDataTest {
         assertTrue(mde0.getElementCount() == 32L);
         assertTrue(mde0.getConsistencyGroup() == 1L);
 
-        assertTrue(mde1.getProperties().size() == 1);
-        assertTrue(mde1.getProperties().get(0).get("name").equals("curator"));
-        assertTrue(mde1.getProperties().get(0).get("value").equals("Ideker Lab"));
+        assertTrue(mde1.getProperties().size() == 2);
+        assertTrue(mde1.getProperties().get("name").equals("curator"));
+        assertTrue(mde1.getProperties().get("value").equals("Ideker Lab"));
 
         assertTrue(mde1.get("key1").equals("value1"));
         assertTrue(mde1.get("key2").equals(true));
@@ -94,15 +95,17 @@ public class MetaDataTest {
         citation_meta.setLastUpdate(1034334343L);
         citation_meta.setConsistencyGroup(1L);
 
-        final Map<String, String> prop = new TreeMap<String, String>();
-        prop.put("name", "curator");
-        prop.put("value", "Ideker Lab");
-        citation_meta.addProperty(prop);
+     //   final Map<String, String> prop = new TreeMap<String, String>();
+      //  prop.put("name", "curator");
+      //  prop.put("value", "Ideker Lab");
+        citation_meta.addProperty("name", "curator");
+        citation_meta.addProperty("value", "Ideker Lab");
 
         citation_meta.put("key1", "value1");
         citation_meta.put("key2", true);
 
         md.add(citation_meta);
+        
 
         final OutputStream out = new ByteArrayOutputStream();
 
@@ -131,9 +134,9 @@ public class MetaDataTest {
         assertTrue(mde0.getElementCount() == 32L);
         assertTrue(mde0.getConsistencyGroup() == 1L);
 
-        assertTrue(mde1.getProperties().size() == 1);
-        assertTrue(mde1.getProperties().get(0).get("name").equals("curator"));
-        assertTrue(mde1.getProperties().get(0).get("value").equals("Ideker Lab"));
+        assertTrue(mde1.getProperties().size() == 2);
+        assertTrue(mde1.getProperties().get("name").equals("curator"));
+        assertTrue(mde1.getProperties().get("value").equals("Ideker Lab"));
 
         assertTrue(mde1.get("key1").equals("value1"));
         assertTrue(mde1.get("key2").equals(true));

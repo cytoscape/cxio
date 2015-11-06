@@ -95,9 +95,7 @@ public class MetaDataTest {
         citation_meta.setLastUpdate(1034334343L);
         citation_meta.setConsistencyGroup(1L);
 
-     //   final Map<String, String> prop = new TreeMap<String, String>();
-      //  prop.put("name", "curator");
-      //  prop.put("value", "Ideker Lab");
+   
         citation_meta.addProperty("name", "curator");
         citation_meta.addProperty("value", "Ideker Lab");
 
@@ -105,7 +103,6 @@ public class MetaDataTest {
         citation_meta.put("key2", true);
 
         md.add(citation_meta);
-        
 
         final OutputStream out = new ByteArrayOutputStream();
 

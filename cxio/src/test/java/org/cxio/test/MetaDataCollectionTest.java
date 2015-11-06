@@ -16,6 +16,8 @@ import org.junit.Test;
 
 public class MetaDataCollectionTest {
 
+    private static final String META_DATA_1 = "{\"metaData\":[{\"consistencyGroup\":\"0\",\"elementCount\":\"39393742\",\"idCounter\":\"4\",\"lastUpdate\":\"5\",\"name\":\"name_0\",\"properties\":{\"key0\":\"value0\"},\"version\":\"v0\"},{\"elementCount\":\"24948\",\"name\":\"name_1\",\"version\":\"v1\"},{\"elementCount\":\"2034994\",\"name\":\"name_2\",\"version\":\"v2\"}]}";
+
     @Test
     public void testRemove() {
 
@@ -151,19 +153,51 @@ public class MetaDataCollectionTest {
         final MetaDataCollection md = new MetaDataCollection();
 
         md.setVersion("name_0", "v0");
+        md.setConsistencyGroup("name_0", 0L);
+        md.setIdCounter("name_0", 4L);
+        md.setLastUpdate("name_0", 5L);
+        md.setElementCount("name_0", 39393742L);
+        md.setProperty("name_0", "key0", "value0");
+
         md.setVersion("name_1", "v1");
+        md.setElementCount("name_1", 24948L);
+
         md.setVersion("name_2", "v2");
-        md.setElementCount("name_0", 2L);
+        md.setElementCount("name_2", 2034994L);
 
         final OutputStream out = new ByteArrayOutputStream();
 
         final JsonWriter jw = JsonWriter.createInstance(out, false);
 
         md.toJson(jw);
+        assertTrue(out.toString().equals(META_DATA_1));
 
-        assertTrue(out.toString()
-                .equals("{\"metaData\":[{\"elementCount\":\"2\",\"name\":\"name_0\",\"version\":\"v0\"},{\"name\":\"name_1\",\"version\":\"v1\"},{\"name\":\"name_2\",\"version\":\"v2\"}]}"));
+    }
 
+    @Test
+    public void testFromJson1() throws IOException {
+        final MetaDataCollection md = MetaDataCollection.createInstanceFromJson(META_DATA_1);
+
+        assertTrue(md.getElementCount("name_0") == 39393742L);
+        assertTrue(md.getConsistencyGroup("name_0") == 0L);
+        assertTrue(md.getIdCounter("name_0") == 4L);
+        assertTrue(md.getLastUpdate("name_0") == 5L);
+        assertTrue(md.getMetaDataElement("name_0").getProperties().get("key0").equals("value0"));
+        assertTrue(md.getVersion("name_0").equals("v0"));
+        assertTrue(md.getVersion("name_1").equals("v1"));
+        assertTrue(md.getVersion("name_2").equals("v2"));
+
+    }
+
+    @Test
+    public void testFromJson2() throws IOException {
+        final MetaDataCollection md = MetaDataCollection.createInstanceFromJson(META_DATA_1);
+
+        final OutputStream out = new ByteArrayOutputStream();
+        final JsonWriter jw = JsonWriter.createInstance(out, false);
+
+        md.toJson(jw);
+        assertTrue(out.toString().equals(META_DATA_1));
     }
 
     @Test
@@ -175,8 +209,6 @@ public class MetaDataCollectionTest {
         final JsonWriter jw = JsonWriter.createInstance(out, false);
 
         md.toJson(jw);
-
-        System.out.println(out);
 
         assertTrue(out.toString().equals("{\"metaData\":[]}"));
 

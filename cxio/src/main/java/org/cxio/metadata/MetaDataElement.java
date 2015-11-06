@@ -1,5 +1,6 @@
 package org.cxio.metadata;
 
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import java.util.SortedMap;
@@ -142,8 +143,8 @@ public class MetaDataElement {
      *
      * @return  all "properties"
      */
-    public final SortedMap<String, String> getProperties() {
-        return (SortedMap<String, String>) _data.get(PROPERTIES);
+    public final Map<String, String> getProperties() {
+        return (Map<String, String>) _data.get(PROPERTIES);
     }
 
     /**

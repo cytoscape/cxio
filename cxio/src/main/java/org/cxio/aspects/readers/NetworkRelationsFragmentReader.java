@@ -25,8 +25,8 @@ public final class NetworkRelationsFragmentReader extends AbstractFragmentReader
     @Override
     public final AspectElement readElement(final ObjectNode o) throws IOException {
 
-        return new NetworkRelationsElement(ParserUtils.getTextValue(o, NetworkRelationsElement.PARENT),
-                                           ParserUtils.getTextValueRequired(o, NetworkRelationsElement.CHILD),
+        return new NetworkRelationsElement(ParserUtils.getTextValueAsLong(o, NetworkRelationsElement.PARENT),
+                                           ParserUtils.getTextValueRequiredAsLong(o, NetworkRelationsElement.CHILD),
                                            ParserUtils.getTextValue(o, NetworkRelationsElement.RELATIONSHIP),
                                            ParserUtils.getTextValueRequired(o, NetworkRelationsElement.CHILD_NAME));
     }

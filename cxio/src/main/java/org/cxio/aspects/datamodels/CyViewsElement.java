@@ -4,9 +4,9 @@ public final class CyViewsElement extends AbstractAspectElement {
 
     public final static String ASPECT_NAME   = "cyViews";
     public final static String SUBWORKNET_ID = "s";
-    private final String       _subnetwork_id;
+    private final long         _subnetwork_id;
 
-    public CyViewsElement(final String subnetwork_id) {
+    public CyViewsElement(final long subnetwork_id) {
         _subnetwork_id = subnetwork_id;
     }
 
@@ -15,7 +15,7 @@ public final class CyViewsElement extends AbstractAspectElement {
         return ASPECT_NAME;
     }
 
-    public String getSubnetworkId() {
+    public long getSubnetworkId() {
         return _subnetwork_id;
     }
 

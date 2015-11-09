@@ -29,26 +29,26 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
     final public static String      CHILD_NAME      = "name";
     final public static String      VIEW_TYPE       = "view";
 
-    final private String            _child;
-    final private String            _parent;
+    final private Long              _child;
+    final private Long              _parent;
     final private RELATIONSHIP_TYPE _relationship;
     final private String            _child_name;
 
-    public NetworkRelationsElement(final String parent, final String child, final String relationship, final String child_name) throws IOException {
+    public NetworkRelationsElement(final Long parent, final Long child, final String relationship, final String child_name) throws IOException {
         _parent = parent;
         _child = child;
         _relationship = determineRelationship(relationship);
         _child_name = child_name;
     }
 
-    public NetworkRelationsElement(final String child, final String relationship, final String child_name) throws IOException {
+    public NetworkRelationsElement(final Long child, final String relationship, final String child_name) throws IOException {
         _parent = null;
         _child = child;
         _relationship = determineRelationship(relationship);
         _child_name = child_name;
     }
 
-    public NetworkRelationsElement(final String child, final String child_name) throws IOException {
+    public NetworkRelationsElement(final Long child, final String child_name) throws IOException {
         _parent = null;
         _child = child;
         _relationship = null;
@@ -60,11 +60,11 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
         return ASPECT_NAME;
     }
 
-    public final String getChild() {
+    public final Long getChild() {
         return _child;
     }
 
-    public final String getParent() {
+    public final Long getParent() {
         return _parent;
     }
 
@@ -83,8 +83,8 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
         }
     }
 
-    public final static Set<String> getAllParentNetworkIds(final List<AspectElement> networks_relations) {
-        final Set<String> parents = new HashSet<String>();
+    public final static Set<Long> getAllParentNetworkIds(final List<AspectElement> networks_relations) {
+        final Set<Long> parents = new HashSet<Long>();
         for (final AspectElement e : networks_relations) {
             final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
             if (nwe.getRelationship() == SUBNETWORK_TYPE) {
@@ -94,8 +94,8 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
         return parents;
     }
 
-    public final static List<String> getSubNetworkIds(final String parent_id, final List<AspectElement> networks_relations) {
-        final List<String> subnets = new ArrayList<String>();
+    public final static List<Long> getSubNetworkIds(final String parent_id, final List<AspectElement> networks_relations) {
+        final List<Long> subnets = new ArrayList<Long>();
         for (final AspectElement e : networks_relations) {
             final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
             if ((nwe.getRelationship() == SUBNETWORK_TYPE) && nwe.getParent().equals(parent_id)) {

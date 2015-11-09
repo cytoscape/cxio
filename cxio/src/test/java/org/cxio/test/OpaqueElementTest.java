@@ -38,23 +38,23 @@ public class OpaqueElementTest {
         // AspectFragments)
         // --------------------------------------------------------------------
         final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
-        edges_elements.add(new EdgesElement("edge0", "node0", "node1"));
-        edges_elements.add(new EdgesElement("edge1", "node0", "node2"));
+        edges_elements.add(new EdgesElement(0, 0, 1));
+        edges_elements.add(new EdgesElement(1, 0, 2));
 
         final List<AspectElement> nodes_elements = new ArrayList<AspectElement>();
-        nodes_elements.add(new NodesElement("node0"));
-        nodes_elements.add(new NodesElement("node1"));
-        nodes_elements.add(new NodesElement("node2"));
+        nodes_elements.add(new NodesElement(0));
+        nodes_elements.add(new NodesElement(1));
+        nodes_elements.add(new NodesElement(2));
 
         final List<AspectElement> cartesian_elements = new ArrayList<AspectElement>();
-        cartesian_elements.add(new CartesianLayoutElement("node0", 12, 21, 1));
-        cartesian_elements.add(new CartesianLayoutElement("node1", 42, 23, 2));
-        cartesian_elements.add(new CartesianLayoutElement("node2", 34, 23, 3));
+        cartesian_elements.add(new CartesianLayoutElement(0, 12, 21.0, 1.0));
+        cartesian_elements.add(new CartesianLayoutElement(1, 42, 23.0, 2.0));
+        cartesian_elements.add(new CartesianLayoutElement(2, 34, 23.0, 3.0));
 
-        final EdgeAttributesElement ea0 = new EdgeAttributesElement("edge0", "name", "A", ATTRIBUTE_DATA_TYPE.STRING);
-        final EdgeAttributesElement ea1 = new EdgeAttributesElement("edge0", "weight", "2", ATTRIBUTE_DATA_TYPE.INTEGER);
-        final EdgeAttributesElement ea2 = new EdgeAttributesElement("edge1", "name", "B", ATTRIBUTE_DATA_TYPE.STRING);
-        final EdgeAttributesElement ea3 = new EdgeAttributesElement("edge1", "weight", "3", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement(0, "name", "A", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea1 = new EdgeAttributesElement(0, "weight", "2", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea2 = new EdgeAttributesElement(1, "name", "B", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea3 = new EdgeAttributesElement(1, "weight", "3", ATTRIBUTE_DATA_TYPE.INTEGER);
 
         final List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
         edge_attributes_elements.add(ea0);
@@ -72,16 +72,16 @@ public class OpaqueElementTest {
         v2.add("2.0");
         v2.add("2.1");
 
-        final NodeAttributesElement na0 = new NodeAttributesElement("node0", "expression", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
-        final NodeAttributesElement na1 = new NodeAttributesElement("node1", "expression", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
-        final NodeAttributesElement na2 = new NodeAttributesElement("node2", "expression", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na0 = new NodeAttributesElement(0, "expression", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na1 = new NodeAttributesElement(1, "expression", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na2 = new NodeAttributesElement(2, "expression", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
 
-        final ArrayList<String> n = new ArrayList<String>();
-        n.add("node0");
-        n.add("node1");
-        n.add("node2");
+        final ArrayList<Long> n = new ArrayList<Long>();
+        n.add(0L);
+        n.add(1L);
+        n.add(2L);
 
-        final NodeAttributesElement na3 = new NodeAttributesElement("subnet 1", n, "species", "Mus musculus", ATTRIBUTE_DATA_TYPE.STRING);
+        final NodeAttributesElement na3 = new NodeAttributesElement(1, n, "species", "Mus musculus", ATTRIBUTE_DATA_TYPE.STRING);
 
         final List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();
         node_attributes_elements.add(na0);
@@ -94,7 +94,7 @@ public class OpaqueElementTest {
         final List<String> applies_to = new ArrayList<String>();
         applies_to.add("12");
         final List<AspectElement> vp_elements = new ArrayList<AspectElement>();
-        vp_elements.add(new CyVisualPropertiesElement("network", applies_to, "view1"));
+        vp_elements.add(new CyVisualPropertiesElement("network", applies_to, 1));
 
         //
 
@@ -114,15 +114,15 @@ public class OpaqueElementTest {
         //
 
         final List<AspectElement> views_elements = new ArrayList<AspectElement>();
-        final CyViewsElement cy_views1 = new CyViewsElement("views_subnetwork_id1");
-        final CyViewsElement cy_views2 = new CyViewsElement("views_subnetwork_id2");
+        final CyViewsElement cy_views1 = new CyViewsElement(1);
+        final CyViewsElement cy_views2 = new CyViewsElement(2);
         views_elements.add(cy_views1);
         views_elements.add(cy_views2);
 
         //
         final List<AspectElement> hidden_elements = new ArrayList<AspectElement>();
-        final HiddenAttributesElement hidden1 = new HiddenAttributesElement("hidden subnetwork1", "hidden name1", true);
-        final HiddenAttributesElement hidden2 = new HiddenAttributesElement("hidden subnetwork2", "hidden name2", 1.23);
+        final HiddenAttributesElement hidden1 = new HiddenAttributesElement(1, "hidden name1", true);
+        final HiddenAttributesElement hidden2 = new HiddenAttributesElement(2, "hidden name2", 1.23);
         hidden_elements.add(hidden1);
         hidden_elements.add(hidden2);
 
@@ -188,23 +188,23 @@ public class OpaqueElementTest {
         // AspectFragments)
         // --------------------------------------------------------------------
         final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
-        edges_elements.add(new EdgesElement("edge0", "node0", "node1"));
-        edges_elements.add(new EdgesElement("edge1", "node0", "node2"));
+        edges_elements.add(new EdgesElement(0, 0, 1));
+        edges_elements.add(new EdgesElement(1, 0, 2));
 
         final List<AspectElement> nodes_elements = new ArrayList<AspectElement>();
-        nodes_elements.add(new NodesElement("node0"));
-        nodes_elements.add(new NodesElement("node1"));
-        nodes_elements.add(new NodesElement("node2"));
+        nodes_elements.add(new NodesElement(0));
+        nodes_elements.add(new NodesElement(1));
+        nodes_elements.add(new NodesElement(2));
 
         final List<AspectElement> cartesian_elements = new ArrayList<AspectElement>();
-        cartesian_elements.add(new CartesianLayoutElement("node0", 12, 21, 1));
-        cartesian_elements.add(new CartesianLayoutElement("node1", 42, 23, 2));
-        cartesian_elements.add(new CartesianLayoutElement("node2", 34, 23, 3));
+        cartesian_elements.add(new CartesianLayoutElement(0, 12, 21.0, 1.0));
+        cartesian_elements.add(new CartesianLayoutElement(1, 42, 23.0, 2.0));
+        cartesian_elements.add(new CartesianLayoutElement(2, 34, 23.0, 3.0));
 
-        final EdgeAttributesElement ea0 = new EdgeAttributesElement("edge0", "name", "A", ATTRIBUTE_DATA_TYPE.STRING);
-        final EdgeAttributesElement ea1 = new EdgeAttributesElement("edge0", "weight", "2", ATTRIBUTE_DATA_TYPE.INTEGER);
-        final EdgeAttributesElement ea2 = new EdgeAttributesElement("edge1", "name", "B", ATTRIBUTE_DATA_TYPE.STRING);
-        final EdgeAttributesElement ea3 = new EdgeAttributesElement("edge1", "weight", "3", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement(0, "name", "A", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea1 = new EdgeAttributesElement(0, "weight", "2", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea2 = new EdgeAttributesElement(1, "name", "B", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea3 = new EdgeAttributesElement(1, "weight", "3", ATTRIBUTE_DATA_TYPE.INTEGER);
 
         final List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
         edge_attributes_elements.add(ea0);
@@ -222,16 +222,16 @@ public class OpaqueElementTest {
         v2.add("2.0");
         v2.add("2.1");
 
-        final NodeAttributesElement na0 = new NodeAttributesElement("node0", "expression", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
-        final NodeAttributesElement na1 = new NodeAttributesElement("node1", "expression", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
-        final NodeAttributesElement na2 = new NodeAttributesElement("node2", "expression", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na0 = new NodeAttributesElement(0, "expression", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na1 = new NodeAttributesElement(1, "expression", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na2 = new NodeAttributesElement(2, "expression", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
 
-        final ArrayList<String> n = new ArrayList<String>();
-        n.add("node0");
-        n.add("node1");
-        n.add("node2");
+        final ArrayList<Long> n = new ArrayList<Long>();
+        n.add(0L);
+        n.add(1L);
+        n.add(2L);
 
-        final NodeAttributesElement na3 = new NodeAttributesElement("subnet 1", n, "species", "Mus musculus", ATTRIBUTE_DATA_TYPE.STRING);
+        final NodeAttributesElement na3 = new NodeAttributesElement(1, n, "species", "Mus musculus", ATTRIBUTE_DATA_TYPE.STRING);
 
         final List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();
         node_attributes_elements.add(na0);
@@ -244,7 +244,7 @@ public class OpaqueElementTest {
         final List<String> applies_to = new ArrayList<String>();
         applies_to.add("12");
         final List<AspectElement> vp_elements = new ArrayList<AspectElement>();
-        vp_elements.add(new CyVisualPropertiesElement("network", applies_to, "view1"));
+        vp_elements.add(new CyVisualPropertiesElement("network", applies_to, 1));
 
         //
 
@@ -264,15 +264,15 @@ public class OpaqueElementTest {
         //
 
         final List<AspectElement> views_elements = new ArrayList<AspectElement>();
-        final CyViewsElement cy_views1 = new CyViewsElement("views_subnetwork_id1");
-        final CyViewsElement cy_views2 = new CyViewsElement("views_subnetwork_id2");
+        final CyViewsElement cy_views1 = new CyViewsElement(1);
+        final CyViewsElement cy_views2 = new CyViewsElement(2);
         views_elements.add(cy_views1);
         views_elements.add(cy_views2);
 
         //
         final List<AspectElement> hidden_elements = new ArrayList<AspectElement>();
-        final HiddenAttributesElement hidden1 = new HiddenAttributesElement("hidden subnetwork1", "hidden name1", true);
-        final HiddenAttributesElement hidden2 = new HiddenAttributesElement("hidden subnetwork2", "hidden name2", 1.23);
+        final HiddenAttributesElement hidden1 = new HiddenAttributesElement(1, "hidden name1", true);
+        final HiddenAttributesElement hidden2 = new HiddenAttributesElement(2, "hidden name2", 1.23);
         hidden_elements.add(hidden1);
         hidden_elements.add(hidden2);
 

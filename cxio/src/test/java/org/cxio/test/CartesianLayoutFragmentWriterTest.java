@@ -31,8 +31,8 @@ public class CartesianLayoutFragmentWriterTest {
 
         assertEquals("[{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out0.toString());
 
-        final CartesianLayoutElement c0 = new CartesianLayoutElement("00", "0", "0");
-        final CartesianLayoutElement c1 = new CartesianLayoutElement("01", "view1", "1", "2");
+        final CartesianLayoutElement c0 = new CartesianLayoutElement(0, 0, 0);
+        final CartesianLayoutElement c1 = new CartesianLayoutElement(1, 1, "1", "2");
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(c0);
@@ -47,7 +47,9 @@ public class CartesianLayoutFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end(true, "");
 
-        assertEquals("[{\"cartesianLayout\":[{\"node\":\"00\",\"x\":0.0,\"y\":0.0},{\"node\":\"01\",\"view\":\"view1\",\"x\":1.0,\"y\":2.0}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]",
+        System.out.println( out1.toString());
+        
+        assertEquals("[{\"cartesianLayout\":[{\"node\":0,\"x\":0.0,\"y\":0.0},{\"node\":1,\"x\":1.0,\"y\":2.0}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]",
                      out1.toString());
 
     }

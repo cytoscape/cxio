@@ -19,19 +19,19 @@ public class SubNetworkFragmentWriter extends AbstractFragmentWriter {
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final SubNetworkElement e = (SubNetworkElement) element;
         w.writeStartObject();
-        w.writeStringFieldIfNotEmpty(SubNetworkElement.SUBNET_ID, e.getId());
+        w.writeNumberFieldIfNotEmpty(SubNetworkElement.SUBNET_ID, e.getId());
 
         if (e.getNodes().size() == 1) {
-            w.writeStringField(SubNetworkElement.SUBNET_NODES, e.getNodes().get(0));
+            w.writeNumberField(SubNetworkElement.SUBNET_NODES, e.getNodes().get(0));
         }
         else {
-            w.writeList(SubNetworkElement.SUBNET_NODES, e.getNodes());
+            w.writeLongList(SubNetworkElement.SUBNET_NODES, e.getNodes());
         }
         if (e.getEdges().size() == 1) {
-            w.writeStringField(SubNetworkElement.SUBNET_EDGES, e.getEdges().get(0));
+            w.writeNumberField(SubNetworkElement.SUBNET_EDGES, e.getEdges().get(0));
         }
         else {
-            w.writeList(SubNetworkElement.SUBNET_EDGES, e.getEdges());
+            w.writeLongList(SubNetworkElement.SUBNET_EDGES, e.getEdges());
         }
         w.writeEndObject();
 

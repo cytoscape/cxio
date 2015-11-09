@@ -71,6 +71,14 @@ public final class ParserUtils {
         return l;
     }
 
+    public final static List<Long> getAsLongListRequired(final ObjectNode o, final String label) throws IOException {
+        final List<Long> l = ParserUtils.getAsLongList(o, label);
+        if (l.isEmpty()) {
+            throw new IOException("malformed CX json: list '" + label + "' is missing or empty in " + o.toString());
+        }
+        return l;
+    }
+
     public final static List<String> getAsStringList(final ObjectNode o, final String label) throws IOException {
         final List<String> l = new ArrayList<String>();
         if (o.has(label)) {
@@ -83,6 +91,25 @@ public final class ParserUtils {
                     final String s = it.next().asText();
                     if (!CxioUtil.isEmpty(s)) {
                         l.add(s);
+                    }
+                }
+            }
+        }
+        return l;
+    }
+
+    public final static List<Long> getAsLongList(final ObjectNode o, final String label) throws IOException {
+        final List<Long> l = new ArrayList<Long>();
+        if (o.has(label)) {
+            if (!o.get(label).isArray()) {
+                l.add(o.get(label).asLong());
+            }
+            else {
+                final Iterator<JsonNode> it = o.get(label).iterator();
+                while (it.hasNext()) {
+                    final String s = it.next().asText();
+                    if (!CxioUtil.isEmpty(s)) {
+                        l.add(Long.valueOf(s));
                     }
                 }
             }
@@ -109,6 +136,21 @@ public final class ParserUtils {
         return null;
     }
 
+    public final static Long getTextValueAsLong(final ObjectNode o, final String label) throws IOException {
+        if (o.has(label)) {
+            final String s = o.get(label).asText();
+            System.out.println(">" + s);
+            try {
+                return Long.valueOf(s);
+            }
+            catch (final NumberFormatException e) {
+                throw new IOException("malformed CX json: element '" + label + "' has mal-formed long integer: " + s);
+            }
+
+        }
+        return null;
+    }
+
     public final static String getTextValueRequired(final ObjectNode o, final String label) throws IOException {
         String s = null;
         if (o.has(label)) {
@@ -118,6 +160,24 @@ public final class ParserUtils {
             throw new IOException("malformed CX json: element '" + label + "' is missing in " + o.toString());
         }
         return s;
+    }
+
+    public final static long getTextValueRequiredAsLong(final ObjectNode o, final String label) throws IOException {
+        String s = null;
+        if (o.has(label)) {
+            s = o.get(label).asText();
+        }
+        if (CxioUtil.isEmpty(s)) {
+            throw new IOException("malformed CX json: element '" + label + "' is missing in " + o.toString());
+        }
+
+        try {
+            return Long.valueOf(s);
+        }
+        catch (final NumberFormatException e) {
+            throw new IOException("malformed CX json: element '" + label + "' has mal-formed long integer: " + s);
+
+        }
     }
 
     public final static SortedMap<String, List<String>> getMap(final ObjectNode o, final String label) {

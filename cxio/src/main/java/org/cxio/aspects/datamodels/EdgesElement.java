@@ -17,50 +17,50 @@ public final class EdgesElement extends AbstractAspectElement {
     public final static String SOURCE_NODE_ID = "s";
     public final static String TARGET_NODE_ID = "t";
     public final static String INTERACTION    = "i";
-    final private String       _id;
-    final private String       _source;
-    final private String       _target;
+    final private long         _id;
+    final private long         _source;
+    final private long         _target;
     final private String       _interaction;
 
     public EdgesElement(final long id, final long source, final long target) {
-        _id = String.valueOf(id);
-        _source = String.valueOf(source);
-        _target = String.valueOf(target);
+        _id = id;
+        _source = source;
+        _target = target;
         _interaction = null;
     }
 
     public EdgesElement(final long id, final String source, final String target) {
-        _id = String.valueOf(id);
-        _source = source;
-        _target = target;
+        _id = id;
+        _source = Long.valueOf(source);
+        _target = Long.valueOf(target);
         _interaction = null;
     }
 
     public EdgesElement(final String id, final String source, final String target) {
-        _id = id;
-        _source = source;
-        _target = target;
+        _id = Long.valueOf(id);
+        _source = Long.valueOf(source);
+        _target = Long.valueOf(target);
         _interaction = null;
     }
 
     public EdgesElement(final long id, final long source, final long target, final String interaction) {
-        _id = String.valueOf(id);
-        _source = String.valueOf(source);
-        _target = String.valueOf(target);
+        _id = id;
+        _source = source;
+        _target = target;
         _interaction = interaction;
     }
 
     public EdgesElement(final long id, final String source, final String target, final String interaction) {
-        _id = String.valueOf(id);
-        _source = source;
-        _target = target;
+        _id = id;
+        _source = Long.valueOf(source);
+        _target = Long.valueOf(target);
         _interaction = interaction;
     }
 
     public EdgesElement(final String id, final String source, final String target, final String interaction) {
-        _id = id;
-        _source = source;
-        _target = target;
+        _id = Long.valueOf(id);
+        _source = Long.valueOf(source);
+        _target = Long.valueOf(target);
         _interaction = interaction;
     }
 
@@ -69,7 +69,7 @@ public final class EdgesElement extends AbstractAspectElement {
         if (this == o) {
             return true;
         }
-        return (o instanceof EdgesElement) && _id.equals(((EdgesElement) o).getId());
+        return (o instanceof EdgesElement) && (_id == (((EdgesElement) o).getId()));
 
     }
 
@@ -78,15 +78,15 @@ public final class EdgesElement extends AbstractAspectElement {
         return EdgesElement.ASPECT_NAME;
     }
 
-    public final String getId() {
+    public final long getId() {
         return _id;
     }
 
-    public final String getSource() {
+    public final long getSource() {
         return _source;
     }
 
-    public final String getTarget() {
+    public final long getTarget() {
         return _target;
     }
 
@@ -96,7 +96,7 @@ public final class EdgesElement extends AbstractAspectElement {
 
     @Override
     public int hashCode() {
-        return _id.hashCode();
+        return String.valueOf(_id).hashCode();
     }
 
     @Override

@@ -29,8 +29,8 @@ public class EdgesFragmentWriterTest {
 
         assertEquals("[{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out0.toString());
 
-        final EdgesElement e0 = new EdgesElement("0", "f0", "t0");
-        final EdgesElement e1 = new EdgesElement("1", "f1", "t1");
+        final EdgesElement e0 = new EdgesElement(0, 0, 0);
+        final EdgesElement e1 = new EdgesElement(1, 1, 1);
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(e0);

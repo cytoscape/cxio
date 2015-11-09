@@ -27,8 +27,8 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
     public final static String ATTR_VALUES      = "v";
 
     String                     _name;
-    List<String>               _property_of;
-    String                     _subnetwork;
+    List<Long>                 _property_of;
+    Long                       _subnetwork;
     ATTRIBUTE_DATA_TYPE        _data_type;
     List<String>               _values;
     boolean                    _is_single_value;
@@ -47,7 +47,7 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
      *
      * @return a list of identifiers of the elements this attribute is a property o
      */
-    public List<String> getPropertyOf() {
+    public List<Long> getPropertyOf() {
         return _property_of;
     }
 
@@ -56,7 +56,7 @@ public abstract class AbstractAttributesAspectElement extends AbstractAspectElem
      *
      * @return the identifier of the subnetwork this attribute belongs to
      */
-    public final String getSubnetwork() {
+    public final Long getSubnetwork() {
         return _subnetwork;
     }
 

@@ -29,18 +29,18 @@ public class ExamplesE {
         // AspectFragments)
         // --------------------------------------------------------------------
         final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
-        edges_elements.add(new EdgesElement("edge0", "node0", "node1"));
-        edges_elements.add(new EdgesElement("edge1", "node0", "node2"));
+        edges_elements.add(new EdgesElement(0, 0, 1));
+        edges_elements.add(new EdgesElement(1, 0, 2));
 
         final List<AspectElement> nodes_elements = new ArrayList<AspectElement>();
-        nodes_elements.add(new NodesElement("node0"));
-        nodes_elements.add(new NodesElement("node1"));
-        nodes_elements.add(new NodesElement("node2"));
+        nodes_elements.add(new NodesElement(0));
+        nodes_elements.add(new NodesElement(1));
+        nodes_elements.add(new NodesElement(2));
 
         final List<AspectElement> cartesian_elements = new ArrayList<AspectElement>();
-        cartesian_elements.add(new CartesianLayoutElement("node0", 12, 21, 1));
-        cartesian_elements.add(new CartesianLayoutElement("node1", 42, 23, 2));
-        cartesian_elements.add(new CartesianLayoutElement("node2", 34, 23, 3));
+        cartesian_elements.add(new CartesianLayoutElement(0L, 12L, 21.0, 1.0));
+        cartesian_elements.add(new CartesianLayoutElement(1L, 42L, 23.0, 2.0));
+        cartesian_elements.add(new CartesianLayoutElement(2L, 34L, 23.0, 3.0));
 
         // Writing to CX
         // -------------

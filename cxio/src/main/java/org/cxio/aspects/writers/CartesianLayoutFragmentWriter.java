@@ -19,8 +19,10 @@ public class CartesianLayoutFragmentWriter extends AbstractFragmentWriter {
     public final void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final CartesianLayoutElement c = (CartesianLayoutElement) element;
         w.writeStartObject();
-        w.writeStringField(CartesianLayoutElement.NODE, c.getNode());
-        w.writeStringFieldIfNotEmpty(CartesianLayoutElement.VIEW, c.getView());
+        w.writeNumberField(CartesianLayoutElement.NODE, c.getNode());
+        if (c.isZset()) {
+            w.writeNumberField(CartesianLayoutElement.VIEW, c.getView());
+        }
         w.writeNumberField(CartesianLayoutElement.X, Double.valueOf(c.getX()));
         w.writeNumberField(CartesianLayoutElement.Y, Double.valueOf(c.getY()));
         if (c.isZset()) {

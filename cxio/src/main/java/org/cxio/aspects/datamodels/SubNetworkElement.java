@@ -13,31 +13,31 @@ import java.util.List;
  */
 public final class SubNetworkElement extends AbstractAspectElement {
 
-    public final static String      ASPECT_NAME  = "subNetworks";
-    public final static String      SUBNET_EDGES = "edges";
-    public final static String      SUBNET_ID    = "id";
-    public final static String      SUBNET_NODES = "nodes";
+    public final static String    ASPECT_NAME  = "subNetworks";
+    public final static String    SUBNET_EDGES = "edges";
+    public final static String    SUBNET_ID    = "id";
+    public final static String    SUBNET_NODES = "nodes";
 
-    final private ArrayList<String> _edges;
-    private boolean                 _edges_all;
-    final private String            _id;
-    final private ArrayList<String> _nodes;
-    private boolean                 _nodes_all;
+    final private ArrayList<Long> _edges;
+    private boolean               _edges_all;
+    final private Long            _id;
+    final private ArrayList<Long> _nodes;
+    private boolean               _nodes_all;
 
-    public SubNetworkElement(final String id) {
+    public SubNetworkElement(final Long id) {
         _id = id;
-        _nodes = new ArrayList<String>();
-        _edges = new ArrayList<String>();
+        _nodes = new ArrayList<Long>();
+        _edges = new ArrayList<Long>();
         setNodesAll(false);
         setEdgesAll(false);
     }
 
-    final public void addEdge(final String edge) {
+    final public void addEdge(final Long edge) {
         _edges.add(edge);
         setEdgesAll(false);
     }
 
-    final public void addNode(final String node) {
+    final public void addNode(final Long node) {
         _nodes.add(node);
         setNodesAll(false);
     }
@@ -47,15 +47,15 @@ public final class SubNetworkElement extends AbstractAspectElement {
         return ASPECT_NAME;
     }
 
-    final public List<String> getEdges() {
+    final public List<Long> getEdges() {
         return _edges;
     }
 
-    final public String getId() {
+    final public Long getId() {
         return _id;
     }
 
-    final public List<String> getNodes() {
+    final public List<Long> getNodes() {
         return _nodes;
     }
 
@@ -96,7 +96,7 @@ public final class SubNetworkElement extends AbstractAspectElement {
             sb.append(" all");
         }
         else {
-            for (final String node : _nodes) {
+            for (final Long node : _nodes) {
                 sb.append(" ");
                 sb.append(node);
             }
@@ -107,7 +107,7 @@ public final class SubNetworkElement extends AbstractAspectElement {
             sb.append(" all");
         }
         else {
-            for (final String edge : _edges) {
+            for (final Long edge : _edges) {
                 sb.append(" ");
                 sb.append(edge);
             }

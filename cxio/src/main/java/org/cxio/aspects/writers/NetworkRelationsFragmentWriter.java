@@ -20,8 +20,8 @@ public class NetworkRelationsFragmentWriter extends AbstractFragmentWriter {
         final NetworkRelationsElement e = (NetworkRelationsElement) element;
 
         w.writeStartObject();
-        w.writeStringFieldIfNotEmpty(NetworkRelationsElement.PARENT, e.getParent());
-        w.writeStringField(NetworkRelationsElement.CHILD, e.getChild());
+        w.writeNumberFieldIfNotEmpty(NetworkRelationsElement.PARENT, e.getParent());
+        w.writeNumberField(NetworkRelationsElement.CHILD, e.getChild());
         w.writeStringFieldIfNotEmpty(NetworkRelationsElement.RELATIONSHIP, e.getRelationship());
         w.writeStringField(NetworkRelationsElement.CHILD_NAME, e.getChildName());
         w.writeEndObject();

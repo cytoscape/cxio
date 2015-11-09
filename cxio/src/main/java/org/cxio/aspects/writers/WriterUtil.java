@@ -12,13 +12,13 @@ final class WriterUtil {
     static void writeAttributesElement(final JsonWriter w, final AbstractAttributesAspectElement e, final AspectKeyFilter filter, final boolean write_property_of) throws IOException {
         if ((filter == null) || filter.isPass(e.getName())) {
             w.writeStartObject();
-            w.writeStringFieldIfNotEmpty(AbstractAttributesAspectElement.ATTR_SUBNETWORK, e.getSubnetwork());
+            w.writeNumberFieldIfNotEmpty(AbstractAttributesAspectElement.ATTR_SUBNETWORK, e.getSubnetwork());
             if (write_property_of) {
                 if (e.getPropertyOf().size() == 1) {
-                    w.writeStringField(AbstractAttributesAspectElement.ATTR_PROPERTY_OF, e.getPropertyOf().get(0));
+                    w.writeNumberField(AbstractAttributesAspectElement.ATTR_PROPERTY_OF, e.getPropertyOf().get(0));
                 }
                 else {
-                    w.writeList(AbstractAttributesAspectElement.ATTR_PROPERTY_OF, e.getPropertyOf());
+                    w.writeLongList(AbstractAttributesAspectElement.ATTR_PROPERTY_OF, e.getPropertyOf());
                 }
             }
             w.writeStringField(AbstractAttributesAspectElement.ATTR_NAME, e.getName());

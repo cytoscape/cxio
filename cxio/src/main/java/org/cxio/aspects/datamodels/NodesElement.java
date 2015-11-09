@@ -14,42 +14,44 @@ public final class NodesElement extends AbstractAspectElement {
     public final static String NODE_NAME       = "n";
     public final static String NODE_REPRESENTS = "r";
     public final static String ASPECT_NAME     = "nodes";
-    private final String       _id;
+    private final long         _id;
     private final String       _node_name;
     private final String       _node_represents;
 
     public NodesElement(final long id) {
-        _id = String.valueOf(id);
+        _id = id;
         _node_name = null;
         _node_represents = null;
     }
 
     public NodesElement(final String id) {
-        _id = id;
+
+        _id = Long.valueOf(id);
+
         _node_name = null;
         _node_represents = null;
     }
 
     public NodesElement(final long id, final String node_name) {
-        _id = String.valueOf(id);
+        _id = id;
         _node_name = node_name;
         _node_represents = null;
     }
 
     public NodesElement(final String id, final String node_name) {
-        _id = id;
+        _id = Long.valueOf(id);
         _node_name = node_name;
         _node_represents = null;
     }
 
     public NodesElement(final long id, final String node_name, final String node_represents) {
-        _id = String.valueOf(id);
+        _id = id;
         _node_name = node_name;
         _node_represents = node_represents;
     }
 
     public NodesElement(final String id, final String node_name, final String node_represents) {
-        _id = id;
+        _id = Long.valueOf(id);
         _node_name = node_name;
         _node_represents = node_represents;
     }
@@ -59,7 +61,7 @@ public final class NodesElement extends AbstractAspectElement {
         if (this == o) {
             return true;
         }
-        return (o instanceof NodesElement) && _id.equals(((NodesElement) o).getId());
+        return (o instanceof NodesElement) && (_id == ((NodesElement) o).getId());
     }
 
     @Override
@@ -67,7 +69,7 @@ public final class NodesElement extends AbstractAspectElement {
         return NodesElement.ASPECT_NAME;
     }
 
-    final public String getId() {
+    final public long getId() {
         return _id;
     }
 
@@ -81,7 +83,7 @@ public final class NodesElement extends AbstractAspectElement {
 
     @Override
     public int hashCode() {
-        return _id.hashCode();
+        return String.valueOf(_id).hashCode();
     }
 
     @Override

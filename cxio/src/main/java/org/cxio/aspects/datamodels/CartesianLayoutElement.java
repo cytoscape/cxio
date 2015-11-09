@@ -1,7 +1,5 @@
 package org.cxio.aspects.datamodels;
 
-import org.cxio.util.CxioUtil;
-
 /**
  * This class is used to represent the position of a network node in x, y, z coordinates.
  *
@@ -16,74 +14,92 @@ public final class CartesianLayoutElement extends AbstractAspectElement {
     public final static String X           = "x";
     public final static String Y           = "y";
     public final static String Z           = "z";
-    private final String       _node;
-    private final String       _view;
+    private final long         _node;
+    private final long         _view;
     private final String       _x;
     private final String       _y;
     private final String       _z;
     private final boolean      _z_set;
+    private final boolean      _view_set;
 
-    public CartesianLayoutElement(final String node, final double x, final double y, final double z) {
-        _node = node;
-        _view = null;
-        _x = String.valueOf(x);
-        _y = String.valueOf(y);
-        _z = String.valueOf(z);
-        _z_set = true;
-    }
-
-    public CartesianLayoutElement(final String node, final String view, final double x, final double y, final double z) {
-        _node = node;
-        _view = view;
-        _x = String.valueOf(x);
-        _y = String.valueOf(y);
-        _z = String.valueOf(z);
-        _z_set = true;
-    }
-
-    public CartesianLayoutElement(final String node, final String view, final String x, final String y) {
+    public CartesianLayoutElement(final long node, final long view, final String x, final String y) {
         _node = node;
         _view = view;
         _x = x;
         _y = y;
         _z = String.valueOf(0);
         _z_set = false;
+        _view_set = true;
     }
 
-    public CartesianLayoutElement(final String node, final String view, final String x, final String y, final String z) {
+    public CartesianLayoutElement(final long node, final long view, final String x, final String y, final String z) {
         _node = node;
         _view = view;
         _x = x;
         _y = y;
         _z = z;
         _z_set = true;
+        _view_set = true;
     }
 
-    public CartesianLayoutElement(final String node, final double x, final double y) {
+    public CartesianLayoutElement(final long node, final double x, final double y) {
         _node = node;
-        _view = null;
+        _view = 0;
         _x = String.valueOf(x);
         _y = String.valueOf(y);
         _z = String.valueOf(0);
         _z_set = false;
+        _view_set = false;
     }
 
-    public CartesianLayoutElement(final String node, final String view, final double x, final double y) {
+    public CartesianLayoutElement(final long node, final long view, final double x, final double y) {
         _node = node;
         _view = view;
         _x = String.valueOf(x);
         _y = String.valueOf(y);
         _z = String.valueOf(0);
         _z_set = false;
+        _view_set = true;
     }
 
-    public CartesianLayoutElement(final String node, final String x, final String y) {
+    public CartesianLayoutElement(final long node, final long view, final double x, final double y, final double z) {
         _node = node;
-        _view = null;
+        _view = view;
+        _x = String.valueOf(x);
+        _y = String.valueOf(y);
+        _z = String.valueOf(z);
+        _z_set = true;
+        _view_set = true;
+    }
+
+    public CartesianLayoutElement(final long node, final double x, final double y, final double z) {
+        _node = node;
+        _view = 0;
+        _x = String.valueOf(x);
+        _y = String.valueOf(y);
+        _z = String.valueOf(z);
+        _z_set = true;
+        _view_set = false;
+    }
+
+    public CartesianLayoutElement(final Long node, final String x, final String y) {
+        _node = node;
+        _view = 0;
         _x = x;
         _y = y;
         _z = String.valueOf(0);
         _z_set = false;
+        _view_set = false;
+    }
+
+    public CartesianLayoutElement(final Long node, final String x, final String y, final String z) {
+        _node = node;
+        _view = 0;
+        _x = x;
+        _y = y;
+        _z = z;
+        _z_set = true;
+        _view_set = false;
     }
 
     @Override
@@ -91,11 +107,11 @@ public final class CartesianLayoutElement extends AbstractAspectElement {
         return CartesianLayoutElement.ASPECT_NAME;
     }
 
-    final public String getView() {
+    final public long getView() {
         return _view;
     }
 
-    public String getNode() {
+    public long getNode() {
         return _node;
     }
 
@@ -115,6 +131,10 @@ public final class CartesianLayoutElement extends AbstractAspectElement {
         return _z_set;
     }
 
+    public boolean isViewSet() {
+        return _view_set;
+    }
+
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder();
@@ -122,7 +142,7 @@ public final class CartesianLayoutElement extends AbstractAspectElement {
         sb.append(": ");
         sb.append("node: ");
         sb.append(_node);
-        if (!CxioUtil.isEmpty(_view)) {
+        if (_view_set) {
             sb.append(", view: ");
             sb.append(_view);
         }

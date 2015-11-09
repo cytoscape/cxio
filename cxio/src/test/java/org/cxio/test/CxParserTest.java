@@ -77,7 +77,7 @@ public class CxParserTest {
 
     @Test
     public void test2() throws IOException, NoSuchAlgorithmException {
-        final String j = "[{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}]";
+        final String j = "[{\"nodes_we_ignore\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertFalse(p.hasNext());
@@ -94,7 +94,7 @@ public class CxParserTest {
 
     @Test
     public void test3() throws IOException, NoSuchAlgorithmException {
-        final String j = "[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}]";
+        final String j = "[{\"nodes\":[{\"@id\":0},{\"@id\":1},{\"@id\":2},{\"@id\":3}]}]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
@@ -106,10 +106,10 @@ public class CxParserTest {
         assertFalse(p.hasNext());
         assertTrue(x.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         p.reset();
         assertTrue(p.hasNext());
         final List<AspectElement> y = p.getNext();
@@ -120,17 +120,17 @@ public class CxParserTest {
         assertFalse(p.hasNext());
         assertTrue(y.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", y.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("3")));
 
     }
 
     @Test
     public void test4() throws IOException, NoSuchAlgorithmException {
-        final String j = "[" + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
-                + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}" + "]";
+        final String j = "[" + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
+                + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
         assertTrue(p.hasNext());
         final List<AspectElement> x = p.getNext();
@@ -138,10 +138,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e = p.getNext();
         assertFalse(e == null);
         assertFalse(p.hasNext());
@@ -160,10 +160,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x1.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x1.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e1 = p.getNext();
         assertFalse(e1 == null);
         assertFalse(p.hasNext());
@@ -178,8 +178,8 @@ public class CxParserTest {
 
     @Test
     public void test5() throws IOException, NoSuchAlgorithmException {
-        final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"key\":\"value\"},"
-                + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
+        final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
+                + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
@@ -188,10 +188,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e = p.getNext();
         assertFalse(e == null);
         assertFalse(p.hasNext());
@@ -213,10 +213,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x1.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x1.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e1 = p.getNext();
         assertFalse(e1 == null);
         assertFalse(p.hasNext());
@@ -233,8 +233,8 @@ public class CxParserTest {
     public void test6() throws IOException, NoSuchAlgorithmException {
         final String j = "["
 
-        + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"key\":\"value\"},"
-        + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
+        + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
+        + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
@@ -243,10 +243,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e = p.getNext();
         assertFalse(e == null);
         assertFalse(p.hasNext());
@@ -265,10 +265,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x1.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x1.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e1 = p.getNext();
         assertFalse(e1 == null);
         assertFalse(p.hasNext());
@@ -283,9 +283,9 @@ public class CxParserTest {
 
     @Test
     public void test7() throws IOException, NoSuchAlgorithmException {
-        final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
+        final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
 
-        + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}," + "{\"key\":\"value\"}" + "]";
+        + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
@@ -294,10 +294,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e = p.getNext();
         assertFalse(e == null);
         assertFalse(p.hasNext());
@@ -316,10 +316,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x1.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x1.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e1 = p.getNext();
         assertFalse(e1 == null);
         assertFalse(p.hasNext());
@@ -334,8 +334,8 @@ public class CxParserTest {
 
     @Test
     public void test8() throws IOException, NoSuchAlgorithmException {
-        final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}," + "{\"key\":\"value\"},"
-                + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]}" + "]";
+        final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
+                + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
         assertTrue(p.hasNext());
         final List<AspectElement> x = p.getNext();
@@ -343,10 +343,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e = p.getNext();
         assertFalse(e == null);
         assertFalse(p.hasNext());
@@ -367,10 +367,10 @@ public class CxParserTest {
         assertTrue(p.hasNext());
         assertTrue(x1.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x1.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         final List<AspectElement> e1 = p.getNext();
         assertFalse(e1 == null);
         assertFalse(p.hasNext());
@@ -387,18 +387,18 @@ public class CxParserTest {
     @Test
     public void test9() throws IOException, NoSuchAlgorithmException {
         final String j = "["
-                + "{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
-                + "{\"edges\":[{\"@id\":\"e0\",\"s\":\"_0\",\"t\":\"_1\"},{\"@id\":\"e1\",\"s\":\"_1\",\"t\":\"_2\"}]},"
-                + "{\"nodeIdentities\":[{\"@id\":\"ni0\",\"nodes\":\"_0\",\"represents\":\"name is zero\"},{\"@id\":\"ni1\",\"node\":\"_1\",\"represents\":\"name is one\"}]},"
+                + "{\"nodes_we_ignore\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
+                + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
+                + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]},"
+                + "{\"nodeIdentities\":[{\"@id\":\"ni0\",\"nodes\":\"0\",\"represents\":\"name is zero\"},{\"@id\":\"ni1\",\"node\":\"1\",\"represents\":\"name is one\"}]},"
                 + "{\"edgeIdentities\":[{\"@id\":\"ei0\",\"edge\":\"e0\",\"relationship\":\"BEL:INCREASES\"},{\"@id\":\"ei1\",\"edge\":\"e1\",\"relationship\":\"BEL:DECREASES\"}]},"
-                + "{\"elementProperties\":[{\"@id\":\"ep0\",\"elementId\":\"_0\",\"property\":\"propery zero\",\"value\":\"value is zero\"},{\"@id\":\"ep1\",\"elementId\":\"_1\",\"property\":\"propery one\",\"value\":\"value is one\"}]},"
+                + "{\"elementProperties\":[{\"@id\":\"ep0\",\"elementId\":\"0\",\"property\":\"propery zero\",\"value\":\"value is zero\"},{\"@id\":\"ep1\",\"elementId\":\"1\",\"property\":\"propery one\",\"value\":\"value is one\"}]},"
                 + "{\"functionTerms\":[{\"@id\":\"ft0\",\"function\":\"functions zero\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]},{\"@id\":\"ft1\",\"function\":\"functions one\",\"parameters\":[\"HGNC:FAS\",\"HGNC:MAPK1\"]}]},"
-                + "{\"nodes\":[{\"@id\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e2\",\"s\":\"_4\",\"t\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e3\",\"s\":\"_6\",\"t\":\"_7\"}]},"
-                + "{\"nodes\":[{\"@id\":\"_4\"}]}," + "{\"nodes\":[{\"@id\":\"_6\"}]}," + "{\"nodes\":[{\"@id\":\"_7\"}]}," + "{\"xyz\":{\"nodes\":\"_7\"}}," + "{\"abc\":[{\"nodes\":[1,2]}]},"
+                + "{\"nodes\":[{\"@id\":\"5\"}]}," + "{\"edges\":[{\"@id\":\"2\",\"s\":\"4\",\"t\":\"5\"}]}," + "{\"edges\":[{\"@id\":\"3\",\"s\":\"6\",\"t\":\"7\"}]},"
+                + "{\"nodes\":[{\"@id\":\"4\"}]}," + "{\"nodes\":[{\"@id\":\"6\"}]}," + "{\"nodes\":[{\"@id\":\"7\"}]}," + "{\"xyz\":{\"nodes\":\"7\"}}," + "{\"abc\":[{\"nodes\":[1,2]}]},"
                 + "{\"nmq\":[{\"nodes\":[{\"a\":[1,2,3]},{\"b\":[4,5,{\"id\":\"y\"}]}]}]}," + "{\"table\":[{\"row 0\":[\"00\",\"10\"],\"row 1\":[\"01\",\"11\"],\"row 2\":[\"02\",\"12\"]}]},"
-                + "{\"table\":[{\"row 0\":[\"00\",\"10\" ,\"20\"],\"row 1\":[\"01\",\"11\",\"21\"]}]}," + "{\"cartesianLayout\":[{\"node\":\"_0\",\"x\":\"123\",\"y\":\"456\"}]},"
-                + "{\"cartesianLayout\":[{\"node\":\"_1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"_2\",\"x\":\"5\",\"y\":\"6\"}]}" + "]";
+                + "{\"table\":[{\"row 0\":[\"00\",\"10\" ,\"20\"],\"row 1\":[\"01\",\"11\",\"21\"]}]}," + "{\"cartesianLayout\":[{\"node\":\"0\",\"x\":\"123\",\"y\":\"456\"}]},"
+                + "{\"cartesianLayout\":[{\"node\":\"1\",\"x\":\"3\",\"y\":\"4\"},{\"node\":\"2\",\"x\":\"5\",\"y\":\"6\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
         //
@@ -483,7 +483,7 @@ public class CxParserTest {
 
     @Test
     public void test10() throws IOException, NoSuchAlgorithmException {
-        final String j = "[{\"nodes\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]}]";
+        final String j = "[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}]";
         final Set<AspectFragmentReader> readers = new HashSet<>();
         readers.add(EdgesFragmentReader.createInstance());
         readers.add(NodesFragmentReader.createInstance());
@@ -498,10 +498,10 @@ public class CxParserTest {
         assertFalse(p.hasNext());
         assertTrue(x.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", x.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", x.contains(new NodesElement("3")));
         p.reset();
         assertTrue(p.hasNext());
         final List<AspectElement> y = p.getNext();
@@ -512,10 +512,10 @@ public class CxParserTest {
         assertFalse(p.hasNext());
         assertTrue(y.size() == 4);
         assertTrue("failed to get expected NodeAspect instance", y.get(0) instanceof NodesElement);
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("_0")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("_1")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("_2")));
-        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("_3")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("0")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("1")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("2")));
+        assertTrue("failed to get expected " + NodesElement.ASPECT_NAME + " aspect", y.contains(new NodesElement("3")));
 
     }
 

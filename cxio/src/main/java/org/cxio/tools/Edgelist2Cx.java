@@ -73,12 +73,12 @@ public final class Edgelist2Cx {
 
         for (final Entry<Integer, String> e : id_to_node.entrySet()) {
             cx_nodes.add(new NodesElement(e.getKey()));
-            cx_node_attributes.add(new NodeAttributesElement(String.valueOf(e.getKey()), NAME, e.getValue()));
+            cx_node_attributes.add(new NodeAttributesElement(Long.valueOf(e.getKey()), NAME, e.getValue()));
         }
 
         for (int r = 0; r < t.getNumberOfRows(); ++r) {
             cx_edges.add(new EdgesElement(r, node_to_id.get(t.getValue(0, r)), node_to_id.get(t.getValue(1, r))));
-            cx_edge_attributes.add(new EdgeAttributesElement(String.valueOf(r), WEIGHT, t.getValue(2, r)));
+            cx_edge_attributes.add(new EdgeAttributesElement(Long.valueOf(r), WEIGHT, t.getValue(2, r)));
         }
 
         final OutputStream out = new FileOutputStream(outfile);

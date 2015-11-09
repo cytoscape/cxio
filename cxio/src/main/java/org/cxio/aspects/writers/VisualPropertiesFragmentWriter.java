@@ -32,7 +32,7 @@ public class VisualPropertiesFragmentWriter extends AbstractFragmentWriter {
         else if (c.getAppliesTo().size() > 1) {
             w.writeList(CyVisualPropertiesElement.APPLIES_TO, c.getAppliesTo());
         }
-        w.writeStringFieldIfNotEmpty(CyVisualPropertiesElement.VIEW, c.getView());
+        w.writeNumberFieldIfNotEmpty(CyVisualPropertiesElement.VIEW, c.getView());
         if ((c.getProperties() != null) && !c.getProperties().isEmpty()) {
             w.writeObjectFieldStart(CyVisualPropertiesElement.PROPERTIES);
             for (final Map.Entry<String, String> entry : c.getProperties().entrySet()) {

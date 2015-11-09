@@ -32,13 +32,13 @@ public class HiddenAttributesFragmentReader extends AbstractFragmentReader {
             type = AttributesAspectUtils.toDataType(ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_DATA_TYPE));
         }
         if (ParserUtils.isArray(o, AbstractAttributesAspectElement.ATTR_VALUES)) {
-            return new HiddenAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),
+            return new HiddenAttributesElement(ParserUtils.getTextValueAsLong(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),
                                                ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_NAME),
                                                ParserUtils.getAsStringList(o, AbstractAttributesAspectElement.ATTR_VALUES),
                                                type);
         }
 
-        return new HiddenAttributesElement(ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),
+        return new HiddenAttributesElement(ParserUtils.getTextValueAsLong(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),
                                            ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_NAME),
                                            ParserUtils.getTextValue(o, AbstractAttributesAspectElement.ATTR_VALUES),
                                            type);

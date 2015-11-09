@@ -18,7 +18,7 @@ public class NodeElementTest {
         assertTrue(n1.equals(n0));
         assertFalse(n2.equals(n1));
         assertFalse(n1.equals(n2));
-        assertTrue(n0.getId().equals("0"));
+        assertTrue(n0.getId() == 0);
     }
 
 }

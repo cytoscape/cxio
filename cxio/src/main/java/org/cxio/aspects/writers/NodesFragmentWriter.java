@@ -24,7 +24,7 @@ public class NodesFragmentWriter extends AbstractFragmentWriter {
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final NodesElement e = (NodesElement) element;
         w.writeStartObject();
-        w.writeStringField(NodesElement.ID, e.getId());
+        w.writeNumberField(NodesElement.ID, e.getId());
         if (e.getNodeName() != null) {
             w.writeStringField(NodesElement.NODE_NAME, e.getNodeName());
         }

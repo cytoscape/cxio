@@ -3,8 +3,6 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.cxio.util.CxioUtil;
-
 /**
  * This class is used to present one attribute of a network.
  * An attribute consists of a name, value(s), type, and
@@ -17,7 +15,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
 
     public final static String ASPECT_NAME = "networkAttributes";
 
-    public NetworkAttributesElement(final String subnetwork, final String name, final List<String> values) {
+    public NetworkAttributesElement(final long subnetwork, final String name, final List<String> values) {
         _data_type = ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
         _is_single_value = false;
         _subnetwork = subnetwork;
@@ -25,7 +23,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         _values = values;
     }
 
-    public NetworkAttributesElement(final String subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
+    public NetworkAttributesElement(final long subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
         if (!AttributesAspectUtils.isListType(type)) {
             throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
         }
@@ -36,7 +34,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         _values = values;
     }
 
-    public NetworkAttributesElement(final String subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+    public NetworkAttributesElement(final long subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
         if (AttributesAspectUtils.isListType(type)) {
             throw new IllegalArgumentException("single value provided, but given data type is " + type.toString());
         }
@@ -48,7 +46,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         _values.add(value);
     }
 
-    public NetworkAttributesElement(final String subnetwork, final String name, final String value) {
+    public NetworkAttributesElement(final long subnetwork, final String name, final String value) {
         _data_type = ATTRIBUTE_DATA_TYPE.STRING;
         _is_single_value = true;
         _subnetwork = subnetwork;
@@ -58,7 +56,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
 
     }
 
-    public NetworkAttributesElement(final String subnetwork, final String name, final Object value) {
+    public NetworkAttributesElement(final long subnetwork, final String name, final Object value) {
         if (value instanceof List) {
             throw new IllegalArgumentException("constructor only applicable for singe values");
         }
@@ -76,7 +74,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
     }
 
     @Override
-    public final List<String> getPropertyOf() {
+    public final List<Long> getPropertyOf() {
         throw new NoSuchMethodError("network attributes do not have a property-of data field");
     }
 
@@ -86,7 +84,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         sb.append(ASPECT_NAME);
         sb.append(": ");
         sb.append("\n");
-        if (CxioUtil.isEmpty(_subnetwork)) {
+        if (_subnetwork != null) {
             sb.append("property of network");
         }
         else {
@@ -111,12 +109,12 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         return sb.toString();
     }
 
-    public final static NetworkAttributesElement createInstanceWithSingleValue(final String subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+    public final static NetworkAttributesElement createInstanceWithSingleValue(final Long subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
         return new NetworkAttributesElement(subnetwork, name, DatamodelsUtil.removeParenthesis(value, type), type);
     }
 
-    public final static NetworkAttributesElement createInstanceWithMultipleValues(final String subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
+    public final static NetworkAttributesElement createInstanceWithMultipleValues(final Long subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
 
         return new NetworkAttributesElement(subnetwork, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }

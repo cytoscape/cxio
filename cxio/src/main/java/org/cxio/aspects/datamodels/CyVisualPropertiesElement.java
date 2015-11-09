@@ -6,8 +6,6 @@ import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.util.CxioUtil;
-
 /**
  * This class is used to represent a visual property of a
  * network, node(s), or edge(s) in/under a network view.
@@ -24,7 +22,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
     public final static String              PROPERTIES_OF = "properties_of";
 
     private final List<String>              _applies_to;
-    final String                            _view;
+    final Long                              _view;
     private final SortedMap<String, String> _properties;
     private final String                    _properties_of;
 
@@ -35,7 +33,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         _view = null;
     }
 
-    public CyVisualPropertiesElement(final String properties_of, final String view) {
+    public CyVisualPropertiesElement(final String properties_of, final long view) {
         _properties_of = properties_of;
         _applies_to = new ArrayList<String>();
         _properties = new TreeMap<String, String>();
@@ -49,7 +47,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         _view = null;
     }
 
-    public CyVisualPropertiesElement(final String properties_of, final List<String> applies_to, final String view) {
+    public CyVisualPropertiesElement(final String properties_of, final List<String> applies_to, final long view) {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
@@ -69,7 +67,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         return ASPECT_NAME;
     }
 
-    final public String getView() {
+    final public Long getView() {
         return _view;
     }
 
@@ -93,7 +91,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         sb.append("properties of: ");
         sb.append(_properties_of);
         sb.append("\n");
-        if (!CxioUtil.isEmpty(_view)) {
+        if (_view != null) {
             sb.append("view: ");
             sb.append(_view);
             sb.append("\n");

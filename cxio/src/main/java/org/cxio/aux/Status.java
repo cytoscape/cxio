@@ -23,7 +23,7 @@ public final class Status implements Serializable {
     public final static String                    NAME             = "status";
     private static final long                     serialVersionUID = 6558992873250381652L;
     private static final String                   SUCCESS          = "success";
-    private final List<SortedMap<String, String>> _data;
+    private final List<SortedMap<String, Object>> _data;
 
     public final static Status createInstanceFromJson(final InputStream is) throws IOException {
         final ObjectMapper m = new ObjectMapper();
@@ -41,36 +41,36 @@ public final class Status implements Serializable {
     }
 
     public Status() {
-        _data = new ArrayList<SortedMap<String, String>>();
+        _data = new ArrayList<SortedMap<String, Object>>();
 
     }
 
     public Status(final boolean success) {
-        _data = new ArrayList<SortedMap<String, String>>();
-        _data.add(new TreeMap<String, String>());
+        _data = new ArrayList<SortedMap<String, Object>>();
+        _data.add(new TreeMap<String, Object>());
         _data.get(0).put(ERROR, "");
-        _data.get(0).put(SUCCESS, String.valueOf(success));
+        _data.get(0).put(SUCCESS, success);
     }
 
     public Status(final boolean success, final String error) {
-        _data = new ArrayList<SortedMap<String, String>>();
-        _data.add(new TreeMap<String, String>());
+        _data = new ArrayList<SortedMap<String, Object>>();
+        _data.add(new TreeMap<String, Object>());
         _data.get(0).put(ERROR, error == null ? "" : error);
-        _data.get(0).put(SUCCESS, String.valueOf(success));
+        _data.get(0).put(SUCCESS, success);
     }
 
     @JsonIgnore
     public final String getError() {
-        return _data.get(0).get(ERROR);
+        return (String) _data.get(0).get(ERROR);
     }
 
-    public List<SortedMap<String, String>> getStatus() {
+    public List<SortedMap<String, Object>> getStatus() {
         return _data;
     }
 
     @JsonIgnore
     public final boolean isSuccess() {
-        return Boolean.valueOf(_data.get(0).get(SUCCESS));
+        return Boolean.valueOf((boolean) _data.get(0).get(SUCCESS));
     }
 
     public final void toJson(final JsonWriter w) throws IOException {

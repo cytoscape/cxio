@@ -110,6 +110,19 @@ public final class JsonWriter {
         }
     }
 
+    public final void writeLongList(final String label, final Collection<Long> list) throws IOException {
+        if (list != null) {
+            _g.writeArrayFieldStart(label);
+            for (final Long s : list) {
+                _g.writeNumber(s);
+            }
+            _g.writeEndArray();
+        }
+        else {
+            throw new IllegalArgumentException("attempt to write null list to json");
+        }
+    }
+
     public final void writeList(final String label, final Iterator<String> it) throws IOException {
         _g.writeArrayFieldStart(label);
         while (it.hasNext()) {
@@ -118,8 +131,16 @@ public final class JsonWriter {
         _g.writeEndArray();
     }
 
-    public final void writeNumberField(final String field_name, final double value) throws IOException {
-        _g.writeNumberField(field_name, value);
+    public final void writeNumberField(final String field_name, final double d) throws IOException {
+        _g.writeNumberField(field_name, d);
+    }
+
+    public final void writeNumberField(final String field_name, final long l) throws IOException {
+        _g.writeNumberField(field_name, l);
+    }
+
+    public final void writeNumberField(final String field_name, final int i) throws IOException {
+        _g.writeNumberField(field_name, i);
     }
 
     public final void writeObject(final Object obj) throws IOException {
@@ -146,6 +167,12 @@ public final class JsonWriter {
     public final void writeStringFieldIfNotEmpty(final String field_name, final String value) throws IOException {
         if (!CxioUtil.isEmpty(value)) {
             _g.writeStringField(field_name, value);
+        }
+    }
+
+    public final void writeNumberFieldIfNotEmpty(final String field_name, final Long l) throws IOException {
+        if (l != null) {
+            _g.writeNumberField(field_name, l);
         }
     }
 

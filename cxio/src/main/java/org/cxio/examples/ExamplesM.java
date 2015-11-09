@@ -22,9 +22,9 @@ public class ExamplesM {
         // Creating some CX formatted data and writing it to cx_json_str
         // -------------------------------------------------------------
         final List<AspectElement> edges_elements = new ArrayList<AspectElement>();
-        edges_elements.add(new EdgesElement("edge0", "node0", "node1", "rel 1"));
-        edges_elements.add(new EdgesElement("edge1", "node0", "node2", "rel 2"));
-        edges_elements.add(new EdgesElement("edge2", "node0", "node3", "rel 3"));
+        edges_elements.add(new EdgesElement(0, 0, 1, "rel 1"));
+        edges_elements.add(new EdgesElement(1, 0, 2, "rel 2"));
+        edges_elements.add(new EdgesElement(2, 0, 3, "rel 3"));
         final OutputStream out = new ByteArrayOutputStream();
 
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
@@ -50,8 +50,8 @@ public class ExamplesM {
         for (final AspectElement e : reader) {
             if (e.getAspectName() == EdgesElement.ASPECT_NAME) {
                 final EdgesElement ee = (EdgesElement) e;
-                final String s = ee.getSource();
-                final String t = ee.getTarget();
+                final long s = ee.getSource();
+                final long t = ee.getTarget();
                 final String r = ee.getInteraction();
                 System.out.println(ee);
             }

@@ -54,7 +54,7 @@ public class ChecksumTest {
         final EdgeAttributesElement ea1 = new EdgeAttributesElement(0, "weight", "2", ATTRIBUTE_DATA_TYPE.INTEGER);
         final EdgeAttributesElement ea2 = new EdgeAttributesElement(1, "name", "B", ATTRIBUTE_DATA_TYPE.STRING);
         final EdgeAttributesElement ea3 = new EdgeAttributesElement(1, "weight", "3", ATTRIBUTE_DATA_TYPE.INTEGER);
-        
+
         final List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
         edge_attributes_elements.add(ea0);
         edge_attributes_elements.add(ea1);

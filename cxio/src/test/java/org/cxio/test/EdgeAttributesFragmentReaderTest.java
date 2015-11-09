@@ -63,7 +63,7 @@ public class EdgeAttributesFragmentReaderTest {
         assertTrue(ea3.getValues().size() == 2);
         assertTrue(ea3.getValues().contains("1"));
         assertTrue(ea3.getValues().contains("2"));
-        assertTrue(ea3.getSubnetwork()==1234);
+        assertTrue(ea3.getSubnetwork() == 1234);
 
     }
 

@@ -19,7 +19,7 @@ public class EdgesFragmentReaderETest {
     public void testEdgesAspectParsing() throws IOException, ClassNotFoundException {
         final String t0 = "["
 
-        + "{\"edges\":[{\"@id\":\"e2\",\"s\":\"_4\",\"t\":\"_5\"}]}," + "{\"edges\":[{\"@id\":\"e3\",\"s\":\"_6\",\"t\":\"_7\",\"i\":\"rel A\"}]}" + "]";
+        + "{\"edges\":[{\"@id\":2,\"s\":\"4\",\"t\":\"5\"}]}," + "{\"edges\":[{\"@id\":\"3\",\"s\":\"6\",\"t\":\"7\",\"i\":\"rel A\"}]}" + "]";
 
         final CxElementReader p = CxElementReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
@@ -34,8 +34,8 @@ public class EdgesFragmentReaderETest {
 
         assertTrue("failed to get expected NodeAspect instance", edge_aspects.get(0) instanceof EdgesElement);
 
-        assertTrue("failed to get expected " + EdgesElement.ASPECT_NAME + " aspect", edge_aspects.contains(new EdgesElement("e2", "0", "0")));
-        assertTrue("failed to get expected " + EdgesElement.ASPECT_NAME + " aspect", edge_aspects.contains(new EdgesElement("e3", "0", "0")));
+        assertTrue("failed to get expected " + EdgesElement.ASPECT_NAME + " aspect", edge_aspects.contains(new EdgesElement("2", "0", "0")));
+        assertTrue("failed to get expected " + EdgesElement.ASPECT_NAME + " aspect", edge_aspects.contains(new EdgesElement("3", "0", "0")));
 
         assertTrue(((EdgesElement) edge_aspects.get(1)).getInteraction().equals("rel A"));
 

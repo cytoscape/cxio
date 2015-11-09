@@ -18,9 +18,9 @@ public class EdgeElementTest {
         assertTrue(e1.equals(e0));
         assertFalse(e2.equals(e1));
         assertFalse(e1.equals(e2));
-        assertTrue(e0.getId()==0);
-        assertTrue(e0.getSource()==11);
-        assertTrue(e0.getTarget()==22);
+        assertTrue(e0.getId() == 0);
+        assertTrue(e0.getSource() == 11);
+        assertTrue(e0.getTarget() == 22);
     }
 
 }

@@ -34,36 +34,36 @@ public class EdgeAttributesFragmentReaderETest {
         final EdgeAttributesElement ea0 = (EdgeAttributesElement) aspects.get(0);
         assertTrue(ea0.getName().equals("name1"));
         assertTrue(ea0.getPropertyOf().size() == 1);
-        assertTrue(ea0.getPropertyOf().contains("0"));
+        assertTrue(ea0.getPropertyOf().contains(0L));
         assertTrue(ea0.getDataType() == ATTRIBUTE_DATA_TYPE.STRING);
         assertTrue(ea0.getValue().equals("value"));
 
         final EdgeAttributesElement ea1 = (EdgeAttributesElement) aspects.get(1);
         assertTrue(ea1.getName().equals("name2"));
         assertTrue(ea1.getPropertyOf().size() == 1);
-        assertTrue(ea1.getPropertyOf().contains("1"));
+        assertTrue(ea1.getPropertyOf().contains(1L));
         assertTrue(ea1.getDataType() == ATTRIBUTE_DATA_TYPE.INTEGER);
         assertTrue(ea1.getValue().equals("12"));
 
         final EdgeAttributesElement ea2 = (EdgeAttributesElement) aspects.get(2);
         assertTrue(ea2.getName().equals("name3"));
         assertTrue(ea2.getPropertyOf().size() == 2);
-        assertTrue(ea2.getPropertyOf().contains("0"));
-        assertTrue(ea2.getPropertyOf().contains("1"));
+        assertTrue(ea2.getPropertyOf().contains(0L));
+        assertTrue(ea2.getPropertyOf().contains(1L));
         assertTrue(ea2.getDataType() == ATTRIBUTE_DATA_TYPE.BOOLEAN);
         assertTrue(ea2.getValue().equals("true"));
 
         final EdgeAttributesElement ea3 = (EdgeAttributesElement) aspects.get(3);
         assertTrue(ea3.getName().equals("name4"));
         assertTrue(ea3.getPropertyOf().size() == 3);
-        assertTrue(ea3.getPropertyOf().contains("0"));
-        assertTrue(ea3.getPropertyOf().contains("1"));
-        assertTrue(ea3.getPropertyOf().contains("2"));
+        assertTrue(ea3.getPropertyOf().contains(0L));
+        assertTrue(ea3.getPropertyOf().contains(1L));
+        assertTrue(ea3.getPropertyOf().contains(2L));
         assertTrue(ea3.getDataType() == ATTRIBUTE_DATA_TYPE.LIST_OF_SHORT);
         assertTrue(ea3.getValues().size() == 2);
         assertTrue(ea3.getValues().contains("1"));
         assertTrue(ea3.getValues().contains("2"));
-        assertTrue(ea3.getSubnetwork().equals("1234"));
+        assertTrue(ea3.getSubnetwork() == 1234);
 
     }
 

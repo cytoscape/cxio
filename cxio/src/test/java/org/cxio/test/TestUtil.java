@@ -80,7 +80,7 @@ final class TestUtil {
 
         return out.toString();
     }
-    
+
     final static boolean isAreByteArraysEqual(final byte[] a0, final byte[] a1) {
         if (a0.length != a1.length) {
             return false;

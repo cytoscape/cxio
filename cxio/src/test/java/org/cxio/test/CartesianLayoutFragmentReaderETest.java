@@ -43,7 +43,7 @@ public class CartesianLayoutFragmentReaderETest {
 
         final CartesianLayoutElement a1 = (CartesianLayoutElement) aspects.get(1);
 
-        assertEquals(a1.getNode(),1);
+        assertEquals(a1.getNode(), 1);
         assertTrue(a1.getX().equals("3"));
         assertTrue(a1.getY().equals("4"));
         assertTrue(a1.getZ().equals("2"));

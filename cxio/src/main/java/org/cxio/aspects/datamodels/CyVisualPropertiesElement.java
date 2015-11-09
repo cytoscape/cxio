@@ -21,33 +21,33 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
     public final static String              PROPERTIES    = "properties";
     public final static String              PROPERTIES_OF = "properties_of";
 
-    private final List<String>              _applies_to;
+    private final List<Long>              _applies_to;
     final Long                              _view;
     private final SortedMap<String, String> _properties;
     private final String                    _properties_of;
 
     public CyVisualPropertiesElement(final String properties_of) {
         _properties_of = properties_of;
-        _applies_to = new ArrayList<String>();
+        _applies_to = new ArrayList<Long>();
         _properties = new TreeMap<String, String>();
         _view = null;
     }
 
     public CyVisualPropertiesElement(final String properties_of, final long view) {
         _properties_of = properties_of;
-        _applies_to = new ArrayList<String>();
+        _applies_to = new ArrayList<Long>();
         _properties = new TreeMap<String, String>();
         _view = view;
     }
 
-    public CyVisualPropertiesElement(final String properties_of, final List<String> applies_to) {
+    public CyVisualPropertiesElement(final String properties_of, final List<Long> applies_to) {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
         _view = null;
     }
 
-    public CyVisualPropertiesElement(final String properties_of, final List<String> applies_to, final long view) {
+    public CyVisualPropertiesElement(final String properties_of, final List<Long> applies_to, final long view) {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
@@ -55,10 +55,14 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
     }
 
     public final void addAppliesTo(final String applies_to) {
+        _applies_to.add(Long.valueOf(applies_to));
+    }
+    
+    public final void addAppliesTo(final long applies_to) {
         _applies_to.add(applies_to);
     }
 
-    public final List<String> getAppliesTo() {
+    public final List<Long> getAppliesTo() {
         return _applies_to;
     }
 
@@ -97,7 +101,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
             sb.append("\n");
         }
         sb.append("applies to: ");
-        for (final String a : _applies_to) {
+        for (final Long a : _applies_to) {
             sb.append(a);
             sb.append(" ");
         }

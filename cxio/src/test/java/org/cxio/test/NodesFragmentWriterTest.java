@@ -29,7 +29,7 @@ public class NodesFragmentWriterTest {
         w0.writeAspectElements(l0);
         w0.end(true, "");
 
-        assertEquals("[{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out0.toString());
+        assertEquals("[{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
 
         final NodesElement n0 = new NodesElement("0");
         final NodesElement n1 = new NodesElement("1");
@@ -50,7 +50,7 @@ public class NodesFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end(true, "");
 
-        assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\",\"n\":\"name 2\"}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out1.toString());
+        assertEquals("[{\"nodes\":[{\"@id\":0},{\"@id\":1},{\"@id\":2,\"n\":\"name 2\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]", out1.toString());
 
     }
 
@@ -76,7 +76,7 @@ public class NodesFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end(true, "");
 
-        assertEquals("[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\",\"n\":\"name 2\",\"r\":\"reps 2\"}]},{\"status\":[{\"error\":\"\",\"success\":\"true\"}]}]", out1.toString());
+        assertEquals("[{\"nodes\":[{\"@id\":0},{\"@id\":1},{\"@id\":2,\"n\":\"name 2\",\"r\":\"reps 2\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]", out1.toString());
 
     }
 

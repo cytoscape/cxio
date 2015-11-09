@@ -91,8 +91,8 @@ public class OpaqueElementTest {
 
         //
 
-        final List<String> applies_to = new ArrayList<String>();
-        applies_to.add("12");
+        final List<Long> applies_to = new ArrayList<Long>();
+        applies_to.add(1L);
         final List<AspectElement> vp_elements = new ArrayList<AspectElement>();
         vp_elements.add(new CyVisualPropertiesElement("network", applies_to, 1));
 
@@ -241,8 +241,8 @@ public class OpaqueElementTest {
 
         //
 
-        final List<String> applies_to = new ArrayList<String>();
-        applies_to.add("12");
+        final List<Long> applies_to = new ArrayList<Long>();
+        applies_to.add(12L);
         final List<AspectElement> vp_elements = new ArrayList<AspectElement>();
         vp_elements.add(new CyVisualPropertiesElement("network", applies_to, 1));
 

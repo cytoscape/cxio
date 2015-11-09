@@ -7,8 +7,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
 
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.core.CxElementReader;
@@ -41,9 +39,9 @@ public class MetaDataTest {
         citation_meta.setLastUpdate(1034334343L);
         citation_meta.setConsistencyGroup(1L);
 
-        //final Map<String, String> prop = new TreeMap<String, String>();
-       // prop.put("name", "curator");
-       // prop.put("value", "Ideker Lab");
+        // final Map<String, String> prop = new TreeMap<String, String>();
+        // prop.put("name", "curator");
+        // prop.put("value", "Ideker Lab");
         citation_meta.addProperty("name", "curator");
         citation_meta.addProperty("value", "Ideker Lab");
 
@@ -95,7 +93,6 @@ public class MetaDataTest {
         citation_meta.setLastUpdate(1034334343L);
         citation_meta.setConsistencyGroup(1L);
 
-   
         citation_meta.addProperty("name", "curator");
         citation_meta.addProperty("value", "Ideker Lab");
 

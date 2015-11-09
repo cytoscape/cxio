@@ -27,10 +27,10 @@ public class VisualPropertiesFragmentWriter extends AbstractFragmentWriter {
         w.writeStartObject();
         w.writeStringField(CyVisualPropertiesElement.PROPERTIES_OF, c.getPropertiesOf());
         if (c.getAppliesTo().size() == 1) {
-            w.writeStringField(CyVisualPropertiesElement.APPLIES_TO, c.getAppliesTo().get(0));
+            w.writeNumberField(CyVisualPropertiesElement.APPLIES_TO, c.getAppliesTo().get(0));
         }
         else if (c.getAppliesTo().size() > 1) {
-            w.writeList(CyVisualPropertiesElement.APPLIES_TO, c.getAppliesTo());
+            w.writeLongList(CyVisualPropertiesElement.APPLIES_TO, c.getAppliesTo());
         }
         w.writeNumberFieldIfNotEmpty(CyVisualPropertiesElement.VIEW, c.getView());
         if ((c.getProperties() != null) && !c.getProperties().isEmpty()) {

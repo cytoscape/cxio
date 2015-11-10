@@ -26,7 +26,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author cmzmasek
  *
  */
-public final class MetaDataCollection implements Serializable {
+public final class MetaDataCollection implements Serializable, Iterable<MetaDataElement> {
 
     /**
      * The name of the MetaDataElement list when serialized to json.
@@ -214,6 +214,7 @@ public final class MetaDataCollection implements Serializable {
      *
      * @return Iterator to iterate over the MetaDataElements
      */
+    @Override
     public Iterator<MetaDataElement> iterator() {
         return toCollection().iterator();
     }

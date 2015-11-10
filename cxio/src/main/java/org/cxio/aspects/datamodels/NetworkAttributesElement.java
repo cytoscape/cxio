@@ -15,7 +15,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
 
     public final static String ASPECT_NAME = "networkAttributes";
 
-    public NetworkAttributesElement(final long subnetwork, final String name, final List<String> values) {
+    public NetworkAttributesElement(final Long subnetwork, final String name, final List<String> values) {
         _data_type = ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
         _is_single_value = false;
         _subnetwork = subnetwork;
@@ -23,7 +23,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         _values = values;
     }
 
-    public NetworkAttributesElement(final long subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
+    public NetworkAttributesElement(final Long subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
         if (!AttributesAspectUtils.isListType(type)) {
             throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
         }
@@ -34,7 +34,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         _values = values;
     }
 
-    public NetworkAttributesElement(final long subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+    public NetworkAttributesElement(final Long subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
         if (AttributesAspectUtils.isListType(type)) {
             throw new IllegalArgumentException("single value provided, but given data type is " + type.toString());
         }
@@ -46,7 +46,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         _values.add(value);
     }
 
-    public NetworkAttributesElement(final long subnetwork, final String name, final String value) {
+    public NetworkAttributesElement(final Long subnetwork, final String name, final String value) {
         _data_type = ATTRIBUTE_DATA_TYPE.STRING;
         _is_single_value = true;
         _subnetwork = subnetwork;
@@ -56,7 +56,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
 
     }
 
-    public NetworkAttributesElement(final long subnetwork, final String name, final Object value) {
+    public NetworkAttributesElement(final Long subnetwork, final String name, final Object value) {
         if (value instanceof List) {
             throw new IllegalArgumentException("constructor only applicable for singe values");
         }

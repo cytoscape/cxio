@@ -114,8 +114,8 @@ public class ExamplesOpaque {
 
         //
         final List<AspectElement> hidden_elements = new ArrayList<AspectElement>();
-        final HiddenAttributesElement hidden1 = new HiddenAttributesElement(1, "hidden name1", true);
-        final HiddenAttributesElement hidden2 = new HiddenAttributesElement(2, "hidden name2", 1.23);
+        final HiddenAttributesElement hidden1 = new HiddenAttributesElement(1L, "hidden name1", true);
+        final HiddenAttributesElement hidden2 = new HiddenAttributesElement(2L, "hidden name2", 1.23);
         hidden_elements.add(hidden1);
         hidden_elements.add(hidden2);
 

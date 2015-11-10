@@ -47,10 +47,10 @@ public class ExamplesUTF8 {
         cartesian_elements.add(new CartesianLayoutElement(2, 42, 23, 2));
         cartesian_elements.add(new CartesianLayoutElement(3, 34, 23, 3));
 
-        final EdgeAttributesElement ea0 = new EdgeAttributesElement(1, "한글", "☃", ATTRIBUTE_DATA_TYPE.STRING);
-        final EdgeAttributesElement ea1 = new EdgeAttributesElement(1, "weight", "☎", ATTRIBUTE_DATA_TYPE.INTEGER);
-        final EdgeAttributesElement ea2 = new EdgeAttributesElement(2, "한글", "☔", ATTRIBUTE_DATA_TYPE.STRING);
-        final EdgeAttributesElement ea3 = new EdgeAttributesElement(2, "weight", "♨", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement(1L, "한글", "☃", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea1 = new EdgeAttributesElement(1L, "weight", "☎", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea2 = new EdgeAttributesElement(2L, "한글", "☔", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea3 = new EdgeAttributesElement(2L, "weight", "♨", ATTRIBUTE_DATA_TYPE.INTEGER);
 
         final List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
         edge_attributes_elements.add(ea0);
@@ -68,16 +68,16 @@ public class ExamplesUTF8 {
         v2.add("2.0");
         v2.add("2.1");
 
-        final NodeAttributesElement na0 = new NodeAttributesElement(1, "한글", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
-        final NodeAttributesElement na1 = new NodeAttributesElement(2, "БПД", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
-        final NodeAttributesElement na2 = new NodeAttributesElement(3, "БПД", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na0 = new NodeAttributesElement(1L, "한글", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na1 = new NodeAttributesElement(2L, "БПД", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na2 = new NodeAttributesElement(3L, "БПД", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
 
         final ArrayList<Long> n = new ArrayList<Long>();
         n.add(1L);
         n.add(2L);
         n.add(3L);
 
-        final NodeAttributesElement na3 = new NodeAttributesElement(1, n, "species", "Mus musculus", ATTRIBUTE_DATA_TYPE.STRING);
+        final NodeAttributesElement na3 = new NodeAttributesElement(1L, n, "species", "Mus musculus", ATTRIBUTE_DATA_TYPE.STRING);
 
         final List<AspectElement> node_attributes_elements = new ArrayList<AspectElement>();
         node_attributes_elements.add(na0);

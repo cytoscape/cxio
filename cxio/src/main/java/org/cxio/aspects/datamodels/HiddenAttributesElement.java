@@ -15,7 +15,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
 
     public final static String ASPECT_NAME = "hiddenAttributes";
 
-    public HiddenAttributesElement(final long subnetwork, final String name, final List<String> values) {
+    public HiddenAttributesElement(final Long subnetwork, final String name, final List<String> values) {
         _data_type = ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;
         _is_single_value = false;
         _subnetwork = subnetwork;
@@ -23,7 +23,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         _values = values;
     }
 
-    public HiddenAttributesElement(final long subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
+    public HiddenAttributesElement(final Long subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
         if (!AttributesAspectUtils.isListType(type)) {
             throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
         }
@@ -34,7 +34,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         _values = values;
     }
 
-    public HiddenAttributesElement(final long subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+    public HiddenAttributesElement(final Long subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
         if (AttributesAspectUtils.isListType(type)) {
             throw new IllegalArgumentException("single value provided, but given data type is " + type.toString());
         }
@@ -46,7 +46,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         _values.add(value);
     }
 
-    public HiddenAttributesElement(final long subnetwork, final String name, final String value) {
+    public HiddenAttributesElement(final Long subnetwork, final String name, final String value) {
         _data_type = ATTRIBUTE_DATA_TYPE.STRING;
         _is_single_value = true;
         _subnetwork = subnetwork;
@@ -56,7 +56,7 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
 
     }
 
-    public HiddenAttributesElement(final long subnetwork, final String name, final Object value) {
+    public HiddenAttributesElement(final Long subnetwork, final String name, final Object value) {
         if (value instanceof List) {
             throw new IllegalArgumentException("constructor only applicable for singe values");
         }
@@ -106,12 +106,12 @@ public final class HiddenAttributesElement extends AbstractAttributesAspectEleme
         return sb.toString();
     }
 
-    public final static HiddenAttributesElement createInstanceWithSingleValue(final long subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
+    public final static HiddenAttributesElement createInstanceWithSingleValue(final Long subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
 
         return new HiddenAttributesElement(subnetwork, name, DatamodelsUtil.removeParenthesis(value, type), type);
     }
 
-    public final static HiddenAttributesElement createInstanceWithMultipleValues(final long subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
+    public final static HiddenAttributesElement createInstanceWithMultipleValues(final Long subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
 
         return new HiddenAttributesElement(subnetwork, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }

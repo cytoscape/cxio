@@ -40,10 +40,10 @@ public class Examples5 {
         cartesian_elements.add(new CartesianLayoutElement(1, 42, 23.0, 2.0));
         cartesian_elements.add(new CartesianLayoutElement(2, 34, 23.0, 3.0));
 
-        final EdgeAttributesElement ea0 = new EdgeAttributesElement(0, "name", "A", ATTRIBUTE_DATA_TYPE.STRING);
-        final EdgeAttributesElement ea1 = new EdgeAttributesElement(0, "weight", "2", ATTRIBUTE_DATA_TYPE.INTEGER);
-        final EdgeAttributesElement ea2 = new EdgeAttributesElement(1, "name", "B", ATTRIBUTE_DATA_TYPE.STRING);
-        final EdgeAttributesElement ea3 = new EdgeAttributesElement(1, "weight", "3", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea0 = new EdgeAttributesElement(0L, "name", "A", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea1 = new EdgeAttributesElement(0L, "weight", "2", ATTRIBUTE_DATA_TYPE.INTEGER);
+        final EdgeAttributesElement ea2 = new EdgeAttributesElement(1L, "name", "B", ATTRIBUTE_DATA_TYPE.STRING);
+        final EdgeAttributesElement ea3 = new EdgeAttributesElement(1L, "weight", "3", ATTRIBUTE_DATA_TYPE.INTEGER);
 
         final List<AspectElement> edge_attributes_elements = new ArrayList<AspectElement>();
         edge_attributes_elements.add(ea0);
@@ -61,9 +61,9 @@ public class Examples5 {
         v2.add("2.0");
         v2.add("2.1");
 
-        final NodeAttributesElement na0 = new NodeAttributesElement(0, "expression", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
-        final NodeAttributesElement na1 = new NodeAttributesElement(1, "expression", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
-        final NodeAttributesElement na2 = new NodeAttributesElement(2, "expression", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na0 = new NodeAttributesElement(0L, "expression", v0, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na1 = new NodeAttributesElement(1L, "expression", v1, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
+        final NodeAttributesElement na2 = new NodeAttributesElement(2L, "expression", v2, ATTRIBUTE_DATA_TYPE.LIST_OF_DOUBLE);
 
         final ArrayList<Long> n = new ArrayList<Long>();
         n.add(0L);

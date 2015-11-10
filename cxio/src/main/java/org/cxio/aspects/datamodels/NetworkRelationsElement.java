@@ -94,11 +94,11 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
         return parents;
     }
 
-    public final static List<Long> getSubNetworkIds(final String parent_id, final List<AspectElement> networks_relations) {
+    public final static List<Long> getSubNetworkIds(final Long parent_id, final List<AspectElement> networks_relations) {
         final List<Long> subnets = new ArrayList<Long>();
         for (final AspectElement e : networks_relations) {
             final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
-            if ((nwe.getRelationship() == SUBNETWORK_TYPE) && nwe.getParent().equals(parent_id)) {
+            if ((nwe.getRelationship() == SUBNETWORK_TYPE) && (nwe.getParent() == parent_id)) {
                 subnets.add(nwe.getChild());
             }
         }

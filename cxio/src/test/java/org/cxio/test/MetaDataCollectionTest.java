@@ -16,7 +16,7 @@ import org.junit.Test;
 
 public class MetaDataCollectionTest {
 
-    private static final String META_DATA_1 = "{\"metaData\":[{\"consistencyGroup\":\"0\",\"elementCount\":\"39393742\",\"idCounter\":\"4\",\"lastUpdate\":\"5\",\"name\":\"name_0\",\"properties\":{\"key0\":\"value0\"},\"version\":\"v0\"},{\"elementCount\":\"24948\",\"name\":\"name_1\",\"version\":\"v1\"},{\"elementCount\":\"2034994\",\"name\":\"name_2\",\"version\":\"v2\"}]}";
+    private static final String META_DATA_1 = "{\"metaData\":[{\"consistencyGroup\":0,\"elementCount\":39393742,\"idCounter\":4,\"lastUpdate\":5,\"name\":\"name_0\",\"properties\":{\"key0\":\"value0\"},\"version\":\"v0\"},{\"elementCount\":24948,\"name\":\"name_1\",\"version\":\"v1\"},{\"elementCount\":2034994,\"name\":\"name_2\",\"version\":\"v2\"}]}";
 
     @Test
     public void testRemove() {

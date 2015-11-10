@@ -21,7 +21,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
     public final static String              PROPERTIES    = "properties";
     public final static String              PROPERTIES_OF = "properties_of";
 
-    private final List<Long>              _applies_to;
+    private final List<Long>                _applies_to;
     final Long                              _view;
     private final SortedMap<String, String> _properties;
     private final String                    _properties_of;
@@ -57,7 +57,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
     public final void addAppliesTo(final String applies_to) {
         _applies_to.add(Long.valueOf(applies_to));
     }
-    
+
     public final void addAppliesTo(final long applies_to) {
         _applies_to.add(applies_to);
     }

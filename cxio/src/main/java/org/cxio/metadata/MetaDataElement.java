@@ -74,7 +74,7 @@ public class MetaDataElement {
      */
     public final Long getConsistencyGroup() {
         if (_data.get(CONSISTENCY_GROUP) != null) {
-            return Long.valueOf((String) _data.get(CONSISTENCY_GROUP));
+            return Long.valueOf(String.valueOf(_data.get(CONSISTENCY_GROUP)));
         }
         return null;
     }
@@ -95,7 +95,7 @@ public class MetaDataElement {
      */
     public final Long getElementCount() {
         if (_data.get(ELEMENT_COUNT) != null) {
-            return Long.valueOf((String) _data.get(ELEMENT_COUNT));
+            return Long.valueOf(String.valueOf(_data.get(ELEMENT_COUNT)));
         }
         return null;
     }
@@ -107,7 +107,7 @@ public class MetaDataElement {
      */
     public final Long getIdCounter() {
         if (_data.get(ID_COUNTER) != null) {
-            return Long.valueOf((String) _data.get(ID_COUNTER));
+            return Long.valueOf(String.valueOf(_data.get(ID_COUNTER)));
         }
         return null;
     }
@@ -119,7 +119,7 @@ public class MetaDataElement {
      */
     public final Long getLastUpdate() {
         if (_data.get(LAST_UPDATE) != null) {
-            return Long.valueOf((String) _data.get(LAST_UPDATE));
+            return Long.valueOf(String.valueOf(_data.get(LAST_UPDATE)));
         }
         return null;
     }
@@ -184,7 +184,7 @@ public class MetaDataElement {
      * @param c
      */
     public final void setConsistencyGroup(final Long c) {
-        _data.put(CONSISTENCY_GROUP, String.valueOf(c));
+        _data.put(CONSISTENCY_GROUP, c);
     }
 
     /**
@@ -193,7 +193,7 @@ public class MetaDataElement {
      * @param c
      */
     public final void setElementCount(final Long c) {
-        _data.put(ELEMENT_COUNT, String.valueOf(c));
+        _data.put(ELEMENT_COUNT, c);
     }
 
     /**
@@ -202,7 +202,7 @@ public class MetaDataElement {
      * @param c
      */
     public final void setIdCounter(final Long c) {
-        _data.put(ID_COUNTER, String.valueOf(c));
+        _data.put(ID_COUNTER, c);
     }
 
     /**
@@ -211,7 +211,7 @@ public class MetaDataElement {
      * @param last_update
      */
     public final void setLastUpdate(final Long last_update) {
-        _data.put(LAST_UPDATE, String.valueOf(last_update));
+        _data.put(LAST_UPDATE, last_update);
     }
 
     /**

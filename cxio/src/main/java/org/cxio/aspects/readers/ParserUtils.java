@@ -139,7 +139,6 @@ public final class ParserUtils {
     public final static Long getTextValueAsLong(final ObjectNode o, final String label) throws IOException {
         if (o.has(label)) {
             final String s = o.get(label).asText();
-            System.out.println(">" + s);
             try {
                 return Long.valueOf(s);
             }

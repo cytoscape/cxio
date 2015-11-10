@@ -20,27 +20,27 @@ public class CyGroupsFragmentWriter extends AbstractFragmentWriter {
         final CyGroupsElement e = (CyGroupsElement) element;
         w.writeStartObject();
 
-        w.writeStringFieldIfNotEmpty(CyGroupsElement.GROUP_ID, e.getGroupId());
-        w.writeStringFieldIfNotEmpty(CyGroupsElement.VIEW, e.getView());
+        w.writeNumberFieldIfNotEmpty(CyGroupsElement.GROUP_ID, e.getGroupId());
+        w.writeNumberFieldIfNotEmpty(CyGroupsElement.VIEW, e.getView());
         w.writeStringFieldIfNotEmpty(CyGroupsElement.GROUP_NAME, e.getName());
 
         if (e.getNodes().size() == 1) {
-            w.writeStringField(CyGroupsElement.NODES, e.getNodes().get(0));
+            w.writeNumberField(CyGroupsElement.NODES, e.getNodes().get(0));
         }
         else {
-            w.writeList(CyGroupsElement.NODES, e.getNodes());
+            w.writeLongList(CyGroupsElement.NODES, e.getNodes());
         }
         if (e.getExternalEdges().size() == 1) {
-            w.writeStringField(CyGroupsElement.EXTERNAL_EDGES, e.getExternalEdges().get(0));
+            w.writeNumberField(CyGroupsElement.EXTERNAL_EDGES, e.getExternalEdges().get(0));
         }
         else {
-            w.writeList(CyGroupsElement.EXTERNAL_EDGES, e.getExternalEdges());
+            w.writeLongList(CyGroupsElement.EXTERNAL_EDGES, e.getExternalEdges());
         }
         if (e.getInternalEdges().size() == 1) {
-            w.writeStringField(CyGroupsElement.INTERNAL_EDGES, e.getInternalEdges().get(0));
+            w.writeNumberField(CyGroupsElement.INTERNAL_EDGES, e.getInternalEdges().get(0));
         }
         else {
-            w.writeList(CyGroupsElement.INTERNAL_EDGES, e.getInternalEdges());
+            w.writeLongList(CyGroupsElement.INTERNAL_EDGES, e.getInternalEdges());
         }
         w.writeEndObject();
 

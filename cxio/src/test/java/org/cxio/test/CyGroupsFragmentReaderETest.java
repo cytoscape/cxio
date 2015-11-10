@@ -39,8 +39,8 @@ public class CyGroupsFragmentReaderETest {
 
         final CyGroupsElement g0 = (CyGroupsElement) aspects.get(0);
 
-        assertTrue(g0.getGroupId().equals("group_id"));
-        assertTrue(g0.getView().equals("view"));
+        assertTrue(g0.getGroupId() == 1L);
+        assertTrue(g0.getView() == 222L);
         assertTrue(g0.getName().equals("name"));
         assertTrue(g0.getExternalEdges().size() == 2);
         assertTrue(g0.getInternalEdges().size() == 2);

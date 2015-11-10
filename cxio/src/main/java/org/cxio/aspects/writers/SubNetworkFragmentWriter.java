@@ -21,14 +21,14 @@ public class SubNetworkFragmentWriter extends AbstractFragmentWriter {
         w.writeStartObject();
         w.writeNumberFieldIfNotEmpty(SubNetworkElement.SUBNET_ID, e.getId());
 
-        if (e.getNodes().size() == 1) {
-            w.writeNumberField(SubNetworkElement.SUBNET_NODES, e.getNodes().get(0));
+        if (e.isNodesAll()) {
+            w.writeStringField(SubNetworkElement.SUBNET_NODES, "all");
         }
         else {
             w.writeLongList(SubNetworkElement.SUBNET_NODES, e.getNodes());
         }
-        if (e.getEdges().size() == 1) {
-            w.writeNumberField(SubNetworkElement.SUBNET_EDGES, e.getEdges().get(0));
+        if (e.isEdgesAll()) {
+            w.writeStringField(SubNetworkElement.SUBNET_EDGES, "all");
         }
         else {
             w.writeLongList(SubNetworkElement.SUBNET_EDGES, e.getEdges());

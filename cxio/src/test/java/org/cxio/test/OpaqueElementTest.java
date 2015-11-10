@@ -89,33 +89,26 @@ public class OpaqueElementTest {
         node_attributes_elements.add(na2);
         node_attributes_elements.add(na3);
 
-     
-
         final List<Long> applies_to = new ArrayList<Long>();
         applies_to.add(1L);
         final List<AspectElement> vp_elements = new ArrayList<AspectElement>();
         vp_elements.add(new CyVisualPropertiesElement("network", applies_to, 1));
 
-     
-
         final List<AspectElement> group_elements = new ArrayList<AspectElement>();
 
-        final CyGroupsElement cy_groups = new CyGroupsElement("group_id", "group_view", "group_name");
-        cy_groups.addExternalEdge("e1");
-        cy_groups.addExternalEdge("e2");
-        cy_groups.addInternalEdge("e3");
-        cy_groups.addNode("n1");
-        cy_groups.addNode("n2");
-        cy_groups.addNode("n3");
-        cy_groups.addNode("n4");
+        final CyGroupsElement e0 = new CyGroupsElement(1L, 222L, "name");
+        e0.addExternalEdge(1L);
+        e0.addExternalEdge(2L);
+        e0.addInternalEdge(3L);
+        e0.addInternalEdge(4L);
 
-        group_elements.add(cy_groups);
+        group_elements.add(e0);
 
         //
 
         final List<AspectElement> views_elements = new ArrayList<AspectElement>();
-        final CyViewsElement cy_views1 = new CyViewsElement(1L,3L);
-        final CyViewsElement cy_views2 = new CyViewsElement(2L,3L);
+        final CyViewsElement cy_views1 = new CyViewsElement(1L, 3L);
+        final CyViewsElement cy_views2 = new CyViewsElement(2L, 3L);
         views_elements.add(cy_views1);
         views_elements.add(cy_views2);
 
@@ -250,22 +243,20 @@ public class OpaqueElementTest {
 
         final List<AspectElement> group_elements = new ArrayList<AspectElement>();
 
-        final CyGroupsElement cy_groups = new CyGroupsElement("group_id", "group_view", "group_name");
-        cy_groups.addExternalEdge("e1");
-        cy_groups.addExternalEdge("e2");
-        cy_groups.addInternalEdge("e3");
-        cy_groups.addNode("n1");
-        cy_groups.addNode("n2");
-        cy_groups.addNode("n3");
-        cy_groups.addNode("n4");
+        final CyGroupsElement e0 = new CyGroupsElement(1L, 222L, "name");
 
-        group_elements.add(cy_groups);
+        e0.addExternalEdge(1L);
+        e0.addExternalEdge(2L);
+        e0.addInternalEdge(3L);
+        e0.addInternalEdge(4L);
+
+        group_elements.add(e0);
 
         //
 
         final List<AspectElement> views_elements = new ArrayList<AspectElement>();
-        final CyViewsElement cy_views1 = new CyViewsElement(1L,3L);
-        final CyViewsElement cy_views2 = new CyViewsElement(2L,3L);
+        final CyViewsElement cy_views1 = new CyViewsElement(1L, 3L);
+        final CyViewsElement cy_views2 = new CyViewsElement(2L, 3L);
         views_elements.add(cy_views1);
         views_elements.add(cy_views2);
 

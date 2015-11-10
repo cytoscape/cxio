@@ -16,20 +16,20 @@ import org.junit.Test;
 
 public class CyGroupsFragmentWriterTest {
 
-    final static String CX_GROUPS_STR = "[{\"cyGroups\":[{\"group\":\"group_id\",\"view\":\"view\",\"name\":\"name\",\"nodes\":[\"n1\",\"n2\"],\"external_edges\":[\"ext1\",\"ext2\"],\"internal_edges\":[\"int1\",\"int2\"]}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
+    final static String CX_GROUPS_STR = "[{\"cyGroups\":[{\"@id\":1,\"view\":222,\"name\":\"name\",\"nodes\":[11,22],\"external_edges\":[1,2],\"internal_edges\":[3,4]}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
 
     @Test
     public void test() throws IOException {
 
-        final CyGroupsElement e0 = new CyGroupsElement("group_id", "view", "name");
+        final CyGroupsElement e0 = new CyGroupsElement(1L, 222L, "name");
 
-        e0.addExternalEdge("ext1");
-        e0.addExternalEdge("ext2");
-        e0.addInternalEdge("int1");
-        e0.addInternalEdge("int2");
+        e0.addExternalEdge(1L);
+        e0.addExternalEdge(2L);
+        e0.addInternalEdge(3L);
+        e0.addInternalEdge(4L);
 
-        e0.addNode("n1");
-        e0.addNode("n2");
+        e0.addNode(11L);
+        e0.addNode(22L);
 
         final List<AspectElement> l1 = new ArrayList<AspectElement>();
         l1.add(e0);
@@ -41,7 +41,7 @@ public class CyGroupsFragmentWriterTest {
         w1.start();
         w1.writeAspectElements(l1);
         w1.end(true, "");
-
+        System.out.println(out1.toString());
         assertEquals(CX_GROUPS_STR, out1.toString());
 
     }

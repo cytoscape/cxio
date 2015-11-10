@@ -24,6 +24,7 @@ public class CyViewsFragmentWriter extends AbstractFragmentWriter {
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final CyViewsElement e = (CyViewsElement) element;
         w.writeStartObject();
+        w.writeNumberField(CyViewsElement.VIEW_ID, e.getViewId());
         w.writeNumberField(CyViewsElement.SUBWORKNET_ID, e.getSubnetworkId());
         w.writeEndObject();
     }

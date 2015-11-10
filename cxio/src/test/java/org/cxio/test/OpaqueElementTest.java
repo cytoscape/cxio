@@ -89,14 +89,14 @@ public class OpaqueElementTest {
         node_attributes_elements.add(na2);
         node_attributes_elements.add(na3);
 
-        //
+     
 
         final List<Long> applies_to = new ArrayList<Long>();
         applies_to.add(1L);
         final List<AspectElement> vp_elements = new ArrayList<AspectElement>();
         vp_elements.add(new CyVisualPropertiesElement("network", applies_to, 1));
 
-        //
+     
 
         final List<AspectElement> group_elements = new ArrayList<AspectElement>();
 
@@ -114,8 +114,8 @@ public class OpaqueElementTest {
         //
 
         final List<AspectElement> views_elements = new ArrayList<AspectElement>();
-        final CyViewsElement cy_views1 = new CyViewsElement(1);
-        final CyViewsElement cy_views2 = new CyViewsElement(2);
+        final CyViewsElement cy_views1 = new CyViewsElement(1L,3L);
+        final CyViewsElement cy_views2 = new CyViewsElement(2L,3L);
         views_elements.add(cy_views1);
         views_elements.add(cy_views2);
 
@@ -264,8 +264,8 @@ public class OpaqueElementTest {
         //
 
         final List<AspectElement> views_elements = new ArrayList<AspectElement>();
-        final CyViewsElement cy_views1 = new CyViewsElement(1);
-        final CyViewsElement cy_views2 = new CyViewsElement(2);
+        final CyViewsElement cy_views1 = new CyViewsElement(1L,3L);
+        final CyViewsElement cy_views2 = new CyViewsElement(2L,3L);
         views_elements.add(cy_views1);
         views_elements.add(cy_views2);
 

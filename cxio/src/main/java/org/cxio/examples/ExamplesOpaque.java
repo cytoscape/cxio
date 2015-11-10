@@ -107,8 +107,8 @@ public class ExamplesOpaque {
         //
 
         final List<AspectElement> views_elements = new ArrayList<AspectElement>();
-        final CyViewsElement cy_views1 = new CyViewsElement(1);
-        final CyViewsElement cy_views2 = new CyViewsElement(2);
+        final CyViewsElement cy_views1 = new CyViewsElement(1L,3L);
+        final CyViewsElement cy_views2 = new CyViewsElement(2L,3L);
         views_elements.add(cy_views1);
         views_elements.add(cy_views2);
 

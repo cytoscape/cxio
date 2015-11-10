@@ -83,7 +83,7 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
         }
     }
 
-    public final static Set<Long> getAllParentNetworkIds(final List<AspectElement> networks_relations) {
+    public final static Set<Long> getAllSubNetworkParentNetworkIds(final List<AspectElement> networks_relations) {
         final Set<Long> parents = new HashSet<Long>();
         for (final AspectElement e : networks_relations) {
             final NetworkRelationsElement nwe = (NetworkRelationsElement) e;

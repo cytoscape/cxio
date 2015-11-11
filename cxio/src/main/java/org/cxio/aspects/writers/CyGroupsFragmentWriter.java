@@ -16,6 +16,11 @@ public class CyGroupsFragmentWriter extends AbstractFragmentWriter {
     }
 
     @Override
+    public String getAspectName() {
+        return CyGroupsElement.ASPECT_NAME;
+    }
+
+    @Override
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
         final CyGroupsElement e = (CyGroupsElement) element;
         w.writeStartObject();
@@ -24,31 +29,26 @@ public class CyGroupsFragmentWriter extends AbstractFragmentWriter {
         w.writeNumberFieldIfNotEmpty(CyGroupsElement.VIEW, e.getView());
         w.writeStringFieldIfNotEmpty(CyGroupsElement.GROUP_NAME, e.getName());
 
-        if (e.getNodes().size() == 1) {
-            w.writeNumberField(CyGroupsElement.NODES, e.getNodes().get(0));
+        if (e.isNodesAll()) {
+            w.writeStringField(CyGroupsElement.NODES, "all");
         }
         else {
             w.writeLongList(CyGroupsElement.NODES, e.getNodes());
         }
-        if (e.getExternalEdges().size() == 1) {
-            w.writeNumberField(CyGroupsElement.EXTERNAL_EDGES, e.getExternalEdges().get(0));
+        if (e.isExternalEdgesAll()) {
+            w.writeStringField(CyGroupsElement.EXTERNAL_EDGES, "all");
         }
         else {
             w.writeLongList(CyGroupsElement.EXTERNAL_EDGES, e.getExternalEdges());
         }
-        if (e.getInternalEdges().size() == 1) {
-            w.writeNumberField(CyGroupsElement.INTERNAL_EDGES, e.getInternalEdges().get(0));
+        if (e.isInternalEdgesAll()) {
+            w.writeStringField(CyGroupsElement.INTERNAL_EDGES, "all");
         }
         else {
             w.writeLongList(CyGroupsElement.INTERNAL_EDGES, e.getInternalEdges());
         }
         w.writeEndObject();
 
-    }
-
-    @Override
-    public String getAspectName() {
-        return CyGroupsElement.ASPECT_NAME;
     }
 
 }

@@ -234,7 +234,7 @@ public class CxParserTest {
         final String j = "["
 
         + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
-                + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}," + "{\"key\":\"value\"}" + "]";
+        + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());

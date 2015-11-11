@@ -26,6 +26,9 @@ public final class CyGroupsElement extends AbstractAspectElement {
     private final String       _name;
     private final List<Long>   _nodes;
     private final Long         _view;
+    private boolean            _internal_edges_all;
+    private boolean            _external_edges_all;
+    private boolean            _nodes_all;
 
     public CyGroupsElement(final Long group_id, final Long view, final String name) {
         _name = name;
@@ -36,15 +39,51 @@ public final class CyGroupsElement extends AbstractAspectElement {
         _external_edges = new ArrayList<Long>();
     }
 
+    public void setNodesAll(final boolean nodes_all) {
+        _nodes_all = nodes_all;
+        if (nodes_all) {
+            _nodes.clear();
+        }
+    }
+
+    public boolean isNodesAll() {
+        return _nodes_all;
+    }
+
+    public boolean isInternalEdgesAll() {
+        return _external_edges_all;
+    }
+
+    public boolean isExternalEdgesAll() {
+        return _internal_edges_all;
+    }
+
+    public void setInternalEdgesAll(final boolean internal_edges_all) {
+        _internal_edges_all = internal_edges_all;
+        if (internal_edges_all) {
+            _internal_edges.clear();
+        }
+    }
+
+    public void setExternalEdgesAll(final boolean external_edges_all) {
+        _external_edges_all = external_edges_all;
+        if (external_edges_all) {
+            _external_edges.clear();
+        }
+    }
+
     final public void addExternalEdge(final Long edge_id) {
+        _external_edges_all = false;
         _external_edges.add(edge_id);
     }
 
     final public void addInternalEdge(final Long edge_id) {
+        _internal_edges_all = false;
         _internal_edges.add(edge_id);
     }
 
     final public void addNode(final Long node_id) {
+        _nodes_all = false;
         _nodes.add(node_id);
     }
 
@@ -94,6 +133,9 @@ public final class CyGroupsElement extends AbstractAspectElement {
             sb.append("\n");
         }
         sb.append("nodes:");
+        if (isNodesAll()) {
+            sb.append(" all");
+        }
         for (final Long s : _nodes) {
             sb.append(" ");
             sb.append(s);
@@ -101,6 +143,9 @@ public final class CyGroupsElement extends AbstractAspectElement {
         }
         sb.append("\n");
         sb.append("internal edges:");
+        if (isInternalEdgesAll()) {
+            sb.append(" all");
+        }
         for (final Long s : _internal_edges) {
             sb.append(" ");
             sb.append(s);
@@ -108,6 +153,9 @@ public final class CyGroupsElement extends AbstractAspectElement {
         }
         sb.append("\n");
         sb.append("external edges:");
+        if (isExternalEdgesAll()) {
+            sb.append(" all");
+        }
         for (final Long s : _external_edges) {
             sb.append(" ");
             sb.append(s);

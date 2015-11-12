@@ -142,7 +142,7 @@ public class MetaDataTest {
         final Iterator<MetaDataElement> it = md.iterator();
 
         while (it.hasNext()) {
-            System.out.println(it.next());
+            it.next();
         }
 
     }

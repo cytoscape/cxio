@@ -11,6 +11,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import org.cxio.aux.AspectElementCounts;
+import org.cxio.aux.NumberVerification;
 import org.cxio.aux.OpaqueFragmentReader;
 import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectElement;
@@ -231,6 +232,11 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                     }
                     else if (_aspect_name.equals(MetaDataCollection.NAME)) {
                         addMetaData(_jp);
+                        _anonymous_reader_used = false;
+                        _meta_data = true;
+                    }
+                    else if (_aspect_name.equals(NumberVerification.NAME)) {
+                        addNumberVerification(_jp);
                         _anonymous_reader_used = false;
                         _meta_data = true;
                     }

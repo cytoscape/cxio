@@ -33,7 +33,6 @@ public class CartesianLayoutFragmentReaderTest {
         assertTrue("failed to get expected instance", aspects.get(0) instanceof CartesianLayoutElement);
 
         final CartesianLayoutElement a0 = (CartesianLayoutElement) aspects.get(0);
-        System.out.println(a0);
         assertTrue(a0.getNode() == 0);
         assertTrue(a0.getX().equals("123"));
         assertTrue(a0.getY().equals("456"));

@@ -56,7 +56,6 @@ public class CyVisualPropertiesFragmentWriterTest {
         w1.writeAspectElements(l1);
         w1.end(true, "");
 
-        System.out.println(out1.toString());
         assertEquals("[{\"visualProperties\":[{\"properties_of\":\"nodes:default\",\"properties\":{\"background-color\":\"rgb(204,204,255)\",\"text-opacity\":\"1.0\",\"width\":\"40.0\"}},{\"properties_of\":\"nodes:selected\",\"properties\":{\"background-color\":\"rgb(255,255,0)\"}},{\"properties_of\":\"nodes\",\"applies_to\":[1,2],\"properties\":{\"background-color\":\"rgb(0,0,0)\"}}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]",
                      out1.toString());
 

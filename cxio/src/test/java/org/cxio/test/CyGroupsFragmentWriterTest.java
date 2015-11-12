@@ -41,7 +41,6 @@ public class CyGroupsFragmentWriterTest {
         w1.start();
         w1.writeAspectElements(l1);
         w1.end(true, "");
-        System.out.println(out1.toString());
         assertEquals(CX_GROUPS_STR, out1.toString());
 
     }

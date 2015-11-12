@@ -9,6 +9,7 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import org.cxio.aux.AspectElementCounts;
+import org.cxio.aux.NumberVerification;
 import org.cxio.aux.OpaqueFragmentReader;
 import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectElement;
@@ -199,6 +200,14 @@ public final class CxReader extends AbstractCxReader {
                         throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
                     }
                     addMetaData(_jp);
+                }
+                else if (name.equals(NumberVerification.NAME)) {
+                    --_level;
+                    if (_level < 1) {
+                        throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
+                    }
+                    addNumberVerification(_jp);
+
                 }
                 else if (name.equals(Status.NAME)) {
                     --_level;

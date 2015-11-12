@@ -220,7 +220,6 @@ public final class CxioUtil {
             System.out.println("something went wrong: checksums do not match");
         }
         else {
-            System.out.println("OK");
             return true;
         }
         return false;

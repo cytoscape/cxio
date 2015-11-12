@@ -15,6 +15,7 @@ import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.aux.AspectElementCounts;
+import org.cxio.aux.NumberVerification;
 import org.cxio.aux.OpaqueElement;
 import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectElement;
@@ -283,6 +284,17 @@ public final class CxWriter {
      * @throws IOException
      */
     public void start() throws IOException {
+        start(null);
+    }
+
+    /**
+     * This method is to be called at the beginning of writing to a stream.
+     *
+     *
+     * @param long_number a Long for verification purposes
+     * @throws IOException
+     */
+    public void start(final Long long_number) throws IOException {
         checkIfEnded();
         if (_started) {
             throw new IllegalStateException("already started");
@@ -290,6 +302,12 @@ public final class CxWriter {
         _started = true;
         _ended = false;
         _jw.start();
+        if (long_number != null) {
+            final NumberVerification nv = new NumberVerification(long_number);
+            if (nv != null) {
+                nv.toJson(_jw);
+            }
+        }
         writeMetaData(_pre_meta_data);
     }
 

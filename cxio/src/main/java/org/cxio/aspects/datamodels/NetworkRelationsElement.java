@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.util.CxioUtil;
 
 /**
  * This is used to represent hierarchical relationship between networks/sub-networks/views.
@@ -24,10 +25,10 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
     final public static String      CHILD           = "c";
     final public static String      ASPECT_NAME     = "networkRelations";
     final public static String      PARENT          = "p";
-    final public static String      SUBNETWORK_TYPE = "subnetwork";
+    final public static String      TYPE_SUBNETWORK = "subnetwork";
     final public static String      RELATIONSHIP    = "r";
     final public static String      CHILD_NAME      = "name";
-    final public static String      VIEW_TYPE       = "view";
+    final public static String      TYPE_VIEW       = "view";
 
     final private Long              _child;
     final private Long              _parent;
@@ -51,7 +52,7 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
     public NetworkRelationsElement(final Long child, final String child_name) throws IOException {
         _parent = null;
         _child = child;
-        _relationship = null;
+        _relationship = RELATIONSHIP_TYPE.SUBNETWORK;
         _child_name = child_name;
     }
 
@@ -75,9 +76,9 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
     public final String getRelationship() {
         switch (_relationship) {
         case SUBNETWORK:
-            return SUBNETWORK_TYPE;
+            return TYPE_SUBNETWORK;
         case VIEW:
-            return VIEW_TYPE;
+            return TYPE_VIEW;
         default:
             throw new IllegalStateException("don't know how to handle relationship '" + _relationship + "'");
         }
@@ -87,7 +88,7 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
         final Set<Long> parents = new HashSet<Long>();
         for (final AspectElement e : networks_relations) {
             final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
-            if (nwe.getRelationship() == SUBNETWORK_TYPE) {
+            if (nwe.getRelationship() == TYPE_SUBNETWORK) {
                 parents.add(nwe.getParent());
             }
         }
@@ -98,7 +99,7 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
         final List<Long> subnets = new ArrayList<Long>();
         for (final AspectElement e : networks_relations) {
             final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
-            if ((nwe.getRelationship() == SUBNETWORK_TYPE) && (nwe.getParent() == parent_id)) {
+            if ((nwe.getRelationship() == TYPE_SUBNETWORK) && (nwe.getParent() == parent_id)) {
                 subnets.add(nwe.getChild());
             }
         }
@@ -106,10 +107,13 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
     }
 
     private final static RELATIONSHIP_TYPE determineRelationship(final String type) throws IOException {
-        if (type.equalsIgnoreCase(SUBNETWORK_TYPE)) {
+        if (CxioUtil.isEmpty(type)) {
             return RELATIONSHIP_TYPE.SUBNETWORK;
         }
-        else if (type.equalsIgnoreCase(VIEW_TYPE)) {
+        else if (type.equalsIgnoreCase(TYPE_SUBNETWORK)) {
+            return RELATIONSHIP_TYPE.SUBNETWORK;
+        }
+        else if (type.equalsIgnoreCase(TYPE_VIEW)) {
             return RELATIONSHIP_TYPE.VIEW;
         }
         else {

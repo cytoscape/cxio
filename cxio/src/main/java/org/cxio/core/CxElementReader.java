@@ -48,6 +48,7 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
     private final boolean                               _read_anonymous_aspect_fragments;
     private AspectFragmentReader                        _reader;
     private JsonToken                                   _token;
+    private boolean                                     _saw_number_check;
 
     /**
      * This creates a new CxElementReader with all AspectFragmentReaders implemented in this library already added.
@@ -225,6 +226,9 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                         System.out.println("aspect name =  " + _aspect_name);
                     }
                     if (_element_readers.containsKey(_aspect_name)) {
+                        if (!_saw_number_check) {
+                            throw new IOException(NumberVerification.NAME + " element is missing, aborting");
+                        }
                         _reader = _element_readers.get(_aspect_name);
                         _anonymous_reader_used = false;
                         _encountered_non_meta_content = true;
@@ -239,6 +243,7 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                         performNumberVerification(_jp);
                         _anonymous_reader_used = false;
                         _meta_data = true;
+                        _saw_number_check = true;
                     }
                     else if (_aspect_name.equals(Status.NAME)) {
                         addStatus(_jp);
@@ -246,6 +251,9 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                         _meta_data = true;
                     }
                     else if (_read_anonymous_aspect_fragments) {
+                        if (!_saw_number_check) {
+                            throw new IOException(NumberVerification.NAME + " element is missing, aborting");
+                        }
                         _reader = OpaqueFragmentReader.createInstance(_jp, _aspect_name);
                         _anonymous_reader_used = true;
                         _encountered_non_meta_content = true;
@@ -280,39 +288,21 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
             if (_reader != null) {
                 if (_token != JsonToken.END_ARRAY) {
                     if (_token == JsonToken.START_OBJECT) {
-
                         final ObjectNode o = _m.readTree(_jp);
                         --_level;
                         if (DEBUG) {
                             System.out.println(">" + o);
                         }
-                        // if (_reader != null) { //could remove //TODO
                         _current = _reader.readElement(o);
-                        // }
-                        // else {
-                        // throw new IOException("malformed cx json in '" +
-                        // _aspect_name + "'");
-                        // }
                         _encountered_non_meta_content = true;
                     }
                     else if (_anonymous_reader_used) {
-                        if (_token == JsonToken.VALUE_STRING) {
-                            // FIXME
-                            // TODO _current = new
-                            // OpaqueElement(_aspect_name, _jp.getText());
-                        }
-                        else {
-
+                        if (_token != JsonToken.VALUE_STRING) {
                             final JsonNode o = _m.readTree(_jp);
                             if (DEBUG) {
                                 System.out.println(">>>" + o);
                             }
-                            // if (_reader != null) { //could remove //TODO
-                            // if ( o instanceof ObjectNode) {
                             _current = _reader.readElement((ObjectNode) o);
-                            // }
-
-                            // }
                         }
                         _encountered_non_meta_content = true;
                     }
@@ -414,6 +404,7 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
         _encountered_non_meta_content = false;
         _pre_meta_data = null;
         _post_meta_data = null;
+        _saw_number_check = false;
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }

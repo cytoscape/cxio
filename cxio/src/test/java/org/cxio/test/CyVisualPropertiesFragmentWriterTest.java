@@ -23,11 +23,11 @@ public class CyVisualPropertiesFragmentWriterTest {
         final CxWriter w = CxWriter.createInstance(out0, false);
         w.addAspectFragmentWriter(VisualPropertiesFragmentWriter.createInstance());
 
-        w.startT();
+        w.start();
         w.writeAspectElements(l0);
         w.end(true, "");
 
-        assertEquals("[{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
+        assertEquals("[" +  TestUtil.NUMBER_VERIFICATION + ",{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
 
         final CyVisualPropertiesElement c1 = new CyVisualPropertiesElement("nodes:default");
 

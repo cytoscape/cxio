@@ -18,7 +18,8 @@ public class CartesianLayoutFragmentReaderETest {
 
     @Test
     public void test1() throws IOException {
-        final String t0 = "[" + "{\"cartesianLayout\":[{\"node\":0,\"x\":\"123\",\"y\":\"456\"}]}," + "{\"cartesianLayout\":[{\"node\":1,\"x\":\"3\",\"y\":\"4\",\"z\":\"2\"}]}" + "]";
+        final String t0 = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"cartesianLayout\":[{\"node\":0,\"x\":\"123\",\"y\":\"456\"}]},"
+                + "{\"cartesianLayout\":[{\"node\":1,\"x\":\"3\",\"y\":\"4\",\"z\":\"2\"}]}" + "]";
 
         final CxElementReader p = CxElementReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);

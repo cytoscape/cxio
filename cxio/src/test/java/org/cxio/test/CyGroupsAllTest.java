@@ -21,7 +21,9 @@ import org.junit.Test;
 
 public class CyGroupsAllTest {
 
-    private static final String STR = "[{\"cyGroups\":[{\"@id\":50,\"view\":10,\"name\":\"some group\",\"nodes\":\"all\",\"external_edges\":\"all\",\"internal_edges\":\"all\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
+    private static final String STR = "["
+                                            + TestUtil.NUMBER_VERIFICATION
+                                            + ",{\"cyGroups\":[{\"@id\":50,\"view\":10,\"name\":\"some group\",\"nodes\":\"all\",\"external_edges\":\"all\",\"internal_edges\":\"all\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
 
     @Test
     public void test1() throws IOException {
@@ -36,7 +38,7 @@ public class CyGroupsAllTest {
         final OutputStream out = new ByteArrayOutputStream();
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, false, false);
 
-        w.startT();
+        w.start();
         w.writeAspectElements(l);
         w.end(true, "");
         assertEquals(STR, out.toString());
@@ -61,7 +63,7 @@ public class CyGroupsAllTest {
         final OutputStream out = new ByteArrayOutputStream();
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, false, false);
 
-        w.startT();
+        w.start();
         w.writeAspectElements(l);
         w.end(true, "");
 

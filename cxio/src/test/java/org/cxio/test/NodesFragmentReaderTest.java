@@ -17,7 +17,7 @@ public class NodesFragmentReaderTest {
 
     @Test
     public void testNodeAspectParsing() throws IOException, ClassNotFoundException {
-        final String t0 = "[" + "{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
+        final String t0 = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"nodes_we_ignore\":[{\"@id\":\"_0\"},{\"@id\":\"_1\"},{\"@id\":\"_2\"},{\"@id\":\"_3\"}]},"
                 + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"nodes\":[{\"@id\":\"4\"}]}," + "{\"nodes\":[{\"@id\":\"5\"}]},"
                 + "{\"nodes\":[{\"@id\":\"6\"}]}," + "{\"nodes\":[{\"@id\":\"7\",\"n\":\"name 2\",\"r\":\"reps 2\"}]}" + "]";
 

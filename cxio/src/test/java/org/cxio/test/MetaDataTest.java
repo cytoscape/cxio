@@ -105,7 +105,7 @@ public class MetaDataTest {
 
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
         w.addPreMetaData(md);
-        w.startT();
+        w.start();
         w.end(true, "");
 
         final String cx_json_str = out.toString();

@@ -18,8 +18,8 @@ public class EdgeAttributesFragmentReaderTest {
 
     @Test
     public void test1() throws IOException {
-        final String t0 = "[" + "{\"edgeAttributes\":[{\"po\":0,\"n\":\"n1\",\"v\":\"value\"}]}," + "{\"edgeAttributes\":[{\"po\":1,\"n\":\"n2\",\"v\":\"12\",\"d\":\"integer\"}]},"
-                + "{\"edgeAttributes\":[{\"po\":[0,1],\"n\":\"n3\",\"v\":\"true\",\"d\":\"boolean\"}]},"
+        final String t0 = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"edgeAttributes\":[{\"po\":0,\"n\":\"n1\",\"v\":\"value\"}]},"
+                + "{\"edgeAttributes\":[{\"po\":1,\"n\":\"n2\",\"v\":\"12\",\"d\":\"integer\"}]}," + "{\"edgeAttributes\":[{\"po\":[0,1],\"n\":\"n3\",\"v\":\"true\",\"d\":\"boolean\"}]},"
                 + "{\"edgeAttributes\":[{\"po\":[0,1,2],\"n\":\"n4\",\"v\":[1,2],\"d\":\"list_of_short\",\"s\":\"1234\"}]}" + "]";
 
         final CxReader p = CxReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());

@@ -279,17 +279,6 @@ public final class CxWriter {
         }
     }
 
-    // Do not use, only for testing!
-    public void startT() throws IOException {
-        if (_started) {
-            throw new IllegalStateException("already started");
-        }
-        _started = true;
-        _ended = false;
-        _jw.start();
-        writeMetaData(_pre_meta_data);
-    }
-
     /**
      * This method is to be called at the beginning of writing to a stream.
      *

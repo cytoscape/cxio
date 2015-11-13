@@ -23,11 +23,11 @@ public class EdgesFragmentWriterTest {
         final CxWriter w0 = CxWriter.createInstance(out0, false);
         w0.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
-        w0.startT();
+        w0.start();
         w0.writeAspectElements(l0);
         w0.end(true, "");
 
-        assertEquals("[{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
+        assertEquals("[" +  TestUtil.NUMBER_VERIFICATION + ",{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
 
         final EdgesElement e0 = new EdgesElement(0, 0, 0);
         final EdgesElement e1 = new EdgesElement(1, 1, 1);
@@ -40,11 +40,11 @@ public class EdgesFragmentWriterTest {
         final CxWriter w1 = CxWriter.createInstance(out1, false);
         w1.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
-        w1.startT();
+        w1.start();
         w1.writeAspectElements(l1);
         w1.end(true, "");
 
-        assertEquals("[{\"edges\":[{\"@id\":0,\"s\":0,\"t\":0},{\"@id\":1,\"s\":1,\"t\":1}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]", out1.toString());
+        assertEquals("[" +  TestUtil.NUMBER_VERIFICATION + ",{\"edges\":[{\"@id\":0,\"s\":0,\"t\":0},{\"@id\":1,\"s\":1,\"t\":1}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]", out1.toString());
 
     }
 

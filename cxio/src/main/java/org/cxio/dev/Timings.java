@@ -266,7 +266,7 @@ public class Timings {
             elements.add(e);
         }
 
-        w.startT();
+        w.start();
         w.writeAspectElements(elements);
         w.end(true, "");
         return System.currentTimeMillis() - t0;
@@ -302,7 +302,7 @@ public class Timings {
             elements.add(new EdgesElement("e", "1", "2"));
         }
 
-        w.startT();
+        w.start();
         w.writeAspectElements(elements);
         w.end(true, "");
         return System.currentTimeMillis() - t0;
@@ -338,7 +338,7 @@ public class Timings {
             elements.add(new CartesianLayoutElement(i, 1, 2, 0));
         }
 
-        w.startT();
+        w.start();
         w.writeAspectElements(elements);
         w.end(true, "");
         return System.currentTimeMillis() - t0;
@@ -375,7 +375,7 @@ public class Timings {
             elements.add(e);
         }
 
-        w.startT();
+        w.start();
         w.writeAspectElements(elements);
         w.end(true, "");
         return System.currentTimeMillis() - t0;
@@ -411,7 +411,7 @@ public class Timings {
             nodes_elements.add(new NodesElement("n"));
         }
 
-        w.startT();
+        w.start();
         w.writeAspectElements(nodes_elements);
         w.end(true, "");
         return System.currentTimeMillis() - t0;

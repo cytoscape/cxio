@@ -17,9 +17,8 @@ public class EdgesFragmentReaderTest {
 
     @Test
     public void testEdgesAspectParsing() throws IOException, ClassNotFoundException {
-        final String t0 = "["
-
-        + "{\"edges\":[{\"@id\":\"2\",\"s\":\"4\",\"t\":\"5\"}]}," + "{\"edges\":[{\"@id\":\"3\",\"s\":\"6\",\"t\":\"7\",\"i\":\"rel A\"}]}" + "]";
+        final String t0 = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"edges\":[{\"@id\":\"2\",\"s\":\"4\",\"t\":\"5\"}]}," + "{\"edges\":[{\"@id\":\"3\",\"s\":\"6\",\"t\":\"7\",\"i\":\"rel A\"}]}"
+                + "]";
 
         final CxReader p = CxReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);

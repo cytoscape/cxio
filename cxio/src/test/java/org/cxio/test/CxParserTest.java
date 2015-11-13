@@ -94,7 +94,7 @@ public class CxParserTest {
 
     @Test
     public void test3() throws IOException, NoSuchAlgorithmException {
-        final String j = "[{\"nodes\":[{\"@id\":0},{\"@id\":1},{\"@id\":2},{\"@id\":3}]}]";
+        final String j = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"nodes\":[{\"@id\":0},{\"@id\":1},{\"@id\":2},{\"@id\":3}]}]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         assertTrue(p.hasNext());
@@ -129,7 +129,7 @@ public class CxParserTest {
 
     @Test
     public void test4() throws IOException, NoSuchAlgorithmException {
-        final String j = "[" + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
+        final String j = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
                 + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
         assertTrue(p.hasNext());
@@ -178,7 +178,7 @@ public class CxParserTest {
 
     @Test
     public void test5() throws IOException, NoSuchAlgorithmException {
-        final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
+        final String j = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
                 + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
@@ -231,9 +231,9 @@ public class CxParserTest {
 
     @Test
     public void test6() throws IOException, NoSuchAlgorithmException {
-        final String j = "["
+        final String j = "[" + TestUtil.NUMBER_VERIFICATION
 
-        + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
+        + ",{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
                 + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 
@@ -283,7 +283,7 @@ public class CxParserTest {
 
     @Test
     public void test7() throws IOException, NoSuchAlgorithmException {
-        final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
+        final String j = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
 
         + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
@@ -334,7 +334,7 @@ public class CxParserTest {
 
     @Test
     public void test8() throws IOException, NoSuchAlgorithmException {
-        final String j = "[" + "{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
+        final String j = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"key\":\"value\"}," + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
                 + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
         assertTrue(p.hasNext());
@@ -387,6 +387,8 @@ public class CxParserTest {
     @Test
     public void test9() throws IOException, NoSuchAlgorithmException {
         final String j = "["
+                + TestUtil.NUMBER_VERIFICATION
+                + ","
                 + "{\"nodes_we_ignore\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
                 + "{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]},"
                 + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]},"
@@ -483,7 +485,7 @@ public class CxParserTest {
 
     @Test
     public void test10() throws IOException, NoSuchAlgorithmException {
-        final String j = "[{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}]";
+        final String j = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}]";
         final Set<AspectFragmentReader> readers = new HashSet<>();
         readers.add(EdgesFragmentReader.createInstance());
         readers.add(NodesFragmentReader.createInstance());

@@ -23,7 +23,8 @@ public class UTF8Test {
 
     @Test
     public void testUTF8RT1() throws IOException {
-        final String t0 = "[{\"edgeAttributes\":[{\"po\":0,\"n\":\"한글hangul\",\"v\":\"value\"},{\"po\":1,\"n\":\"漢字kanjiひらがなカタカナ\",\"v\":\"12\",\"d\":\"integer\"},"
+        final String t0 = "[" + TestUtil.NUMBER_VERIFICATION
+                + ",{\"edgeAttributes\":[{\"po\":0,\"n\":\"한글hangul\",\"v\":\"value\"},{\"po\":1,\"n\":\"漢字kanjiひらがなカタカナ\",\"v\":\"12\",\"d\":\"integer\"},"
                 + "{\"po\":[0,1],\"n\":\"ราชอาณาจักรไทย\",\"v\":\"true\",\"d\":\"boolean\"},"
                 + "{\"s\":1234,\"po\":[0,1,2],\"n\":\"繁體字\",\"v\":[\"1\",\"2\"],\"d\":\"list_of_short\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
 
@@ -78,7 +79,7 @@ public class UTF8Test {
         l1.add(ea2);
         l1.add(ea3);
 
-        w1.startT();
+        w1.start();
         w1.writeAspectElements(l1);
         w1.end(true, "");
 
@@ -88,7 +89,9 @@ public class UTF8Test {
 
     @Test
     public void testUTF8RT2() throws IOException {
-        final String t0 = "[{\"edgeAttributes\":[{\"po\":0,\"n\":\"\uD55C\uAE00hangul\",\"v\":\"value\"},{\"po\":1,\"n\":\"\u6F22\u5B57kanji\u3072\u3089\u304C\u306A\u30AB\u30BF\u30AB\u30CA\",\"v\":\"12\",\"d\":\"integer\"},{\"po\":[0,1],\"n\":\"\u0E23\u0E32\u0E0A\u0E2D\u0E32\u0E13\u0E32\u0E08\u0E31\u0E01\u0E23\u0E44\u0E17\u0E22\",\"v\":\"true\",\"d\":\"boolean\"},{\"s\":1234,\"po\":[0,1,2],\"n\":\"\u7E41\u9AD4\u5B57\",\"v\":[\"1\",\"2\"],\"d\":\"list_of_short\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
+        final String t0 = "["
+                + TestUtil.NUMBER_VERIFICATION
+                + ",{\"edgeAttributes\":[{\"po\":0,\"n\":\"\uD55C\uAE00hangul\",\"v\":\"value\"},{\"po\":1,\"n\":\"\u6F22\u5B57kanji\u3072\u3089\u304C\u306A\u30AB\u30BF\u30AB\u30CA\",\"v\":\"12\",\"d\":\"integer\"},{\"po\":[0,1],\"n\":\"\u0E23\u0E32\u0E0A\u0E2D\u0E32\u0E13\u0E32\u0E08\u0E31\u0E01\u0E23\u0E44\u0E17\u0E22\",\"v\":\"true\",\"d\":\"boolean\"},{\"s\":1234,\"po\":[0,1,2],\"n\":\"\u7E41\u9AD4\u5B57\",\"v\":[\"1\",\"2\"],\"d\":\"list_of_short\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
 
         final CxReader p = CxReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
@@ -141,7 +144,7 @@ public class UTF8Test {
         l1.add(ea2);
         l1.add(ea3);
 
-        w1.startT();
+        w1.start();
         w1.writeAspectElements(l1);
         w1.end(true, "");
 

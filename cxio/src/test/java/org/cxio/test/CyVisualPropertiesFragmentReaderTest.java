@@ -20,7 +20,9 @@ public class CyVisualPropertiesFragmentReaderTest {
 
     @Test
     public void test() throws IOException {
-        final String t0 = "[{\"visualProperties\":[{\"properties_of\":\"nodes:default\",\"properties\":{\"background-color\":\"rgb(204,204,255)\",\"text-opacity\":\"1.0\",\"width\":\"40.0\"}},{\"properties_of\":\"nodes:selected\",\"properties\":{\"background-color\":\"rgb(255,255,0)\"}},{\"properties_of\":\"nodes\",\"applies_to\":[\"1\",\"2\"],\"properties\":{\"background-color\":\"rgb(0,0,0)\"}}]}]";
+        final String t0 = "["
+                + TestUtil.NUMBER_VERIFICATION
+                + ",{\"visualProperties\":[{\"properties_of\":\"nodes:default\",\"properties\":{\"background-color\":\"rgb(204,204,255)\",\"text-opacity\":\"1.0\",\"width\":\"40.0\"}},{\"properties_of\":\"nodes:selected\",\"properties\":{\"background-color\":\"rgb(255,255,0)\"}},{\"properties_of\":\"nodes\",\"applies_to\":[\"1\",\"2\"],\"properties\":{\"background-color\":\"rgb(0,0,0)\"}}]}]";
         final CyVisualPropertiesFragmentReader r = CyVisualPropertiesFragmentReader.createInstance();
         final Set<AspectFragmentReader> readers = new HashSet<AspectFragmentReader>();
         readers.add(r);

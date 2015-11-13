@@ -18,7 +18,8 @@ public class EdgeAttributesFragmentReaderETest {
 
     @Test
     public void test() throws IOException {
-        final String t0 = "[" + "{\"edgeAttributes\":[{\"po\":\"0\",\"n\":\"name1\",\"v\":\"value\"}]}," + "{\"edgeAttributes\":[{\"po\":\"1\",\"n\":\"name2\",\"v\":\"12\",\"d\":\"integer\"}]},"
+        final String t0 = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"edgeAttributes\":[{\"po\":\"0\",\"n\":\"name1\",\"v\":\"value\"}]},"
+                + "{\"edgeAttributes\":[{\"po\":\"1\",\"n\":\"name2\",\"v\":\"12\",\"d\":\"integer\"}]},"
                 + "{\"edgeAttributes\":[{\"po\":[\"0\",\"1\"],\"n\":\"name3\",\"v\":\"true\",\"d\":\"boolean\"}]},"
                 + "{\"edgeAttributes\":[{\"po\":[\"0\",\"1\",\"2\"],\"n\":\"name4\",\"v\":[\"1\",\"2\"],\"d\":\"list_of_short\",\"s\":\"1234\"}]}" + "]";
 

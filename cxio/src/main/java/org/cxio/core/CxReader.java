@@ -39,6 +39,7 @@ public final class CxReader extends AbstractCxReader {
     private final boolean                               _read_anonymous_aspect_fragments;
     private JsonToken                                   _token;
     private boolean                                     _was_in_recognized_aspect;
+    private boolean                                     _saw_number_check;
 
     /**
      * This creates a new CxtReader with all AspectFragmentReaders implemented in this library already added.
@@ -193,6 +194,9 @@ public final class CxReader extends AbstractCxReader {
                     elements = _element_readers.get(name).readAspectFragment(_jp);
                     _was_in_recognized_aspect = true;
                     _encountered_non_meta_content = true;
+                    if (!_saw_number_check) {
+                        throw new IOException(NumberVerification.NAME + " element is missing, aborting");
+                    }
                 }
                 else if (name.equals(MetaDataCollection.NAME)) {
                     --_level;
@@ -207,7 +211,7 @@ public final class CxReader extends AbstractCxReader {
                         throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
                     }
                     performNumberVerification(_jp);
-
+                    _saw_number_check = true;
                 }
                 else if (name.equals(Status.NAME)) {
                     --_level;
@@ -217,6 +221,9 @@ public final class CxReader extends AbstractCxReader {
                     addStatus(_jp);
                 }
                 else if (_read_anonymous_aspect_fragments) {
+                    if (!_saw_number_check) {
+                        throw new IOException(NumberVerification.NAME + " element is missing, aborting");
+                    }
                     final OpaqueFragmentReader reader = OpaqueFragmentReader.createInstance();
                     reader.setAspectName(name);
                     elements = reader.readAspectFragment(_jp);
@@ -298,6 +305,7 @@ public final class CxReader extends AbstractCxReader {
         _encountered_non_meta_content = false;
         _pre_meta_data = null;
         _post_meta_data = null;
+        _saw_number_check = false;
         if (_token != JsonToken.START_ARRAY) {
             throw new IllegalStateException("illegal cx json format: expected to start with an array: " + _token.asString());
         }

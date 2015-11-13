@@ -23,7 +23,7 @@ import org.junit.Test;
 
 public class CyViewsTest {
 
-    private static final Object CX_VIEWS_STR_1 = "[{\"cyViews\":[{\"@id\":1,\"s\":2},{\"@id\":22,\"s\":33}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
+    private static final Object CX_VIEWS_STR_1 = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"cyViews\":[{\"@id\":1,\"s\":2},{\"@id\":22,\"s\":33}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
 
     @Test
     public void test1() {
@@ -50,7 +50,7 @@ public class CyViewsTest {
         l1.add(v1);
         l1.add(v2);
 
-        w1.startT();
+        w1.start();
         w1.writeAspectElements(l1);
         w1.end(true, "");
         assertEquals(CX_VIEWS_STR_1, out1.toString());

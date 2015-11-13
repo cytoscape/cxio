@@ -78,7 +78,7 @@ public class UTF8Test {
         l1.add(ea2);
         l1.add(ea3);
 
-        w1.start();
+        w1.startT();
         w1.writeAspectElements(l1);
         w1.end(true, "");
 
@@ -141,7 +141,7 @@ public class UTF8Test {
         l1.add(ea2);
         l1.add(ea3);
 
-        w1.start();
+        w1.startT();
         w1.writeAspectElements(l1);
         w1.end(true, "");
 

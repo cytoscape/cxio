@@ -84,7 +84,7 @@ public final class Edgelist2Cx {
         final OutputStream out = new FileOutputStream(outfile);
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
 
-        w.start();
+        w.startT();
         w.writeAspectElements(cx_nodes);
         w.writeAspectElements(cx_edges);
         w.writeAspectElements(cx_node_attributes);

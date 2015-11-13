@@ -50,7 +50,7 @@ public class CyViewsTest {
         l1.add(v1);
         l1.add(v2);
 
-        w1.start();
+        w1.startT();
         w1.writeAspectElements(l1);
         w1.end(true, "");
         assertEquals(CX_VIEWS_STR_1, out1.toString());

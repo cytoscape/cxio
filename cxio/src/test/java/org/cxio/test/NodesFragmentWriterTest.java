@@ -25,7 +25,7 @@ public class NodesFragmentWriterTest {
 
         w0.addAspectFragmentWriter(NodesFragmentWriter.createInstance());
 
-        w0.start();
+        w0.startT();
         w0.writeAspectElements(l0);
         w0.end(true, "");
 
@@ -46,7 +46,7 @@ public class NodesFragmentWriterTest {
 
         w1.addAspectFragmentWriter(nfw);
 
-        w1.start();
+        w1.startT();
         w1.writeAspectElements(l1);
         w1.end(true, "");
 
@@ -72,7 +72,7 @@ public class NodesFragmentWriterTest {
 
         w1.addAspectFragmentWriter(nfw);
 
-        w1.start();
+        w1.startT();
         w1.writeAspectElements(l1);
         w1.end(true, "");
 

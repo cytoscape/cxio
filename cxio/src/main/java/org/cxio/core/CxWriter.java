@@ -21,6 +21,7 @@ import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.metadata.MetaDataCollection;
+import org.cxio.util.CxConstants;
 import org.cxio.util.CxioUtil;
 import org.cxio.util.JsonWriter;
 
@@ -278,13 +279,15 @@ public final class CxWriter {
         }
     }
 
-    /**
-     *  This method is to be called at the beginning of writing to a stream.
-     *
-     * @throws IOException
-     */
-    public void start() throws IOException {
-        start(null);
+    // Do not use, only for testing!
+    public void startT() throws IOException {
+        if (_started) {
+            throw new IllegalStateException("already started");
+        }
+        _started = true;
+        _ended = false;
+        _jw.start();
+        writeMetaData(_pre_meta_data);
     }
 
     /**
@@ -294,7 +297,7 @@ public final class CxWriter {
      * @param long_number a Long for verification purposes
      * @throws IOException
      */
-    public void start(final Long long_number) throws IOException {
+    public void start() throws IOException {
         checkIfEnded();
         if (_started) {
             throw new IllegalStateException("already started");
@@ -302,12 +305,12 @@ public final class CxWriter {
         _started = true;
         _ended = false;
         _jw.start();
-        if (long_number != null) {
-            final NumberVerification nv = new NumberVerification(long_number);
-            if (nv != null) {
-                nv.toJson(_jw);
-            }
+
+        final NumberVerification nv = new NumberVerification(CxConstants.LONG_NUMBER_TEST);
+        if (nv != null) {
+            nv.toJson(_jw);
         }
+
         writeMetaData(_pre_meta_data);
     }
 

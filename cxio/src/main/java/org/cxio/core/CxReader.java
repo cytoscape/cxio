@@ -206,7 +206,7 @@ public final class CxReader extends AbstractCxReader {
                     if (_level < 1) {
                         throw new IllegalStateException("this should never have happened (likely cause: problem with '" + name + "' reader)");
                     }
-                    addNumberVerification(_jp);
+                    performNumberVerification(_jp);
 
                 }
                 else if (name.equals(Status.NAME)) {

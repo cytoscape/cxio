@@ -18,6 +18,7 @@ import org.cxio.aux.NumberVerification;
 import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;
+import org.cxio.util.CxConstants;
 import org.cxio.util.CxioUtil;
 
 import com.fasterxml.jackson.core.JsonFactory;
@@ -34,7 +35,6 @@ class AbstractCxReader {
     MetaDataCollection  _pre_meta_data;
     MetaDataCollection  _post_meta_data;
     Status              _status;
-    NumberVerification  _number_verification;
     MessageDigest       _md;
     boolean             _encountered_non_meta_content;
 
@@ -64,15 +64,6 @@ class AbstractCxReader {
      */
     public final Status getStatus() {
         return _status;
-    }
-
-    /**
-     *  This returns the number verification object, if present.
-     *
-     * @return the NumberVerification object
-     */
-    public final NumberVerification getNumberVerification() {
-        return _number_verification;
     }
 
     /**
@@ -173,10 +164,15 @@ class AbstractCxReader {
         }
     }
 
-    void addNumberVerification(final JsonParser _jp) throws JsonParseException, JsonMappingException, IOException {
+    void performNumberVerification(final JsonParser _jp) throws JsonParseException, JsonMappingException, IOException {
         final NumberVerification nv = NumberVerification.createInstanceFromJson(_jp);
         if ((nv != null)) {
-            _number_verification = nv;
+            if (nv.getLongNumber() != CxConstants.LONG_NUMBER_TEST) {
+                throw new IOException("aborting due to apparent inability to correctly process long intergers");
+            }
+        }
+        else {
+            throw new IOException("aborting due to apparent inability to correctly process long intergers");
         }
     }
 

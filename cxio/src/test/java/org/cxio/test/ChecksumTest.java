@@ -94,7 +94,7 @@ public class ChecksumTest {
 
         final CxWriter w0 = CxWriter.createInstanceWithAllAvailableWriters(out0, true, true);
 
-        w0.start();
+        w0.startT();
         w0.writeAspectElements(edges_elements);
         w0.writeAspectElements(nodes_elements);
         w0.writeAspectElements(cartesian_elements);
@@ -112,7 +112,7 @@ public class ChecksumTest {
 
         final CxWriter w1 = CxWriter.createInstanceWithAllAvailableWriters(out1, true, true);
 
-        w1.start();
+        w1.startT();
         w1.writeAspectElements(nodes_elements);
         w1.writeAspectElements(cartesian_elements);
         w1.writeAspectElements(edge_attributes_elements);

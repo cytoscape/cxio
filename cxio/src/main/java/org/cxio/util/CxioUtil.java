@@ -119,7 +119,7 @@ public final class CxioUtil {
 
         final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters());
 
-        w.start();
+        w.startT();
         w.writeAspectElements(elements);
         w.end(true, "");
 
@@ -133,7 +133,7 @@ public final class CxioUtil {
         final OutputStream out = new ByteArrayOutputStream();
 
         final CxWriter w = CxWriter.createInstance(out, use_default_pretty_printer, getAllAvailableAspectFragmentWriters());
-        w.start();
+        w.startT();
         w.writeAspectElements(res.get(NodesElement.ASPECT_NAME));
         w.writeAspectElements(res.get(EdgesElement.ASPECT_NAME));
         w.writeAspectElements(res.get(NetworkRelationsElement.ASPECT_NAME));

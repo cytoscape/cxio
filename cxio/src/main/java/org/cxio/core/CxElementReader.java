@@ -236,7 +236,7 @@ public final class CxElementReader extends AbstractCxReader implements Iterable<
                         _meta_data = true;
                     }
                     else if (_aspect_name.equals(NumberVerification.NAME)) {
-                        addNumberVerification(_jp);
+                        performNumberVerification(_jp);
                         _anonymous_reader_used = false;
                         _meta_data = true;
                     }

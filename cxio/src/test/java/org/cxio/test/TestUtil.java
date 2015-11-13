@@ -31,7 +31,7 @@ final class TestUtil {
 
         final CxWriter w = CxWriter.createInstance(out, false, CxioUtil.getAllAvailableAspectFragmentWriters());
 
-        w.start();
+        w.startT();
         w.writeAspectElements(res.get(NodesElement.ASPECT_NAME));
         w.writeAspectElements(res.get(EdgesElement.ASPECT_NAME));
         w.writeAspectElements(res.get(CartesianLayoutElement.ASPECT_NAME));
@@ -60,7 +60,7 @@ final class TestUtil {
 
         final CxWriter w = CxWriter.createInstance(out, false, CxioUtil.getAllAvailableAspectFragmentWriters());
 
-        w.start();
+        w.startT();
         w.writeAspectElements(res.get(NodesElement.ASPECT_NAME));
         w.writeAspectElements(res.get(EdgesElement.ASPECT_NAME));
         w.writeAspectElements(res.get(CartesianLayoutElement.ASPECT_NAME));

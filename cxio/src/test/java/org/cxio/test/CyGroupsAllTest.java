@@ -36,7 +36,7 @@ public class CyGroupsAllTest {
         final OutputStream out = new ByteArrayOutputStream();
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, false, false);
 
-        w.start();
+        w.startT();
         w.writeAspectElements(l);
         w.end(true, "");
         assertEquals(STR, out.toString());
@@ -61,7 +61,7 @@ public class CyGroupsAllTest {
         final OutputStream out = new ByteArrayOutputStream();
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, false, false);
 
-        w.start();
+        w.startT();
         w.writeAspectElements(l);
         w.end(true, "");
 

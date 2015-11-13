@@ -38,7 +38,7 @@ public class CyGroupsFragmentWriterTest {
         final CxWriter w1 = CxWriter.createInstance(out1, false);
         w1.addAspectFragmentWriter(CyGroupsFragmentWriter.createInstance());
 
-        w1.start();
+        w1.startT();
         w1.writeAspectElements(l1);
         w1.end(true, "");
         assertEquals(CX_GROUPS_STR, out1.toString());

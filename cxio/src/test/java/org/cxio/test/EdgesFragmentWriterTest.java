@@ -23,7 +23,7 @@ public class EdgesFragmentWriterTest {
         final CxWriter w0 = CxWriter.createInstance(out0, false);
         w0.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
-        w0.start();
+        w0.startT();
         w0.writeAspectElements(l0);
         w0.end(true, "");
 
@@ -40,7 +40,7 @@ public class EdgesFragmentWriterTest {
         final CxWriter w1 = CxWriter.createInstance(out1, false);
         w1.addAspectFragmentWriter(EdgesFragmentWriter.createInstance());
 
-        w1.start();
+        w1.startT();
         w1.writeAspectElements(l1);
         w1.end(true, "");
 

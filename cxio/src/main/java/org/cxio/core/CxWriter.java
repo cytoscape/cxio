@@ -10,6 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
@@ -525,6 +526,32 @@ public final class CxWriter {
             _element_counts.processAspectElement(name, json_strings.size());
         }
 
+    }
+
+    /**
+     * Convenience method to write a map (aspect name to lists of aspect elements) to
+     * a output stream.
+     *
+     *
+     * @param aspect_elements
+     * @param cx_writer
+     * @param output_stream
+     * @throws IOException
+     */
+    public final static void writeFromMap(final SortedMap<String, List<AspectElement>> aspect_elements, final CxWriter cx_writer, final OutputStream output_stream) throws IOException {
+        final boolean success = true;
+        String msg = "";
+        cx_writer.start();
+        try {
+            for (final String k : aspect_elements.keySet()) {
+                final List<AspectElement> x = aspect_elements.get(k);
+                cx_writer.writeAspectElements(x);
+            }
+        }
+        catch (final Exception e) {
+            msg = e.getMessage();
+        }
+        cx_writer.end(success, msg);
     }
 
     private CxWriter(final OutputStream os, final boolean use_default_pretty_printer, final boolean calculate_md5_checksum) throws IOException, NoSuchAlgorithmException {

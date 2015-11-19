@@ -3,6 +3,7 @@ package org.cxio.aspects.datamodels;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -13,23 +14,26 @@ import java.util.TreeMap;
  * @author cmzmasek
  *
  */
-public final class CyVisualPropertiesElement extends AbstractAspectElement {
+public final class CyVisualPropertiesElement   extends AbstractAspectElement {
 
-    public final static String              APPLIES_TO    = "applies_to";
-    public final static String              ASPECT_NAME   = "visualProperties";
-    public final static String              VIEW          = "view";
-    public final static String              PROPERTIES    = "properties";
-    public final static String              PROPERTIES_OF = "properties_of";
+    public final static String               APPLIES_TO    = "applies_to";
+    public final static String               ASPECT_NAME   = "visualProperties";
+    public final static String               VIEW          = "view";
+    public final static String               PROPERTIES    = "properties";
+    public final static String               MAPPINGS      = "mappings";
+    public final static String               PROPERTIES_OF = "properties_of";
 
-    private final List<Long>                _applies_to;
-    final Long                              _view;
-    private final SortedMap<String, String> _properties;
-    private final String                    _properties_of;
+    private final List<Long>                 _applies_to;
+    final Long                               _view;
+    private final SortedMap<String, String>  _properties;
+    private final SortedMap<String, Mapping> _mappings;
+    private final String                     _properties_of;
 
     public CyVisualPropertiesElement(final String properties_of) {
         _properties_of = properties_of;
         _applies_to = new ArrayList<Long>();
         _properties = new TreeMap<String, String>();
+        _mappings = new TreeMap<String, Mapping>();
         _view = null;
     }
 
@@ -37,6 +41,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         _properties_of = properties_of;
         _applies_to = new ArrayList<Long>();
         _properties = new TreeMap<String, String>();
+        _mappings = new TreeMap<String, Mapping>();
         _view = view;
     }
 
@@ -44,6 +49,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
+        _mappings = new TreeMap<String, Mapping>();
         _view = null;
     }
 
@@ -51,6 +57,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
+        _mappings = new TreeMap<String, Mapping>();
         _view = view;
     }
 
@@ -79,12 +86,24 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         return _properties;
     }
 
+    public final SortedMap<String, Mapping> getMappings() {
+        return _mappings;
+    }
+
     public final String getPropertiesOf() {
         return _properties_of;
     }
 
     public final void putProperty(final String name, final String value) {
         _properties.put(name, value);
+    }
+
+    public final void putMapping(final String name, final String type, final String definition) {
+        _mappings.put(name, new Mapping(type, definition));
+    }
+
+    public final void putMapping(final String name, final Mapping mapping) {
+        _mappings.put(name, mapping);
     }
 
     @Override
@@ -110,6 +129,13 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
             sb.append(entry.getKey());
             sb.append(": ");
             sb.append(entry.getValue());
+            sb.append("\n");
+        }
+        sb.append("\n");
+        for (final Entry<String, Mapping> entry : _mappings.entrySet()) {
+            sb.append(entry.getKey());
+            sb.append(":");
+            sb.append(entry.getValue().toString());
             sb.append("\n");
         }
         return sb.toString();

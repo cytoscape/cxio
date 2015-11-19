@@ -2,8 +2,10 @@ package org.cxio.aspects.writers;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.cxio.aspects.datamodels.CyVisualPropertiesElement;
+import org.cxio.aspects.datamodels.Mapping;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.JsonWriter;
 
@@ -38,6 +40,19 @@ public class VisualPropertiesFragmentWriter extends AbstractFragmentWriter {
             for (final Map.Entry<String, String> entry : c.getProperties().entrySet()) {
                 if (entry.getValue() != null) {
                     w.writeStringField(entry.getKey(), entry.getValue());
+                }
+            }
+            w.writeEndObject();
+        }
+        if ((c.getMappings() != null) && !c.getMappings().isEmpty()) {
+            w.writeObjectFieldStart(CyVisualPropertiesElement.MAPPINGS);
+            for (final Entry<String, Mapping> entry : c.getMappings().entrySet()) {
+                if (entry.getValue() != null) {
+                    w.writeObjectFieldStart(entry.getKey());
+                    final Mapping m = entry.getValue();
+                    w.writeStringField(Mapping.TYPE, m.getType());
+                    w.writeStringField(Mapping.DEFINITION, m.getDefintion());
+                    w.writeEndObject();
                 }
             }
             w.writeEndObject();

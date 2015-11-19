@@ -122,4 +122,17 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
         }
     }
 
+    
+    public final String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append(_parent);
+        sb.append("<-");
+        sb.append(_child);
+        sb.append(": ");
+        sb.append(_child_name);
+        sb.append(" [");
+        sb.append(_relationship);
+        sb.append("]");
+        return sb.toString();
+    }
 }

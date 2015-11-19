@@ -46,7 +46,7 @@ public class CyVisualPropertiesFragmentReaderTest {
         assertTrue(v0.getProperties().size() == 3);
 
     }
-    
+
     @Test
     public void test2() throws IOException {
         final String t0 = "["
@@ -70,14 +70,14 @@ public class CyVisualPropertiesFragmentReaderTest {
         final CyVisualPropertiesElement v0 = (CyVisualPropertiesElement) aspects.get(0);
         assertTrue(v0.getAspectName().equals(CyVisualPropertiesElement.ASPECT_NAME));
         assertTrue(v0.getPropertiesOf().equals("nodes:default"));
-        
-        
-        assertTrue(v0.getMappings().get("NODE_COLOR") != null );
-        
-        Mapping m = v0.getMappings().get("NODE_COLOR");
+        assertTrue(v0.getProperties().size() == 3);
+        assertTrue(v0.getMappings().size() == 1);
+
+        assertTrue(v0.getMappings().get("NODE_COLOR") != null);
+
+        final Mapping m = v0.getMappings().get("NODE_COLOR");
         assertTrue(m.getType().equals("cont"));
         assertTrue(m.getDefintion().equals("rgb12,0-0-0\"asdef\""));
-        assertTrue(v0.getProperties().size() == 4);
 
     }
 

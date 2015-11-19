@@ -14,7 +14,7 @@ import java.util.TreeMap;
  * @author cmzmasek
  *
  */
-public final class CyVisualPropertiesElement   extends AbstractAspectElement {
+public final class CyVisualPropertiesElement extends AbstractAspectElement {
 
     public final static String               APPLIES_TO    = "applies_to";
     public final static String               ASPECT_NAME   = "visualProperties";
@@ -125,12 +125,16 @@ public final class CyVisualPropertiesElement   extends AbstractAspectElement {
             sb.append(" ");
         }
         sb.append("\n");
+        sb.append("properties:");
+        sb.append("\n");
         for (final Map.Entry<String, String> entry : _properties.entrySet()) {
             sb.append(entry.getKey());
             sb.append(": ");
             sb.append(entry.getValue());
             sb.append("\n");
         }
+        sb.append("\n");
+        sb.append("mappings:");
         sb.append("\n");
         for (final Entry<String, Mapping> entry : _mappings.entrySet()) {
             sb.append(entry.getKey());

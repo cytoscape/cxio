@@ -17,8 +17,8 @@ import org.junit.Test;
 public class CyGroupsFragmentWriterTest {
 
     final static String CX_GROUPS_STR = "["
-                                              + TestUtil.NUMBER_VERIFICATION
-                                              + ",{\"cyGroups\":[{\"@id\":1,\"view\":222,\"name\":\"name\",\"nodes\":[11,22],\"external_edges\":[1,2],\"internal_edges\":[3,4]}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
+            + TestUtil.NUMBER_VERIFICATION
+            + ",{\"cyGroups\":[{\"@id\":1,\"view\":222,\"name\":\"name\",\"nodes\":[11,22],\"external_edges\":[1,2],\"internal_edges\":[3,4]}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
 
     @Test
     public void test() throws IOException {

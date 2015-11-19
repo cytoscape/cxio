@@ -27,7 +27,7 @@ public class CyVisualPropertiesFragmentWriterTest {
         w.writeAspectElements(l0);
         w.end(true, "");
 
-        assertEquals("[" +  TestUtil.NUMBER_VERIFICATION + ",{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
+        assertEquals("[" + TestUtil.NUMBER_VERIFICATION + ",{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
 
         final CyVisualPropertiesElement c1 = new CyVisualPropertiesElement("nodes:default");
 
@@ -60,7 +60,7 @@ public class CyVisualPropertiesFragmentWriterTest {
                      out1.toString());
 
     }
-    
+
     @Test
     public void test2() throws IOException {
         final List<AspectElement> l0 = new ArrayList<AspectElement>();
@@ -72,7 +72,7 @@ public class CyVisualPropertiesFragmentWriterTest {
         w.writeAspectElements(l0);
         w.end(true, "");
 
-        assertEquals("[" +  TestUtil.NUMBER_VERIFICATION + ",{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
+        assertEquals("[" + TestUtil.NUMBER_VERIFICATION + ",{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
 
         final CyVisualPropertiesElement c1 = new CyVisualPropertiesElement("nodes:default");
 

@@ -29,11 +29,11 @@ public final class CyVisualPropertiesFragmentReader extends AbstractFragmentRead
     @Override
     public final AspectElement readElement(final ObjectNode o) throws IOException {
         CyVisualPropertiesElement vpe;
-        
+
         if (o.has(CyVisualPropertiesElement.APPLIES_TO) && (o.has(CyVisualPropertiesElement.VIEW))) {
             vpe = new CyVisualPropertiesElement(ParserUtils.getTextValueRequired(o, CyVisualPropertiesElement.PROPERTIES_OF),
-                                                 ParserUtils.getAsLongList(o, CyVisualPropertiesElement.APPLIES_TO),
-                                                 ParserUtils.getTextValueAsLong(o, CyVisualPropertiesElement.VIEW));
+                                                ParserUtils.getAsLongList(o, CyVisualPropertiesElement.APPLIES_TO),
+                                                ParserUtils.getTextValueAsLong(o, CyVisualPropertiesElement.VIEW));
         }
         else if (o.has(CyVisualPropertiesElement.APPLIES_TO)) {
             vpe = new CyVisualPropertiesElement(ParserUtils.getTextValueRequired(o, CyVisualPropertiesElement.PROPERTIES_OF), ParserUtils.getAsLongList(o, CyVisualPropertiesElement.APPLIES_TO));
@@ -48,7 +48,7 @@ public final class CyVisualPropertiesFragmentReader extends AbstractFragmentRead
                     final Entry<String, JsonNode> kv = it.next();
                     vpe.putProperty(kv.getKey(), kv.getValue().asText());
                 }
-                
+
             }
         }
         if (o.has(CyVisualPropertiesElement.MAPPINGS)) {
@@ -56,11 +56,9 @@ public final class CyVisualPropertiesFragmentReader extends AbstractFragmentRead
             if (it != null) {
                 while (it.hasNext()) {
                     final Entry<String, JsonNode> kv = it.next();
-                    vpe.putProperty(kv.getKey(), kv.getValue().asText());
-
                     vpe.putMapping(kv.getKey(), kv.getValue().get(Mapping.TYPE).asText(), kv.getValue().get(Mapping.DEFINITION).asText());
                 }
-               
+
             }
         }
         return vpe;

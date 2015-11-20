@@ -1,12 +1,7 @@
 package org.cxio.aspects.datamodels;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxioUtil;
 
 /**
@@ -82,29 +77,6 @@ public final class NetworkRelationsElement extends AbstractAspectElement {
         default:
             throw new IllegalStateException("don't know how to handle relationship '" + _relationship + "'");
         }
-    }
-
-    public final static Set<Long> getAllSubNetworkParentNetworkIds(final List<AspectElement> networks_relations) {
-        final Set<Long> parents = new HashSet<Long>();
-        for (final AspectElement e : networks_relations) {
-            final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
-            if (nwe.getRelationship() == TYPE_SUBNETWORK) {
-                parents.add(nwe.getParent());
-            }
-        }
-        return parents;
-    }
-
-    public final static List<Long> getSubNetworkIds(final Long parent_id, final List<AspectElement> networks_relations) {
-        final List<Long> subnets = new ArrayList<Long>();
-        for (final AspectElement e : networks_relations) {
-
-            final NetworkRelationsElement nwe = (NetworkRelationsElement) e;
-            if ((nwe.getRelationship() == TYPE_SUBNETWORK) && (nwe.getParent() == parent_id)) {
-                subnets.add(nwe.getChild());
-            }
-        }
-        return subnets;
     }
 
     private final static RELATIONSHIP_TYPE determineRelationship(final String type) throws IOException {

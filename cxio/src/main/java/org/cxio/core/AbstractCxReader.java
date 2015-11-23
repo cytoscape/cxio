@@ -165,13 +165,15 @@ class AbstractCxReader {
     }
 
     void performNumberVerification(final JsonParser _jp) throws JsonParseException, JsonMappingException, IOException {
-        final String msg = "aborting due to apparent inability to correctly process long intergers";
+       // final String msg = "aborting due to apparent inability to correctly process long intergers";
         NumberVerification nv = null;
         try {
             nv = NumberVerification.createInstanceFromJson(_jp);
         }
         catch (final Exception e) {
-            throw new IOException(msg + ": " + e.getMessage());
+            System.out.println( "WARNING: " + e.getMessage());
+            System.err.println( "WARNING: " + e.getMessage());
+            return;
         }
         if ((nv != null)) {
             if (nv.getLongNumber() != CxConstants.LONG_NUMBER_TEST
@@ -181,9 +183,9 @@ class AbstractCxReader {
                 System.err.println( "WARNING: number check is :" + nv.getLongNumber() + " but is expected to be " + CxConstants.LONG_NUMBER_TEST);
             }
         }
-        else {
-            throw new IOException(msg);
-        }
+        //else {
+        //    throw new IOException(msg);
+        //}
     }
 
 }

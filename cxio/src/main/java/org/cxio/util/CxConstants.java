@@ -10,6 +10,8 @@ package org.cxio.util;
 public final class CxConstants {
 
     public final static String ID               = "@id";
-    public final static long   LONG_NUMBER_TEST = Long.MAX_VALUE;
+    
+    public final static long   LONG_NUMBER_TEST_OLD = Long.MAX_VALUE;
+    public final static long   LONG_NUMBER_TEST = 281474976710655L;
 
 }

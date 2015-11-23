@@ -174,7 +174,8 @@ class AbstractCxReader {
             throw new IOException(msg + ": " + e.getMessage());
         }
         if ((nv != null)) {
-            if (nv.getLongNumber() != CxConstants.LONG_NUMBER_TEST) {
+            if (nv.getLongNumber() != CxConstants.LONG_NUMBER_TEST
+                    && nv.getLongNumber() != CxConstants.LONG_NUMBER_TEST_OLD) {
                 throw new IOException(msg);
             }
         }

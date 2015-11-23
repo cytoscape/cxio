@@ -93,5 +93,5 @@ final class TestUtil {
         return true;
     }
 
-    final static String NUMBER_VERIFICATION = "{\"numberVerification\":[{\"longNumber\":9223372036854775807}]}";
+    final static String NUMBER_VERIFICATION = "{\"numberVerification\":[{\"longNumber\":281474976710655}]}";
 }

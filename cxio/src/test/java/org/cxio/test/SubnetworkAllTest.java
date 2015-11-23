@@ -23,7 +23,7 @@ import org.junit.Test;
 
 public class SubnetworkAllTest {
 
-    private static final String STR = "[{\"numberVerification\":[{\"longNumber\":9223372036854775807}]},{\"subNetworks\":[{\"@id\":50,\"nodes\":\"all\",\"edges\":\"all\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
+    private static final String STR = "[{\"numberVerification\":[{\"longNumber\":281474976710655}]},{\"subNetworks\":[{\"@id\":50,\"nodes\":\"all\",\"edges\":\"all\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
 
     @Test
     public void test1() throws IOException {

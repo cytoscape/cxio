@@ -84,13 +84,13 @@ public class NumberVerficationTest {
         w0.start();
         w0.writeAspectElements(l0);
         w0.end(true, "");
-        assertEquals("[{\"numberVerification\":[{\"longNumber\":9223372036854775807}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
+        assertEquals("[{\"numberVerification\":[{\"longNumber\":281474976710655}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
     }
 
     @Test
     public void test5() throws IOException {
 
-        final String str = "[{\"numberVerification\":[{\"longNumber\":9223372036854775807}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
+        final String str = "[{\"numberVerification\":[{\"longNumber\":281474976710655}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
 
         final CxReader p = CxReader.createInstance(str, CxioUtil.getAllAvailableAspectFragmentReaders());
         CxReader.parseAsMap(p);
@@ -100,7 +100,7 @@ public class NumberVerficationTest {
     @Test(expected = IOException.class)
     public void test6() throws IOException {
 
-        final String str = "[{\"numberVerification\":[{\"longNumber\":9223372036854775806}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
+        final String str = "[{\"numberVerification\":[{\"longNumber\":281474976710656}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
 
         final CxReader p = CxReader.createInstance(str, CxioUtil.getAllAvailableAspectFragmentReaders());
         CxReader.parseAsMap(p);

@@ -85,9 +85,6 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         sb.append(": ");
         sb.append("\n");
         if (_subnetwork != null) {
-            sb.append("property of network");
-        }
-        else {
             sb.append("property of network: ");
             sb.append(_subnetwork);
         }
@@ -96,11 +93,11 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         sb.append(_name);
         sb.append("\n");
         if (_is_single_value) {
-            sb.append("value            : ");
+            sb.append("value              : ");
             sb.append(_values.get(0));
         }
         else {
-            sb.append("values           : ");
+            sb.append("values            : ");
             sb.append(_values);
         }
         sb.append("\n");

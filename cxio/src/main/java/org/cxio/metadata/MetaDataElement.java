@@ -53,19 +53,19 @@ public class MetaDataElement {
      *
      * @param property a key value pair
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public final void addProperty(final String key, final String value) {
-        if ( key == null ) {
+        if (key == null) {
             throw new IllegalArgumentException("property key must not be null");
         }
         if (!_data.containsKey(PROPERTIES)) {
             _data.put(PROPERTIES, new ArrayList<TreeMap<String, String>>());
-            
+
         }
-        if (          ( (List)_data.get(PROPERTIES)).isEmpty() ) {
+        if (((List) _data.get(PROPERTIES)).isEmpty()) {
             ((ArrayList<TreeMap<String, String>>) _data.get(PROPERTIES)).add(new TreeMap<String, String>());
         }
-        getProperties().put(key,value);
+        getProperties().put(key, value);
     }
 
     /**
@@ -147,19 +147,18 @@ public class MetaDataElement {
         return null;
     }
 
-    @SuppressWarnings("unchecked")
     /**
      * Convenience method to get all "properties" (maps mapping String keys
      * to String values).
      *
      * @return  all "properties"
      */
+    @SuppressWarnings({ "unchecked", "rawtypes" })
     public final Map<String, String> getProperties() {
         if (!_data.containsKey(PROPERTIES)) {
             _data.put(PROPERTIES, new ArrayList<TreeMap<String, String>>());
-            
         }
-        if (          ( (List)_data.get(PROPERTIES)).isEmpty() ) {
+        if (((List) _data.get(PROPERTIES)).isEmpty()) {
             ((ArrayList<TreeMap<String, String>>) _data.get(PROPERTIES)).add(new TreeMap<String, String>());
         }
         return ((List<Map<String, String>>) _data.get(PROPERTIES)).get(0);

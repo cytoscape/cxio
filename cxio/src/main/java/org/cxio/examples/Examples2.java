@@ -187,6 +187,9 @@ public class Examples2 {
             final List<AspectElement> elements = r.getNext();
             if (!elements.isEmpty()) {
                 final String aspect_name = elements.get(0).getAspectName();
+                if ( aspect_name == null ) {
+                    System.out.println("NG");
+                }
                 // Do something with "elements":
                 for (final AspectElement element : elements) {
                     System.out.println(element.toString());

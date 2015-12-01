@@ -50,9 +50,7 @@ public class ExamplesM {
         for (final AspectElement e : reader) {
             if (e.getAspectName() == EdgesElement.ASPECT_NAME) {
                 final EdgesElement ee = (EdgesElement) e;
-                final long s = ee.getSource();
-                final long t = ee.getTarget();
-                final String r = ee.getInteraction();
+              
                 System.out.println(ee);
             }
         }

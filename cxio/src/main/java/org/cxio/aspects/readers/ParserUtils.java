@@ -89,7 +89,7 @@ public final class ParserUtils {
                 final Iterator<JsonNode> it = o.get(label).iterator();
                 while (it.hasNext()) {
                     final String s = it.next().asText();
-                    if (!CxioUtil.isEmpty(s)) {
+                    if (s != null) {
                         l.add(s);
                     }
                 }

@@ -8,11 +8,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.EdgesElement;
 import org.cxio.aspects.datamodels.HiddenAttributesElement;
 import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.cxio.aspects.writers.CyGroupsFragmentWriter;
+import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxioUtil;
@@ -117,6 +120,32 @@ public class AttributesTest {
         //System.out.println(out1.toString());
         
         assertTrue(out1.toString().equals("[{\"numberVerification\":[{\"longNumber\":281474976710655}]},{\"networkAttributes\":[{\"s\":148,\"n\":\"__Annotations\",\"v\":[\"\"],\"d\":\"list_of_string\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]"));
+    }
+    
+    @Test
+    public void test3() throws IOException {
+    
+        final String t0 = "[" + TestUtil.NUMBER_VERIFICATION + ",{\"networkAttributes\":[{\"s\":148,\"n\":\"__Annotations\",\"v\":[\"\"],\"d\":\"list_of_string\"}]}]"
+            ;
+
+        final CxReader p = CxReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
+        final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
+
+        assertTrue("failed to parse " + NetworkAttributesElement.ASPECT_NAME + " aspect", r0.containsKey(NetworkAttributesElement.ASPECT_NAME));
+
+        NetworkAttributesElement e = (NetworkAttributesElement) r0.get(NetworkAttributesElement.ASPECT_NAME).get(0);
+        e.getValues().get(0).equals("");
+        final OutputStream out1 = new ByteArrayOutputStream();
+        final CxWriter w1 = CxWriter.createInstanceWithAllAvailableWriters(out1, false,false);
+
+        final List<AspectElement> l1 = new ArrayList<AspectElement>();
+        l1.add(e);
+        
+        w1.start();
+        w1.writeAspectElements(l1);
+        w1.end(true, "");
+       // System.out.println(out1.toString());
+    
     }
 
 }

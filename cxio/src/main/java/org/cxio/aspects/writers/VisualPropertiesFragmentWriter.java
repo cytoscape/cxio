@@ -44,6 +44,15 @@ public class VisualPropertiesFragmentWriter extends AbstractFragmentWriter {
             }
             w.writeEndObject();
         }
+        if ((c.getDependencies() != null) && !c.getDependencies().isEmpty()) {
+            w.writeObjectFieldStart(CyVisualPropertiesElement.DEPENDENCIES);
+            for (final Map.Entry<String, String> entry : c.getDependencies().entrySet()) {
+                if (entry.getValue() != null) {
+                    w.writeStringField(entry.getKey(), entry.getValue());
+                }
+            }
+            w.writeEndObject();
+        }
         if ((c.getMappings() != null) && !c.getMappings().isEmpty()) {
             w.writeObjectFieldStart(CyVisualPropertiesElement.MAPPINGS);
             for (final Entry<String, Mapping> entry : c.getMappings().entrySet()) {

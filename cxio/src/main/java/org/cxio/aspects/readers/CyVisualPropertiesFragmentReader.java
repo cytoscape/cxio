@@ -51,6 +51,16 @@ public final class CyVisualPropertiesFragmentReader extends AbstractFragmentRead
 
             }
         }
+        if (o.has(CyVisualPropertiesElement.DEPENDENCIES)) {
+            final Iterator<Entry<String, JsonNode>> it = o.get(CyVisualPropertiesElement.DEPENDENCIES).fields();
+            if (it != null) {
+                while (it.hasNext()) {
+                    final Entry<String, JsonNode> kv = it.next();
+                    vpe.putDependency(kv.getKey(), kv.getValue().asText());
+                }
+
+            }
+        }
         if (o.has(CyVisualPropertiesElement.MAPPINGS)) {
             final Iterator<Entry<String, JsonNode>> it = o.get(CyVisualPropertiesElement.MAPPINGS).fields();
             if (it != null) {

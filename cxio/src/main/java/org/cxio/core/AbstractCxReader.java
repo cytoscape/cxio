@@ -177,7 +177,7 @@ class AbstractCxReader {
         }
         if ((nv != null)) {
             if (nv.getLongNumber() != CxConstants.LONG_NUMBER_TEST
-                    && nv.getLongNumber() != CxConstants.LONG_NUMBER_TEST_OLD) {
+                    && nv.getLongNumber() != Long.MAX_VALUE) {
                 //throw new IOException(msg); //TODO //FIXME
                 System.out.println( "WARNING: number check is :" + nv.getLongNumber() + " but is expected to be " + CxConstants.LONG_NUMBER_TEST);
                 System.err.println( "WARNING: number check is :" + nv.getLongNumber() + " but is expected to be " + CxConstants.LONG_NUMBER_TEST);

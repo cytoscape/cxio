@@ -21,11 +21,13 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
     public final static String               VIEW          = "view";
     public final static String               PROPERTIES    = "properties";
     public final static String               MAPPINGS      = "mappings";
+    public final static String               DEPENDENCIES  = "dependencies";
     public final static String               PROPERTIES_OF = "properties_of";
 
     private final List<Long>                 _applies_to;
     final Long                               _view;
     private final SortedMap<String, String>  _properties;
+    private final SortedMap<String, String>  _dependencies;
     private final SortedMap<String, Mapping> _mappings;
     private final String                     _properties_of;
 
@@ -33,6 +35,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         _properties_of = properties_of;
         _applies_to = new ArrayList<Long>();
         _properties = new TreeMap<String, String>();
+        _dependencies = new TreeMap<String, String>();
         _mappings = new TreeMap<String, Mapping>();
         _view = null;
     }
@@ -41,6 +44,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         _properties_of = properties_of;
         _applies_to = new ArrayList<Long>();
         _properties = new TreeMap<String, String>();
+        _dependencies = new TreeMap<String, String>();
         _mappings = new TreeMap<String, Mapping>();
         _view = view;
     }
@@ -49,6 +53,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
+        _dependencies = new TreeMap<String, String>();
         _mappings = new TreeMap<String, Mapping>();
         _view = null;
     }
@@ -57,6 +62,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         _properties_of = properties_of;
         _applies_to = applies_to;
         _properties = new TreeMap<String, String>();
+        _dependencies = new TreeMap<String, String>();
         _mappings = new TreeMap<String, Mapping>();
         _view = view;
     }
@@ -85,6 +91,10 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
     public final SortedMap<String, String> getProperties() {
         return _properties;
     }
+    
+    public final SortedMap<String, String> getDependencies() {
+        return _dependencies;
+    }
 
     public final SortedMap<String, Mapping> getMappings() {
         return _mappings;
@@ -96,6 +106,10 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
 
     public final void putProperty(final String name, final String value) {
         _properties.put(name, value);
+    }
+    
+    public final void putDependency(final String name, final String value) {
+        _dependencies.put(name, value);
     }
 
     public final void putMapping(final String name, final String type, final String definition) {
@@ -128,6 +142,15 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
         sb.append("properties:");
         sb.append("\n");
         for (final Map.Entry<String, String> entry : _properties.entrySet()) {
+            sb.append(entry.getKey());
+            sb.append(": ");
+            sb.append(entry.getValue());
+            sb.append("\n");
+        }
+        sb.append("\n");
+        sb.append("dependencies:");
+        sb.append("\n");
+        for (final Map.Entry<String, String> entry : _dependencies.entrySet()) {
             sb.append(entry.getKey());
             sb.append(": ");
             sb.append(entry.getValue());

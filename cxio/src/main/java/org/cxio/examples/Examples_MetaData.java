@@ -103,6 +103,8 @@ public class Examples_MetaData {
         li.add(d);
         meta_element1.put("some datastructure", li);
         meta_element1.put("some booleans", new boolean[] { true, false });
+        meta_element1.addProperty("p1", "pv1");
+        meta_element1.addProperty("p2", "pv2");
         md0.add(meta_element1);
         final MetaDataCollection md1 = new MetaDataCollection();
         final MetaDataElement meta_element2 = new MetaDataElement();

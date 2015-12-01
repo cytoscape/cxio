@@ -1,5 +1,7 @@
 package org.cxio.metadata;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -34,6 +36,7 @@ public class MetaDataElement {
      */
     public MetaDataElement() {
         _data = new TreeMap<String, Object>();
+        _data.put(PROPERTIES, new ArrayList<TreeMap<String, String>>());
     }
 
     /**
@@ -50,11 +53,19 @@ public class MetaDataElement {
      *
      * @param property a key value pair
      */
+    @SuppressWarnings("unchecked")
     public final void addProperty(final String key, final String value) {
-        if (!_data.containsKey(PROPERTIES)) {
-            _data.put(PROPERTIES, new TreeMap<String, String>());
+        if ( key == null ) {
+            throw new IllegalArgumentException("property key must not be null");
         }
-        getProperties().put(key, value);
+        if (!_data.containsKey(PROPERTIES)) {
+            _data.put(PROPERTIES, new ArrayList<TreeMap<String, String>>());
+            
+        }
+        if (          ( (List)_data.get(PROPERTIES)).isEmpty() ) {
+            ((ArrayList<TreeMap<String, String>>) _data.get(PROPERTIES)).add(new TreeMap<String, String>());
+        }
+        getProperties().put(key,value);
     }
 
     /**
@@ -144,7 +155,14 @@ public class MetaDataElement {
      * @return  all "properties"
      */
     public final Map<String, String> getProperties() {
-        return (Map<String, String>) _data.get(PROPERTIES);
+        if (!_data.containsKey(PROPERTIES)) {
+            _data.put(PROPERTIES, new ArrayList<TreeMap<String, String>>());
+            
+        }
+        if (          ( (List)_data.get(PROPERTIES)).isEmpty() ) {
+            ((ArrayList<TreeMap<String, String>>) _data.get(PROPERTIES)).add(new TreeMap<String, String>());
+        }
+        return ((List<Map<String, String>>) _data.get(PROPERTIES)).get(0);
     }
 
     /**

@@ -1,9 +1,20 @@
 package org.cxio.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.HiddenAttributesElement;
+import org.cxio.aspects.datamodels.NetworkAttributesElement;
+import org.cxio.aspects.writers.CyGroupsFragmentWriter;
+import org.cxio.core.CxWriter;
+import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxioUtil;
 import org.junit.Test;
 
@@ -75,6 +86,37 @@ public class AttributesTest {
         assertTrue(h.isSingleValue() == false);
         assertTrue(h.getValues() != null);
         assertTrue(CxioUtil.getAttributeValuesAsString(h).equals(g_s));
+        
+        final String h_s = "[\"\"]";
+        final HiddenAttributesElement hh = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", h_s, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
+        assertTrue(f.isSingleValue() == false);
+        assertTrue(f.getValues() != null);
+        assertTrue(CxioUtil.getAttributeValuesAsString(hh).equals(h_s));
+        
+        
+        
+    }
+
+    @Test
+    public void test2() throws IOException {
+        
+       
+        
+        final NetworkAttributesElement a = NetworkAttributesElement.createInstanceWithMultipleValues(148L, "__Annotations", "[ \"\" ]", ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
+        assertTrue(a.getValues().get(0).equals(""));
+        
+        final List<AspectElement> l1 = new ArrayList<AspectElement>();
+        l1.add(a);
+
+        final OutputStream out1 = new ByteArrayOutputStream();
+        final CxWriter w1 = CxWriter.createInstanceWithAllAvailableWriters(out1, false,false);
+
+        w1.start();
+        w1.writeAspectElements(l1);
+        w1.end(true, "");
+        //System.out.println(out1.toString());
+        
+        assertTrue(out1.toString().equals("[{\"numberVerification\":[{\"longNumber\":281474976710655}]},{\"networkAttributes\":[{\"s\":148,\"n\":\"__Annotations\",\"v\":[\"\"],\"d\":\"list_of_string\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]"));
     }
 
 }

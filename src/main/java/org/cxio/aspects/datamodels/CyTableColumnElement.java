@@ -15,6 +15,13 @@ public class CyTableColumnElement extends AbstractAttributesAspectElement {
         _name = name;
         _values = null;
     }
+    
+    public CyTableColumnElement(final String name, final ATTRIBUTE_DATA_TYPE type) {
+        _data_type = type;
+        _subnetwork = null;
+        _name = name;
+        _values = null;
+    }
 
     @Override
     public String toString() {

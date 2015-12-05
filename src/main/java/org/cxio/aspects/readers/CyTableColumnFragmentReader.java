@@ -6,7 +6,6 @@ import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
 import org.cxio.aspects.datamodels.AbstractAttributesAspectElement;
 import org.cxio.aspects.datamodels.AttributesAspectUtils;
 import org.cxio.aspects.datamodels.CyTableColumnElement;
-import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.cxio.core.interfaces.AspectElement;
 
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -23,7 +22,7 @@ public final class CyTableColumnFragmentReader extends AbstractFragmentReader {
 
     @Override
     public final String getAspectName() {
-        return NetworkAttributesElement.ASPECT_NAME;
+        return CyTableColumnElement.ASPECT_NAME;
     }
 
     @Override

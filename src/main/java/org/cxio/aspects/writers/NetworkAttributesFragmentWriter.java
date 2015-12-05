@@ -20,7 +20,7 @@ public class NetworkAttributesFragmentWriter extends AbstractFragmentWriter {
     }
 
     @Override
-    public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
+    public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {     
         WriterUtil.writeAttributesElement(w, (NetworkAttributesElement) element, _filter, false);
     }
 
@@ -33,5 +33,7 @@ public class NetworkAttributesFragmentWriter extends AbstractFragmentWriter {
     public void addAspectKeyFilter(final AspectKeyFilter filter) {
         _filter = filter;
     }
+    
+   
 
 }

@@ -24,6 +24,7 @@ import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.aspects.datamodels.SubNetworkElement;
 import org.cxio.aspects.readers.CartesianLayoutFragmentReader;
 import org.cxio.aspects.readers.CyGroupsFragmentReader;
+import org.cxio.aspects.readers.CyTableColumnFragmentReader;
 import org.cxio.aspects.readers.CyViewsFragmentReader;
 import org.cxio.aspects.readers.CyVisualPropertiesFragmentReader;
 import org.cxio.aspects.readers.EdgeAttributesFragmentReader;
@@ -36,6 +37,7 @@ import org.cxio.aspects.readers.NodesFragmentReader;
 import org.cxio.aspects.readers.SubNetworkFragmentReader;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.CyGroupsFragmentWriter;
+import org.cxio.aspects.writers.CyTableColumnFragmentWriter;
 import org.cxio.aspects.writers.CyViewsFragmentWriter;
 import org.cxio.aspects.writers.EdgeAttributesFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
@@ -164,6 +166,7 @@ public final class CxioUtil {
         final AspectFragmentReader subnetwork_reader = SubNetworkFragmentReader.createInstance();
         final AspectFragmentReader network_rel_reader = NetworkRelationsFragmentReader.createInstance();
         final AspectFragmentReader views_reader = CyViewsFragmentReader.createInstance();
+        final AspectFragmentReader col_reader = CyTableColumnFragmentReader.createInstance();
 
         final Set<AspectFragmentReader> aspect_readers = new HashSet<AspectFragmentReader>();
 
@@ -179,6 +182,7 @@ public final class CxioUtil {
         aspect_readers.add(subnetwork_reader);
         aspect_readers.add(network_rel_reader);
         aspect_readers.add(views_reader);
+        aspect_readers.add(col_reader);
         return aspect_readers;
     }
 
@@ -195,6 +199,7 @@ public final class CxioUtil {
         final AspectFragmentWriter subnetwork_writer = SubNetworkFragmentWriter.createInstance();
         final AspectFragmentWriter network_rel_writer = NetworkRelationsFragmentWriter.createInstance();
         final AspectFragmentWriter views_writer = CyViewsFragmentWriter.createInstance();
+        final AspectFragmentWriter col_writer = CyTableColumnFragmentWriter.createInstance();
 
         final Set<AspectFragmentWriter> aspect_writers = new HashSet<AspectFragmentWriter>();
         aspect_writers.add(node_writer);
@@ -209,6 +214,7 @@ public final class CxioUtil {
         aspect_writers.add(group_writer);
         aspect_writers.add(subnetwork_writer);
         aspect_writers.add(views_writer);
+        aspect_writers.add(col_writer);
         return aspect_writers;
     }
 

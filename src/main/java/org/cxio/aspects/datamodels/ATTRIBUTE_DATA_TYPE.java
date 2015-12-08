@@ -78,4 +78,47 @@ public enum ATTRIBUTE_DATA_TYPE {
             throw new IllegalStateException("don't know type " + dt);
         }
     }
+
+    public static ATTRIBUTE_DATA_TYPE fromCxLabel(final String s) {
+        switch (s) {
+        case "boolean":
+            return BOOLEAN;
+        case "byte":
+            return BYTE;
+        case "char":
+            return CHAR;
+        case "double":
+            return DOUBLE;
+        case "float":
+            return FLOAT;
+        case "integer":
+            return INTEGER;
+        case "long":
+            return LONG;
+        case "short":
+            return SHORT;
+        case "string":
+            return STRING;
+        case "list_of_boolean":
+            return LIST_OF_BOOLEAN;
+        case "list_of_byte":
+            return LIST_OF_BYTE;
+        case "list_of_char":
+            return LIST_OF_CHAR;
+        case "list_of_double":
+            return LIST_OF_DOUBLE;
+        case "list_of_float":
+            return LIST_OF_FLOAT;
+        case "list_of_integer":
+            return LIST_OF_INTEGER;
+        case "list_of_long":
+            return LIST_OF_LONG;
+        case "list_of_short":
+            return LIST_OF_SHORT;
+        case "list_of_string":
+            return LIST_OF_STRING;
+        default:
+            throw new IllegalStateException("don't know type " + s);
+        }
+    }
 }

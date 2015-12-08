@@ -113,8 +113,8 @@ public class AttributesTest {
         // System.out.println(out1.toString());
 
         assertTrue(out1
-                .toString()
-                .equals("[{\"numberVerification\":[{\"longNumber\":281474976710655}]},{\"networkAttributes\":[{\"s\":148,\"n\":\"__Annotations\",\"v\":[\"\"],\"d\":\"list_of_string\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]"));
+                   .toString()
+                   .equals("[{\"numberVerification\":[{\"longNumber\":281474976710655}]},{\"networkAttributes\":[{\"s\":148,\"n\":\"__Annotations\",\"v\":[\"\"],\"d\":\"list_of_string\"}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]"));
     }
 
     @Test

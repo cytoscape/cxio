@@ -106,8 +106,7 @@ public class CyVisualPropertiesFragmentWriterTest {
                      out1.toString());
 
     }
-    
-    
+
     @Test
     public void test3() throws IOException {
         final List<AspectElement> l0 = new ArrayList<AspectElement>();
@@ -140,7 +139,7 @@ public class CyVisualPropertiesFragmentWriterTest {
         l1.add(c1);
         l1.add(c2);
         l1.add(c3);
-        
+
         c1.putDependency("dependency1", "true");
 
         final OutputStream out1 = new ByteArrayOutputStream();
@@ -150,8 +149,7 @@ public class CyVisualPropertiesFragmentWriterTest {
         w1.start();
         w1.writeAspectElements(l1);
         w1.end(true, "");
-        
-      
+
         assertEquals("[{\"numberVerification\":[{\"longNumber\":281474976710655}]},{\"visualProperties\":[{\"properties_of\":\"nodes:default\",\"properties\":{\"background-color\":\"rgb(204,204,255)\",\"text-opacity\":\"1.0\",\"width\":\"40.0\"},\"dependencies\":{\"dependency1\":\"true\"},\"mappings\":{\"NODE_COLOR\":{\"type\":\"cont\",\"definition\":\"rgb12,0-0-0\\\"asdef\\\"\"}}},{\"properties_of\":\"nodes:selected\",\"properties\":{\"background-color\":\"rgb(255,255,0)\"}},{\"properties_of\":\"nodes\",\"applies_to\":[1,2],\"properties\":{\"background-color\":\"rgb(0,0,0)\"}}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]",
                      out1.toString());
 

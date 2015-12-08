@@ -25,9 +25,7 @@ public final class NodesElement extends AbstractAspectElement {
     }
 
     public NodesElement(final String id) {
-
         _id = Long.valueOf(id);
-
         _node_name = null;
         _node_represents = null;
     }

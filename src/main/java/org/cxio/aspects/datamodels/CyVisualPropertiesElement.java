@@ -91,7 +91,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
     public final SortedMap<String, String> getProperties() {
         return _properties;
     }
-    
+
     public final SortedMap<String, String> getDependencies() {
         return _dependencies;
     }
@@ -107,7 +107,7 @@ public final class CyVisualPropertiesElement extends AbstractAspectElement {
     public final void putProperty(final String name, final String value) {
         _properties.put(name, value);
     }
-    
+
     public final void putDependency(final String name, final String value) {
         _dependencies.put(name, value);
     }

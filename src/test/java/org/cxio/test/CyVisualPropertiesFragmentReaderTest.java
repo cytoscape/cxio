@@ -80,16 +80,14 @@ public class CyVisualPropertiesFragmentReaderTest {
         assertTrue(m.getDefintion().equals("rgb12,0-0-0\"asdef\""));
 
     }
-    
+
     @Test
     public void test3() throws IOException {
         final String t0 = "["
                 + TestUtil.NUMBER_VERIFICATION
-                
-                
+
                 + ",{\"visualProperties\":[{\"properties_of\":\"nodes:default\",\"properties\":{\"background-color\":\"rgb(204,204,255)\",\"text-opacity\":\"1.0\",\"width\":\"40.0\"},\"dependencies\":{\"dependency1\":\"true\"},\"mappings\":{\"NODE_COLOR\":{\"type\":\"cont\",\"definition\":\"rgb12,0-0-0\\\"asdef\\\"\"}}},{\"properties_of\":\"nodes:selected\",\"properties\":{\"background-color\":\"rgb(255,255,0)\"}},{\"properties_of\":\"nodes\",\"applies_to\":[1,2],\"properties\":{\"background-color\":\"rgb(0,0,0)\"}}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";
-                
-                
+
         final CyVisualPropertiesFragmentReader r = CyVisualPropertiesFragmentReader.createInstance();
         final Set<AspectFragmentReader> readers = new HashSet<AspectFragmentReader>();
         readers.add(r);
@@ -116,8 +114,7 @@ public class CyVisualPropertiesFragmentReaderTest {
         final Mapping m = v0.getMappings().get("NODE_COLOR");
         assertTrue(m.getType().equals("cont"));
         assertTrue(m.getDefintion().equals("rgb12,0-0-0\"asdef\""));
-        
-        
+
         assertTrue(v0.getDependencies().size() == 1);
         assertTrue(v0.getDependencies().get("dependency1").equals("true"));
 

@@ -31,10 +31,9 @@ public final class CyTableColumnFragmentReader extends AbstractFragmentReader {
         if (o.has(AbstractAttributesAspectElement.ATTR_DATA_TYPE)) {
             type = AttributesAspectUtils.toDataType(ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_DATA_TYPE));
         }
-
         return new CyTableColumnElement(ParserUtils.getTextValueAsLong(o, AbstractAttributesAspectElement.ATTR_SUBNETWORK),
+                                        ParserUtils.getTextValueRequired(o, CyTableColumnElement.APPLIES_TO),
                                         ParserUtils.getTextValueRequired(o, AbstractAttributesAspectElement.ATTR_NAME),
                                         type);
-
     }
 }

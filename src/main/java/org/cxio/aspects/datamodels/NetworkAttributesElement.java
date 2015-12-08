@@ -25,7 +25,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
 
     public NetworkAttributesElement(final Long subnetwork, final String name, final List<String> values, final ATTRIBUTE_DATA_TYPE type) {
         if (!AttributesAspectUtils.isListType(type)) {
-            throw new IllegalArgumentException("list of values provided, but given data type is " + type.toString());
+            throw new IllegalArgumentException("network attribute element '" + name + "': list of values provided, but given data type is " + type.toString());
         }
         _data_type = type;
         _is_single_value = false;
@@ -36,7 +36,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
 
     public NetworkAttributesElement(final Long subnetwork, final String name, final String value, final ATTRIBUTE_DATA_TYPE type) {
         if (AttributesAspectUtils.isListType(type)) {
-            throw new IllegalArgumentException("single value provided, but given data type is " + type.toString());
+            throw new IllegalArgumentException("network attribute element '" + name + "': single value provided, but given data type is " + type.toString());
         }
         _data_type = type;
         _is_single_value = true;

@@ -233,7 +233,7 @@ public class CxParserTest {
     public void test6() throws IOException, NoSuchAlgorithmException {
         final String j = "[" + TestUtil.NUMBER_VERIFICATION
 
-                + ",{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
+        + ",{\"nodes\":[{\"@id\":\"0\"},{\"@id\":\"1\"},{\"@id\":\"2\"},{\"@id\":\"3\"}]}," + "{\"key\":\"value\"},"
                 + "{\"edges\":[{\"@id\":\"0\",\"s\":\"0\",\"t\":\"1\"},{\"@id\":\"1\",\"s\":\"1\",\"t\":\"2\"}]}," + "{\"key\":\"value\"}" + "]";
         final CxReader p = CxReader.createInstance(j, CxioUtil.getAllAvailableAspectFragmentReaders());
 

@@ -48,7 +48,7 @@ public class CartesianLayoutFragmentWriterTest {
         w1.end(true, "");
 
         assertEquals("[" + TestUtil.NUMBER_VERIFICATION
-                + ",{\"cartesianLayout\":[{\"node\":0,\"x\":0.0,\"y\":0.0},{\"node\":1,\"view\":1,\"x\":1.0,\"y\":2.0}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]", out1.toString());
+                     + ",{\"cartesianLayout\":[{\"node\":0,\"x\":0.0,\"y\":0.0},{\"node\":1,\"view\":1,\"x\":1.0,\"y\":2.0}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]", out1.toString());
 
     }
 

@@ -323,7 +323,7 @@ public final class CxReader extends AbstractCxReader {
      * @throws NoSuchAlgorithmException
      */
     private CxReader(final Object input, final Set<AspectFragmentReader> aspect_readers, final boolean read_anonymous_aspect_fragments, final boolean calculate_md5_checksum) throws IOException,
-            NoSuchAlgorithmException {
+    NoSuchAlgorithmException {
         if (input == null) {
             throw new IllegalArgumentException("cx input is null");
         }

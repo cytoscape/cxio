@@ -16,9 +16,7 @@ import org.cxio.util.CxioUtil;
 import org.junit.Test;
 
 public class EdgeAttributesFragmentReaderTest {
-    
-    
-    
+
     @Test
     public void test0() throws IOException {
         final String t0 = "[{\"numberVerification\":[{\"longNumber\":9223372036854775807}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]   ";
@@ -26,8 +24,8 @@ public class EdgeAttributesFragmentReaderTest {
         final CxReader p = CxReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
         assertTrue(r0.isEmpty());
-    } 
-    
+    }
+
     @Test
     public void test00() throws IOException {
         final String t0 = "[{\"numberVerification\":[{\"longNumber\":9223372036854775807}]},[],{\"status\":[{\"error\":\"\",\"success\":true}]}]   ";
@@ -35,8 +33,8 @@ public class EdgeAttributesFragmentReaderTest {
         final CxReader p = CxReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxReader.parseAsMap(p);
         assertTrue(r0.isEmpty());
-    } 
-    
+    }
+
     @Test
     public void test000() throws IOException {
         final String t0 = "[{\"numberVerification\":[{\"longNumber\":9223372036854775807}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]   ";
@@ -44,8 +42,8 @@ public class EdgeAttributesFragmentReaderTest {
         final CxElementReader p = CxElementReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
         assertTrue(r0.isEmpty());
-    } 
-    
+    }
+
     @Test
     public void test0000() throws IOException {
         final String t0 = "[{\"numberVerification\":[{\"longNumber\":9223372036854775807}]},[],{\"status\":[{\"error\":\"\",\"success\":true}]}]   ";
@@ -53,7 +51,7 @@ public class EdgeAttributesFragmentReaderTest {
         final CxElementReader p = CxElementReader.createInstance(t0, CxioUtil.getAllAvailableAspectFragmentReaders());
         final SortedMap<String, List<AspectElement>> r0 = CxElementReader.parseAsMap(p);
         assertTrue(r0.isEmpty());
-    } 
+    }
 
     @Test
     public void test1() throws IOException {

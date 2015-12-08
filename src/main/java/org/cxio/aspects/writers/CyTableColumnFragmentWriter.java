@@ -23,7 +23,7 @@ public class CyTableColumnFragmentWriter extends AbstractFragmentWriter {
 
     @Override
     public void writeElement(final AspectElement element, final JsonWriter w) throws IOException {
-       writeAttributesElement(w, (CyTableColumnElement) element, _filter, false);
+        writeAttributesElement(w, (CyTableColumnElement) element, _filter, false);
     }
 
     @Override
@@ -35,14 +35,16 @@ public class CyTableColumnFragmentWriter extends AbstractFragmentWriter {
     public void addAspectKeyFilter(final AspectKeyFilter filter) {
         _filter = filter;
     }
-    
+
     private static final void writeAttributesElement(final JsonWriter w, final AbstractAttributesAspectElement e, final AspectKeyFilter filter, final boolean write_property_of) throws IOException {
         if ((filter == null) || filter.isPass(e.getName())) {
+            final CyTableColumnElement te = (CyTableColumnElement) e;
             w.writeStartObject();
-            w.writeNumberFieldIfNotEmpty(AbstractAttributesAspectElement.ATTR_SUBNETWORK, e.getSubnetwork());
-            w.writeStringField(AbstractAttributesAspectElement.ATTR_NAME, e.getName());
-            if (e.getDataType() != ATTRIBUTE_DATA_TYPE.STRING) {
-                w.writeStringField(AbstractAttributesAspectElement.ATTR_DATA_TYPE, ATTRIBUTE_DATA_TYPE.toCxLabel(e.getDataType()));
+            w.writeNumberFieldIfNotEmpty(AbstractAttributesAspectElement.ATTR_SUBNETWORK, te.getSubnetwork());
+            w.writeStringField(CyTableColumnElement.APPLIES_TO, te.getAppliesTo());
+            w.writeStringField(AbstractAttributesAspectElement.ATTR_NAME, te.getName());
+            if (te.getDataType() != ATTRIBUTE_DATA_TYPE.STRING) {
+                w.writeStringField(AbstractAttributesAspectElement.ATTR_DATA_TYPE, ATTRIBUTE_DATA_TYPE.toCxLabel(te.getDataType()));
             }
             w.writeEndObject();
         }

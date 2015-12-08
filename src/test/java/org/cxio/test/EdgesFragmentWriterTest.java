@@ -26,7 +26,7 @@ public class EdgesFragmentWriterTest {
         w0.start();
         w0.writeAspectElements(l0);
         w0.end(true, "");
-System.out.println(out0.toString());
+        System.out.println(out0.toString());
         assertEquals("[" + TestUtil.NUMBER_VERIFICATION + ",{\"status\":[{\"error\":\"\",\"success\":true}]}]", out0.toString());
 
         final EdgesElement e0 = new EdgesElement(0, 0, 0);

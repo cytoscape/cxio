@@ -5,7 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedMap;
@@ -15,6 +14,7 @@ import org.cxio.aux.Status;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
+import org.cxio.util.CxioUtil;
 
 /**
  * This class is for
@@ -89,7 +89,7 @@ public final class Validator {
     }
 
     public final boolean validate(final InputStream in) {
-        final Set<AspectFragmentReader> readers = new HashSet<AspectFragmentReader>();
+        final Set<AspectFragmentReader> readers = CxioUtil.getAllAvailableAspectFragmentReaders();
         return validate(in, true, readers);
     }
 
@@ -121,7 +121,6 @@ public final class Validator {
             _total_time = System.currentTimeMillis() - t0;
         }
         catch (final Exception e) {
-            e.printStackTrace();
             _error = e.getMessage();
             return false;
         }
@@ -172,6 +171,7 @@ public final class Validator {
             if ((val.getStatus() != null) && !val.getStatus().isSuccess()) {
                 System.out.println("No success: " + val.getStatus().getError());
             }
+
         }
         else {
             System.out.println("Not valid");

@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.SortedMap;
 
+import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxioUtil;
 import org.cxio.util.JsonWriter;
 
@@ -90,6 +91,71 @@ public final class MetaDataCollection implements Serializable, Iterable<MetaData
     public final boolean add(final MetaDataElement e) {
         _data.add(e.getData());
         return true;
+    }
+
+    /**
+     * Convenience method to create and add one meta data element.
+     *
+     * @param aspect_name
+     * @param consistency_group
+     * @param version
+     * @param last_update
+     * @param id_counter
+     * @param element_count
+     */
+    public final void addMetaDataElement(final String aspect_name, final Long consistency_group, final String version, final Long last_update, final Long id_counter, final Long element_count) {
+        final MetaDataElement e = new MetaDataElement();
+        e.setName(aspect_name);
+        e.setConsistencyGroup(consistency_group);
+        e.setVersion(version);
+        e.setLastUpdate(last_update);
+        e.setIdCounter(id_counter);
+        e.setElementCount(element_count);
+        add(e);
+    }
+
+    /**
+     * * Convenience method to create and add one meta data element.
+     * 
+     * @param elements
+     * @param consistency_group
+     * @param version
+     * @param last_update
+     * @param id_counter
+     */
+    public final void addMetaDataElement(final List<AspectElement> elements, final Long consistency_group, final String version, final Long last_update, final Long id_counter) {
+        if ((elements != null) && !elements.isEmpty()) {
+            final MetaDataElement e = new MetaDataElement();
+            e.setName(elements.get(0).getAspectName());
+            e.setConsistencyGroup(consistency_group);
+            e.setVersion(version);
+            e.setLastUpdate(last_update);
+            e.setIdCounter(id_counter);
+            e.setElementCount((long) elements.size());
+            add(e);
+        }
+    }
+    
+    /**
+     * * Convenience method to create and add one meta data element.
+     * 
+     * @param elements
+     * @param consistency_group
+     * @param version
+     * @param last_update
+     * @param id_counter
+     */
+    public final void addMetaDataElement(final List<AspectElement> elements, final int consistency_group, final String version, final int last_update, final int id_counter) {
+        if ((elements != null) && !elements.isEmpty()) {
+            final MetaDataElement e = new MetaDataElement();
+            e.setName(elements.get(0).getAspectName());
+            e.setConsistencyGroup((long) consistency_group);
+            e.setVersion(version);
+            e.setLastUpdate((long) last_update);
+            e.setIdCounter((long) id_counter);
+            e.setElementCount((long) elements.size());
+            add(e);
+        }
     }
 
     public void clear() {
@@ -300,6 +366,18 @@ public final class MetaDataCollection implements Serializable, Iterable<MetaData
     }
 
     /**
+     * This is used to set a property.
+     *
+     * @param name
+     * @param key
+     * @param value
+     */
+    public final void setProperty(final String name, final String key, final String value) {
+        final MetaDataElement e = checkIfElementPresent(name);
+        e.addProperty(key, value);
+    }
+
+    /**
      * Convenience method to set the (corresponding aspect) version for the meta data element with
      * a give name.
      * If no such element exist, a new one will be created.
@@ -310,12 +388,6 @@ public final class MetaDataCollection implements Serializable, Iterable<MetaData
     public final void setVersion(final String name, final String version) {
         final MetaDataElement e = checkIfElementPresent(name);
         e.setVersion(version);
-    }
-
-    public final void setProperty(final String name, final String key, final String value) {
-        final MetaDataElement e = checkIfElementPresent(name);
-
-        e.addProperty(key, value);
     }
 
     /**

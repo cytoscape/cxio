@@ -16,6 +16,7 @@ import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.metadata.MetaDataCollection;
 
 /**
  * This class is for
@@ -81,9 +82,16 @@ public final class Edgelist2Cx {
             cx_edge_attributes.add(new EdgeAttributesElement(Long.valueOf(r), WEIGHT, t.getValue(2, r)));
         }
 
+        final int id_counter = cx_nodes.size() + cx_node_attributes.size() + cx_edges.size() + cx_edge_attributes.size();
+        final MetaDataCollection pre_meta_data = new MetaDataCollection();
+        pre_meta_data.addMetaDataElement(cx_nodes, 1, "1.0", 1,  id_counter );
+        pre_meta_data.addMetaDataElement(cx_node_attributes, 1, "1.0", 1,  id_counter);
+        pre_meta_data.addMetaDataElement(cx_edges, 1, "1.0", 1, id_counter);
+        pre_meta_data.addMetaDataElement(cx_edge_attributes, 1, "1.0", 1, id_counter);
+
         final OutputStream out = new FileOutputStream(outfile);
         final CxWriter w = CxWriter.createInstanceWithAllAvailableWriters(out, true, true);
-
+        w.addPreMetaData(pre_meta_data);
         w.start();
         w.writeAspectElements(cx_nodes);
         w.writeAspectElements(cx_edges);
@@ -92,6 +100,8 @@ public final class Edgelist2Cx {
         w.end(true, "");
 
         out.close();
+        
+        System.out.println("OK");
 
     }
 }

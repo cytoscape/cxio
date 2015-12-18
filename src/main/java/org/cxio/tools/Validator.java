@@ -11,6 +11,7 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import org.cxio.aux.Status;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
@@ -33,6 +34,9 @@ public final class Validator {
     private String[]                   _aspects;
     private String                     _error;
     private long                       _total_time;
+    private int                        _pre_meta_data_elements;
+    private int                        _post_meta_data_elements;
+    private Status                     _status;
 
     public final static Validator getInstance() {
         return new Validator();
@@ -62,11 +66,26 @@ public final class Validator {
         return _total_time;
     }
 
+    public int getPreMetaDataElementCount() {
+        return _pre_meta_data_elements;
+    }
+
+    public int getPostMetaDataElementCount() {
+        return _post_meta_data_elements;
+    }
+
+    public Status getStatus() {
+        return _status;
+    }
+
     private final void init() {
         _error = "";
         _total_time = 0;
         _aspects = new String[0];
         _aspect_element_counts = new TreeMap<String, Integer>();
+        _pre_meta_data_elements = 0;
+        _post_meta_data_elements = 0;
+        _status = null;
     }
 
     public final boolean validate(final InputStream in) {
@@ -76,10 +95,10 @@ public final class Validator {
 
     public final boolean validate(final InputStream in, final boolean allow_anonymous_readers, final Set<AspectFragmentReader> readers) {
         init();
-
         try {
             final long t0 = System.currentTimeMillis();
             final CxReader cxr = makeReader(in, allow_anonymous_readers, readers);
+
             while (cxr.hasNext()) {
                 final List<AspectElement> aspects = cxr.getNext();
                 if ((aspects != null) && !aspects.isEmpty()) {
@@ -92,9 +111,17 @@ public final class Validator {
                     }
                 }
             }
+            if (cxr.getPreMetaData() != null) {
+                _pre_meta_data_elements = cxr.getPreMetaData().size();
+            }
+            if (cxr.getPostMetaData() != null) {
+                _post_meta_data_elements = cxr.getPostMetaData().size();
+            }
+            _status = cxr.getStatus();
             _total_time = System.currentTimeMillis() - t0;
         }
         catch (final Exception e) {
+            e.printStackTrace();
             _error = e.getMessage();
             return false;
         }
@@ -120,7 +147,6 @@ public final class Validator {
             System.exit(-1);
         }
         final String infile = args[0];
-
         final Validator val = Validator.getInstance();
         InputStream in = null;
         try {
@@ -135,11 +161,16 @@ public final class Validator {
 
         if (valid) {
             System.out.println("Valid");
-            System.out.println(String.format("%-30s %7d", "Total time for parsing [ms]:", val.getTotalTimeMillis()));
-            System.out.println(String.format("%-30s %7d", "Number of aspects:", val.getNumberOfAspects()));
+            System.out.println(String.format("%-32s %7d", "Total time for parsing [ms]:", val.getTotalTimeMillis()));
+            System.out.println(String.format("%-32s %7d", "Number of aspects:", val.getNumberOfAspects()));
             final String[] names = val.getAspectNames();
             for (final String name : names) {
-                System.out.println(String.format("%-30s %7d", name + ":", val.getAspectElementCounts().get(name)));
+                System.out.println(String.format("  %-30s %7d", name + ":", val.getAspectElementCounts().get(name)));
+            }
+            System.out.println(String.format("%-32s %7d", "Pre-metadata elements:", val.getPreMetaDataElementCount()));
+            System.out.println(String.format("%-32s %7d", "Post-metadata elements:", val.getPostMetaDataElementCount()));
+            if ((val.getStatus() != null) && !val.getStatus().isSuccess()) {
+                System.out.println("No success: " + val.getStatus().getError());
             }
         }
         else {
@@ -147,4 +178,5 @@ public final class Validator {
             System.out.println("Error:\t" + val.getError());
         }
     }
+
 }

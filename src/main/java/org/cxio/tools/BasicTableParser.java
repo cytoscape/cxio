@@ -89,7 +89,7 @@ public class BasicTableParser {
             line = line.trim();
             if (!CxioUtil.isEmpty(line)
                     && (((line.charAt(0) == '"') && (line.charAt(line.length() - 1) == '"') && (countChars(line, '"') == 2)) || ((line.charAt(0) == '\'') && (line.charAt(line.length() - 1) == '\'') && (countChars(line,
-                            '\'') == 2)))) {
+                                                                                                                                                                                                                     '\'') == 2)))) {
                 line = line.substring(1, line.length() - 1).trim();
             }
             if (saw_first_table && (CxioUtil.isEmpty(line) || (tables_separated_by_single_string_line && (line.indexOf(column_delimiter) < 0)))) {
@@ -107,25 +107,25 @@ public class BasicTableParser {
                     for (int i = 0; i < (e.length - 1); ++i) {
                         rest.append(e[i].trim());
                     }
-                    table.setValue(0, row, rest.toString());
-                    table.setValue(1, row, e[e.length - 1]);
+                    table.setValue(0, row, rest.toString().intern());
+                    table.setValue(1, row, e[e.length - 1].intern());
                 }
                 else {
                     final StringTokenizer st = new StringTokenizer(line, column_delimiter + "");
                     int col = 0;
                     if (st.hasMoreTokens()) {
-                        table.setValue(col++, row, st.nextToken().trim());
+                        table.setValue(col++, row, st.nextToken().trim().intern());
                     }
                     if (use_first_separator_only) {
                         final StringBuffer rest = new StringBuffer();
                         while (st.hasMoreTokens()) {
                             rest.append(st.nextToken());
                         }
-                        table.setValue(col++, row, rest.toString());
+                        table.setValue(col++, row, rest.toString().intern());
                     }
                     else {
                         while (st.hasMoreTokens()) {
-                            table.setValue(col++, row, st.nextToken().trim());
+                            table.setValue(col++, row, st.nextToken().trim().intern());
                         }
                     }
                 }

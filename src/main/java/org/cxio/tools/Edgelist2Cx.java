@@ -84,8 +84,8 @@ public final class Edgelist2Cx {
 
         final int id_counter = cx_nodes.size() + cx_node_attributes.size() + cx_edges.size() + cx_edge_attributes.size();
         final MetaDataCollection pre_meta_data = new MetaDataCollection();
-        pre_meta_data.addMetaDataElement(cx_nodes, 1, "1.0", 1,  id_counter );
-        pre_meta_data.addMetaDataElement(cx_node_attributes, 1, "1.0", 1,  id_counter);
+        pre_meta_data.addMetaDataElement(cx_nodes, 1, "1.0", 1, id_counter);
+        pre_meta_data.addMetaDataElement(cx_node_attributes, 1, "1.0", 1, id_counter);
         pre_meta_data.addMetaDataElement(cx_edges, 1, "1.0", 1, id_counter);
         pre_meta_data.addMetaDataElement(cx_edge_attributes, 1, "1.0", 1, id_counter);
 
@@ -100,7 +100,7 @@ public final class Edgelist2Cx {
         w.end(true, "");
 
         out.close();
-        
+
         System.out.println("OK");
 
     }

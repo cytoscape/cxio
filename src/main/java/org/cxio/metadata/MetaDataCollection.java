@@ -116,7 +116,7 @@ public final class MetaDataCollection implements Serializable, Iterable<MetaData
 
     /**
      * * Convenience method to create and add one meta data element.
-     * 
+     *
      * @param elements
      * @param consistency_group
      * @param version
@@ -135,10 +135,10 @@ public final class MetaDataCollection implements Serializable, Iterable<MetaData
             add(e);
         }
     }
-    
+
     /**
      * * Convenience method to create and add one meta data element.
-     * 
+     *
      * @param elements
      * @param consistency_group
      * @param version

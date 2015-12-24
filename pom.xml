@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.cxio</groupId>
   <artifactId>cxio</artifactId>
-  <version>0.9.02</version>
+  <version>0.9.03</version>
   <name>CX Serialization and De-serialization</name>
   <description>Java classes for CX serialization and de-serialization</description>
   <dependencies>

@@ -15,7 +15,7 @@ public final class NodesElement extends AbstractAspectElement {
     public final static String NODE_REPRESENTS = "r";
     public final static String ASPECT_NAME     = "nodes";
     private final long         _id;
-    private final String       _node_name;
+    private String             _node_name;
     private final String       _node_represents;
 
     public NodesElement(final long id) {
@@ -77,6 +77,10 @@ public final class NodesElement extends AbstractAspectElement {
 
     final public String getNodeRepresents() {
         return _node_represents;
+    }
+    
+    final public void setNodeName( final String node_name ) {
+        _node_name = node_name;
     }
 
     @Override

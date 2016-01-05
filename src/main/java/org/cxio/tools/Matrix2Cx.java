@@ -1,6 +1,7 @@
 package org.cxio.tools;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -39,20 +40,24 @@ public final class Matrix2Cx {
 
     public static void main(final String[] args) throws IOException {
 
-        if (args.length != 2) {
-            System.out.println("Usage: Matrix2Cx <infile> <outfile>");
-            System.exit(-1);
-        }
-        final String infile = args[0];
-        final String outfile = args[1];
+        // if (args.length != 2) {
+        // System.out.println("Usage: Matrix2Cx <infile> <outfile>");
+        // System.exit(-1);
+        // }
+        // final String infile = args[0];
+        // final String outfile = args[1];
 
-        // final File infile = new File("/Users/cmzmasek/Desktop/m1.txt");
-        // final File infile = new File("/Users/cmzmasek/Desktop/X/HN90.csv");
-        // final File outfile = new File("/Users/cmzmasek/Desktop/m1o.cx");
+        final File infile = new File("/Users/cmzmasek/WORK/NBS/HN90.csv");
+        final File outfile = new File("/Users/cmzmasek/WORK/NBS/HN90.cx");
 
         System.out.println("Infile: " + infile);
         System.out.println("Outfile: " + outfile);
         System.out.println();
+
+        if (outfile.exists()) {
+            System.out.println("already exists: " + outfile);
+            System.exit(-1);
+        }
 
         final SortedMap<String, Integer> node_to_id = new TreeMap<String, Integer>();
         final SortedMap<Integer, String> id_to_node = new TreeMap<Integer, String>();

@@ -32,8 +32,8 @@ public final class GeneId2Entrez2 {
         // final File infile = new File("/Users/cmzmasek/Desktop/test.csv");
         final File infile = new File("/Users/cmzmasek/WORK/datafiles/PC_smData_labelled.csv");
         final File outfile = new File("/Users/cmzmasek/Desktop/patient_files/PC_smData_labelled_entrez.csv");
-        
-        if ( outfile.exists()) {
+
+        if (outfile.exists()) {
             System.out.println("already exists: " + outfile);
             System.exit(-1);
         }

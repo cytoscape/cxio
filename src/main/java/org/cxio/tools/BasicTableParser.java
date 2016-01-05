@@ -89,7 +89,7 @@ public class BasicTableParser {
             line = line.trim();
             if (!CxioUtil.isEmpty(line)
                     && (((line.charAt(0) == '"') && (line.charAt(line.length() - 1) == '"') && (countChars(line, '"') == 2)) || ((line.charAt(0) == '\'') && (line.charAt(line.length() - 1) == '\'') && (countChars(line,
-                                                                                                                                                                                                                     '\'') == 2)))) {
+                            '\'') == 2)))) {
                 line = line.substring(1, line.length() - 1).trim();
             }
             if (saw_first_table && (CxioUtil.isEmpty(line) || (tables_separated_by_single_string_line && (line.indexOf(column_delimiter) < 0)))) {

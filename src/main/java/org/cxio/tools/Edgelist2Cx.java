@@ -12,7 +12,6 @@ import java.util.TreeMap;
 
 import org.cxio.aspects.datamodels.EdgeAttributesElement;
 import org.cxio.aspects.datamodels.EdgesElement;
-import org.cxio.aspects.datamodels.NodeAttributesElement;
 import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
@@ -42,8 +41,17 @@ public final class Edgelist2Cx {
         // System.out.println("Usage: ");
         // System.exit(-1);
         // }
-        final File infile = new File("/Users/cmzmasek/WORK/DATA/HN90_edgelist_trim_entrez.txt");
-        final File outfile = new File("/Users/cmzmasek/WORK/DATA/HN90_edgelist_trim_entrez.cx");
+        final File infile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim.csv");
+        final File outfile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim.cx");
+
+        System.out.println("Infile: " + infile);
+        System.out.println("Outfile: " + outfile);
+        System.out.println();
+
+        if (outfile.exists()) {
+            System.out.println("already exists: " + outfile);
+            System.exit(-1);
+        }
 
         final BasicTable<String> t = BasicTableParser.parse(infile, COLUMN_DELIMITER);
 
@@ -73,8 +81,10 @@ public final class Edgelist2Cx {
         final List<AspectElement> cx_edge_attributes = new ArrayList<AspectElement>();
 
         for (final Entry<Integer, String> e : id_to_node.entrySet()) {
-            cx_nodes.add(new NodesElement(e.getKey()));
-            cx_node_attributes.add(new NodeAttributesElement(Long.valueOf(e.getKey()), NAME, e.getValue()));
+            cx_nodes.add(new NodesElement(e.getKey(), e.getValue()));
+            // cx_node_attributes.add(new
+            // NodeAttributesElement(Long.valueOf(e.getKey()), NAME,
+            // e.getValue()));
         }
 
         for (int r = 0; r < t.getNumberOfRows(); ++r) {
@@ -105,4 +115,3 @@ public final class Edgelist2Cx {
 
     }
 }
-

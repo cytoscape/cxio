@@ -1,4 +1,4 @@
-package org.cxio.tools;
+package org.cxio.cmd;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,7 +9,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.Socket;
 
 //http://www.javaworld.com/article/2853780/java-app-dev/socket-programming-for-scalable-systems.html
-public class Socket2Cx {
+public class TestSocket2Cx {
     public static void main(final String[] args) throws IOException {
         final String host_name = "www.google.com";
         final int port_number = 80;

@@ -1,4 +1,4 @@
-package org.cxio.tools;
+package org.cxio.cmd;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,6 +16,8 @@ import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.metadata.MetaDataCollection;
+import org.cxio.tools.BasicTable;
+import org.cxio.tools.BasicTableParser;
 
 /**
  * This class is for

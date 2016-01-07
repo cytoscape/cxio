@@ -1,4 +1,4 @@
-package org.cxio.tools;
+package org.cxio.cmd;
 
 import java.io.BufferedReader;
 import java.io.FileOutputStream;
@@ -28,7 +28,7 @@ import org.cxio.metadata.MetaDataCollection;
  * java -Xmx1024m -cp
  * path/to/cxio-0.0.1.jar:path/to/jackson-databind-2.5.0.jar:path/to/jackson
  * -core-2.5.0.jar:path/to/jackson-annotations-2.5.0.jar
- * org.cxio.tools.Matrix2Cx
+ * org.cxio.cmd.CxIdTransfor
  *
  *
  */
@@ -40,7 +40,7 @@ public final class CxIdTransform {
     public static void main(final String[] args) throws IOException {
 
         if (args.length != 2) {
-            System.out.println("Usage: Matrix2Cx <infile> <outfile>");
+            System.out.println("Usage: CxIdTransform <infile> <outfile>");
             System.exit(-1);
         }
         final String infile = args[0];

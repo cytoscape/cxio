@@ -1,7 +1,9 @@
-package org.cxio.tools;
+package org.cxio.cmd;
 
 import java.io.File;
 import java.io.IOException;
+
+import org.cxio.tools.CxIdMapping;
 
 /**
  * This class is for
@@ -21,7 +23,9 @@ public final class GeneId2EntrezCXmapper {
         // System.out.println("Usage: ");
         // System.exit(-1);
         // }
+
         final File infile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim.cx");
+        // final File infile = new File("/Users/cmzmasek/WORK/NBS/HN90.cx");
         final File outfile = new File("/Users/cmzmasek/Desktop/one.cx");
 
         System.out.println("Infile: " + infile);

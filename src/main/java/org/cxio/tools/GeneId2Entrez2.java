@@ -5,23 +5,17 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * This class is for
@@ -34,6 +28,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public final class GeneId2Entrez2 {
 
+   
     private static final char    COLUMN_DELIMITER   = ',';
     private static final boolean ALLOW_UNMAPPED_IDS = false;
 
@@ -46,11 +41,13 @@ public final class GeneId2Entrez2 {
         ids.add("A2MP1");
         ids.add("AADAC");
         ids.add("AADACL2");
-        ids.add("AADACL3");
+        ids.add("NOP9");
+        ids.add("idonotexist1");
+        ids.add("idonotexist2");
 
-        final String url = "http://54.200.201.85:3000/map";
+       
 
-        final SortedMap<String,  SortedSet<String>> map = new TreeMap<String, SortedSet<String>>();
+        /*final SortedMap<String, SortedSet<String>> map = new TreeMap<String, SortedSet<String>>();
 
         for (final String id : ids) {
             final String json_query = makeQuery(id);
@@ -59,7 +56,19 @@ public final class GeneId2Entrez2 {
 
             parseResponse(res, "Symbol", "human", "GeneID", true, -1, map);
         }
-        System.out.println(map);
+        System.out.println(map);*/
+
+        final SortedMap<String, SortedSet<String>> map2 = new TreeMap<String, SortedSet<String>>();
+        final SortedSet<String> unmatched_ids = new TreeSet<String>();
+        
+        final String res = MappingServiceTools.runQuery(ids,"http://54.200.201.85:3000/map" );
+        //System.out.println(res);
+        final SortedSet<String> in_types = new TreeSet<String>();
+        in_types.add(MappingServiceTools.SYNONYMS);
+        in_types.add(MappingServiceTools.SYMBOL);
+        MappingServiceTools.parseResponse(res, in_types, "human", "GeneID", map2, unmatched_ids);
+        System.out.println(map2);
+        System.out.println(unmatched_ids);
         System.exit(0);
 
         // final File infile = new File("/Users/cmzmasek/Desktop/test.csv");
@@ -151,102 +160,7 @@ public final class GeneId2Entrez2 {
 
     }
 
-    private static int parseResponse(final String res,
-                                      final String in_type,
-                                      final String target_species,
-                                      final String target_type,
-                                      final boolean keep_non_matches,
-                                      int no_match_counter,
-                                      final SortedMap<String,  SortedSet<String>> map) throws IOException, JsonProcessingException {
-        if ( no_match_counter >= 0) {
-            throw new IllegalArgumentException("no match counter must be negative");
-        }
-        final ObjectMapper mapper = new ObjectMapper();
-        final JsonNode root = mapper.readTree(res);
-        final JsonNode matched = root.path("matched");
-        final Iterator<JsonNode> matched_it = matched.elements();
-        while (matched_it.hasNext()) {
-            final JsonNode n = matched_it.next();
-            if (n.has("species")) {
-                final String species = n.get("species").asText();
-                if (target_species.equals(species)) {
-                    if (in_type.equals(n.get("inType").asText())) {
-                        final String in = n.get("in").asText();
-                        if (n.has("matches")) {
-                            final JsonNode m = n.get("matches");
-                            if (m.has(target_type)) {
-                                final String g = m.get(target_type).asText();
-                                System.out.println(g);
-                                if (!map.containsKey(in)) {
-                                    map.put(in, new TreeSet<String>());
-                                }
-                                map.get(in).add(g);
-                            }
-                            else {
-                                if (keep_non_matches) {
-                                    map.put(in, new TreeSet<String>());
-                                    map.get(in).add(String.valueOf(no_match_counter));
-                                    --no_match_counter;
-                                }
-                            }
-                        }
-                        else {
-                            if (keep_non_matches) {
-                                map.put(in, new TreeSet<String>());
-                                map.get(in).add(String.valueOf(no_match_counter));
-                                --no_match_counter;
-                            }
-                        }
-                    }
-
-                }
-            }
-            else {
-                throw new IOException("no species in: " + res);
-            }
-            
-        }
-        return no_match_counter;
-    }
-
-    public static String makeQuery() {
-        final String json_query = "{\"ids\": [\"P53_HUMAN\", \"TP53\", \"P04637\", \"7157\", \"p53\"], \"idTypes\":[\"GeneID\", \"Synonyms\", \"Symbol\"]}";
-        return json_query;
-    }
-
-    public static String makeQuery(final String gene_symbol) {
-        final String json_query = "{\"ids\": [\"" + gene_symbol + "\"], \"idTypes\":[\"GeneID\"] }";
-        return json_query;
-    }
-
-    public static String query(final String url_str, final String json_query) throws IOException {
-
-        final URL url = new URL(url_str);
-        final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setDoOutput(true);
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json");
-
-        final OutputStream os = conn.getOutputStream();
-        os.write(json_query.getBytes());
-        os.flush();
-
-        // if (conn.getResponseCode() != HttpURLConnection.HTTP_CREATED) {
-        // throw new RuntimeException("Failed : HTTP error code : " +
-        // conn.getResponseCode());
-        // }
-
-        final BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-
-        final StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = br.readLine()) != null) {
-            sb.append(line);
-        }
-        br.close();
-        conn.disconnect();
-        return sb.toString();
-    }
+   
 
     public static String httpGet(final String url_str) throws IOException {
         final URL url = new URL(url_str);

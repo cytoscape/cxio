@@ -23,7 +23,7 @@ import org.cxio.metadata.MetaDataCollection;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-public class CxIdMapping {
+public class GeneSymbolMapper {
 
     public static final String FIELD_NODES_NAME = "nodes.name";
 

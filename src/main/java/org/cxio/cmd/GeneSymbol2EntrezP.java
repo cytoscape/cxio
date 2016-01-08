@@ -21,37 +21,38 @@ import com.fasterxml.jackson.core.JsonProcessingException;
  *
  * Simple usage as command line:
  *
- * java -cp path/to/cxio-0.0.1.jar org.cxio.tools.GeneId2Entrez
+ * java -cp path/to/cxio-0.0.1.jar org.cxio.cmd.GeneSymbol2EntrezP infile outfile
  *
  *
  */
-public final class GeneId2EntrezMapper {
+public final class GeneSymbol2EntrezP {
 
-    private static final boolean ALLOW_UNMAPPED_IDS = false;
+    private static final boolean ALLOW_UNMAPPED_IDS = true;
 
     public static void main(final String[] args) throws IOException {
 
-        // if (args.length != 0) {
-        // System.out.println("Usage: ");
-        // System.exit(-1);
-        // }
+        if (args.length != 2) {
+            System.out.println("Usage: GeneSymbol2EntrezP <infile:comma-separated matrix> <outfile:comma-separated matrix>");
+            System.exit(-1);
+        }
 
-        // final File infile = new File("/Users/cmzmasek/Desktop/test.csv");
-        final File infile = new File("/Users/cmzmasek/WORK/datafiles/PC_smData_labelled.csv");
-        final File outfile = new File("/Users/cmzmasek/Desktop/patient_files/PC_smData_labelled.csv");
+        final File infile = new File(args[0]);
+        final File outfile = new File(args[1]);
 
+        if (!infile.exists()) {
+            System.out.println("does not exist: " + infile);
+            System.exit(-1);
+        }
         if (outfile.exists()) {
             System.out.println("already exists: " + outfile);
             System.exit(-1);
         }
 
-        PrintWriter outmap_writer = null;
-        File outmap = null;
-        if (ALLOW_UNMAPPED_IDS) {
-            outmap = new File("/Users/cmzmasek/Desktop/gene_id_to_entrez_TO_ADD.txt");
-            outmap_writer = new PrintWriter(outmap, "UTF-8");
-        }
-        int counter = -10000;
+        System.out.println("Infile : " + infile);
+        System.out.println("Outfile: " + outfile);
+        System.out.println();
+
+        int counter = -1;
 
         final PrintWriter writer = new PrintWriter(outfile, "UTF-8");
 
@@ -62,6 +63,11 @@ public final class GeneId2EntrezMapper {
                 if (first) {
                     first = false;
                     final List<String> ids = new ArrayList<String>();
+
+                    if (line.indexOf(',') < 0) {
+                        System.out.println("illegal format (no comma found in first line)");
+                        System.exit(-1);
+                    }
                     for (String id : line.split(",")) {
                         id = id.trim();
                         if (id.length() > 0) {
@@ -98,9 +104,6 @@ public final class GeneId2EntrezMapper {
             }
         }
 
-        if (ALLOW_UNMAPPED_IDS) {
-            outmap_writer.close();
-        }
         writer.close();
         System.out.println("OK");
 
@@ -115,8 +118,7 @@ public final class GeneId2EntrezMapper {
         final SortedSet<String> unmatched_ids = new TreeSet<String>();
 
         MappingServiceTools.parseResponse(res, in_types, MappingServiceTools.HUMAN, MappingServiceTools.GENE_ID, matched_ids, unmatched_ids);
-        System.out.println(matched_ids);
-        System.out.println(unmatched_ids);
+
         return matched_ids;
     }
 }

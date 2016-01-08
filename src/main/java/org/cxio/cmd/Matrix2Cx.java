@@ -22,14 +22,11 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.metadata.MetaDataCollection;
 
 /**
- * This class is for
  *
  * Simple usage as command line:
  *
- * java -Xmx1024m -cp
- * path/to/cxio-0.0.1.jar:path/to/jackson-databind-2.5.0.jar:path/to/jackson
- * -core-2.5.0.jar:path/to/jackson-annotations-2.5.0.jar
- * org.cxio.tools.Matrix2Cx
+ * java -cp path/to/cxio-x.x.x.jar org.cxio.cmd.Matrix2Cx infile outfile
+ *
  *
  *
  */
@@ -40,24 +37,26 @@ public final class Matrix2Cx {
 
     public static void main(final String[] args) throws IOException {
 
-        // if (args.length != 2) {
-        // System.out.println("Usage: Matrix2Cx <infile> <outfile>");
-        // System.exit(-1);
-        // }
-        // final String infile = args[0];
-        // final String outfile = args[1];
+        if (args.length != 2) {
+            System.out.println("Usage: Matrix2Cx <infile: tab-separated matrix> <outfile: network in cx-format>");
+            System.exit(-1);
+        }
 
-        final File infile = new File("/Users/cmzmasek/WORK/NBS/HN90.csv");
-        final File outfile = new File("/Users/cmzmasek/WORK/NBS/HN90.cx");
+        final File infile = new File(args[0]);
+        final File outfile = new File(args[1]);
 
-        System.out.println("Infile: " + infile);
-        System.out.println("Outfile: " + outfile);
-        System.out.println();
-
+        if (!infile.exists()) {
+            System.out.println("does not exist: " + infile);
+            System.exit(-1);
+        }
         if (outfile.exists()) {
             System.out.println("already exists: " + outfile);
             System.exit(-1);
         }
+
+        System.out.println("Infile : " + infile);
+        System.out.println("Outfile: " + outfile);
+        System.out.println();
 
         final SortedMap<String, Integer> node_to_id = new TreeMap<String, Integer>();
         final SortedMap<Integer, String> id_to_node = new TreeMap<Integer, String>();
@@ -77,11 +76,15 @@ public final class Matrix2Cx {
                 if (row == 0) {
                     final String[] x = line.trim().split(COLUMN_DELIMITER);
                     final int n = x.length;
+                    if (n < 2) {
+                        System.out.println("illegal format (no delimiter found in first line)");
+                        System.exit(-1);
+                    }
                     for (int c = 0; c < n; ++c) {
                         String name = x[c];
                         if ((name != null) && (name.trim().length() > 0)) {
                             if (node_to_id.containsKey(name)) {
-                                final String new_name = name + "_2";
+                                final String new_name = name + "--!";
                                 System.out.print("warning: node '" + name + "' is not unique, replacing it with '" + new_name + "'");
                                 updated_names.put(name, new_name);
                                 name = new_name;
@@ -93,6 +96,7 @@ public final class Matrix2Cx {
                             ++node_counter;
                         }
                     }
+                    System.out.println();
                     System.out.println("Number of nodes: " + node_counter);
                 }
                 else {

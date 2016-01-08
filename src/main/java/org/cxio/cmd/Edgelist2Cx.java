@@ -20,14 +20,10 @@ import org.cxio.tools.BasicTable;
 import org.cxio.tools.BasicTableParser;
 
 /**
- * This class is for
  *
  * Simple usage as command line:
  *
- * java -cp
- * path/to/cxio-0.0.1.jar:path/to/jackson-databind-2.5.0.jar:path/to/jackson
- * -core-2.5.0.jar:path/to/jackson-annotations-2.5.0.jar
- * org.cxio.tools.Edgelist2Cx
+ * java -cp path/to/cxio-x.x.x.jar org.cxio.cmd.Edgelist2Cx infile outfile
  *
  *
  */
@@ -35,27 +31,40 @@ public final class Edgelist2Cx {
 
     private static final char   COLUMN_DELIMITER = '\t';
     private static final String WEIGHT           = "weight";
-    private static final String NAME             = "gene_id";
 
     public static void main(final String[] args) throws IOException {
 
-        // if (args.length != 0) {
-        // System.out.println("Usage: ");
-        // System.exit(-1);
-        // }
-        final File infile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim.csv");
-        final File outfile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim.cx");
+        if (args.length != 2) {
+            System.out.println("Usage: Edgelist2Cx <infile: tab-separated edge-list> <outfile: network in cx-format>");
+            System.exit(-1);
+        }
 
-        System.out.println("Infile: " + infile);
-        System.out.println("Outfile: " + outfile);
-        System.out.println();
+        final File infile = new File(args[0]);
+        final File outfile = new File(args[1]);
 
+        if (!infile.exists()) {
+            System.out.println("does not exist: " + infile);
+            System.exit(-1);
+        }
         if (outfile.exists()) {
             System.out.println("already exists: " + outfile);
             System.exit(-1);
         }
 
+        System.out.println("Infile : " + infile);
+        System.out.println("Outfile: " + outfile);
+        System.out.println();
+
         final BasicTable<String> t = BasicTableParser.parse(infile, COLUMN_DELIMITER);
+
+        if (t.getNumberOfRows() < 2) {
+            System.out.println("edge-list seems ill-formatted");
+            System.exit(-1);
+        }
+        if (t.getNumberOfColumns() != 3) {
+            System.out.println("edge-list is ill-formatted, number of columns is: " + t.getNumberOfColumns());
+            System.exit(-1);
+        }
 
         final SortedMap<String, Integer> node_to_id = new TreeMap<String, Integer>();
         final SortedMap<Integer, String> id_to_node = new TreeMap<Integer, String>();

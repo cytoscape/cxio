@@ -7,10 +7,10 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.aux.Status;
 import org.cxio.core.CxReader;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
+import org.cxio.misc.Status;
 import org.cxio.util.CxioUtil;
 
 public final class ValidatorTools {

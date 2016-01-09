@@ -18,7 +18,6 @@ import org.cxio.aspects.datamodels.NodesElement;
 import org.cxio.aspects.writers.CartesianLayoutFragmentWriter;
 import org.cxio.aspects.writers.EdgesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
-import org.cxio.aux.OpaqueElement;
 import org.cxio.core.CxElementReader;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
@@ -30,6 +29,7 @@ import org.cxio.examples.custom_aspects.ContextFragmentWriter;
 import org.cxio.examples.custom_aspects.ProfileElement;
 import org.cxio.examples.custom_aspects.ProfileFragmentReader;
 import org.cxio.examples.custom_aspects.ProfileFragmentWriter;
+import org.cxio.misc.OpaqueElement;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;

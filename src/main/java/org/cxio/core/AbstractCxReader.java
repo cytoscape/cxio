@@ -13,11 +13,11 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Set;
 
-import org.cxio.aux.AspectElementCounts;
-import org.cxio.aux.NumberVerification;
-import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;
+import org.cxio.misc.AspectElementCounts;
+import org.cxio.misc.NumberVerification;
+import org.cxio.misc.Status;
 import org.cxio.util.CxConstants;
 import org.cxio.util.CxioUtil;
 

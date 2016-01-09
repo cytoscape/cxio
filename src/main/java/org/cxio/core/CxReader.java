@@ -8,13 +8,13 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-import org.cxio.aux.AspectElementCounts;
-import org.cxio.aux.NumberVerification;
-import org.cxio.aux.OpaqueFragmentReader;
-import org.cxio.aux.Status;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;
+import org.cxio.misc.AspectElementCounts;
+import org.cxio.misc.NumberVerification;
+import org.cxio.misc.OpaqueFragmentReader;
+import org.cxio.misc.Status;
 import org.cxio.util.CxioUtil;
 
 import com.fasterxml.jackson.core.JsonParser;

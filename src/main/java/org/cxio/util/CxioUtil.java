@@ -48,12 +48,12 @@ import org.cxio.aspects.writers.NodeAttributesFragmentWriter;
 import org.cxio.aspects.writers.NodesFragmentWriter;
 import org.cxio.aspects.writers.SubNetworkFragmentWriter;
 import org.cxio.aspects.writers.VisualPropertiesFragmentWriter;
-import org.cxio.aux.AspectElementCounts;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.core.interfaces.AspectFragmentWriter;
+import org.cxio.misc.AspectElementCounts;
 
 public final class CxioUtil {
 

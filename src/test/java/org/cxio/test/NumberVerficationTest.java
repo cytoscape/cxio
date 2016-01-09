@@ -10,10 +10,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.cxio.aspects.writers.EdgesFragmentWriter;
-import org.cxio.aux.NumberVerification;
 import org.cxio.core.CxReader;
 import org.cxio.core.CxWriter;
 import org.cxio.core.interfaces.AspectElement;
+import org.cxio.misc.NumberVerification;
 import org.cxio.util.CxioUtil;
 import org.cxio.util.JsonWriter;
 import org.junit.Test;

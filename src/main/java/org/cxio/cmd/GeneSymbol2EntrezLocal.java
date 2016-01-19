@@ -6,6 +6,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,19 +34,18 @@ public final class GeneSymbol2EntrezLocal {
    
     public static void main(final String[] args) throws IOException {
 
-        if (args.length != 4) {
-            System.out.println("Usage: ");
+        if (args.length != 3 && args.length != 4) {
+            System.out.println("Usage: <infile in CX format> <mapping file, tab-separated> <outfile in CX format> [counter start for missing mappings]");
             System.exit(-1);
         }
-        //final File infile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim.cx");
-        //final File inmap = new File("/Users/cmzmasek/WORK/NBS/gene_id_to_entrez_CLEAN_UP.txt");
-        //final File outfile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim_entrez.cx");
         
         final File infile = new File(args[0]);
         final File inmap = new File(args[1]);
         final File outfile = new File(args[2]);
-        final int counter_start = Integer.parseInt(args[3]);
-        
+        int counter_start = -1;
+        if (args.length == 4) {
+            counter_start = Integer.parseInt(args[3]);
+        }
         
         if (!infile.exists()) {
             System.out.println("does not exist: " + infile);
@@ -104,6 +104,7 @@ public final class GeneSymbol2EntrezLocal {
 
         int counter = counter_start;
         final List<AspectElement> cx_nodes = cx.get(NodesElement.ASPECT_NAME);
+        List<String> missing=new ArrayList<String>();
         for (final AspectElement n : cx_nodes) {
             final NodesElement node = (NodesElement) n;
             final String node_name = node.getNodeName();
@@ -112,12 +113,18 @@ public final class GeneSymbol2EntrezLocal {
                 node.setNodeName(id_to_entrez.get(node_name));
             }
             else {
-                System.out.println(node_name + "\t" + counter);
+                missing.add(node_name + "\t" + counter);
                 --counter;
             }
         }
         if (counter != counter_start) {
-            System.out.println("encountered " + (counter - counter_start) + " unmapped symbols which need to be added to the map file (see above), aborting");
+            System.out.println("encountered " + missing.size() + " unmapped symbols which need to be added to the map file:");
+            
+            for (final String s : missing) {
+                System.out.println(s);
+            }
+            
+            System.out.println("encountered " + missing.size() + " unmapped symbols which need to be added to the map file (see above), aborting");
             System.exit(0);
         }
         final List<AspectElement> cx_edges = cx.get(EdgesElement.ASPECT_NAME);

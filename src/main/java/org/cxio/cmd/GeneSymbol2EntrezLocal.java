@@ -21,37 +21,54 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.metadata.MetaDataCollection;
 
 /**
- * This class is for
- *
- * Simple usage as command line:
- *
- * java -cp path/to/cxio-0.0.1.jar org.cxio.tools.GeneId2Entrez
- *
- *
- */
-public final class GeneId2EntrezCX {
+*
+* Simple usage as command line:
+*
+* java -cp path/to/cxio-x.x.x.jar org.cxio.cmd.GeneSymbol2EntrezLocal infile outfile
+*
+*
+*/
+public final class GeneSymbol2EntrezLocal {
 
-    private final static int COUNTER_START = -20000;
-
+   
     public static void main(final String[] args) throws IOException {
 
-        // if (args.length != 0) {
-        // System.out.println("Usage: ");
-        // System.exit(-1);
-        // }
-        final File infile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim.cx");
-        final File inmap = new File("/Users/cmzmasek/WORK/NBS/gene_id_to_entrez_CLEAN_UP.txt");
-        final File outfile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim_entrez.cx");
-
-        System.out.println("Infile: " + infile);
-        System.out.println("Map: " + inmap);
-        System.out.println("Outfile: " + outfile);
-        System.out.println();
-
+        if (args.length != 4) {
+            System.out.println("Usage: ");
+            System.exit(-1);
+        }
+        //final File infile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim.cx");
+        //final File inmap = new File("/Users/cmzmasek/WORK/NBS/gene_id_to_entrez_CLEAN_UP.txt");
+        //final File outfile = new File("/Users/cmzmasek/WORK/NBS/HN90_edgelist_trim_entrez.cx");
+        
+        final File infile = new File(args[0]);
+        final File inmap = new File(args[1]);
+        final File outfile = new File(args[2]);
+        final int counter_start = Integer.parseInt(args[3]);
+        
+        
+        if (!infile.exists()) {
+            System.out.println("does not exist: " + infile);
+            System.exit(-1);
+        }
+        if (!inmap.exists()) {
+            System.out.println("does not exist: " + inmap);
+            System.exit(-1);
+        }
         if (outfile.exists()) {
             System.out.println("already exists: " + outfile);
             System.exit(-1);
         }
+        if (counter_start >= 0 ) {
+            System.out.println("counter start must be negative");
+            System.exit(-1);
+        }
+        
+        System.out.println("Infile       : " + infile);
+        System.out.println("Map file     : " + inmap);
+        System.out.println("Outfile      : " + outfile);
+        System.out.println("Counter start: " + counter_start);
+        System.out.println();
 
         final Map<String, String> id_to_entrez = new HashMap<String, String>();
 
@@ -74,7 +91,7 @@ public final class GeneId2EntrezCX {
 
                     }
                     else if (x.length != 1) {
-                        System.out.println("error");
+                        System.out.println("format error: " + line);
                         System.exit(-1);
                     }
                 }
@@ -85,7 +102,7 @@ public final class GeneId2EntrezCX {
 
         final SortedMap<String, List<AspectElement>> cx = CxReader.parseAsMap(cxr);
 
-        int counter = COUNTER_START;
+        int counter = counter_start;
         final List<AspectElement> cx_nodes = cx.get(NodesElement.ASPECT_NAME);
         for (final AspectElement n : cx_nodes) {
             final NodesElement node = (NodesElement) n;
@@ -99,8 +116,9 @@ public final class GeneId2EntrezCX {
                 --counter;
             }
         }
-        if (counter != COUNTER_START) {
-            System.exit(-1);
+        if (counter != counter_start) {
+            System.out.println("encountered " + (counter - counter_start) + " unmapped symbols which need to be added to the map file (see above), aborting");
+            System.exit(0);
         }
         final List<AspectElement> cx_edges = cx.get(EdgesElement.ASPECT_NAME);
         final List<AspectElement> cx_node_attributes = cx.get(NodeAttributesElement.ASPECT_NAME);

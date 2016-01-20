@@ -25,12 +25,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GeneSymbolMapper {
 
-    public static final String FIELD_NODES_NAME = "nodes.name";
-    //public static final String MAP_SERVICE_URL_STR = "http://52.35.61.6:8080/idmapping/v1/map";
-    //public static final String MAP_SERVICE_URL_STR = "http://52.35.61.6/idmapping/v1/map";
-    
+    public static final String FIELD_NODES_NAME    = "nodes.name";
+    // public static final String MAP_SERVICE_URL_STR =
+    // "http://52.35.61.6:8080/idmapping/v1/map";
+    // public static final String MAP_SERVICE_URL_STR =
+    // "http://52.35.61.6/idmapping/v1/map";
+
     public static final String MAP_SERVICE_URL_STR = "http://52.33.174.107:3000/map";
-    
 
     public final static void run(final File infile, final File outfile, final String field) throws IOException, JsonProcessingException, FileNotFoundException {
         final SortedMap<String, List<AspectElement>> cx = readInfile(infile);
@@ -54,8 +55,8 @@ public class GeneSymbolMapper {
             in_types.add(MappingServiceTools.SYNONYMS);
             in_types.add(MappingServiceTools.SYMBOL);
             MappingServiceTools.parseResponse(res, in_types, MappingServiceTools.HUMAN, MappingServiceTools.GENE_ID, matched_ids, unmatched_ids);
-            //System.out.println(matched_ids);
-            //System.out.println(unmatched_ids);
+            // System.out.println(matched_ids);
+            // System.out.println(unmatched_ids);
             int counter = -1;
             for (final AspectElement n : cx_nodes) {
                 final NodesElement node = (NodesElement) n;

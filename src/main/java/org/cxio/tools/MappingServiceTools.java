@@ -48,12 +48,12 @@ public final class MappingServiceTools {
         }
         final ObjectMapper mapper = new ObjectMapper();
         final JsonNode root = mapper.readTree(json_str);
-        if ( DEBUG) {
-            System.out.println("root=" +root);
+        if (DEBUG) {
+            System.out.println("root=" + root);
         }
-       
+
         final JsonNode unmatched = root.path(UNMATCHED);
-        
+
         final Iterator<JsonNode> unmatched_it = unmatched.elements();
         while (unmatched_it.hasNext()) {
             unmatched_ids.add(unmatched_it.next().asText());
@@ -61,9 +61,9 @@ public final class MappingServiceTools {
         if (!root.has(MATCHED)) {
             throw new IOException("no " + MATCHED + " field");
         }
-        
+
         final JsonNode matched = root.path(MATCHED);
-        
+
         final Iterator<JsonNode> matched_it = matched.elements();
         while (matched_it.hasNext()) {
             final JsonNode n = matched_it.next();
@@ -148,7 +148,7 @@ public final class MappingServiceTools {
         }
         br.close();
         conn.disconnect();
-       
+
         return sb.toString();
     }
 }

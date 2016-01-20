@@ -8,6 +8,7 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import org.cxio.tools.GeneSymbolMapper;
 import org.cxio.tools.MappingServiceTools;
 
 public final class TestMapper {
@@ -25,17 +26,17 @@ public final class TestMapper {
         ids.add("idonotexist1");
         ids.add("idonotexist2");
 
-        final SortedMap<String, SortedSet<String>> map2 = new TreeMap<String, SortedSet<String>>();
+        final SortedMap<String, SortedSet<String>> map = new TreeMap<String, SortedSet<String>>();
         final SortedSet<String> unmatched_ids = new TreeSet<String>();
 
-        final String res = MappingServiceTools.runQuery(ids, "http://54.200.201.85:3000/map");
-        // System.out.println(res);
+        final String res = MappingServiceTools.runQuery(ids, GeneSymbolMapper.MAP_SERVICE_URL_STR);
+        System.out.println(res);
         final SortedSet<String> in_types = new TreeSet<String>();
         in_types.add(MappingServiceTools.SYNONYMS);
         in_types.add(MappingServiceTools.SYMBOL);
-        MappingServiceTools.parseResponse(res, in_types, "human", "GeneID", map2, unmatched_ids);
-        System.out.println(map2);
-        System.out.println(unmatched_ids);
+        MappingServiceTools.parseResponse(res, in_types, "human", "GeneID", map, unmatched_ids);
+        System.out.println("mappings  = " +map);
+        System.out.println("unmatched = "+unmatched_ids);
         System.exit(0);
 
         System.out.println("OK");

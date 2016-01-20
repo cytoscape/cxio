@@ -9,7 +9,7 @@ import org.cxio.tools.GeneSymbolMapper;
  *
  * Simple usage as command line:
  *
- * java -cp path/to/cxio-0.0.1.jar org.cxio.cmd.GeneSymbol2Entrez infile outfile
+ * java -cp path/to/cxio-x.x.x.jar org.cxio.cmd.GeneSymbol2Entrez infile outfile
  *
  *
  */

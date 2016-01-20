@@ -44,20 +44,30 @@ public final class MappingServiceTools {
                                            final Map<String, SortedSet<String>> matched_ids,
                                            final Set<String> unmatched_ids) throws IOException, JsonProcessingException {
         if (DEBUG) {
-            System.out.println(json_str);
+            System.out.println("str =" + json_str);
         }
         final ObjectMapper mapper = new ObjectMapper();
         final JsonNode root = mapper.readTree(json_str);
-
+        if ( DEBUG) {
+            System.out.println("root=" +root);
+        }
+       
         final JsonNode unmatched = root.path(UNMATCHED);
+        
         final Iterator<JsonNode> unmatched_it = unmatched.elements();
         while (unmatched_it.hasNext()) {
             unmatched_ids.add(unmatched_it.next().asText());
         }
+        if (!root.has(MATCHED)) {
+            throw new IOException("no " + MATCHED + " field");
+        }
+        
         final JsonNode matched = root.path(MATCHED);
+        
         final Iterator<JsonNode> matched_it = matched.elements();
         while (matched_it.hasNext()) {
             final JsonNode n = matched_it.next();
+         
             if (n.has(SPECIES)) {
                 if (target_species.equals(n.get(SPECIES).asText())) {
                     if (in_types.contains(n.get(IN_TYPE).asText())) {
@@ -139,6 +149,7 @@ public final class MappingServiceTools {
         }
         br.close();
         conn.disconnect();
+       
         return sb.toString();
     }
 }

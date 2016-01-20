@@ -67,7 +67,6 @@ public final class MappingServiceTools {
         final Iterator<JsonNode> matched_it = matched.elements();
         while (matched_it.hasNext()) {
             final JsonNode n = matched_it.next();
-         
             if (n.has(SPECIES)) {
                 if (target_species.equals(n.get(SPECIES).asText())) {
                     if (in_types.contains(n.get(IN_TYPE).asText())) {

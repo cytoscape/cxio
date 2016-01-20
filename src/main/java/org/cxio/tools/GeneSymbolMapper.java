@@ -48,14 +48,14 @@ public class GeneSymbolMapper {
 
             final SortedMap<String, SortedSet<String>> matched_ids = new TreeMap<String, SortedSet<String>>();
             final SortedSet<String> unmatched_ids = new TreeSet<String>();
-            System.out.println("goint to run query on " + MAP_SERVICE_URL_STR);
+            System.out.println("going to run query on " + MAP_SERVICE_URL_STR);
             final String res = MappingServiceTools.runQuery(node_names, MAP_SERVICE_URL_STR);
             final SortedSet<String> in_types = new TreeSet<String>();
             in_types.add(MappingServiceTools.SYNONYMS);
             in_types.add(MappingServiceTools.SYMBOL);
             MappingServiceTools.parseResponse(res, in_types, MappingServiceTools.HUMAN, MappingServiceTools.GENE_ID, matched_ids, unmatched_ids);
-            System.out.println(matched_ids);
-            System.out.println(unmatched_ids);
+            //System.out.println(matched_ids);
+            //System.out.println(unmatched_ids);
             int counter = -1;
             for (final AspectElement n : cx_nodes) {
                 final NodesElement node = (NodesElement) n;

@@ -101,7 +101,7 @@ public class NumberVerficationTest {
     // put me back
     /*
 
-    @Test(expected = IOException.class)
+    @ImageCacheTest(expected = IOException.class)
     public void test6() throws IOException {
 
         final String str = "[{\"numberVerification\":[{\"longNumber\":281474976710656}]},{\"status\":[{\"error\":\"\",\"success\":true}]}]";

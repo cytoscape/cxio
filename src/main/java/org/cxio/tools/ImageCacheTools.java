@@ -18,7 +18,7 @@ public class ImageCacheTools {
         return ImageIO.read(new URL(url_str));
     }
 
-    public final static String postImage(final String url_str, final String id, final Image image, final String image_format_name, final int image_type) throws IOException {
+    public final static String postImage(final String url_base, final String id, final Image image, final String image_format_name, final int image_type) throws IOException {
         if (!image_format_name.equals("png") && !image_format_name.equals("jpg")) {
             throw new IllegalArgumentException("illegal image format name: " + image_format_name);
         }
@@ -26,8 +26,8 @@ public class ImageCacheTools {
         if (bi == null) {
             throw new IOException("failed to create buffered image for id " + id);
         }
-
-        final URL url = new URL(url_str.endsWith("/") ? (url_str + id) : (url_str + "/" + id));
+        final String url_str =  url_base.endsWith("/") ? (url_base + image_format_name ) : (url_base +"/"+ image_format_name);
+        final URL url = new URL(url_str + "/" + id);
         System.out.println(url);
         final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setDoOutput(true);

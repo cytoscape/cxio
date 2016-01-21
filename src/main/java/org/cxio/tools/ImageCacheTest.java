@@ -9,13 +9,13 @@ import javax.imageio.ImageIO;
 public class ImageCacheTest {
 
     public static void main(final String[] args) throws IOException {
-        final String id = "9000";
+        final String id = "9001";
         final String image_format_name = "png";
         BufferedImage img_0 = null;
 
         img_0 = ImageIO.read(new File("/users/cmzmasek/scratch/__0.png"));
 
-        final String msg = ImageCacheTools.postImage("http://52.35.61.6/image-cache/v1/image/" + image_format_name, id, img_0, image_format_name, BufferedImage.TYPE_INT_ARGB);
+        final String msg = ImageCacheTools.postImage("http://52.35.61.6/image-cache/v1/image", id, img_0, image_format_name, BufferedImage.TYPE_INT_ARGB);
 
         System.out.println("msg  : " + msg);
 

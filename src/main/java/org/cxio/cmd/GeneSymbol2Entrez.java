@@ -44,7 +44,7 @@ public final class GeneSymbol2Entrez {
         System.out.println("Outfile: " + outfile);
         System.out.println();
 
-        GeneSymbolMapper.run(infile, outfile, GeneSymbolMapper.FIELD_NODES_NAME);
+        GeneSymbolMapper.run(infile, outfile, GeneSymbolMapper.FIELD_NODES_NAME, true);
 
         System.out.println();
         System.out.println("OK");

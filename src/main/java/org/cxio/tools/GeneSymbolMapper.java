@@ -25,15 +25,15 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 public class GeneSymbolMapper {
 
-    public static final String FIELD_NODES_NAME    = "nodes.name";
-   
-    public final static void run(final File infile, final File outfile, final String field) throws IOException, JsonProcessingException, FileNotFoundException {
+    public static final String FIELD_NODES_NAME = "nodes.name";
+
+    public final static void run(final File infile, final File outfile, final String field,final boolean verbose) throws IOException, JsonProcessingException, FileNotFoundException {
         final SortedMap<String, List<AspectElement>> cx = readInfile(infile);
-        performMapping(cx, field);
+        performMapping(cx, field, verbose);
         writeOutfile(outfile, cx);
     }
 
-    private final static void performMapping(final SortedMap<String, List<AspectElement>> cx, final String field) throws IOException, JsonProcessingException {
+    private final static void performMapping(final SortedMap<String, List<AspectElement>> cx, final String field, final boolean verbose) throws IOException, JsonProcessingException {
         if (field.equals(FIELD_NODES_NAME)) {
             final List<AspectElement> cx_nodes = cx.get(NodesElement.ASPECT_NAME);
             final List<String> node_names = new ArrayList<String>();
@@ -43,14 +43,19 @@ public class GeneSymbolMapper {
 
             final SortedMap<String, SortedSet<String>> matched_ids = new TreeMap<String, SortedSet<String>>();
             final SortedSet<String> unmatched_ids = new TreeSet<String>();
-            System.out.println("going to run query on " + MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
+            if (verbose) {
+                System.out.println("going to run query on " + MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
+            }
             final String res = MappingServiceTools.runQuery(node_names, MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
             final SortedSet<String> in_types = new TreeSet<String>();
             in_types.add(MappingServiceTools.SYNONYMS);
             in_types.add(MappingServiceTools.SYMBOL);
             MappingServiceTools.parseResponse(res, in_types, MappingServiceTools.HUMAN, MappingServiceTools.GENE_ID, matched_ids, unmatched_ids);
-            // System.out.println(matched_ids);
-            // System.out.println(unmatched_ids);
+            if (verbose) {
+                System.out.println("mapped    : " + matched_ids.size());
+                System.out.println("not mapped: " + unmatched_ids.size());
+            }
+
             int counter = -1;
             for (final AspectElement n : cx_nodes) {
                 final NodesElement node = (NodesElement) n;

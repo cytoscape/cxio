@@ -115,7 +115,7 @@ public final class GeneSymbol2EntrezP {
     }
 
     private static SortedMap<String, SortedSet<String>> obtainMappings(final List<String> ids) throws IOException, JsonProcessingException {
-        final String res = MappingServiceTools.runQuery(ids, "http://54.200.201.85:3000/map");
+        final String res = MappingServiceTools.runQuery(ids, MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
         final SortedSet<String> in_types = new TreeSet<String>();
         in_types.add(MappingServiceTools.SYNONYMS);
         in_types.add(MappingServiceTools.SYMBOL);
@@ -123,7 +123,8 @@ public final class GeneSymbol2EntrezP {
         final SortedSet<String> unmatched_ids = new TreeSet<String>();
 
         MappingServiceTools.parseResponse(res, in_types, MappingServiceTools.HUMAN, MappingServiceTools.GENE_ID, matched_ids, unmatched_ids);
-
+        System.out.println("mapped    : " + matched_ids.size());
+        System.out.println("not mapped: " + unmatched_ids.size());
         return matched_ids;
     }
 }

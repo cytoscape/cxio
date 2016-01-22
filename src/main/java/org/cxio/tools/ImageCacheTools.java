@@ -14,8 +14,18 @@ import javax.imageio.ImageIO;
 
 public class ImageCacheTools {
 
-    public final static BufferedImage readImage(final String url_str) throws IOException {
-        return ImageIO.read(new URL(url_str));
+    final public static boolean DEBUG             = true;
+
+    final public static String  DEFAULT_WRITE_URL = "http://52.35.61.6/image-cache/v1/image/";
+    final public static String  DEFAULT_READ_URL  = "http://52.32.158.148:8080/";
+
+    public final static BufferedImage readImage(final String url_base, final String id, final String image_format_name) throws IOException {
+        final String url_str = (url_base.endsWith("/") ? (url_base + id) : (url_base + "/" + id)) + "." + image_format_name;
+        final URL url = new URL(url_str);
+        if (DEBUG) {
+            System.out.println("Read URL : " + url);
+        }
+        return ImageIO.read(url);
     }
 
     public final static String postImage(final String url_base, final String id, final Image image, final String image_format_name, final int image_type) throws IOException {
@@ -26,9 +36,11 @@ public class ImageCacheTools {
         if (bi == null) {
             throw new IOException("failed to create buffered image for id " + id);
         }
-        final String url_str =  url_base.endsWith("/") ? (url_base + image_format_name ) : (url_base +"/"+ image_format_name);
+        final String url_str = url_base.endsWith("/") ? (url_base + image_format_name) : (url_base + "/" + image_format_name);
         final URL url = new URL(url_str + "/" + id);
-        System.out.println(url);
+        if (DEBUG) {
+            System.out.println("Write URL: " + url);
+        }
         final HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setDoOutput(true);
         conn.setRequestMethod("POST");

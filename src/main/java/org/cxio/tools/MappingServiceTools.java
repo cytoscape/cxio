@@ -6,11 +6,14 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.SortedSet;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -18,6 +21,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public final class MappingServiceTools {
+    
+    public static final String DEFAULT_MAP_SERVICE_URL_STR = "http://52.33.174.107:3000/map";
+    
     public static final String   HUMAN     = "human";
     public static final String   GENE_ID   = "GeneID";
     public static final String   SYMBOL    = "Symbol";
@@ -151,4 +157,29 @@ public final class MappingServiceTools {
 
         return sb.toString();
     }
+    
+    public final static boolean testMappingService() throws IOException {
+
+        final List<String> ids = new ArrayList<String>();
+        ids.add("A1BG");
+        ids.add("NOP9");
+
+        final SortedMap<String, SortedSet<String>> map = new TreeMap<String, SortedSet<String>>();
+        final SortedSet<String> unmatched_ids = new TreeSet<String>();
+
+        final String res = runQuery(ids, MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
+
+        final SortedSet<String> in_types = new TreeSet<String>();
+        in_types.add(MappingServiceTools.SYNONYMS);
+        in_types.add(MappingServiceTools.SYMBOL);
+        parseResponse(res, in_types, "human", "GeneID", map, unmatched_ids);
+
+        if (map.size() == 2) {
+           return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }

@@ -30,6 +30,11 @@ public final class GeneSymbol2EntrezP {
     private static final boolean ALLOW_UNMAPPED_IDS = true;
 
     public static void main(final String[] args) throws IOException {
+        
+        if ( !MappingServiceTools.testMappingService() ) {
+            System.out.println("Mapping service at " + MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR + " seems to have a problem, aborting.");
+            System.exit(-1);
+        }
 
         if (args.length != 2) {
             System.out.println("Usage: GeneSymbol2EntrezP <infile:comma-separated matrix> <outfile:comma-separated matrix>");

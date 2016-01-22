@@ -10,41 +10,39 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.cxio.tools.GeneSymbolMapper;
 import org.cxio.tools.MappingServiceTools;
 
-public class IdMapperTest {
+public final class IdMapperTest {
 
-    public static void main(final String[] args)  {
-        IdMapperTest t = new IdMapperTest();
-        System.out.println("Using: " + GeneSymbolMapper.MAP_SERVICE_URL_STR);
+    public static void main(final String[] args) {
+        final IdMapperTest t = new IdMapperTest();
+        System.out.println("Using: " + MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
         System.out.println();
         try {
-            if ( t.test1() && t.test2() && t.test3() ) {
+            if (t.test1() && t.test2() && t.test3() && MappingServiceTools.testMappingService()) {
                 System.out.println();
-                System.out.println("OK"); 
+                System.out.println("OK");
             }
             else {
                 System.out.println();
-                System.out.println("Not OK"); 
+                System.out.println("Not OK");
             }
         }
-        catch (IOException e) {
+        catch (final IOException e) {
             e.printStackTrace();
             System.out.println("Not OK");
         }
     }
-    
-    public boolean test1() throws IOException {
+
+    private final boolean test1() throws IOException {
 
         final List<String> ids = new ArrayList<String>();
         ids.add("A1BG");
-       
 
         final SortedMap<String, SortedSet<String>> map = new TreeMap<String, SortedSet<String>>();
         final SortedSet<String> unmatched_ids = new TreeSet<String>();
 
-        final String res = MappingServiceTools.runQuery(ids, GeneSymbolMapper.MAP_SERVICE_URL_STR);
+        final String res = MappingServiceTools.runQuery(ids, MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
 
         final SortedSet<String> in_types = new TreeSet<String>();
         in_types.add(MappingServiceTools.SYNONYMS);
@@ -73,13 +71,13 @@ public class IdMapperTest {
         System.out.println();
         if (!success) {
             System.out.println("Response was: " + res);
-           
+
         }
         return success;
 
     }
-    
-    public boolean test2() throws IOException {
+
+    private final boolean test2() throws IOException {
 
         final List<String> ids = new ArrayList<String>();
         ids.add("A1BG");
@@ -88,13 +86,13 @@ public class IdMapperTest {
         ids.add("AADAC");
         ids.add("AADACL2");
         ids.add("NOP9");
-        ids.add("fake1");
-        ids.add("fake2");
+        ids.add("doesnotmap1");
+        ids.add("doesnotmap2");
 
         final SortedMap<String, SortedSet<String>> map = new TreeMap<String, SortedSet<String>>();
         final SortedSet<String> unmatched_ids = new TreeSet<String>();
 
-        final String res = MappingServiceTools.runQuery(ids, GeneSymbolMapper.MAP_SERVICE_URL_STR);
+        final String res = MappingServiceTools.runQuery(ids, MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
 
         final SortedSet<String> in_types = new TreeSet<String>();
         in_types.add(MappingServiceTools.SYNONYMS);
@@ -123,27 +121,26 @@ public class IdMapperTest {
         System.out.println();
         if (!success) {
             System.out.println("Response was: " + res);
-           
         }
         return success;
 
     }
 
-    public  boolean test3() throws IOException {
+    private final boolean test3() throws IOException {
 
         final List<String> ids = getIds("human_gene_symbols.txt");
 
         final SortedMap<String, SortedSet<String>> map = new TreeMap<String, SortedSet<String>>();
         final SortedSet<String> unmatched_ids = new TreeSet<String>();
 
-        final String res = MappingServiceTools.runQuery(ids, GeneSymbolMapper.MAP_SERVICE_URL_STR);
-         final SortedSet<String> in_types = new TreeSet<String>();
+        final String res = MappingServiceTools.runQuery(ids, MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
+        final SortedSet<String> in_types = new TreeSet<String>();
         in_types.add(MappingServiceTools.SYNONYMS);
         in_types.add(MappingServiceTools.SYMBOL);
-        
+
         boolean success = true;
         MappingServiceTools.parseResponse(res, in_types, "human", "GeneID", map, unmatched_ids);
-        if (map.size() > 4000 ) {
+        if (map.size() > 4000) {
             System.out.println("Success: mapped " + map.size() + " gene symbols (from " + ids.size() + " queries)");
         }
         else {
@@ -163,7 +160,7 @@ public class IdMapperTest {
 
     }
 
-    private  List<String> getIds(final String infile) {
+    private List<String> getIds(final String infile) {
         final List<String> ids = new ArrayList<String>();
         final ClassLoader classLoader = getClass().getClassLoader();
         final File file = new File(classLoader.getResource(infile).getFile());

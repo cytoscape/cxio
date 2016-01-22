@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 import org.cxio.tools.GeneSymbolMapper;
+import org.cxio.tools.MappingServiceTools;
 
 /**
  *
@@ -17,6 +18,11 @@ public final class GeneSymbol2Entrez {
 
     public static void main(final String[] args) throws IOException {
 
+        if ( !MappingServiceTools.testMappingService() ) {
+            System.out.println("Mapping service at " + MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR + " seems to have a problem, aborting.");
+            System.exit(-1);
+        }
+        
         if (args.length != 2) {
             System.out.println("Usage: GeneSymbol2Entrez <infile in CX format> <outfile in CX format>");
             System.exit(-1);

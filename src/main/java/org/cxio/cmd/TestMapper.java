@@ -8,7 +8,6 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.cxio.tools.GeneSymbolMapper;
 import org.cxio.tools.MappingServiceTools;
 
 public final class TestMapper {
@@ -29,7 +28,7 @@ public final class TestMapper {
         final SortedMap<String, SortedSet<String>> map = new TreeMap<String, SortedSet<String>>();
         final SortedSet<String> unmatched_ids = new TreeSet<String>();
 
-        final String res = MappingServiceTools.runQuery(ids, GeneSymbolMapper.MAP_SERVICE_URL_STR);
+        final String res = MappingServiceTools.runQuery(ids, MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
         System.out.println(res);
         final SortedSet<String> in_types = new TreeSet<String>();
         in_types.add(MappingServiceTools.SYNONYMS);

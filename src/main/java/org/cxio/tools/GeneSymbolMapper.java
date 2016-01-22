@@ -28,8 +28,8 @@ public class GeneSymbolMapper {
     public static final String FIELD_NODES_NAME    = "nodes.name";
     // public static final String MAP_SERVICE_URL_STR =
     // "http://52.35.61.6:8080/idmapping/v1/map";
-    // public static final String MAP_SERVICE_URL_STR =
-    // "http://52.35.61.6/idmapping/v1/map";
+     //public static final String MAP_SERVICE_URL_STR =
+     //"http://52.35.61.6/idmapping/v1/map";
 
     public static final String MAP_SERVICE_URL_STR = "http://52.33.174.107:3000/map";
 

@@ -37,7 +37,7 @@ public final class TestMapper {
         MappingServiceTools.parseResponse(res, in_types, "human", "GeneID", map, unmatched_ids);
         System.out.println("mappings  = " +map);
         System.out.println("unmatched = "+unmatched_ids);
-        System.exit(0);
+       
 
         System.out.println("OK");
 

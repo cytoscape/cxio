@@ -37,13 +37,26 @@ public final class Matrix2Cx {
 
     public static void main(final String[] args) throws IOException {
 
-        if (args.length != 2) {
-            System.out.println("Usage: Matrix2Cx <infile: tab-separated matrix> <outfile: network in cx-format>");
-            System.exit(-1);
+        File infile = null;
+        File outfile = null;
+        boolean force_symetrical = false;
+        if (args.length == 2) {
+            infile = new File(args[0]);
+            outfile = new File(args[1]);
         }
-
-        final File infile = new File(args[0]);
-        final File outfile = new File(args[1]);
+        else if (args.length == 3) {
+            infile = new File(args[1]);
+            outfile = new File(args[2]);
+            if (args[0].equals("-f")) {
+                force_symetrical = true;
+            }
+            else {
+                error();
+            }
+        }
+        else {
+            error();
+        }
 
         if (!infile.exists()) {
             System.out.println("does not exist: " + infile);
@@ -54,8 +67,9 @@ public final class Matrix2Cx {
             System.exit(-1);
         }
 
-        System.out.println("Infile : " + infile);
-        System.out.println("Outfile: " + outfile);
+        System.out.println("Infile           : " + infile);
+        System.out.println("Outfile          : " + outfile);
+        System.out.println("Force symmetrical: " + force_symetrical);
         System.out.println();
 
         final SortedMap<String, Integer> node_to_id = new TreeMap<String, Integer>();
@@ -165,5 +179,10 @@ public final class Matrix2Cx {
         System.out.println();
         System.out.println("OK");
 
+    }
+    
+    private static void error() {
+        System.out.println("Usage: Matrix2Cx [-f] <infile: tab-separated matrix> <outfile: network in cx-format>");
+        System.exit(-1);
     }
 }

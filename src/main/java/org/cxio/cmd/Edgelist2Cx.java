@@ -61,7 +61,6 @@ public final class Edgelist2Cx {
             System.out.println("does not exist: " + infile);
             System.exit(-1);
         }
-
         if (outfile.exists()) {
             System.out.println("already exists: " + outfile);
             System.exit(-1);
@@ -154,10 +153,8 @@ public final class Edgelist2Cx {
     }
 
     private static void error() {
-
         System.out.println("Usage: Edgelist2Cx [-f] <infile: tab-separated edge-list> <outfile: network in cx-format>");
         System.exit(-1);
-
     }
 
     private final static int addSymmetricalEdges(final List<AspectElement> cx_edges,

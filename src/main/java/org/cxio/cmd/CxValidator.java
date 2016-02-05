@@ -6,28 +6,30 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import org.cxio.tools.ValidatorTools;
+import org.cxio.util.CxConstants;
 
 /**
  * This class is for
  *
  * Simple usage as command line:
  *
- * java -cp
- * path/to/cxio-0.0.1.jar:path/to/jackson-databind-2.5.0.jar:path/to/jackson
- * -core-2.5.0.jar:path/to/jackson-annotations-2.5.0.jar
- * org.cxio.cmd.CxValidator
- *
+ * java -cp path/to/cxio-x.x.x.jar org.cxio.cmd.CxValidator
  *
  */
 public class CxValidator {
 
     public static void main(final String[] args) {
 
+        System.out.println("cxio version: " + CxConstants.CXIO_VERSION);
+        
         if (args.length != 1) {
             System.out.println("Usage: ValidatorTools [CX formatted infile]");
             System.exit(-1);
         }
         final String infile = args[0];
+       
+        
+        
         final ValidatorTools val = ValidatorTools.getInstance();
         InputStream in = null;
         try {

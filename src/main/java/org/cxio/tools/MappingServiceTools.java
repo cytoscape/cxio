@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public final class MappingServiceTools {
     
-    public static final String DEFAULT_MAP_SERVICE_URL_STR = "http://52.33.174.107:3000/map";
+    public static final String DEFAULT_MAP_SERVICE_URL_STR = "http://ci-dev-serv.ucsd.edu:3000/map";
     
     public static final String   HUMAN     = "human";
     public static final String   GENE_ID   = "GeneID";

@@ -133,7 +133,9 @@ public final class IdMapperTest {
         final SortedMap<String, SortedSet<String>> map = new TreeMap<String, SortedSet<String>>();
         final SortedSet<String> unmatched_ids = new TreeSet<String>();
 
+        final long t0 = System.currentTimeMillis();
         final String res = MappingServiceTools.runQuery(ids, MappingServiceTools.DEFAULT_MAP_SERVICE_URL_STR);
+        final long t = System.currentTimeMillis() - t0;
         final SortedSet<String> in_types = new TreeSet<String>();
         in_types.add(MappingServiceTools.SYNONYMS);
         in_types.add(MappingServiceTools.SYMBOL);
@@ -150,6 +152,9 @@ public final class IdMapperTest {
         }
         if (unmatched_ids.size() < 1000) {
             System.out.println("Success: could not map " + unmatched_ids.size() + " gene symbols");
+            double tpi = ((1000 * t) / ((double) ids.size()));
+            System.out.printf("Speed  : %.2f μs/id", tpi);
+            System.out.println();
         }
         else {
             System.out.println("Error:   could not map " + unmatched_ids.size() + " gene symbols, expected to not map less than 1000");

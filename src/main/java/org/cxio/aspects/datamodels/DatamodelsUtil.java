@@ -43,17 +43,17 @@ final class DatamodelsUtil {
                 else if (s.startsWith("\"") && s.endsWith("\"")) {
                     final String substring = s.substring(1, s.length() - 1);
                     if (!allow_empty_string && (substring.trim().length() < 1)) {
-                        throw new IllegalArgumentException("illegal format, empty strings not allowed: " + str);
+                        throw new IllegalArgumentException("parsing string to string list: illegal format, empty strings not allowed: " + str);
                     }
                     l.add(substring);
                 }
                 else {
-                    throw new IllegalArgumentException("illegal format: " + str);
+                    throw new IllegalArgumentException("parsing string to string list: illegal format: expected to be \"null\" or begin and end with quotation marks, instead got: " + s + " from: " + str);
                 }
             }
         }
         else {
-            throw new IllegalArgumentException("illegal format: " + str);
+            throw new IllegalArgumentException("parsing string to string list: illegal format: expected to begin and end with square brackets, instead got : " + str);
         }
         return l;
     }

@@ -45,6 +45,7 @@ public final class CxWriter {
     private boolean                                 _calculate_element_counts;
     private MetaDataCollection                      _pre_meta_data;
     private MetaDataCollection                      _post_meta_data;
+    private boolean                                 _in_fragment;
 
     /**
      * Returns a CxWriter for reading from OutputStream out.
@@ -263,9 +264,13 @@ public final class CxWriter {
     public void end(final boolean success, final String message) throws IOException {
         checkIfEnded();
         checkIfNotStarted();
+        if ( !success && ( _fragment_started || _in_fragment )) {
+            _jw.endArray();
+        }
         _ended = true;
         _started = false;
         _current_fragment_name = null;
+        
         writeMetaData(_post_meta_data);
         final Status status = new Status(success, message);
         if (status != null) {
@@ -317,6 +322,7 @@ public final class CxWriter {
     public void writeAspectElements(final List<AspectElement> elements) throws IOException {
         checkIfEnded();
         checkIfNotStarted();
+        
         if (_fragment_started) {
             throw new IllegalStateException("in individual elements writing state");
         }
@@ -325,7 +331,9 @@ public final class CxWriter {
         }
         if (_writers.containsKey(elements.get(0).getAspectName())) {
             final AspectFragmentWriter writer = _writers.get(elements.get(0).getAspectName());
+            _in_fragment = true;
             writer.write(elements, _jw);
+            _in_fragment = false;
             if (_calculate_element_counts) {
                 _element_counts.processAspectElements(elements);
             }
@@ -348,7 +356,9 @@ public final class CxWriter {
         if ((elements == null) || elements.isEmpty()) {
             return;
         }
+        _in_fragment = true;
         writer.write(elements, _jw);
+        _in_fragment = false;
         if (_calculate_element_counts) {
             _element_counts.processAspectElements(elements);
         }

@@ -1,5 +1,6 @@
 package org.cxio.aspects.datamodels;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -218,12 +219,12 @@ public final class NodeAttributesElement extends AbstractAttributesAspectElement
                                                                                final List<Long> property_of,
                                                                                final String name,
                                                                                final String values,
-                                                                               final ATTRIBUTE_DATA_TYPE type) {
+                                                                               final ATTRIBUTE_DATA_TYPE type) throws IOException {
 
         return new NodeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }
 
-    public final static NodeAttributesElement createInstanceWithMultipleValues(final Long subnetwork, final Long property_of, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
+    public final static NodeAttributesElement createInstanceWithMultipleValues(final Long subnetwork, final Long property_of, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) throws IOException {
 
         return new NodeAttributesElement(subnetwork, property_of, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }

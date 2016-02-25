@@ -21,7 +21,7 @@ import org.junit.Test;
 public class AttributesTest {
 
     @Test
-    public void test() {
+    public void test() throws IOException {
         final HiddenAttributesElement a = HiddenAttributesElement.createInstanceWithSingleValue(0L, "name", null, ATTRIBUTE_DATA_TYPE.STRING);
 
         assertTrue(a.isSingleValue() == true);
@@ -67,6 +67,8 @@ public class AttributesTest {
         final HiddenAttributesElement e = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", e_s, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
         assertTrue(e.isSingleValue() == false);
         assertTrue(e.getValues() != null);
+        
+       
         assertTrue(CxioUtil.getAttributeValuesAsString(e).equals(e_s));
 
         final String f_s = "[\"a\",null,\"\",null,\"b \"]";
@@ -74,6 +76,7 @@ public class AttributesTest {
         assertTrue(f.isSingleValue() == false);
         assertTrue(f.getValues() != null);
         assertTrue(CxioUtil.getAttributeValuesAsString(f).equals(f_s));
+        
 
         final String f_s2 = " [  \"a\"  ,      null   ,  \"\"   , null ,  \"b \"    ]   ";
         final HiddenAttributesElement g = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", f_s2, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
@@ -92,9 +95,36 @@ public class AttributesTest {
         assertTrue(f.isSingleValue() == false);
         assertTrue(f.getValues() != null);
         assertTrue(CxioUtil.getAttributeValuesAsString(hh).equals(h_s));
+        
+        final String i_s = "[\"a,b\",\"c,d\"]";
+        final HiddenAttributesElement hi = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", i_s, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
+        assertTrue(hi.isSingleValue() == false);
+        assertTrue(hi.getValues() != null);
+        assertTrue(CxioUtil.getAttributeValuesAsString(hi).equals(i_s));
+        
+        final String i_s2 = "[\"a,,b\",\"'c',d\"]";
+        final HiddenAttributesElement hi2 = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", i_s2, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
+        assertTrue(hi2.isSingleValue() == false);
+        assertTrue(hi2.getValues() != null);
+        assertTrue(CxioUtil.getAttributeValuesAsString(hi2).equals(i_s2));
+        
+        final String i_s3 = "[\"a',,\\\"--\\\"b\",\"'c',d\"]";
+        final HiddenAttributesElement hi3 = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", i_s3, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
+        assertTrue(hi3.isSingleValue() == false);
+        assertTrue(hi3.getValues() != null);
+        assertTrue(CxioUtil.getAttributeValuesAsString(hi3).equals(i_s3));
+        
+        final String i_s4 = "[\"a',,--\\\"b\",\"'c',d\",null]";
+        final HiddenAttributesElement hi4 = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", i_s4, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
+        assertTrue(hi4.isSingleValue() == false);
+        assertTrue(hi4.getValues() != null);
+        assertTrue(CxioUtil.getAttributeValuesAsString(hi4).equals(i_s4));
+        System.out.println(CxioUtil.getAttributeValuesAsString(hi4));
 
     }
 
+    
+    
     @Test
     public void test2() throws IOException {
 

@@ -1,5 +1,6 @@
 package org.cxio.aspects.datamodels;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -111,7 +112,7 @@ public final class NetworkAttributesElement extends AbstractAttributesAspectElem
         return new NetworkAttributesElement(subnetwork, name, DatamodelsUtil.removeParenthesis(value, type), type);
     }
 
-    public final static NetworkAttributesElement createInstanceWithMultipleValues(final Long subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) {
+    public final static NetworkAttributesElement createInstanceWithMultipleValues(final Long subnetwork, final String name, final String values, final ATTRIBUTE_DATA_TYPE type) throws IOException {
 
         return new NetworkAttributesElement(subnetwork, name, DatamodelsUtil.parseStringToStringList(values, type), type);
     }

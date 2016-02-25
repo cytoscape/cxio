@@ -252,6 +252,7 @@ public final class CxWriter {
             throw new IllegalStateException("fragment not started");
         }
         _fragment_started = false;
+        _in_fragment = false;
         _current_fragment_name = null;
         _jw.endArray();
     }

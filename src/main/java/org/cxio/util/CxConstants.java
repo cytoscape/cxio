@@ -9,7 +9,7 @@ package org.cxio.util;
  */
 public final class CxConstants {
     
-    public final static String CXIO_VERSION = "0.9.11";
+    public final static String CXIO_VERSION = "0.9.12";
     
     public final static String ID               = "@id";
 

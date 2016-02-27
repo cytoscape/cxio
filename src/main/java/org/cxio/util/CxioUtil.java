@@ -55,6 +55,9 @@ import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.core.interfaces.AspectFragmentWriter;
 import org.cxio.misc.AspectElementCounts;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public final class CxioUtil {
 
     public final static String LINE_SEPARATOR = System.getProperty("line.separator");
@@ -70,50 +73,38 @@ public final class CxioUtil {
      *
      * @param a AttributesAspectElement
      * @return value(s) as String
+     * @throws JsonProcessingException 
      */
-    public final static String getAttributeValuesAsString(final AbstractAttributesAspectElement e) {
+    public final static String getAttributeValuesAsString(final AbstractAttributesAspectElement e) throws JsonProcessingException {
         if (e == null) {
             throw new IllegalArgumentException("attempt to get values as string for null AbstractAttributesAspectElement");
         }
-        final StringBuilder sb = new StringBuilder();
         if (e.isSingleValue()) {
-            if (e.getValue() != null) {
-                sb.append("\"");
-                sb.append(e.getValue());
-                sb.append("\"");
+            final String value = e.getValue();
+            if (value  != null) {
+                final ObjectMapper mapper = new ObjectMapper();
+                final String str = mapper.writeValueAsString(value );
+                return str;
             }
             else {
-                sb.append("null");
+                return "null";
             }
         }
         else {
-            if (e.getValues() != null) {
-                sb.append("[");
-                boolean first = true;
-                for (final String v : e.getValues()) {
-                    if (first) {
-                        first = false;
-                    }
-                    else {
-                        sb.append(",");
-                    }
-                    if (v != null) {
-                        sb.append("\"");
-                        sb.append(v);
-                        sb.append("\"");
-                    }
-                    else {
-                        sb.append("null");
-                    }
-
-                }
-                sb.append("]");
-            }
-            else {
-                sb.append("null");
-            }
+            final List<String> values = e.getValues();
+            return stringListToJson(values);
         }
-        return sb.toString();
+    }
+
+    public static String stringListToJson(final List<String> values) throws JsonProcessingException {
+        if (values != null) {
+            final ObjectMapper mapper = new ObjectMapper();
+            final String str = mapper.writeValueAsString(values);
+            return str;
+        }
+        else {
+            return "null";
+        }
     }
 
     public final static String writeAspectElementsToString(final ArrayList<AspectElement> elements, final boolean use_default_pretty_printer) throws IOException {

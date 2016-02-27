@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.SortedMap;
 
 import org.cxio.aspects.datamodels.ATTRIBUTE_DATA_TYPE;
+import org.cxio.aspects.datamodels.DatamodelsUtil;
 import org.cxio.aspects.datamodels.HiddenAttributesElement;
 import org.cxio.aspects.datamodels.NetworkAttributesElement;
 import org.cxio.core.CxReader;
@@ -18,10 +19,62 @@ import org.cxio.core.interfaces.AspectElement;
 import org.cxio.util.CxioUtil;
 import org.junit.Test;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class AttributesTest {
 
     @Test
     public void test() throws IOException {
+        
+      
+        List<String> a0 = DatamodelsUtil.parseStringToStringList( null, ATTRIBUTE_DATA_TYPE.STRING);
+        
+       
+        assertTrue(a0 == null);
+        
+        List<String> a1 = DatamodelsUtil.parseStringToStringList( "[]", ATTRIBUTE_DATA_TYPE.STRING);
+        
+        assertTrue(a1.size() == 0);
+        
+        List<String> a2 = DatamodelsUtil.parseStringToStringList( "[\"a\"]", ATTRIBUTE_DATA_TYPE.STRING);
+        
+        assertTrue(a2.get(0).equals("a"));
+        
+        
+        List<String> a3 = DatamodelsUtil.parseStringToStringList( "[\"a\", \"b,]\"]", ATTRIBUTE_DATA_TYPE.STRING);
+        
+        assertTrue(a3.get(0).equals("a"));
+        assertTrue(a3.get(1).equals("b,]"));
+        
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append('[');
+        sb.append('"');
+        sb.append('a');
+        sb.append('"');
+        sb.append(',');
+        sb.append('"');
+        sb.append('b');
+        sb.append('\\');
+        sb.append('"');
+        sb.append('b');
+        sb.append('"');
+        sb.append(']');
+        List<String> a4 = DatamodelsUtil.parseStringToStringList( sb.toString(), ATTRIBUTE_DATA_TYPE.STRING);
+     
+        List<String> a5 = DatamodelsUtil.parseStringToStringList( CxioUtil.stringListToJson(a4), ATTRIBUTE_DATA_TYPE.STRING);
+    
+        assertTrue(a5.get(0).equals("a"));
+        
+        StringBuilder sb2 = new StringBuilder();
+      
+        sb2.append('b');
+        sb2.append('"');
+        sb2.append('b');
+        
+        assertTrue(a5.get(1).equals(sb2.toString()));
+        
+        
         final HiddenAttributesElement a = HiddenAttributesElement.createInstanceWithSingleValue(0L, "name", null, ATTRIBUTE_DATA_TYPE.STRING);
 
         assertTrue(a.isSingleValue() == true);
@@ -53,7 +106,7 @@ public class AttributesTest {
         assertTrue(bb.getValue().equals("true"));
         assertTrue(CxioUtil.getAttributeValuesAsString(bb).equals("\"true\""));
 
-        final HiddenAttributesElement c = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", null, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
+       final HiddenAttributesElement c = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", null, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
         assertTrue(c.isSingleValue() == false);
         assertTrue(c.getValues() == null);
         assertTrue(CxioUtil.getAttributeValuesAsString(c).equals("null"));
@@ -108,18 +161,12 @@ public class AttributesTest {
         assertTrue(hi2.getValues() != null);
         assertTrue(CxioUtil.getAttributeValuesAsString(hi2).equals(i_s2));
         
-        final String i_s3 = "[\"a',,\\\"--\\\"b\",\"'c',d\"]";
+        final String i_s3 = "[\"AA\\\"AA\"]";
         final HiddenAttributesElement hi3 = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", i_s3, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
         assertTrue(hi3.isSingleValue() == false);
         assertTrue(hi3.getValues() != null);
         assertTrue(CxioUtil.getAttributeValuesAsString(hi3).equals(i_s3));
         
-        final String i_s4 = "[\"a',,--\\\"b\",\"'c',d\",null]";
-        final HiddenAttributesElement hi4 = HiddenAttributesElement.createInstanceWithMultipleValues(0L, "name", i_s4, ATTRIBUTE_DATA_TYPE.LIST_OF_STRING);
-        assertTrue(hi4.isSingleValue() == false);
-        assertTrue(hi4.getValues() != null);
-        assertTrue(CxioUtil.getAttributeValuesAsString(hi4).equals(i_s4));
-        System.out.println(CxioUtil.getAttributeValuesAsString(hi4));
 
     }
 

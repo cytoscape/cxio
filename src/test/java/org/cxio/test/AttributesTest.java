@@ -258,11 +258,11 @@ public class AttributesTest {
         test_file("bind.cx");
     }
 
-    public void test_file(final String cx_file) throws IOException {
+    private final void test_file(final String cx_file) throws IOException {
         final ClassLoader classLoader = getClass().getClassLoader();
-        final File mint_file = new File(classLoader.getResource(cx_file).getFile());
+        final File file = new File(classLoader.getResource(cx_file).getFile());
 
-        final CxReader cxr = CxReader.createInstance(mint_file, CxioUtil.getAllAvailableAspectFragmentReaders());
+        final CxReader cxr = CxReader.createInstance(file, CxioUtil.getAllAvailableAspectFragmentReaders());
 
         final SortedMap<String, List<AspectElement>> map = CxReader.parseAsMap(cxr);
         final List<AspectElement> na = map.get(NodeAttributesElement.ASPECT_NAME);

@@ -1,0 +1,7250 @@
+[ {
+  "numberVerification" : [ {
+    "longNumber" : 281474976710655
+  } ]
+}, {
+  "metaData" : [ {
+    "consistencyGroup" : 1,
+    "elementCount" : 23,
+    "idCounter" : 1041,
+    "name" : "nodes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 25,
+    "idCounter" : 1041,
+    "name" : "edges",
+    "properties" : [ ],
+    "version" : "1.0"
+  } ]
+}, {
+  "nodes" : [ {
+    "@id" : 664,
+    "n" : "P40433"
+  }, {
+    "@id" : 662,
+    "n" : "Q06683"
+  }, {
+    "@id" : 660,
+    "n" : "P42947"
+  }, {
+    "@id" : 657,
+    "n" : "P03255"
+  }, {
+    "@id" : 655,
+    "n" : "A0MPS7"
+  }, {
+    "@id" : 653,
+    "n" : "P23198"
+  }, {
+    "@id" : 651,
+    "n" : "Q61686"
+  }, {
+    "@id" : 649,
+    "n" : "Q64700"
+  }, {
+    "@id" : 648,
+    "n" : "P83917"
+  }, {
+    "@id" : 646,
+    "n" : "Q6MZP7"
+  }, {
+    "@id" : 644,
+    "n" : "Q08619"
+  }, {
+    "@id" : 642,
+    "n" : "Q00684"
+  }, {
+    "@id" : 640,
+    "n" : "Q08550"
+  }, {
+    "@id" : 638,
+    "n" : "P47135"
+  }, {
+    "@id" : 637,
+    "n" : "P48606"
+  }, {
+    "@id" : 634,
+    "n" : "Q99708"
+  }, {
+    "@id" : 632,
+    "n" : "P03129"
+  }, {
+    "@id" : 630,
+    "n" : "P85037"
+  }, {
+    "@id" : 628,
+    "n" : "P28749"
+  }, {
+    "@id" : 625,
+    "n" : "P67775"
+  }, {
+    "@id" : 621,
+    "n" : "Q16254"
+  }, {
+    "@id" : 619,
+    "n" : "Q08999"
+  }, {
+    "@id" : 618,
+    "n" : "P29590"
+  } ]
+}, {
+  "edges" : [ {
+    "@id" : 665,
+    "s" : 664,
+    "t" : 637,
+    "i" : "EBI-7452404"
+  }, {
+    "@id" : 663,
+    "s" : 662,
+    "t" : 637,
+    "i" : "EBI-8223607"
+  }, {
+    "@id" : 659,
+    "s" : 657,
+    "t" : 619,
+    "i" : "EBI-7014623"
+  }, {
+    "@id" : 658,
+    "s" : 657,
+    "t" : 619,
+    "i" : "EBI-7014600"
+  }, {
+    "@id" : 656,
+    "s" : 655,
+    "t" : 619,
+    "i" : "EBI-7014742"
+  }, {
+    "@id" : 654,
+    "s" : 653,
+    "t" : 649,
+    "i" : "EBI-7493041"
+  }, {
+    "@id" : 652,
+    "s" : 651,
+    "t" : 649,
+    "i" : "EBI-7493052"
+  }, {
+    "@id" : 650,
+    "s" : 648,
+    "t" : 649,
+    "i" : "EBI-7493009"
+  }, {
+    "@id" : 645,
+    "s" : 644,
+    "t" : 619,
+    "i" : "EBI-8064662"
+  }, {
+    "@id" : 643,
+    "s" : 642,
+    "t" : 637,
+    "i" : "EBI-2616881"
+  }, {
+    "@id" : 641,
+    "s" : 640,
+    "t" : 637,
+    "i" : "EBI-388131"
+  }, {
+    "@id" : 661,
+    "s" : 637,
+    "t" : 660,
+    "i" : "EBI-7859752"
+  }, {
+    "@id" : 639,
+    "s" : 637,
+    "t" : 638,
+    "i" : "EBI-382719"
+  }, {
+    "@id" : 636,
+    "s" : 634,
+    "t" : 619,
+    "i" : "EBI-7074559"
+  }, {
+    "@id" : 635,
+    "s" : 634,
+    "t" : 619,
+    "i" : "EBI-7074603"
+  }, {
+    "@id" : 633,
+    "s" : 632,
+    "t" : 619,
+    "i" : "EBI-8679170"
+  }, {
+    "@id" : 631,
+    "s" : 630,
+    "t" : 619,
+    "i" : "EBI-11321050"
+  }, {
+    "@id" : 629,
+    "s" : 628,
+    "t" : 619,
+    "i" : "EBI-7333644"
+  }, {
+    "@id" : 626,
+    "s" : 625,
+    "t" : 619,
+    "i" : "EBI-7333612"
+  }, {
+    "@id" : 622,
+    "s" : 621,
+    "t" : 619,
+    "i" : "EBI-7481266"
+  }, {
+    "@id" : 647,
+    "s" : 619,
+    "t" : 646,
+    "i" : "EBI-7205821"
+  }, {
+    "@id" : 627,
+    "s" : 619,
+    "t" : 625,
+    "i" : "EBI-7333653"
+  }, {
+    "@id" : 624,
+    "s" : 619,
+    "t" : 618,
+    "i" : "EBI-7481316"
+  }, {
+    "@id" : 623,
+    "s" : 619,
+    "t" : 621,
+    "i" : "EBI-7481316"
+  }, {
+    "@id" : 620,
+    "s" : 618,
+    "t" : 619,
+    "i" : "EBI-7481251"
+  } ]
+}, {
+  "cyTableColumn" : [ {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "shared name"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "name"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "selected",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "Taxonomy ID"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "Taxonomy Name"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "Human Readable Label"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "uniprotkb_accession"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "uniprot",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "psi-mi",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "intact",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "Interactor Type",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "Interactor Type ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "Xref",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "Xref ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "Features",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "node_table",
+    "n" : "Annotations",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "shared name"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "shared interaction"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "name"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "selected",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "interaction"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Author",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Primary Interaction Type"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Interaction Type",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Publication DB",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Publication ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Detection Method ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Detection Method",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Source Database"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Confidence-Score-intact-miscore",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Source Biological Role",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Source Biological Role ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Target Biological Role",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Target Biological Role ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Source Experimental Role",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Source Experimental Role ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Target Experimental Role",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Target Experimental Role ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Source Participant Detection Method",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Source Participant Detection Method ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Target Participant Detection Method",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Target Participant Detection Method ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Complex Expansion",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Complex Expansion ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Annotation",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Host Organism Taxonomy",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Host Organism Taxonomy ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Creation Date"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Update Date"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Negative",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Xref",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Xref ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "applies_to" : "edge_table",
+    "n" : "Confidence-Score-author score",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "applies_to" : "network_table",
+    "n" : "shared name"
+  }, {
+    "s" : 608,
+    "applies_to" : "network_table",
+    "n" : "name"
+  }, {
+    "s" : 608,
+    "applies_to" : "network_table",
+    "n" : "selected",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "applies_to" : "network_table",
+    "n" : "source"
+  }, {
+    "s" : 608,
+    "applies_to" : "network_table",
+    "n" : "created by"
+  }, {
+    "s" : 608,
+    "applies_to" : "network_table",
+    "n" : "__Annotations",
+    "d" : "list_of_string"
+  } ]
+}, {
+  "networkAttributes" : [ {
+    "n" : "name",
+    "v" : "MINT (2016/02/24 11:43:05 AM, PST)"
+  }, {
+    "s" : 608,
+    "n" : "name",
+    "v" : "MINT (2016/02/24 11:43:05 AM, PST)"
+  }, {
+    "s" : 608,
+    "n" : "source",
+    "v" : "MINT"
+  }, {
+    "s" : 608,
+    "n" : "created by",
+    "v" : "PSICQUIC Web Service"
+  }, {
+    "s" : 608,
+    "n" : "selected",
+    "v" : "true",
+    "d" : "boolean"
+  } ]
+}, {
+  "hiddenAttributes" : [ {
+    "s" : 608,
+    "n" : "layoutAlgorithm",
+    "v" : "Prefuse Force Directed Layout"
+  } ]
+}, {
+  "nodeAttributes" : [ {
+    "s" : 608,
+    "po" : 664,
+    "n" : "psi-mi",
+    "v" : [ "PFK26", "6p21_yeast" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "Taxonomy ID",
+    "v" : "559292"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "Xref ID",
+    "v" : [ "GO:0003873", "GO:0005524", "GO:0006003", "NP_012159.1", "S000001369", "IPR003094", "IPR013079", "IPR013078", "IPR029033", "IPR027417", "GO:0005737", "GO:0006000", "GO:0046835", "MINT-6490104" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "Xref",
+    "v" : [ "6-phosphofructo-2-kinase activity", "ATP binding", "fructose 2,6-bisphosphate metabolic process", "Fructose-2,6-bisphosphatase", "6-phosphofructo-2-kinase", "Phosphoglycerate mutase", "cytoplasm", "fructose metabolic process", "carbohydrate phosphorylation", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "intact",
+    "v" : [ "EBI-1956" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "uniprotkb_accession",
+    "v" : "P40433"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "Taxonomy Name",
+    "v" : "yeast"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "name",
+    "v" : "P40433"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "Human Readable Label",
+    "v" : "PFK26"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "uniprot",
+    "v" : [ "PFK26", "D6VVI0", "YIL107C", "P40433", "Phosphofructokinase 2 I" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 664,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "psi-mi",
+    "v" : [ "IRC3", "irc3_yeast" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "Taxonomy ID",
+    "v" : "559292"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "Xref ID",
+    "v" : [ "GO:0004386", "GO:0005759", "GO:0032042", "GO:0033676", "GO:0005524", "GO:0003677", "S000002740", "IPR014001", "IPR001650", "IPR006935", "NP_010619.3", "IPR027417", "MINT-2782818" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "Xref",
+    "v" : [ "helicase activity", "mitochondrial matrix", "mitochondrial DNA metabolic process", "double-stranded DNA-dependent ATPase activity", "ATP binding", "DNA binding", "DEAD-like helicase, N-terminal", "DNA/RNA helicase, C-terminal", "Restriction endonuclease, type I, R subunit/Type III, Res subunit", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "intact",
+    "v" : [ "EBI-37636" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "Annotations",
+    "v" : [ "comment:\\Stoichiometry: 1.0\\" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "uniprotkb_accession",
+    "v" : "Q06683"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "Taxonomy Name",
+    "v" : "yeast"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "name",
+    "v" : "Q06683"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "Human Readable Label",
+    "v" : "IRC3"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "uniprot",
+    "v" : [ "YDR332W", "D6VSW4", "Increased recombination centers protein 3", "IRC3", "Q06683" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 662,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "psi-mi",
+    "v" : [ "yjk7_yeast" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "Taxonomy ID",
+    "v" : "559292"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "Xref ID",
+    "v" : [ "S000003643", "NP_012428.1", "IPR010619", "MINT-2318301" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "Xref",
+    "v" : [ "Protein of unknown function DUF1212", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "intact",
+    "v" : [ "EBI-26023" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "Annotations",
+    "v" : [ "comment:\\Stoichiometry: 1.0\\" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "uniprotkb_accession",
+    "v" : "P42947"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "Taxonomy Name",
+    "v" : "yeast"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "name",
+    "v" : "P42947"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "Features",
+    "v" : [ "1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "Human Readable Label",
+    "v" : "YJL107C"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "uniprot",
+    "v" : [ "YJL107C", "P42947", "D6VW77", "J0813" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 660,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "psi-mi",
+    "v" : [ "e1a_ade05" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "Taxonomy ID",
+    "v" : "28285"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "Xref ID",
+    "v" : [ "GO:0006355", "GO:0039657", "IPR014410", "GO:0042025", "GO:0046872", "GO:0008284", "GO:0006351", "AP_000197.1", "2KJE", "2R7G", "GO:0039645", "GO:0039649", "GO:0039502", "GO:0039563", "MINT-6665147", "P03255" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "Xref",
+    "v" : [ "regulation of transcription, DNA-templated", "suppression by virus of host gene expression", "Adenovirus early E1A", "host cell nucleus", "metal ion binding", "positive regulation of cell proliferation", "transcription, DNA-templated", "modulation by virus of host G1/S transition checkpoint", "modulation by virus of host ubiquitin-protein ligase activity", "suppression by virus of host type I interferon-mediated signaling pathway", "suppression by virus of host STAT1 activity", "identity", "P03255" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "intact",
+    "v" : [ "EBI-2603114" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "uniprotkb_accession",
+    "v" : "P03255"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "Taxonomy Name",
+    "v" : "ade05"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "name",
+    "v" : "P03255"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "Human Readable Label",
+    "v" : "Early E1A 32 kDa protein"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "uniprot",
+    "v" : [ "P06438", "Q64826", "Q64825", "Early E1A 32 kDa protein", "P03255" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 657,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "psi-mi",
+    "v" : [ "E7", "a0mps7_hpv16" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "Taxonomy ID",
+    "v" : "333760"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "Xref ID",
+    "v" : [ "GO:0016032", "GO:0046872", "GO:0003677", "GO:0006351", "IPR000148", "GO:0003700", "MINT-6665183", "A0MPS7" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "Xref",
+    "v" : [ "viral process", "metal ion binding", "DNA binding", "transcription, DNA-templated", "Papillomavirus E7 protein", "transcription factor activity, sequence-specific DNA binding", "identity", "A0MPS7" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "intact",
+    "v" : [ "MINT-6664727", "EBI-7014709" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "Annotations",
+    "v" : [ "function:E7 protein has both transforming and trans-activating activities. Disrupts the function of host retinoblastoma protein RB1/pRb, which is a key regulator of the cell cycle. Induces the disassembly of the E2F1 transcription factors from RB1, with subsequent transcriptional activation of E2F1-regulated S-phase genes. Inactivation of the ability of RB1 to arrest the cell cycle is critical for cellular transformation, uncontrolled cellular growth and proliferation induced by viral infection. Stimulation of progression from G1 to S phase allows the virus to efficiently use the cellular DNA replicating machinery to achieve viral genome replication. Interferes with histone deacetylation mediated by HDAC1 and HDAC2, leading to activation of transcription", "comment:mint" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "uniprotkb_accession",
+    "v" : "A0MPS7"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "Taxonomy Name",
+    "v" : "hpv16"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "name",
+    "v" : "A0MPS7"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "Human Readable Label",
+    "v" : "E7"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "uniprot",
+    "v" : [ "E7", "A0MPS7" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 655,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "psi-mi",
+    "v" : [ "cbx3_mouse", "Cbx3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "Taxonomy ID",
+    "v" : "10090"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "Xref ID",
+    "v" : [ "GO:0048511", "GO:0000775", "GO:0000785", "GO:0005634", "GO:0005719", "GO:0005720", "GO:0005819", "GO:0010369", "GO:0019899", "GO:0019904", "GO:0042802", "GO:0045892", "GO:1990226", "GO:0000976", "GO:0000779", "GO:0031618", "GO:0005635", "GO:0016568", "GO:0006351", "IPR017984", "IPR023780", "IPR000953", "IPR008251", "IPR016197", "IPR023779", "GO:0005654", "MINT-5225529" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "Xref",
+    "v" : [ "rhythmic process", "chromosome, centromeric region", "chromatin", "nucleus", "nuclear euchromatin", "nuclear heterochromatin", "spindle", "chromocenter", "enzyme binding", "protein domain specific binding", "identical protein binding", "negative regulation of transcription, DNA-templated", "histone methyltransferase binding", "transcription regulatory region sequence-specific DNA binding", "condensed chromosome, centromeric region", "nuclear pericentric heterochromatin", "nuclear envelope", "chromatin modification", "transcription, DNA-templated", "Chromo domain", "Chromo shadow", "Chromo domain-like", "nucleoplasm", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "intact",
+    "v" : [ "EBI-78162" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "uniprotkb_accession",
+    "v" : "P23198"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "Taxonomy Name",
+    "v" : "mouse"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "name",
+    "v" : "P23198"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "Human Readable Label",
+    "v" : "Cbx3"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "uniprot",
+    "v" : [ "P23198", "Cbx3", "Heterochromatin protein 1 homolog gamma", "Q921C4", "M32", "Modifier 2 protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 653,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "psi-mi",
+    "v" : [ "cbx5_mouse", "Cbx5" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "Taxonomy ID",
+    "v" : "10090"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "Xref ID",
+    "v" : [ "ENSMUSG00000009575", "R-MMU-983231", "ENSMUSP00000104441", "ENSMUSP00000113157", "ENSMUSP00000113158", "GO:0005654", "GO:0035064", "GO:0016605", "GO:0000792", "GO:0005634", "GO:0030674", "GO:0042803", "GO:0042826", "GO:0070491", "GO:0010369", "GO:0000118", "GO:0035097", "GO:0000776", "GO:0005720", "GO:0005730", "GO:0017053", "GO:0003682", "GO:0045892", "NP_001070257.1", "NP_001103686.1", "NP_031652.1", "IPR017984", "IPR023780", "IPR000953", "IPR008251", "IPR016197", "IPR023779", "XP_006520435.1", "XP_006520437.1", "XP_006520438.1", "XP_006520439.1", "ENSMUST00000108813", "ENSMUST00000118152", "ENSMUST00000122182", "MINT-5225537" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "Xref",
+    "v" : [ "nucleoplasm", "methylated histone binding", "PML body", "heterochromatin", "nucleus", "protein binding, bridging", "protein homodimerization activity", "histone deacetylase binding", "repressing transcription factor binding", "chromocenter", "histone deacetylase complex", "histone methyltransferase complex", "kinetochore", "nuclear heterochromatin", "nucleolus", "transcriptional repressor complex", "chromatin binding", "negative regulation of transcription, DNA-templated", "Chromo domain", "Chromo shadow", "Chromo domain-like", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "intact",
+    "v" : [ "EBI-307973" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "uniprotkb_accession",
+    "v" : "Q61686"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "Taxonomy Name",
+    "v" : "mouse"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "name",
+    "v" : "Q61686"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "Human Readable Label",
+    "v" : "Cbx5"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "uniprot",
+    "v" : [ "Q61686", "Q9CS35", "Q9CXD1", "Heterochromatin protein 1 homolog alpha", "Cbx5", "Hp1a" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 651,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "psi-mi",
+    "v" : [ "Rbl2", "rbl2_mouse" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "Taxonomy ID",
+    "v" : "10090"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "Xref ID",
+    "v" : [ "ENSMUSG00000031666", "ENSMUSP00000034091", "GO:0070062", "R-MMU-1538133", "R-MMU-69231", "GO:0005634", "IPR028308", "IPR028309", "GO:0005667", "GO:0003677", "GO:0007049", "GO:0016568", "GO:0051726", "GO:0006351", "NP_035380.3", "IPR013763", "IPR024599", "IPR002720", "IPR002719", "GO:0006357", "GO:0005730", "GO:0005737", "GO:0043550", "ENSMUST00000034091", "NP_001268929.1", "NP_001268930.1", "MINT-5225532" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "Xref",
+    "v" : [ "extracellular exosome", "nucleus", "transcription factor complex", "DNA binding", "cell cycle", "chromatin modification", "regulation of cell cycle", "transcription, DNA-templated", "Cyclin-related", "Retinoblastoma-associated protein, A-box", "Retinoblastoma-associated protein, B-box", "regulation of transcription from RNA polymerase II promoter", "nucleolus", "cytoplasm", "regulation of lipid kinase activity", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "intact",
+    "v" : [ "EBI-2271232" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "uniprotkb_accession",
+    "v" : "Q64700"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "Taxonomy Name",
+    "v" : "mouse"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "name",
+    "v" : "Q64700"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "Human Readable Label",
+    "v" : "Rbl2"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "uniprot",
+    "v" : [ "Rbl2", "Q64700", "Q3TVP8", "pRb2", "130 kDa retinoblastoma-associated protein", "Retinoblastoma-related protein 2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 649,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "psi-mi",
+    "v" : [ "cbx1_mouse", "Cbx1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "Taxonomy ID",
+    "v" : "10090"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "Xref ID",
+    "v" : [ "ENSMUST00000093943", "ENSMUSG00000018666", "ENSMUSP00000091475", "XP_011247006.1", "GO:0000775", "GO:0019899", "GO:1990226", "GO:0005819", "GO:0005721", "GO:0010369", "GO:0001939", "GO:0001940", "GO:0045892", "NP_031648.1", "IPR017984", "IPR023780", "IPR000953", "IPR008251", "IPR016197", "IPR023779", "1AP0", "1DZ1", "1GUW", "1S4Z", "XP_006532162.1", "XP_006532163.1", "GO:0042803", "GO:0000785", "GO:0042802", "MINT-5225521" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "Xref",
+    "v" : [ "chromosome, centromeric region", "enzyme binding", "histone methyltransferase binding", "spindle", "pericentric heterochromatin", "chromocenter", "female pronucleus", "male pronucleus", "negative regulation of transcription, DNA-templated", "Chromo domain", "Chromo shadow", "Chromo domain-like", "protein homodimerization activity", "chromatin", "identical protein binding", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "intact",
+    "v" : [ "EBI-78119" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "uniprotkb_accession",
+    "v" : "P83917"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "Taxonomy Name",
+    "v" : "mouse"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "name",
+    "v" : "P83917"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "Human Readable Label",
+    "v" : "Cbx1"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "uniprot",
+    "v" : [ "P23197", "P83917", "Modifier 1 protein", "Cbx1", "Heterochromatin protein p25", "Cbx", "M31", "Heterochromatin protein 1 homolog beta" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 648,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "psi-mi",
+    "v" : [ "LIN54", "lin54_human" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "Xref ID",
+    "v" : [ "R-HSA-156711", "ENSP00000398265", "ENSP00000407139", "ENSP00000421045", "ENSP00000423475", "ENSP00000425844", "ENSP00000427413", "XP_006714144.1", "IPR028307", "GO:0003677", "GO:0006355", "GO:0006351", "NP_001108479.1", "NP_001108480.1", "NP_919258.2", "IPR005172", "R-HSA-1538133", "ENSP00000341947", "ENSG00000189308", "NP_001275925.1", "NP_001275926.1", "GO:0000278", "GO:0005654", "GO:0000086", "GO:0051726", "XP_005262807.1", "ENST00000340417", "ENST00000442461", "ENST00000446851", "ENST00000505397", "ENST00000506560", "ENST00000508171", "ENST00000510557", "MINT-7239364" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "Xref",
+    "v" : [ "DNA binding", "regulation of transcription, DNA-templated", "transcription, DNA-templated", "Tesmin/TSO1-like, CXC", "mitotic cell cycle", "nucleoplasm", "G2/M transition of mitotic cell cycle", "regulation of cell cycle", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "intact",
+    "v" : [ "EBI-1389411" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "uniprotkb_accession",
+    "v" : "Q6MZP7"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "Taxonomy Name",
+    "v" : "human"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "name",
+    "v" : "Q6MZP7"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "Human Readable Label",
+    "v" : "LIN54"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "uniprot",
+    "v" : [ "Q32M68", "LIN54", "Q6N071", "Q76B60", "KIAA2037", "CXC domain-containing protein 1", "CXCDC1", "Q6MZP7", "Q32M69" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 646,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "psi-mi",
+    "v" : [ "Ifi205b", "ifi5b_mouse" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "Taxonomy ID",
+    "v" : "10090"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "Xref ID",
+    "v" : [ "R-MMU-3270619", "ENSMUST00000009340", "ENSMUSG00000026536", "ENSMUSP00000009340", "NP_001288674.1", "NP_001028622.1", "IPR004021", "2YU0", "IPR004020", "GO:0006355", "IPR012340", "GO:0005634", "GO:0006351", "NP_032355.2", "MINT-1781930" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "Xref",
+    "v" : [ "HIN-200/IF120x", "Pyrin", "regulation of transcription, DNA-templated", "Nucleic acid-binding, OB-fold", "nucleus", "transcription, DNA-templated", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "intact",
+    "v" : [ "EBI-8064290", "MINT-1781852" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "Annotations",
+    "v" : [ "function:May act as a transcriptional activator/repressor in the myeloid lineage. Plays a role in the granulocyte/monocyte cell-specific response to interferon. Stimulates the DNA binding of the transcriptional repressor protein YY1", "comment:mint", "comment:\\Stoichiometry: 1.0\\" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "uniprotkb_accession",
+    "v" : "Q08619"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "Taxonomy Name",
+    "v" : "mouse"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "name",
+    "v" : "Q08619"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "Features",
+    "v" : [ "glutathione s tranferase tag:?-?(MINT-1781936)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "Human Readable Label",
+    "v" : "Ifi205b"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "uniprot",
+    "v" : [ "Q3U7K5", "Q08619", "Ifi205b", "Myeloid cell nuclear differentiation antigen", "Interferon-inducible protein p205-B", "Protein D3", "Mnda", "Q3U7F4", "Q3TM07", "Q3U776", "Q3UCH9", "Q8C4X3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 644,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "psi-mi",
+    "v" : [ "CDC14", "cdc14_yeast" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "Taxonomy ID",
+    "v" : "559292"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "Xref ID",
+    "v" : [ "R-SCE-176407", "GO:0032467", "GO:0051301", "GO:0071470", "GO:0005935", "GO:0007059", "4ZJ7", "GO:0005737", "GO:0030869", "GO:0005816", "GO:0004725", "GO:0008138", "GO:0000278", "GO:0007096", "S000001924", "IPR000340", "IPR020422", "IPR000387", "IPR016130", "GO:0004721", "NP_116684.3", "GO:0005730", "GO:0006470", "GO:0007067", "GO:0051229", "IPR026070", "IPR029021", "IPR029260" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "Xref",
+    "v" : [ "positive regulation of cytokinesis", "cell division", "cellular response to osmotic stress", "cellular bud neck", "chromosome segregation", "cytoplasm", "RENT complex", "spindle pole body", "protein tyrosine phosphatase activity", "protein tyrosine/serine/threonine phosphatase activity", "mitotic cell cycle", "regulation of exit from mitosis", "Protein-tyrosine phosphatase, dual specificity", "Protein-tyrosine phosphatase", "Protein-tyrosine phosphatase, active site", "phosphoprotein phosphatase activity", "nucleolus", "protein dephosphorylation", "mitotic nuclear division", "meiotic spindle disassembly" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "intact",
+    "v" : [ "EBI-4192" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "uniprotkb_accession",
+    "v" : "Q00684"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "Taxonomy Name",
+    "v" : "yeast"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "name",
+    "v" : "Q00684"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "Features",
+    "v" : [ "flag tag:n-n" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "Human Readable Label",
+    "v" : "CDC14"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "uniprot",
+    "v" : [ "Q00684", "CDC14", "YFR028C", "Q05180", "Q05673", "OAF3", "D6VTQ8" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 642,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "psi-mi",
+    "v" : [ "mpc54_yeast", "MPC54" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "Taxonomy ID",
+    "v" : "559292"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "Xref ID",
+    "v" : [ "GO:0005628", "GO:0051301", "S000005703", "GO:0005816", "GO:0005198", "GO:0030476", "GO:0048278", "NP_014820.1", "GO:0005737" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "Xref",
+    "v" : [ "prospore membrane", "cell division", "spindle pole body", "structural molecule activity", "ascospore wall assembly", "vesicle docking", "cytoplasm" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "intact",
+    "v" : [ "EBI-34513" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "uniprotkb_accession",
+    "v" : "Q08550"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "Taxonomy Name",
+    "v" : "yeast"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "name",
+    "v" : "Q08550"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "Human Readable Label",
+    "v" : "MPC54"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "uniprot",
+    "v" : [ "Q08550", "D6W2N3", "YOR177C", "MPC54" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 640,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "psi-mi",
+    "v" : [ "jsn1_yeast", "JSN1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "Taxonomy ID",
+    "v" : "559292"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "Xref ID",
+    "v" : [ "GO:0032473", "GO:0003729", "GO:0000166", "GO:0034629", "GO:0051654", "GO:0000288", "NP_012624.1", "S000003851", "IPR011989", "IPR016024", "IPR012677", "IPR001313", "IPR000504", "GO:0005737", "GO:0009277" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "Xref",
+    "v" : [ "cytoplasmic side of mitochondrial outer membrane", "mRNA binding", "nucleotide binding", "cellular protein complex localization", "establishment of mitochondrion localization", "nuclear-transcribed mRNA catabolic process, deadenylation-dependent decay", "Armadillo-like helical", "Armadillo-type fold", "Nucleotide-binding, alpha-beta plait", "Pumilio RNA-binding region", "RNA recognition motif, RNP-1", "cytoplasm", "fungal-type cell wall" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "intact",
+    "v" : [ "EBI-9422" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "uniprotkb_accession",
+    "v" : "P47135"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "Taxonomy Name",
+    "v" : "yeast"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "name",
+    "v" : "P47135"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "Human Readable Label",
+    "v" : "JSN1"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "uniprot",
+    "v" : [ "D6VWQ9", "J1890", "Pumilio homology domain family member 1", "PUF1", "YJR091C", "P47135", "JSN1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 638,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "psi-mi",
+    "v" : [ "RBL2", "tbca_yeast" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "Taxonomy ID",
+    "v" : "559292"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "Xref ID",
+    "v" : [ "GO:0005737", "GO:0005874", "GO:0007021", "NP_014908.1", "S000005791", "IPR004226", "1QSD", "GO:0048487", "GO:0015631", "MINT-6490184" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "Xref",
+    "v" : [ "cytoplasm", "microtubule", "tubulin complex assembly", "Tubulin binding cofactor A", "beta-tubulin binding", "tubulin binding", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "intact",
+    "v" : [ "EBI-18991" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "Annotations",
+    "v" : [ "comment:\\Stoichiometry: 1.0\\" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "uniprotkb_accession",
+    "v" : "P48606"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "Taxonomy Name",
+    "v" : "yeast"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "name",
+    "v" : "P48606"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "Features",
+    "v" : [ "1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "Human Readable Label",
+    "v" : "RBL2"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "uniprot",
+    "v" : [ "RBL2", "D6W2W5", "P48606", "YOR265W", "Tubulin-folding cofactor A" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 637,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "psi-mi",
+    "v" : [ "RBBP8", "com1_human" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "Xref ID",
+    "v" : [ "ENSG00000101773", "ENSP00000323050", "ENSP00000382628", "ENSP00000382630", "GO:0032355", "XP_011524434.1", "R-HSA-912446", "4D2H", "GO:0051321", "GO:0005654", "GO:0051301", "GO:0006289", "IPR019518", "IPR013882", "GO:0005730", "GO:0000014", "GO:0000724", "GO:0001106", "GO:0003684", "GO:0010792", "GO:0017053", "GO:0031572", "2L4Z", "NP_002885.1", "NP_976036.1", "NP_976037.1", "GO:0000075", "GO:0000122", "GO:0001103", "GO:0005634", "GO:0006281", "GO:0006357", "GO:0007067", "ENST00000327155", "ENST00000399722", "ENST00000399725", "XP_006722582.1", "XP_006722583.1", "XP_006722584.1", "GO:0000082", "GO:0001835", "MINT-372607" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "Xref",
+    "v" : [ "response to estradiol", "meiotic cell cycle", "nucleoplasm", "cell division", "nucleotide-excision repair", "DNA repair protein Sae2", "nucleolus", "single-stranded DNA endodeoxyribonuclease activity", "double-strand break repair via homologous recombination", "RNA polymerase II transcription corepressor activity", "damaged DNA binding", "DNA double-strand break processing involved in repair via single-strand annealing", "transcriptional repressor complex", "G2 DNA damage checkpoint", "cell cycle checkpoint", "negative regulation of transcription from RNA polymerase II promoter", "RNA polymerase II repressing transcription factor binding", "nucleus", "DNA repair", "regulation of transcription from RNA polymerase II promoter", "mitotic nuclear division", "G1/S transition of mitotic cell cycle", "blastocyst hatching", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "intact",
+    "v" : [ "EBI-1263531", "EBI-745715" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "Annotations",
+    "v" : [ "comment:\\Stoichiometry: 1.0\\" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "uniprotkb_accession",
+    "v" : "Q99708"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "Taxonomy Name",
+    "v" : "human"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "name",
+    "v" : "Q99708"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "Features",
+    "v" : [ "tag:?-?(MINT-372610)", "binding-associated region:153-157(MINT-372608)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "Human Readable Label",
+    "v" : "RBBP8"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "uniprot",
+    "v" : [ "A8K8W6", "Retinoblastoma-binding protein 8", "CTIP", "O75371", "Retinoblastoma-interacting protein and myosin-like", "Q8NHQ3", "Q99708", "RBBP8", "CtBP-interacting protein", "Sporulation in the absence of SPO11 protein 2 homolog", "A6NKN2", "E7ETY1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 634,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "psi-mi",
+    "v" : [ "E7", "ve7_hpv16" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "Taxonomy ID",
+    "v" : "333760"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "Xref ID",
+    "v" : [ "4YOZ", "GO:0006351", "GO:0039502", "GO:0039560", "GO:0039645", "IPR000148", "GO:0003700", "GO:0003677", "GO:0046872", "GO:0019904", "GO:0030838", "GO:0039650", "GO:1900087", "GO:1903689", "GO:1903691", "NP_041326.1", "MINT-1537088" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "Xref",
+    "v" : [ "transcription, DNA-templated", "suppression by virus of host type I interferon-mediated signaling pathway", "suppression by virus of host IRF9 activity", "modulation by virus of host G1/S transition checkpoint", "Papillomavirus E7 protein", "transcription factor activity, sequence-specific DNA binding", "DNA binding", "metal ion binding", "protein domain specific binding", "positive regulation of actin filament polymerization", "suppression by virus of host cysteine-type endopeptidase activity involved in apoptotic process", "positive regulation of G1/S transition of mitotic cell cycle", "regulation of wound healing, spreading of epidermal cells", "positive regulation of wound healing, spreading of epidermal cells", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "intact",
+    "v" : [ "EBI-866453" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "Annotations",
+    "v" : [ "comment:\\Stoichiometry: 1.0\\" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "uniprotkb_accession",
+    "v" : "P03129"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "Taxonomy Name",
+    "v" : "hpv16"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "name",
+    "v" : "P03129"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "Human Readable Label",
+    "v" : "E7"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "uniprot",
+    "v" : [ "E7", "P03129" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 632,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "psi-mi",
+    "v" : [ "foxk1_human", "FOXK1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "Xref ID",
+    "v" : [ "GO:0009653", "ENSG00000164916", "ENSP00000328720", "GO:0005654", "GO:0006357", "XP_011513493.1", "GO:0006351", "GO:0005730", "GO:0030154", "GO:0007517", "NP_001032242.1", "IPR000253", "IPR008984", "IPR001766", "IPR018122", "IPR011991", "GO:0005634", "GO:0030308", "GO:0045892", "GO:0045893", "ENST00000328914", "GO:0000977", "GO:0000981", "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "Xref",
+    "v" : [ "anatomical structure morphogenesis", "nucleoplasm", "regulation of transcription from RNA polymerase II promoter", "transcription, DNA-templated", "nucleolus", "cell differentiation", "muscle organ development", "Forkhead-associated", "SMAD/FHA domain", "Fork head transcription factor", "Winged helix repressor DNA-binding", "nucleus", "negative regulation of cell growth", "negative regulation of transcription, DNA-templated", "positive regulation of transcription, DNA-templated", "RNA polymerase II regulatory region sequence-specific DNA binding", "RNA polymerase II transcription factor activity, sequence-specific DNA binding", "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "intact",
+    "v" : [ "EBI-2509974" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "uniprotkb_accession",
+    "v" : "P85037"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "Taxonomy Name",
+    "v" : "human"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "name",
+    "v" : "P85037"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "Features",
+    "v" : [ "calmodulin binding peptide plus protein a tag:?-?(MI:0524)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "Human Readable Label",
+    "v" : "FOXK1"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "uniprot",
+    "v" : [ "MNF", "P85037", "FOXK1", "Myocyte nuclear factor" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 630,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "psi-mi",
+    "v" : [ "rbl1_human", "RBL1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "Xref ID",
+    "v" : [ "IPR028310", "ENST00000344359", "ENST00000373664", "4YOO", "4YOS", "4YOZ", "R-HSA-1538133", "R-HSA-2173796", "R-HSA-69231", "GO:0005654", "GO:0005634", "IPR028309", "1H28", "ENSG00000080839", "ENSP00000343646", "ENSP00000362768", "GO:0016568", "GO:0051726", "GO:0043550", "NP_002886.2", "NP_899662.1", "IPR013763", "IPR024599", "GO:0016032", "IPR002720", "IPR002719", "IPR015030", "GO:0006351", "GO:0008134", "GO:0010467", "GO:0000278", "GO:0006367", "GO:0007179", "GO:0045944", "GO:0000122", "GO:0005667", "MINT-8204417" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "Xref",
+    "v" : [ "nucleoplasm", "nucleus", "chromatin modification", "regulation of cell cycle", "regulation of lipid kinase activity", "Cyclin-related", "viral process", "Retinoblastoma-associated protein, A-box", "Retinoblastoma-associated protein, B-box", "Rb C-terminal", "transcription, DNA-templated", "transcription factor binding", "gene expression", "mitotic cell cycle", "transcription initiation from RNA polymerase II promoter", "transforming growth factor beta receptor signaling pathway", "positive regulation of transcription from RNA polymerase II promoter", "negative regulation of transcription from RNA polymerase II promoter", "transcription factor complex", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "intact",
+    "v" : [ "EBI-971402" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "uniprotkb_accession",
+    "v" : "P28749"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "Taxonomy Name",
+    "v" : "human"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "name",
+    "v" : "P28749"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "Human Readable Label",
+    "v" : "RBL1"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "uniprot",
+    "v" : [ "RBL1", "pRb1", "Q9H1L5", "P28749", "Q8N5K6", "Q9H1M1", "Q4VXA0", "107 kDa retinoblastoma-associated protein", "A8K2W5" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 628,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "psi-mi",
+    "v" : [ "PPP2CA", "pp2aa_human" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "Xref ID",
+    "v" : [ "IPR029052", "ENST00000481195", "ENSG00000113575", "ENSP00000418447", "R-HSA-195253", "R-HSA-196299", "R-HSA-4641262", "R-HSA-198753", "R-HSA-202670", "R-HSA-2465910", "R-HSA-2467813", "R-HSA-2500257", "R-HSA-5339716", "R-HSA-5358747", "R-HSA-5358749", "R-HSA-5358751", "R-HSA-5358752", "R-HSA-5467337", "R-HSA-5467340", "R-HSA-5467348", "R-HSA-5663220", "R-HSA-5673000", "R-HSA-2995383", "R-HSA-5675221", "R-HSA-68877", "R-HSA-69231", "R-HSA-69273", "R-HSA-70171", "R-HSA-975957", "R-HSA-389513", "R-HSA-432142", "R-HSA-113501", "R-HSA-1295596", "R-HSA-163685", "R-HSA-163767", "R-HSA-180024", "GO:0000922", "GO:0051321", "4LAC", "GO:0006915", "GO:0000775", "GO:0005829", "GO:0005739", "GO:0005634", "GO:0000159", "GO:0046872", "GO:0006672", "GO:0000188", "GO:0030308", "GO:0004721", "4I5L", "4I5N", "4IYP", "GO:0010719", "GO:0042518", "GO:0005886", "GO:0007498", "GO:0071902", "GO:0006470", "GO:0030155", "GO:0006275", "GO:0006355", "GO:0030111", "GO:0008380", "GO:0019932", "NP_002706.1", "IPR004843", "IPR006186", "2IAE", "2IE3", "2IE4", "2NPP", "2NYL", "2NYM", "3C5W", "3DW8", "3FGA", "3K7V", "3K7W", "3P71", "GO:0000184", "GO:0008543", "GO:0007084", "GO:0015630", "GO:0016020", "GO:0070062", "GO:0000278", "GO:0010033", "GO:0010467", "GO:0040008", "GO:0045595", "MINT-8204424" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "Xref",
+    "v" : [ "spindle pole", "meiotic cell cycle", "apoptotic process", "chromosome, centromeric region", "cytosol", "mitochondrion", "nucleus", "protein phosphatase type 2A complex", "metal ion binding", "ceramide metabolic process", "inactivation of MAPK activity", "negative regulation of cell growth", "phosphoprotein phosphatase activity", "negative regulation of epithelial to mesenchymal transition", "negative regulation of tyrosine phosphorylation of Stat3 protein", "plasma membrane", "mesoderm development", "positive regulation of protein serine/threonine kinase activity", "protein dephosphorylation", "regulation of cell adhesion", "regulation of DNA replication", "regulation of transcription, DNA-templated", "regulation of Wnt signaling pathway", "RNA splicing", "second-messenger-mediated signaling", "Metallophosphoesterase", "Serine/threonine-specific protein phosphatase and bi", "nuclear-transcribed mRNA catabolic process, nonsense-mediated decay", "fibroblast growth factor receptor signaling pathway", "mitotic nuclear envelope reassembly", "microtubule cytoskeleton", "membrane", "extracellular exosome", "mitotic cell cycle", "response to organic substance", "gene expression", "regulation of growth", "regulation of cell differentiation", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "intact",
+    "v" : [ "EBI-712311" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "uniprotkb_accession",
+    "v" : "P67775"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "Taxonomy Name",
+    "v" : "human"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "name",
+    "v" : "P67775"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "Human Readable Label",
+    "v" : "PPP2CA"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "uniprot",
+    "v" : [ "PPP2CA", "P67775", "P13197", "Replication protein C", "P05323" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 625,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "psi-mi",
+    "v" : [ "e2f4_human", "E2F4" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "Xref ID",
+    "v" : [ "IPR032198", "R-HSA-1538133", "R-HSA-2173796", "R-HSA-69231", "ENSG00000205250", "ENSP00000368686", "GO:0044458", "GO:0098534", "GO:1903251", "GO:0000978", "GO:0001077", "GO:0000790", "GO:0006367", "GO:0007179", "GO:0045944", "IPR028312", "ENST00000379378", "GO:0005667", "GO:0003677", "GO:0003700", "NP_001941.2", "IPR015633", "IPR003316", "IPR011991", "1CF7", "GO:0000083", "GO:0002064", "GO:0005654", "GO:0006884", "GO:0008015", "GO:0009887", "GO:0042127", "GO:0000278", "GO:0006351", "GO:0008134", "GO:0010467", "GO:0019904", "MINT-8309382" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "Xref",
+    "v" : [ "motile cilium assembly", "centriole assembly", "multi-ciliated epithelial cell differentiation", "RNA polymerase II core promoter proximal region sequence-specific DNA binding", "transcriptional activator activity, RNA polymerase II core promoter proximal region sequence-specific binding", "nuclear chromatin", "transcription initiation from RNA polymerase II promoter", "transforming growth factor beta receptor signaling pathway", "positive regulation of transcription from RNA polymerase II promoter", "transcription factor complex", "DNA binding", "transcription factor activity, sequence-specific DNA binding", "E2F Family", "Transcription factor E2F/dimerisation partner", "Winged helix repressor DNA-binding", "regulation of transcription involved in G1/S transition of mitotic cell cycle", "epithelial cell development", "nucleoplasm", "cell volume homeostasis", "blood circulation", "organ morphogenesis", "regulation of cell proliferation", "mitotic cell cycle", "transcription, DNA-templated", "transcription factor binding", "gene expression", "protein domain specific binding", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "intact",
+    "v" : [ "EBI-448943" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "uniprotkb_accession",
+    "v" : "Q16254"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "Taxonomy Name",
+    "v" : "human"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "name",
+    "v" : "Q16254"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "Human Readable Label",
+    "v" : "E2F4"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "uniprot",
+    "v" : [ "Q15328", "E2F4", "A6NGR8", "Q12991", "B5BU56", "Q16254" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 621,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "psi-mi",
+    "v" : [ "RBL2", "rbl2_human" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "Xref ID",
+    "v" : [ "4XI9", "5C1D", "ENST00000262133", "XP_011521554.1", "R-HSA-1538133", "R-HSA-69231", "GO:0005730", "GO:0005737", "IPR028308", "IPR028309", "GO:0003677", "GO:0016568", "GO:0051726", "GO:0043550", "GO:0006351", "NP_005602.3", "IPR013763", "IPR024599", "IPR002720", "IPR002719", "ENSG00000103479", "ENSP00000262133", "GO:0070062", "GO:0005634", "GO:0000278", "GO:0005654", "GO:0005667", "GO:0006357", "MINT-6665149", "Q08999" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "Xref",
+    "v" : [ "nucleolus", "cytoplasm", "DNA binding", "chromatin modification", "regulation of cell cycle", "regulation of lipid kinase activity", "transcription, DNA-templated", "Cyclin-related", "Retinoblastoma-associated protein, A-box", "Retinoblastoma-associated protein, B-box", "extracellular exosome", "nucleus", "mitotic cell cycle", "nucleoplasm", "transcription factor complex", "regulation of transcription from RNA polymerase II promoter", "identity", "Q08999" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "intact",
+    "v" : [ "EBI-971439" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "Annotations",
+    "v" : [ "comment:\\Stoichiometry: 1.0\\" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "uniprotkb_accession",
+    "v" : "Q08999"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "Taxonomy Name",
+    "v" : "human"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "name",
+    "v" : "Q08999"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "Features",
+    "v" : [ "ha tag:?-?(MINT-7239370)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "Human Readable Label",
+    "v" : "RBL2"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "uniprot",
+    "v" : [ "RBL2", "Q16084", "RB2", "Q15073", "Q8NE70", "B7Z913", "pRb2", "130 kDa retinoblastoma-associated protein", "Q08999", "Retinoblastoma-related protein 2", "Q92812" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 619,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "psi-mi",
+    "v" : [ "pml_human", "PML" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "Interactor Type",
+    "v" : [ "protein" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "Interactor Type ID",
+    "v" : [ "MI:0326" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "Xref ID",
+    "v" : [ "GO:0010761", "GO:0030155", "GO:0048146", "GO:0050713", "ENST00000268058", "ENST00000268059", "ENST00000354026", "ENST00000359928", "ENST00000395132", "ENST00000395135", "ENST00000435786", "ENST00000436891", "ENST00000564428", "ENST00000565898", "ENST00000567543", "ENST00000569477", "ENST00000569965", "GO:0032922", "GO:0042752", "GO:0043153", "4WJN", "4WJO", "GO:0016925", "GO:0043687", "GO:0044267", "2MWX", "GO:0031901", "2MVW", "ENSG00000140464", "ENSP00000268058", "GO:0008631", "GO:0016032", "GO:0070059", "GO:0097191", "R-HSA-3108214", "R-HSA-877300", "ENSP00000268059", "ENSP00000315434", "ENSP00000353004", "ENSP00000378564", "ENSP00000378567", "ENSP00000394642", "ENSP00000395576", "ENSP00000455612", "ENSP00000455838", "ENSP00000456277", "ENSP00000456486", "ENSP00000457023", "GO:2001238", "GO:0006919", "GO:0007179", "GO:0007182", "GO:0007184", "GO:0009411", "GO:0010332", "GO:0030099", "GO:0045165", "GO:0045343", "GO:0048384", "GO:0060444", "GO:0043161", "GO:0090398", "GO:2000779", "GO:0005654", "GO:0006355", "GO:0019221", "GO:0031625", "GO:0032183", "GO:0034097", "GO:0042803", "GO:0045087", "GO:0060058", "NP_002666.1", "NP_150241.2", "NP_150242.1", "NP_150243.2", "NP_150247.2", "NP_150249.1", "NP_150250.2", "NP_150252.1", "NP_150253.2", "IPR021978", "IPR000315", "IPR001841", "IPR013083", "IPR017907", "GO:0005737", "GO:0005829", "GO:0042406", "GO:0016363", "GO:0031965", "GO:0005730", "GO:0005634", "GO:0016605", "GO:0050897", "GO:0003677", "GO:0003713", "GO:0008270", "GO:0007050", "GO:0006977", "GO:0042771", "GO:0008630", "GO:0032469", "GO:0060333", "GO:0051457", "GO:0016525", "GO:0030308", "GO:0008285", "GO:0045930", "GO:2000059", "GO:0051974", "GO:0032211", "GO:0045892", "GO:0032938", "GO:0030578", "GO:0002230", "GO:0031065", "GO:0006461", "GO:0050821", "GO:0006605", "GO:0010522", "GO:0001932", "GO:0001666", "GO:0006351", "1BOR", "GO:1902187", "GO:0046982", "GO:0051607", "GO:0006915", "GO:0071353", "MINT-8309380" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "Xref",
+    "v" : [ "fibroblast migration", "regulation of cell adhesion", "positive regulation of fibroblast proliferation", "negative regulation of interleukin-1 beta secretion", "circadian regulation of gene expression", "regulation of circadian rhythm", "entrainment of circadian clock by photoperiod", "protein sumoylation", "post-translational protein modification", "cellular protein metabolic process", "early endosome membrane", "intrinsic apoptotic signaling pathway in response to oxidative stress", "viral process", "intrinsic apoptotic signaling pathway in response to endoplasmic reticulum stress", "extrinsic apoptotic signaling pathway", "positive regulation of extrinsic apoptotic signaling pathway", "activation of cysteine-type endopeptidase activity involved in apoptotic process", "transforming growth factor beta receptor signaling pathway", "common-partner SMAD protein phosphorylation", "SMAD protein import into nucleus", "response to UV", "response to gamma radiation", "myeloid cell differentiation", "cell fate commitment", "regulation of MHC class I biosynthetic process", "retinoic acid receptor signaling pathway", "branching involved in mammary gland duct morphogenesis", "proteasome-mediated ubiquitin-dependent protein catabolic process", "cellular senescence", "regulation of double-strand break repair", "nucleoplasm", "regulation of transcription, DNA-templated", "cytokine-mediated signaling pathway", "ubiquitin protein ligase binding", "SUMO binding", "response to cytokine", "protein homodimerization activity", "innate immune response", "positive regulation of apoptotic process involved in mammary gland involution", "Zinc finger, B-box", "Zinc finger, RING-type", "Zinc finger, RING/FYVE/PHD-type", "cytoplasm", "cytosol", "extrinsic component of endoplasmic reticulum membrane", "nuclear matrix", "nuclear membrane", "nucleolus", "nucleus", "PML body", "cobalt ion binding", "DNA binding", "transcription coactivator activity", "zinc ion binding", "cell cycle arrest", "DNA damage response, signal transduction by p53 class mediator resulting in cell cycle arrest", "intrinsic apoptotic signaling pathway in response to DNA damage by p53 class mediator", "intrinsic apoptotic signaling pathway in response to DNA damage", "endoplasmic reticulum calcium ion homeostasis", "interferon-gamma-mediated signaling pathway", "maintenance of protein location in nucleus", "negative regulation of angiogenesis", "negative regulation of cell growth", "negative regulation of cell proliferation", "negative regulation of mitotic cell cycle", "negative regulation of protein ubiquitination involved in ubiquitin-dependent protein catabolic process", "negative regulation of telomerase activity", "negative regulation of telomere maintenance via telomerase", "negative regulation of transcription, DNA-templated", "negative regulation of translation in response to oxidative stress", "PML body organization", "positive regulation of defense response to virus by host", "positive regulation of histone deacetylation", "protein complex assembly", "protein stabilization", "protein targeting", "regulation of calcium ion transport into cytosol", "regulation of protein phosphorylation", "response to hypoxia", "transcription, DNA-templated", "negative regulation of viral release from host cell", "protein heterodimerization activity", "defense response to virus", "apoptotic process", "cellular response to interleukin-4", "identity" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "intact",
+    "v" : [ "EBI-1210702", "EBI-870812", "EBI-779712", "EBI-295890" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "uniprotkb_accession",
+    "v" : "P29590"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "Taxonomy Name",
+    "v" : "human"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "name",
+    "v" : "P29590"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "Human Readable Label",
+    "v" : "PML"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "uniprot",
+    "v" : [ "Q8WUA0", "Q9BZX7", "Q9BZX6", "P29593", "P29592", "P29591", "P29590", "Q15959", "RNF71", "Q00755", "Q96S41", "PP8675", "Tripartite motif-containing protein 19", "Q9BZY3", "MYL", "Q9BZY2", "Q59FP9", "Q9BPW2", "Q9BZY0", "E9PBR7", "PML", "RING finger protein 71", "Promyelocytic leukemia protein", "TRIM19", "Q9BZX9", "Q9BZX8", "Q9BWP7" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 618,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  } ]
+}, {
+  "edgeAttributes" : [ {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Interaction Type",
+    "v" : [ "association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "559292", "559292" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Publication ID",
+    "v" : [ "MINT-6478925", "17559233" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Detection Method",
+    "v" : [ "anti tag coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "shared name",
+    "v" : "P40433 (EBI-7452404) P48606"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Complex Expansion",
+    "v" : [ "spoke expansion" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Complex Expansion ID",
+    "v" : [ "MI:1060" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "multidimensional protein identification technology" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Source Experimental Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Annotation",
+    "v" : [ "number of peptides:4", "number of peptides:1", "number of peptides:3", "number of peptides:2", "number of peptides:6", "number of peptides:7", "number of peptides:8", "number of peptides:17", "figure legend:T1 ST1", "number of peptides:0.1", "number of peptides:1.1", "number of peptides:4.4", "number of peptides:25.7", "number of peptides:0.4", "number of peptides:26.4", "number of peptides:4.3", "number of peptides:0.3", "number of peptides:6.3", "number of peptides:2.3", "number of peptides:8.3", "number of peptides:2.6", "number of peptides:1.7", "number of peptides:0.6", "number of peptides:31.6", "number of peptides:18.1", "number of peptides:10.9", "number of peptides:2.1", "number of peptides:3.3", "number of peptides:0.7", "number of peptides:11.9", "number of peptides:1.9", "number of peptides:21.4", "number of peptides:0.9", "number of peptides:6.4", "number of peptides:5.4", "number of peptides:3.1", "number of peptides:6.6", "number of peptides:1.4", "number of peptides:7.3", "number of peptides:11.3", "number of peptides:11.7", "number of peptides:1.6", "number of peptides:14.9", "number of peptides:1.3", "number of peptides:10.6", "number of peptides:12.3", "number of peptides:3.9", "number of peptides:8.1", "number of peptides:9.1", "number of peptides:4.9", "number of peptides:7.6", "number of peptides:13.6", "number of peptides:17.6", "number of peptides:6.9", "number of peptides:18.6", "number of peptides:17.7", "number of peptides:10.1", "number of peptides:3.7", "number of peptides:2.4", "number of peptides:5.1", "number of peptides:16.4", "number of peptides:5.7", "number of peptides:2.7", "number of peptides:17.4", "number of peptides:12.4", "number of peptides:5.9", "number of peptides:3.4", "number of peptides:12.6", "number of peptides:12.1", "number of peptides:16.6", "number of peptides:2.9", "number of peptides:4.6", "comment:homomint", "comment:domino", "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.35",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "multidimensional protein identification technology" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Creation Date",
+    "v" : "2008/03/28"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0658" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Target Experimental Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "yeast", "Saccharomyces cerevisiae" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0007" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "name",
+    "v" : "P40433 (EBI-7452404) P48606"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "interaction",
+    "v" : "EBI-7452404"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Author",
+    "v" : [ "Kakiuchi et al. (2007)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0658" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 665,
+    "n" : "Primary Interaction Type",
+    "v" : "association"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0497" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Interaction Type",
+    "v" : [ "association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0497" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "-5" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5218454", "16554755", "IM-15332" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Detection Method",
+    "v" : [ "inferred by author" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "shared name",
+    "v" : "Q06683 (EBI-8223607) P48606"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Complex Expansion",
+    "v" : [ "spoke expansion" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Complex Expansion ID",
+    "v" : [ "MI:1060" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "inferred by author" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Source Experimental Role",
+    "v" : [ "neutral component" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Annotation",
+    "v" : [ "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.22",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "inferred by author" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Creation Date",
+    "v" : "2006/05/29"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0363" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Target Experimental Role",
+    "v" : [ "neutral component" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "in silico" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0363" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "name",
+    "v" : "Q06683 (EBI-8223607) P48606"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "interaction",
+    "v" : "EBI-8223607"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Author",
+    "v" : [ "Krogan et al. (2006)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0363" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 663,
+    "n" : "Primary Interaction Type",
+    "v" : "association"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "-3", "-3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Publication ID",
+    "v" : [ "MINT-6546707", "1331501" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Detection Method",
+    "v" : [ "pull down" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "shared name",
+    "v" : "P03255 (EBI-7014623) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Annotation",
+    "v" : [ "figure legend:F3", "comment:homomint", "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins", "curation depth:rapid curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.52",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Creation Date",
+    "v" : "2008/07/10"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "unknown", "Unknown" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0096" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "name",
+    "v" : "P03255 (EBI-7014623) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "interaction",
+    "v" : "EBI-7014623"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Author",
+    "v" : [ "Dyson et al. (1992)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 659,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "-3", "-3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Publication ID",
+    "v" : [ "MINT-6546707", "1331501" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Detection Method",
+    "v" : [ "affinity technology" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "shared name",
+    "v" : "P03255 (EBI-7014600) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Annotation",
+    "v" : [ "figure legend:F2", "comment:homomint", "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins", "curation depth:rapid curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.52",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Creation Date",
+    "v" : "2008/07/10"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "unknown", "Unknown" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0400" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "name",
+    "v" : "P03255 (EBI-7014600) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "interaction",
+    "v" : "EBI-7014600"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Author",
+    "v" : [ "Dyson et al. (1992)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 658,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0497" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0497" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "-3", "-3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Publication ID",
+    "v" : [ "MINT-6546707", "1331501" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Detection Method",
+    "v" : [ "competition binding" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "shared name",
+    "v" : "A0MPS7 (EBI-7014742) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Source Experimental Role",
+    "v" : [ "neutral component" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Annotation",
+    "v" : [ "figure legend:F7", "comment:homomint", "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins", "curation depth:rapid curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.4",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Creation Date",
+    "v" : "2008/07/10"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Target Experimental Role",
+    "v" : [ "neutral component" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "unknown", "Unknown" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0405" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "name",
+    "v" : "A0MPS7 (EBI-7014742) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "interaction",
+    "v" : "EBI-7014742"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Author",
+    "v" : [ "Dyson et al. (1992)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 656,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "10090", "10090" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5225493", "17627279", "IM-11237" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Detection Method",
+    "v" : [ "anti bait coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "shared name",
+    "v" : "P23198 (EBI-7493041) Q64700"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Annotation",
+    "v" : [ "figure legend:F2C", "comment:mint", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.4",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Creation Date",
+    "v" : "2007/11/27"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "mouse-neuron", "Mus musculus neuronal cell" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0006" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "name",
+    "v" : "P23198 (EBI-7493041) Q64700"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "interaction",
+    "v" : "EBI-7493041"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Author",
+    "v" : [ "Panteleeva et al. (2007)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 654,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "10090", "10090" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5225493", "17627279", "IM-11237" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Detection Method",
+    "v" : [ "anti bait coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "shared name",
+    "v" : "Q61686 (EBI-7493052) Q64700"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Annotation",
+    "v" : [ "figure legend:F2C", "comment:homomint", "comment:mint", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.4",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Creation Date",
+    "v" : "2007/11/27"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "mouse-neuron", "Mus musculus neuronal cell" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0006" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "name",
+    "v" : "Q61686 (EBI-7493052) Q64700"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "interaction",
+    "v" : "EBI-7493052"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Author",
+    "v" : [ "Panteleeva et al. (2007)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 652,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "10090", "10090" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5225493", "17627279", "IM-11237" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Detection Method",
+    "v" : [ "anti bait coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "shared name",
+    "v" : "P83917 (EBI-7493009) Q64700"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Annotation",
+    "v" : [ "figure legend:F2C", "comment:homomint", "comment:mint", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.4",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Creation Date",
+    "v" : "2007/11/27"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "mouse-neuron", "Mus musculus neuronal cell" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0006" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "name",
+    "v" : "P83917 (EBI-7493009) Q64700"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "interaction",
+    "v" : "EBI-7493009"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Author",
+    "v" : [ "Panteleeva et al. (2007)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 650,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "-1", "-1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5218319", "16458891", "IM-10803" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Detection Method",
+    "v" : [ "pull down" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "shared name",
+    "v" : "Q08619 (EBI-8064662) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Annotation",
+    "v" : [ "figure legend:F6A", "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.4",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Creation Date",
+    "v" : "2006/03/09"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "in vitro", "In vitro" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0096" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "name",
+    "v" : "Q08619 (EBI-8064662) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "interaction",
+    "v" : "EBI-8064662"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Author",
+    "v" : [ "Asefa et al. (2006)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 645,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Interaction Type",
+    "v" : [ "association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "4932", "4932" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Xref ID",
+    "v" : [ "MI:0469" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Publication ID",
+    "v" : [ "MINT-7915324", "20489023", "IM-14079" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Detection Method",
+    "v" : [ "anti tag coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "shared name",
+    "v" : "Q00684 (EBI-2616881) P48606"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Xref",
+    "v" : [ "intact" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Complex Expansion",
+    "v" : [ "spoke expansion" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Complex Expansion ID",
+    "v" : [ "MI:1060" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "Identification by mass spectrometry" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Annotation",
+    "v" : [ "figure legend:Supplementary Tables and author submitted data.", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.35",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "Identification by mass spectrometry" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Creation Date",
+    "v" : "2010/03/11"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0427" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "yeasx", "Saccharomyces cerevisiae" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0007" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "name",
+    "v" : "Q00684 (EBI-2616881) P48606"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "interaction",
+    "v" : "EBI-2616881"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Author",
+    "v" : [ "A et al. (2010)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0427" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 643,
+    "n" : "Primary Interaction Type",
+    "v" : "association"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "4932", "4932" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5213892", "11283351" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Detection Method",
+    "v" : [ "two hybrid fragment pooling approach" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "shared name",
+    "v" : "Q08550 (EBI-388131) P48606"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Source Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.37",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Creation Date",
+    "v" : "2004/07/20"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Target Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "yeasx", "Saccharomyces cerevisiae" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0399" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "name",
+    "v" : "Q08550 (EBI-388131) P48606"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "interaction",
+    "v" : "EBI-388131"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Author",
+    "v" : [ "Ito et al. (2001)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 641,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "4932", "4932" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5218454", "16554755", "IM-15332" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Detection Method",
+    "v" : [ "tandem affinity purification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "shared name",
+    "v" : "P48606 (EBI-7859752) P42947"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Source Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Annotation",
+    "v" : [ "author-confidence:\\probability: 99.6\\", "number of peptides:2", "author-confidence:\\reliability score: 0.647\\", "url:17_MD080604_586_5,6_flowthru__DTASelect_COMBINED.html", "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.4",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "multidimensional protein identification technology" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Creation Date",
+    "v" : "2006/05/29"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Target Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "baker's yeast-4l", "Saccharomyces cerevisiae" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0676" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "name",
+    "v" : "P48606 (EBI-7859752) P42947"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "interaction",
+    "v" : "EBI-7859752"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Author",
+    "v" : [ "Krogan et al. (2006)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0658" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 661,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "4932", "4932" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5213892", "11283351" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Detection Method",
+    "v" : [ "two hybrid fragment pooling approach" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "shared name",
+    "v" : "P48606 (EBI-382719) P47135"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Source Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.55",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Creation Date",
+    "v" : "2004/07/20"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Target Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "yeasx", "Saccharomyces cerevisiae" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0399" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "name",
+    "v" : "P48606 (EBI-382719) P47135"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "interaction",
+    "v" : "EBI-382719"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Author",
+    "v" : [ "Ito et al. (2001)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 639,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "-4" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5211753", "10449734" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Detection Method",
+    "v" : [ "two hybrid" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "shared name",
+    "v" : "Q99708 (EBI-7074559) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Annotation",
+    "v" : [ "comment:homomint", "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.51",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Creation Date",
+    "v" : "2001/02/25"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "in vivo" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0018" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "name",
+    "v" : "Q99708 (EBI-7074559) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "interaction",
+    "v" : "EBI-7074559"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Author",
+    "v" : [ "Meloni et al. (1999)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 636,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "-4" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Publication ID",
+    "v" : [ "MINT-5211753", "10449734" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Detection Method",
+    "v" : [ "coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "shared name",
+    "v" : "Q99708 (EBI-7074603) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Annotation",
+    "v" : [ "comment:homomint", "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.51",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Creation Date",
+    "v" : "2001/02/25"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "in vivo" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0019" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "name",
+    "v" : "Q99708 (EBI-7074603) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "interaction",
+    "v" : "EBI-7074603"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Author",
+    "v" : [ "Meloni et al. (1999)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 635,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "4932", "4932" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Publication ID",
+    "v" : [ "MINT-6548042", "9683573" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Detection Method",
+    "v" : [ "two hybrid" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "shared name",
+    "v" : "P03129 (EBI-8679170) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Annotation",
+    "v" : [ "figure legend:NFA", "comment:homomint", "comment:mint", "dataset:Virus - Publications including interactions involving viral proteins" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.37",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "nucleotide sequence identification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Creation Date",
+    "v" : "2005/11/02"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "yeasx", "Saccharomyces cerevisiae" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0018" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "name",
+    "v" : "P03129 (EBI-8679170) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "interaction",
+    "v" : "EBI-8679170"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Author",
+    "v" : [ "Schilling et al. (1998)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0078" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 633,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Interaction Type",
+    "v" : [ "association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "9606", "9606" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Update Date",
+    "v" : "2015/10/21"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Xref ID",
+    "v" : [ "MI:0471" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Publication ID",
+    "v" : [ "25609649", "IM-24178" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Detection Method",
+    "v" : [ "tandem affinity purification" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "shared name",
+    "v" : "P85037 (EBI-11321050) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Xref",
+    "v" : [ "mint" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Complex Expansion",
+    "v" : [ "spoke expansion" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Complex Expansion ID",
+    "v" : [ "MI:1060" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "Identification by mass spectrometry" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Annotation",
+    "v" : [ "figure legend:ST6", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.35",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Creation Date",
+    "v" : "2015/02/26"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0427" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "human-293t", "Homo sapiens 293 cells transformed with SV40 large T antigen" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0676" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "name",
+    "v" : "P85037 (EBI-11321050) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "interaction",
+    "v" : "EBI-11321050"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Author",
+    "v" : [ "Li et al. (2015)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 631,
+    "n" : "Primary Interaction Type",
+    "v" : "association"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "9606", "9606" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Publication ID",
+    "v" : [ "MINT-8204372", "15467457" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Detection Method",
+    "v" : [ "coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "shared name",
+    "v" : "P28749 (EBI-7333644) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Source Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Annotation",
+    "v" : [ "figure legend:f6", "comment:homomint", "comment:mint" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.4",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Creation Date",
+    "v" : "2011/09/10"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Target Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "human", "Homo sapiens" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0019" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "name",
+    "v" : "P28749 (EBI-7333644) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "interaction",
+    "v" : "EBI-7333644"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Author",
+    "v" : [ "Garriga et al. (2004)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 629,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0497" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Interaction Type",
+    "v" : [ "dephosphorylation reaction" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0497" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "-1", "-1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Target Biological Role",
+    "v" : [ "enzyme target" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Publication ID",
+    "v" : [ "MINT-8204372", "15467457" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0502" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Detection Method",
+    "v" : [ "phosphatase assay" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "shared name",
+    "v" : "P67775 (EBI-7333612) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Source Biological Role",
+    "v" : [ "enzyme" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Source Experimental Role",
+    "v" : [ "neutral component" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Annotation",
+    "v" : [ "figure legend:f5", "comment:homomint", "comment:mint" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0501" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.54",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Creation Date",
+    "v" : "2011/09/10"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Target Experimental Role",
+    "v" : [ "neutral component" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "in vitro", "In vitro" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0434" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "name",
+    "v" : "P67775 (EBI-7333612) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "interaction",
+    "v" : "EBI-7333612"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Author",
+    "v" : [ "Garriga et al. (2004)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 626,
+    "n" : "Primary Interaction Type",
+    "v" : "dephosphorylation reaction"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Interaction Type",
+    "v" : [ "association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "9606", "9606" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Publication ID",
+    "v" : [ "10.1038/emboj.2011.370", "MINT-8309334", "22002537", "IM-17554" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Detection Method",
+    "v" : [ "anti bait coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "shared name",
+    "v" : "Q16254 (EBI-7481266) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Complex Expansion",
+    "v" : [ "spoke expansion" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Complex Expansion ID",
+    "v" : [ "MI:1060" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Annotation",
+    "v" : [ "figure legend:f3b", "comment:homomint", "comment:mint", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.66",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Creation Date",
+    "v" : "2012/02/09"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "human-wi_38", "Homo sapiens Caucasian fetal lung fibroblast cell line" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Publication DB",
+    "v" : [ "doi", "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0006" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "name",
+    "v" : "Q16254 (EBI-7481266) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "interaction",
+    "v" : "EBI-7481266"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Author",
+    "v" : [ "Martin et al. (2012)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 622,
+    "n" : "Primary Interaction Type",
+    "v" : "association"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "9606", "9606" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Publication ID",
+    "v" : [ "MINT-7238637", "fj-09-0677", "19725879" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Detection Method",
+    "v" : [ "anti tag coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "shared name",
+    "v" : "Q08999 (EBI-7205821) Q6MZP7"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "anti tag western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Source Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Annotation",
+    "v" : [ "comment:homomint", "comment:mint", "figure legend:f3c" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.62",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "anti tag western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Creation Date",
+    "v" : "2009/08/04"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0705" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Target Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "human-293t", "Homo sapiens 293 cells transformed with SV40 large T antigen" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Publication DB",
+    "v" : [ "mint", "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0007" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "name",
+    "v" : "Q08999 (EBI-7205821) Q6MZP7"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "interaction",
+    "v" : "EBI-7205821"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Author",
+    "v" : [ "Schmit et al. (2009)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0705" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 647,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Interaction Type",
+    "v" : [ "physical association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "9606", "9606" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Publication ID",
+    "v" : [ "MINT-8204372", "15467457" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Detection Method",
+    "v" : [ "coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "shared name",
+    "v" : "Q08999 (EBI-7333653) P67775"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Annotation",
+    "v" : [ "figure legend:f6", "comment:homomint", "comment:mint" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.54",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "predetermined participant" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Creation Date",
+    "v" : "2011/09/10"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "human", "Homo sapiens" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Publication DB",
+    "v" : [ "mint", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0019" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "name",
+    "v" : "Q08999 (EBI-7333653) P67775"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "interaction",
+    "v" : "EBI-7333653"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Author",
+    "v" : [ "Garriga et al. (2004)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0396" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 627,
+    "n" : "Primary Interaction Type",
+    "v" : "physical association"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Interaction Type",
+    "v" : [ "association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "9606", "9606" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Publication ID",
+    "v" : [ "10.1038/emboj.2011.370", "MINT-8309334", "22002537", "IM-17554" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Detection Method",
+    "v" : [ "anti bait coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "shared name",
+    "v" : "Q08999 (EBI-7481316) P29590"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Complex Expansion",
+    "v" : [ "spoke expansion" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Complex Expansion ID",
+    "v" : [ "MI:1060" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Annotation",
+    "v" : [ "figure legend:f3b", "comment:homomint", "comment:mint", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.35",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Creation Date",
+    "v" : "2012/02/09"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "human-wi_38", "Homo sapiens Caucasian fetal lung fibroblast cell line" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Publication DB",
+    "v" : [ "doi", "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0006" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "name",
+    "v" : "Q08999 (EBI-7481316) P29590"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "interaction",
+    "v" : "EBI-7481316"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Author",
+    "v" : [ "Martin et al. (2012)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 624,
+    "n" : "Primary Interaction Type",
+    "v" : "association"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Interaction Type",
+    "v" : [ "association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "9606", "9606" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Publication ID",
+    "v" : [ "10.1038/emboj.2011.370", "MINT-8309334", "22002537", "IM-17554" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Detection Method",
+    "v" : [ "anti bait coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "shared name",
+    "v" : "Q08999 (EBI-7481316) Q16254"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Complex Expansion",
+    "v" : [ "spoke expansion" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Complex Expansion ID",
+    "v" : [ "MI:1060" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Annotation",
+    "v" : [ "figure legend:f3b", "comment:homomint", "comment:mint", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.66",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Creation Date",
+    "v" : "2012/02/09"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "human-wi_38", "Homo sapiens Caucasian fetal lung fibroblast cell line" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Publication DB",
+    "v" : [ "doi", "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0006" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "name",
+    "v" : "Q08999 (EBI-7481316) Q16254"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "interaction",
+    "v" : "EBI-7481316"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Author",
+    "v" : [ "Martin et al. (2012)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 623,
+    "n" : "Primary Interaction Type",
+    "v" : "association"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Target Experimental Role ID",
+    "v" : [ "MI:0498" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Interaction Type",
+    "v" : [ "association" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Source Experimental Role ID",
+    "v" : [ "MI:0496" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Host Organism Taxonomy ID",
+    "v" : [ "9606", "9606" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Update Date",
+    "v" : "2014/10/16"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Target Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Publication ID",
+    "v" : [ "10.1038/emboj.2011.370", "MINT-8309334", "22002537", "IM-17554" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Target Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Detection Method",
+    "v" : [ "anti bait coimmunoprecipitation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "shared name",
+    "v" : "P29590 (EBI-7481251) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Negative",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Source Biological Role",
+    "v" : [ "unspecified role" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Complex Expansion",
+    "v" : [ "spoke expansion" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Complex Expansion ID",
+    "v" : [ "MI:1060" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Source Database",
+    "v" : "psi-mi"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Target Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Source Experimental Role",
+    "v" : [ "bait" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Annotation",
+    "v" : [ "figure legend:f3b", "comment:homomint", "comment:mint", "full coverage:Only protein-protein interactions", "curation depth:imex curation" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Source Biological Role ID",
+    "v" : [ "MI:0499" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Confidence-Score-intact-miscore",
+    "v" : "0.35",
+    "d" : "double"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Source Participant Detection Method",
+    "v" : [ "western blot" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Creation Date",
+    "v" : "2012/02/09"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Target Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Target Experimental Role",
+    "v" : [ "prey" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Host Organism Taxonomy",
+    "v" : [ "human-wi_38", "Homo sapiens Caucasian fetal lung fibroblast cell line" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Publication DB",
+    "v" : [ "doi", "mint", "pubmed", "imex" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0006" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "name",
+    "v" : "P29590 (EBI-7481251) Q08999"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "interaction",
+    "v" : "EBI-7481251"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Author",
+    "v" : [ "Martin et al. (2012)" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Source Participant Detection Method ID",
+    "v" : [ "MI:0113" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 608,
+    "po" : 620,
+    "n" : "Primary Interaction Type",
+    "v" : "association"
+  } ]
+}, {
+  "cartesianLayout" : [ {
+    "node" : 664,
+    "view" : 666,
+    "x" : 329.156165862213,
+    "y" : -125.22936995133111
+  }, {
+    "node" : 662,
+    "view" : 666,
+    "x" : 239.97247674478137,
+    "y" : 58.73697678939155
+  }, {
+    "node" : 660,
+    "view" : 666,
+    "x" : 221.73938348306262,
+    "y" : -177.2783201466436
+  }, {
+    "node" : 657,
+    "view" : 666,
+    "x" : -117.81520483480847,
+    "y" : -161.66375715836236
+  }, {
+    "node" : 655,
+    "view" : 666,
+    "x" : -26.926525330413938,
+    "y" : 62.86233155623725
+  }, {
+    "node" : 653,
+    "view" : 666,
+    "x" : -155.3192169426576,
+    "y" : 359.0322801341181
+  }, {
+    "node" : 651,
+    "view" : 666,
+    "x" : -26.94177553640759,
+    "y" : 257.4263231028681
+  }, {
+    "node" : 649,
+    "view" : 666,
+    "x" : -136.81143496023572,
+    "y" : 250.54239671126655
+  }, {
+    "node" : 648,
+    "view" : 666,
+    "x" : -205.8075744866029,
+    "y" : 163.48966996566108
+  }, {
+    "node" : 646,
+    "view" : 666,
+    "x" : 23.976215148101687,
+    "y" : 10.966819929039985
+  }, {
+    "node" : 644,
+    "view" : 666,
+    "x" : -169.39156744467175,
+    "y" : 63.48966996566108
+  }, {
+    "node" : 642,
+    "view" : 666,
+    "x" : 337.0655076743468,
+    "y" : -7.594528032385796
+  }, {
+    "node" : 640,
+    "view" : 666,
+    "x" : 133.44771173013294,
+    "y" : 8.513763593590767
+  }, {
+    "node" : 638,
+    "view" : 666,
+    "x" : 123.97621514810169,
+    "y" : -110.47286970719048
+  }, {
+    "node" : 637,
+    "view" : 666,
+    "x" : 230.6905019523009,
+    "y" : -59.16891462906548
+  }, {
+    "node" : 634,
+    "view" : 666,
+    "x" : -96.64487860189831,
+    "y" : 57.002464460289985
+  }, {
+    "node" : 632,
+    "view" : 666,
+    "x" : 16.598285460601687,
+    "y" : -129.63092024429986
+  }, {
+    "node" : 630,
+    "view" : 666,
+    "x" : -191.51427798556244,
+    "y" : -150.1325681935186
+  }, {
+    "node" : 628,
+    "view" : 666,
+    "x" : -46.21680853353894,
+    "y" : -177.2783201466436
+  }, {
+    "node" : 625,
+    "view" : 666,
+    "x" : -198.61096451269543,
+    "y" : -6.249679399573296
+  }, {
+    "node" : 621,
+    "view" : 666,
+    "x" : -205.8075744866029,
+    "y" : -76.54603560074517
+  }, {
+    "node" : 619,
+    "view" : 666,
+    "x" : -94.01591131674206,
+    "y" : -52.416915727698296
+  }, {
+    "node" : 618,
+    "view" : 666,
+    "x" : 15.201251769195437,
+    "y" : -58.400497270667046
+  } ]
+}, {
+  "visualProperties" : [ {
+    "properties_of" : "network",
+    "applies_to" : 666,
+    "view" : 666,
+    "properties" : {
+      "NETWORK_BACKGROUND_PAINT" : "#FFFFFF",
+      "NETWORK_CENTER_X_LOCATION" : "0.0",
+      "NETWORK_CENTER_Y_LOCATION" : "0.0",
+      "NETWORK_CENTER_Z_LOCATION" : "0.0",
+      "NETWORK_DEPTH" : "0.0",
+      "NETWORK_EDGE_SELECTION" : "true",
+      "NETWORK_HEIGHT" : "400.0",
+      "NETWORK_NODE_SELECTION" : "true",
+      "NETWORK_SCALE_FACTOR" : "1.0",
+      "NETWORK_WIDTH" : "550.0"
+    }
+  }, {
+    "properties_of" : "nodes:default",
+    "applies_to" : 666,
+    "view" : 666,
+    "properties" : {
+      "COMPOUND_NODE_PADDING" : "10.0",
+      "COMPOUND_NODE_SHAPE" : "ROUND_RECTANGLE",
+      "NODE_BORDER_PAINT" : "#B4B4B4",
+      "NODE_BORDER_STROKE" : "SOLID",
+      "NODE_BORDER_TRANSPARENCY" : "240",
+      "NODE_BORDER_WIDTH" : "2.0",
+      "NODE_CUSTOMGRAPHICS_1" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_2" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_3" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_4" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_5" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_6" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_7" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_8" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_9" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_POSITION_1" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_2" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_3" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_4" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_5" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_6" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_7" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_8" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_9" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_SIZE_1" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_2" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_3" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_4" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_5" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_6" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_7" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_8" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_9" : "0.0",
+      "NODE_DEPTH" : "0.0",
+      "NODE_FILL_COLOR" : "#FFFFFF",
+      "NODE_HEIGHT" : "24.0",
+      "NODE_LABEL_COLOR" : "#323232",
+      "NODE_LABEL_FONT_FACE" : "HelveticaNeue-UltraLight,plain,10",
+      "NODE_LABEL_FONT_SIZE" : "12",
+      "NODE_LABEL_POSITION" : "C,C,c,0.00,0.00",
+      "NODE_LABEL_TRANSPARENCY" : "230",
+      "NODE_LABEL_WIDTH" : "200.0",
+      "NODE_NESTED_NETWORK_IMAGE_VISIBLE" : "true",
+      "NODE_SELECTED" : "false",
+      "NODE_SELECTED_PAINT" : "#FFFF00",
+      "NODE_SHAPE" : "ROUND_RECTANGLE",
+      "NODE_TRANSPARENCY" : "220",
+      "NODE_VISIBLE" : "true",
+      "NODE_WIDTH" : "65.0",
+      "NODE_X_LOCATION" : "0.0",
+      "NODE_Y_LOCATION" : "0.0",
+      "NODE_Z_LOCATION" : "0.0"
+    },
+    "dependencies" : {
+      "nodeCustomGraphicsSizeSync" : "false",
+      "nodeSizeLocked" : "false"
+    },
+    "mappings" : {
+      "NODE_BORDER_PAINT" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=small molecule,V=0=#404040,K=1=gene,V=1=#404040"
+      },
+      "NODE_BORDER_WIDTH" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=small molecule,V=0=10.0,K=1=gene,V=1=4.0"
+      },
+      "NODE_FILL_COLOR" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Taxonomy ID,T=string,K=0=10090,V=0=#EE7621,K=1=83333,V=1=#B0E2FF,K=2=9606,V=2=#436EEE,K=3=7227,V=3=#9370DB,K=4=4932,V=4=#9C9C9C,K=5=10116,V=5=#6B8E23,K=6=3702,V=6=#FFF5EE"
+      },
+      "NODE_HEIGHT" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=protein dna complex,V=0=150.0,K=1=small molecule,V=1=20.0,K=2=ribonucleic acid,V=2=60.0,K=3=single stranded deoxyribonucleic acid,V=3=60.0,K=4=complex composition,V=4=150.0,K=5=double stranded deoxyribonucleic acid,V=5=60.0,K=6=gene,V=6=30.0,K=7=nucleic acid,V=7=60.0,K=8=protein complex,V=8=150.0,K=9=deoxyribonucleic acid,V=9=60.0,K=10=ribonucleoprotein complex,V=10=150.0,K=11=protein,V=11=24.0,K=12=complex,V=12=150.0"
+      },
+      "NODE_LABEL" : {
+        "type" : "PASSTHROUGH",
+        "definition" : "COL=Human Readable Label,T=string"
+      },
+      "NODE_SHAPE" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=protein dna complex,V=0=OCTAGON,K=1=small molecule,V=1=ELLIPSE,K=2=ribonucleic acid,V=2=PARALLELOGRAM,K=3=single stranded deoxyribonucleic acid,V=3=PARALLELOGRAM,K=4=complex composition,V=4=OCTAGON,K=5=double stranded deoxyribonucleic acid,V=5=PARALLELOGRAM,K=6=gene,V=6=DIAMOND,K=7=nucleic acid,V=7=PARALLELOGRAM,K=8=protein complex,V=8=OCTAGON,K=9=deoxyribonucleic acid,V=9=PARALLELOGRAM,K=10=ribonucleoprotein complex,V=10=OCTAGON,K=11=protein,V=11=ROUND_RECTANGLE,K=12=complex,V=12=OCTAGON"
+      },
+      "NODE_TOOLTIP" : {
+        "type" : "PASSTHROUGH",
+        "definition" : "COL=Interactor Type,T=string"
+      },
+      "NODE_WIDTH" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=protein dna complex,V=0=150.0,K=1=small molecule,V=1=20.0,K=2=ribonucleic acid,V=2=10.0,K=3=single stranded deoxyribonucleic acid,V=3=10.0,K=4=complex composition,V=4=150.0,K=5=double stranded deoxyribonucleic acid,V=5=10.0,K=6=gene,V=6=30.0,K=7=nucleic acid,V=7=10.0,K=8=protein complex,V=8=150.0,K=9=deoxyribonucleic acid,V=9=10.0,K=10=ribonucleoprotein complex,V=10=150.0,K=11=protein,V=11=65.0,K=12=complex,V=12=150.0"
+      }
+    }
+  }, {
+    "properties_of" : "edges:default",
+    "applies_to" : 666,
+    "view" : 666,
+    "properties" : {
+      "EDGE_CURVED" : "true",
+      "EDGE_LABEL_COLOR" : "#323232",
+      "EDGE_LABEL_FONT_FACE" : "SansSerif,plain,10",
+      "EDGE_LABEL_FONT_SIZE" : "8",
+      "EDGE_LABEL_TRANSPARENCY" : "80",
+      "EDGE_LABEL_WIDTH" : "200.0",
+      "EDGE_LINE_TYPE" : "SOLID",
+      "EDGE_PAINT" : "#B4B4B4",
+      "EDGE_SELECTED" : "false",
+      "EDGE_SOURCE_ARROW_SELECTED_PAINT" : "#FFFF00",
+      "EDGE_SOURCE_ARROW_SHAPE" : "NONE",
+      "EDGE_SOURCE_ARROW_UNSELECTED_PAINT" : "#000000",
+      "EDGE_STROKE_SELECTED_PAINT" : "#FF0000",
+      "EDGE_STROKE_UNSELECTED_PAINT" : "#404040",
+      "EDGE_TARGET_ARROW_SELECTED_PAINT" : "#FFFF00",
+      "EDGE_TARGET_ARROW_SHAPE" : "NONE",
+      "EDGE_TARGET_ARROW_UNSELECTED_PAINT" : "#000000",
+      "EDGE_TRANSPARENCY" : "180",
+      "EDGE_VISIBLE" : "true",
+      "EDGE_WIDTH" : "2.0"
+    },
+    "dependencies" : {
+      "arrowColorMatchesEdge" : "false"
+    },
+    "mappings" : {
+      "EDGE_LABEL" : {
+        "type" : "PASSTHROUGH",
+        "definition" : "COL=Detection Method,T=string"
+      },
+      "EDGE_LINE_TYPE" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Primary Interaction Type,T=string,K=0=neutral genetic interaction,V=0=DOT,K=1=maximal epistasis,V=1=DOT,K=2=negative genetic interaction,V=2=DOT,K=3=qualitative epistasis,V=3=DOT,K=4=positive genetic interaction,V=4=DOT,K=5=opposing epistasis,V=5=DOT,K=6=suppression (complete),V=6=DOT,K=7=enhancement,V=7=DOT,K=8=asynthetic,V=8=DOT,K=9=unilateral suppression,V=9=DOT,K=10=unilateral suppression (partial),V=10=DOT,K=11=quantitative epistasis,V=11=DOT,K=12=unilateral enhancement,V=12=DOT,K=13=suppression,V=13=DOT,K=14=unilateral over-suppression,V=14=DOT,K=15=over-suppression-enhancement,V=15=DOT,K=16=over-suppression,V=16=DOT,K=17=phenotype bias,V=17=DOT,K=18=genetic interaction,V=18=DOT,K=19=neutral epistasis,V=19=DOT,K=20=epistasis,V=20=DOT,K=21=suppression-enhancement,V=21=DOT,K=22=noninteractive,V=22=DOT,K=23=colocalization,V=23=LONG_DASH,K=24=predicted interaction,V=24=LONG_DASH,K=25=mutual enhancement,V=25=DOT,K=26=unilateral suppression (complete),V=26=DOT,K=27=suppression (partial),V=27=DOT,K=28=synthetic,V=28=DOT,K=29=positive epistasis,V=29=DOT,K=30=minimal epistasis,V=30=DOT,K=31=mutual suppression (complete),V=31=DOT,K=32=mutual suppression,V=32=DOT,K=33=mutual over-suppression,V=33=DOT,K=34=mutual suppression (partial),V=34=DOT"
+      },
+      "EDGE_TOOLTIP" : {
+        "type" : "PASSTHROUGH",
+        "definition" : "COL=Primary Interaction Type,T=string"
+      },
+      "EDGE_WIDTH" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Primary Interaction Type,T=string,K=0=colocalization,V=0=3.0,K=1=predicted interaction,V=1=1.0"
+      }
+    }
+  } ]
+}, {
+  "subNetworks" : [ {
+    "@id" : 608,
+    "nodes" : [ 664, 662, 660, 657, 655, 653, 651, 649, 648, 646, 644, 642, 640, 638, 637, 634, 632, 630, 628, 625, 621, 619, 618 ],
+    "edges" : [ 665, 663, 659, 658, 656, 654, 652, 650, 645, 643, 641, 661, 639, 636, 635, 633, 631, 629, 626, 622, 647, 627, 624, 623, 620 ]
+  } ]
+}, {
+  "cyViews" : [ {
+    "@id" : 666,
+    "s" : 608
+  } ]
+}, {
+  "networkRelations" : [ {
+    "p" : 608,
+    "c" : 666,
+    "r" : "view",
+    "name" : "MINT (2016/02/24 11:43:05 AM, PST) view"
+  }, {
+    "p" : 592,
+    "c" : 608,
+    "r" : "subnetwork",
+    "name" : "MINT (2016/02/24 11:43:05 AM, PST)"
+  } ]
+}, {
+  "metaData" : [ {
+    "consistencyGroup" : 1,
+    "elementCount" : 5,
+    "name" : "networkAttributes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 1,
+    "name" : "hiddenAttributes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 314,
+    "name" : "nodeAttributes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 793,
+    "name" : "edgeAttributes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 23,
+    "name" : "cartesianLayout",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 3,
+    "name" : "visualProperties",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 1,
+    "name" : "subNetworks",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 1,
+    "name" : "cyViews",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 0,
+    "name" : "cyGroups",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 2,
+    "name" : "networkRelations",
+    "properties" : [ ],
+    "version" : "1.0"
+  } ]
+}, {
+  "status" : [ {
+    "error" : "it's an error!",
+    "success" : false
+  } ]
+} ]

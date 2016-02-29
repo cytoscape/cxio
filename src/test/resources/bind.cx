@@ -1,0 +1,4741 @@
+[ {
+  "numberVerification" : [ {
+    "longNumber" : 281474976710655
+  } ]
+}, {
+  "metaData" : [ {
+    "consistencyGroup" : 1,
+    "elementCount" : 38,
+    "idCounter" : 1040,
+    "name" : "nodes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 35,
+    "idCounter" : 1040,
+    "name" : "edges",
+    "properties" : [ ],
+    "version" : "1.0"
+  } ]
+}, {
+  "nodes" : [ {
+    "@id" : 515,
+    "n" : "NC_000016.4"
+  }, {
+    "@id" : 514,
+    "n" : "11535"
+  }, {
+    "@id" : 512,
+    "n" : "NC_000017.9"
+  }, {
+    "@id" : 510,
+    "n" : "NC_000001.8"
+  }, {
+    "@id" : 508,
+    "n" : "4495"
+  }, {
+    "@id" : 504,
+    "n" : "332"
+  }, {
+    "@id" : 502,
+    "n" : "NP_116090.2"
+  }, {
+    "@id" : 500,
+    "n" : "NP_060105.2"
+  }, {
+    "@id" : 498,
+    "n" : "NM_005611.2"
+  }, {
+    "@id" : 497,
+    "n" : "NP_000448.3"
+  }, {
+    "@id" : 495,
+    "n" : "25255"
+  }, {
+    "@id" : 493,
+    "n" : "6325015"
+  }, {
+    "@id" : 491,
+    "n" : "6324925"
+  }, {
+    "@id" : 489,
+    "n" : "6324600"
+  }, {
+    "@id" : 487,
+    "n" : "4506363"
+  }, {
+    "@id" : 485,
+    "n" : "6323787"
+  }, {
+    "@id" : 483,
+    "n" : "6323544"
+  }, {
+    "@id" : 481,
+    "n" : "6323229"
+  }, {
+    "@id" : 479,
+    "n" : "6321515"
+  }, {
+    "@id" : 477,
+    "n" : "6320843"
+  }, {
+    "@id" : 475,
+    "n" : "154199604"
+  }, {
+    "@id" : 473,
+    "n" : "6323511"
+  }, {
+    "@id" : 471,
+    "n" : "37362641"
+  }, {
+    "@id" : 469,
+    "n" : "6324839"
+  }, {
+    "@id" : 468,
+    "n" : "6319820"
+  }, {
+    "@id" : 466,
+    "n" : "851591"
+  }, {
+    "@id" : 464,
+    "n" : "855569"
+  }, {
+    "@id" : 462,
+    "n" : "850897"
+  }, {
+    "@id" : 460,
+    "n" : "854439"
+  }, {
+    "@id" : 459,
+    "n" : "852969"
+  }, {
+    "@id" : 457,
+    "n" : "NP_116616.1"
+  }, {
+    "@id" : 455,
+    "n" : "NP_014820.1"
+  }, {
+    "@id" : 453,
+    "n" : "NC_001147.4"
+  }, {
+    "@id" : 452,
+    "n" : "NP_013021.1"
+  }, {
+    "@id" : 450,
+    "n" : "NP_012624.1"
+  }, {
+    "@id" : 447,
+    "n" : "NP_005602.2"
+  }, {
+    "@id" : 446,
+    "n" : "NP_057853.1"
+  }, {
+    "@id" : 444,
+    "n" : "NP_014908.1"
+  } ]
+}, {
+  "edges" : [ {
+    "@id" : 516,
+    "s" : 514,
+    "t" : 515,
+    "i" : "321674"
+  }, {
+    "@id" : 499,
+    "s" : 497,
+    "t" : 498,
+    "i" : "125929"
+  }, {
+    "@id" : 474,
+    "s" : 473,
+    "t" : 469,
+    "i" : "47437"
+  }, {
+    "@id" : 472,
+    "s" : 471,
+    "t" : 469,
+    "i" : "47332"
+  }, {
+    "@id" : 494,
+    "s" : 469,
+    "t" : 493,
+    "i" : "47451"
+  }, {
+    "@id" : 492,
+    "s" : 469,
+    "t" : 491,
+    "i" : "47450"
+  }, {
+    "@id" : 490,
+    "s" : 469,
+    "t" : 489,
+    "i" : "47449"
+  }, {
+    "@id" : 488,
+    "s" : 469,
+    "t" : 487,
+    "i" : "47448"
+  }, {
+    "@id" : 486,
+    "s" : 469,
+    "t" : 485,
+    "i" : "47447"
+  }, {
+    "@id" : 484,
+    "s" : 469,
+    "t" : 483,
+    "i" : "47446"
+  }, {
+    "@id" : 482,
+    "s" : 469,
+    "t" : 481,
+    "i" : "47445"
+  }, {
+    "@id" : 480,
+    "s" : 469,
+    "t" : 479,
+    "i" : "47444"
+  }, {
+    "@id" : 478,
+    "s" : 469,
+    "t" : 477,
+    "i" : "47443"
+  }, {
+    "@id" : 476,
+    "s" : 469,
+    "t" : 475,
+    "i" : "47442"
+  }, {
+    "@id" : 470,
+    "s" : 468,
+    "t" : 469,
+    "i" : "47133"
+  }, {
+    "@id" : 467,
+    "s" : 466,
+    "t" : 460,
+    "i" : "170935"
+  }, {
+    "@id" : 465,
+    "s" : 464,
+    "t" : 460,
+    "i" : "170412"
+  }, {
+    "@id" : 463,
+    "s" : 462,
+    "t" : 460,
+    "i" : "170411"
+  }, {
+    "@id" : 496,
+    "s" : 460,
+    "t" : 495,
+    "i" : "300348"
+  }, {
+    "@id" : 461,
+    "s" : 459,
+    "t" : 460,
+    "i" : "170410"
+  }, {
+    "@id" : 458,
+    "s" : 457,
+    "t" : 444,
+    "i" : "169512"
+  }, {
+    "@id" : 454,
+    "s" : 452,
+    "t" : 453,
+    "i" : "136265"
+  }, {
+    "@id" : 451,
+    "s" : 450,
+    "t" : 444,
+    "i" : "3884"
+  }, {
+    "@id" : 513,
+    "s" : 447,
+    "t" : 512,
+    "i" : "295853"
+  }, {
+    "@id" : 511,
+    "s" : 447,
+    "t" : 510,
+    "i" : "295827"
+  }, {
+    "@id" : 509,
+    "s" : 447,
+    "t" : 508,
+    "i" : "257678"
+  }, {
+    "@id" : 505,
+    "s" : 447,
+    "t" : 504,
+    "i" : "217995"
+  }, {
+    "@id" : 503,
+    "s" : 447,
+    "t" : 502,
+    "i" : "215449"
+  }, {
+    "@id" : 501,
+    "s" : 447,
+    "t" : 500,
+    "i" : "215448"
+  }, {
+    "@id" : 507,
+    "s" : 446,
+    "t" : 447,
+    "i" : "215887"
+  }, {
+    "@id" : 506,
+    "s" : 446,
+    "t" : 447,
+    "i" : "179397"
+  }, {
+    "@id" : 449,
+    "s" : 446,
+    "t" : 447,
+    "i" : "215887"
+  }, {
+    "@id" : 448,
+    "s" : 446,
+    "t" : 447,
+    "i" : "179397"
+  }, {
+    "@id" : 456,
+    "s" : 444,
+    "t" : 455,
+    "i" : "5652"
+  }, {
+    "@id" : 445,
+    "s" : 444,
+    "t" : 444,
+    "i" : "83923"
+  } ]
+}, {
+  "cyTableColumn" : [ {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "shared name"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "name"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "selected",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "Taxonomy ID"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "Taxonomy Name"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "Human Readable Label"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "refseq_id"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "refseq",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "unknown",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "sgd",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "entrez gene/locuslink",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "entrezgene/locuslink_id"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "genbank indentifier_id"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "genbank indentifier",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "chebi_id"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "bind",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "mdl",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "obo.chebi",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "merck index",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "beilstein",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "pubchem",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "ec number",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "omim",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "hgnc",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "node_table",
+    "n" : "hgnc_id"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "shared name"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "shared interaction"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "name"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "selected",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "interaction"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "Author",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "Primary Interaction Type"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "Interaction Type",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "Publication DB",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "Publication ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "Detection Method ID",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "Detection Method",
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "applies_to" : "edge_table",
+    "n" : "Source Database"
+  }, {
+    "s" : 434,
+    "applies_to" : "network_table",
+    "n" : "shared name"
+  }, {
+    "s" : 434,
+    "applies_to" : "network_table",
+    "n" : "name"
+  }, {
+    "s" : 434,
+    "applies_to" : "network_table",
+    "n" : "selected",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "applies_to" : "network_table",
+    "n" : "source"
+  }, {
+    "s" : 434,
+    "applies_to" : "network_table",
+    "n" : "created by"
+  }, {
+    "s" : 434,
+    "applies_to" : "network_table",
+    "n" : "__Annotations",
+    "d" : "list_of_string"
+  } ]
+}, {
+  "networkAttributes" : [ {
+    "n" : "name",
+    "v" : "BIND (2016/02/24 11:42:32 AM, PST)"
+  }, {
+    "s" : 434,
+    "n" : "name",
+    "v" : "BIND (2016/02/24 11:42:32 AM, PST)"
+  }, {
+    "s" : 434,
+    "n" : "source",
+    "v" : "BIND"
+  }, {
+    "s" : 434,
+    "n" : "created by",
+    "v" : "PSICQUIC Web Service"
+  }, {
+    "s" : 434,
+    "n" : "selected",
+    "v" : "true",
+    "d" : "boolean"
+  } ]
+}, {
+  "hiddenAttributes" : [ {
+    "s" : 434,
+    "n" : "layoutAlgorithm",
+    "v" : "Prefuse Force Directed Layout"
+  } ]
+}, {
+  "nodeAttributes" : [ {
+    "s" : 434,
+    "po" : 515,
+    "n" : "refseq_id",
+    "v" : "NC_000016.4"
+  }, {
+    "s" : 434,
+    "po" : 515,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 515,
+    "n" : "unknown",
+    "v" : [ "RBL2 promoter" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 515,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "5934" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 515,
+    "n" : "Human Readable Label",
+    "v" : "RBL2 promoter"
+  }, {
+    "s" : 434,
+    "po" : 515,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 515,
+    "n" : "refseq",
+    "v" : [ "NC_000016.4" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 515,
+    "n" : "omim",
+    "v" : [ "180203" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 515,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 515,
+    "n" : "name",
+    "v" : "NC_000016.4"
+  }, {
+    "s" : 434,
+    "po" : 514,
+    "n" : "hgnc_id",
+    "v" : "11535"
+  }, {
+    "s" : 434,
+    "po" : 514,
+    "n" : "hgnc",
+    "v" : [ "11535" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 514,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 514,
+    "n" : "unknown",
+    "v" : [ "TAF1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 514,
+    "n" : "Human Readable Label",
+    "v" : "TAF1"
+  }, {
+    "s" : 434,
+    "po" : 514,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 514,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 514,
+    "n" : "name",
+    "v" : "11535"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "refseq_id",
+    "v" : "NC_000017.9"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "hgnc",
+    "v" : [ "1744" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "unknown",
+    "v" : [ "CDC6 promoter" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "990" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "Human Readable Label",
+    "v" : "CDC6 promoter"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "refseq",
+    "v" : [ "NC_000017.9" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "omim",
+    "v" : [ "602627" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 512,
+    "n" : "name",
+    "v" : "NC_000017.9"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "refseq_id",
+    "v" : "NC_000001.8"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "hgnc",
+    "v" : [ "3114" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "unknown",
+    "v" : [ "E2F2 promoter" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "1870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "Human Readable Label",
+    "v" : "NC_000001.8"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "refseq",
+    "v" : [ "NC_000001.8" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "omim",
+    "v" : [ "600426" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 510,
+    "n" : "name",
+    "v" : "NC_000001.8"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "hgnc",
+    "v" : [ "7399" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "unknown",
+    "v" : [ "MT1G promoter" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "4495" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "Human Readable Label",
+    "v" : "MT1G promoter"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "entrezgene/locuslink_id",
+    "v" : "4495"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "omim",
+    "v" : [ "156353" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 508,
+    "n" : "name",
+    "v" : "4495"
+  }, {
+    "s" : 434,
+    "po" : 504,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 504,
+    "n" : "unknown",
+    "v" : [ "BIRC5" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 504,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "332" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 504,
+    "n" : "Human Readable Label",
+    "v" : "BIRC5"
+  }, {
+    "s" : 434,
+    "po" : 504,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 504,
+    "n" : "entrezgene/locuslink_id",
+    "v" : "332"
+  }, {
+    "s" : 434,
+    "po" : 504,
+    "n" : "omim",
+    "v" : [ "603352" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 504,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 504,
+    "n" : "name",
+    "v" : "332"
+  }, {
+    "s" : 434,
+    "po" : 502,
+    "n" : "refseq_id",
+    "v" : "NP_116090.2"
+  }, {
+    "s" : 434,
+    "po" : 502,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 502,
+    "n" : "unknown",
+    "v" : [ "Suv4-20h2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 502,
+    "n" : "Human Readable Label",
+    "v" : "Suv4-20h2"
+  }, {
+    "s" : 434,
+    "po" : 502,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 502,
+    "n" : "refseq",
+    "v" : [ "NP_116090.2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 502,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 502,
+    "n" : "name",
+    "v" : "NP_116090.2"
+  }, {
+    "s" : 434,
+    "po" : 500,
+    "n" : "refseq_id",
+    "v" : "NP_060105.2"
+  }, {
+    "s" : 434,
+    "po" : 500,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 500,
+    "n" : "unknown",
+    "v" : [ "Suv4-20h1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 500,
+    "n" : "Human Readable Label",
+    "v" : "Suv4-20h1"
+  }, {
+    "s" : 434,
+    "po" : 500,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 500,
+    "n" : "refseq",
+    "v" : [ "NP_060105.2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 500,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 500,
+    "n" : "name",
+    "v" : "NP_060105.2"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "refseq_id",
+    "v" : "NM_005611.2"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "unknown",
+    "v" : [ "RBL2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "5934" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "Human Readable Label",
+    "v" : "RBL2"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "refseq",
+    "v" : [ "NM_005611.2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "omim",
+    "v" : [ "180203" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 498,
+    "n" : "name",
+    "v" : "NM_005611.2"
+  }, {
+    "s" : 434,
+    "po" : 497,
+    "n" : "refseq_id",
+    "v" : "NP_000448.3"
+  }, {
+    "s" : 434,
+    "po" : 497,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 497,
+    "n" : "unknown",
+    "v" : [ "HNF4-alpha" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 497,
+    "n" : "Human Readable Label",
+    "v" : "HNF4-alpha"
+  }, {
+    "s" : 434,
+    "po" : 497,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 497,
+    "n" : "refseq",
+    "v" : [ "NP_000448.3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 497,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 497,
+    "n" : "name",
+    "v" : "NP_000448.3"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "Taxonomy ID",
+    "v" : "32644"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "merck index",
+    "v" : [ "6170 " ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "unknown",
+    "v" : [ "MMS" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "bind",
+    "v" : [ "81" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "Human Readable Label",
+    "v" : "MMS"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "obo.chebi",
+    "v" : [ "25255" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "beilstein",
+    "v" : [ "1098586" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "mdl",
+    "v" : [ "MFCD00007557" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "Taxonomy Name",
+    "v" : "unidentified"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "name",
+    "v" : "25255"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "pubchem",
+    "v" : [ "4156" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "chebi_id",
+    "v" : "25255"
+  }, {
+    "s" : 434,
+    "po" : 495,
+    "n" : "ec number",
+    "v" : [ "200-625-0" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 493,
+    "n" : "genbank indentifier",
+    "v" : [ "6325015" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 493,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 493,
+    "n" : "unknown",
+    "v" : [ "CIN2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 493,
+    "n" : "genbank indentifier_id",
+    "v" : "6325015"
+  }, {
+    "s" : 434,
+    "po" : 493,
+    "n" : "Human Readable Label",
+    "v" : "CIN2"
+  }, {
+    "s" : 434,
+    "po" : 493,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 493,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 493,
+    "n" : "name",
+    "v" : "6325015"
+  }, {
+    "s" : 434,
+    "po" : 491,
+    "n" : "genbank indentifier",
+    "v" : [ "6324925" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 491,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 491,
+    "n" : "unknown",
+    "v" : [ "CIN1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 491,
+    "n" : "genbank indentifier_id",
+    "v" : "6324925"
+  }, {
+    "s" : 434,
+    "po" : 491,
+    "n" : "Human Readable Label",
+    "v" : "CIN1"
+  }, {
+    "s" : 434,
+    "po" : 491,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 491,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 491,
+    "n" : "name",
+    "v" : "6324925"
+  }, {
+    "s" : 434,
+    "po" : 489,
+    "n" : "genbank indentifier",
+    "v" : [ "6324600" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 489,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 489,
+    "n" : "unknown",
+    "v" : [ "BUB3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 489,
+    "n" : "genbank indentifier_id",
+    "v" : "6324600"
+  }, {
+    "s" : 434,
+    "po" : 489,
+    "n" : "Human Readable Label",
+    "v" : "BUB3"
+  }, {
+    "s" : 434,
+    "po" : 489,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 489,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 489,
+    "n" : "name",
+    "v" : "6324600"
+  }, {
+    "s" : 434,
+    "po" : 487,
+    "n" : "genbank indentifier",
+    "v" : [ "4506363" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 487,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 487,
+    "n" : "unknown",
+    "v" : [ "GIM3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 487,
+    "n" : "genbank indentifier_id",
+    "v" : "4506363"
+  }, {
+    "s" : 434,
+    "po" : 487,
+    "n" : "Human Readable Label",
+    "v" : "GIM3"
+  }, {
+    "s" : 434,
+    "po" : 487,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 487,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 487,
+    "n" : "name",
+    "v" : "4506363"
+  }, {
+    "s" : 434,
+    "po" : 485,
+    "n" : "genbank indentifier",
+    "v" : [ "6323787" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 485,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 485,
+    "n" : "unknown",
+    "v" : [ "CIN4" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 485,
+    "n" : "genbank indentifier_id",
+    "v" : "6323787"
+  }, {
+    "s" : 434,
+    "po" : 485,
+    "n" : "Human Readable Label",
+    "v" : "CIN4"
+  }, {
+    "s" : 434,
+    "po" : 485,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 485,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 485,
+    "n" : "name",
+    "v" : "6323787"
+  }, {
+    "s" : 434,
+    "po" : 483,
+    "n" : "genbank indentifier",
+    "v" : [ "6323544" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 483,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 483,
+    "n" : "unknown",
+    "v" : [ "GIM5" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 483,
+    "n" : "genbank indentifier_id",
+    "v" : "6323544"
+  }, {
+    "s" : 434,
+    "po" : 483,
+    "n" : "Human Readable Label",
+    "v" : "GIM5"
+  }, {
+    "s" : 434,
+    "po" : 483,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 483,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 483,
+    "n" : "name",
+    "v" : "6323544"
+  }, {
+    "s" : 434,
+    "po" : 481,
+    "n" : "genbank indentifier",
+    "v" : [ "6323229" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 481,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 481,
+    "n" : "unknown",
+    "v" : [ "YKE2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 481,
+    "n" : "genbank indentifier_id",
+    "v" : "6323229"
+  }, {
+    "s" : 434,
+    "po" : 481,
+    "n" : "Human Readable Label",
+    "v" : "YKE2"
+  }, {
+    "s" : 434,
+    "po" : 481,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 481,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 481,
+    "n" : "name",
+    "v" : "6323229"
+  }, {
+    "s" : 434,
+    "po" : 479,
+    "n" : "genbank indentifier",
+    "v" : [ "6321515" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 479,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 479,
+    "n" : "unknown",
+    "v" : [ "PAC10" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 479,
+    "n" : "genbank indentifier_id",
+    "v" : "6321515"
+  }, {
+    "s" : 434,
+    "po" : 479,
+    "n" : "Human Readable Label",
+    "v" : "PAC10"
+  }, {
+    "s" : 434,
+    "po" : 479,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 479,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 479,
+    "n" : "name",
+    "v" : "6321515"
+  }, {
+    "s" : 434,
+    "po" : 477,
+    "n" : "genbank indentifier",
+    "v" : [ "6320843" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 477,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 477,
+    "n" : "unknown",
+    "v" : [ "PAC2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 477,
+    "n" : "genbank indentifier_id",
+    "v" : "6320843"
+  }, {
+    "s" : 434,
+    "po" : 477,
+    "n" : "Human Readable Label",
+    "v" : "PAC2"
+  }, {
+    "s" : 434,
+    "po" : 477,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 477,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 477,
+    "n" : "name",
+    "v" : "6320843"
+  }, {
+    "s" : 434,
+    "po" : 475,
+    "n" : "genbank indentifier",
+    "v" : [ "154199604" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 475,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 475,
+    "n" : "unknown",
+    "v" : [ "GIM4" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 475,
+    "n" : "genbank indentifier_id",
+    "v" : "154199604"
+  }, {
+    "s" : 434,
+    "po" : 475,
+    "n" : "Human Readable Label",
+    "v" : "GIM4"
+  }, {
+    "s" : 434,
+    "po" : 475,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 475,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 475,
+    "n" : "name",
+    "v" : "154199604"
+  }, {
+    "s" : 434,
+    "po" : 473,
+    "n" : "genbank indentifier",
+    "v" : [ "6323511" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 473,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 473,
+    "n" : "unknown",
+    "v" : [ "TUB3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 473,
+    "n" : "genbank indentifier_id",
+    "v" : "6323511"
+  }, {
+    "s" : 434,
+    "po" : 473,
+    "n" : "Human Readable Label",
+    "v" : "TUB3"
+  }, {
+    "s" : 434,
+    "po" : 473,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 473,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 473,
+    "n" : "name",
+    "v" : "6323511"
+  }, {
+    "s" : 434,
+    "po" : 471,
+    "n" : "genbank indentifier",
+    "v" : [ "37362641" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 471,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 471,
+    "n" : "unknown",
+    "v" : [ "CIN8" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 471,
+    "n" : "genbank indentifier_id",
+    "v" : "37362641"
+  }, {
+    "s" : 434,
+    "po" : 471,
+    "n" : "Human Readable Label",
+    "v" : "CIN8"
+  }, {
+    "s" : 434,
+    "po" : 471,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 471,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 471,
+    "n" : "name",
+    "v" : "37362641"
+  }, {
+    "s" : 434,
+    "po" : 469,
+    "n" : "genbank indentifier",
+    "v" : [ "6324839" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 469,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 469,
+    "n" : "unknown",
+    "v" : [ "RBL2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 469,
+    "n" : "genbank indentifier_id",
+    "v" : "6324839"
+  }, {
+    "s" : 434,
+    "po" : 469,
+    "n" : "Human Readable Label",
+    "v" : "RBL2"
+  }, {
+    "s" : 434,
+    "po" : 469,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 469,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 469,
+    "n" : "name",
+    "v" : "6324839"
+  }, {
+    "s" : 434,
+    "po" : 468,
+    "n" : "genbank indentifier",
+    "v" : [ "6319820" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 468,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 468,
+    "n" : "unknown",
+    "v" : [ "BIK1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 468,
+    "n" : "genbank indentifier_id",
+    "v" : "6319820"
+  }, {
+    "s" : 434,
+    "po" : 468,
+    "n" : "Human Readable Label",
+    "v" : "BIK1"
+  }, {
+    "s" : 434,
+    "po" : 468,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 468,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 468,
+    "n" : "name",
+    "v" : "6319820"
+  }, {
+    "s" : 434,
+    "po" : 466,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 466,
+    "n" : "unknown",
+    "v" : [ "LUV1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 466,
+    "n" : "sgd",
+    "v" : [ "S0002434" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 466,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "851591" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 466,
+    "n" : "Human Readable Label",
+    "v" : "LUV1"
+  }, {
+    "s" : 434,
+    "po" : 466,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 466,
+    "n" : "entrezgene/locuslink_id",
+    "v" : "851591"
+  }, {
+    "s" : 434,
+    "po" : 466,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 466,
+    "n" : "name",
+    "v" : "851591"
+  }, {
+    "s" : 434,
+    "po" : 464,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 464,
+    "n" : "unknown",
+    "v" : [ "GIM3" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 464,
+    "n" : "sgd",
+    "v" : [ "S0005097" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 464,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "855569" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 464,
+    "n" : "Human Readable Label",
+    "v" : "GIM3"
+  }, {
+    "s" : 434,
+    "po" : 464,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 464,
+    "n" : "entrezgene/locuslink_id",
+    "v" : "855569"
+  }, {
+    "s" : 434,
+    "po" : 464,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 464,
+    "n" : "name",
+    "v" : "855569"
+  }, {
+    "s" : 434,
+    "po" : 462,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 462,
+    "n" : "unknown",
+    "v" : [ "YKE2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 462,
+    "n" : "sgd",
+    "v" : [ "S0004190" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 462,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "850897" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 462,
+    "n" : "Human Readable Label",
+    "v" : "YKE2"
+  }, {
+    "s" : 434,
+    "po" : 462,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 462,
+    "n" : "entrezgene/locuslink_id",
+    "v" : "850897"
+  }, {
+    "s" : 434,
+    "po" : 462,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 462,
+    "n" : "name",
+    "v" : "850897"
+  }, {
+    "s" : 434,
+    "po" : 460,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 460,
+    "n" : "unknown",
+    "v" : [ "RBL2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 460,
+    "n" : "sgd",
+    "v" : [ "S0005791", "S000005791" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 460,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "854439" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 460,
+    "n" : "Human Readable Label",
+    "v" : "RBL2"
+  }, {
+    "s" : 434,
+    "po" : 460,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 460,
+    "n" : "entrezgene/locuslink_id",
+    "v" : "854439"
+  }, {
+    "s" : 434,
+    "po" : 460,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 460,
+    "n" : "name",
+    "v" : "854439"
+  }, {
+    "s" : 434,
+    "po" : 459,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 459,
+    "n" : "unknown",
+    "v" : [ "PAC10" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 459,
+    "n" : "sgd",
+    "v" : [ "S0003310" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 459,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "852969" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 459,
+    "n" : "Human Readable Label",
+    "v" : "PAC10"
+  }, {
+    "s" : 434,
+    "po" : 459,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 459,
+    "n" : "entrezgene/locuslink_id",
+    "v" : "852969"
+  }, {
+    "s" : 434,
+    "po" : 459,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 459,
+    "n" : "name",
+    "v" : "852969"
+  }, {
+    "s" : 434,
+    "po" : 457,
+    "n" : "refseq_id",
+    "v" : "NP_116616.1"
+  }, {
+    "s" : 434,
+    "po" : 457,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 457,
+    "n" : "unknown",
+    "v" : [ "TUB2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 457,
+    "n" : "Human Readable Label",
+    "v" : "TUB2"
+  }, {
+    "s" : 434,
+    "po" : 457,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 457,
+    "n" : "refseq",
+    "v" : [ "NP_116616.1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 457,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 457,
+    "n" : "name",
+    "v" : "NP_116616.1"
+  }, {
+    "s" : 434,
+    "po" : 455,
+    "n" : "refseq_id",
+    "v" : "NP_014820.1"
+  }, {
+    "s" : 434,
+    "po" : 455,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 455,
+    "n" : "unknown",
+    "v" : [ "Yor177c" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 455,
+    "n" : "Human Readable Label",
+    "v" : "Yor177c"
+  }, {
+    "s" : 434,
+    "po" : 455,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 455,
+    "n" : "refseq",
+    "v" : [ "NP_014820.1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 455,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 455,
+    "n" : "name",
+    "v" : "NP_014820.1"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "refseq_id",
+    "v" : "NC_001147.4"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "unknown",
+    "v" : [ "RBL2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "sgd",
+    "v" : [ "S0005791" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "entrez gene/locuslink",
+    "v" : [ "854439" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "Human Readable Label",
+    "v" : "RBL2"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "refseq",
+    "v" : [ "NC_001147.4" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 453,
+    "n" : "name",
+    "v" : "NC_001147.4"
+  }, {
+    "s" : 434,
+    "po" : 452,
+    "n" : "refseq_id",
+    "v" : "NP_013021.1"
+  }, {
+    "s" : 434,
+    "po" : 452,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 452,
+    "n" : "unknown",
+    "v" : [ "Mlp1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 452,
+    "n" : "Human Readable Label",
+    "v" : "Mlp1"
+  }, {
+    "s" : 434,
+    "po" : 452,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 452,
+    "n" : "refseq",
+    "v" : [ "NP_013021.1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 452,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 452,
+    "n" : "name",
+    "v" : "NP_013021.1"
+  }, {
+    "s" : 434,
+    "po" : 450,
+    "n" : "refseq_id",
+    "v" : "NP_012624.1"
+  }, {
+    "s" : 434,
+    "po" : 450,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 450,
+    "n" : "unknown",
+    "v" : [ "Jsn1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 450,
+    "n" : "Human Readable Label",
+    "v" : "Jsn1"
+  }, {
+    "s" : 434,
+    "po" : 450,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 450,
+    "n" : "refseq",
+    "v" : [ "NP_012624.1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 450,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 450,
+    "n" : "name",
+    "v" : "NP_012624.1"
+  }, {
+    "s" : 434,
+    "po" : 447,
+    "n" : "refseq_id",
+    "v" : "NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 447,
+    "n" : "Taxonomy ID",
+    "v" : "9606"
+  }, {
+    "s" : 434,
+    "po" : 447,
+    "n" : "unknown",
+    "v" : [ "RBL2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 447,
+    "n" : "Human Readable Label",
+    "v" : "RBL2"
+  }, {
+    "s" : 434,
+    "po" : 447,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 447,
+    "n" : "refseq",
+    "v" : [ "NP_005602.2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 447,
+    "n" : "Taxonomy Name",
+    "v" : "Homo sapiens"
+  }, {
+    "s" : 434,
+    "po" : 447,
+    "n" : "name",
+    "v" : "NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 446,
+    "n" : "refseq_id",
+    "v" : "NP_057853.1"
+  }, {
+    "s" : 434,
+    "po" : 446,
+    "n" : "Taxonomy ID",
+    "v" : "11676"
+  }, {
+    "s" : 434,
+    "po" : 446,
+    "n" : "unknown",
+    "v" : [ "Tat" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 446,
+    "n" : "Human Readable Label",
+    "v" : "Tat"
+  }, {
+    "s" : 434,
+    "po" : 446,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 446,
+    "n" : "refseq",
+    "v" : [ "NP_057853.1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 446,
+    "n" : "Taxonomy Name",
+    "v" : "Human immunodeficiency virus 1"
+  }, {
+    "s" : 434,
+    "po" : 446,
+    "n" : "name",
+    "v" : "NP_057853.1"
+  }, {
+    "s" : 434,
+    "po" : 444,
+    "n" : "refseq_id",
+    "v" : "NP_014908.1"
+  }, {
+    "s" : 434,
+    "po" : 444,
+    "n" : "Taxonomy ID",
+    "v" : "4932"
+  }, {
+    "s" : 434,
+    "po" : 444,
+    "n" : "unknown",
+    "v" : [ "RBL2", "Rbl2" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 444,
+    "n" : "Human Readable Label",
+    "v" : "RBL2"
+  }, {
+    "s" : 434,
+    "po" : 444,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 444,
+    "n" : "refseq",
+    "v" : [ "NP_014908.1" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 444,
+    "n" : "Taxonomy Name",
+    "v" : "Saccharomyces cerevisiae"
+  }, {
+    "s" : 434,
+    "po" : 444,
+    "n" : "name",
+    "v" : "NP_014908.1"
+  } ]
+}, {
+  "edgeAttributes" : [ {
+    "s" : 434,
+    "po" : 516,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 516,
+    "n" : "Publication ID",
+    "v" : [ "15988478" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 516,
+    "n" : "Detection Method",
+    "v" : [ "crosslink" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 516,
+    "n" : "shared name",
+    "v" : "11535 (321674) NC_000016.4"
+  }, {
+    "s" : 434,
+    "po" : 516,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 516,
+    "n" : "name",
+    "v" : "11535 (321674) NC_000016.4"
+  }, {
+    "s" : 434,
+    "po" : 516,
+    "n" : "interaction",
+    "v" : "321674"
+  }, {
+    "s" : 434,
+    "po" : 516,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0030" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 516,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 516,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "Publication ID",
+    "v" : [ "14988562" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "Detection Method",
+    "v" : [ "crosslink" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "shared name",
+    "v" : "NP_000448.3 (125929) NM_005611.2"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "name",
+    "v" : "NP_000448.3 (125929) NM_005611.2"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "interaction",
+    "v" : "125929"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0030" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 499,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "shared name",
+    "v" : "6323511 (47437) 6324839"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "name",
+    "v" : "6323511 (47437) 6324839"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "interaction",
+    "v" : "47437"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 474,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "shared name",
+    "v" : "37362641 (47332) 6324839"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "name",
+    "v" : "37362641 (47332) 6324839"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "interaction",
+    "v" : "47332"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 472,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "shared name",
+    "v" : "6324839 (47451) 6325015"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "name",
+    "v" : "6324839 (47451) 6325015"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "interaction",
+    "v" : "47451"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 494,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "shared name",
+    "v" : "6324839 (47450) 6324925"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "name",
+    "v" : "6324839 (47450) 6324925"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "interaction",
+    "v" : "47450"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 492,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "shared name",
+    "v" : "6324839 (47449) 6324600"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "name",
+    "v" : "6324839 (47449) 6324600"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "interaction",
+    "v" : "47449"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 490,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "shared name",
+    "v" : "6324839 (47448) 4506363"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "name",
+    "v" : "6324839 (47448) 4506363"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "interaction",
+    "v" : "47448"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 488,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "shared name",
+    "v" : "6324839 (47447) 6323787"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "name",
+    "v" : "6324839 (47447) 6323787"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "interaction",
+    "v" : "47447"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 486,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "shared name",
+    "v" : "6324839 (47446) 6323544"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "name",
+    "v" : "6324839 (47446) 6323544"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "interaction",
+    "v" : "47446"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 484,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "shared name",
+    "v" : "6324839 (47445) 6323229"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "name",
+    "v" : "6324839 (47445) 6323229"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "interaction",
+    "v" : "47445"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 482,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "shared name",
+    "v" : "6324839 (47444) 6321515"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "name",
+    "v" : "6324839 (47444) 6321515"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "interaction",
+    "v" : "47444"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 480,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "shared name",
+    "v" : "6324839 (47443) 6320843"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "name",
+    "v" : "6324839 (47443) 6320843"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "interaction",
+    "v" : "47443"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 478,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "shared name",
+    "v" : "6324839 (47442) 154199604"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "name",
+    "v" : "6324839 (47442) 154199604"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "interaction",
+    "v" : "47442"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 476,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "Publication ID",
+    "v" : [ "14764870", "14764870" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac", "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "shared name",
+    "v" : "6319820 (47133) 6324839"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "name",
+    "v" : "6319820 (47133) 6324839"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "interaction",
+    "v" : "47133"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045", "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 470,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "Publication ID",
+    "v" : [ "9914379" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "Detection Method",
+    "v" : [ "unspecified method" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "shared name",
+    "v" : "851591 (170935) 854439"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "name",
+    "v" : "851591 (170935) 854439"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "interaction",
+    "v" : "170935"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0686" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 467,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "Publication ID",
+    "v" : [ "9463374" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "Detection Method",
+    "v" : [ "unspecified method" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "shared name",
+    "v" : "855569 (170412) 854439"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "name",
+    "v" : "855569 (170412) 854439"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "interaction",
+    "v" : "170412"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0686" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 465,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "Publication ID",
+    "v" : [ "9463374" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "Detection Method",
+    "v" : [ "unspecified method" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "shared name",
+    "v" : "850897 (170411) 854439"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "name",
+    "v" : "850897 (170411) 854439"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "interaction",
+    "v" : "170411"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0686" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 463,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "Publication ID",
+    "v" : [ "15469827" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "Detection Method",
+    "v" : [ "experimental interac" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "shared name",
+    "v" : "854439 (300348) 25255"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "name",
+    "v" : "854439 (300348) 25255"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "interaction",
+    "v" : "300348"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0045" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 496,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "Publication ID",
+    "v" : [ "9463374" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "Detection Method",
+    "v" : [ "unspecified method" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "shared name",
+    "v" : "852969 (170410) 854439"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "name",
+    "v" : "852969 (170410) 854439"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "interaction",
+    "v" : "170410"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0686" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 461,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "Publication ID",
+    "v" : [ "7634332" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "Detection Method",
+    "v" : [ "unspecified method" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "shared name",
+    "v" : "NP_116616.1 (169512) NP_014908.1"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "name",
+    "v" : "NP_116616.1 (169512) NP_014908.1"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "interaction",
+    "v" : "169512"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0686" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 458,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "Publication ID",
+    "v" : [ "15137937" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "Detection Method",
+    "v" : [ "crosslink" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "shared name",
+    "v" : "NP_013021.1 (136265) NC_001147.4"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "name",
+    "v" : "NP_013021.1 (136265) NC_001147.4"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "interaction",
+    "v" : "136265"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0030" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 454,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "Publication ID",
+    "v" : [ "11283351" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "Detection Method",
+    "v" : [ "2 hybrid" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "shared name",
+    "v" : "NP_012624.1 (3884) NP_014908.1"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "name",
+    "v" : "NP_012624.1 (3884) NP_014908.1"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "interaction",
+    "v" : "3884"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0018" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 451,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "Publication ID",
+    "v" : [ "15861133" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "Detection Method",
+    "v" : [ "crosslink" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "shared name",
+    "v" : "NP_005602.2 (295853) NC_000017.9"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "name",
+    "v" : "NP_005602.2 (295853) NC_000017.9"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "interaction",
+    "v" : "295853"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0030" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 513,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "Publication ID",
+    "v" : [ "15861133" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "Detection Method",
+    "v" : [ "crosslink" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "shared name",
+    "v" : "NP_005602.2 (295827) NC_000001.8"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "name",
+    "v" : "NP_005602.2 (295827) NC_000001.8"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "interaction",
+    "v" : "295827"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0030" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 511,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "Publication ID",
+    "v" : [ "15735762" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "Detection Method",
+    "v" : [ "crosslink" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "shared name",
+    "v" : "NP_005602.2 (257678) 4495"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "name",
+    "v" : "NP_005602.2 (257678) 4495"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "interaction",
+    "v" : "257678"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0030" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 509,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "Publication ID",
+    "v" : [ "15271987" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "Detection Method",
+    "v" : [ "crosslink" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "shared name",
+    "v" : "NP_005602.2 (217995) 332"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "name",
+    "v" : "NP_005602.2 (217995) 332"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "interaction",
+    "v" : "217995"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0030" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 505,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "Publication ID",
+    "v" : [ "15750587", "15750587" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "Detection Method",
+    "v" : [ "affinity chromatography technology", "affinity chromatography technology" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "shared name",
+    "v" : "NP_005602.2 (215449) NP_116090.2"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "name",
+    "v" : "NP_005602.2 (215449) NP_116090.2"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "interaction",
+    "v" : "215449"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0004", "MI:0004" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 503,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "Publication ID",
+    "v" : [ "15750587", "15750587" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "Detection Method",
+    "v" : [ "affinity chromatography technology", "affinity chromatography technology" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "shared name",
+    "v" : "NP_005602.2 (215448) NP_060105.2"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "name",
+    "v" : "NP_005602.2 (215448) NP_060105.2"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "interaction",
+    "v" : "215448"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0004", "MI:0004" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 501,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "Publication ID",
+    "v" : [ "12196924", "12196924" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "Detection Method",
+    "v" : [ "affinity chromatography technology", "coip" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "shared name",
+    "v" : "NP_057853.1 (215887) NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "name",
+    "v" : "NP_057853.1 (215887) NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "interaction",
+    "v" : "215887"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0004", "MI:0019" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 507,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "Publication ID",
+    "v" : [ "12196924", "12196924" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "Detection Method",
+    "v" : [ "unspecified method", "unspecified method" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "shared name",
+    "v" : "NP_057853.1 (179397) NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "name",
+    "v" : "NP_057853.1 (179397) NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "interaction",
+    "v" : "179397"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0686", "MI:0686" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 506,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "Publication ID",
+    "v" : [ "12196924", "12196924" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "Detection Method",
+    "v" : [ "affinity chromatography technology", "coip" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "shared name",
+    "v" : "NP_057853.1 (215887) NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "name",
+    "v" : "NP_057853.1 (215887) NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "interaction",
+    "v" : "215887"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0004", "MI:0019" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 449,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "Publication ID",
+    "v" : [ "12196924", "12196924" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "Detection Method",
+    "v" : [ "unspecified method", "unspecified method" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "shared name",
+    "v" : "NP_057853.1 (179397) NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "Publication DB",
+    "v" : [ "pubmed", "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "name",
+    "v" : "NP_057853.1 (179397) NP_005602.2"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "interaction",
+    "v" : "179397"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0686", "MI:0686" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 448,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "Publication ID",
+    "v" : [ "11283351" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "Detection Method",
+    "v" : [ "2 hybrid" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "shared name",
+    "v" : "NP_014908.1 (5652) NP_014820.1"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "name",
+    "v" : "NP_014908.1 (5652) NP_014820.1"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "interaction",
+    "v" : "5652"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0018" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 456,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "Source Database",
+    "v" : "bind"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "Publication ID",
+    "v" : [ "10542094" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "Detection Method",
+    "v" : [ "x-ray diffraction" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "shared name",
+    "v" : "NP_014908.1 (83923) NP_014908.1"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "Publication DB",
+    "v" : [ "pubmed" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "name",
+    "v" : "NP_014908.1 (83923) NP_014908.1"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "interaction",
+    "v" : "83923"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "Detection Method ID",
+    "v" : [ "MI:0114" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "Author",
+    "v" : [ "-" ],
+    "d" : "list_of_string"
+  }, {
+    "s" : 434,
+    "po" : 445,
+    "n" : "selected",
+    "v" : "false",
+    "d" : "boolean"
+  } ]
+}, {
+  "cartesianLayout" : [ {
+    "node" : 515,
+    "view" : 517,
+    "x" : -76.86049406152023,
+    "y" : 264.4918670654297
+  }, {
+    "node" : 514,
+    "view" : 517,
+    "x" : -74.53890363793624,
+    "y" : 156.7525177001953
+  }, {
+    "node" : 512,
+    "view" : 517,
+    "x" : 250.73151643652665,
+    "y" : -32.18466567993164
+  }, {
+    "node" : 510,
+    "view" : 517,
+    "x" : 72.74186189551102,
+    "y" : 15.38228988647461
+  }, {
+    "node" : 508,
+    "view" : 517,
+    "x" : 21.224253252932897,
+    "y" : -85.94729232788086
+  }, {
+    "node" : 504,
+    "view" : 517,
+    "x" : 252.59037263769852,
+    "y" : -129.56785202026367
+  }, {
+    "node" : 502,
+    "view" : 517,
+    "x" : 176.9522805966829,
+    "y" : -200.1864128112793
+  }, {
+    "node" : 500,
+    "view" : 517,
+    "x" : 76.16742952246415,
+    "y" : -185.97524642944336
+  }, {
+    "node" : 498,
+    "view" : 517,
+    "x" : 25.461096362063756,
+    "y" : 264.4918670654297
+  }, {
+    "node" : 497,
+    "view" : 517,
+    "x" : 27.78268678564774,
+    "y" : 156.7525177001953
+  }, {
+    "node" : 495,
+    "view" : 517,
+    "x" : 352.5903726376985,
+    "y" : -58.654415130615234
+  }, {
+    "node" : 493,
+    "view" : 517,
+    "x" : -297.0271200380827,
+    "y" : -174.17400741577148
+  }, {
+    "node" : 491,
+    "view" : 517,
+    "x" : -110.880488797238,
+    "y" : 20.60845947265625
+  }, {
+    "node" : 489,
+    "view" : 517,
+    "x" : -111.59844343285812,
+    "y" : -163.62125778198242
+  }, {
+    "node" : 487,
+    "view" : 517,
+    "x" : -335.59579984765304,
+    "y" : -119.7149543762207
+  }, {
+    "node" : 485,
+    "view" : 517,
+    "x" : -353.4372915468718,
+    "y" : -51.36370086669922
+  }, {
+    "node" : 483,
+    "view" : 517,
+    "x" : -290.4931081972624,
+    "y" : 39.661773681640625
+  }, {
+    "node" : 481,
+    "view" : 517,
+    "x" : -79.55704633813156,
+    "y" : -105.36833572387695
+  }, {
+    "node" : 479,
+    "view" : 517,
+    "x" : -166.90150587182296,
+    "y" : -199.73535919189453
+  }, {
+    "node" : 477,
+    "view" : 517,
+    "x" : -233.8696188173796,
+    "y" : -200.1864128112793
+  }, {
+    "node" : 475,
+    "view" : 517,
+    "x" : -299.046712323239,
+    "y" : -22.716522216796875
+  }, {
+    "node" : 473,
+    "view" : 517,
+    "x" : -78.7757467470671,
+    "y" : -38.572593688964844
+  }, {
+    "node" : 471,
+    "view" : 517,
+    "x" : -227.17946378808273,
+    "y" : 54.98573303222656
+  }, {
+    "node" : 469,
+    "view" : 517,
+    "x" : -208.71978513818038,
+    "y" : -72.44364929199219
+  }, {
+    "node" : 468,
+    "view" : 517,
+    "x" : -163.59999219994796,
+    "y" : 56.75251770019531
+  }, {
+    "node" : 466,
+    "view" : 517,
+    "x" : 521.768229083011,
+    "y" : -200.1864128112793
+  }, {
+    "node" : 464,
+    "view" : 517,
+    "x" : 467.9698129453157,
+    "y" : 13.524028778076172
+  }, {
+    "node" : 462,
+    "view" : 517,
+    "x" : 385.836100176761,
+    "y" : -191.01902389526367
+  }, {
+    "node" : 460,
+    "view" : 517,
+    "x" : 460.1432901181673,
+    "y" : -101.94053268432617
+  }, {
+    "node" : 459,
+    "view" : 517,
+    "x" : 572.4658304013703,
+    "y" : -73.83382797241211
+  }, {
+    "node" : 457,
+    "view" : 517,
+    "x" : -307.66069547753585,
+    "y" : 353.4391632080078
+  }, {
+    "node" : 455,
+    "view" : 517,
+    "x" : -176.86049406152023,
+    "y" : 254.8879852294922
+  }, {
+    "node" : 453,
+    "view" : 517,
+    "x" : 127.78268678564774,
+    "y" : 264.4918670654297
+  }, {
+    "node" : 452,
+    "view" : 517,
+    "x" : 130.10427720923173,
+    "y" : 156.7525177001953
+  }, {
+    "node" : 450,
+    "view" : 517,
+    "x" : -353.4372915468718,
+    "y" : 156.7525177001953
+  }, {
+    "node" : 447,
+    "view" : 517,
+    "x" : 141.91132600683915,
+    "y" : -84.92257308959961
+  }, {
+    "node" : 446,
+    "view" : 517,
+    "x" : 168.35785920996415,
+    "y" : 17.160118103027344
+  }, {
+    "node" : 444,
+    "view" : 517,
+    "x" : -286.5412801943327,
+    "y" : 245.42730712890625
+  } ]
+}, {
+  "visualProperties" : [ {
+    "properties_of" : "network",
+    "applies_to" : 517,
+    "view" : 517,
+    "properties" : {
+      "NETWORK_BACKGROUND_PAINT" : "#FFFFFF",
+      "NETWORK_CENTER_X_LOCATION" : "0.0",
+      "NETWORK_CENTER_Y_LOCATION" : "0.0",
+      "NETWORK_CENTER_Z_LOCATION" : "0.0",
+      "NETWORK_DEPTH" : "0.0",
+      "NETWORK_EDGE_SELECTION" : "true",
+      "NETWORK_HEIGHT" : "400.0",
+      "NETWORK_NODE_SELECTION" : "true",
+      "NETWORK_SCALE_FACTOR" : "1.0",
+      "NETWORK_WIDTH" : "550.0"
+    }
+  }, {
+    "properties_of" : "nodes:default",
+    "applies_to" : 517,
+    "view" : 517,
+    "properties" : {
+      "COMPOUND_NODE_PADDING" : "10.0",
+      "COMPOUND_NODE_SHAPE" : "ROUND_RECTANGLE",
+      "NODE_BORDER_PAINT" : "#B4B4B4",
+      "NODE_BORDER_STROKE" : "SOLID",
+      "NODE_BORDER_TRANSPARENCY" : "240",
+      "NODE_BORDER_WIDTH" : "2.0",
+      "NODE_CUSTOMGRAPHICS_1" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_2" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_3" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_4" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_5" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_6" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_7" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_8" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_9" : "org.cytoscape.ding.customgraphics.NullCustomGraphics,0,[ Remove Graphics ],",
+      "NODE_CUSTOMGRAPHICS_POSITION_1" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_2" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_3" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_4" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_5" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_6" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_7" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_8" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_POSITION_9" : "C,C,c,0.00,0.00",
+      "NODE_CUSTOMGRAPHICS_SIZE_1" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_2" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_3" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_4" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_5" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_6" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_7" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_8" : "0.0",
+      "NODE_CUSTOMGRAPHICS_SIZE_9" : "0.0",
+      "NODE_DEPTH" : "0.0",
+      "NODE_FILL_COLOR" : "#FFFFFF",
+      "NODE_HEIGHT" : "24.0",
+      "NODE_LABEL_COLOR" : "#323232",
+      "NODE_LABEL_FONT_FACE" : "HelveticaNeue-UltraLight,plain,10",
+      "NODE_LABEL_FONT_SIZE" : "12",
+      "NODE_LABEL_POSITION" : "C,C,c,0.00,0.00",
+      "NODE_LABEL_TRANSPARENCY" : "230",
+      "NODE_LABEL_WIDTH" : "200.0",
+      "NODE_NESTED_NETWORK_IMAGE_VISIBLE" : "true",
+      "NODE_SELECTED" : "false",
+      "NODE_SELECTED_PAINT" : "#FFFF00",
+      "NODE_SHAPE" : "ROUND_RECTANGLE",
+      "NODE_TRANSPARENCY" : "220",
+      "NODE_VISIBLE" : "true",
+      "NODE_WIDTH" : "65.0",
+      "NODE_X_LOCATION" : "0.0",
+      "NODE_Y_LOCATION" : "0.0",
+      "NODE_Z_LOCATION" : "0.0"
+    },
+    "dependencies" : {
+      "nodeCustomGraphicsSizeSync" : "false",
+      "nodeSizeLocked" : "false"
+    },
+    "mappings" : {
+      "NODE_BORDER_PAINT" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=small molecule,V=0=#404040,K=1=gene,V=1=#404040"
+      },
+      "NODE_BORDER_WIDTH" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=small molecule,V=0=10.0,K=1=gene,V=1=4.0"
+      },
+      "NODE_FILL_COLOR" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Taxonomy ID,T=string,K=0=10090,V=0=#EE7621,K=1=83333,V=1=#B0E2FF,K=2=9606,V=2=#436EEE,K=3=7227,V=3=#9370DB,K=4=4932,V=4=#9C9C9C,K=5=10116,V=5=#6B8E23,K=6=3702,V=6=#FFF5EE"
+      },
+      "NODE_HEIGHT" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=protein dna complex,V=0=150.0,K=1=small molecule,V=1=20.0,K=2=ribonucleic acid,V=2=60.0,K=3=single stranded deoxyribonucleic acid,V=3=60.0,K=4=complex composition,V=4=150.0,K=5=double stranded deoxyribonucleic acid,V=5=60.0,K=6=gene,V=6=30.0,K=7=nucleic acid,V=7=60.0,K=8=protein complex,V=8=150.0,K=9=deoxyribonucleic acid,V=9=60.0,K=10=ribonucleoprotein complex,V=10=150.0,K=11=protein,V=11=24.0,K=12=complex,V=12=150.0"
+      },
+      "NODE_LABEL" : {
+        "type" : "PASSTHROUGH",
+        "definition" : "COL=Human Readable Label,T=string"
+      },
+      "NODE_SHAPE" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=protein dna complex,V=0=OCTAGON,K=1=small molecule,V=1=ELLIPSE,K=2=ribonucleic acid,V=2=PARALLELOGRAM,K=3=single stranded deoxyribonucleic acid,V=3=PARALLELOGRAM,K=4=complex composition,V=4=OCTAGON,K=5=double stranded deoxyribonucleic acid,V=5=PARALLELOGRAM,K=6=gene,V=6=DIAMOND,K=7=nucleic acid,V=7=PARALLELOGRAM,K=8=protein complex,V=8=OCTAGON,K=9=deoxyribonucleic acid,V=9=PARALLELOGRAM,K=10=ribonucleoprotein complex,V=10=OCTAGON,K=11=protein,V=11=ROUND_RECTANGLE,K=12=complex,V=12=OCTAGON"
+      },
+      "NODE_TOOLTIP" : {
+        "type" : "PASSTHROUGH",
+        "definition" : "COL=Interactor Type,T=string"
+      },
+      "NODE_WIDTH" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Interactor Type,T=string,K=0=protein dna complex,V=0=150.0,K=1=small molecule,V=1=20.0,K=2=ribonucleic acid,V=2=10.0,K=3=single stranded deoxyribonucleic acid,V=3=10.0,K=4=complex composition,V=4=150.0,K=5=double stranded deoxyribonucleic acid,V=5=10.0,K=6=gene,V=6=30.0,K=7=nucleic acid,V=7=10.0,K=8=protein complex,V=8=150.0,K=9=deoxyribonucleic acid,V=9=10.0,K=10=ribonucleoprotein complex,V=10=150.0,K=11=protein,V=11=65.0,K=12=complex,V=12=150.0"
+      }
+    }
+  }, {
+    "properties_of" : "edges:default",
+    "applies_to" : 517,
+    "view" : 517,
+    "properties" : {
+      "EDGE_CURVED" : "true",
+      "EDGE_LABEL_COLOR" : "#323232",
+      "EDGE_LABEL_FONT_FACE" : "SansSerif,plain,10",
+      "EDGE_LABEL_FONT_SIZE" : "8",
+      "EDGE_LABEL_TRANSPARENCY" : "80",
+      "EDGE_LABEL_WIDTH" : "200.0",
+      "EDGE_LINE_TYPE" : "SOLID",
+      "EDGE_PAINT" : "#B4B4B4",
+      "EDGE_SELECTED" : "false",
+      "EDGE_SOURCE_ARROW_SELECTED_PAINT" : "#FFFF00",
+      "EDGE_SOURCE_ARROW_SHAPE" : "NONE",
+      "EDGE_SOURCE_ARROW_UNSELECTED_PAINT" : "#000000",
+      "EDGE_STROKE_SELECTED_PAINT" : "#FF0000",
+      "EDGE_STROKE_UNSELECTED_PAINT" : "#404040",
+      "EDGE_TARGET_ARROW_SELECTED_PAINT" : "#FFFF00",
+      "EDGE_TARGET_ARROW_SHAPE" : "NONE",
+      "EDGE_TARGET_ARROW_UNSELECTED_PAINT" : "#000000",
+      "EDGE_TRANSPARENCY" : "180",
+      "EDGE_VISIBLE" : "true",
+      "EDGE_WIDTH" : "2.0"
+    },
+    "dependencies" : {
+      "arrowColorMatchesEdge" : "false"
+    },
+    "mappings" : {
+      "EDGE_LABEL" : {
+        "type" : "PASSTHROUGH",
+        "definition" : "COL=Detection Method,T=string"
+      },
+      "EDGE_LINE_TYPE" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Primary Interaction Type,T=string,K=0=neutral genetic interaction,V=0=DOT,K=1=maximal epistasis,V=1=DOT,K=2=negative genetic interaction,V=2=DOT,K=3=qualitative epistasis,V=3=DOT,K=4=positive genetic interaction,V=4=DOT,K=5=opposing epistasis,V=5=DOT,K=6=suppression (complete),V=6=DOT,K=7=enhancement,V=7=DOT,K=8=asynthetic,V=8=DOT,K=9=unilateral suppression,V=9=DOT,K=10=unilateral suppression (partial),V=10=DOT,K=11=quantitative epistasis,V=11=DOT,K=12=unilateral enhancement,V=12=DOT,K=13=suppression,V=13=DOT,K=14=unilateral over-suppression,V=14=DOT,K=15=over-suppression-enhancement,V=15=DOT,K=16=over-suppression,V=16=DOT,K=17=phenotype bias,V=17=DOT,K=18=genetic interaction,V=18=DOT,K=19=neutral epistasis,V=19=DOT,K=20=epistasis,V=20=DOT,K=21=suppression-enhancement,V=21=DOT,K=22=noninteractive,V=22=DOT,K=23=colocalization,V=23=LONG_DASH,K=24=predicted interaction,V=24=LONG_DASH,K=25=mutual enhancement,V=25=DOT,K=26=unilateral suppression (complete),V=26=DOT,K=27=suppression (partial),V=27=DOT,K=28=synthetic,V=28=DOT,K=29=positive epistasis,V=29=DOT,K=30=minimal epistasis,V=30=DOT,K=31=mutual suppression (complete),V=31=DOT,K=32=mutual suppression,V=32=DOT,K=33=mutual over-suppression,V=33=DOT,K=34=mutual suppression (partial),V=34=DOT"
+      },
+      "EDGE_TOOLTIP" : {
+        "type" : "PASSTHROUGH",
+        "definition" : "COL=Primary Interaction Type,T=string"
+      },
+      "EDGE_WIDTH" : {
+        "type" : "DISCRETE",
+        "definition" : "COL=Primary Interaction Type,T=string,K=0=colocalization,V=0=3.0,K=1=predicted interaction,V=1=1.0"
+      }
+    }
+  } ]
+}, {
+  "subNetworks" : [ {
+    "@id" : 434,
+    "nodes" : [ 515, 514, 512, 510, 508, 504, 502, 500, 498, 497, 495, 493, 491, 489, 487, 485, 483, 481, 479, 477, 475, 473, 471, 469, 468, 466, 464, 462, 460, 459, 457, 455, 453, 452, 450, 447, 446, 444 ],
+    "edges" : [ 516, 499, 474, 472, 494, 492, 490, 488, 486, 484, 482, 480, 478, 476, 470, 467, 465, 463, 496, 461, 458, 454, 451, 513, 511, 509, 505, 503, 501, 507, 506, 449, 448, 456, 445 ]
+  } ]
+}, {
+  "cyViews" : [ {
+    "@id" : 517,
+    "s" : 434
+  } ]
+}, {
+  "networkRelations" : [ {
+    "p" : 434,
+    "c" : 517,
+    "r" : "view",
+    "name" : "BIND (2016/02/24 11:42:32 AM, PST) view"
+  }, {
+    "p" : 418,
+    "c" : 434,
+    "r" : "subnetwork",
+    "name" : "BIND (2016/02/24 11:42:32 AM, PST)"
+  } ]
+}, {
+  "metaData" : [ {
+    "consistencyGroup" : 1,
+    "elementCount" : 5,
+    "name" : "networkAttributes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 1,
+    "name" : "hiddenAttributes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 330,
+    "name" : "nodeAttributes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 350,
+    "name" : "edgeAttributes",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 38,
+    "name" : "cartesianLayout",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 3,
+    "name" : "visualProperties",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 1,
+    "name" : "subNetworks",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 1,
+    "name" : "cyViews",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 0,
+    "name" : "cyGroups",
+    "properties" : [ ],
+    "version" : "1.0"
+  }, {
+    "consistencyGroup" : 1,
+    "elementCount" : 2,
+    "name" : "networkRelations",
+    "properties" : [ ],
+    "version" : "1.0"
+  } ]
+}, {
+  "status" : [ {
+    "error" : "",
+    "success" : true
+  } ]
+} ]

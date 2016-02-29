@@ -7244,7 +7244,7 @@
   } ]
 }, {
   "status" : [ {
-    "error" : "it's an error!",
-    "success" : false
+    "error" : "",
+    "success" : true
   } ]
 } ]

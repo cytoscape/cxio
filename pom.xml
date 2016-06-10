@@ -5,8 +5,8 @@
 	<groupId>org.cxio</groupId>
 	<artifactId>cxio</artifactId>
 	<packaging>bundle</packaging>
-	<version>0.9.13</version>
-	<name>CX Serialization and De-serialization</name>
+	<version>1.0.0</version>
+	<name>CX Serialization and De-serialization library</name>
 	<description>Java classes for CX serialization and de-serialization</description>
 
 	<properties>

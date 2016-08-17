@@ -17,7 +17,7 @@ import java.util.TreeMap;
 public final class CyVisualPropertiesElement extends AbstractAspectElement {
 
     public final static String               APPLIES_TO    = "applies_to";
-    public final static String               ASPECT_NAME   = "visualProperties";
+    public final static String               ASPECT_NAME   = "cyVisualProperties";
     public final static String               VIEW          = "view";
     public final static String               PROPERTIES    = "properties";
     public final static String               MAPPINGS      = "mappings";

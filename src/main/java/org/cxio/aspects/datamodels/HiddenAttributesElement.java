@@ -14,7 +14,7 @@ import java.util.List;
  */
 public final class HiddenAttributesElement extends AbstractAttributesAspectElement {
 
-    public final static String ASPECT_NAME = "hiddenAttributes";
+    public final static String ASPECT_NAME = "cyHiddenAttributes";
 
     public HiddenAttributesElement(final Long subnetwork, final String name, final List<String> values) {
         _data_type = ATTRIBUTE_DATA_TYPE.LIST_OF_STRING;

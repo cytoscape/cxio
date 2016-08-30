@@ -8,6 +8,8 @@ import java.util.Set;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
+import org.cxio.aspects.datamodels.CyVisualPropertiesElement;
+import org.cxio.aspects.datamodels.NetworkRelationsElement;
 import org.cxio.core.interfaces.AspectElement;
 import org.cxio.core.interfaces.AspectFragmentReader;
 import org.cxio.metadata.MetaDataCollection;
@@ -184,12 +186,21 @@ public final class CxReader extends AbstractCxReader {
         _current = null;
         while ((_token != JsonToken.END_ARRAY) || (_jp.getCurrentName() != null)) {
             List<AspectElement> elements = null;
-            final String name = _jp.getCurrentName();
-            if (DEBUG) {
-                System.out.println(">>> ASPECT_NAME: " + name);
-            }
+            String name = _jp.getCurrentName();
+//            if (DEBUG) {
+//                System.out.println(">>> ASPECT_NAME: " + name);
+//            }
             _was_in_recognized_aspect = false;
+            
             if ((_level == 2) && (_token == JsonToken.FIELD_NAME) && (name != null)) {
+            	
+            		// TODO: This is a hack!! Only for supporting old, deprecated tags.
+                if(name.equals("networkRelations")) {
+                		name = NetworkRelationsElement.ASPECT_NAME;
+                } else if(name.equals("visualProperties")) {
+                		name = CyVisualPropertiesElement.ASPECT_NAME;
+                }
+                
                 if (_element_readers.containsKey(name)) {
                     elements = _element_readers.get(name).readAspectFragment(_jp);
                     _was_in_recognized_aspect = true;

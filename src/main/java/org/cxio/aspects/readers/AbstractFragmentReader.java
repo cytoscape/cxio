@@ -31,27 +31,31 @@ public abstract class AbstractFragmentReader implements AspectFragmentReader {
      *
      */
     @Override
-    public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
-        JsonToken t = jp.nextToken();
-        if (t != JsonToken.START_ARRAY) {
-            throw new IOException("malformed cx json in '" + getAspectName() + "'");
-        }
-        final List<AspectElement> elements = new ArrayList<AspectElement>();
-        while (t != JsonToken.END_ARRAY) {
-            if (t == JsonToken.START_OBJECT) {
-                final ObjectNode o = _m.readTree(jp);
-                if (o == null) {
-                    throw new IOException("malformed cx json in '" + getAspectName() + "'");
-                }
-                final AspectElement e = readElement(o);
-                if (e != null) {
-                    elements.add(e);
-                }
-            }
-            t = jp.nextToken();
-        }
-        return elements;
-    }
+	public List<AspectElement> readAspectFragment(final JsonParser jp) throws IOException {
+		JsonToken t = jp.nextToken();
+
+		if (t != JsonToken.START_ARRAY) {
+			throw new IOException("malformed cx json in '" + getAspectName() + "'");
+		}
+		final List<AspectElement> elements = new ArrayList<AspectElement>();
+
+		while (t != JsonToken.END_ARRAY) {
+			if (t == JsonToken.START_OBJECT) {
+				final ObjectNode o = _m.readTree(jp);
+
+				if (o == null) {
+					throw new IOException("malformed cx json in '" + getAspectName() + "'");
+				}
+
+				final AspectElement e = readElement(o);
+				if (e != null) {
+					elements.add(e);
+				}
+			}
+			t = jp.nextToken();
+		}
+		return elements;
+	}
 
     @Override
     public int compareTo(final AspectFragmentReader o) {

@@ -1,5 +1,6 @@
 package org.cxio.aspects.datamodels;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AttributesAspectUtils {
@@ -156,4 +157,27 @@ public class AttributesAspectUtils {
         }
     }
 
+    /**
+     * Convenience method to convert a String to an ArrayList
+     *
+     * @param s
+     * @return
+     */
+	final static public ArrayList<String> stringToArrayList(String s) {
+		ArrayList<String> a = new ArrayList<String>();
+		a.add(s);
+		return a;
+	}
+	
+    /**
+     * Convenience method to convert a Long to an ArrayList
+     *
+     * @param l
+     * @return
+     */
+	final static public ArrayList<Long> longToArrayList(Long l) {
+		ArrayList<Long> a = new ArrayList<Long>();
+		a.add(l);
+		return a;		
+	}
 }

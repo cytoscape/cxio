@@ -12,19 +12,13 @@ public class CyTableColumnElement extends AbstractAttributesAspectElement {
     }
 
     public CyTableColumnElement(final Long subnetwork, final String applies_to, final String name, final ATTRIBUTE_DATA_TYPE type) {
+    	super(name, subnetwork, type);
         _applies_to = applies_to;
-        _data_type = type;
-        _subnetwork = subnetwork;
-        _name = name;
-        _values = null;
     }
 
     public CyTableColumnElement(final String applies_to, final String name, final ATTRIBUTE_DATA_TYPE type) {
+    	super(name, type);
         _applies_to = applies_to;
-        _data_type = type;
-        _subnetwork = null;
-        _name = name;
-        _values = null;
     }
 
     public final String getAppliesTo() {

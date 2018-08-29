@@ -1,5 +1,7 @@
+# WARNING: This library will soon be deprecated. The CX library is being moved into [ndex-object-model](https://github.com/ndexbio/ndex-object-model)
+
 # cxio
-## Java Library for reading/writing CX JSON streams
+## Old Java Library for reading/writing CX JSON streams
 
 ## Docuemnts
 * [CX Specification](https://docs.google.com/document/d/1kAUzVj6X86YCWHnTyZtybh1lt4zO-M6anCMJBD_PyG0/edit?usp=sharing)
